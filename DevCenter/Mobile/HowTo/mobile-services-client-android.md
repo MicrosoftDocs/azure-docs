@@ -14,7 +14,7 @@
 </div>	
 
 
-This guide shows you how to perform common scenarios using the Android client for Windows Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and uploading BLOB data. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart][Get started with Mobile Services]. The quickstart tutorial helps you configure your account and create your first mobile service.
+This guide shows you how to perform common scenarios using the Android client for Windows Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and uploading BLOB data. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](http://go.microsoft.com/fwlink/?LinkId=298736). The quickstart tutorial helps you configure your account and create your first mobile service.
 
 The samples are written in Java and require the [Mobile Services SDK]. This tutorial also requires the [Android SDK](https://go.microsoft.com/fwLink/?LinkID=280125&clcid=0x409), which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin. The Mobile Services SDK supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
 
@@ -38,7 +38,6 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 - [How to: Delete data in a mobile service]
 - [How to: Look up a specific item]
 - [How to: Work with untyped data]
-	- [The programming model: typed and untyped]
 - [How to: Bind data to the user interface]
 	- [How to: Define the layout]
 	- [How to: Define the adapter]
@@ -46,7 +45,6 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 - [How to: Authenticate users]
 	- [Cache authentication tokens]
 - [How to: Handle errors]
-- [How to: Design unit tests]
 - [How to: Customize the client]
 	- [Customize request headers]
 	- [Customize serialization]
@@ -57,12 +55,13 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 
 <h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
 
-We assume that you have created a mobile service and a table. For more information see [Create a table](http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx). In the code used in this topic, we assume the table is named *ToDoItem*, and that it has the following columns:
+We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/?LinkId=298592). In the code used in this topic, we assume the table is named *ToDoItem*, and that it has the following columns:
 
 <ul>
 <li>id</li>
 <li>text</li>
 <li>complete</li>
+<li>due</li>
 <li>duration</li>
 </ul>
 
@@ -78,11 +77,11 @@ The corresponding typed client side object is the following:
 	
 When dynamic schema is enabled, Windows Azure Mobile Services automatically generates new columns based on the object in the insert or update request. For more information, see [Dynamic schema]( http://go.microsoft.com/fwlink/?LinkId=296271).
 
-<h2><a name="create-service"></a><span class="short-header">Create the Mobile Services Client</span>How to: Create the Mobile Services Client</h2>
+<h2><a name="create-client"></a><span class="short-header">Create the Mobile Services client</span>How to: Create the Mobile Services client</h2>
 
-The following code creates the mobile service client object that is used to access your mobile service. 
+The following code creates the [MobileServiceClient](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html) object that is used to access your mobile service. 
 
-			mClient = new MobileServiceClient(
+			MobileServiceClient mClient = new MobileServiceClient(
 					"MobileServiceUrl", // Replace with the above Site URL
 					"AppKey", 			// replace with the Application Key 
 					this)
@@ -93,7 +92,7 @@ In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile servi
 
 The easiest way to query or modify data in the mobile service is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless serialization and deserialization to JSON using the <a href=" http://go.microsoft.com/fwlink/?LinkId=290801" target="_blank">gson</a> library when sending data between the client and the mobile service: the developer doesn't have to do anything, the framework handles it all.
 
-The first thing you do to query or modify data is to create a [MobileServiceTable](http://go.microsoft.com/fwlink/?LinkId=290689) object by calling the **getTable** method on the [**MobileServiceClient**] TBD link.  There are two overloads of this method:
+The first thing you do to query or modify data is to create a [MobileServiceTable](http://go.microsoft.com/fwlink/?LinkId=296835) object by calling the **getTable** method on the [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  We will look at two overloads of this method:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -102,14 +101,14 @@ The first thing you do to query or modify data is to create a [MobileServiceTabl
 
 In the following code, *mClient* is a reference to your mobile service client.
 
-The first overload is used where the class name and the table name are the same:
+The [first overload](http://go.microsoft.com/fwlink/?LinkId=296839) is used where the class name and the table name are the same:
 
-		private MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-The 2nd overload is used when the table name is different from the type name.
+The [2nd overload](http://go.microsoft.com/fwlink/?LinkId=296840) is used when the table name is different from the type name.
 
-		private MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
  
 
@@ -137,7 +136,7 @@ The following code returns all items in the *ToDoItem* table.
 				}
 			});
 
-For queries, the callback object is a *TableQueryCallback&lt;E&gt;*.
+For queries, the callback object is a [**TableQueryCallback&lt;E&gt;**](http://go.microsoft.com/fwlink/?LinkId=296849).
 
 The *result* parameter returns the result set from the query, and the code inside the success branch of the *exception* test shows how to parse the individual rows.
 
@@ -156,50 +155,50 @@ The following code returns all items from the *ToDoItem* table whose *complete* 
 			}
 		});
 
-You start a filter with a ***where*** method call on the table reference. This is followed by a ***field*** method call followed by a method call that specifies the logical predicate. Possible predicate methods include ***eq***, ***ne***, ***gt***, ***ge***, ***lt***, ***le*** etc.
+You start a filter with a [**where**](http://go.microsoft.com/fwlink/?LinkId=296867) method call on the table reference. This is followed by a [**field**](http://go.microsoft.com/fwlink/?LinkId=296869) method call followed by a method call that specifies the logical predicate. Possible predicate methods include [**eq**](http://go.microsoft.com/fwlink/?LinkId=298461), [**ne**](http://go.microsoft.com/fwlink/?LinkId=298462), [**gt**](http://go.microsoft.com/fwlink/?LinkId=298463), [**ge**](http://go.microsoft.com/fwlink/?LinkId=298464), [**lt**](http://go.microsoft.com/fwlink/?LinkId=298465), [**le**](http://go.microsoft.com/fwlink/?LinkId=298466) etc.
 
 This is sufficient for comparing number and string fields to specific values. But you can do a lot more.
 
-For example, you can filter on dates. You can compare the entire date field, but you can also compare parts of the date, with methods such as ***year***, ***month***, ***day***, ***hour***, ***minute*** and ***second***. The following partial code adds a filter for items whose due date is this year.
+For example, you can filter on dates. You can compare the entire date field, but you can also compare parts of the date, with methods such as [**year**](http://go.microsoft.com/fwlink/?LinkId=298467), [**month**](http://go.microsoft.com/fwlink/?LinkId=298468), [**day**](http://go.microsoft.com/fwlink/?LinkId=298469), [**hour**](http://go.microsoft.com/fwlink/?LinkId=298470), [**minute**](http://go.microsoft.com/fwlink/?LinkId=298471) and [**second**](http://go.microsoft.com/fwlink/?LinkId=298472). The following partial code adds a filter for items whose *due date* equals 2013.
 
-		mToDoTable.where().year(field("due")).eq(2013)
+		mToDoTable.where().year("due").eq(2013)
 
-You can do a wide variety of complex filters on string fields with methods like ***startsWith***, ***endsWith***, ***concat***, ***subString***, ***indexOf***, ***replace***, ***toLower***, ***toUpper***, ***trim***, and ***length***. The following partial code filters for table rows where the *text* column starts with "PRI0".
+You can do a wide variety of complex filters on string fields with methods like [**startsWith**](http://go.microsoft.com/fwlink/?LinkId=298473), [**endsWith**](http://go.microsoft.com/fwlink/?LinkId=298474), [**concat**](http://go.microsoft.com/fwlink/?LinkId=298475), [**subString**](http://go.microsoft.com/fwlink/?LinkId=298477), [**indexOf**](http://go.microsoft.com/fwlink/?LinkId=298488), [**replace**](http://go.microsoft.com/fwlink/?LinkId=298491), [**toLower**](http://go.microsoft.com/fwlink/?LinkId=298492), [**toUpper**](http://go.microsoft.com/fwlink/?LinkId=298493), [**trim**](http://go.microsoft.com/fwlink/?LinkId=298495), and [**length**](http://go.microsoft.com/fwlink/?LinkId=298496). The following partial code filters for table rows where the *text* column starts with "PRI0".
 
 		mToDoTable.where().startsWith("text", "PRI0")
 
-Number fields also allow a wide variety of more complex filters with methods like ***add***, ***sub***, ***mul***, ***div***, ***mod***, ***floor***, ***ceiling***, and ***round***. The following partial code filters for table rows where the *duration* is an even number.
+Number fields also allow a wide variety of more complex filters with methods like [**add**](http://go.microsoft.com/fwlink/?LinkId=298497), [**sub**](http://go.microsoft.com/fwlink/?LinkId=298499), [**mul**](http://go.microsoft.com/fwlink/?LinkId=298500), [**div**](http://go.microsoft.com/fwlink/?LinkId=298502), [**mod**](http://go.microsoft.com/fwlink/?LinkId=298503), [**floor**](http://go.microsoft.com/fwlink/?LinkId=298505), [**ceiling**](http://go.microsoft.com/fwlink/?LinkId=298506), and [**round**](http://go.microsoft.com/fwlink/?LinkId=298507). The following partial code filters for table rows where the *duration* is an even number.
 
 		mToDoTable.where().field("duration").mod(0).eq(0)
 
 
-You can combine predicates with methods like ***and***, ***or*** and ***not***. This partial code combines two of the above examples.
+You can combine predicates with methods like [**and**](http://go.microsoft.com/fwlink/?LinkId=298512), [**or**](http://go.microsoft.com/fwlink/?LinkId=298514) and [**not**](http://go.microsoft.com/fwlink/?LinkId=298515). This partial code combines two of the above examples.
 
 		mToDoTable.where().year(field("due")).eq(2013).and().startsWith("text", "PRI0")
 
 And you can group and nest logical operators, as shown in this partial code:
 
 		mToDoTable.where()
-					.year(field("due")).eq(2013)
+					.year("due").eq(2013)
 						.and
 					(.startsWith("text", "PRI0").or().field("duration").gt(10))
 
-For more detailed discussion and examples of filtering, see [http://hashtagfail.com/post/46493261719/mobile-services-android-querying](http://hashtagfail.com/post/46493261719/mobile-services-android-querying "The Mobile Services Android client query model").
+For more detailed discussion and examples of filtering, see the blog post [Episode III: Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying "The Mobile Services Android client query model").
 
 ### <a name="sorting"></a>How to: Sort returned data
 
 The following code returns all items from a table of *ToDoItems* sorted ascending by the *text* field. *mToDoTable* is the reference to the mobile mervice table that you created previously.
 
-		mToDoTable.orderBy("text", order.Ascending)
+		mToDoTable.orderBy("text", QueryOrder.Ascending)
 			.execute(new TableQueryCallback<ToDoItem>() { 
 				/* same implementation as above */ 
 			}); 
 
-The first parameter of the ***orderBy*** function is a string equal to the name of the field on which to sort.
+The first parameter of the [**orderBy**](http://go.microsoft.com/fwlink/?LinkId=298519) method is a string equal to the name of the field on which to sort.
 
-The second parameter uses the ***order*** enumeration to specify whether to sort ascending or descending.
+The second parameter uses the [**QueryOrder**](http://go.microsoft.com/fwlink/?LinkId=298521) enumeration to specify whether to sort ascending or descending.
 
-Note that if you are filtering using the ***where*** function, the ***where*** function must be invoked prior to the ***orderBy*** function.
+Note that if you are filtering using the ***where*** method, the ***where*** method must be invoked prior to the ***orderBy*** method.
 
 ### <a name="paging"></a>How to: Return data in pages
 
@@ -223,16 +222,7 @@ Next, we define a query that skips the first 5 items, and then returns the next 
 
 		mToDoTable.skip(5).top(5)
 	            .execute(new TableQueryCallback<ToDoItem>() {	
-	            public void onCompleted(List<ToDoItem> result, 
-										int count,
-	                    				Exception exception, 
-										ServiceFilterResponse response) {
-	                if (exception == null) {
-	                    for (ToDoItem item : result) {
-                			Log.i(TAG, "Read object with ID " + item.id);  
-	                    }
-	                } 
-	            }
+	            // implement onCompleted logic here
 	        });
 
 
@@ -248,20 +238,20 @@ The following code illustrates how to return all items from a table of  *ToDoIte
 	
 Here the parameters to the select function are the string names of the table's columns that you want to return.
 
-The [**select**](http://go.microsoft.com/fwlink/?LinkId=290689) method needs to follow methods like [**where**](http://go.microsoft.com/fwlink/?LinkId=296296) and [**orderBy**](http://go.microsoft.com/fwlink/?LinkId=296313), if they are present. It can be followed by methods like [**top**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceTable.html#top(int)).
+The [**select**](http://go.microsoft.com/fwlink/?LinkId=290689) method needs to follow methods like [**where**](http://go.microsoft.com/fwlink/?LinkId=296296) and [**orderBy**](http://go.microsoft.com/fwlink/?LinkId=296313), if they are present. It can be followed by methods like [**top**](http://go.microsoft.com/fwlink/?LinkId=298731).
 
 ### <a name="chaining"></a>How to: Concatenate query methods 
 
 The methods used in querying mobile mervice tables can be concatenated. This allows you to do things like select specific columns of filtered rows that are sorted and paged. You can create quite complex logical filters.
 
-What makes this work is that the query methods you use return *MobileServiceQuery&lt;T&gt;* objects, which can in turn have additional methods invoked on them. To end the series of methods and actually run the query, you call the *execute* method.
+What makes this work is that the query methods you use return [**MobileServiceQuery&lt;T&gt;**](http://go.microsoft.com/fwlink/?LinkId=298551) objects, which can in turn have additional methods invoked on them. To end the series of methods and actually run the query, you call the [**execute**](http://go.microsoft.com/fwlink/?LinkId=298554) method.
 
 Here's a code sample where mToDoTable is a reference to the mobile services ToDoItem table.
 
-		mToDoTable.where().year(field("due")).eq(2013)
-						.and(.startsWith("text", "PRI0").or().field("duration").gt(10))
+		mToDoTable.where().year("due").eq(2013)
+						.and().startsWith("text", "PRI0").or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
-					.orderBy(duration, order.Ascending).top(20)				
+					.orderBy(duration, QueryOrder.Ascending).top(20)				
 					.execute(new TableQueryCallback<ToDoItem>() { 
 						/* code to execute */ 
 				});
@@ -273,14 +263,14 @@ The main requirement in chaining methods together is that the *where* method and
 
 The following code shows how to insert new rows into a table.
 
-First you instantiate an instance of the ToDoItem class and set its properties.
+First you instantiate an instance of the *ToDoItem* class and set its properties.
 
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
 		mToDoItem.complete = false;
-		mToDoItem.duration = 5.0; /* TBD duration float format */
+		mToDoItem.duration = 5; 
 		
- Next you call the *insert* method.
+ Next you call the [**insert**](http://go.microsoft.com/fwlink/?LinkId=296862) method.
 
 		mToDoTable.insert(mToDoItem, new TableOperationCallback<ToDoItem>() {
 			public void onCompleted(ToDoItem entity, Exception exception, ServiceFilterResponse response) {	
@@ -290,15 +280,16 @@ First you instantiate an instance of the ToDoItem class and set its properties.
 			}
 		});
 
-For the *insert* method, the callback object is a *TableOperationCallback&lt;ToDoItem&gt;* object.
+For this **insert** method, the callback object is a [**TableOperationCallback&lt;ToDoItem&gt;**](http://go.microsoft.com/fwlink/?LinkId=296865).
 
-The entity parameter of the *onCompleted* method contains the newly inserted object. The successful code shows how to access the *id* of the inserted row.
+The entity parameter of the **onCompleted** method contains the newly inserted object. The successful code shows how to access the *id* of the inserted row.
 
 <h2><a name="updating"></a><span class="short-header">Updating data</span>How to: Update data in a mobile service</h2>
 
-The following code shows how to update data in a table. In this example, *mToDoItem* is a reference to an item in the *ToDoItem* table.
+The following code shows how to update data in a table. In this example, *mToDoItem* is a reference to an item in the *ToDoItem* table, and we update its *duration* property..
 
-		mToDoTable.update(item, new TableOperationCallback<ToDoItem>() {
+		mToDoItem.duration = 5;
+		mToDoTable.update(mToDoItem, new TableOperationCallback<ToDoItem>() {
 			public void onCompleted(ToDoItem entity, Exception exception, ServiceFilterResponse response) {
 				if (exception == null) {
             			Log.i(TAG, "Read object with ID " + entity.id);  
@@ -310,7 +301,7 @@ Note that the callback object and *onCompleted* method's parameters are the same
 
 <h2><a name="deleting"></a><span class="short-header">Deleting data</span>How to: Delete data in a mobile service</h2>
 
-The following code shows how to delete data from a table. It deletes an existing item from the ToDoItem table, using a reference to the item, in this case mToDoItem.
+The following code shows how to delete data from a table. It deletes an existing item from the ToDoItem table, using a reference to the item, in this case *mToDoItem*.
 
 		mToDoTable.delete(mToDoItem, new TableDeleteCallback() {
 		    public void onCompleted(Exception exception, 
@@ -321,7 +312,7 @@ The following code shows how to delete data from a table. It deletes an existing
 		    }
 		});
 
-Note that in the *delete* case, the callback object is a *TableDeleteCallback* and the *onCompleted* method is somewhat different in that no table row is returned.
+Note that in the *delete* case, the callback object is a [**TableDeleteCallback**](http://go.microsoft.com/fwlink/?LinkId=296858) and the **onCompleted** method is somewhat different in that no table row is returned.
 
 The following code illustrates another way to do this. It deletes an existing item in the ToDoItem table by specifying the value of the id field of the row to delete (assumed to equal "5"). 
 
@@ -335,7 +326,7 @@ The following code illustrates another way to do this. It deletes an existing it
 		});
 
 <h2><a name="lookup"></a><span class="short-header">Looking up data</span>How to: Look up a specific item</h2>
-Sometimes you want to look up a specific item by its *Id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for id = 23.
+Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for *id* = 23.
 
 		mToDoTable.lookUp(23, new TableOperationCallback<ToDoItem>() {
 		    public void onCompleted(item entity, Exception exception,
@@ -351,7 +342,7 @@ Sometimes you want to look up a specific item by its *Id*, unlike querying where
 
 The untyped programming model gives you exact control over the JSON serialization, and there are some scenarios where you may wish to use it, for example, if your mobile service table contains a large number of columns and you only need to reference a few of them. Using the typed model requires you to define all of the movile service table's columns in your data class. But with the untyped model you only define the columns you need to use.
 
-Similar to the typed model, you start by getting a table reference, but in this case it's a [MobileServicesJsonTable](http://go.microsoft.com/fwlink/?LinkId=290689) object. You get the reference by calling the [getTable()](http://go.microsoft.com/fwlink/?LinkId=290689) method on an instance of the Mobile Services client.
+Similar to the typed model, you start by getting a table reference, but in this case it's a [MobileServicesJsonTable](http://go.microsoft.com/fwlink/?LinkId=298733) object. You get the reference by calling the [getTable()](http://go.microsoft.com/fwlink/?LinkId=298734) method on an instance of the Mobile Services client.
 
 
 You use the following overload of this method, which is used for working with the untyped JSON-based programming models:
@@ -360,27 +351,27 @@ You use the following overload of this method, which is used for working with th
 		    public MobileServiceJsonTable getTable(String name);
 		}
 
-Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the *MobileServiceJsonTable* object, instead of the *MobileServiceTable* object. Usage of the callback object and the *onCompleted* method is very similar to the typed model.
+Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of the **MobileServiceTable** object. Usage of the callback object and the **onCompleted** method is very similar to the typed model.
 
 
 ### <a name="json_instance"></a>How to: Create an instance of an untyped table
 
-Once you create an instance of the Mobile Services client (here, the *mClient* variable), you next create an instance of a *MobileServiceJsonTable*, with the following code.
+Once you create an instance of the Mobile Services client (here, the *mClient* variable), you next create an instance of a **MobileServiceJsonTable**, with the following code.
 
-		private MobileServiceJsonTable mTable = mClient.getTable("ToDoItem");
+		MobileServiceJsonTable mTable = mClient.getTable("ToDoItem");
 
-Once you have created an instance of the *MobileServiceJsonTable*, you can call almost all of the methods on it that you can with the typed programming model. However in some cases the methods take an untyped parameter, as we see in the following examples.
+Once you have created an instance of the **MobileServiceJsonTable**, you can call almost all of the methods on it that you can with the typed programming model. However in some cases the methods take an untyped parameter, as we see in the following examples.
 
 ### <a name="json_insert"></a>How to: Insert into an untyped table
 
-The following code shows how to do an insert. The first step is to create a **JsonObject**, which is part of the <a href=" http://go.microsoft.com/fwlink/?LinkId=290801" target="_blank">gson</a> library.
+The following code shows how to do an insert. The first step is to create a [**JsonObject**](http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html), which is part of the <a href=" http://go.microsoft.com/fwlink/?LinkId=290801" target="_blank">gson</a> library.
 
 		JsonObject task = new JsonObject();
 		task.addProperty("text", "Wake up");
 		task.addProperty("complete", false);
 		task.addProperty("duration", 5);
 
-The next step is to insert the object. The callback function passed to the **insert** method is an instance of the **TableJsonOperationCallback** class. Note how the first parameter of the *onCompleted* method is a JsonObject.
+The next step is to insert the object. The callback function passed to the [**insert**](http://go.microsoft.com/fwlink/?LinkId=298535) method is an instance of the [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/?LinkId=298532) class. Note how the first parameter of the *onCompleted* method is a JsonObject.
 		 
 		mTable.insert(task, new TableJsonOperationCallback() {
 		    public void onCompleted(JsonObject jsonObject, Exception exception,
@@ -400,7 +391,7 @@ Note how we get the ID of the inserted object with this method call:
 
 ### <a name="json_delete"></a>How to: Delete from an untyped table
 
-The following code shows how to delete an instance, in this case, the same instance of a **JsonObject** that was created in the prior *insert* example. Note the callback method is **TableDeleteCallback()** and the **onCompleted** method has a different signature.
+The following code shows how to delete an instance, in this case, the same instance of a **JsonObject** that was created in the prior *insert* example. Note the callback object, **TableDeleteCallback**, is the same object used in the typed programming model, and its **onCompleted** method has a different signature from that used in the **insert** example.
 
 
 		mTable.delete(task, new TableDeleteCallback() {
@@ -418,7 +409,7 @@ You can also delete an instance directly by using its ID:
 
 ### <a name="json_get"></a>How to: Return all rows from an untyped table
 
-The following code shows how to retrieve an entire table. Note the different callback object used with the **execute** method: **TableJsonQueryCallback**.
+The following code shows how to retrieve an entire table. Note that the untyped progamming model uses a different callback object: [**TableJsonQueryCallback**](http://go.microsoft.com/fwlink/?LinkId=298543).
 
 		mTable.execute(new TableJsonQueryCallback() {
 		    public void onCompleted(JsonElement result, int count, Exception exception,
@@ -433,7 +424,7 @@ The following code shows how to retrieve an entire table. Note the different cal
 		    }
 		});
 
-You can do filtering, sorting and paging by concatenating the same methods that were used in the typed programming model.
+You can do filtering, sorting and paging by concatenating  methods that have the same names as those used in the typed programming model.
 
 
 <h2><a name="binding"></a><span class="short-header">Binding data</span>How to: Bind data to the user interface</h2>
@@ -452,18 +443,17 @@ And the two are bound together with an adapter, which in this code is an extensi
 
 ### <a name="layout"></a>How to: Define the Layout
  
-The layout is defined by several snippets of XML code. The following code is contained in the file that  describes the page overall, and this code specifies the ListView that will display the data.
+The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following code represents the **ListView** we want to populate with our server data.
 
 	    <ListView
 	        android:id="@+id/listViewToDo"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        tools:listitem="@layout/row_list_to_do" 
-	        android:padding="6dip" >
+	        tools:listitem="@layout/row_list_to_do" >
 	    </ListView>
 	
 
-In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check boxe and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display.
+In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the *row_list_to_do.xml* file.
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -477,15 +467,10 @@ In the above code the *listitem* attribute specifies the id of the layout for an
 		        android:text="@string/checkbox_text" />
 		</LinearLayout>
 		
-We associate the top level layout with the Activity via the *setContentView* method in the *onCreate* method of the *Activity* class.
-
-		public void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.activity_to_do);
 
 ### <a name="adapter"></a>How to: Define the adapter
 	
-Since the data source for our view is an array, we subclass our adapter from the *AdapterView* class. This subclass will use an *Adapter* object to actually retrieve the data from the database query, and converts each item retrieved into a view that is added to the *AdapterView* layout.
+Since the data source of our view is an array of *ToDoItem*, we subclass our adapter from a *ArrayAdapter&lt;ToDoItem&gt;* class. This subclass will produce a View for every *ToDoItem* using the *row_list_to_do* layout.
 
 In our code we define the following class which is an extension of the *ArrayAdapter&lt;E&gt;* class:
 
@@ -513,26 +498,14 @@ You must override the adapter's *getView* method. This sample code is one exampl
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
 
-		checkBox.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				if (checkBox.isChecked()) {
-					checkBox.setEnabled(false);
-					if (mContext instanceof ToDoActivity) {
-						ToDoActivity activity = (ToDoActivity) mContext;
-						activity.checkItem(currentItem);
-					}
-				}
-			}
-		});
+		.........
 
 		return row;
 	}
 
 We create an instance of this class in our Activity as follows:
 
-		private ToDoItemAdapter mAdapter;
+		ToDoItemAdapter mAdapter;
 		mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
 Note that the second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call to the constructor is followed by the following code which first gets a reference to the **ListView**, and next calls *setAdapter* to configure itself to use the adapter we just created:
@@ -632,35 +605,24 @@ So what happens if your token expires? In this case, when you try to use it to c
 
 <h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
 
-Here is one way you might provide a *global* error handler.
+You can see an example of doing validation and handling any errors <a href="https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" target="_blank">here</a>, which implements validation via server scripts that return exceptions on error, and client code that handles the excpetions.
 
-The code we've seen that accesses the mobile service table has involved three different callback objects:
+Another approach is to provide a *global* error handler. The code we've seen that accesses the mobile service table has involved three different callback objects:
 
-- TableQueryCallback / TableQueryJsonCallback
-- TableOperationCallback / TableJsonOperationCallback
-- TableDeleteCallback / TableJsonDeleteCallback
+- **TableQueryCallback** / **TableQueryJsonCallback**
+- **TableOperationCallback** / **TableJsonOperationCallback**
+- **TableDeleteCallback** 
 
-Each of these has an *OnCompleted* method where the second parameter is a **java.lang.Exception** object. You can subclass these callback objects and implement your own *onCompleted* method that checks if the exception parameter is null. If so, there is no error, and you just call  <b>super.OnCompleted()</b>.
+Each of these has an **OnCompleted** method where the second parameter is a **java.lang.Exception** object. You can subclass these callback objects and implement your own **onCompleted** method that checks if the exception parameter is null. If so, there is no error, and you just call  <b>super.OnCompleted()</b>.
 
-If the **Exception** object is not null, perform some generic error handling.
+If the **Exception** object is not null, perform some generic error handling in which you display more detailed information about the error. The following code snippet shows one way to show more detail.
 
-<ol>
-		<li>You may wish to display information about the exception along with some general text.</li>
-		<li>The most informative exception error information will be in these properties, where e is the reference to the exception.
-	<ul>
-		<li> <b>e.Response.Content</b></li>
-		<li> <b>e.Response.StatusDescription</b></li>
-		<li><b>e.Response.StatusCode</b></li> 
-	</ul>
-</ol>
-You can see an example <a href="https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" target="_blank">here</a>.
+		String msg = exception.getCause().getMessage();
+
+
 
 Now the developer can use their subclassed callbacks and not worry about checking the exception, because it is handled in one central place (#2) for all instances of the callback.
 
-
-<h2><a name="tests"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
-
-_(Optional) This section shows how to write unit tests when using the client library (info from Yavor)._
 
 <h2><a name="customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
 
@@ -735,7 +697,7 @@ You must serialize the client names into JSON names that match the column names 
 ### <a name="table"></a>How to: Map different table names between client and mobile services
 
 Mapping the client table name to a different mobile services table name is easy, we just use one of the overrides of the
-<a href="http://go.microsoft.com/fwlink/?LinkId=290689" target="_blank">getTable()</a> function, as seen in the following code.
+<a href="http://go.microsoft.com/fwlink/?LinkId=296840" target="_blank">getTable()</a> function, as seen in the following code.
 
 		mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
@@ -744,7 +706,7 @@ Mapping the client table name to a different mobile services table name is easy,
 
 Mapping column names for a narrow table with only a few columns isn't a big deal, as we saw in the prior section. But suppose our table has a lot of columns, say 20 or 30. It turns out that we can call the <a href=" http://go.microsoft.com/fwlink/?LinkId=290801" target="_blank">gson</a> API and specify a conversion strategy that will apply to every column, and avoid having to annotate every single column name.
 
-To do this we use the <a href=" http://go.microsoft.com/fwlink/?LinkId=290801" target="_blank">gson</a> library which the Android client library uses behind the scenes to serialize Java objects to JSON data, which is sent to Windows Azure Mobile Services. {TBD: this needs to be explained better and earlier}
+To do this we use the <a href=" http://go.microsoft.com/fwlink/?LinkId=290801" target="_blank">gson</a> library which the Android client library uses behind the scenes to serialize Java objects to JSON data, which is sent to Windows Azure Mobile Services.
 
 The following code uses the *setFieldNamingStrategy()* method, in which we define a *FieldNamingStrategy()* method. This method says to delete the initial character (an "m"), and then lower-case the next character, for every field name. This code also enables pretty-printing of the output JSON.
 
@@ -775,7 +737,7 @@ This general method can be used whenever we have a complex object that is not au
 
 ## <a name="next-steps"></a>Next steps
 
-The Javadocs reference for the Android client API is at [http://go.microsoft.com/fwlink/?LinkId=290689](http://go.microsoft.com/fwlink/?LinkId=290689 "here")
+The Javadocs reference for the Android client API is at [http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html](http://go.microsoft.com/fwlink/?LinkId=298735 "here")
 
 <!-- Anchors. -->
 
@@ -783,7 +745,6 @@ The Javadocs reference for the Android client API is at [http://go.microsoft.com
 [Concepts]: #concepts
 [How to: Create the Mobile Services client]: #create-client
 [How to: Create a table reference]: #instantiating
-[The programming model: typed and untyped]: #model
 [The API structure]: #api
 [How to: Query data from a mobile service]: #querying
 [Filter returned data]: #filtering
