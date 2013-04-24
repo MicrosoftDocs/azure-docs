@@ -53,7 +53,7 @@
 
 <h3><a id="obtaincert"></a>To obtain a self-signed certificate</h3>
 <ol>
-<li>Download the <a href="http://go.microsoft.com/fwlink/p/?LinkID=298212">Certificate Creation tool (MakeCert.exe)</a>.</li>  
+<li>Obtain the Makecert tool as described in  <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa386968(v=vs.85).aspx">MakeCert</a> Note that when installing the Windows SDK, you can install makecert.exe only by selecting the option <b>Tools</b> under <b>.Net Development</b> and leave everything else unchecked.</li>  
 <li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate and specifying the actual expiration date of your certificate after -e:
 <code>
 makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
