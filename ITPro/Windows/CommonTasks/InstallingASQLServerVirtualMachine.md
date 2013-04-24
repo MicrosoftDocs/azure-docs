@@ -352,7 +352,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 
 [Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294728)
 
-[SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=29472)
+[SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294729)
 
 
 
