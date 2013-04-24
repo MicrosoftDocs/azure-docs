@@ -1,23 +1,290 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>howto-configure-websites</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: d5e7ce436666e7d4a2eeb12e7f8261dacceb3565 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
 
+/* RESET
+=============================================================================*/
 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
-# How to Configure Web Sites #
+/* BODY
+=============================================================================*/
 
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+.markdown-body img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p><properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" /></p>
+<h1>How to Configure Web Sites</h1>
 <div chunk="../../Shared/Chunks/disclaimer.md" />
-
-In the Windows Azure Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
-
-## Table of Contents ##
-- [How to: Change configuration options for a web site](#howtochangeconfig)
-- [How to: Configure a web site to use a SQL database](#howtoconfigSQL)
-- [How to: Configure a web site to use a MySQL database](#howtoconfigMySQL)
-
-
-##<a name="howtochangeconfig"></a>How to: Change configuration options for a web site
-
-Follow these steps to change configuration options for a web site.
-
+<p>In the Windows Azure Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#howtochangeconfig">How to: Change configuration options for a web site</a></li>
+<li><a href="#howtoconfigSQL">How to: Configure a web site to use a SQL database</a></li>
+<li><a href="#howtoconfigMySQL">How to: Configure a web site to use a MySQL database</a></li>
+</ul>
+<h2><a name="howtochangeconfig"></a>How to: Change configuration options for a web site</h2>
+<p>Follow these steps to change configuration options for a web site.</p>
 <ol>
 	<li>In the Management Portal, open the web site's management pages.</li>
 	<li>Click the <strong>Configure</strong> tab to open the <strong>Configure</strong> management page.</li>
@@ -87,34 +354,36 @@ For more information about Windows Azure Storage Access Keys, see [How to: View,
 </ul></li>
 <li>Click <strong>Save</strong> at the bottom of the <strong>Configure</strong> management page to save configuration changes.</li>
 </ol>
+<h2><a name="howtoconfigSQL"></a>How to: Configure a web site to use a SQL database</h2>
+<p>Follow these steps to link a web site to a SQL Database:</p>
+<ol>
+<li>
+<p>In the <a href="http://manage.windowsazure.com">Management Portal</a>, select <strong>Web Sites</strong> to display the list of web sites created by the currently logged on account.</p>
+</li>
+<li>
+<p>Select a web site from the list of web sites to open the web site's <strong>Management</strong> pages.</p>
+</li>
+<li>
+<p>Click the <strong>Linked Resources</strong> tab and a message will be displayed on the <strong>Linked Resources</strong> page indicating <strong>You have no linked resources</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Link a Resource</strong> to open the <strong>Link Resource</strong> wizard.</p>
+</li>
+<li>
+<p>Click <strong>Create a new resource</strong> to display a list of resources types that can be linked to your web site.</p>
+</li>
+<li>
+<p>Click <strong>SQL Database</strong> to display the <strong>Link Database</strong> wizard.</p>
+</li>
+<li>
+<p>Complete required fields on pages 3 and 4 of the <strong>Link Database</strong> wizard and then click the <strong>Finish</strong> checkmark on page 4.</p>
+</li>
+</ol>
+<p>Windows Azure will create a SQL database with the specified parameters and link the database to the web site.</p>
+<h2><a name="howtoconfigMySQL"></a>How to: Configure a web site to use a MySQL database</h2>
+<p>To configure a web site to use a MySQL database you must create the web site with the <strong>Create With Database</strong> option and then specify either to &quot;Use an existing MySQL database&quot; or &quot;Create a new MySQL database.&quot; </p>
+<p>You can't add MySQL databases to a web site as a linked resource. They aren't displayed in the Management Portal as a type of cloud resource.</p>
 
-
-##<a name="howtoconfigSQL"></a>How to: Configure a web site to use a SQL database
-
-Follow these steps to link a web site to a SQL Database:
-
-1. In the [Management Portal](http://manage.windowsazure.com), select **Web Sites** to display the list of web sites created by the currently logged on account.
-
-2. Select a web site from the list of web sites to open the web site's **Management** pages.
-
-3. Click the **Linked Resources** tab and a message will be displayed on the **Linked Resources** page indicating **You have no linked resources**.
-
-4. Click **Link a Resource** to open the **Link Resource** wizard.
-
-5. Click **Create a new resource** to display a list of resources types that can be linked to your web site.
-
-6. Click **SQL Database** to display the **Link Database** wizard.
-
-7. Complete required fields on pages 3 and 4 of the **Link Database** wizard and then click the **Finish** checkmark on page 4.
-
-Windows Azure will create a SQL database with the specified parameters and link the database to the web site.
-
-##<a name="howtoconfigMySQL"></a>How to: Configure a web site to use a MySQL database##
-To configure a web site to use a MySQL database you must create the web site with the **Create With Database** option and then specify either to "Use an existing MySQL database" or "Create a new MySQL database." 
-
-You can't add MySQL databases to a web site as a linked resource. They aren't displayed in the Management Portal as a type of cloud resource.
-
-
-
-
-
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

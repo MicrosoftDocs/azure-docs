@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>publishing-with-git</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: d5e7ce436666e7d4a2eeb12e7f8261dacceb3565 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+.markdown-body img {
+  max-width: 100%
+}
+</style>
+
+</head>
+<body>
+<h1>Publishing from Source Control to Windows Azure Web Sites</h1>
+<p>Windows Azure Web Sites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your web site, and then quickly and easily push changes to your site when you want.</p>
+<p>In this article, you will learn how to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called <strong>Local Git</strong>). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, DropBox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/">Continuous delivery to Windows Azure by using Team Foundation Service</a>.</p>
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
+</div>
+<p>The task includes the following steps:</p>
+<ul>
+<li><a href="#Step1">Install Git</a></li>
+<li><a href="#Step2">Create a local repository</a></li>
+<li><a href="#Step3">Add a web page</a></li>
+<li><a href="#Step4">Enable the web site repository</a></li>
+<li>
+<a href="#Step5">Deploy your project</a>
+<ul>
+<li><a href="#Step6">Pushing local files to Windows Azure (Local Git)</a></li>
+<li><a href="#Step7">Deploy files from a repository web site like BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial</a></li>
+</ul>
+</li>
+<li><a href="#Step8">Troubleshooting</a></li>
+</ul>
+<h2><a id="Step2"></a>Installing Git</h2>
+<p>The steps required to install Git vary between operating systems. See <a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Installing Git</a> for operating system specific distributions and installation guidance.</p>
+<div class="dev-callout">
+<strong>Note</strong>
+<p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
+</div>
+<h2><a id="Step2"></a>Create a local repository</h2>
+<p>Perform the following tasks to create a new Git repository.</p>
+<ol>
+<li>
+<p>Open a command-line, such as <strong>GitBash</strong> (Windows) or <strong>Bash</strong> (Unix Shell). On OS X systems you can access the command-line through the <strong>Terminal</strong> application.</p>
+</li>
+<li>
+<p>From the command line, change to the directory in which you will create your web site. For example, <code>cd needsmoregit</code>.</p>
+</li>
+<li>
+<p>Use the following command to initialize a new Git repository:</p>
+<pre><code>git init
+</code></pre>
+
+<p>This should return a message such as <strong>Initialized empty Git repository in [path]</strong>.</p>
+</li>
+</ol>
+<h2><a id="Step3"></a>Add a web page</h2>
+<p>Windows Azure Web Sites support applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the <a href="http://www.windowsazure.com/en-us/develop/overview/">Windows Azure Developer Center</a>.</p>
+<ol>
+<li>
+<p>Using a text editor, create a new file named <strong>index.html</strong> in the root of the Git repository. Add 'Hello Git!' as the contents, and then save the file.</p>
+</li>
+<li>
+<p>From the command-line, make sure you are in the directory that you created the repository in and use the following command to add the <strong>index.html</strong> file to the repository:</p>
+<pre><code>git add index.html 
+</code></pre>
+
+</li>
+<li>
+<p>Next, commit the changes to the repository by using the following command:</p>
+<pre><code>git commit -m &quot;Adding index.html to the repository&quot;
+</code></pre>
+
+<p>You should see output similar to the following:</p>
+<pre><code>[master (root-commit) 369a79c] Adding index.html to the repository
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html
+</code></pre>
+
+</li>
+</ol>
+<h2><a id="Step4"></a>Enable the web site repository</h2>
+<p>Perform the following steps to enable a Git repository for your web site by using the Windows Azure portal:</p>
+<ol>
+<li>
+<p>Login to the <a href="http://manage.windowsazure.com">Windows Azure portal</a>.</p>
+</li>
+<li>
+<p>On the left of the page, select <strong>Web Sites</strong>, and then select the web site for which you want to enable a repository.</p>
+<p><img src="../Media/git-select-website.png" alt="An image displaying a selected web site" /></p>
+</li>
+<li>
+<p>In the <strong>quick glance</strong> section, select <strong>Set up deployment from source control</strong>.  A <strong>Set Up Deployment dialog</strong> appears that asks <strong>Where is your source code?</strong>.</p>
+<p><img src="../Media/git-WhereIsYourSourceCode.png" alt="git-WhereIsYourSourceCode" /></p>
+</li>
+<li>
+<p>Choose <strong>Local Git</strong>, and then click the <strong>Next</strong> arrow.</p>
+</li>
+<li>
+<p>After a short delay, you should be presented with a message that your depository is ready. 
+<img src="../Media/git-instructions.png" alt="git-instructions" /></p>
+</li>
+</ol>
+<h2><a id="Step5"></a>Deploy your project</h2>
+<h3><a id="Step6"></a>Pushing local files to Windows Azure (Local Git)</h3>
+<p>Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal. Using the command-line, change directories to your web site directory and use the commands listed in step 3 of the instructions returned by the portal. For example:</p>
+<pre><code>    git remote add azure http://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
+</code></pre>
+
+<p>The <strong>remote</strong> command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure web site repository.</p>
+<h4>Publish and re-publish the web site</h4>
+<ol>
+<li>
+<p>Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:</p>
+<pre><code>git push azure master
+</code></pre>
+
+<p>You will be prompted for the password you created earlier when setting up your repository. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password) and you should see output similar to the following:</p>
+<pre><code>Counting objects: 6, done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 486 bytes, done.
+Total 6 (delta 0), reused 0 (delta 0)
+remote: New deployment received.
+remote: Updating branch 'master'.
+remote: Preparing deployment for commit id '369a79c929'.
+remote: Preparing files for deployment.
+remote: Deployment successful.
+To http://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
+* [new branch]      master -&gt; master
+</code></pre>
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>The repository created for your Windows Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.</p>
+</div>
+</li>
+<li>
+<p>In the portal, click the <strong>BROWSE</strong> link at the bottom of the portal to verify that the <strong>index.html</strong> has been deployed. A page containing 'Hello Git!' will appear.</p>
+<p><img src="../Media/git-hello-git.png" alt="A webpage containing 'Hello Git!'" /></p>
+</li>
+<li>
+<p>Using a text editor, change the <strong>index.html</strong> file so that it contains 'Yay!', and then save the file.</p>
+</li>
+<li>
+<p>Use the following commands from the command-line to <strong>add</strong> and <strong>commit</strong> the changes, and then <strong>push</strong> the changes to the remote repository:</p>
+<pre><code>git add index.html
+git commit -m &quot;Celebration&quot;
+git push azure master
+</code></pre>
+
+<p>Once the <strong>push</strong> command has completed, refresh the browser (you may have to press Ctrl+F5 for the browser to properly refresh) and note that the content of the page now reflects the latest commit change.</p>
+<p><img src="../Media/git-yay.png" alt="A webpage containing 'Yay!'" /></p>
+</li>
+</ol>
+<h3><a id="Step7"></a>Deploy files from a repository web site like BitBucket, CodePlex, Dropbox, GitHub, or Mercurial</h3>
+<p>Pushing local files to Windows Azure by using Local Git allows you to manually push updates from a local project to your Windows Azure Web Site, while deploying from BitBucket, CodePlex, Dropbox, GitHub, or  Mercurial results in a continuous deployment process where Windows Azure will pull in the most recent updates from your project.</p>
+<p>While both methods result in your project being deployed to a Windows Azure Web Site, continuous deployment is useful when you have multiple people working on a project and want to ensure that the latest version is always published regardless of who made the most recent update. Continuous deployment is also useful if you are using one of the above mentioned tools as the central repository for your application.</p>
+<p>Deploying files from either GitHub, CodePlex, or BitBucket requires that you have published your local project to one of these services. For more information on publishing your project to these services, see <a href="https://help.github.com/articles/create-a-repo">Create a Repo (GitHub)</a>, <a href="http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&amp;referringTitle=Source%20control%20clients&amp;ProjectName=codeplex">Using Git with CodePlex</a>, <a href="https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo">Create a Repo (BitBucket)</a>, <a href="https://gist.github.com/trey/2722927">Using Dropbox to Share Git Repositories</a>, or <a href="http://mercurial.selenic.com/wiki/QuickStart">Quick Start - Mercurial</a>.</p>
+<ol>
+<li>
+<p>After your web site project has been pushed to a repository web site, in the Windows Azure Portal <strong>quick glance</strong> section, select <strong>Set up deployment from source control</strong>.  The <strong>Set Up Deployment dialog</strong> appears that asks <strong>Where is your source code?</strong>. </p>
+</li>
+<li>
+<p>Choose the source control method that you are using.</p>
+</li>
+<li>
+<p>When prompted, enter your credentials for the service you selected.</p>
+</li>
+<li>
+<p>After you have authorized Windows Azure to access your account, you will be prompted with a list of repositories. </p>
+<p><img src="../Media/git-ChooseARepositoryToDeploy.png" alt="git-ChooseARepositoryToDeploy" /></p>
+</li>
+<li>
+<p>Select the repository that you want to associate with your Windows Azure web site. Click the checkmark to continue.</p>
+<div class="dev-callout">
+<strong>Note</strong>
+<p>When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.</p>
+</div>
+</li>
+<li>
+<p>Windows Azure will create an association with the selected repository, and will pull in the files from the master branch. After this process completes, the <strong>deployment history</strong> on the <strong>Deployments</strong> page will show an <strong>Active Deployment</strong> message like the following:</p>
+<p><img src="../Media/git-GitHubDeployed.png" alt="git-githubdeployed" /></p>
+</li>
+<li>
+<p>At this point your project has been deployed from your repository of choice to your Windows Azure web site. To verify that the site is active, click the <strong>Browse</strong> link at the bottom of the portal. The browser should navigate to the web site.</p>
+</li>
+<li>
+<p>To verify that continuous deployment is occurring, make a change to your project and then push the update to the repository you have associated with this web site. Your web site should update to reflect the changes shortly after the push to the repository completes. You can verify that it has pulled in the update on the <strong>Deployments</strong> page of your Web Site.</p>
+<p><img src="../Media/git-GitHubDeployed-Updated.png" alt="git-GitHubDeployed-Updated" /></p>
+</li>
+</ol>
+<h4>How continuous deployment works</h4>
+<p>Continuous deployment works by providing the <strong>DEPLOYMENT TRIGGER URL</strong> found in the <strong>deployments</strong> section of your site's <strong>Configure</strong> tab.</p>
+<p><img src="../Media/git-DeploymentTrigger.png" alt="git-DeploymentTrigger" /></p>
+<p>When updates are made to your repository, a POST request is sent to this URL, which notifies your Windows Azure Web Site that the repository has been updated. At this point it retrieves the update and deploys it to your web site.</p>
+<h4>Specifying the branch to use</h4>
+<p>When you enable continuous deployment, it will default to the <strong>master</strong> branch of the repository. If you want to use a different branch, perform the following steps:</p>
+<ol>
+<li>
+<p>In the portal, select your web site and then select <strong>CONFIGURE</strong>.</p>
+</li>
+<li>
+<p>In the <strong>deployments</strong> section of the page, enter the branch you wish to use in the <strong>BRANCH TO DEPLOY</strong> field, and then hit enter. Finally, click <strong>SAVE</strong>.</p>
+<p>Windows Azure should immediately begin updating based on changes to the new branch.</p>
+</li>
+</ol>
+<h4>Disabling continuous deployment</h4>
+<p>Continuous deployment can be disabled from the Windows Azure <strong>Dashboard</strong>. Under the <strong>quick glance</strong> section, choose the option to disconnect from the repository that you are using:</p>
+<p><img src="../Media/git-DisconnectFromGitHub.png" alt="git-DisconnectFromGitHub" />	</p>
+<p>After answering <strong>Yes</strong> to the confirmation message, you can return to <strong>quick glance</strong> and click <strong>Set up deployment from source control</strong> if you would like to set up publishing from another source.</p>
+<h2><a id="Step8"></a>Troubleshooting</h2>
+<p>The following are errors or problems commonly encountered when using Git to publish to a Windows Azure web site:</p>
+<hr />
+<p><strong>Symptom</strong>: Couldn't resolve host 'hostname'</p>
+<p><strong>Cause</strong>: This error can occur if the address information entered when creating the 'azure' remote was incorrect.</p>
+<p><strong>Resolution</strong>: Use the <code>git remote -v</code> command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.</p>
+<hr />
+<p><strong>Symptom</strong>: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.</p>
+<p><strong>Cause</strong>: This error can occur if you do not specify a branch when performing a git push operation, and have not set the push.default value used by Git.</p>
+<p><strong>Resolution</strong>: Perform the push operation again, specifying the master branch. For example:</p>
+<pre><code>git push azure master
+</code></pre>
+
+<hr />
+<p><strong>Symptom</strong>: src refspec [branchname] does not match any.</p>
+<p><strong>Cause</strong>: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.</p>
+<p><strong>Resolution</strong>: Perform the push operation again, specifying the master branch. For example:</p>
+<pre><code>git push azure master
+</code></pre>
+
+<hr />
+<p><strong>Symptom</strong>: Error - Changes commited to remote repository but your web site not updated.</p>
+<p><strong>Cause</strong>: This error can occur if you are deploying a Node.js application containing a package.json file that specifies additional required modules.</p>
+<p><strong>Resolution</strong>: Additional messages containing 'npm ERR!' should be logged prior to this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:</p>
+<ul>
+<li>
+<p><strong>Malformed package.json file</strong>: npm ERR! Couldn't read dependencies.</p>
+</li>
+<li>
+<p><strong>Native module that does not have a binary distribution for Windows</strong>:</p>
+<ul>
+<li>
+<p>npm ERR! `cmd &quot;/c&quot; &quot;node-gyp rebuild&quot;` failed with 1</p>
+<p>OR</p>
+</li>
+<li>
+<p>npm ERR! [modulename@version] preinstall: `make || gmake`</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/">How to use PowerShell for Windows Azure</a></li>
+<li><a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">How to use the Windows Azure Command-Line Tools for Mac and Linux</a></li>
+<li><a href="http://git-scm.com/documentation">Git Documentation</a></li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
