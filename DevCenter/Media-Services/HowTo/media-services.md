@@ -37,7 +37,7 @@ The following diagram illustrates the basic Media Services architecture.
 ![Media Services Architecture][]
 
 ###Media Services Feature Support
-The current release of Media Services provides the following feature set for developing media applications in the cloud. For information on future releases, see [Media Services Upcoming Releases:  Planned Feature Support][].
+The current release of Media Services provides the following feature set for developing media applications in the cloud.
 
 - **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Windows Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
 - **Encode**. Encode operations include encoding, transforming and converting media assets. You can run encoding tasks in the cloud using the Media Encoder that is included in Media Services. Encoding options include the following:
@@ -81,7 +81,7 @@ The following provides a list of available client SDKs and player frameworks.  F
 ####Mac and PC client support  
 For PCs and Macs you can target a streaming experience using Microsoft Silverlight or Adobe Open Source Media Framework.
 
--	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
+-	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/en-us/download/details.aspx?id=29940)
 -	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
 -	[Smooth Streaming Plugin for OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022). For information on how to use this plug-in, see [How to Use Smooth Streaming Plugin for Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
 
@@ -107,7 +107,7 @@ Devices such as connected TVs, set-top boxes, Blu-Ray players, OTT TV boxes, and
 ####Windows Phone
 Microsoft provides an SDK that can be used to build premium video applications for Windows Phone. 
 
--	[Smooth Streaming Client for Silverlight](http://www.iis.net/download/smoothclient)
+-	[Smooth Streaming Client for Silverlight](http://www.microsoft.com/en-us/download/details.aspx?id=29940)
 -	[Microsoft Media Platform: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
 
 ####iOS devices

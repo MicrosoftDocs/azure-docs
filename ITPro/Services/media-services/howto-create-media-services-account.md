@@ -11,7 +11,6 @@ This topic explains how to use the Quick Create method to create a new Media Ser
 ##Table of Contents
 
 -  [Concepts][]
--  [Before you begin][]
 -  [How to: Create a Media Services account using Quick Create][]
 
 
@@ -21,12 +20,6 @@ Accessing Media Services requires two associated accounts:
 -   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Windows Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account. 
     - **Note**  Available Media Services regions include the following: **West Europe**, **Southeast Asia**, **East Asia**, **North Europe**, **West US**, **East US**. Media Services does not use affinity groups. 
 -   **An associated storage account**. Your storage account is a Windows Azure storage account that is associated with your Media Services account. The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted. 
-
-<h2><a id="begin"></a>Before you begin</h2>
-
--  To activate the Media Services Preview on your Windows Azure subscription, sign into [WindowsAzure.com][] with your Azure subscription account, browse to the **Account** page, then click **preview features**. 
--  In the Media Services section click **try it now**. 
--  In the **Add Preview Feature** dialog box, select the subscription you want to use from the drop-down control and click the "check" icon. After the dialog box closes, you will return to the preview features page. The Media Services status should say "Pending." You cannot finish the account setup process until the status for Media Services on the Preview Features page changes to "You Are Active." 
 
 <h2><a id="quick"></a>How to: Create a Media Services account using Quick Create</h2>
 
