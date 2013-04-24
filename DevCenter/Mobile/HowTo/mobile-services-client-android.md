@@ -169,21 +169,21 @@ You can do a wide variety of complex filters on string fields with methods like 
 
 Number fields also allow a wide variety of more complex filters with methods like [**add**](http://go.microsoft.com/fwlink/?LinkId=298497), [**sub**](http://go.microsoft.com/fwlink/?LinkId=298499), [**mul**](http://go.microsoft.com/fwlink/?LinkId=298500), [**div**](http://go.microsoft.com/fwlink/?LinkId=298502), [**mod**](http://go.microsoft.com/fwlink/?LinkId=298503), [**floor**](http://go.microsoft.com/fwlink/?LinkId=298505), [**ceiling**](http://go.microsoft.com/fwlink/?LinkId=298506), and [**round**](http://go.microsoft.com/fwlink/?LinkId=298507). The following partial code filters for table rows where the *duration* is an even number.
 
-		mToDoTable.where().field("duration").mod(0).eq(0)
+		mToDoTable.where().field("duration").mod(2).eq(0)
 
 
 You can combine predicates with methods like [**and**](http://go.microsoft.com/fwlink/?LinkId=298512), [**or**](http://go.microsoft.com/fwlink/?LinkId=298514) and [**not**](http://go.microsoft.com/fwlink/?LinkId=298515). This partial code combines two of the above examples.
 
-		mToDoTable.where().year(field("due")).eq(2013).and().startsWith("text", "PRI0")
+		mToDoTable.where().year("due").eq(2013).and().startsWith("text", "PRI0")
 
 And you can group and nest logical operators, as shown in this partial code:
 
 		mToDoTable.where()
 					.year("due").eq(2013)
 						.and
-					(.startsWith("text", "PRI0").or().field("duration").gt(10))
+					(startsWith("text", "PRI0").or().field("duration").gt(10))
 
-For more detailed discussion and examples of filtering, see the blog post [Episode III: Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying "The Mobile Services Android client query model").
+For more detailed discussion and examples of filtering, see the blog post [Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying "The Mobile Services Android client query model").
 
 ### <a name="sorting"></a>How to: Sort returned data
 
@@ -487,18 +487,15 @@ You must override the adapter's *getView* method. This sample code is one exampl
 
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
-			row = inflater.inflate(mLayoutResourceId, parent, false);
+			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
 
 		row.setTag(currentItem);
 
-		/* This code is specific to this particular example */
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-
-		.........
 
 		return row;
 	}
@@ -574,12 +571,9 @@ These first two tasks are done using the [Windows Azure Management Portal](https
 						public void onCompleted(MobileServiceUser user,
 								Exception exception, ServiceFilterResponse response) {	
 							if (exception == null) {
-								createAndShowDialog(String.format(
-												"You are now logged in - %1$2s",
-												user.getUserId()), "Success");
-								/* code to create table reference and refresh ui goes here */
+								/* User now logged in, you can get their identity via user.getUserId() */ 
 							} else {
-								createAndShowDialog("You must log in. Login Required", "Error");
+								/* Login error */
 							}
 						}
 					});
@@ -626,15 +620,9 @@ Now the developer can use their subclassed callbacks and not worry about checkin
 
 <h2><a name="customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
 
-_(Optional) This section shows how to send customized client behaviors._
-
 ### <a name="headers"></a>How to: Customize request headers
 
-_(Optional) This section shows how to send custom request headers._
-
-For more information see, New topic about processing headers in the server-side. TBD: where is this??
-
-Hook up a ServiceFilter like this:
+You might want to attach a custom header to every outgoing request. You can accomplish that by configuring a ServiceFilter like this:
 
 		client = client.withFilter(new ServiceFilter() {
 		
@@ -642,18 +630,14 @@ Hook up a ServiceFilter like this:
 		    public void handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback,
 		        ServiceFilterResponseCallback responseCallback) {
 		
-		        // Do stuff to request object
+		        request.addHeader("My-Header", "Value");
 		        
 		        nextServiceFilterCallback.onNext(request, responseCallback);
 		    }
 		});
 
-Inside the method show calling `request.addHeader`.
-
 
 ### <a name="serialization"></a>How to: Customize serialization
-
-_(Optional) This section shows how to use attributes to customize how data types are serialized._
 
 Mobile Services assumes by default that the table names, column names and data types on the server all match exactly what is on the client. But there can be any number of reasons why the server and client names might not match. One example might be if you have an existing client that you want to change so that it uses Windows Azure Mobile Services instead of a compettitor's product.
 
