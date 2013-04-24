@@ -56,11 +56,19 @@ In this section you will create a new HTML app that is connected to your mobile 
 
   ![][7]
 
-4. Click **Create TodoItems table** to create a table to store app data.
+3. Click **Create TodoItems table** to create a table to store app data.
 
-5. Under **Download and run application**, click **Download**. 
+4. Under **Download and run application**, click **Download**. 
 
   This downloads the web site files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
+
+5. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
+
+  ![][9]
+
+	<div class="dev-callout"><b>Note</b>
+		<p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list.</p>
+	</div>
 
 ## Host and run your HTML app
 
@@ -124,6 +132,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [6]: ../Media/mobile-portal-quickstart-html.png
 [7]: ../Media/mobile-quickstart-steps-html.png
 [8]: ../Media/mobile-web-project.png
+[9]: ../Media/mobile-services-set-cors-localhost.png
 [10]: ../Media/mobile-quickstart-startup-html.png
 [11]: ../Media/mobile-data-tab.png
 [12]: ../Media/mobile-data-browse.png

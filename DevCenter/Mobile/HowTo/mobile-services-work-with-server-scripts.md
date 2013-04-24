@@ -1,8 +1,8 @@
-<properties linkid="register-for-facebook-auth" urldisplayname="Mobile Services" headerexpose="" pagetitle="Work with server scripts in Mobile Services" metakeywords="server scripts, mobile devices, Windows Azure, scheduler" footerexpose="" metadescription="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="register-for-facebook-auth" writer="glenga" urldisplayname="Mobile Services" headerexpose="" pagetitle="Work with server scripts in Mobile Services" metakeywords="server scripts, mobile devices, Windows Azure, scheduler" footerexpose="" metadescription="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
 
 # Work with server scripts in Mobile Services
  
-Windows Azure Mobile Services enables you to define custom business logic that is run on the server. This logic is provided as a JavaScript code that stored and executed on the server. In Mobile Services, a server script is either registered to an insert, read, update, or delete operation on a given table or is assigned to a scheduled job. Server scripts have a main function along with optional helper functions. The signature of the main function depends on the whether the script is registered to a table operation or run as a scheduled job. 
+Windows Azure Mobile Services enables you to define custom business logic that is run on the server. This logic is provided as JavaScript code that is stored and executed on the server. In Mobile Services, a server script is either registered to an insert, read, update, or delete operation on a given table or is assigned to a scheduled job. Server scripts have a main function along with optional helper functions. The signature of the main function depends on the whether the script is registered to a table operation or run as a scheduled job. 
 
 This topic includes the following sections:
 
@@ -294,8 +294,8 @@ The following example writes auditing information to an **audit** table:
 Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
 
 	function update(item, user, request) { 
-	    var request = require('request'); 
-	    request('http://www.google.com', function(err, response, body) { 
+	    var httpRequest = require('request'); 
+	    httpRequest('http://www.google.com', function(err, response, body) { 
 	    	... 
 	    }); 
 	} 
@@ -345,7 +345,7 @@ In a script, table functions must be declared after the main function.
 
 <h2><a name="handle-errors"></a><span class="short-header">Writing to logs</span>How to: write output to the mobile service logs</h2>
 
-By default, Mobile Services writes errors that occur during service script execution to the service logs. You scripts can also write to the logs. Writing to logs is great way to debug your scripts and validate that they are behaving as desired. You use the global [console object] to write to the logs. Use the **log** or **info** functions to log information-level warnings. The **warning** and **error** functions logs their respective levels, which are called-out in the logs. 
+By default, Mobile Services writes errors that occur during service script execution to the service logs. Your scripts can also write to the logs. Writing to logs is great way to debug your scripts and validate that they are behaving as desired. You use the global [console object] to write to the logs. Use the **log** or **info** functions to log information-level warnings. The **warning** and **error** functions log their respective levels, which are called-out in the logs. 
 
 <div class="dev-callout"><strong>Note</strong>
 <p>To view the logs for your mobile service, login to the <a href="https://manage.windowsazure.com/">Management Portal</a>, select your mobile service, and then click the <strong>Logs</strong> tab.</p></div>
