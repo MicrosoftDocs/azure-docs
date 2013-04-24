@@ -7,7 +7,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-You use the Windows Azure (Preview) Management Portal to scale your web sites, and to specify whether you want to run them in Free web site mode, Shared web site mode or Reserved web site mode.  
+You use the Windows Azure Management Portal to scale your web sites, and to specify whether you want to run them in Free web site mode, Shared web site mode or Reserved web site mode.  
 
 ## Table of Contents ##
 

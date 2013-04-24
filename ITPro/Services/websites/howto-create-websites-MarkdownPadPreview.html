@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>howto-create-websites</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: d5e7ce436666e7d4a2eeb12e7f8261dacceb3565 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+.markdown-body img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p><properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create web sites - Windows Azure service management" metaKeywords="Azure creating web site, Azure deleting web site" metaDescription="Learn how to create a web site using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" /></p>
+<h1>How to Create and Deploy a Web Site</h1>
+<div chunk="../../Shared/Chunks/disclaimer.md" />
+<p>Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a web site created on a workstation with traditional developer tools from Microsoft or other companies. </p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#deployoptions">Deployment Options</a></li>
+<li><a href="#createawebsiteportal">How to: Create a Web Site Using the Management Portal</a></li>
+<li><a href="#howtocreatefromgallery">How to: Create a Web Site from the Gallery</a></li>
+<li><a href="#deleteawebsite">How to: Delete a Web Site</a></li>
+<li><a href="#nextsteps">Next Steps</a></li>
+</ul>
+<h2><a name="deployoptions"></a>Deployment Options</h2>
+<p>Windows Azure supports deploying web sites from remote computers using WebDeploy, FTP, GIT or TFS. Many development tools provide integrated support for publication using one or more of these methods and may only require that you provide the necessary credentials, site URL and hostname or URL for your chosen deployment method. </p>
+<p>Credentials and deployment URLs for all enabled deployment methods are stored in the web site's publish profile, a file which can be downloaded in the Windows Azure Management Portal from the <strong>Quick Start</strong> page or the <strong>quick glance</strong> section of the <strong>Dashboard</strong> page. </p>
+<p>If you prefer to deploy your web site with a separate client application, high quality open source GIT and FTP clients are available for download on the Internet for this purpose.</p>
+<h2><a name="createawebsiteportal"></a>How to: Create a Web Site Using the Management Portal</h2>
+<p>Follow these steps to create a web site in Windows Azure.</p>
+<ol>
+<li>
+<p>Login to the <a href="http://manage.windowsazure.com/">Windows Azure Management Portal</a>.</p>
+</li>
+<li>
+<p>Click the <strong>Create New</strong> icon on the bottom left of the Management Portal.</p>
+</li>
+<li>
+<p>Click the <strong>Web Site</strong> icon, click the <strong>Quick Create</strong> icon, enter a value for URL and then click the check mark next to create web site on the bottom right corner of the page.</p>
+</li>
+<li>
+<p>When the web site has been created you will see the text <strong>Creation of Web Site '[SITENAME]'  Completed</strong>.</p>
+</li>
+<li>
+<p>Click the name of the web site displayed in the list of web sites to open the web site's <strong>Quick Start</strong> management page.</p>
+</li>
+<li>
+<p>On the <strong>Quick Start</strong> page you are provided with options to set up TFS or GIT publishing if you would like to deploy your finished web site to Windows Azure using these methods. FTP publishing is set up by default for web sites and the FTP Host name is displayed under <strong>FTP Hostname</strong> on the <strong>Quick Start</strong> and <strong>Dashboard</strong> pages. Before publishing with FTP or GIT choose the option to <strong>Reset deployment credentials</strong> on the <strong>Dashboard</strong> page. Then specify the new credentials (username and password) to authenticate against the FTP Host or the Git Repository when deploying content to the web site.</p>
+</li>
+<li>
+<p>The <strong>Configure</strong> management page exposes several configurable application settings in the following sections:</p>
+<ul>
+<li>
+<p><strong>Framework</strong>: Set the version of .NET framework or PHP required by your web application.</p>
+</li>
+<li>
+<p><strong>Diagnostics</strong>: Set logging options for gathering diagnostic information for your web site in this section.</p>
+</li>
+<li>
+<p><strong>App Settings</strong>: Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into your .NET configuration <strong>AppSettings</strong> at runtime, overriding existing settings. For PHP and Node sites these settings will be available as environment variables at runtime.</p>
+</li>
+<li>
+<p><strong>Connection Strings</strong>: View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration <strong>connectionStrings</strong> settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites these settings will be available as environment variables at runtime.</p>
+</li>
+<li>
+<p><strong>Default Documents</strong>: Add your web application's default document to this list if it is not already in the list. If your web application contains more than one of the files in the list then make sure your web site's default document appears at the top of the list.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2><a name="howtocreatefromgallery"></a>How to: Create a Web Site from the Gallery</h2>
+<div chunk="../../../Shared/Chunks/website-from-gallery.md" />
+<h2><a name="deleteawebsite"></a>How to: Delete a Web Site</h2>
+<p>Web sites are deleted using the <strong>Delete</strong> icon in the Windows Azure Management Portal. The <strong>Delete</strong> icon is available in the Windows Azure Portal when you click <strong>Web Sites</strong> to list all of your web sites and at the bottom of each of the web site management pages.</p>
+<h2><a name="nextsteps"></a>Next Steps</h2>
+<p>For more information about Web Sites, see the following:</p>
+<p><a href="http://go.microsoft.com/fwlink/?LinkId=251824">Walkthrough: Troubleshooting a Web Site on Windows Azure</a></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
