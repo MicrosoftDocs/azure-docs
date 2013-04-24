@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>howto-manage-content-in-media-services.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section { display: block }
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+audio:not([controls]) { display: none }
+[hidden] { display: none }
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+body {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.231;
+}
+body,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+    color: #222;
+}
+a { color: #00e }
+a:hover { color: #06e }
+a:focus { outline: thin dotted }
+a:hover,
+a:active { outline: 0 }
+abbr[title] { border-bottom: 1px dotted }
+b,
+strong { font-weight: bold }
+blockquote { margin: 1em 40px }
+dfn { font-style: italic }
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace,monospace;
+    _font-family: 'courier new',monospace;
+    font-size: 1em;
+}
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+q { quotes: none }
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+small { font-size: 85% }
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup { top: -.5em }
+sub { bottom: -.25em }
+ul,
+ol {
+    margin: 1em 0;
+    padding: 0 0 0 40px;
+}
+dd { margin: 0 0 0 40px }
+nav ul,
+nav ol {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+}
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+svg:not(:root) { overflow: hidden }
+figure { margin: 0 }
+form { margin: 0 }
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+label { cursor: pointer }
+legend {
+    border: 0;
+    *margin-left: -7px;
+    padding: 0;
+}
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+}
+button,
+input {
+    line-height: normal;
+    *overflow: visible;
+}
+table button,
+table input { *overflow: auto }
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] { box-sizing: border-box }
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none }
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+input:valid,
+textarea:valid { }
+input:invalid,
+textarea:invalid { background-color: #f0dddd }
+body {
+    cursor: default;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: "Segoe UI","Helvetica",Garuda,Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #666;
+    text-rendering: optimizeLegibility;
+    /*background: #eee;*/
+}
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+    color: #4a91ac;
+}
+.footer-bottom a { color: #4a91ac }
+a:hover { text-decoration: none }
+p,
+ul,
+ol,
+h4,
+h5,
+h6,
+img,
+table { margin-bottom: 14px }
+ul ul,
+ol ol { padding-bottom: 0 }
+h1,
+h2,
+h3 {
+    margin: 0;
+    color: #323232;
+    font-weight: 100;
+    line-height: normal;
+}
+h1 {
+    font-size: 33px;
+    margin-bottom: 20px;
+}
+h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+h3 {
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+h4 {
+    font-size: 20px;
+    margin-top: 0;
+}
+h5,
+h6 { font-size: 1em }
+#page {
+    width: 960px;
+    margin: 0 auto 40px;
+    box-shadow: 0 0 85px rgba(0,0,0,.3);
+    border-radius: 0 0 10px 10px;
+}
+#main-container {
+    background: #fff;
+    color: #666;
+    padding: 0 40px 20px;
+    border-radius: 0 0 10px 10px;
+}
+section {
+    clear: both;
+    padding-top: 15px;
+    min-height: 600px;
+}
+header {
+    height: 31px;
+    background-color: #3c454f;
+    display: block;
+}
+footer {
+    color: #999;
+    padding: 10px 0 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: 11px;
+    clear: both;
+}
+footer p { margin-bottom: 0 }
+#site-logo {
+    display: block;
+    float: left;
+}
+#site-logo img { margin-bottom: 0 }
+#site-login {
+    margin: 0;
+    padding: 0;
+    float: right;
+    text-align: right;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 15px;
+}
+#site-login li {
+    float: left;
+    list-style-type: none;
+    margin-left: 2px;
+}
+.search-box {
+    width: 29px;
+    padding: 0;
+}
+.search-box.focus,
+.search-box:hover { width: 152px }
+.search-box input {
+    border: 0;
+    color: #f2f2f2;
+    background: transparent url(images/icon-search-black.png) -9999px -9999px no-repeat;
+    float: left;
+    font-family: inherit;
+    padding: 8px 0;
+    width: 0;
+    line-height: 15px;
+    height: 15px;
+}
+.search-box.focus input,
+.search-box:hover input {
+    color: #000;
+    background-color: #eee;
+    width: 118px;
+    padding: 8px 0 8px 7px;
+}
+.search-box .search-button {
+    border: 0;
+    float: left;
+    width: 27px;
+    padding: 8px 0;
+    background: transparent url(images/icon-search.png) 7px 7px no-repeat;
+    cursor: pointer;
+}
+.search-box.focus .search-button,
+.search-box:hover .search-button { background: #eee url(images/icon-search-black.png) 7px 7px no-repeat }
+.geo-phone { display: none }
+.geo-phone.opened { position: relative }
+.geo-phone .button {
+    background: transparent url(images/icon-phone.png) 7px 7px no-repeat;
+    border: 0;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    height: 21px;
+    padding: 6px 8px 4px 20px;
+    cursor: pointer;
+}
+#site-login .site-flag-phone a:hover { background-color: transparent }
+.geo-phone span { padding: 0 0 0 4px }
+.geo-phone .button:active .visuallyhidden.focusable,
+.geo-phone .button:focus .visuallyhidden.focusable {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+#site-login .sign-in { display: block }
+#site-login .sign-in-email {
+    border-right: 1px solid rgba(255,255,255,.2);
+    margin-right: -2px;
+    padding: 0 8px;
+    text-transform: none;
+    color: #fff;
+}
+#site-login .sign-in a {
+    display: inline-block;
+    padding: 8px;
+    color: #fff;
+}
+#site-login .sign-in a.live-auth { padding: 8px 20px }
+#site-login a:hover,
+.geo-phone .button:hover { background-color: #3c454f }
+#site-login .sign-in:hover,
+#site-login .sign-in,
+.geo-phone .button:hover,
+.geo-phone .button,
+.search-box .search-button,
+.search-box input,
+.search-box .search-button,
+.search-box,
+.soc-fixed a,
+#site-login a,
+#A1,
+.scenarios-freetrial .right,
+.scenarios-hero .dev-links a,
+.pricing-calc-meters-advanced {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+</style>
+</head>
+<body>
+<h1>How Manage Content in Windows Azure Media Services</h1>
+
+<p>The Windows Azure Media Services content view allows you to manage Windows Azure Media content for your Media Services account.</p>
+
+<p>Currently you can perform the following content operations directly from the portal:</p>
+
+<ul>
+<li>View content information like published state, published URL, size, and datetime of last update.</li>
+<li>Upload new content</li>
+<li>Encode content</li>
+<li>Play content video</li>
+<li>Publish/Unpublish content</li>
+<li>Delete content</li>
+</ul>
+
+<h2>How to: Upload content</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li><p>Click the <strong>Content</strong> view at the top of the page. Your view should look similar to the screen shot below. </p>
+
+<p><img src="../media/PortalView.png" alt="PortalView" /></p></li>
+<li><p>Click the <strong>Upload</strong> button at the bottom of the portal. </p></li>
+<li><p>In the Upload Content dialog, click <strong>Browse Your Computer</strong> and browse to the desired asset file. Click the file and then click <strong>Open</strong> or press <strong>Enter</strong>.</p>
+
+<p><img src="../media/UploadContent.png" alt="UploadContentDialog" /></p></li>
+<li><p>In the Upload Content dialog, click the check button to accept the File and Content Name.</p></li>
+<li><p>The upload will start and you can track progress from the bottom of the portal.  </p>
+
+<p><img src="../media/Status.png" alt="JobStatus" /></p>
+
+<p><img src="../media/StatusComplete.png" alt="JobStatusComplete" /></p>
+
+<p>Once the upload has completed, you will see the new asset listed in the Content list. By convention the name will have "<strong>-Source</strong>" appended at the end to help track new content as source content for encoding tasks.</p>
+
+<p><img src="../media/PortalViewUploadComplete.png" alt="PortalViewUploadCompleted" /></p></li>
+</ol>
+
+<h2>How to: Encode content</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li>Click the <strong>Content</strong> view at the top of the page.</li>
+<li>Click on the desired source video for the encoding job, and then click <strong>Encode</strong> at the bottom of the page.</li>
+<li><p>In the Windows Azure Media Encoder dialog, choose from one of the available encoding presets.</p>
+
+<ul>
+<li><strong>Playback on PC/Mac (via Flash/Silverlight)</strong></li>
+<li><strong>Playback via HTML5 (IE/Chrome/Safari)</strong></li>
+<li><strong>Playback on iOS devices and PC/Mac</strong></li>
+</ul>
+
+<p><img src="../media/EncoderDialog.png" alt="EncoderDialog" /></p></li>
+<li><p>In the Windows Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.</p></li>
+</ol>
+
+<h2>How to: Publish content</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li>Click the <strong>Content</strong> view at the top of the page.</li>
+<li>Click an asset which is not published. The click the publish button to publish to a public URL. Once the content is published to a URL, the URL can be opened by a client player capable of rendering the encoded content.</li>
+</ol>
+
+<h2>How to: Play content from the portal</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li>Click the <strong>Content</strong> view at the top of the page.</li>
+<li>Click on the desired video content and click the <strong>Play</strong> button at the bottom of the portal. Only content that has been published is playable from the portal. Also, the encoding must be supported by your browser.</li>
+</ol>
+
+<!-- Images -->
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

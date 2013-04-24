@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>WAMS_Portal.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+html {
+  font-size: 100%;
+}
+body {
+  font-size: 14px;
+  line-height: 21px;
+  font-family: "Segoe UI","Helvetica",Garuda,Arial,sans-serif;
+  color: rgb(102, 102, 102);
+  text-rendering: optimizelegibility;
+}
+h1 {
+  font-size: 33px;
+  margin-bottom: 20px;
+}
+h1, h2, h3 {
+  margin: 0pt;
+  color: rgb(50, 50, 50);
+  font-weight: 100;
+  line-height: normal;
+}
+h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+h3 {
+  color: rgb(119, 119, 119);
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+p, ul, ol, h4, h5, h6, img, table {
+  margin-bottom: 14px;
+}
+p, ul {
+  margin: 0pt 0pt 12px;
+}
+a, a:link, a:visited {
+  text-decoration: none;
+  color: rgb(74, 145, 172);
+}
+b, strong {
+  font-weight: bold;
+}
+pre {
+  padding: 2px;
+  border: 1px solid rgb(136, 136, 136);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+pre, code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+img {
+  margin-top: 10px;
+  max-width: 100%;
+  border: 0pt none;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+<h1>Working with Windows Azure Media Assets</h1>
+
+<p>The Windows Azure Media Services content view allows you to manage Windows Azure Media content for your Media Services account.</p>
+
+<p>Currently you can perform the following content operations directly from the portal:</p>
+
+<ul>
+<li>View content information like published state, published URL, Size, and datetime of last update.</li>
+<li>Upload new content</li>
+<li>Encode content</li>
+<li>Play content video</li>
+<li>Publish/Unpublish content</li>
+<li>Delete content</li>
+</ul>
+
+<h2>How to: Upload New Assets</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li><p>Click the <strong>Content</strong> view at the top of the page. Your view should look similar to the screen shot below. </p>
+
+<p><img src="../media/PortalView.png" alt="Portal_View" /></p></li>
+<li><p>Click the <strong>Upload</strong> button at the bottom of the portal. </p></li>
+<li><p>In the Upload Content dialog, click <strong>Browse Your Computer</strong> and browse to the desired asset file. Click the file and then click <strong>Open</strong> or press <strong>Enter</strong>.</p>
+
+<p><img src="../media/UploadContent.png" alt="Upload<em>Content</em>Dialog" /></p></li>
+<li><p>In the Upload Content dialog, click the check button to accept the File and Content Name.</p></li>
+<li><p>The upload will start and you can track progress from the bottom of the portal.  </p>
+
+<p><img src="../media/Status.png" alt="Job_Status" /></p>
+
+<p><img src="../media/StatusComplete.png" alt="Job<em>Status</em>Complete" /></p>
+
+<p>Once the upload has completed, you will see the new asset listed in the Content list. By convention the name will have "<strong>-Source</strong>" appended at the end to help track new content as source content for encoding tasks.</p>
+
+<p><img src="../media/PortalViewUploadComplete.png" alt="Portal<em>View</em>Upload_Completed" /></p></li>
+</ol>
+
+<h2>How to: Encode New Assets</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li>Click the <strong>Content</strong> view at the top of the page.</li>
+<li>Click on the desired source video for the encoding job, and then click <strong>Encode</strong> at the bottom of the page.</li>
+<li><p>In the Windows Azure Media Encoder dialog, choose from one of the available encoding presets.</p>
+
+<ul>
+<li><strong>Playback on PC/Mac (via Flash/Silverlight)</strong></li>
+<li><strong>Playback via HTML5 (IE/Chrome/Safari)</strong></li>
+<li><strong>Playback on iOS devices and PC/Mac</strong></li>
+</ul>
+
+<p><img src="../media/EncoderDialog.png" alt="Encoder_Dialog" /></p></li>
+<li><p>In the Windows Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.</p></li>
+</ol>
+
+<h2>Publishing Assets</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li>Click the <strong>Content</strong> view at the top of the page.</li>
+<li>Click an asset which is not published. The click the publish button to publish to a public URL. Once the content is published to a URL, the URL can be opened by a client player capable of rendering the encoded content.</li>
+</ol>
+
+<h2>How to: Play Videos from the Portal</h2>
+
+<ol>
+<li>In the <a href="http://go.microsoft.com/fwlink/?LinkID=256666&amp;clcid=0x409">Management Portal</a>, click <strong>Media Services</strong> and then click on the Media Services account name.</li>
+<li>Click the <strong>Content</strong> view at the top of the page.</li>
+<li>Click on the desired video content and click the <strong>Play</strong> button at the bottom of the portal. Only content that has been published is playable from the portal. Also, the encoding must be supported by your browser.</li>
+</ol>
+
+<!-- Images -->
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
