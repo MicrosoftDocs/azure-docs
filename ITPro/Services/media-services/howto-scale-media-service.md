@@ -27,18 +27,30 @@ The new encoding reserved units are allocated almost immediately.
 
 1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then click the name of the media service to open the dashboard.
 
-2. Click **Scale**.
+2. To specify the number of reserved units, select the Scale page and move the **reserved capacity** slider. 
 
- Your display will look similar to the following one. 
-
-
+ 
  ![Scale page] (../media/WAMS_Scale.png)
-
-3. To specify the number of reserved units, move the slider on the Scale page. By default, you can specify up to 5 reserved units. If you would like your account to be provisioned with more than 5 reserved units, contact [Azure support](http://go.microsoft.com/fwlink/?LinkId=276875). 
+	
+	**Note:** Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
 
 	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-	**Note:** Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
+4. By default every Media Services account can scale up to a max of 5 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
+
+	To open a support ticket please following the instruction below
+
+	1. Log in to your Azure account at [Management Portal](http://manage.windowsazure.com).
+	2. Go to [Support](http://www.windowsazure.com/en-us/support/contact/).
+	3. Click on "Get Support".
+	4. Select your subscription.
+	5. Under support type select "Technical".
+	6. Click on "Create Ticket".
+	7. Select "Windows Azure Media Services" in the product list presented on the next page.
+	8. Select "Media Processing" as "Problem type" and then select "Reservation Units" under category.
+	9. Click Continue.
+	10. Follow instructions on next page and then enter details about how many Encoding or On-Demand Streaming reserved units you need.
+	11. Click submit to open the ticket.
 
 
 
