@@ -1,14 +1,14 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="http://www.windowsazure.com/" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" />
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" />
 <div chunk="../chunks/recoveryservices-left-nav.md"/> 
 
 
 <h1><a id="configure-hyper-v-recovery-vault-tutorial"></a>Configure Hyper-V Recovery Manager in Windows Azure Recovery Services</h1>
 <div class="dev-callout"> 
-<p>Hyper-V Recovery Manager in Windows Azure Recovery Services provides failover and protection for Hyper-V virtual machines located in clouds on System Center 2012 Virtual Machine Manager (VMM) servers.</P>
+<p>Hyper-V Recovery Manager in Windows Azure Recovery Services provides failover and protection for Hyper-V virtual machines located in clouds on System Center 2012 Virtual Machine Manager (VMM) servers.</p>
 
-<p>This tutorial helps you to create a Hyper-V Recovery Manager vault in Windows Azure, upload a management certificate to the vault, download and install the Hyper-V Recovery Manager agent on VMM servers,  register VMM servers with the vault, configure settings for VMM clouds, and enable protection for Hyper-V virtual machines in the clouds.</P>
+<p>This tutorial helps you to create a Hyper-V Recovery Manager vault in Windows Azure, upload a management certificate to the vault, download and install the Hyper-V Recovery Manager agent on VMM servers,  register VMM servers with the vault, configure settings for VMM clouds, and enable protection for Hyper-V virtual machines in the clouds.</p>
 
-<P>After virtual machines are enabled for protection, you can create recovery plans that specify the order in which groups of virtual machines should fail over.</P>
+<p>After virtual machines are enabled for protection, you can create recovery plans that specify the order in which groups of virtual machines should fail over.</p>
 
 <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Recovery Services feature enabled.</p>
 
@@ -23,33 +23,33 @@
 
 <p>To successfully complete this tutorial you need the following:</p>
 
-<UL>
-<li>At least two VMM servers running System Center 2012 Service Pack 1 (SP1), located in different datacenters. Check that VMM servers in both datacenters are available.</LI>
-<LI>At least one cloud configured on the source VMM server you want to protect, and one cloud on the destination VMM server that you want to use for failover and recovery.</LI>
-<LI>One or more virtual machines located in the cloud that you want to protect.</LI>
-<LI>Verify that VM networks are configured on the source server, and that corresponding VM networks are created on the destination server. Ensure that networks are connected to the correct source and destination clouds.</LI>
-<LI>A management certificate that you will upload to the Hyper-V Recovery vault. Note that:
-	<UL>
-	<LI>To upload to the certificate to the vault, you must export it as a .cer format file that contains the public key.</LI>
-	<LI>The certificate should be an x.509 v3 certificate.</LI>
-	<LI>The key length should be at least 2048 bits.</LI>
-	<LI>The certificate must have a valid ClientAuthentication EKU.</LI>
-	<LI>The certificate should be currently valid with a validity period that does not exceed 3 years.</LI>
-	<LI>The certificate should reside in the Personal certificate store of your Local Computer.</LI>
-	<LI>The private key should be included during installation of the certificate.</LI>
-	<LI>You can create a self-signed certificate using the makecert tool, or use any valid SSL certificate issued by a Certification Authority (CA) trusted by Microsoft, whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program, see Microsoft article <a href="http://go.microsoft.com/fwlink/p/?LinkId=294666">Windows Root Certificate Program members</a>.</LI>
-	</UL>
-</LI>
-</UL>
+<ul>
+<li>At least two VMM servers running System Center 2012 Service Pack 1 (SP1), located in different datacenters. Check that VMM servers in both datacenters are available.</li>
+<li>At least one cloud configured on the source VMM server you want to protect, and one cloud on the destination VMM server that you want to use for failover and recovery.</li>
+<li>One or more virtual machines located in the cloud that you want to protect.</li>
+<li>Verify that VM networks are configured on the source server, and that corresponding VM networks are created on the destination server. Ensure that networks are connected to the correct source and destination clouds.</li>
+<li>A management certificate that you will upload to the Hyper-V Recovery vault. Note that:
+	<ul>
+	<li>To upload to the certificate to the vault, you must export it as a .cer format file that contains the public key.</li>
+	<li>The certificate should be an x.509 v3 certificate.</li>
+	<li>The key length should be at least 2048 bits.</li>
+	<li>The certificate must have a valid ClientAuthentication EKU.</li>
+	<li>The certificate should be currently valid with a validity period that does not exceed 3 years.</li>
+	<li>The certificate should reside in the Personal certificate store of your Local Computer.</li>
+	<li>The private key should be included during installation of the certificate.</li>
+	<li>You can create a self-signed certificate using the makecert tool, or use any valid SSL certificate issued by a Certification Authority (CA) trusted by Microsoft, whose root certificates are distributed via the Microsoft Root Certificate Program. For more information about this program, see Microsoft article <a href="http://go.microsoft.com/fwlink/p/?LinkId=294666">Windows Root Certificate Program members</a>.</li>
+	</ul>
+</li>
+</ul>
 
-<P>To use makecert.exe note that:</P>
+<p>To use makecert.exe note that:</p>
 
-<UL>
-<li>If you register the server you used to run makecert.exe, you can browse for the certificate using the Register Server Wizard (after installation of the agent).</LI>
-<li>If you want to register a server that was not used to run makecert.exe, you must export the .pfx file (containing the private key) from that server, and copy it to the server you want to register, and import it into the Personal certificate store on that server. After the import, you can browse for the certificate using the Register Server Wizard (which runs as part of the agent installation application).</LI>
-</UL>
+<ul>
+<li>If you register the server you used to run makecert.exe, you can browse for the certificate using the Register Server Wizard (after installation of the agent).</li>
+<li>If you want to register a server that was not used to run makecert.exe, you must export the .pfx file (containing the private key) from that server, and copy it to the server you want to register, and import it into the Personal certificate store on that server. After the import, you can browse for the certificate using the Register Server Wizard (which runs as part of the agent installation application).</li>
+</ul>
 
-<P>Use the following procedures to perform these actions.</P>
+<p>Use the following procedures to perform these actions.</p>
 
 <h3><a id="obtaincert"></a>To obtain a self-signed certificate</h3>
 <ol>
@@ -61,34 +61,34 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 
 
 <h3><a id="exportcert"></a>To export a certificate (.pfx) using the Certificates snap-in</h3>
-<OL>
-<LI>From the Start screen type mmc.exe to start the Microsoft Management Console (MMC).</LI>
-<LI>On the <b>File</b> menu, click <b>Add/Remove Snap-in</b>. The Add or Remove Snap-ins dialog box appears.</LI>
-<LI>In <b>Available snap-ins</b>, click <b>Certificates</b>, and then click <b>Add</b>.</LI>
-<LI>Select <b>Computer account</b>, and then click <b>Next</b>.</LI>
-<LI>Select <b>Local computer</b>, and then click <b>Finish</b>.</LI>
-<LI>In the MMC, in the console tree, expand <b>Certificates</b>, and then expand <b>Personal</b>.</LI>
-<LI>In the details pane, click the certificate you want to manage.</LI>
-<LI>On the <b>Action</b> menu, point to <b>All Tasks</b>, and then click <b>Export</b>. The Certificate Export Wizard appears. Click <b>Next</b>.</LI>
-<LI>On the <b>Export Private Key</b> page, click <b>Yes</b>, export the private key. Click <b>Next</b>. Note that this is only required if you want to export the private key to other servers after the installation.</LI>
-<LI>On the <b>Export File Format</b> page, select <b>Personal Information Exchange – PKCS #12 (.PFX)</b>. Click <B>Next</B>.</LI>
-<LI>On the <b>Password</b> page, type and confirm the password that is used to encrypt the private key. Click <b>Next</b>.</LI>
-<LI>Follow the pages of the wizard to export the certificate in PFX format.</LI>
+<ol>
+<li>From the Start screen type mmc.exe to start the Microsoft Management Console (MMC).</li>
+<li>On the <b>File</b> menu, click <b>Add/Remove Snap-in</b>. The Add or Remove Snap-ins dialog box appears.</li>
+<li>In <b>Available snap-ins</b>, click <b>Certificates</b>, and then click <b>Add</b>.</li>
+<li>Select <b>Computer account</b>, and then click <b>Next</b>.</li>
+<li>Select <b>Local computer</b>, and then click <b>Finish</b>.</li>
+<li>In the MMC, in the console tree, expand <b>Certificates</b>, and then expand <b>Personal</b>.</li>
+<li>In the details pane, click the certificate you want to manage.</li>
+<li>On the <b>Action</b> menu, point to <b>All Tasks</b>, and then click <b>Export</b>. The Certificate Export Wizard appears. Click <b>Next</b>.</li>
+<li>On the <b>Export Private Key</b> page, click <b>Yes</b>, export the private key. Click <b>Next</b>. Note that this is only required if you want to export the private key to other servers after the installation.</li>
+<li>On the <b>Export File Format</b> page, select <b>Personal Information Exchange – PKCS #12 (.PFX)</b>. Click <b>Next</b>.</li>
+<li>On the <b>Password</b> page, type and confirm the password that is used to encrypt the private key. Click <b>Next</b>.</li>
+<li>Follow the pages of the wizard to export the certificate in PFX format.</li>
 </ol>
 
 
 <h3><a id="obtaincert"></a>To import the private key certificate to a different server</h3>
-<OL>
-<li>Copy the private-key (.pfx) certificate files to a location on the local server.</LI>
-<LI>In the Certificates MMC snap-in select <b>Computer account</b> and click <b>Next</b>.</LI>
-<li>Select <B>Local Computer</B> and click <B>Finish</b>. You are returned to the Add/Remove Snap-in dialog box, click <b>OK</b>. </LI>
-<LI>In the MMC, expand <b>Certificates</b>, right-click <B>Personal</b>, point to <B>All Tasks</b>, and then click <B>Import</b> to start the Certificate Import Wizard.</LI>
-<LI>On the <b>Certificate Import Wizard Welcome</b> page, click <B>Next</b>.</LI>
-<LI>On the <b>File to Impor</b> page, click <b>Browse</b> and locate the folder that contains the .pfx certificate file that contains the certificate that you want to import. Select the appropriate file, and then click <b>Open</b>.</LI>
-<LI>On the <b>Password</b> page, in the <b>Password</b> box, type the password for the private-key file that you specified in the previous procedure and then click <b>Next</b>.</LI>
-<LI>On the <b>Certificate Store</b> page, select <b>Place all certificates in the following store</b>, click <b>Browse</b>, select the <b>Personal</b> store, click <b>OK</b>, and then click <b>Next</b>.</LI>
-<LI>On the <B>Completing the Certificate Import Wizard</b> page, click <b>Finish</b>.</LI>
-</OL>
+<ol>
+<li>Copy the private-key (.pfx) certificate files to a location on the local server.</li>
+<li>In the Certificates MMC snap-in select <b>Computer account</b> and click <b>Next</b>.</li>
+<li>Select <b>Local Computer</b> and click <b>Finish</b>. You are returned to the Add/Remove Snap-in dialog box, click <b>OK</b>. </li>
+<li>In the MMC, expand <b>Certificates</b>, right-click <b>Personal</b>, point to <b>All Tasks</b>, and then click <b>Import</b> to start the Certificate Import Wizard.</li>
+<li>On the <b>Certificate Import Wizard Welcome</b> page, click <b>Next</b>.</li>
+<li>On the <b>File to Impor</b> page, click <b>Browse</b> and locate the folder that contains the .pfx certificate file that contains the certificate that you want to import. Select the appropriate file, and then click <b>Open</b>.</li>
+<li>On the <b>Password</b> page, in the <b>Password</b> box, type the password for the private-key file that you specified in the previous procedure and then click <b>Next</b>.</li>
+<li>On the <b>Certificate Store</b> page, select <b>Place all certificates in the following store</b>, click <b>Browse</b>, select the <b>Personal</b> store, click <b>OK</b>, and then click <b>Next</b>.</li>
+<li>On the <b>Completing the Certificate Import Wizard</b> page, click <b>Finish</b>.</li>
+</ol>
 </div>
 
 <h2><a id="create"></a>Create a vault</h2>
@@ -139,10 +139,10 @@ Install the Hyper-V Recovery Manager provider agent on each VMM server that cont
 	![Download Agent](../media/RS_installwiz.png)
 
 2. After the agent installation is complete, the VMM server is registered with the vault. During registration you do the following:
-	<UL>
-	<li>Specify how the agent running on the VMM server connects to the Internet. The agent can use the default Internet connection settings, or you can configure specific proxy settings.</LI>
-	<li>Select the .pfx file that corresponds to the .cer that you uploaded to the vault. The private key of the certificate is used to register the VMM server to the vault.</LI>
-	</UL>
+	<ul>
+	<li>Specify how the agent running on the VMM server connects to the Internet. The agent can use the default Internet connection settings, or you can configure specific proxy settings.</li>
+	<li>Select the .pfx file that corresponds to the .cer that you uploaded to the vault. The private key of the certificate is used to register the VMM server to the vault.</li>
+	</ul>
 
 <h2><a id="manage"></a>Configure clouds for protection</h2>
 After VMM servers are registered, all clouds configured on the servers are displayed in the vault.
@@ -250,21 +250,21 @@ After creating a recovery plan, you can perform the following actions:
 1. On the **Recovery Plans** tab, click a recovery plan to drill down. 
 2. You can customize the recovery plan as follows:
 
-	<UL>
-	<LI>Add new groups to the recovery plan—This appends a new empty group to the plan. You can create up to seven groups. </LI>
-	<LI>Add virtual machines to a group—Only virtual machines that are not currently in the recovery plan are available to add. A virtual machine can be added to multiple recovery plans, but can only appear once in each plan. 
-</LI>
-	<LI>Add a script to the recovery plan—You can optionally add scripts to run before or after a specific group. When a script is added, a new set of actions for the group is created. For example a set of pre-steps for Group 1 will be created with the name: Group 1: Pre-steps. All pre-steps will be listed inside this set. To add a script to a recovery plan, do the following:</LI>
-		<OL>
-		<LI>Create the script, verify it works as expected, and place it at location \<VMMServerName>\MSSCVMMLibrary on the source and target VMM servers.</LI>
-		<LI>In the Script Location text box, type in the relative path to the share. For example, if the share is located at \\<VMMServerName>\MSSCVMMLibrary\Scripts\Script.PS1, specify the path: \Scripts\Script.PS1.</LI>
-		</OL>
-	<LI>Move the script location—Use the Script command button to move the location of the script up or down, and specify at which point in the recovery plan it will run.</LI>
-	<LI>Add a manual action to the recovery plan—You can optionally add manual actions to run before or after a selected group. Specify a name and a list of instructions for the action. You can specify whether the action should be included in a test failover, planned failover, unplanned failover, or in a combination of these. Use the Manual Action command button to specify the point at which the manual action will run. When the recovery plan runs, it will stop at the point that the manual action should be run, and a dialog will appear that allows you to specify that the manual action was completed.</LI>
-	<LI>Move steps up or down—You can reorder steps in a recovery plan by moving them up or down.</LI> 
-	<LI>Remove or move virtual machines—You can remove virtual machines from a recovery plan, or move them to a different group.</LI>
-	<LI>Delete groups from the recovery plan—When a group is deleted, the groups below it are moved up. For example if you delete Group 2, then Group 3 becomes Group 2. You cannot delete the default group — Group 1. Deleting a group also deletes the pre and post custom actions steps if any. </LI>
-	</UL>
+	<ul>
+	<li>Add new groups to the recovery plan—This appends a new empty group to the plan. You can create up to seven groups. </li>
+	<li>Add virtual machines to a group—Only virtual machines that are not currently in the recovery plan are available to add. A virtual machine can be added to multiple recovery plans, but can only appear once in each plan. 
+</li>
+	<li>Add a script to the recovery plan—You can optionally add scripts to run before or after a specific group. When a script is added, a new set of actions for the group is created. For example a set of pre-steps for Group 1 will be created with the name: Group 1: Pre-steps. All pre-steps will be listed inside this set. To add a script to a recovery plan, do the following:</li>
+		<ol>
+		<li>Create the script, verify it works as expected, and place it at location \*VMM_Server_Name*\MSSCVMMLibrary on the source and target VMM servers.</li>
+		<li>In the Script Location text box, type in the relative path to the share. For example, if the share is located at \\*VMM_Server_Name*\MSSCVMMLibrary\Scripts\Script.PS1, specify the path: \Scripts\Script.PS1.</li>
+		</ol>
+	<li>Move the script location—Use the Script command button to move the location of the script up or down, and specify at which point in the recovery plan it will run.</li>
+	<li>Add a manual action to the recovery plan—You can optionally add manual actions to run before or after a selected group. Specify a name and a list of instructions for the action. You can specify whether the action should be included in a test failover, planned failover, unplanned failover, or in a combination of these. Use the Manual Action command button to specify the point at which the manual action will run. When the recovery plan runs, it will stop at the point that the manual action should be run, and a dialog will appear that allows you to specify that the manual action was completed.</li>
+	<li>Move steps up or down—You can reorder steps in a recovery plan by moving them up or down.</li> 
+	<li>Remove or move virtual machines—You can remove virtual machines from a recovery plan, or move them to a different group.</li>
+	<li>Delete groups from the recovery plan—When a group is deleted, the groups below it are moved up. For example if you delete Group 2, then Group 3 becomes Group 2. You cannot delete the default group — Group 1. Deleting a group also deletes the pre and post custom actions steps if any. </li>
+	</ul>
 
 
 Note the following:
