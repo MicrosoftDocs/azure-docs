@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+<h1>How to Scale a Media Service</h1>
+
+<p><div chunk="../../Shared/Chunks/disclaimer.md" /></p>
+
+<p>On the <strong>Scale</strong> page of the Windows Azure Management Portal, you can specify the number of <strong>On-Demand Streaming Reserved Units</strong> and <strong>Encoding Reserved Units</strong> that you would like your account to be provisioned with. </p>
+
+<h2>On-Demand Streaming Reserved Units</h2>
+
+<p>On-Demand Streaming reserved units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and  additional functionality which currently includes <a href="http://go.microsoft.com/fwlink/?LinkId=276874">dynamic packaging capabilities</a>. By default, on-demand streaming is configured in a shared-instance model for which server resources (for example, compute, egress capacity, etc.) are shared with all other users. To improve an on-demand streaming throughput, it is recommended to purchase On-Demand Streaming reserved units. </p>
+
+<p>The allocation of any new units of on-demand streaming takes around 20 minutes to complete. </p>
+
+<h2>Encoding Reserved Units</h2>
+
+<p>The number of provisioned encoding reserved units is equal to the number of media tasks that can be processed concurrently in a given account. For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed. The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes. If an account does not have any reserved units provisioned, then tasks will be picked up sequentially. In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.</p>
+
+<p>The new encoding reserved units are allocated almost immediately.</p>
+
+<h2>Reserving Units</h2>
+
+<ol>
+<li><p>In the <a href="https://manage.windowsazure.com/">Management Portal</a>, click <strong>Media Services</strong>. Then click the name of the media service to open the dashboard.</p></li>
+<li><p>To specify the number of reserved units, select the Scale page and move the <strong>reserved capacity</strong> slider. </p>
+
+<p><img src="../media/WAMS_Scale.png" alt="Scale page" /></p>
+
+<p><strong>Note:</strong> Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.</p>
+
+<p><strong>Note:</strong> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see <a href="http://go.microsoft.com/fwlink/?LinkId=275107">Media Services Pricing Details</a>.</p></li>
+<li><p>By default every Media Services account can scale up to a max of 5 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.</p>
+
+<p>To open a support ticket please following the instruction below</p>
+
+<ol>
+<li>Log in to your Azure account at <a href="http://manage.windowsazure.com">Management Portal</a>.</li>
+<li>Go to <a href="http://www.windowsazure.com/en-us/support/contact/">Support</a>.</li>
+<li>Click on "Get Support".</li>
+<li>Select your subscription.</li>
+<li>Under support type select "Technical".</li>
+<li>Click on "Create Ticket".</li>
+<li>Select "Windows Azure Media Services" in the product list presented on the next page.</li>
+<li>Select "Media Processing" as "Problem type" and then select "Reservation Units" under category.</li>
+<li>Click Continue.</li>
+<li>Follow instructions on next page and then enter details about how many Encoding or On-Demand Streaming reserved units you need.</li>
+<li>Click submit to open the ticket.</li>
+</ol></li>
+</ol>
+    </body>
+</html>
