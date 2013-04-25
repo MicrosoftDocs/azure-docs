@@ -14,7 +14,7 @@
 </div>	
 
 
-This guide shows you how to perform common scenarios using the Android client for Windows Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and uploading BLOB data. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](http://go.microsoft.com/fwlink/?LinkId=298736). The quickstart tutorial helps you configure your account and create your first mobile service.
+This guide shows you how to perform common scenarios using the Android client for Windows Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart](http://go.microsoft.com/fwlink/?LinkId=298736). The quickstart tutorial helps you configure your account and create your first mobile service.
 
 The samples are written in Java and require the [Mobile Services SDK]. This tutorial also requires the [Android SDK](https://go.microsoft.com/fwLink/?LinkID=280125&clcid=0x409), which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin. The Mobile Services SDK supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
 
@@ -86,7 +86,7 @@ The following code creates the [MobileServiceClient](http://dl.windowsazure.com/
 					"AppKey", 			// replace with the Application Key 
 					this)
 
-In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Windows Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
+In the code above, replace `MobileServiceUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Windows Azure Management Portal, by selecting your mobile service and then clicking on *Dashboard*.
 
 <h2><a name="instantiating"></a><span class="short-header">Creating a table reference</span>How to: Create a table reference</h2>
 
@@ -115,19 +115,20 @@ The [2nd overload](http://go.microsoft.com/fwlink/?LinkId=296840) is used when t
 
 ### <a name="api"></a>The API structure
 
-All the method calls invoked on a table object follow the callback pattern. One of the parameters to the method is always a callback object. The callback object always contains an *onCompleted* method. The *onCompleted* method contains one parameter that is an *Exception* object, which you can test to determine the success of the method call. A null *Exception* object indicates success, otherwise the *Exception* object describes the reason for failure.
+Mobile services table operations use the asynchronous callback model. Methods involving queries and operations like inserts, updates and deletes, all have a parameter that is a callback object. This object always contains an **OnCompleted** method. The **onCompleted** method contains one parameter that is an **Exception** object, which you can test to determine the success of the method call. A null **Exception** object indicates success, otherwise the **Exception** object describes the reason for failure.
 
 There are several different callback objects, and which one you use depends on whether you are querying, modifying, or deleting data. The parameters to the *onCompleted* method vary, depending on which callback object it is part of.
 
 
 <h2><a name="querying"></a><span class="short-header">Querying data</span>How to: Query data from a mobile service</h2>
 
-This section describes how to issue queries to the mobile service. Subsections describe diffent aspects such as sorting filtering, paging, and inserts updates and deletes. Finally, we discuss how you can chain these operations together.
+This section describes how to issue queries to the mobile service. Subsections describe diffent aspects such as sorting, filtering, and paging. Finally, we discuss how you can concatenate these operations together.
 
 The following code returns all items in the *ToDoItem* table. 
 
 		mToDoTable.execute(new TableQueryCallback<ToDoItem>() {
-				public void onCompleted(List<ToDoItem> result, int count, Exception exception, ServiceFilterResponse response) {
+				public void onCompleted(List<ToDoItem> result, int count,
+					Exception exception, ServiceFilterResponse response) {
 					if (exception == null) {
 						for (ToDoItem item : result) {
                 			Log.i(TAG, "Read object with ID " + item.id);  
@@ -136,17 +137,21 @@ The following code returns all items in the *ToDoItem* table.
 				}
 			});
 
-For queries, the callback object is a [**TableQueryCallback&lt;E&gt;**](http://go.microsoft.com/fwlink/?LinkId=296849).
+Queries like this one use the  [**TableQueryCallback&lt;E&gt;**](http://go.microsoft.com/fwlink/?LinkId=296849) callback object.
 
 The *result* parameter returns the result set from the query, and the code inside the success branch of the *exception* test shows how to parse the individual rows.
 
 
 ### <a name="filtering"></a>How to: Filter returned data
 
-The following code returns all items from the *ToDoItem* table whose *complete* field is equal to *false*. *mToDoTable* is the reference to the mobile service table that we created previously. 
+The following code returns all items from the *ToDoItem* table whose *complete* field equals *false*. *mToDoTable* is the reference to the mobile service table that we created previously. 
 
-		mToDoTable.where().field("complete").eq(false).execute(new TableQueryCallback<ToDoItem>() {
-			public void onCompleted(List<ToDoItem> result, int count, Exception exception, ServiceFilterResponse response) {
+		mToDoTable.where().field("complete").eq(false)
+				  .execute(new TableQueryCallback<ToDoItem>() {
+						public void onCompleted(List<ToDoItem> result, 
+												int count, 
+												Exception exception,
+												ServiceFilterResponse response) {
 				if (exception == null) {
 					for (ToDoItem item : result) {
                 		Log.i(TAG, "Read object with ID " + item.id);  
@@ -181,9 +186,7 @@ And you can group and nest logical operators, as shown in this partial code:
 		mToDoTable.where()
 					.year("due").eq(2013)
 						.and
-					(startsWith("text", "PRI0").or().field("duration").gt(10))
-
-For more detailed discussion and examples of filtering, see the blog post [Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying "The Mobile Services Android client query model").
+					(mToDoTable.where().startsWith("text", "PRI0").or().field("duration").gt(10))
 
 ### <a name="sorting"></a>How to: Sort returned data
 
@@ -246,10 +249,11 @@ The methods used in querying mobile mervice tables can be concatenated. This all
 
 What makes this work is that the query methods you use return [**MobileServiceQuery&lt;T&gt;**](http://go.microsoft.com/fwlink/?LinkId=298551) objects, which can in turn have additional methods invoked on them. To end the series of methods and actually run the query, you call the [**execute**](http://go.microsoft.com/fwlink/?LinkId=298554) method.
 
-Here's a code sample where mToDoTable is a reference to the mobile services ToDoItem table.
+Here's a code sample where *mToDoTable* is a reference to the mobile services *ToDoItem* table.
 
 		mToDoTable.where().year("due").eq(2013)
-						.and().startsWith("text", "PRI0").or().field("duration").gt(10)
+						.and().startsWith("text", "PRI0")
+						.or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
 					.orderBy(duration, QueryOrder.Ascending).top(20)				
 					.execute(new TableQueryCallback<ToDoItem>() { 
@@ -273,14 +277,16 @@ First you instantiate an instance of the *ToDoItem* class and set its properties
  Next you call the [**insert**](http://go.microsoft.com/fwlink/?LinkId=296862) method.
 
 		mToDoTable.insert(mToDoItem, new TableOperationCallback<ToDoItem>() {
-			public void onCompleted(ToDoItem entity, Exception exception, ServiceFilterResponse response) {	
+			public void onCompleted(ToDoItem entity, 
+								Exception exception, 
+								ServiceFilterResponse response) {	
 				if (exception == null) {
                 		Log.i(TAG, "Read object with ID " + entity.id);  
 				} 
 			}
 		});
 
-For this **insert** method, the callback object is a [**TableOperationCallback&lt;ToDoItem&gt;**](http://go.microsoft.com/fwlink/?LinkId=296865).
+For **insert** operations, the callback object is a [**TableOperationCallback&lt;ToDoItem&gt;**](http://go.microsoft.com/fwlink/?LinkId=296865).
 
 The entity parameter of the **onCompleted** method contains the newly inserted object. The successful code shows how to access the *id* of the inserted row.
 
@@ -290,7 +296,9 @@ The following code shows how to update data in a table. In this example, *mToDoI
 
 		mToDoItem.duration = 5;
 		mToDoTable.update(mToDoItem, new TableOperationCallback<ToDoItem>() {
-			public void onCompleted(ToDoItem entity, Exception exception, ServiceFilterResponse response) {
+			public void onCompleted(ToDoItem entity, 
+									Exception exception, 
+									ServiceFilterResponse response) {
 				if (exception == null) {
             			Log.i(TAG, "Read object with ID " + entity.id);  
 				} 
@@ -304,8 +312,8 @@ Note that the callback object and *onCompleted* method's parameters are the same
 The following code shows how to delete data from a table. It deletes an existing item from the ToDoItem table, using a reference to the item, in this case *mToDoItem*.
 
 		mToDoTable.delete(mToDoItem, new TableDeleteCallback() {
-		    public void onCompleted(Exception exception, 
-		            ServiceFilterResponse response) {
+		    public void onCompleted(Exception exception,
+									ServiceFilterResponse response) {
 		        if(exception == null){
 		            Log.i(TAG, "Object deleted");
 		        }
@@ -374,8 +382,9 @@ The following code shows how to do an insert. The first step is to create a [**J
 The next step is to insert the object. The callback function passed to the [**insert**](http://go.microsoft.com/fwlink/?LinkId=298535) method is an instance of the [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/?LinkId=298532) class. Note how the first parameter of the *onCompleted* method is a JsonObject.
 		 
 		mTable.insert(task, new TableJsonOperationCallback() {
-		    public void onCompleted(JsonObject jsonObject, Exception exception,
-		            ServiceFilterResponse response) {
+		    public void onCompleted(JsonObject jsonObject, 
+									Exception exception,
+									ServiceFilterResponse response) {
 		        if(exception == null){
 		            Log.i(TAG, "Object inserted with ID " + 
 		        jsonObject.getAsJsonPrimitive("id").getAsInt());
@@ -395,7 +404,8 @@ The following code shows how to delete an instance, in this case, the same insta
 
 
 		mTable.delete(task, new TableDeleteCallback() {
-		    public void onCompleted(Exception exception, ServiceFilterResponse response) {
+		    public void onCompleted(Exception exception, 
+									ServiceFilterResponse response) {
 		        if(exception == null){
 		            Log.i(TAG, "Object deleted");
 		        }
@@ -412,8 +422,10 @@ You can also delete an instance directly by using its ID:
 The following code shows how to retrieve an entire table. Note that the untyped progamming model uses a different callback object: [**TableJsonQueryCallback**](http://go.microsoft.com/fwlink/?LinkId=298543).
 
 		mTable.execute(new TableJsonQueryCallback() {
-		    public void onCompleted(JsonElement result, int count, Exception exception,
-		            ServiceFilterResponse response) {
+		    public void onCompleted(JsonElement result, 
+									int count, 
+									Exception exception,
+									ServiceFilterResponse response) {
 		        if(exception == null){
 		            JsonArray results = result.getAsJsonArray();
 		            for(JsonElement item : results){
@@ -627,11 +639,10 @@ You might want to attach a custom header to every outgoing request. You can acco
 		client = client.withFilter(new ServiceFilter() {
 		
 		    @Override
-		    public void handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback,
-		        ServiceFilterResponseCallback responseCallback) {
-		
-		        request.addHeader("My-Header", "Value");
-		        
+		    public void handleRequest(ServiceFilterRequest request,
+					NextServiceFilterCallback nextServiceFilterCallback,
+		        	ServiceFilterResponseCallback responseCallback) {
+		        request.addHeader("My-Header", "Value");      
 		        nextServiceFilterCallback.onNext(request, responseCallback);
 		    }
 		});
