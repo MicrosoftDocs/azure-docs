@@ -48,7 +48,7 @@ Other than the Blob Storage container designated as the default file system, you
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>Public Container allows you to get a list of all blobs available in that container and get container metadata. Public Blob allows  you to access the blobs only if you know the exact url. For more information, see [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx).</p> 
+	<p>Public Container allows you to get a list of all blobs available in that container and get container metadata. Public Blob allows  you to access the blobs only if you know the exact url. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict Access to Containers and Blobs</a>.</p> 
 	</div>
 
 * **Container in a different storage account with the *private* access levels:** you must add a new entry for each storage account to the C:\apps\dist\hadoop-1.1.0-SNAPSHOT\conf\core-site.xml files to be able to access the files in the container from HDInsight:

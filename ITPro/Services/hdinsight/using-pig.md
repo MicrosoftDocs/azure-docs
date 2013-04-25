@@ -119,7 +119,7 @@ First, you will use Pig Latin in interactive mode (Grunt shell) to analyze a sin
 	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>To use asvs, you must provide the FQDN. For example: <br/>
-LOG = LOAD 'asvs://container@storagename.blob.core.windows.net/sample.log'. For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
+LOG = LOAD 'asvs://container@storagename.blob.core.windows.net/sample.log'. For more information, see <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-blob-store/">Using Windows Azure Blob Storage with HDInsight</a>.</p>  
 	</div>
 
 
