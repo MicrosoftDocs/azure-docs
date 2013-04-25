@@ -1,4 +1,4 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial  hybrid .NET" metaDescription="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial  hybrid .NET" metaDescription="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 
@@ -91,7 +91,7 @@ to get the tools and set-up your development environment.
 
     ![][2]
 
-5.  In the Web Platform Installer, click **Install** and proceed with the installation:
+5.  In the Web Platform Installer, click **Add** and proceed with the installation:
 
     ![][3]
 
@@ -748,7 +748,7 @@ Run the application to verify that it works.
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI2.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
