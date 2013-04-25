@@ -1,3 +1,7 @@
+<properties linkid="service-bus-monitor-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Monitor Service Bus Messaging Entities - Windows Azure" metaKeywords="" metaDescription="Learn how to monitor your Service Bus entities using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/service-bus-left-nav.md" />
+
 # How to Monitor Service Bus Messaging Entities
 
 This topic describes how to manage and monitor your Service Bus entities using the [Windows Azure Management Portal](http://manage.windowsazure.com). With the portal, you get a comprehensive view of the status your queues and topics. You can also monitor their usage.
