@@ -53,7 +53,7 @@
 
 <h3><a id="obtaincert"></a>To obtain a self-signed certificate</h3>
 <ol>
-<li>Obtain the Makecert tool as described in  <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa386968(v=vs.85).aspx">MakeCert</a> Note that when installing the Windows SDK, you can install makecert.exe only by selecting the option <b>Tools</b> under <b>.Net Development</b> and leave everything else unchecked.</li>  
+<li>Obtain the Makecert tool as described in  <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa386968(v=vs.85).aspx">MakeCert</a>. Note that when installing the Windows SDK, you can install makecert.exe only by selecting the option <b>Tools</b> under <b>.Net Development</b> and leave everything else unchecked.</li>  
 <li>Open Command Prompt (cmd.exe) with Administrator privileges and run the following command, replacing <i>CertificateName</i> with the name of your certificate and specifying the actual expiration date of your certificate after -e:
 <code>
 makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
@@ -84,7 +84,7 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 <li>Select <b>Local Computer</b> and click <b>Finish</b>. You are returned to the Add/Remove Snap-in dialog box, click <b>OK</b>. </li>
 <li>In the MMC, expand <b>Certificates</b>, right-click <b>Personal</b>, point to <b>All Tasks</b>, and then click <b>Import</b> to start the Certificate Import Wizard.</li>
 <li>On the <b>Certificate Import Wizard Welcome</b> page, click <b>Next</b>.</li>
-<li>On the <b>File to Impor</b> page, click <b>Browse</b> and locate the folder that contains the .pfx certificate file that contains the certificate that you want to import. Select the appropriate file, and then click <b>Open</b>.</li>
+<li>On the <b>File to Import</b> page, click <b>Browse</b> and locate the folder that contains the .pfx certificate file that contains the certificate that you want to import. Select the appropriate file, and then click <b>Open</b>.</li>
 <li>On the <b>Password</b> page, in the <b>Password</b> box, type the password for the private-key file that you specified in the previous procedure and then click <b>Next</b>.</li>
 <li>On the <b>Certificate Store</b> page, select <b>Place all certificates in the following store</b>, click <b>Browse</b>, select the <b>Personal</b> store, click <b>OK</b>, and then click <b>Next</b>.</li>
 <li>On the <b>Completing the Certificate Import Wizard</b> page, click <b>Finish</b>.</li>
