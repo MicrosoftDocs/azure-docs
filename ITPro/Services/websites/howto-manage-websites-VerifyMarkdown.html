@@ -34,16 +34,18 @@
 <br /><strong>Note:</strong>
 You can add additional performance metrics on the the <strong>Monitor</strong> management page by choosing <strong>Add Metrics</strong> on the bottom of that page. For more information, see <a href="/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Web Sites</a>.</li>
 </ul></li>
-<li>A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click <strong>Configure Web Endpoint Monitoring</strong> and go to the <strong>Monitoring</strong> section of the <strong>Configure</strong> management page. Endpoints can be added only in Reserved mode. For more information, see <a href="/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Web Sites</a>.</li>
+<li><strong>Web Endpoint Status</strong> - A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click <strong>Configure Web Endpoint Monitoring</strong> and go to the <strong>Monitoring</strong> section of the <strong>Configure</strong> management page. Endpoints can be added only in Reserved mode. For more information, see <a href="/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Web Sites</a>.</li>
 <li>A <strong>Usage Overview</strong> section that shows statistics for the web site's CPU, file system, and memory usage.</li>
-<li>A list of all linked resources associated with this web site. If no resources are associated, there is a hyperlink to the <strong>Linked Resources</strong> management page.</li>
+<li>A list of all <strong>linked resources</strong> associated with this web site. If no resources are associated, there is a hyperlink to the <strong>Linked Resources</strong> management page.</li>
 <li>A <strong>Quick Glance</strong> section which includes the following summary information and links:
 <ul>
 <li><strong>View Connection Strings</strong> - View your web site's database connection strings.</li>
-<li><strong>Download Publish Profile</strong> – Link to the publish profile, a file which contains credentials and URLs required to publish to the web site using any enabled publishing methods.</li>
-<li><strong>Reset Deployment Credentials</strong> – Displays a dialog box where you provide unique credentials for use when publishing with GIT or FTP. If you wish to use GIT or FTP deployment then you must reset deployment credentials because authentication to an FTP host or GIT repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for GIT or FTP publishing to any web site in your subscription.</li>
-<li><strong>Reset Publish Profile Credentials</strong> - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.</li>
+<li><strong>Download the Publish Profile</strong> – Link to the publish profile, a file which contains credentials and URLs required to publish to the web site using any enabled publishing methods.</li>
+<li><strong>Reset Your Deployment Credentials</strong> – Displays a dialog box where you provide unique credentials for use when publishing with GIT or FTP. If you wish to use GIT or FTP deployment then you must reset deployment credentials because authentication to an FTP host or GIT repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for GIT or FTP publishing to any web site in your subscription.</li>
+<li><strong>Reset Your Publish Profile Credentials</strong> - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.</li>
 <li><strong>Set up Deployment from Source Control</strong> – Displays a dialog box where you can set up continuous publishing from Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.</li>
+<li><strong>Disconnect from Dropbox</strong> - If you have set up a connection to Dropbox for deployment purposes, this link allows you to disconnect it.</li>
+<li><strong>Delete Git repository</strong> - If you have set up a Git repository, this link allows you to delete it.</li>
 <li><strong>Status</strong> – Indicates whether the web site is running or not.</li>
 <li><strong>Site URL</strong> – Specifies the publicly accessibly address of the web site on the internet.</li>
 <li><strong>Compute Mode</strong> – Specifies whether the web site is running in Free, Shared, or Reserved mode. For more information about web site modes see <a href="../how-to-scale-websites/">How to Scale a Web Site</a>.</li>
@@ -54,7 +56,7 @@ You can add additional performance metrics on the the <strong>Monitor</strong> m
 <li><strong>FTPS Diagnostic Logs</strong> – Specifies the FTPS location of the web site’s diagnostic logs if diagnostic logging is enabled on the <strong>Configure</strong> management page.</li>
 <li><strong>Location</strong> – Specifies the physical region of the datacenter that hosts the web site.</li>
 <li><strong>Subscription Name</strong> – Specifies the subscription name that the web site is associated with.</li>
-<li><strong>Subscription ID</strong> – Specifies the actual unique subscription ID of the subscription that the web site is associated with.</li>
+<li><strong>Subscription ID</strong> – Specifies the unique subscription ID of the subscription that the web site is associated with.</li>
 </ul></li>
 </ul>
 
@@ -71,11 +73,9 @@ You can add additional performance metrics on the the <strong>Monitor</strong> m
 <p>The <strong>Configure</strong> management page is used to set application specific settings including:</p>
 
 <ul>
-<li><strong>General</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose a 64-bit platform.</li>
-<li><strong>Certificates</strong> - Upload an SSL certificate for a custom domain. Custom domains are available in Shared and Reserved modes.</li>
+<li><strong>Framework</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose a 64-bit platform.</li>
 <li><strong>Domain Names</strong> - View or add additional custom domain names for a web site that is in Shared or Reserved mode.</li>
-<li><strong>SSL Bindings</strong> - Choose an SSL mode for a domain and assign a certificate to the domain from the certificates you have uploaded.</li>
-<li><strong>Application Diagnostics</strong> - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to an Azure Storage account, and choose a logging level to specify the amount of information gathered.</li>
+<li><strong>Application Diagnostics</strong> - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to a Windows Azure Storage account, and choose a logging level to specify the amount of information gathered.</li>
 <li><strong>Site Diagnostics</strong> – Set logging options for gathering diagnostic information for your web site. </li>
 <li><strong>Monitoring</strong> - For web sites in Reserved mode, test the availability of HTTP or HTTPS endpoints from geo-distributed locations.</li>
 <li><strong>App Settings</strong> – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the web site’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node web sites, these settings will be available as environment variables at runtime.</li>

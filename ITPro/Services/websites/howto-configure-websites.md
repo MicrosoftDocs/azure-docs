@@ -23,8 +23,15 @@ Follow these steps to change configuration options for a web site.
 	<li>Click the <strong>Configure</strong> tab to open the <strong>Configure</strong> management page.</li>
 	<li>Set the following configuration options for the web site as appropriate:
 	<ul>
-	<li style="margin-left: 40px"><strong>framework</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
+	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
 <li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in Shared and Reserved modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see [Configuring a custom domain name for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/).</li>
+<li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
+<ul>
+<li><strong>Git URL</strong> – If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
+<li><strong>Deployment Trigger URL</strong> – This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
+<li><strong>Branch to Deploy</strong> – This lets you specify the branch that will be deployed when you push content to it.</li>
+</ul>
+</li>
 <li style="margin-left: 40px"><strong>application diagnostics</strong> - Set options for gathering diagnostic traces from a web application whose code has been instrumented with traces. The logging options for application diagnostics include:<ul><li><strong>Application Logging (File System)</strong> - Choose <strong>On</strong> to have the application logs written to the web site's file system. When enabled, file system logging lasts for a period of 12 hours. You can access the logs from the FTP share for the web site. The link to the FTP share can be found on the <strong>Dashboard</strong>. Under <strong>Quick Glance</strong>, choose <strong>FTP Diagnostic Logs</strong> or <strong>FTPS Diagnostic Logs</strong>.</li>
 
 <li><strong>Application Logging (Storage)</strong> - Choose <strong>On</strong> to have your application logs written to a Windows Azure storage account. Logging to a storage account has no time limit and stays enabled until you disable it. By default, the logs are stored in a table called WAWSAppLogTable.</li>
