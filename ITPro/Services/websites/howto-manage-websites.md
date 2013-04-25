@@ -60,8 +60,9 @@ The **Monitor** management page provides a chart that displays usage information
 ##Configure##
 The **Configure** management page is used to set application specific settings including:
 
-- **Framework** – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose a 64-bit platform.
+- **General** – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose a 64-bit platform.
 - **Domain Names** - View or add additional custom domain names for a web site that is in Shared or Reserved mode.
+- **Deployments** - Use these settings to configure deployments.
 - **Application Diagnostics** - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to a Windows Azure Storage account, and choose a logging level to specify the amount of information gathered.
 - **Site Diagnostics** – Set logging options for gathering diagnostic information for your web site. 
 - **Monitoring** - For web sites in Reserved mode, test the availability of HTTP or HTTPS endpoints from geo-distributed locations.
