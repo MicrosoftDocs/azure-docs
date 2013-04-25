@@ -44,9 +44,9 @@ In simple terms, cloud computing is the abstraction of IT services. These servic
 <li><p><strong>Software as a Service</strong> (SaaS): Cloud services model where an application is delivered over the Internet and customers pay on a per-use basis (for example, Microsoft Office 365 or Microsoft CRM Online).</p></li>
 </ul>
 
-<a href="#Fig1">Figure 1</a> depicts the cloud services taxonomy and how it maps to the components in an IT infrastructure. With an on-premises model, the customer is responsible for managing the entire stack—ranging from network connectivity to applications. With IaaS, the lower levels of the stack are managed by a vendor, while the customer is responsible for managing the operating system through applications. With PaaS, a platform vendor provides and manages everything from network connectivity through runtime. The customer only needs to manage applications and data. (The Windows Azure offering best fits in this model.) Finally, with SaaS, a vendor provides the applications and abstracts all services from all underlying components.
+Figure 1 depicts the cloud services taxonomy and how it maps to the components in an IT infrastructure. With an on-premises model, the customer is responsible for managing the entire stack—ranging from network connectivity to applications. With IaaS, the lower levels of the stack are managed by a vendor, while the customer is responsible for managing the operating system through applications. With PaaS, a platform vendor provides and manages everything from network connectivity through runtime. The customer only needs to manage applications and data. (The Windows Azure offering best fits in this model.) Finally, with SaaS, a vendor provides the applications and abstracts all services from all underlying components.
 
-<a id="Fig1"></a><p class="caption">Figure 1: Cloud services taxonomy</p>
+<p class="caption">Figure 1: Cloud services taxonomy</p>
 <p><img src="../media/azure-sharepoint-wp-1.png" alt="" /></p>
 
 <h2>Windows Azure Virtual Machines</h2>
@@ -97,14 +97,14 @@ Windows Azure Virtual Machines provide developers with the flexibility to pick t
 
 <h2>Provisioning Process</h2>
 
-This subsection discusses the basic strong in Windows Azure. The <strong>image library</strong> in Windows Azure provides the list of available preconfigured VMs. Users can publish SharePoint Server, SQL Server, Windows Server, and other ISO/VHDs to the image library. To simplify the creation of VMs, base images are created and published to the library. Authorized users can use these images to generate the desired VM. For more information, go to <a href="/en-us/manage/windows/tutorials/virtual-machine-from-gallery/">Create a Virtual Machine Running Windows Server 2008 R2</a> on the Windows Azure site. <a href="#Fig2">Figure 2</a> shows the basic steps for creating a VM using the Windows Azure Management Portal:
+This subsection discusses the basic strong in Windows Azure. The <strong>image library</strong> in Windows Azure provides the list of available preconfigured VMs. Users can publish SharePoint Server, SQL Server, Windows Server, and other ISO/VHDs to the image library. To simplify the creation of VMs, base images are created and published to the library. Authorized users can use these images to generate the desired VM. For more information, go to <a href="/en-us/manage/windows/tutorials/virtual-machine-from-gallery/">Create a Virtual Machine Running Windows Server 2008 R2</a> on the Windows Azure site. Figure 2 shows the basic steps for creating a VM using the Windows Azure Management Portal:
 
-<a id="Fig2"></a><p class="caption">Figure 2: Overview of steps for creating a VM</p>
+<p class="caption">Figure 2: Overview of steps for creating a VM</p>
 <p><img src="../media/azure-sharepoint-wp-2.png" alt="" /></p>
 
-Users also can upload a sysprepped image on the Windows Azure Management Portal. For more information, go to <a href="/en-us/manage/windows/common-tasks/upload-a-vhd/">Creating and Uploading a Virtual Hard Disk</a>. <a href="Fig3">Figure 3</a> shows the basic steps for uploading an image to create a VM:
+Users also can upload a sysprepped image on the Windows Azure Management Portal. For more information, go to <a href="/en-us/manage/windows/common-tasks/upload-a-vhd/">Creating and Uploading a Virtual Hard Disk</a>. Figure 3 shows the basic steps for uploading an image to create a VM:
 
-<a id="Fig3"></a><p class="caption">Figure 3: Overview of steps for uploading an image</p>
+<p class="caption">Figure 3: Overview of steps for uploading an image</p>
 <p><img src="../media/azure-sharepoint-wp-3.png" alt="" /></p>
 
 <h3>Deploying SharePoint 2010 on Windows Azure</h3>
@@ -261,9 +261,9 @@ To fully utilize load-testing machines, organizations can configure SharePoint v
 
 <h4>Getting Started</h4>
 
-<a href="Fig4">Figure 4</a> shows a SharePoint development and testing environment in a Windows Azure VM. To build this deployment, start by using the same on-premises SharePoint development and testing environment used to develop applications. Then, upload and deploy the applications to the Windows Azure VM for testing and development. If your organization decides to move the application back on-premises, it can do so without having to modify the application.
+Figure 4 shows a SharePoint development and testing environment in a Windows Azure VM. To build this deployment, start by using the same on-premises SharePoint development and testing environment used to develop applications. Then, upload and deploy the applications to the Windows Azure VM for testing and development. If your organization decides to move the application back on-premises, it can do so without having to modify the application.
 
-<a id="Fig4"></a><p class="caption">Figure 4: SharePoint development and testing environment in Windows Azure Virtual Machines</p>
+<p class="caption">Figure 4: SharePoint development and testing environment in Windows Azure Virtual Machines</p>
 <p><img src="../media/azure-sharepoint-wp-11.png" alt="" /></p>
 
 <h4>Setting Up the Scenario Environment</h4>
@@ -274,7 +274,7 @@ To implement a SharePoint development and testing environment on Windows Azure, 
 <li><em>Provision</em>: First, provision a VPN connection between on-premises and Windows Azure using Windows Azure Virtual Network. (Because Active Directory is not being used here, a VPN tunnel is needed.) For more information, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx">Windows Azure Virtual Network (Design Considerations and Secure Connection Scenarios)</a>. Then, use the Management Portal to provision a new VM using a stock image from the image library.
 <ul>
 <li>You can upload the on-premises SharePoint development and testing VMs to your Windows Azure storage account and reference those VMs through the image library for building the required environment.</li>
-<li>You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="h/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Windows Azure</a>.</li>
+<li>You can use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Windows Azure</a>.</li>
 </ul>
 </li>
 <li><em>Install</em>: Install SharePoint Server, Visual Studio, and SQL Server on the VMs using a Remote Desktop connection.
@@ -330,9 +330,9 @@ VMs in Windows Azure infrastructure are validated and supported for working with
 
 <h4>Getting Started</h4>
 
-In this scenario, more front-end web servers for SharePoint Server must be added to support extra traffic. These servers require enhanced security and Active Directory Domain Services domain controllers to support user authentication and authorization. <a href="Fig5">Figure 5</a> shows the layout for this scenario.
+In this scenario, more front-end web servers for SharePoint Server must be added to support extra traffic. These servers require enhanced security and Active Directory Domain Services domain controllers to support user authentication and authorization. Figure 5 shows the layout for this scenario.
 
-<a id="Fig5"></a><p class="caption">Figure 5: Public-facing SharePoint farm with customization</p>
+<p class="caption">Figure 5: Public-facing SharePoint farm with customization</p>
 <p><img src="../media/azure-sharepoint-wp-12.png" alt="" /></p>
 
 <h4>Setting Up the Scenario Environment</h4>
@@ -384,9 +384,9 @@ Migrating existing BI applications to Windows Azure provides better scaling. Wit
 
 <h4>Getting Started</h4>
 
-To scale out the deployment of BI components, a new application server with services such as PowerPivot, Power View, Excel Services, or PerformancePoint Services must be installed. Or, SQL Server BI instances like SSAS or SSRS must be added to the existing farm to support additional query processing. The server can be added as a new Windows Azure VM with SharePoint 2010 Server or SQL Server installed. Then, the BI components can be installed, deployed, and configured on that server (<a href="Fig6">Figure 6</a>).
+To scale out the deployment of BI components, a new application server with services such as PowerPivot, Power View, Excel Services, or PerformancePoint Services must be installed. Or, SQL Server BI instances like SSAS or SSRS must be added to the existing farm to support additional query processing. The server can be added as a new Windows Azure VM with SharePoint 2010 Server or SQL Server installed. Then, the BI components can be installed, deployed, and configured on that server (Figure 6).
 
-<a id="Fig6"></a><p class="caption">Figure 6: Scaled-out SharePoint farm for additional BI services</p>
+<p class="caption">Figure 6: Scaled-out SharePoint farm for additional BI services</p>
 <p><img src="../media/azure-sharepoint-wp-13.png" alt="" /></p>
 
 <h4>Setting Up the Scenario Environment</h4>
@@ -438,9 +438,9 @@ Organizations can use Windows Azure Virtual Machines to host customized applicat
 
 <h4>Getting Started</h4>
 
-To implement a completely customized SharePoint website on Windows Azure, an organization must deploy an Active Directory domain in the cloud and provision new VMs into this domain. Then, a VM running SQL Server 2012 must be created and configured as part of a SharePoint farm. Finally, the SharePoint farm must be created, load balanced, and connected to Active Directory and SQL Server (<a href="Fig7">Figure 7</a>).
+To implement a completely customized SharePoint website on Windows Azure, an organization must deploy an Active Directory domain in the cloud and provision new VMs into this domain. Then, a VM running SQL Server 2012 must be created and configured as part of a SharePoint farm. Finally, the SharePoint farm must be created, load balanced, and connected to Active Directory and SQL Server (Figure 7).
 
-<a id="Fig7"></a><p class="caption">Figure 7: Completely customized SharePoint-based website</p>
+<p class="caption">Figure 7: Completely customized SharePoint-based website</p>
 <p><img src="../media/azure-sharepoint-wp-14.png" alt="" /></p>
 
 <h4>Setting Up the Scenario Environment</h4>
