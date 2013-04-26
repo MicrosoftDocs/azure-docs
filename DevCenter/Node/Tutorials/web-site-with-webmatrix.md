@@ -15,7 +15,7 @@ A screenshot of the completed application is below:
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-##Create a Windows Azure Web Site
+## Sign into Windows Azure
 
 Follow these steps to create a Windows Azure Web Site.
 
@@ -28,32 +28,30 @@ Follow these steps to create a Windows Azure Web Site.
 </div>
 <br />
 
-1. Login to the [Windows Azure Management Portal].
+1. Launch WebMatrix
+2. If this is the first time you've used WebMatrix, you will be prompted to sign into Windows Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Select to **Sign in** using your Microsoft Account.
 
-2. Click the **+ NEW** icon on the bottom left of the portal
+	![Add Account][addaccount]
 
-    ![The Windows Azure Portal with the +NEW link highlighted.][portal-new-website]
+3. If you have signed up for a Windows Azure account, you may log in using your Microsoft Account:
 
-3. Click **WEB SITE**, then **QUICK CREATE**. Enter a value for **URL** and select the datacenter for your web site in the **REGION** dropdown. Click the checkmark at the bottom of the dialog.
+	![Sign into Windows Azure][signin]	
 
-    ![The Quick Create dialog][portal-quick-create]
 
-4. Once the web site status changes to **Running**, click on the name of the web site to access the **Dashboard**
+## Create a site using a built in template for Windows Azure
 
-##Import the web site into WebMatrix and apply the Express template
+1. On the start screen, click the **New** button, and choose **Template Gallery** to create a new site from the Template Gallery:
 
-1. From the **Dashboard**, click the WebMatrix icon at the bottom of the page to open the web site in WebMatrix 2.
+	![New site from Template Gallery][sitefromtemplate]
 
-	![Launch WebMatrix][launch-webmatrix]
-
-2. If WebMatrix 2 is not installed, Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisites. WebMatrix will launch and display a dialog indicating **Empty Site Detected**. Click **Yes, install from the Template Gallery** to select a built-in template.
-
-	![empty site detected][empty-site-detected]
-
-3. In the **Site from Template** dialog, select **Node** and then select **Express Site**. Finally, click **Next**. If you are missing any prerequisites for the **Express Site** template, you will be prompted to install them.
+2. In the **Site from Template** dialog, select **Node** and then select **Express Site**. Finally, click **Next**. If you are missing any prerequisites for the **Express Site** template, you will be prompted to install them.
 
 	![select express template][webmatrix-templates]
 
+3. If you are signed into Windows Azure, you now have the option to create a Windows Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
+
+	![Create site on Windows Azure][nodesitefromtemplateazure]
+	
 4. After WebMatrix finishes building the web site, the WebMatrix IDE is displayed.
 
 	![webmatrix ide][webmatrix-ide]
@@ -122,3 +120,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-node-express-site]: ../media/webmatrix-express-webiste.png
 [webmatrix-modify-index]: ../media/webmatrix-node-edit.png
 [webmatrix-republish]: ../media/webmatrix-republish.png
+[addaccount]: ../../../Shared/media/webmatrix-add-account.png
+[signin]: ../../../Shared/media/webmatrix-sign-in.png
+[sitefromtemplate]: ../../../Shared/media/webmatrix-site-from-template.png
+[nodesitefromtemplateazure]: ../Media/webmatrix-node-site-azure.png
