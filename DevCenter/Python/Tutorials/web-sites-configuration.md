@@ -52,7 +52,7 @@ This handler will return the plain text “Hello from Windows Azure Websites” 
 
 There are 2 different options for configuring your Python application with Windows Azure Web Sites.
 
-**Option 1: Portal** 
+<h3 id="option1">Option 1: Portal</h3>
 
 1.1. Register the FastCGI handler via CONFIGURE tab in the Portal.
 For this example we use the FastCGI handler for Python included with Windows Azure Web Sites. To do the same use the following paths for your script processor and FastCGI handler argument:
@@ -70,7 +70,7 @@ The app settings are converted to environment variables. This is a mechanism you
 
 ![](../Media/configure-python-app-settings.png)
 
-**Option 2: web.config**  
+<h3 id="option2">Option 2: web.config</h3>
 The configuration alternative is to use a web.config file under the web site root for actions described below. Using the web.config option provides better portability potential for a web application. There are 2 approaches available to route requests to the web application: either set a handler that handles the * path, which instructs IIS to route every incoming request through Python; or set a specific path that Python will handle and subsequently employ URL Rewriting to redirect various URLs to our selected path.  In fact, we recommend the latter approach – using an empty handler file under the web site root to serve as the request target (handler.fcgi in our example) – for better performance. In the former scenario, all requests, including those for static content (e.g. image files and style sheets), will have to go through Python, subverting the optimizations the web server provides for accessing static files.  Employing the latter approach allows serving static content efficiently and invoking Python only when necessary.
 
 2.1. Specify the PYTHONPATH variable. 
