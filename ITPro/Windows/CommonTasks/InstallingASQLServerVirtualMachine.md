@@ -344,7 +344,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 [High Availability and Disaster Recovery for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294727)
 
 - Tutorial: AlwaysOn Availability Groups in Windows Azure 
-- Tutorial: AlwaysOn Availability Groups in Hybird IT
+- Tutorial: AlwaysOn Availability Groups in Hybrid IT
 - Tutorial: Database Mirroring for High Availability in Windows Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Windows Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
