@@ -98,13 +98,12 @@ configuration:
 	
 ### Configuring your connection string using .NET configuration
 
-Unless you are using Windows Azure Cloud Services (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`).  This includes Windows Azure Web Sites or Windows Azure Virtual Machines, as well as applications designed to run outside of Windows Azure.  You store the connection string using the `<connectionStrings>` element as follows:
+If you are writing an application that is not a Windows Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. `web.config` or `app.config`).  This includes Windows Azure Web Sites or Windows Azure Virtual Machines, as well as applications designed to run outside of Windows Azure.  You store the connection string using the `<appSettings>` element as follows:
 
 	<configuration>
-	    <connectionStrings>
-		    <add name="StorageConnectionString"
-			     connectionString="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
-		</connectionStrings>
+  		<appSettings>
+    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey" />
+  		</appSettings>
 	</configuration>
 
 Read [Configuring Connection Strings][] for more information on storage connection strings.
@@ -116,7 +115,7 @@ You are now ready to perform the how-to tasks in this guide.
 <h3>Obtaining the assembly</h3>
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Windows Azure Storage package and dependencies.
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Windows Azure SDK for .NET October 2012, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref\` directory.
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Windows Azure SDK for .NET 2.0, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\v2.0\ref\` directory.
 
 <h3>Namespace declarations</h3>
 Add the following code namespace declarations to the top of any C\# file

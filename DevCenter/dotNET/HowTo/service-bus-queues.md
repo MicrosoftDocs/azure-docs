@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 
@@ -32,7 +32,7 @@ corresponding namespaces.
 1.  In Visual Studio's **Solution Explorer**, right-click
     **References**, and then click **Add Reference**.
 
-2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-06\\ref and add a **Microsoft.ServiceBus.dll** reference.
+2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\v2.0\\ref and add a **Microsoft.ServiceBus.dll** reference.
 
 ### Import the Service Bus Namespaces
 

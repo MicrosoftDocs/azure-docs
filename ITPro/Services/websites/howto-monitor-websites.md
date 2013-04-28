@@ -18,7 +18,7 @@ Web sites provide monitoring functionality via the Monitor management page. The 
 
 ##<a name="websitemetrics"></a>How to: Add web site metrics
 
-1. In the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/), from the web site's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
+1. In the [Windows Azure Management Portal](http://manage.windowsazure.com/), from the web site's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the web site, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 
 

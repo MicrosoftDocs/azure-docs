@@ -1,13 +1,13 @@
-<properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" urlDisplayName="Upload images by using Mobile Services" pageTitle="Upload images to Windows Azure Storage by using Mobile Services" metaKeywords="" metaDescription="Learn how to use Mobile Services to upload images to Windows Azure Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" writer="glenga" urlDisplayName="Upload images by using Mobile Services" pageTitle="Upload images to Windows Azure Storage by using Mobile Services" metaKeywords="" metaDescription="Learn how to use Mobile Services to upload images to Windows Azure Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="article-left-menu-windows-store" umb_chunkpath="devcenter/mobile" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Upload images to Windows Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/upload-blob-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-<!--    <a href="/en-us/develop/mobile/tutorials/upload-blob-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/upload-blob-data-wp8" title="Windows Phone 8">Windows Phone 8</a>
-	<a href="/en-us/develop/mobile/tutorials/upload-blob-data-ios" title="iOS">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+<!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone 8</a>
+	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-ios" title="iOS">iOS</a> 
 -->
 </div>	
 

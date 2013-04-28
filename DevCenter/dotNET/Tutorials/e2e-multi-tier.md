@@ -1,4 +1,4 @@
-<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mollybos" manager="dwrede"/>
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -113,7 +113,7 @@ to get the tools and set-up your development environment.
 
     ![][3]
 
-5.  In the Web Platform Installer, click **Install** and proceed with the installation:
+5.  In the Web Platform Installer, click **Add** and proceed with the installation:
 
     ![][4]
 
@@ -618,7 +618,7 @@ To learn more about multi-tier scenarios, see:
   [2]: ../Media/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ../Media/getting-started-3.png
-  [4]: ../Media/getting-started-4-WebPI.png
+  [4]: ../Media/getting-started-4-WebPI2.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com

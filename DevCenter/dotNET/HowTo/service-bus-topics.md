@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for .NET applications. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for .NET applications. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 
@@ -27,7 +27,7 @@ corresponding namespaces.
 1.  In Visual Studio's **Solution Explorer**, right-click
     **References**, and then click **Add Reference**.
 
-2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-06\\ref and add a **Microsoft.ServiceBus.dll** reference.
+2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\v2.0\\ref and add a **Microsoft.ServiceBus.dll** reference.
 
 ### Import the Service Bus Namespaces
 

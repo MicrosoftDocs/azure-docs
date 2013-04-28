@@ -95,24 +95,36 @@ The **Publish Web** wizard opens.
 ![Import publish settings][ImportPublishSettings]
 The **Import Publish Profile** dialog box appears.
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
-    1. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
-    ![add win az sub](../Media/rzAddWAsub.png)
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
-    ![download sub](../Media/rzDownLoad.png)
-    1. In your browser window, save the *.publishsettings* file.<br/>
-    ![download pub file](../Media/rzDown2.png)
-    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
-    1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
-    ![download sub](../Media/rzDownLoad.png)
-    1. Click **Import**.<br/>
-    ![import](../Media/rzImp.png)
+    
+	a.  In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**.<br/> 
+    
+	![add Windows Azure subscription](../Media/rzAddWAsub.png)
+    
+	b.  In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+    
+	![download subscription file](../Media/rzDownLoadDownload.png)
+    
+	c.  In your browser window, save the *.publishsettings* file.<br/>
+    
+	![download .publishsettings file](../Media/rzDown2.png)<br/>
+    
+	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+
+	d.  In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+
+    ![download sub](../Media/rzDownLoadBrowse.png)
+
+	e.  Click **Import**.<br/>
+    
+	![import](../Media/rzImp.png)
+
 7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
 ![Import Publish Profile][ImportPublishProfile]
 8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
 ![Validate connection][ValidateConnection]<br/>
 9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. Click **Next**.<br/>
 ![Successfully validated connection][ValidateConnectionSuccess]
-10. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server.<br/>
+10. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.<br/>
 Click **Next**.<br/>
 ![Settings tab][PublishWebSettingsTab]
 11. In the **Preview** tab, click **Start Preview**.<br/>

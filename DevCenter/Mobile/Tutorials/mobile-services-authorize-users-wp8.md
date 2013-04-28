@@ -3,14 +3,19 @@
 <div chunk="../chunks/article-left-menu-wp8.md" />
 
 # Use scripts to authorize users in Mobile Services
-<div class="dev-center-tutorial-selector"> 
+<div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a> 
 </div>	
 
 
-This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Phone 8 app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
 
-This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with authentication]. Before you start this tutorial, you must first complete [Get started with authentication].  
+<p>This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Phone 8 app. In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.</p>
+<p>This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">Get started with authentication</a>. Before you start this tutorial, you must first complete <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">Get started with authentication</a>.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">15:00</span></div>
+</div> 
 
 ## <a name="register-scripts"></a>Register scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.
