@@ -145,7 +145,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 <h3 id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</h3>
 
-1. On the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
+1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, on the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
 
 
     ![Start the Firewall Program] [Image12]
@@ -342,7 +342,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 [High Availability and Disaster Recovery for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294727)
 
 - Tutorial: AlwaysOn Availability Groups in Windows Azure 
-- Tutorial: AlwaysOn Availability Groups in Hybird IT
+- Tutorial: AlwaysOn Availability Groups in Hybrid IT
 - Tutorial: Database Mirroring for High Availability in Windows Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Windows Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
@@ -350,7 +350,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 
 [Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294728)
 
-[SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=29472)
+[SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294729)
 
 
 

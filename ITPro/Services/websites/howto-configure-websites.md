@@ -6,7 +6,7 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-In the Windows Azure (Preview) Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
+In the Windows Azure Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
 
 ## Table of Contents ##
 - [How to: Change configuration options for a web site](#howtochangeconfig)
@@ -24,9 +24,14 @@ Follow these steps to change configuration options for a web site.
 	<li>Set the following configuration options for the web site as appropriate:
 	<ul>
 	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
-	<li style="margin-left: 40px"><strong>certificates</strong> - Click <strong>upload</strong> to upload an SSL certificate for a custom domain (custom domains are available only in Shared and Reserved modes). The certificates you upload are listed here. After you upload a certificate, you can assign it to any web site in your subscription and region. A "star" certificate (one with an asterisk) only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.</li>
 <li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in Shared and Reserved modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see [Configuring a custom domain name for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/).</li>
-<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode for a particular domain name. You can specify a certificate for the domain from the certificates you have uploaded.</li>
+<li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
+<ul>
+<li><strong>Git URL</strong> – If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
+<li><strong>Deployment Trigger URL</strong> – This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
+<li><strong>Branch to Deploy</strong> – This lets you specify the branch that will be deployed when you push content to it.</li>
+</ul>
+</li>
 <li style="margin-left: 40px"><strong>application diagnostics</strong> - Set options for gathering diagnostic traces from a web application whose code has been instrumented with traces. The logging options for application diagnostics include:<ul><li><strong>Application Logging (File System)</strong> - Choose <strong>On</strong> to have the application logs written to the web site's file system. When enabled, file system logging lasts for a period of 12 hours. You can access the logs from the FTP share for the web site. The link to the FTP share can be found on the <strong>Dashboard</strong>. Under <strong>Quick Glance</strong>, choose <strong>FTP Diagnostic Logs</strong> or <strong>FTPS Diagnostic Logs</strong>.</li>
 
 <li><strong>Application Logging (Storage)</strong> - Choose <strong>On</strong> to have your application logs written to a Windows Azure storage account. Logging to a storage account has no time limit and stays enabled until you disable it. By default, the logs are stored in a table called WAWSAppLogTable.</li>
@@ -34,13 +39,13 @@ Follow these steps to change configuration options for a web site.
 <li><strong>Diagnostic Storage</strong> – Clicking <strong>Manage Connection</strong> opens the <strong>Manage diagnostic storage</strong> dialog with the following options for saving logs to your Azure storage account:
 <ul>
 <li><strong>Storage Account Name</strong> - Choose the storage account to which you would like to have the logs saved.</li>
-<li><strong>Storage Account Key</strong> - Displays the key for the chosen storage account. If you have regenerated the key for the storage account, type the new key here manually, or use one of the <strong>Synchronize</strong> buttons. The synchronize buttons are available only if the currently logged on user has access to the selected storage account.
+<li><strong>Storage Access Key</strong> - Displays the key for the chosen storage account. If you have regenerated the key for the storage account, type the new key here manually, or use one of the <strong>Synchronize</strong> buttons. The synchronize buttons are available only if the currently logged on user has access to the selected storage account.
 </li>
 <li><strong>Synchronize Primary Key</strong> - Retrieves the latest primary key of your Windows Azure Storage account.
 </li>
 <li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Windows Azure Storage account.
 <br /><strong>Note:</strong> 
-For more information about Windows Azure Storage Account Keys, see [How to: View, copy, and regenerate storage access keys](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/ "How to: View, copy, and regenerate storage access keys").
+For more information about Windows Azure Storage Access Keys, see [How to: View, copy, and regenerate storage access keys](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/ "How to: View, copy, and regenerate storage access keys").
 </li></ul></li></ul></li>
 <li style="margin-left: 40px"><strong>site diagnostics</strong> – Set options for gathering diagnostic 
 	information for your web site, including:
@@ -66,9 +71,9 @@ For more information about Windows Azure Storage Account Keys, see [How to: View
 	available as environment variables at runtime.</li>
 	<li><strong>connection strings</strong> – View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP 
 	and Node sites these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: <br />
-<ul><li>SqlServer: SQLCONNSTR_</li>
-<li>MySql: MYSQLCONNSTR_</li>
-<li>Sql Azure: SQLAZURECONNSTR_</li>
+<ul><li>SQL Server: SQLCONNSTR_</li>
+<li>MySQL: MYSQLCONNSTR_</li>
+<li>SQL Database: SQLAZURECONNSTR_</li>
 <li>Custom: CUSTOMCONNSTR_</li></ul>For example, if a MySql connection string were named connectionstring1, it would be accessed through the environment variable <code>MYSQLCONNSTR_connectionString1</code>.
 	<br /><strong>Note</strong>: Connection strings are created when you link a database resource to a web site and are read only when viewed on the 
 	configuration management page.</li>

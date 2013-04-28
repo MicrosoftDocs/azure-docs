@@ -37,21 +37,21 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
     </div>
 
-2. In the URL of the page, make a note of the integer value after `#project:`. 
+2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 
 
-	This is your project number. Later in the tutorial you set this value as the SENDER_ID variable in the client.
+	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
 3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toogle to turn on **Google Cloud Messaging for Android** and accept the terms of service. 
 
-3. Click **API Access**, and then click **Create new Server key...** 
+4. Click **API Access**, and then click **Create new Server key...** 
 
    ![][2]
 
-4. In **Configure Server Key for API Project**, click **Create**.
+5. In **Configure Server Key for API Project**, click **Create**.
 
 	![][3]
 
-5. Make a note of the **API key** value.
+6. Make a note of the **API key** value.
 
 	![][4] 
 
@@ -59,11 +59,11 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 <a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
 
-2. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
    ![][18]
 
-11. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
+2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
 
    ![][19]
 
@@ -77,13 +77,13 @@ You mobile service is now configured to work with GCM to send push notifications
 
 	![][5]
 
-3. Repeat the previous step to install the **Google APIs** for the current version of Android.
+3. In the Android SDK Manager, under the **Android n.m (API x)** node, check **Google APIs**, then click **Install**. 
 
-3. Browse to the SDK path, and copy the `gcm.jar` file from the `\extras\google\gcm\gcm-client\dist` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
+4. Browse to the SDK path (usually in a folder named `adt-bundle-windows-x86_64`), and copy the `gcm.jar` file from the `\extras\google\gcm\gcm-client\dist` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
 
 	The `gcm.jar` library file is now shown in your project.
 
-4. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
+5. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -92,7 +92,7 @@ You mobile service is now configured to work with GCM to send push notifications
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-5. Add the following code into the `application` element: 
+6. Add the following code into the `application` element: 
 
         <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -104,9 +104,11 @@ You mobile service is now configured to work with GCM to send push notifications
         </receiver>
         <service android:name=".GCMIntentService" />
 
-5. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
+7. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API.
 
-6. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
+8. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
+
+9. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
 
 		@com.google.gson.annotations.SerializedName("channel")
 		private String mRegistrationId;
@@ -115,7 +117,7 @@ You mobile service is now configured to work with GCM to send push notifications
 			return mRegistrationId;
 		}
 
-		public final void setRegistrationId(String registrationId) {
+		public final void getRegistrationId(String registrationId) {
 			mRegistrationId = registrationId;
 		}
 
@@ -125,16 +127,16 @@ You mobile service is now configured to work with GCM to send push notifications
 	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
-7.  Open the file ToDoItemActivity.java, and add the following import statement:
+10.  Open the file ToDoItemActivity.java, and add the following import statement:
 
 		import com.google.android.gcm.GCMRegistrar;
 
-8. Add the following private variables to the class, where _`<SENDER_ID>`_ is the project ID assigned by Google to your app in the first procedure:
+11. Add the following private variables to the class, where _`<PROJECT_ID>`_ is the project ID assigned by Google to your app in the first procedure:
 
 		private String mRegistationId;
-		public static final String SENDER_ID = "<SENDER_ID>";
+		public static final String SENDER_ID = "<PROJECT_ID>";
 
-9. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
+12. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
 
 		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
@@ -143,43 +145,36 @@ You mobile service is now configured to work with GCM to send push notifications
 			GCMRegistrar.register(this, SENDER_ID);
 		}
 
-	This code gets the registration ID for the device.
+	This code get the registration ID for the device.
 
-10. Add the following line of code to the **addItem** method:
+13. Add the following line of code to the **addItem** method:
 
-		item.setRegistrationId(mRegistationId.equals("") ?
-			GCMIntentService.getRegistrationId() : mRegistationId);
+		item.setRegistrationId(mRegistationId);
 
 	This code sets the registrationId property of the item to the registration ID of the device.
 
-11. In the Package Explorer, right-click the package, click **New**, click **Class**.
+14. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-12. In **Name** type `GCMIntentService`, in **Superclass** type `com.google.android.gcm.GCMBaseIntentService`, then click **Finish**
+15. In **Name** type `GCMIntentService`, in **Superclass** type `com.google.android.gcm.GCMBaseIntentService`, then click **Finish**
 
 	![][6]
 
 	This creates the new GCMIntentService class.
 
-13. Add the following import statements:
+16. Add the following import statements:
 
 		import android.app.NotificationManager;
 		import android.support.v4.app.NotificationCompat;
 
-14. In the new class, add the following static variable and constructor:
-
-		private static String sRegistrationId;
-
-		public static String getRegistrationId() {
-			return sRegistrationId;
-		}
+17. In the new class, add the following constructor:
 
 		public GCMIntentService(){
-			super(ToDoActivity.SENDER_ID);
+		super(ToDoActivity.SENDER_ID);
 		}
 
 	This code invokes the Superclass constructor with the app `SENDER_ID` value of the app.
 
-15. Replace the existing onMessage and onRegistered method overrides with the following code:
+18. Replace the existing onMessage method override with the following code:
 
 		@Override
 		protected void onMessage(Context context, Intent intent) {
@@ -196,13 +191,8 @@ You mobile service is now configured to work with GCM to send push notifications
 			
 		}
 
-		@Override
-		protected void onRegistered(Context context, String registrationId) {
-			sRegistrationId = registrationId;
-		}
-
     <div class="dev-callout"><b>Note</b>
-	<p>In this tutorial, only the <strong>onMessage</strong> and <strong>onRegistered</strong> overrides are implemented. In a real-world app you should consider implementing all four method overrides.</p>
+	<p>In this tutorial, only the <strong>onMessage</strong> override is implemented. In a real-world app you should consider implementing all four method overrides.</p>
     </div>
 
 Your app is now updated to support push notifications.
@@ -228,9 +218,9 @@ Your app is now updated to support push notifications.
 					request.respond();
 					push.gcm.send(item.channel, item.text, {
 						success: function(response) {
-							console.log('Push notification sent: ', response);
+							console.log(‘Push notification sent: ’, response);
 						}, error: function(error) {
-							console.log('Error sending push notification: ', error);
+							console.log(‘Error sending push notification: ’, error);
 						}
 					});
 				}
@@ -267,7 +257,11 @@ Your app is now updated to support push notifications.
 
   ![][26]
 
-6. Verify that a notification is received.
+6. You will see an icon appear in the upper left corner of the emulator, which we have outlined in red to emphasize it (the red does not appear on the actual screen). 
+
+  ![][28]
+
+7. Click the icon to display the notification, which appears in the graphic below.
 
   ![][27]
 
@@ -312,11 +306,12 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [25]: ../Media/mobile-services-android-virtual-device-manager-edit.png
 [26]: ../Media/mobile-quickstart-push1-android.png
 [27]: ../Media/mobile-quickstart-push2-android.png
-
+[28]: ../Media/mobile-push-icon.png
 
 <!-- URLs. -->
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280126
+[Android Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-android.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-android.md

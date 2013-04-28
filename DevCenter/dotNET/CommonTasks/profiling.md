@@ -1,4 +1,4 @@
-<properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" pageTitle="Use Performance Counters in Windows Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" metaDescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" pageTitle="Use Performance Counters in Windows Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" metaDescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="ryanwi"/>
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -6,70 +6,93 @@
 
 You can use performance counters in a Windows Azure application to
 collect data that can help determine system bottlenecks and fine-tune
-system and application performance. Windows Azure provides a subset of
-the performance counters available for Windows Server 2008, IIS and
-ASP.NET. For a list of the performance counters that might be of
-interest in Windows Azure applications, see [Overview of Creating and Using Performance Counters in a Windows Azure Application][].
+system and application performance. Performance counters available for Windows Server 2008, Windows Server 2012, IIS and ASP.NET can be collected and used to determine the health of your Windows Azure application. 
+
+This topic explains how to enable performance counters in your application using the diagnostics.wadcfg configuration file. For information on monitoring the performance of your application in the [Windows Azure Management Portal][], see [How to Monitor Cloud Services][]. For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems and optimize Windows Azure applications, see [Troubleshooting Best Practices for Developing Windows Azure Applications][].
 
 This task includes the following steps:
 
--   [Step 1: Collect data from performance counters][]
+-   [Prerequisites][]
+-   [Step 1: Collect and store data from performance counters][]
 -   [Step 2: (Optional) Create custom performance counters][]
 -   [Step 3: Query performance counter data][]
+-   [Next Steps][]
+-   [Additional Resources][]
 
-## <a name="step1"> </a>Step 1: Collect data from performance counters
+## <a name="prereqs"> </a>Prerequisites
 
-You configure the collection of performance counter data in a Windows
-Azure application by using the [GetDefaultInitialConfiguration][]
-method, adding the [PerformanceCounters][] data source with an instance
-of a [PerformanceCounterConfiguration][], and then calling the [Start][]
-method with the changed configuration. Perform the following steps to
-collect data from performance counters.
+This article assumes that you have imported the Diagnostics monitor into your application and added the diagnostics.wadcfg configuration file to your Visual Studio solution.  See steps 1 and 2 in [Enabling Diagnostics in Windows Azure][] for more information.
 
-1.  Open the source file for the role.
+## <a name="step1"> </a>Step 1: Collect and store data from performance counters
 
-    **Note**: The code in the following steps is typically added to
-    the **OnStart** method of the role.
+After you have added the diagnostics.wadcfg file to your Visual Studio solution you can configure the collection and storage of performance counter data in a Windows Azure application.  This is done by adding performance counters to the diagnostics.wadcfg file.  Diagnostics data, including performance counters, is first collected on the instance.  The data is then persisted to the **WADPerformanceCountersTable** table in the Windows Azure Table service, so you will also need to specify the storage account in your application. If you're testing your application locally in the Compute Emulator, you can also store diagnostics data locally in the Storage Emulator. Before you store diagnostics data you must first go to the [Windows Azure Management Portal][] and create a storage account. A best practice is to locate your storage account in the same geo-location as your Windows Azure application in order to avoid paying external bandwidth costs and to reduce latency.
 
-2.  Get an instance of the diagnostic monitor configuration. The
-    following code example shows how to get the default diagnostic
-    monitor configuration object:
+### Add performance counters to the diagnostics.wadcfg file
 
-        var config = DiagnosticMonitor.GetDefaultInitialConfiguration();
+There are many performance counters that you can collect, the following example shows several performance counters that are recommended for web and worker role monitoring. 
 
-3.  Specify the performance counters to monitor. The following example
-    shows the performance counter being added to the diagnostic monitor
-    configuration:
+Open the diagnostics.wadcfg file and add the following to the **DiagnosticMonitorConfiguration** element:
 
-        config.PerformanceCounters.DataSources.Add(
-         new PerformanceCounterConfiguration())
-         {
-             CounterSpecifier = @"\Processor(_Total)\% Processor Time",
-             SampleRate = TimeSpan.FromSeconds(5)
-         });
+		<PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
+		<PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT30S" />
+		<!-- Use the Process(w3wp) category counters in a web role -->
+		<PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\% Processor Time" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Private Bytes" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Thread Count" sampleRate="PT30S" />
+		<!-- Use the Process(WaWorkerHost) category counters in a worker role.
+		<PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\% Processor Time" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Private Bytes" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Thread Count" sampleRate="PT30S" /> 
+ 		-->
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR Interop(_Global_)\# of marshalling" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR Loading(_Global_)\% Time Loading" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR Memory(_Global_)\# Bytes in all Heaps" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR Networking(_Global_)\Connections Established" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR Remoting(_Global_)\Remote Calls/sec" sampleRate="PT30S" />
+		<PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
+		</PerformanceCounters>    
 
-4.  Start the diagnostic monitor with the changed configuration. The
-    following code example shows how to start the monitor:
+The **bufferQuotaInMB** attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Windows Azure logs, IIS logs, etc.). The default is 0.  When the quota is reached, the oldest data is deleted as new data is added. The sum of all the **bufferQuotaInMB** properties must be greater than the value of the **OverallQuotaInMB** attribute.  For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Windows Azure Applications][].
 
-        DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);
+The **scheduledTransferPeriod** attribute, which specifies the interval between scheduled transfers of data, rounded up to the nearest minute. In the following examples it is set to PT30M (30 minutes). Setting the transfer period to a small value, such as 1 minute, will adversely impact your application's performance in production but can be useful for seeing diagnostics working quickly when you are testing.  The scheduled transfer period should be small enough to ensure that diagnostic data is not overwritten on the instance, but large enough that it will not impact the performance of your application.
 
-    **Note**: This code example shows the use of a connection string.
-    For more information about using connection strings, see [How to Configure Connection Strings][].
+The **counterSpecifier** attribute specifies the performance counter to collect.
 
-5.  Save and build the project, and then deploy the application.
+The **sampleRate** attribute specifies the rate at which the performance counter should be sampled, in this case 30 seconds.
 
-When these steps have been completed, performance counter data is
-collected by the Windows Azure diagnostics monitor.
+Once you've added the performance counters that you want to collect, save your changes to the diagnostics.wadcfg file.  Next, you need to specify the storage account that the diagnostics data will be persisted to.
+
+### Specify the storage account
+
+To persist your diagnostics information to your Azure Storage account, you must specify a connection string in your service configuration (ServiceConfiguration.cscfg) file.  Windows Azure Tools for Visual Studio version 1.4 (August 2011) and later allows you to have different configuration files (ServiceConfiguration.cscfg) for Local and Cloud. Multiple service configurations are useful for diagnostics because you can use the Storage Emulator for local testing free of charge while maintaining a separate configuration file for production.
+
+To set the connection strings:
+
+1.  Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage account:
+
+        <ConfigurationSettings>
+          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
+        </ConfigurationSettings>
+
+    The **AccountName** and **AccountKey** values are found in the Management Portal in the storage account dashboard, under **Manage Keys**.
+
+2.  Save the ServiceConfiguration.Cloud.cscfg file.
+3.  Open the ServiceConfiguration.Local.cscfg file and verify that **UseDevelopmentStorage** is set to true (the default).
+
+		<ConfigurationSettings>
+      	   <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+		</ConfigurationSettings>
+
+	Now that the connection strings are set, your application will persist diagnostics data to your storage account when your application is deployed.  
+4. Save and build your project, then deploy your application.
 
 ## <a name="step2"> </a>Step 2: (Optional) Create custom performance counters
 
-You can add new custom performance counters to the diagnostic monitor
-configuration from within your application by using the custom category
-and counter names to create [PerformanceCounterConfiguration][1]
-instances for each counter and adding them to the
-[PerformanceCounters][] data source collection in the
-[DiagnosticMonitorConfiguration][]. Perform the following steps to
-create custom performance counters.
+In addition to the pre-defined performance counters, you can add your own custom performance counters to monitor web or worker roles.  Custom performance counters may be used to track and monitor application-specific behavior and can be created or deleted in a startup task, web role, or worker role with elevated permissions.
+
+Perform the following steps to create a simple custom performance counter named "\MyCustomCounterCategory\MyButton1Counter":
 
 1.  Open the service definition file (CSDEF) for your application.
 2.  Add the **Runtime** element to the **WebRole** or **WorkerRole**
@@ -78,15 +101,18 @@ create custom performance counters.
         <Runtime executionContext="elevated" />
 
 3.  Save the file.
-4.  Open the source file for the role.
-5.  Add the following **using** statement if not already present:
+4.  Open the diagnostics.wadcfg file and add the following to the **DiagnosticMonitorConfiguration** element:
 
-        using System.Diagnostics;
+		<PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
+		<PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
+		</PerformanceCounters>		
 
+5.	Save the file.
 6.  Create the custom performance counter category in the **OnStart**
-    method of your role. The following example creates a custom category
-    with two counters, if it does not already exist:
+    method of your role, before invoking **base.OnStart**. The following C# example creates a custom category, if it does not already exist:
 
+		public override bool OnStart()
+        {
         if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
         {
            CounterCreationDataCollection counterCollection = new CounterCreationDataCollection();
@@ -97,13 +123,6 @@ create custom performance counters.
            operationTotal1.CounterHelp = "My Custom Counter for Button1";
            operationTotal1.CounterType = PerformanceCounterType.NumberOfItems32;
            counterCollection.Add(operationTotal1);
-
-           // add a counter tracking user button2 clicks
-           CounterCreationData operationTotal2 = new CounterCreationData();
-           operationTotal2.CounterName = "MyButton2Counter";
-           operationTotal2.CounterHelp = "My Custom Counter for Button2";
-           operationTotal2.CounterType = PerformanceCounterType.NumberOfItems32;
-           counterCollection.Add(operationTotal2);
 
            PerformanceCounterCategory.Create(
              "MyCustomCounterCategory",
@@ -116,148 +135,142 @@ create custom performance counters.
            Trace.WriteLine("Custom counter category already exists.");
         }
 
-7.  Add the new custom performance counters to the Diagnostic Monitor
-    configuration and start the Diagnostic Monitor in the **OnStart**
-    method before invoking **base.OnStart**:
+		return base.OnStart();
+        }
 
-        DiagnosticMonitorConfiguration config =
-          DiagnosticMonitor.GetDefaultInitialConfiguration();
-        config.PerformanceCounters.ScheduledTransferPeriod =
-          TimeSpan.FromMinutes(2D);
-        config.PerformanceCounters.BufferQuotaInMB = 512;
-        TimeSpan perfSampleRate = TimeSpan.FromSeconds(30D);
-
-        // Add configuration settings for custom performance counters.
-        config.PerformanceCounters.DataSources.Add(
-          new PerformanceCounterConfiguration()
-        {
-          CounterSpecifier = @"\MyCustomCounterCategory\MyButton1Counter",
-                SampleRate = perfSampleRate
-        });
-
-        config.PerformanceCounters.DataSources.Add(
-          new PerformanceCounterConfiguration()
-        {
-          CounterSpecifier = @"\MyCustomCounterCategory\MyButton2Counter",
-                SampleRate = perfSampleRate
-        });
-
-        // Apply the updated configuration to the diagnostic monitor.    
-        DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", config);
-
-8.  Update the counters within your application. The following example
+7.  Update the counters within your application. The following example
     updates a custom performance counter on **Button1_Click** events:
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-          button1Counter = new PerformanceCounter(
-            "MyCustomCounterCategory",
-            "MyButton1Counter",
-            string.Empty,
-            false);
+		   PerformanceCounter button1Counter = new PerformanceCounter(
+		      "MyCustomCounterCategory",
+		      "MyButton1Counter",
+		      string.Empty,
+		      false);
 
-          button1Counter.Increment();
-          this.Button1.Text = "Button 1 count: " +
-            button1Counter.RawValue.ToString();
+		   button1Counter.Increment();
+		   this.Button1.Text = "Button 1 count: " +
+		      button1Counter.RawValue.ToString();
         }
 
-9.  Save and build the project, and then deploy the application.
+8.  Save the file.
 
 When these steps have been completed, custom performance counter data is
 collected by the Windows Azure diagnostics monitor.
 
 ## <a name="step3"> </a>Step 3: Query performance counter data
 
-After you configure the Windows Azure diagnostic monitor to collect and
-transfer performance counter data to Windows Azure storage, you can
-access that data for reporting. You report performance counter data in a
-Windows Azure application by enumerating the results of executing a
-[CloudTableQuery][] query against the **WADPerformanceCountersTable** in
-Windows Azure storage. Perform the following steps to query performance
-counter data.
+Once your application is deployed and running the Diagnostics monitor will begin collecting performance counters and persisting that data to Windows Azure storage. You use tools such as **Server Explorer in Visual Studio**, [Azure Storage Explorer][], or [Azure Diagnostics Manager][] by Cerebrata to view the performance counters data in the **WADPerformanceCountersTable** table.  You can also programatically query the Table service using [C#][], [Java][], [Node.js][], [Python][], or [PHP][].  
 
-1.  Open the source file for the role to contain the code.
-2.  Add the following **using** statements if they have not already been
-    added:
+The following C# example shows a simple query against the **WADPerformanceCountersTable** table and saves the diagnostics data to a CSV file. Once the performance counters are saved to a CSV file you can use the graphing capabilities in Microsoft Excel or some other tool to visualize the data.  Be sure to add a reference to Microsoft.WindowsAzure.Storage.dll, which is included in the Windows Azure SDK for .NET October 2012 and later. The assembly is installed to the %Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\version-num\ref\ directory.
 
-        using System.Linq;
-        using Microsoft.WindowsAzure;
-        using Microsoft.WindowsAzure.StorageClient;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Auth;
+		using Microsoft.WindowsAzure.Storage.Table;
 
-3.  Create a class to represent the table schema for performance counter
-    table queries:
+		...
 
-        public class PerformanceCountersEntity : TableServiceEntity
-        {
-          public long EventTickCount { get; set; }
-          public string DeploymentId { get; set; }
-          public string Role { get; set; }
-          public string RoleInstance { get; set; }
-          public string CounterName { get; set; }
-          public string CounterValue { get; set; }
-        }
+		// Get the connection string. When using Windows Azure Cloud Services, it is recommended 
+		// you store your connection string using the Windows Azure service configuration
+		// system (*.csdef and *.cscfg files). You can you use the CloudConfigurationManager type 
+		// to retrieve your storage connection string.  If you're not using Cloud Services, it's
+		// recommended that you store the connection string in your web.config or app.config file.
+		// Use the ConfigurationManager type to retrieve your storage connection string.
+		
+		string connectionString = Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
+		//string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString;
+            
+		// Get a reference to the storage account using the connection string.  You can also use the development storage account (Storage Emulator)
+		// for local debugging.              
+		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+		//CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
 
-4.  Get an instance of the table service context. The following code
-    example shows how to get the default diagnostic monitor table
-    service context:
+		// Create the table client.
+		CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-          "Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString");
-              CloudTableClient cloudTableClient =
-          storageAccount.CreateCloudTableClient();
-              TableServiceContext serviceContext =
-          cloudTableClient.GetDataServiceContext();
+		// Create the CloudTable object that represents the "WADPerformanceCountersTable" table.
+		CloudTable table = tableClient.GetTableReference("WADPerformanceCountersTable");
 
-5.  Create a query to specify which table entries to return. The
-    following example returns processor CPU utilization entries from the
-    last five minutes for the current role instance:
+		// Create the table query, filter on a specific CounterName, DeploymentId and RoleInstance.
+		TableQuery<PerformanceCountersEntity> query = new TableQuery<PerformanceCountersEntity>()
+			.Where(
+				TableQuery.CombineFilters(
+					TableQuery.GenerateFilterCondition("CounterName", QueryComparisons.Equal, @"\Processor(_Total)\% Processor Time"),
+					TableOperators.And,
+					TableQuery.CombineFilters(                        
+						TableQuery.GenerateFilterCondition("DeploymentId", QueryComparisons.Equal, "ec26b7a1720447e1bcdeefc41c4892a3"),
+						TableOperators.And,
+						TableQuery.GenerateFilterCondition("RoleInstance", QueryComparisons.Equal, "WebRole1_IN_0")                        
+                    )
+				)
+			);
 
-        IQueryable<PerformanceCountersEntity> performanceCountersTable =
-          serviceContext.CreateQuery<PerformanceCountersEntity>(
-            "WADPerformanceCountersTable");
-        var selection = from row in performanceCountersTable
-          where row.EventTickCount > DateTime.UtcNow.AddMinutes(-5.0).Ticks
-          && row.CounterName.Equals(@"\Processor(_Total)\% Processor Time")
-          select row;
+		// Execute the table query.
+		IEnumerable<PerformanceCountersEntity> result = table.ExecuteQuery(query);
 
-        CloudTableQuery<PerformanceCountersEntity> query =
-          selection.AsTableServiceQuery<PerformanceCountersEntity>();
+		// Process the query results and build a CSV file.
+		StringBuilder sb = new StringBuilder("TimeStamp,EventTickCount,DeploymentId,Role,RoleInstance,CounterName,CounterValue\n");
+            
+		foreach (PerformanceCountersEntity entity in result)
+		{
+			sb.Append(entity.Timestamp + "," + entity.EventTickCount + "," + entity.DeploymentId + "," 
+				+ entity.Role + "," + entity.RoleInstance + "," + entity.CounterName + "," + entity.CounterValue+"\n");
+		}
 
-        // Use the Execute command explicitly on the TableServiceQuery to
-        // take advantage of continuation tokens automatically and get all the data.
-        IEnumerable<PerformanceCountersEntity> result = query.Execute();
+		StreamWriter sw = File.CreateText(@"C:\temp\PerfCounters.csv");
+		sw.Write(sb.ToString());
+		sw.Close();
 
-    **Note:** For more information about query syntax, see [LINQ: .NET Language-Integrated Query][].
+Entities map to C# objects using a custom class derived from **TableEntity**. The following code defines an entity class that represents a performance counter in the **WADPerformanceCountersTable** table.
 
-6.  Use the result to analyze and report on application performance:
+		public class PerformanceCountersEntity : TableEntity
+		{
+			public long EventTickCount { get; set; }
+			public string DeploymentId { get; set; }
+			public string Role { get; set; }
+			public string RoleInstance { get; set; }
+			public string CounterName { get; set; }
+			public double CounterValue { get; set; }                
+		}
 
-        List<PerformanceCountersEntity> list = result.ToList();
-            // Display list members here.
+## <a name="nextsteps"> </a>Next Steps
 
-7.  Save and build the project, and then deploy the application.
+Now that you've learned the basics of collecting performance counters, follow these links to learn how to implement more complex troubleshooting scenarios.
 
-When these steps have been completed, performance counter data is
-available for reporting.
+- [Troubleshooting Best Practices for Developing Windows Azure Applications][]
+- [How to Monitor Cloud Services][]
+- [How to Use the Autoscaling Application Block][]
+- [Building Elastic and Resilient Cloud Apps]
 
-## Additional Resources
+## <a name="additional"> </a>Additional Resources
 
+- [Enabling Diagnostics in Windows Azure][]
 - [Collecting Logging Data by Using Windows Azure Diagnostics][]
 - [Debugging a Windows Azure Application][]
-- [How to Use the Autoscaling Application Block][]
+
 
   [Overview of Creating and Using Performance Counters in a Windows Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411520.aspx
-  [Step 1: Collect data from performance counters]: #step1
+  [Prerequisites]: #prereqs
+  [Step 1: Collect and store data from performance counters]: #step1
   [Step 2: (Optional) Create custom performance counters]: #step2
   [Step 3: Query performance counter data]: #step3
-  [GetDefaultInitialConfiguration]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitor.getdefaultinitialconfiguration.aspx
-  [PerformanceCounters]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.performancecounters.aspx
-  [PerformanceCounterConfiguration]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.diagnostics.performancecounterconfiguration.aspx
-  [Start]: http://msdn.microsoft.com/en-us/library/windowsazure/ee772721.aspx
-  [How to Configure Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.performancecounterconfiguration.aspx
-  [DiagnosticMonitorConfiguration]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.aspx
-  [CloudTableQuery]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758648.aspx
-  [LINQ: .NET Language-Integrated Query]: http://msdn.microsoft.com/en-us/library/bb308959.aspx
+  [Next Steps]: #nextsteps
+  [Additional Resources]: #additional
+  
   [Collecting Logging Data by Using Windows Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
   [Debugging a Windows Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx
   [How to Use the Autoscaling Application Block]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/
+  [Troubleshooting Best Practices for Developing Windows Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
+  [Enabling Diagnostics in Windows Azure]: https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/
+  [How to use the Table Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
+  [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
+  [C#]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
+  [Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/
+  [Python]: http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
+  [PHP]: http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/
+  [Node.js]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/table-services/
+  [Building Elastic and Resilient Cloud Apps]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Diagnostics Manager]: http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx
+  [How to Monitor Cloud Services]: https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/

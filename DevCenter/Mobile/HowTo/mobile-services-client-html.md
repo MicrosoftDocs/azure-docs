@@ -19,6 +19,8 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 
 ## Table of Contents
 
+- [What is Mobile Services]
+- [Concepts]
 - [How to: Create the Mobile Services client]
 - [How to: Query data from a mobile service]
 	- [Filter returned data]
@@ -30,7 +32,7 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 - [How to: Modify data in a mobile service]
 - [How to: Delete data in a mobile service]
 - [How to: Display data in the user interface]
-- [How to: Cache authentication tokens]
+- [How to: Authenticate users]
 - [How to: Handle errors]
 - [How to: Use promises]
 - [How to: Customize request headers]
@@ -46,7 +48,7 @@ In your web editor, open the HTML file and add the following to the script refer
 
 	        <script src='//client/MobileServices.Web-1.0.0.min.js'></script>
 
-You must replace the placeholder `AppUrl` with the application URL of your mobile service. In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Getting Started with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript).
+In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order. You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Getting Started with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
 
 			var MobileServiceClient = WindowsAzure.MobileServiceClient;
 		    var client = new MobileServiceClient('AppUrl', 'AppKey');
@@ -103,7 +105,7 @@ Would be roughly translated (for the same request shown before) as
 			      AND assignee = 'david'
 			      AND difficulty = 'medium'
 
-The `where` statement above and the SQL query above find incomplete items assigned to "David" of "medium" difficulty.
+The `where` statement above and the SQL query above find incomplete items assigned to "david" of "medium" difficulty.
 
 There is, however, another way to write the same query. A `.where` call on the Query object will add an `AND` expression to the `WHERE` clause, so we could have written that in three lines instead:
 
@@ -142,11 +144,11 @@ The body of the function is translated into an OData boolean expression which is
 		    });
 
 
-If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters – the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "Medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
+If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters – the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
 					
 			 query.where(function (name, level) {
 			    return this.assignee == name && this.difficulty == level;
-			 }, "david", "Medium").read().done(function (results) {
+			 }, "david", "medium").read().done(function (results) {
 			    alert(JSON.stringify(results));
 			 }, function (err) {
 			    alert("Error: " + err);
@@ -156,7 +158,7 @@ So, as long as we follow the rules, we can add more complex filters to our datab
 
 		    query.where(function (name) {
 		       return this.assignee == name &&
-		          (this.difficulty == "Medium" || this.difficulty == "Low");
+		          (this.difficulty == "medium" || this.difficulty == "low");
 		    }, "david").read().done(function (results) {
 		       alert(JSON.stringify(results));
 		    }, function (err) {
@@ -338,56 +340,67 @@ This section shows how to display returned data objects using UI elements. To qu
 
 In a Windows Store app, the results of a query can be used to create a [WinJS.Binding.List] object, which can be bound as the data source for a [ListView] object. For more information, see [Data binding (Windows Store apps using JavaScript and HTML)].
 
-<h2><a name="caching"></a><span class="short-header">Authentication</span>How to: Cache authentication tokens</h2>
+<h2><a name="caching"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
-Mobile Services supports the following existing identity providers that you can use to authenticate users:
+Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
-- Facebook
-- Google 
-- Microsoft Account
-- Twitter
+Two authentication flows are supported: a "server" flow and a "client" flow. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
-You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the ID of an authenticated user to modify requests. For more information, see [Get started with authentication].
+<h3>Server flow</h3>
+To login with Facebook, use the following code. If you are using an identity provider other than Facebook, change the value passed to the `login` method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, or `google`.
 
-To login, you can use the following method:
+		client.login("facebook").done(function (results) {
+		     alert("You are now logged in as: " + results.userId);
+		}, function (err) {
+		     alert("Error: " + err);
+		});
 
-	        client.login("facebook");
+Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more details, see the [Get started with authentication] tutorial.
 
-With the above code snippet, the variable login will be set to a promise that completes when the login process is finished. The user is authenticated by using a Facebook login. 
+<h3>Client flow</h3>
 
-<div class="dev-callout"><strong>Note</strong> <p>If you are using an identity provider other than Facebook, change the value passed to the `login` method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, or `google`.</p> </div>
->
+In this example we use the Live SDK, which supports single-sign-on for Windows Store apps. [You can see a full example of how to set up this scenario here]. In the most simplified form, we can use the client flow as shown in this snippet:
 
-To enable single sign-on, where the client has already logged-in with one of the identity providers, it is possible to submit an access token obtained using an SDK. The format for the token which should be passed to the method is `{"access_token": **the-actual-access-token**}` if the access token is from the Facebook or Google SDK. If the access token is from a Live SDK, it must be specified instead as `{"authenticationToken": **accessToken**}`. What needs to be passed in place of "accessToken" is the session.authentication_token property of the result to the call to [WL.login].
+		WL.login({ scope: "wl.basic"}).then(function (result) {
+		      client.login(
+		            "microsoftaccount", 
+		            {"authenticationToken": result.session.authentication_token})
+		      .done(function(results){
+		            alert("You are now logged in as: " + results.userId);
+		      },
+		      function(error){
+		            alert("Error: " + err);
+		      });
+		});
 
-The "actual-access-token" is the value you receive from the SDK. Your code should look somehow like the following:
-	
-			var login = client.login(“facebook”, jsonSerializedToken).done(function (results) {
-			   alert(JSON.stringify(results));
-			}, function (err) {
-			   alert("Error: " + err);
-			});
+In case you are using any of the other authentication providers (Facebook or Google, Twitter is not supported at this point), the example changes slightly. Let’s assume the token provided by the respective auth provider SDK is stored in the variable `token`.
 
-In general, it is simple to persist a user token in [sessionStorage] (or [localStorage]), use it to prepopulate currentUser when the app starts up, and to log out:
+		client.login(
+		     "facebook", 
+		     {"access_token": token})
+		.done(function (results) {
+		     alert("You are now logged in as: " + results.userId);
+		}, function (err) {
+		     alert("Error: " + err);
+		});
 
-		    // After logging in
-		    sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
+<h3>Caching the authentication token</h3>
+In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process. 
 
-		     // Just after instantiating the client instance
-		    if (sessionStorage.loggedInUser) {
-		       client.currentUser = JSON.parse(sessionStorage.loggedInUser);
-		    }
+        // After logging in
+        sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
 
-		     // Log out
-		    client.logout();
-		    sessionStorage.loggedInUser = null;
+        // Log in 
+        if (sessionStorage.loggedInUser) {
+           client.currentUser = JSON.parse(sessionStorage.loggedInUser);
+        } else {
+           // Regular login flow
+       }
 
-You can cache an authentication token. Do this to prevent users from having to authenticate again while the token is still valid. All you have to do is manually ‘log the user in’ rather than use the built in login methods. To do this, you just need to set the user object on the Mobile Service client instance, here’s how:
-		
-			client.currentUser = {
-			   userId: "123456789",
-			   mobileServiceAuthenticationToken: "<your-users-JSON-web-token>"
-			};
+         // Log out
+        client.logout();
+        sessionStorage.loggedInUser = null;
+
 
 <h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
 
@@ -432,7 +445,7 @@ To tease this out even further, you pass in the error handler as the second argu
 
 Promises provide a mechanism to schedule work to be done on a value that has not yet been computed. It is an abstraction for managing interactions with asynchronous APIs. 
 
-The `done` promise allows you to specify the work to be done on the fulfillment of the promised value, and the error handling to be performed if the promise fails to fulfill a value. After the handlers have finished executing, this function throws any error that would have been returned from then as a promise in the error state. For more information, see [`done`].
+The `done` promise is executed as soon as the function provided to it has either successfully completed or has gotten an error. Unlike the `then` promise, it is guaranteed to throw any error that is not handled inside the function, and after the handlers have finished executing, this function throws any error that would have been returned from then as a promise in the error state. For more information, see [done].
 
 			promise.done(onComplete, onError);
 
@@ -445,7 +458,7 @@ Like so:
 			   alert("Error: " + err);
 			});
 
-The `then` promise allows you to specify the work to be done on the fulfillment of the promised value, and the error handling to be performed if the promise fails to fulfill a value. For more information, see [`then`].
+The `then` promise is the same as the as the `done` promise, but unlike the `then` promise, `done` is guaranteed to throw any error that is not handled inside the function. If you do not provide an error handler to `then` and the operation has an error, it does not throw an exception but rather returns a promise in the error state. For more information, see [then].
 
 			promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -458,7 +471,7 @@ Like so:
 			   alert("Error: " + err);
 			});
 
-You can use promises in a number of different ways. You can chain promise operations by calling `then` or `done` on the promise that is returned by the previous `then` function. Use `then` for an intermediate stage of the operation (for example `.then().then()`), and `done` for the final stage of the operation (for example `.then().then().done()`). 
+You can use promises in a number of different ways. You can chain promise operations by calling `then` or `done` on the promise that is returned by the previous `then` function. Use `then` for an intermediate stage of the operation (for example `.then().then()`), and `done` for the final stage of the operation (for example `.then().then().done()`).  You can chain multiple `then` functions, because `then` returns a promise. You cannot chain more than one `done` method, because it returns undefined. [Learn more about the  differences between then and done].
 	
  			todoItemTable.insert({
  			   text: ’foo’
@@ -468,8 +481,6 @@ You can use promises in a number of different ways. You can chain promise operat
  			}).done(function (insertedAndUpdated) {
  			   alert(JSON.stringify(insertedAndUpdated));
  			})
-
-[Learn more about the  differences between then and done]. The error callback is invoked if there is an error while processing a promise. Learn more about [how to handle errors in promises].
 
 <h2><a name="customizing"></a><span class="short-header">Customize request headers</span>How to: Customize client request headers</h2>
 
@@ -485,11 +496,11 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 <h2><a name="hostnames"></a><span class="short-header">Use CORS</span>How to: Use cross-origin resource sharing</h2>
 
-To control which web sites are allowed to interact with and send requests to your mobile service, you should configure a whitelist of allowed hostnames. By default, new Mobile Services instruct browsers to permit access only from `localhost`.  This configuration is not necessary for WinJS applications.
-
-Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service. When deploying an HTML5 front-end app to a production environment, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required.
+To control which web sites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
 <!-- Anchors. -->
+[What is Mobile Services]: #what-is
+[Concepts]: #concepts
 [How to: Create the Mobile Services client]: #create-client
 [How to: Query data from a mobile service]: #querying
 [Filter returned data]: #filtering
@@ -501,29 +512,13 @@ Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #authentication
-[How to: Cache authentication tokens]: #caching
+[How to: Authenticate users]: #caching
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
 [How to: Use cross-origin resource sharing]: #hostnames
-[How to: Create the Mobile Services client]: #create-client
-[How to: Query data from a mobile service]: #querying
-[Filter returned data]: #filtering
-[Sort returned data]: #sorting
-[Return data in pages]: #paging
-[Select specific columns]: #selecting
-[Look up data by ID]: #lookingup
-[How to: Display data in the user interface]: #binding
-[How to: Insert data into a mobile service]: #inserting
-[How to: Modify data in a mobile service]: #modifying
-[How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #authentication
-[How to: Cache authentication tokens]: #caching
-[How to: Handle errors]: #errors
-[How to: Use promises]: #promises
-[How to: Customize request headers]: #customizing
-[How to: Use cross-origin resource sharing]: #hostnames
+
+
 
 <!-- URLs. -->
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-html.md
@@ -535,7 +530,7 @@ Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser
 [Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
 [how to handle errors in promises]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700337.aspx
 [WL.login]: http://msdn.microsoft.com/en-us/library/live/hh550845.aspx
-[sesssionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
 [localStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
 [WinJS.Binding.List]: http://msdn.microsoft.com/en-us/library/windows/apps/Hh700774.aspx
 [ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
@@ -543,4 +538,6 @@ Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser
 [Windows Store JavaScript quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
 [HTML quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
 [Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
-[Getting Started with Data in HTML/JavaScript): http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
+[Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
+[Get started with authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-html/
+[You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/

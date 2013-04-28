@@ -4,7 +4,7 @@
 
 # Using MapReduce with HDInsight#
 
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault (Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage).  
+Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault. Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage.  
 
 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
 
@@ -45,9 +45,9 @@ You will complete the following tasks in this tutorial:
 4. Run the MapReduce job
 5. Tutorial Clean Up
  
-###<a id="uploaddata"></a>Upload a Sample Log4j File to the Blob Storage
+##<a id="uploaddata"></a>Upload a Sample Log4j File to the Blob Storage
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). Windows Azure Blob Storage is recommended. For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). 
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
@@ -72,7 +72,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>To simplify the tutorial, you will use the default file system. You can also use other containers on the same storage account or other storage accounts.  For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
+	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
 	</div>
 
 7. From **Blob**, click **Upload**.
@@ -128,7 +128,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
 
 ##<a id="connect"></a>Connect to an HDInsight Cluster
-You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
+You must have an HDInsight cluster provisioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on provision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT** on the left. You shall see a list of deployed Hadoop clusters.
@@ -149,9 +149,9 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 	For example, you can list the same file using the following command:
 
-		hadoop fs -ls asv://container@storagename.blob.core.windows.net/sample.log
+		hadoop fs -ls asv://<container>@<storagename..blob.core.windows.net/sample.log
 
-	Replace *container* with the container name, and *storagename* with the Blob Storage account name. 
+	Replace *&lt;container&gt;* with the container name, and *&lt;storagename&gt;* with the Blob Storage account name. 
 
 	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
@@ -159,7 +159,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 	 
 	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
 
-		#ls asvs://container@storagename.blob.core.windows.net/sample.log
+		#ls asvs://<container>@<storagename>.blob.core.windows.net/sample.log
 
 	
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Windows Azure" metaKeywords="Configuring cloud services" metaDescription="Learn how to configure cloud services in Windows Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Windows Azure" metaKeywords="Configuring cloud services" metaDescription="Learn how to configure cloud services in Windows Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="davidmu"/>
 
 
 
@@ -9,6 +9,8 @@
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
 You can configure the most commonly used settings for a cloud service in the Windows Azure Management Portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
+
+You can also enable a Remote Desktop connection to one or all roles running in your cloud service.  Remote Desktop allows you to access the desktop of your application while it is running and troubleshoot and diagnose problems.  You can enable a Remote Desktop connection to your role even if you did not configure the service definition file (.csdef) for Remote Desktop during application development.  There is no need to redeploy your application in order to enable a Remote Desktop connection.
 
 Windows Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances (virtual machines) for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://www.windowsazure.com/en-us/support/legal/sla/).
 
@@ -40,7 +42,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 5. In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
 
- When you deploy a new cloud service, you can choose either the Windows Server 2008 R2 or Windows Server 2008 with Service Pack 2 (SP2) operating system. During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
+ When you deploy a new cloud service, you can choose either the Windows Server 2008 R2,  Windows Server 2008 with Service Pack 2 (SP2), or Windows Server 2012 operating system. During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
 
  If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an operating system family and version. When you choose a specific operating system version, automatic operating system updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
 
@@ -73,47 +75,51 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 <h2><a id="remoteaccess"></a>How to: Configure remote access to role instances</h2>
 
-Remote Desktop enables you to access the desktop of a role instance running in Windows Azure. You can use a Remote Desktop connection to troubleshoot problems with your application. If you configure the service definition file (.csdef) for Remote Desktop during application development, you can complete or modify the Remote Desktop configuration in the Management Portal. First, you’ll need to upload a certificate to use for authentication during Remote Desktop Protocol (RDP) password encryption.
+Remote Desktop enables you to access the desktop of a role running in Windows Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. You can enable a Remote Desktop connection in your role during application design or after you have deployed the application to Windows Azure (while the role is running).  Enabling a Remote Desktop connection in a running role through the Management Portal does not require you to redeploy your application.  To authenticate the Remote Desktop connection you can use a previously uploaded certificate or you can create a new certificate.
 
-On the **Configure** page, you can complete the Remote Desktop configuration or change the local Administrator account or password used to connect to the virtual machines, the certificate used in authentication, or the expiration date.
+On the **Configure** page for your cloud service, you can enable Remote Desktop or change the local Administrator account or password used to connect to the virtual machines, the certificate used in authentication, or the expiration date.
 
 **Note**   If your cloud service consists of two or more connected Windows Server-based virtual machines, you don’t have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.
 
-###Before you begin###
+###To configure Remote Access in the service definition file###
 
-- Before you deploy your cloud service, configure your application for Remote Desktop.<br /><br />You must add &lt;Import&gt; elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Windows Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Windows Azure, and specify the certificate in the service configuration file. For more information, see [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
+Add **Import** elements to the service definition file (.csdef) to import the RemoteAccess and RemoteForwarder modules into the service model. When those modules are present, Windows Azure adds the configuration settings for Remote Desktop to the service configuration file. To complete the Remote Desktop configuration, you will need to import a certificate to Windows Azure, and specify the certificate in the service configuration file. For more information, see [Set Up a Remote Desktop Connection for a Role in Windows Azure][].
 
-###To configure or modify Remote Access for role instances###
+###To enable or modify Remote Access for role instances in the Management Portal###
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+1. Log in to the [Management Portal](http://manage.windowsazure.com/) and click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
 2. Open the **Configure** page for the cloud service, and click **Remote**.
 
- **Configure Remote Desktop Settings** displays the settings that were added to the service configuration file when the cloud service was deployed, as shown below.
+ **Configure Remote Desktop** displays the settings (if any) that were added to the service configuration file when the cloud service was deployed, as shown below.
 
 	![Cloud services remote] (../media/CloudServices_Remote.png)
 
 
-3. In **Roles**, select the service role you want to update.
+3. In **Roles**, select the service role you want to update or select **All** for all roles.
 
 4. Make any of the following changes:
 
-- To enable Remote Desktop, select the **Enable remote desktop** check box. To disable Remote Desktop, clear the check box.
+- To enable Remote Desktop, select the **Enable Remote Desktop** check box. To disable Remote Desktop, clear the check box.
 
 - Create an account to use in Remote Desktop connections to the role instances.
 
 - Update the password for the existing account.
 
-- Change the certificate used in authentication. First, upload the certificate using **Upload** on the **Certificates** page. Then enter the new certificate thumbprint.
+- Select an uploaded certificate to use for authentication (upload the certificate using **Upload** on the **Certificates** page) or create a new certificate. 
 
 - Change the expiration date for the Remote Desktop configuration.
 
 5. When you finish your configuration updates, click OK (checkmark).
 
-6. To test the Remote Desktop configuration, connect to a role instance:
+6. To connect to a role instance:
 
 	a. Click **Instances** to open the **Instances** page.
 
-	b. Click a role instance that has Remote Desktop configured to select the instance.
+	b. Select a role instance that has Remote Desktop configured.
 
 	c. Click **Connect**, and follow the instructions to open the desktop of the virtual machine. 
+
+	d. Click **Open** and then **Connect** to start the Remote Desktop connection.
+
+[Set Up a Remote Desktop Connection for a Role in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx

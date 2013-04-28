@@ -6,6 +6,8 @@
 
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 15 April 2013.***
+
 This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][] or Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer or VWD"), which are a free versions of Microsoft Visual Studio. 
 
 <h2>You will learn:</h2>
@@ -23,10 +25,13 @@ For this tutorial, you'll add mobile features to the simple conference-listing a
 
 <h2>Setting up the development environment</h2>
 
-Before you start, make sure you've installed the prerequisites listed below.
+Set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
 
-- Microsoft Visual Studio 2012 or [Visual Studio Express 2012][]
-- [Windows Azure SDK for .NET - June 2012][WebDeployUpdate]
+1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
+[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)<br/>
+1. When you are prompted to run or save the installation executable, click **Run**.<br/>
+1. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
+![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
 
 You will also need a mobile browser emulator. Any of the following will work:
 
@@ -43,8 +48,8 @@ This tutorial shows code in C#. However, the starter project and completed proje
 
 <h2>Steps in this tutorial</h2>
 
-- [Create a Windows Azure web site][]
-- [Setup the starter Project][]
+- [Create a Windows Azure web site](#bkmk_CreateWebSite)
+- [Setup the starter Project](#bkmk_setupstarterproject)
 - [Override the Views, Layouts, and Partial Views][]
 - [Use jQuery Mobile to define the mobile broswer interface][]
 - [Improve the Speakers List][]
@@ -55,11 +60,11 @@ This tutorial shows code in C#. However, the starter project and completed proje
 - [Improve the SessionByCode View][]
 - [Deploy the Application to the Windows Azure Web Site][]
 
-<h3>Create a web site in Windows Azure</h3>
+<h3><a name="bkmk_CreateWebSite"></a>Create a web site in Windows Azure</h3>
 
 Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure cloud service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-1.	Log on to the [Windows Azure Management Portal][managementportal]. In the Preview Management Portal, click **New**.
+1.	Log on to the [Windows Azure Management Portal][managementportal]. In the Management Portal, click **New**.
 
 	![][CreateWebSite1]
 2.	Click **Web Site**, then click **Quick Create**.
@@ -73,18 +78,22 @@ Your Windows Azure Web Site will run in a shared hosting environment, which mean
 
 4. Click the check mark at the bottom of the box to indicate you're finished.
 
-The Preview Management Portal returns to the Web Sites page and the Status column shows that the site is being created. After a while (typically less than a minute) the Status column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears in the Web Sites icon, and the number of databases appears in the SQL Databases icon.
+The Management Portal returns to the Web Sites page and the Status column shows that the site is being created. After a while (typically less than a minute) the Status column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears in the Web Sites icon, and the number of databases appears in the SQL Databases icon.
 
 ![][CreateWebSite4]
 
-<a name="bkmk_setupstarterproject"></a><h3>Setup the starter project.</h3>
+<h3><a name="bkmk_setupstarterproject"></a>Setup the starter project.</h3>
 
 1.	Download the [conference-listing application starter project][MVC4StarterProject].
-2. 	Then in Windows Explorer, right-click the MvcMobileStarterBeta.zip file and choose Properties.
+
+2. 	Then in Windows Explorer, right-click the MvcMobileStarterBeta.zip file and choose *Properties*.
+
 3. 	In the MvcMobileRTMStarter.zip Properties dialog box, choose the Unblock button. (Unblocking prevents a security warning that occurs when you try to use a .zip file that you've downloaded from the web.)
 
 	![Properties dialog box.][PropertiesPopup]
+
 4.	Right-click the MvcMobile.zip file and select Extract All to unzip the file.
+
 5. 	In Visual Web Developer or Visual Studio 2010, open the MvcMobile.sln file.
 
 <h3>To run the starter project</h3>
@@ -134,9 +143,11 @@ In each **Html.ActionLink** call, remove "Browse by" in each link ActionLink. Th
             </div>
         </div>
     </body>
+
 Copy the *Views\Home\AllTags.cshtml* file to *Views\Home\AllTags.Mobile.cshtml*. Open the new file and change the &lt;h2&gt; element from "Tags" to "Tags (M)":
 
      <h2>Tags (M)</h2>
+
 Browse to the tags page using a desktop browser and using mobile browser emulator. The mobile browser emulator shows the two changes you made.
 
 ![Show changes to tags page][Overrideviews1]
@@ -152,13 +163,16 @@ In this section you'll install the jQuery.Mobile.MVC NuGet package, which instal
 The [jQuery Mobile][jquerydocs] library provides a user interface framework that works on all the major mobile browsers. jQuery Mobile applies progressive enhancement to mobile browsers that support CSS and JavaScript. Progressive enhancement allows all browsers to display the basic content of a web page, while allowing more powerful browsers and devices to have a richer display. The JavaScript and CSS files that are included with jQuery Mobile style many elements to fit mobile browsers without making any markup changes.
 
 1. Delete the *Shared\\_Layout.Mobile.cshtml* file that you created earlier.
+
 2. Rename the *Views\Home\AllTags.Mobile.cshtml* to *Views\Home\AllTags.Mobile.cshtml.hide* (you will use this file again later.) Because the file no longer has a .cshtml extension, it will not be used by the ASP.NET MVC runtime to render the *AllTags* view.
+
 3. Install the jQuery.Mobile.MVC NuGet package by doing this:
 
-	1. From the **Tools** menu, select **Package Manager** Console, and then select **Library Package Manager**.
+	a.  From the **Tools** menu, select **Package Manager** Console, and then select **Library Package Manager**.
 
 		![Library package manager][jquery1]
-	2. In the **Package Manager Console**, enter *Install-Package jQuery.Mobile.MVC -version 1.0.0*
+	
+	b. In the **Package Manager Console**, enter *Install-Package jQuery.Mobile.MVC -version 1.0.0*
 
 		![Package manager console][jquery2]
 
@@ -481,43 +495,44 @@ Refresh the mobile browser. The following image reflects the code changes that y
 
 <h2><a name="bkmk_deployapplciation"></a> Deploy the Application to the Windows Azure Web Site</h2>
 
-1.	In your browser, open the [Preview Management Portal][managementportal].
-2.	In the **Web Sites** tab, click the name of the site you created earlier.
+5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+![Publish in project context menu][PublishVSSolution]<br/>
+The **Publish Web** wizard opens.
+6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
+![Import publish settings][ImportPublishSettings]
+The **Import Publish Profile** dialog box appears.
+1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
+    1. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
+    ![add win az sub](../Media/rzAddWAsub.png)
+    1. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+    ![download sub](../Media/rzDownLoad.png)
+    1. In your browser window, save the *.publishsettings* file.<br/>
+    ![download pub file](../Media/rzDown2.png)
+    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+    1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+    ![download sub](../Media/rzDownLoad.png)
+    1. Click **Import**.<br/>
+    ![import](../Media/rzImp.png)
+7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
+![Import Publish Profile][ImportPublishProfile]
 
-	<!--![][DeployApplication1]	-->
-3.	On the **Dashboard** in the quick **glance section**, click **Download publishing profile**.
 
-	![][DeployApplication2]	
 
-	This step downloads a file that contains all of the settings that you need to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
-4.	Save the .publishsettings file in a folder that you can access from Visual Studio.
 
-	<!--![][DeployApplication3]-->
 
-5.	In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
+8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
+![Validate connection][ValidateConnection]<br/>
+9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.<br/>
+	<br/>![connection successful icon and Next button in Connection tab][firsdeploy007]
+10. You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string. <br/>
+Click **Next**.<br/>
 
-	![][DeployApplication4]	
-
-	The **Publish Web** wizard opens.
-6.	In the **Profile** tab of the **Publish Web** wizard, click **Import**.
-
-	<!--![][DeployApplication5]-->
-
-7.	Select the .publishsettings file you downloaded earlier, and then click **Open**. Keep the default settings.
-
-	<!--![][DeployApplication6]-->
-
-8.	Verifiy **Connection** is selected in left pane, then click **Next**. Click  **Validate Connection**.  You now move to **Settings**. Keep the defaults setting.
-	
-	<!--![][DeployApplication8]-->
-
-9. Click **Next** to move to the **Preview** tab. Click **Preview**. Review the file list.
-	
-9.	Click **Publish**.
-	Visual Studio begins the process of copying the files to the Windows Azure server.
-
-	<!--![][DeployApplication9]-->
-14.	The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
+	<br/>![connection successful icon and Next button in Connection tab][rxPWS]
+12. In the **Preview** tab, click **Start Preview**.<br/>
+The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.<br/>
+![StartPreview button in the Preview tab][firsdeploy009]<br/>
+12. Click **Publish**.<br/>
+Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
 15. The default browser automatically opens to the URL of the deployed site. The application you created is now running in the cloud.
 
@@ -604,3 +619,41 @@ You can test your live web site using the phone emulator by browsing to the site
 [jquerydocs]: http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html
 [setuseragent]: http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/
 [managementportal]: https://manage.windowsazure.com
+
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
+[rxf]: ../Media/rxf.png
+[Add XSRF Protection]: #xsrf
+[ClickWebSite]: ../Media/ClickWebSite.png
+[CreateWebsite]: ../Media/CreateWebsite.png
+[CreateWebsite]: ../Media/CreateWebsite.png
+[DeployedWebSite]: ../Media/DeployedWebSite.png
+[DownloadPublishProfile]: ../Media/DownloadPublishProfile.png
+[ImportPublishSettings]: ../Media/ImportPublishSettings.png
+[ImportPublishProfile]: ../Media/ImportPublishProfile.png
+[InternetAppTemplate]: ../Media/InternetAppTemplate.png
+[NewMVC4WebApp]: ../Media/NewMVC4WebApp.png
+[NewVSProject]: ../Media/NewVSProject.png
+[PublishOutput]: ../Media/PublishOutput.png
+[PublishVSSolution]: ../Media/PublishVSSolution.png
+[PublishWebSettingsTab]: ../Media/PublishWebSettingsTab.png
+[PublishWebStartPreview]: ../Media/PublishWebStartPreview.png
+[PublishWebStartPreviewOutput]: ../Media/PublishWebStartPreviewOutput.png
+[SavePublishSettings]: ../Media/SavePublishSettings.png
+[ValidateConnection]: ../Media/ValidateConnection.png
+[ValidateConnectionSuccess]: ../Media/ValidateConnectionSuccess.png
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
+[WebSiteNew]: ../Media/WebSiteNew.png
+[WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
+
+[firsdeploy001]: ../Media/dntutmobile-deploy1-download-profile.png
+[firsdeploy002]: ../Media/dntutmobile-deploy1-save-profile.png
+[firsdeploy003]: ../Media/dntutmobile-deploy1-publish-001.png
+[firsdeploy004]: ../Media/dntutmobile-deploy1-publish-002.png
+[firsdeploy005]: ../Media/dntutmobile-deploy1-publish-003.png
+[firsdeploy006]: ../Media/dntutmobile-deploy1-publish-004.png
+[firsdeploy007]: ../Media/dntutmobile-deploy1-publish-005.png
+[firsdeploy008]: ../Media/dntutmobile-deploy1-publish-006.png
+[firsdeploy009]: ../Media/dntutmobile-deploy1-publish-007.png
+
+[rxPWS]: ../Media/rxPWS.png
+[rxNewCtx]: ../Media/rxNewCtx.png
