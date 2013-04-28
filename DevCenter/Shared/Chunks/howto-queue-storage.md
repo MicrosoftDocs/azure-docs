@@ -1,4 +1,4 @@
-## <a name="what-is"> </a>What is Queue Storage
+## <a name="what-is"> </a>What is Queue Storage?
 
 Windows Azure Queue storage is a service for storing large numbers of
 messages that can be accessed from anywhere in the world via
