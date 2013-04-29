@@ -537,7 +537,7 @@ You can use the same UI to configure the connection strings (just make sure that
 
 9. Enter some data in the **Mailing List**, **Subscriber**, and **Message** web pages to test the application.
 
-	**Note**: Delete the application after you have finished testing it to avoid paying for resources that you aren't using. If you are using a [Windows Azure 90 day free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"), the three deployed roles will use up your monthly limit in a couple of weeks. 	To delete a deployment by using the Windows Azure management portal, select the cloud service and click **DELETE** at the bottom of the page, and then select the production or staging deployment.
+	**Note**: Delete the application after you have finished testing it to avoid paying for resources that you aren't using. If you are using a [Windows Azure free trial account](http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"), the three deployed roles will use up your monthly limit in a couple of weeks. 	To delete a deployment by using the Windows Azure management portal, select the cloud service and click **DELETE** at the bottom of the page, and then select the production or staging deployment.
 <br/>
 <br/>
  ![pub][mtas-19]
