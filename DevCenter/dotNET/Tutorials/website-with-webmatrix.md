@@ -7,40 +7,42 @@ This guide describes how to use Microsoft WebMatrix to create and deploy a web s
 
 You will learn:
 
-* How to create a web site from the Windows Azure portal.
-* How to import the web site into WebMatrix and customize the web site to use one of the WebMatrix templates.
+* How to sign into Windows Azure from within WebMatrix
+* How to create a site using a built in template with WebMatrix 
 * How to deploy the customized web site directly from WebMatrix to Windows Azure.
 
 
 <div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
 
-## Create a web site with the Windows Azure portal
+## Sign into Windows Azure
 
-1. Login to the [Windows Azure Portal](http://manage.windowsazure.com).
-2. Click **New** at the bottom left of the Windows Azure portal.
-3. Click  **Web Site**, click **Quick Create**, enter a value for **URL** (e.g. *bakerysample*), select the **Region** that is closest to your intended users (this will ensure best performance) and then click the **Create Web Site** checkmark at the bottom of the page to initiate creation of the web site:
+1. Launch WebMatrix
+2. If this is the first time you've used WebMatrix 3, you will be prompted to sign into Windows Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Choose to **Sign in** using your Microsoft Account.
 
-	![Create New web site][createnewsite]	
+	![Add Account][addaccount]
 
-4. Once the web site is created, the portal will display all of the web sites associated with your subscription. Verify that the web site you just created has a **Status** of **Running** and then open the web site's management pages by clicking the name of the web site displayed in the **Name** column to open the web site's **Dashboard** management page.
+3. If you have signed up for a Windows Azure account, you may log in using your Microsoft Account:
 
-## Import the web site into WebMatrix and customize the web site using a template
+	![Sign into Windows Azure][signin]	
 
-1. From the **Dashboard** page click the WebMatrix icon at the bottom of the page to open the web site in WebMatrix 
 
-	![Open web site in WebMatrix 2][opensiteinwebmatrix2]
+## Create a site using a built in template for Windows Azure
 
-2. If WebMatrix 2 is not installed, the Web Platform Installer 4.0 will install Microsoft WebMatrix 2 and all necessary prerequisite software and display a dialog box indicating **Empty Site Detected**. Click the option to use a built-in web site template:
+1. On the start screen, click the **New** button, and choose **Template Gallery** to create a new site from the Template Gallery:
 
-	![Empty Site Detected][howtodownloadsite]
+	![New site from Template Gallery][sitefromtemplate]
 
-3. After you click the option to use a built-in web site template, select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
+2. The Template Gallery will show a list of available templates that can run locally or on Windows Azure.  Select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
-	![Create Site from Template][howtositefromtemplate]
+	![Create Site from Template][sitefromtemplatedetails]
+
+3. If you are signed into Windows Azure, you now have the option to create a Windows Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
+
+	![Create site on Windows Azure][sitefromtemplateazure]
 
 	After WebMatrix finishes building the web site, the WebMatrix IDE is displayed:
 
-	![Web Matrix 2 IDE][howtowebmatrixide] 
+	![WebMatrix IDE][howtowebmatrixide] 
 
 ## Test the web site
 
@@ -154,6 +156,11 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [bakerysampleopeninwebmatrix2]: ../../../Shared/media/howtowebmatrix2ide.png
 [publishcomplete]: ../../../Shared/media/howtopublished2.png
 [bakerysample]: ../../../Shared/media/howtobakerysamplesite.png
+[addaccount]: ../../../Shared/media/webmatrix-add-account.png
+[signin]: ../../../Shared/media/webmatrix-sign-in.png
+[sitefromtemplate]: ../../../Shared/media/webmatrix-site-from-template.png
+[sitefromtemplatedetails]: ../../../Shared/media/webmatrix-site-from-template-details.png
+[sitefromtemplateazure]: ../../../Shared/media/webmatrix-site-from-template-azure.png
 
 [modify1]: ../media/website-with-webmatrix-sample-mod-1-1.png
 [modify2]: ../media/website-with-webmatrix-sample-mod-1-2.png
