@@ -46,23 +46,17 @@ To test the installation, type `azure` at the command prompt. If the installatio
 
 To use the Windows Azure Command-Line Tools for Mac and Linux, you will need a Windows Azure account.
 
-1. Open a web browser and browse to [http://www.windowsazure.com][] and click **free trial** in the upper right corner.
+Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free trial** in the upper right corner.
 
-	![Windows Azure Web Site][]
+![Windows Azure Web Site][]
 
-	Follow the instructions for creating an account.
+Follow the instructions for creating an account.
 
-2. After you have signed up for an account, click **preview features** to enable the Windows Azure Web Sites and Windows Azure Virtual Machines features on your account.
-	
-	![open preview features tab][]
-
-2. Click **try it now** next to the Windows Azure Web Sites and Windows Azure Virtual Machines features.
-
-	![select a preview feature][]
-
-3. Select your subscription and click the checkmark.
-
-	![select subscription][]
+<div class="dev-callout"><strong>Note</strong>
+<p>Some Windows Azure features are only available on request as they are currently in preview. To see a list of features that are in preview, select the <strong>preview features</strong> link from your account settings:</p>
+<img src="../media/preview-button.png"/>
+<p>To gain access to any of the listed previews, select the <strong>try it now</strong> button beside the item, select your subscripton from the list, and then select the checkbox.
+</div>
 
 <h2><a id="Account"></a>How to download and import publish settings</h2>
 
@@ -234,8 +228,8 @@ For a complete list of commands for creating and managing virtual machines, use 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
-[http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Web Site]: ../media/create-account-01-mac.png
-[open preview features tab]: ../media/antares-iaas-preview-01.png
+[windowsazuredotcom]: http://www.windowsazure.com
+[Windows Azure Web Site]: ../media/freetrial.png
+[open preview features tab]: ../media/preview-button.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
