@@ -63,7 +63,6 @@ You use the **Quick Create** method to quickly create a virtual machine in the M
 
 	You will see the new virtual machine listed in on the **Virtual Machines** page.
 
-	![Virtual machine creation success] (../media/vmsuccesswindows.png)
 
 ## <a id="customcreate"> </a>How to create a custom virtual machine ##
 

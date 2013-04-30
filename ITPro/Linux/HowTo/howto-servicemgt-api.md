@@ -6,8 +6,6 @@
 
 ##Initialization##
 
-<div chunk="../../shared/chunks/disclaimer.md" />
-
 To invoke the Windows Azure IaaS service management API from NodeJS, the iaasclient.js module is used.
 
 	var iaasCient = require('iaasclient');

@@ -3,7 +3,6 @@
 <div chunk="../chunks/linux-left-nav.md" />
 
 #Windows Azure Linux Agent User Guide
-<div chunk="../../shared/chunks/disclaimer.md" />
 
 ##Introduction
 
