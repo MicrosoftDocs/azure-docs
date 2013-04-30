@@ -1,13 +1,14 @@
 <properties linkid="manage-linux-tutorials" urlDisplayName="Tutorials" pageTitle="Linux virtual machine tutorials - Windows Azure" metaKeywords="Linux tutorials Windows Azure, Linux tutorials Azure, Azure Linux tutorials, Azure Linux, Linux virtual machine Azure, Linux vm" metaDescription="Find tutorials about using Linux virtual machines with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Tutorials for Linux virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Introduction to Linux on Windows Azure](/en-us/manage/linux/tutorials/intro-to-linux/)
-This topic provides an overview of some aspects of using Linux virtual machines in the Windows Azure cloud. 
+This topic provides an overview of using Linux virtual machines in the Windows Azure cloud. 
 
 ###[Create a Virtual Machine Running Linux](/en-us/manage/linux/tutorials/virtual-machine-from-gallery/)
 
-In this tutorial you will learn how to use the Windows Azure (Preview) Management Portal to create a custom virtual machine running Linux.  After you create the virtual machine, you'll attach a data disk to the new virtual machine, and then set up communication with the virtual machine. 
+In this tutorial you'll learn how to use the management portal to create a custom virtual machine running Linux.  After you create the virtual machine, you'll attach a data disk to the new virtual machine, and then set up communication with the virtual machine. 

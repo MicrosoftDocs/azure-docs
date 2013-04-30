@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Windows Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" metaDescription="Learn how to deploy and run a compute-intensive .NET app on a Windows Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Windows Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" metaDescription="Learn how to deploy and run a compute-intensive .NET app on a Windows Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="waltpo" />
 
 
 
@@ -31,23 +31,24 @@ The following is an example of the .NET application monitoring the compute-inten
 
 <h2>To create a virtual machine</h2>
 
-1. Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
 5. In the **Create a virtual machine** screen, enter a value for **DNS name**.
 6. From the **Image** dropdown list, select an image, such as **Windows Server 2012**.
-7. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. Remember this password, you will use it when you remotely log in to the virtual machine.
-8. From the **Location** drop down list, select the data center location for your virtual machine; for example, **East Asia**.
-9. Click **Create virtual machine**. Your virtual machine will start being created. You can monitor the status in the **Virtual machines** section of the management portal. When its status is displayed as **Active**, you can log in to the virtual machine.
+7. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
+8. Enter a password in the **New password** field, and re-enter it in the **Confirm** field.
+9. From the **Location** drop down list, select the data center location for your virtual machine.
+10. Click **Create virtual machine**. Your virtual machine will start being created. You can monitor the status in the **Virtual machines** section of the management portal. When its status is displayed as **Active**, you can log in to the virtual machine.
 
 <h2>To remotely log in to your virtual machine</h2>
 
-1. Log on to the [Preview Management Portal](https://manage.windowsazure.com).
+1. Log on to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
-5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the password, use the password that you provided when you created the virtual machine.
+5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.
 
 <h2>How to create a service bus namespace</h2>
 
@@ -57,7 +58,7 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log in to the [Windows Azure Preview Management Portal](https://manage.windowsazure.com).
+1.  Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2.  In the left navigation pane of the Management Portal, click **Service Bus**.
 3.  In the lower pane of the Management Portal, click  **Create**.
 
@@ -546,7 +547,7 @@ The solver will run until it finishes examining all routes.
 For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
 
 <h2>Alternative to creating and deleting the queue with TSPSolver</h2>
-Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Windows Azure Preview Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages. 
+Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Windows Azure Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages. 
 
 [solver_output]: ../media/WA_dotNetTSPSolver.png
 [client_output]: ../media/WA_dotNetTSPClient.png

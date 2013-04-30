@@ -1,8 +1,8 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Windows Azure" metaKeywords="" metaDescription="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine�s interaction with Windows Azure Fabric Controller." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Windows Azure" metaKeywords="" metaDescription="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Windows Azure Fabric Controller." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Windows Azure Linux Agent User Guide
-<div chunk="../../shared/chunks/disclaimer.md" />
 
 ##Introduction
 

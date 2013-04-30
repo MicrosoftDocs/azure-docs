@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Windows Azure" metaKeywords="get started azure Service Bus Relay C# " metaDescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Windows Azure" metaKeywords="get started azure Service Bus Relay C# " metaDescription="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 

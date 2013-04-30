@@ -27,15 +27,17 @@ The **Dashboard** management page includes the following:
  - **Requests** – a count of all client requests to the web site.
  <br />**Note:**
 You can add additional performance metrics on the the **Monitor** management page by choosing **Add Metrics** on the bottom of that page. For more information, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
-- A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click **Configure Web Endpoint Monitoring** and go to the **Monitoring** section of the **Configure** management page. Endpoints can be added only in Reserved mode. For more information, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
+- **Web Endpoint Status** - A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click **Configure Web Endpoint Monitoring** and go to the **Monitoring** section of the **Configure** management page. Endpoints can be added only in Reserved mode. For more information, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
 - A **Usage Overview** section that shows statistics for the web site's CPU, file system, and memory usage.
-- A list of all linked resources associated with this web site. If no resources are associated, there is a hyperlink to the **Linked Resources** management page.
+- A list of all **linked resources** associated with this web site. If no resources are associated, there is a hyperlink to the **Linked Resources** management page.
 - A **Quick Glance** section which includes the following summary information and links:
  - **View Connection Strings** - View your web site's database connection strings.
- - **Download Publish Profile** – Link to the publish profile, a file which contains credentials and URLs required to publish to the web site using any enabled publishing methods.
- - **Reset Deployment Credentials** – Displays a dialog box where you provide unique credentials for use when publishing with GIT or FTP. If you wish to use GIT or FTP deployment then you must reset deployment credentials because authentication to an FTP host or GIT repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for GIT or FTP publishing to any web site in your subscription.
- - **Reset Publish Profile Credentials** - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.
+ - **Download the Publish Profile** – Link to the publish profile, a file which contains credentials and URLs required to publish to the web site using any enabled publishing methods.
+ - **Reset Your Deployment Credentials** – Displays a dialog box where you provide unique credentials for use when publishing with GIT or FTP. If you wish to use GIT or FTP deployment then you must reset deployment credentials because authentication to an FTP host or GIT repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for GIT or FTP publishing to any web site in your subscription.
+ - **Reset Your Publish Profile Credentials** - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.
  - **Set up Deployment from Source Control** – Displays a dialog box where you can set up continuous publishing from Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
+ - **Disconnect from Dropbox** - If you have set up a connection to Dropbox for deployment purposes, this link allows you to disconnect it.
+ - **Delete Git repository** - If you have set up a Git repository, this link allows you to delete it.
  - **Status** – Indicates whether the web site is running or not.
  - **Site URL** – Specifies the publicly accessibly address of the web site on the internet.
  - **Compute Mode** – Specifies whether the web site is running in Free, Shared, or Reserved mode. For more information about web site modes see [How to Scale a Web Site](../how-to-scale-websites/).
@@ -46,7 +48,7 @@ You can add additional performance metrics on the the **Monitor** management pag
  - **FTPS Diagnostic Logs** – Specifies the FTPS location of the web site’s diagnostic logs if diagnostic logging is enabled on the **Configure** management page.
  - **Location** – Specifies the physical region of the datacenter that hosts the web site.
  - **Subscription Name** – Specifies the subscription name that the web site is associated with.
- - **Subscription ID** – Specifies the actual unique subscription ID of the subscription that the web site is associated with.
+ - **Subscription ID** – Specifies the unique subscription ID of the subscription that the web site is associated with.
 
 
 ##Deployments##
@@ -59,10 +61,9 @@ The **Monitor** management page provides a chart that displays usage information
 The **Configure** management page is used to set application specific settings including:
 
 - **General** – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose a 64-bit platform.
-- **Certificates** - Upload an SSL certificate for a custom domain. Custom domains are available in Shared and Reserved modes.
 - **Domain Names** - View or add additional custom domain names for a web site that is in Shared or Reserved mode.
-- **SSL Bindings** - Choose an SSL mode for a domain and assign a certificate to the domain from the certificates you have uploaded.
-- **Application Diagnostics** - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to an Azure Storage account, and choose a logging level to specify the amount of information gathered.
+- **Deployments** - Use these settings to configure deployments.
+- **Application Diagnostics** - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to a Windows Azure Storage account, and choose a logging level to specify the amount of information gathered.
 - **Site Diagnostics** – Set logging options for gathering diagnostic information for your web site. 
 - **Monitoring** - For web sites in Reserved mode, test the availability of HTTP or HTTPS endpoints from geo-distributed locations.
 - **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the web site’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node web sites, these settings will be available as environment variables at runtime.

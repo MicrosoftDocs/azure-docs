@@ -1,13 +1,11 @@
 
 Follow these steps to attach a data disk:
 
-1. In the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], click **Virtual Machines** and then select the virtual machine you just created (**testwinvm**).
+1. In the [Windows Azure Management Portal][AzurePreviewPortal], click **Virtual Machines** and then select the virtual machine you just created (**testwinvm**).
 
 2. On the command bar click **Attach** and then click **Attach Empty Disk**.
-
-	![Attach Empty Disk][Image1]
-
-	The **Attach Empty Disk** dialog box appears.
+	
+	The **Attach empty disk to virtual machine** dialog box appears.
 
 
 3. The **Virtual Machine Name**, **Storage Location**, and **File Name** are already defined for you. All you have to do is enter the size that you want for the disk. Type **5** in the **Size** field.
@@ -27,9 +25,9 @@ Follow these steps to attach a data disk:
 	After you attach the data disk to the virtual machine, the disk is offline and not initialized. You have to log on to the virtual machine and initialize the disk before you can use it to store data.
 
 ##Connect to the Virtual Machine Using Remote Desktop and Complete Setup
-1. After the virtual machine is provisioned, on the Management Portal, click on **Virtual Machines**, and the click on your new virtual machine. Information about your virtual machine is presented.	
+1. After the virtual machine is provisioned, on the Management Portal, click **Virtual Machines**, and then click your new virtual machine. Information about your virtual machine is presented.	
 
-2. At the bottom of the page, click **Connect**. Open the rpd file using the Windows Remote Desktop program (*%windir%\system32\mstsc.exe*).	
+2. At the bottom of the page, click **Connect**. Open the .rpd file using the Windows Remote Desktop program (*%windir%\system32\mstsc.exe*).	
 
 3. At the **Windows Security** dialog box, provide the password for the **Administrator** account. (You might be asked to verify the credentials of the virtual machine.) The first time you log on to this virtual machine, several processes may need to complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks. Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works like any other computer.
 
@@ -52,7 +50,6 @@ Follow these steps to attach a data disk:
 
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
-[Image1]: ../../Shared/Media/AttachDataDiskWinVM.png
 [Image2]: ../../Shared/Media/AttachDataDiskWinVM2.png
 [Image3]: ../../Shared/Media/AttachDataDiskWinVM3.png
 [Image4]: ../../Shared/Media/servermanager.png

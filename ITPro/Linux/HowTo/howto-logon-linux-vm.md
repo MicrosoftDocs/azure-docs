@@ -1,9 +1,8 @@
 <properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Windows Azure" metaKeywords="Azure Linux vm, Linux SSH" metaDescription="Learn how to log on to a Windows Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/linux-left-nav.md" />
 
 #How to Log on to a Virtual Machine Running Linux #
-
-<div chunk="../../shared/chunks/disclaimer.md" />
 
 For a virtual machine that is running the Linux operating system, you use a Secure Shell (SSH) client to logon.
 

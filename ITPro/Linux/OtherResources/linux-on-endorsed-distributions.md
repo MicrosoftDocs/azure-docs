@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Windows Azure" metaKeywords="" metaDescription="Learn about Linux on Windows Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/linux-left-nav.md" />
 
 #Linux on Windows Azure-Endorsed Distributions
 
@@ -35,8 +35,7 @@ Note that the different distributions will be incorporating the agent to their o
   <tr bgcolor="#E9E7E7">
 		<th>Distribution</th>		
 	    <th>Version</th>
-	    <th>Last Verified</th>
-		<th>Drivers</th>
+	    <th>Drivers</th>
 		<th>Kernel Compatibility Patch</th>
 		<th>Agent</th>
 		<th>Base Images</th>
@@ -44,8 +43,7 @@ Note that the different distributions will be incorporating the agent to their o
 	<tr>
 		<th>  Canonical UBUNTU </th>
 		<td> Ubuntu 12.04.1 and 12.10</td>
-		<td>Dec. 20 2012</td>
-        <td>In Kernel</td>
+		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04.x only</a></td>
 		<td>Deb: In package repo under walinuxagent <br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
@@ -54,7 +52,6 @@ Note that the different distributions will be incorporating the agent to their o
 	<tr>
 		<th> CENTOS by Open Logic </th>
 		<td> CentOS 6.3</td>
-		<td>Dec. 20 2012</td>
 	    <td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254263">Latest LIS drivers</a></td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.2 and 6.3 only</a></td>
 		<td>RPM:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic package repo </a> under walinuxagent<br />
@@ -64,7 +61,6 @@ Note that the different distributions will be incorporating the agent to their o
 	<tr>
 		<th> SUSE </th>
 		<td> SLES 11SP2</td>
-		<td>Dec. 20 2012</td>
         <td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275154&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinuxagent<br />
@@ -73,8 +69,7 @@ Note that the different distributions will be incorporating the agent to their o
 	</tr>
 	<tr>
 		<th> OPEN SUSE </th>
-		<td> Open SUSE 12.1</td>
-		<td>June 7 2012</td>
+		<td> Open SUSE 12.3</td>
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275155&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinux<br />

@@ -1,10 +1,10 @@
 <properties linkid="manage-windows-other-resources" urlDisplayName="Other resources" pageTitle="Other resources for Windows virtual machines - Windows Azure" metaKeywords="Windows Azure cloud services, cloud service, configure cloud service" metaDescription="Find topics about using Windows Server virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/windows-left-nav.md" />
 
 #Other resources for Windows virtual machines
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+
 
 ###[Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
 

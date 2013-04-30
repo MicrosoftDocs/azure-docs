@@ -83,6 +83,11 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 	<p>There's no way to restore the content from a deleted storage account. Make 
 	sure you back up anything you want to save before you delete the account.
 	</p>
+	<p>
+	If your storage account contains VHD files that are being used by a Windows Azure 
+	virtual machine, then you must delete any images and disks that are using those VHD files 
+	before you can delete the storage account. 
+	</p>
 </div>
 
 

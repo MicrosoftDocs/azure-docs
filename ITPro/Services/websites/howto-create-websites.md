@@ -22,7 +22,7 @@ Just as you can quickly create and deploy a web application created from the gal
 
 Windows Azure supports deploying web sites from remote computers using WebDeploy, FTP, GIT or TFS. Many development tools provide integrated support for publication using one or more of these methods and may only require that you provide the necessary credentials, site URL and hostname or URL for your chosen deployment method. 
 
-Credentials and deployment URLs for all enabled deployment methods are stored in the web site's publish profile, a file which can be downloaded in the Windows Azure (Preview) Management Portal from the **Quick Start** page or the **quick glance** section of the **Dashboard** page. 
+Credentials and deployment URLs for all enabled deployment methods are stored in the web site's publish profile, a file which can be downloaded in the Windows Azure Management Portal from the **Quick Start** page or the **quick glance** section of the **Dashboard** page. 
 
 If you prefer to deploy your web site with a separate client application, high quality open source GIT and FTP clients are available for download on the Internet for this purpose.
 
@@ -30,7 +30,7 @@ If you prefer to deploy your web site with a separate client application, high q
 
 Follow these steps to create a web site in Windows Azure.
 	
-1. Login to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com/).
+1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
 
 2. Click the **Create New** icon on the bottom left of the Management Portal.
 

@@ -1,0 +1,491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>interactiveconsole.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 5px;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+    margin-bottom: 16px;
+    padding: 0;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 22px;
+    margin: 20px 0 6px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 16px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+    margin-left: 44px;
+}
+li ul, li ul {
+    margin-left: 24px;
+}
+p, ul, ol {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 540px;
+}
+pre {
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+}
+aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote {
+    border-left:.5em solid #eee;
+    padding: 0 2em;
+    margin-left:0;
+    max-width: 476px;
+}
+blockquote  cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+}
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+blockquote p {  
+    color: #666;
+    max-width: 460px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+/* override default chrome & firefox settings */
+input:not([type="image"]), textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+  display: inline-block;
+  width: 210px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select, input[type=file] {
+  height: 27px;
+  line-height: 27px;
+}
+textarea {
+  height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #004b9a;
+  border-bottom-color: #003f81;
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+  color: #fff;
+  background-position: 0 -15px;
+  text-decoration: none;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* CSS stylesheet is based on Kevin Burke's Markdown.css project (http://kevinburke.bitbucket.org/markdowncss) */
+</style>
+</head>
+<body>
+<p><properties linkid="manage-services-hdinsight-interactive-console" urlDisplayName="HDInsight interactive console" pageTitle="Using the HDInsight Interactive Console - Windows Azure tutorial" metaKeywords="hdinsight, hdinsight console, hdinsight javascript" metaDescription="Learn how to use the interactive JavaScript and Hive console with HDInsight" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" /></p>
+
+<p><div chunk="../chunks/hdinsight-left-nav.md" /></p>
+
+<h1>HDInsight Interactive JavaScript and Hive Consoles</h1>
+
+<p>Microsoft Azure HDInsight Service comes with interactive consoles for both JavaScript and Hive. These consoles provide a simple, interactive read-evaluate-print loop (REPL) experience, where users can enter expressions, evaluated them, and then query and display the results of a MapReduce job immediately. The JavaScript console executes Pig Latin statements. The Hive console evaluates Hive Query Language (Hive QL) statements. Both types of statements get compiled into MapReduce programs. Managing Hadoop jobs on these consoles is much simpler than remoting into the head node of the Hadoop cluster and working with MapReduce programs directly.</p>
+
+<p><strong>The JavaScript Console</strong>: a command shell that provides a fluent interface to the Hadoop ecosystem. A fluent interface uses a method of chaining instructions that relays the context of one call in a sequence to the subsequent call in that sequence. The JavaScript console provides:</p>
+
+<ul>
+<li>Access to the Hadoop cluster, its resources, and the Hadoop Distributed File System (HDFS) commands.</li>
+<li>Management and manipulate of data coming into and out of the Hadoop cluster.</li>
+<li>A fluent interface that evaluates Pig Latin and JavaScript statements to define a series of MapReduce programs to create data processing workflows.</li>
+</ul>
+
+<p><strong>The Hive Console</strong>: Hive is a data warehouse framework, built on top of Hadoop, that provides data management, querying, and analysis. It uses HiveQL, an SQL dialect, to query data stored in an Hadoop cluster. The Hive console provides:</p>
+
+<ul>
+<li>Access to the Hadoop cluster, its resources, and the HDFS commands.       </li>
+<li>An implementation of the Hive framework that can execute HiveQL statements on an Hadoop cluster.  </li>
+<li>A relational database model for HDFS that enables you to interact with data stored in the distributed file system as if that data were stored in tables.<br />
+The JavaScript console uses Pig Latin, a data flow language, and the Hive console uses HiveQL, a query language.    </li>
+</ul>
+
+<p>Pig (and the JavaScript console) will tend to be preferred by those who are more familiar with a scripting approach, where a sequence of chained (or fluent) transformations is used to define a data processing workflow. It is also a good choice if you have seriously unstructured data.    </p>
+
+<p>Hive (and its console) will tend to be preferred by those who are more familiar with SQL and a relational database environment. The use of schema and a table abstraction in Hive means the experience is very close to that typically encountered in a RDBMS.</p>
+
+<p>Pig and Hive provide higher level languages that are compiled into MapReduce programs that are written in Java and that run on the HDFS. If you need really precise control or high performance you will need to write the MapReduce programs directly.</p>
+
+<h2>In this tutorial</h2>
+
+<ul>
+<li><a href="#runjob">Use the JavaScript console to run a MapReduce job</a></li>
+<li><a href="#displayresults">Use the JavaScript console to display the results graphically</a></li>
+<li><a href="#createhivetable">Use the Hive console to export the results to a Hive table</a></li>
+<li><a href="#queryhivetable">Use the Hive console to query the data in the Hive table</a></li>
+</ul>
+
+<h2><a name="runjob"></a>Use the JavaScript Console to Run a MapReduce Job</h2>
+
+<p>In this section, you use the JavaScript console to run the WordCount sample that ships with the HDInsight Service. The JavaScript query run here uses the fluent API layered on Pig that is provided by the Interactive Console.  The text file analyzed here is the Project Gutenberg eBook edition of <em>The Notebooks of Leonardo Da Vinci</em>. A filter is specified so that the results of the MapReduce job contains only the ten most frequently occurring words. </p>
+
+<p>Note the procedure in this section assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run a sample. If you have not done this already, consult the <a href="/en-us/manage/services/hdinsight/get-started-hdinsight/">Getting Started with the Windows Azure HDInsight Service</a> tutorial for instructions on how to satisfy these prerequisites.</p>
+
+<ol>
+<li>Sign in to the <a href="https://manage.windowsazure.com">Management Portal</a>.</li>
+<li>Click <strong>HDINSIGHT</strong>. You shall see a list of deployed Hadoop clusters.</li>
+<li>Click the name of the HDInsight cluster where you want to connect to.</li>
+<li>Click <strong>Manage</strong>.</li>
+<li>Enter your credential, and then click <strong>Log On</strong>.</li>
+<li><p>From the HDInsight portal, click <strong>Samples</strong>.</p>
+
+<p><img src="../media/HDI.TileSamples.PNG" alt="HDI.Tiles.Samples" title="Samples" /></p></li>
+<li><p>From the <strong>Hadoop Sample Gallery</strong> page , click on the <strong>WordCount</strong>  tile. </p></li>
+<li><p>Click <strong>WordCount.js</strong> from the upper right, and save the file  to a local directory, for example the ../downloads folder.</p>
+
+<p><img src="../media/HDI.JsConsole.WordCountDownloads.PNG" alt="HDI.JsConsole.WordCountDownloads" title="Wordcount Downloads" /></p></li>
+<li><p>Click <strong>Windows Azure HDInsight</strong> on the upper left corner to go back to the cluster dashboard page.</p></li>
+<li><p>Click <strong>Interactive Cluster</strong> to bring up the JavaScript console. </p>
+
+<p><img src="../media/HDI.TileInteractiveConsole.PNG" alt="HDI.Tiles.InteractiveConsole" title="Interactive Console" /></p></li>
+<li>Click <strong>JavaScript</strong> on the upper right.</li>
+<li><p>Enter the following command at the js> prompt:</p>
+
+<p>fs.put()</p></li>
+<li><p>Enter the following parameters into the <strong>Upload a file</strong> window:  </p>
+
+<ul>
+<li><strong>Source:</strong> _..\downloads\Wordcount.js</li>
+<li><strong>Destination:</strong> ./WordCount.js/  </li>
+</ul>
+
+<p><img src="../media/HDI.JsConsole.UploadJs.PNG" alt="HDI.JsConsole.UploadJs" title="Upload WordCoount.js" /></p>
+
+<p>Browse the location of the WordCount.js file. The full local path will be required. The single dot at the start of the destination path is needed as part of the relative address in HDFS.</p></li>
+<li><p>Click the <strong>Upload</strong> button.</p></li>
+<li><p>Run the following commands to list the file and display the content:</p>
+
+<pre><code>#ls
+#cat WordCount.js
+</code></pre>
+
+<p><img src="../media/HDI.JsConsole.JsCode.PNG" alt="HDI.JsConsole.JsCode" title="MapReduce program" /></p>
+
+<p>Note that the JavaScript map function removes capital letters from the text using the "toLowerCase()" method before counting the number of occurances of a word in the reduce function. </p></li>
+<li><p>Run the following command to list the data file that will be processed by the WordCount MapReduce job: </p>
+
+<pre><code>#ls /example/data/gutenberg
+</code></pre></li>
+<li><p>Run the following command to execute the MapReduce program: </p>
+
+<pre><code>pig.from("/example/data/gutenberg/davinci.txt").mapReduce("/user/admin/WordCount.js", "word, count:long").orderBy("count DESC").take(10).to("DaVinciTop10Words")
+</code></pre>
+
+<p>Replace admin to the current login username.</p>
+
+<p>Note how the instructions are "chained" together using the dot operator, and the output file is called <em>DaVinciTop10Words</em>. In the next section, you will access the output file. </p>
+
+<p>Once completed, you shall see the following:</p>
+
+<pre><code>pig.from("/example/data/gutenberg/davinci.txt").mapReduce("/user/admin/WordCount.js", "word, count:long").orderBy("count DESC").take(10).to("DaVinciTop10Words")
+2013-04-25 18:54:28,116 [main] INFO  org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success! (View Log)
+</code></pre></li>
+<li><p>Scroll to the right, and then click on <strong>View Log</strong> if you want to observe the job progress. This log will also provide diagnostics if the job fails to complete. When the job does complete, you will see the following message at the end of the log:</p>
+
+<pre><code>[main] INFO org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success! followed by a link to the log file.
+</code></pre></li>
+<li><p>Run the following command to list the output file:</p>
+
+<pre><code>#ls
+</code></pre>
+
+<p>Notice a DavinciTop10Words folder is created.</p></li>
+</ol>
+
+<h2><a name="displayresults"></a>Use the JavaScript Console to Display the Results Graphically</h2>
+
+<p>In the last section, you ran a MapReduce job to retrieve the top 10 words from a text file. The output file is ./DaVinciTop10Words.</p>
+
+<ol>
+<li><p>Run the following command to display the results in the DaVinciTop10Words directory:</p>
+
+<pre><code>file = fs.read("DaVinciTop10Words")
+</code></pre>
+
+<p>The result looks like:</p>
+
+<pre><code>js&gt; file=fs.read("DaVinciTop10Words")
+the 22966
+of  11228
+and 8428
+in  5737
+to  5296
+a   4791
+is  4261
+it  3073
+that    2903
+which   2544
+</code></pre></li>
+<li><p>Run the following command to parse the contents of the file into a data file:</p>
+
+<pre><code>data = parse(file.data, "word, count:long")
+</code></pre></li>
+<li><p>Run the following command to plot the data</p>
+
+<pre><code>graph.bar(data)
+</code></pre>
+
+<p><img src="../media/HDI.JsConsole.BarGraphTop10Words.PNG" alt="HDI.JsConsole.BarGraphTop10Words" title="Plot Top Ten Words" /></p></li>
+</ol>
+
+<h2><a name="createhivetable"></a>Use the Hive Console to Export the Results to a Hive Table</h2>
+
+<p>This section introduces you to the Hive interactive console. You will create a Hive table from the MapReduce job output. The next section shows how to query the data in this table. </p>
+
+<p><strong>Create the Hive table</strong></p>
+
+<ol>
+<li><p>Click Hive on the upper right to open the Hive console.</p></li>
+<li><p>Enter the following command to create a two column table named <em>DaVinciWordCountTable</em> from the WordCount sample output that was saved in the "DaVinciTop10Words" folder:</p>
+
+<pre><code>CREATE EXTERNAL TABLE DaVinciWordCountTable     
+(word STRING,
+count INT)  
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'  
+STORED AS TEXTFILE LOCATION '/user/admin/DaVinciTop10Words';    
+</code></pre>
+
+<p>Replace admin with the login username. </p>
+
+<p>Note that the table is created as an EXTERNAL table to keep the folder targeted independent of the table. Also, note that you need only specify the folder in which the output file is located, not the file name itself.</p></li>
+<li><p>Click <strong>EVALUATE</strong> on the lower left.        </p></li>
+<li><p>Enter the following commands to confirm that the two column table has been created:</p>
+
+<pre><code>SHOW TABLES;
+DESCRIBE DaVinciWordCountTable;
+</code></pre></li>
+<li><p>Click <strong>EVALUATE</strong>.</p>
+
+<p><img src="../media/HDI.Hive.ShowDescribeTable.PNG" alt="HDI.Hive.ShowDescribeTable" title="Hive Table Confirmation" /></p></li>
+</ol>
+
+<h2><a name="queryhivetable"></a>Use the Hive Console to Query the Data in the Hive Table</h2>
+
+<ol>
+<li><p>Run the following command to query for the words with the top ten number of occurrences:</p>
+
+<pre><code>SELECT word, count
+FROM DaVinciWordCountTable
+ORDER BY count DESC LIMIT 10
+</code></pre>
+
+<p>The results of this query are:          </p>
+
+<pre><code>SELECT word, count FROM DaVinciWordCountTable ORDER BY count DESC LIMIT 10
+the 22966
+of 11228
+and 8428
+in 5737
+to 5296
+a 4791
+is 4261
+it 3073
+that 2903
+which 2544
+</code></pre></li>
+</ol>
+
+<h2>Next Steps</h2>
+
+<p>You have seen how to run an Hadoop job from the Interactive JavaScript console and how to inspect the results from a job using this console. You have also seen how the Interactive Hive console can be used to inspect and process the results of a Hadoop job by creating and querying a table that contains the output from a MapReduce program. You have seen examples of Pig Latin and Hive QL statements being used in the consoles. Finally, you have seen how the REPL interactive nature of the JavaScript and Hive consoles simplifies using an Hadoop cluster.</p>
+
+<ul>
+<li><a href="/en-us/manage/services/hdinsight/using-pig-with-hdinsight/">Using Pig with HDInsight</a> </li>
+<li><a href="/en-us/manage/services/hdinsight/using-hive-with-hdinsight/">Using Hive with HDInsight</a></li>
+<li><a href="/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/">Using MapReduce with HDInsight</a></li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

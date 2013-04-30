@@ -1,12 +1,13 @@
+<properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
+
 #How to Connect Virtual Machines in a Cloud Service
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures). 
 
-When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
+When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the virtual machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
 
-For more information about load-balancing virtual machine, see [Load balancing virtual machines] []. For more information about managing the availability of your application, see [Manage the availability of virtual machines] []. 
+For more information about load-balancing virtual machines, see [Load balancing virtual machines] []. For more information about managing the availability of your application, see [Manage the availability of virtual machines] []. 
 
-You must first create a virtual machine with a new cloud service, and then you can connect additional machines with the first machine under the same cloud service. 
+First, you'll need to create a virtual machine with a new cloud service, and then you can connect additional virtual machines to the first virtual machine under the same cloud service. 
 
 1. Create a virtual machine using the steps in [How to create a custom virtual machine] [].
 
@@ -18,45 +19,41 @@ You must first create a virtual machine with a new cloud service, and then you c
 
 	![Create a custom virtual machine][Create a custom virtual machine]
 
-	The **VM OS Selection** dialog box appears. You can now select an image from the Image Gallery.
+	The **Select the virtual machine operating system** dialog box appears. 
 
-	![Select the image][Select the image]
+4. From **Platform Images**, select an image, and then click the arrow to continue.
 
-4. Click **Platform Images**, select the platform image that you want to use, and then click the arrow to continue.
-
-	The **VM Configuration** dialog box appears.
-
-	![Select the image][Define the image]
+	The **Virtual machine configuration** dialog box appears.
 
 5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine.
 
-6. In **New Password**, type the password that is used for the Administrator account on the virtual machine. In **Confirm Password**, retype the password that you previously entered.
+6. In **New User Name**, type a name for the administrative account that you want to use to manage the server.
 
-7. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
+7. In **New Password**, type a strong password for the administrative account. In **Confirm Password**, retype the password.
 
-8. For a virtual machine running the Linux operating system , you can select to secure the machine with an SSH Key.
 
-9. Click the arrow to continue.
+8. In **Size**, select the size that you want to use for the virtual machine. The size that you select depends on the number of cores that are needed for your application.
 
-	The **VM Mode** dialog box appears.
+9. For a virtual machine running the Linux operating system, you can select to secure the machine with an SSH Key.
 
-	![Define the connected virtual machine][Define the connected virtual machine]
+10. Click the arrow to continue.
 
-10. Select **Connect to existing Virtual Machine** to create a new virtual machine under an existing cloud service. Select the cloud service that will contain the new virtual machine.
+	The **The Virtual machine mode** dialog box appears.
+	
+11. Select **Connect to existing virtual machine** to create a new virtual machine under an existing cloud service. Select the cloud service that will contain the new virtual machine.
 
-11. In **Storage Account**, select a storage account where the VHD file is stored or you can have a storage account automatically created. Only one storage account is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
+12. In **Storage Account**, select a storage account where the VHD file is stored or you can have a storage account automatically created. Only one storage account is automatically created. All other virtual machines that you create with this setting are located in this storage account. You are limited to 20 storage accounts.
 
-12. In **Region/Affinity Group/Virtual Network**, select region that you want to contain the virtual machine.
+13. In **Region/Affinity Group/Virtual Network**, select region that you want to contain the virtual machine.
 
-13. Click the arrow to continue.
+14. Click the arrow to continue.
 
-	The **VM Options** dialog box appears.
+	The **The Virtual machine options** dialog box appears.
 
-	![Define the connected virtual machine][Define the connected virtual machine region]
 
-14. Select the availability set that was created when you created the first virtual machine.
+15. Select the availability set that was created when you created the first virtual machine.
 
-15. Click the check mark to create the connected virtual machine.
+16. Click the check mark to create the connected virtual machine.
 
 [How to create a custom virtual machine]:../../Windows/HowTo/howto-custom-create-vm.md
 [Load balancing virtual machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
