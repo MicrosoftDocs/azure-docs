@@ -186,7 +186,9 @@ And you can group and nest logical operators, as shown in this partial code:
 		mToDoTable.where()
 					.year("due").eq(2013)
 						.and
-					(mToDoTable.where().startsWith("text", "PRI0").or().field("duration").gt(10))
+					(startsWith("text", "PRI0").or().field("duration").gt(10))
+
+For more detailed discussion and examples of filtering, see [Exploring the richness of the Mobile Services Android client query model](http://hashtagfail.com/post/46493261719/mobile-services-android-querying).
 
 ### <a name="sorting"></a>How to: Sort returned data
 
