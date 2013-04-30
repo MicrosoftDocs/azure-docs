@@ -25,8 +25,8 @@ Note the procedure in this section assumes that you have gotten setup with Windo
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
-3. Click the Hadoop cluster where you want to upload data to.
-4. From HDInsight Dashboard, click **Manage**.
+3. Click the Hadoop cluster where you want to run the samples.
+4. From HDInsight Dashboard, click **Manage** on the bottom of the page.
 5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
 6. Click **Samples**.
 

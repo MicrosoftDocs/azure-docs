@@ -2,11 +2,11 @@
 
 <div chunk="../chunks/hdinsight-left-nav.md" />
 
-#What version of Hadoop is in Windows Azure HDInsight?
+#What Version of Hadoop is in Windows Azure HDInsight?
 
 [Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) provides Hadoop services via components described in the following table:
 
-<table>
+<table border="1">
 <tr><th>Component</th><th>Version</th></tr>
 <tr><td>Apache Hadoop</td><td>1.0.3</td></tr>
 <tr><td>Apache Hive</td><td>0.9.0</td></tr>
