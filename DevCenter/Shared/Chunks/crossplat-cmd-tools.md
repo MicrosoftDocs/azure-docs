@@ -55,7 +55,7 @@ Follow the instructions for creating an account.
 <div class="dev-callout"><strong>Note</strong>
 <p>Some Windows Azure features are only available on request as they are currently in preview. To see a list of features that are in preview, select the <strong>preview features</strong> link from your account settings:</p>
 <img src="../media/preview-button.png"/>
-<p>To gain access to any of the listed previews, select the <strong>try it now</strong> button beside the item, select your subscripton from the list, and then select the checkbox.
+<p>To gain access to any of the listed previews, select the <strong>try it now</strong> button beside the item, select your subscripton from the list, and then select the checkbox.</p>
 </div>
 
 <h2><a id="Account"></a>How to download and import publish settings</h2>
