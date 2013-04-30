@@ -60,7 +60,7 @@ To use the Blob service with Jenkins, you’ll need to install the Windows Azure
 2. In the **Manage Jenkins** page, click **Manage Plugins**.
 3. Click the **Available** tab.
 4. In the **Artifact Uploaders** section, check **Windows Azure Storage plugin**.
-5. Click either I**nstall without restart** or **Download now and install after restart**.
+5. Click either **Install without restart** or **Download now and install after restart**.
 6. Restart Jenkins.
 
 <h2><a name="howtoconfigure"></a><span class="short header">How to configure</span>How to configure the Windows Azure Storage plugin to use your storage account</h2>

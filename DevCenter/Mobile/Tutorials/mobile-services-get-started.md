@@ -45,9 +45,9 @@ In this section you will create a new Windows Store app that is connected to you
 
   ![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] and the [Mobile Services SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] on your local computer or virtual machine.
 
-4. Click **Create TodoItems table** to create a table to store app data.
+4. Click **Create TodoItem table** to create a table to store app data.
 
 5. Under **Download and run application**, select a language for your app, then click **Download**. 
 

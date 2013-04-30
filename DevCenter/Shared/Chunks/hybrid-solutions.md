@@ -95,9 +95,6 @@ Relays are the right solution when you need direct communication. Think about an
 
 Connecting applications has always been part of building complete solutions, and it’s hard to see this problem ever going away. By providing cloud-based technologies for doing this—queues, topics, and relays—Service Bus aims at making this essential function easier and more broadly available.
 
-##About the Author
-David Chappell is Principal of Chappell & Associates ([www.davidchappell.com](http://www.davidchappell.com)) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
-
 [svc-bus]: ../../Shared/Media/SvcBus_01_architecture.png
 [queues]: ../../Shared/Media/SvcBus_02_queues.png
 [topics-subs]: ../../Shared/Media/SvcBus_03_topicsandsubscriptions.png
