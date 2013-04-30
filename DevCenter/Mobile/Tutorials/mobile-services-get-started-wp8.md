@@ -43,9 +43,9 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
   ![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] and the [Mobile Services SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] on your local computer.
 
-4. Click **Create TodoItems table** to create a table to store app data.
+4. Click **Create TodoItem table** to create a table to store app data.
 
 5. Under **Download and run app**, click **Download**. 
 
