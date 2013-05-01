@@ -118,7 +118,7 @@ Now that your mobile service is ready, you can update the app to store items in 
         //); 
 
   This creates a new instance of MobileServiceClient that is used to access your mobile service.
-
+ 
 6. In the file MainPage.xaml.cs, comment the line that defines the existing **items** collection, and uncomment the following lines:
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
@@ -133,9 +133,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This code inserts a new item into the table.
 
-8. In the **RefreshTodoItems** method, uncomment the following line of code:
+8. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code:
 
-        items = todoTable.ToCollectionAsync();
+        items = await todoTable.ToCollectionAsync();
 
    This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service. 
 
