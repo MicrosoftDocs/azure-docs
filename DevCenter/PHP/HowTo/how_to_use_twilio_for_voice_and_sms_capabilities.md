@@ -82,7 +82,7 @@ You can configure your application to use the Twilio library for PHP in two ways
 
 	-OR-
 
-2. Install the  Twilio library for PHP as a PEAR package. It can be installed with the following commands:
+2. Install the Twilio library for PHP as a PEAR package. It can be installed with the following commands:
 
 		$ pear channel-discover twilio.github.com/pear
 		$ pear install twilio/Services_Twilio
