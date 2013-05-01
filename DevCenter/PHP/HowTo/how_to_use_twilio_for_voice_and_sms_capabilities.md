@@ -208,6 +208,9 @@ Once you have your PHP page set up to provide TwiML responses, use the URL of th
 	$to_number = "NNNNNNNNNNN";
     $url = "http://<your_hosted_service>.cloudapp.net/MyTwiML/mytwiml.php";
 
+    // The phone message text.
+    $message = "Hello world.";
+
 	$client = new Services_Twilio($sid, $token, "2010-04-01");
 
 	try
