@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-add-paging-to-data-dotnet" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to your data - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-add-paging-to-data-dotnet" writer="glenga" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to your data - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -24,13 +24,13 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 2. In the MainPage.xaml.cs file, replace the **RefreshTodoItems** method with the following code:
 
-        private void RefreshTodoItems()
+        private async void RefreshTodoItems()
         {
             // Define a filtered query that returns the top 3 items.
-            MobileServiceTableQuery<TodoItem> query = todoTable
+            IMobileServiceTableQuery<TodoItem> query = todoTable
                             .Where(todoItem => todoItem.Complete == false)
-                           .Take(3);					          
-			items = query.ToCollectionView();
+                           .Take(3);
+            items = await query.ToCollectionAsync();
             ListItems.ItemsSource = items;
         }
 
@@ -46,15 +46,15 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 5. Update the **RefreshTodoItems** method once more with the following code:
             
-        private void RefreshTodoItems()
+        private async void RefreshTodoItems()
         {
             // Define a filtered query that skips the first 3 items and 
             // then returns the next 3 items.
-            MobileServiceTableQuery<TodoItem> query = todoTable
+            IMobileServiceTableQuery<TodoItem> query = todoTable
                            .Where(todoItem => todoItem.Complete == false)
                            .Skip(3)
                            .Take(3);
-            items = query.ToCollectionView();
+            items = await query.ToCollectionAsync();
             ListItems.ItemsSource = items;
         }
 

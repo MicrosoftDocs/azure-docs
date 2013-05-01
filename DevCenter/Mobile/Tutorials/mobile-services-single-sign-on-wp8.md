@@ -1,4 +1,4 @@
-<properties linkid="single-sign-on-wp8" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authenticate your Windows Phone 8 app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8" footerexpose="" metadescription="Authenticate your Windows Phone 8 app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="single-sign-on-wp8" urldisplayname="Mobile Services" writer="glenga" headerexpose="" pagetitle="Authenticate your Windows Phone 8 app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8" footerexpose="" metadescription="Authenticate your Windows Phone 8 app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu-wp8.md" />
 
@@ -112,8 +112,8 @@ Next, you will update the app to authenticate users with Live Connect before req
                     session = result.Session;
                     LiveConnectClient client = new LiveConnectClient(result.Session);
                     LiveOperationResult meResult = await client.GetAsync("me");
-                    MobileServiceUser loginResult = 
-                        await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
+                    MobileServiceUser loginResult = await App.MobileService
+                        .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
 
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
                     var message = string.Format("You are now logged in - {0}", loginResult.UserId);
