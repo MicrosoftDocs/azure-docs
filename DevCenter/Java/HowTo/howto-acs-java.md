@@ -305,9 +305,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Windows Azure**, and then click **Package for Windows Azure**.
 2. For **Project name**, type **MyAzureACSProject** and click **Next**.
-3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Windows Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial). Your screen will look similar to the following:
-
-    ![New Windows Azure deployment project][new_azure_deployment]
+3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Windows Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial).
 4. Click **Finish**.
 5. Click the **Run in Windows Azure Emulator** button.
 6. After your Java web application starts in the compute emulator, close all instances of your browser (so that any current browser sessions do not interfere with your ACS login test).
