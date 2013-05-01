@@ -143,7 +143,7 @@ As mentioned, this code uses a Twilio-provided site to return the TwiML response
 
 
 <h2><a id="howto_send_sms"></a>How to: Send an SMS message</h2>
-The following shows how to send an SMS message using the **Services_Twilio** class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
+The following shows how to send an SMS message using the **Services_Twilio** class. The **From** number is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -156,7 +156,7 @@ The following shows how to send an SMS message using the **Services_Twilio** cla
 	$token = "your_twilio_authentication_token";
 
 
-    $from_number = "4155992671"; // With trial account, texts can only be sent from this number.
+    $from_number = "NNNNNNNNNNN"; // With trial account, texts can only be sent from your Twilio number.
 	$to_number = "NNNNNNNNNNN";
 	$message = "Hello world.";
 
