@@ -100,7 +100,7 @@ The following shows how to make an outgoing call using the **Services_Twilio** c
 	require_once 'Services/Twilio.php';
 
 	// Library version.
-	$version = "2010-04-01"
+	$version = "2010-04-01";
 
 	// Set your account ID and authentication token.
 	$sid = "your_twilio_account_sid";
@@ -149,7 +149,7 @@ The following shows how to send an SMS message using the **Services_Twilio** cla
 	require_once 'Services/Twilio.php';
 
 	// Library version.
-	$version = "2010-04-01"
+	$version = "2010-04-01";
 
 	// Set your account ID and authentication token.
 	$sid = "your_twilio_account_sid";
