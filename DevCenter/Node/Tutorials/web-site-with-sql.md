@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" metaDescription="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -8,7 +8,7 @@ This tutorial shows you how to use SQL Database provided by Windows Azure Data M
 
 You will learn:
 
-* How to use the Windows Azure preview portal to create a Windows Azure Web Site and SQL Database
+* How to use the Windows Azure Management Portal to create a Windows Azure Web Site and SQL Database
 
 * How to use npm (node package manager) to install the node modules
 
@@ -57,7 +57,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Windows Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Website][new-website]
@@ -105,7 +105,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 To connect to the SQL Database instance that is running in Windows Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
 
-1. From the Preview Management Portal, click **LINKED RESOURCES**, then click the database name.
+1. From the Windows Azure Management Portal, click **LINKED RESOURCES**, then click the database name.
 
 	![Linked Resources][linked-resources]
 
@@ -119,7 +119,7 @@ To connect to the SQL Database instance that is running in Windows Azure Web Sit
 
 To create the database table used to store items for the tasklist application, perform the following steps:
 
-1. From the Preview Management Portal, select your SQL Database and then click **MANAGE** from the bottom of the page. If you receive a message stating that the current IP is not part of the firewall rules, select **OK** to add the IP address.
+1. From the Windows Azure Management Portal, select your SQL Database and then click **MANAGE** from the bottom of the page. If you receive a message stating that the current IP is not part of the firewall rules, select **OK** to add the IP address.
 
 	![manage button][sql-azure-manage]
 
@@ -430,7 +430,7 @@ In this section, you will use the deployment steps you received after creating t
 
 Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
 
-1. From the Preview Management Portal, click **Web Sites** and then select your web site.
+1. From the Windows Azure Management Portal, click **Web Sites** and then select your web site.
 
 	![Open website dashboard][go-to-dashboard]
 
@@ -482,7 +482,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
 [Windows Azure Portal]: http://windowsazure.com
-[preview-portal]: https://manage.windowsazure.com/
+[management-portal]: https://manage.windowsazure.com/
 [node-sqlserver]: https://github.com/WindowsAzure/node-sqlserver
 [Microsoft SQL Server 2012 Feature Pack]: http://www.microsoft.com/en-us/download/details.aspx?id=29065
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
