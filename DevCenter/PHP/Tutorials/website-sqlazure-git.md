@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -14,7 +14,7 @@ This tutorial shows you how to create a PHP Windows Azure Web Site with a Window
 
 You will learn:
 
-* How to create a Windows Azure Web Site and a SQL Database using the Preview Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure Web Site and a SQL Database using the Windows Azure Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Web Site. A screenshot of the completed application is below:
@@ -27,7 +27,7 @@ By following this tutorial, you will build a simple registration web application
 
 Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Windows Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Web Site][new-website]
@@ -75,7 +75,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 To connect to the SQL Database instance that is running in Windows Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
 
-1. From the Preview Management Portal, click **LINKED RESOURCES**, then click the database name.
+1. From the Windows Azure Management Portal, click **LINKED RESOURCES**, then click the database name.
 
 	![Linked Resources][linked-resources]
 
@@ -309,5 +309,5 @@ To publish changes to application, follow these steps:
 [git-instructions]: ../../Shared/Media/git_instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [connection-string]: ../Media/connection_string.jpg
-[preview-portal]: https://manage.windowsazure.com/
+[management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
