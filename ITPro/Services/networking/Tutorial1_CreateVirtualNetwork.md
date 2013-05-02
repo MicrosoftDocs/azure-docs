@@ -13,7 +13,7 @@ After completing this tutorial, you will have a virtual network to which you can
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>This tutorial does not walk you through creating a cross-premises configuration. For a tutorial that walks you through creating a virtual network with site-to-site cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see <a href="/en-us/manage/services/networking/cross-premises-connectivity/">Create a Virtual Network for Cross-Premises Connectivity.</a></p> 
+<p>This tutorial does not walk you through creating a cross-premises configuration. For a tutorial that walks you through creating a virtual network with site-to-site cross-premises connectivity (i.e., connecting to Active Directory or SharePoint located at your company), see <a href="/en-us/manage/services/networking/cross-premises-connectivity/">Create a Virtual Network for Cross-Premises Connectivity</a>.</p> 
 </div>
 
 For additional Virtual Network configuration procedures and settings, see [Windows Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652).
@@ -58,7 +58,7 @@ In this tutorial you will learn:
 
 		<div class="dev-callout"> 
 		<b>Note</b> 
-		<p>If you want to use a public DNS service, you can enter that information on this screen. Otherwise, name resolution will default to the Windows Azure service. For more information, see Windows Azure Name Resolution Overview/</p> 
+		<p>If you want to use a public DNS service, you can enter that information on this screen. Otherwise, name resolution will default to the Windows Azure service. For more information, see <a href="http://go.microsoft.com/fwlink/?linkid=248097">Windows Azure Name Resolution Overview</a></p> 
 		</div>
 
 	- **Do not select the checkbox for point-to-site or site to site connectivity**. The virtual network we are creating in this tutorial is not designed for cross-premises connectivity.
