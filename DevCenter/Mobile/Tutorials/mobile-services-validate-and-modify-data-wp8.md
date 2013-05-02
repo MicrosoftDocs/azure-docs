@@ -71,8 +71,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
-            // This code inserts a new TodoItem into the database. When the operation completes
-            // and Mobile Services has assigned an Id, the item is added to the CollectionView
+            // This code inserts a new TodoItem into the database. 
+			// When the operation completes and Mobile Services has 
+			// assigned an Id, the item is added to the collection.
             try
             {
                 await todoTable.InsertAsync(todoItem);

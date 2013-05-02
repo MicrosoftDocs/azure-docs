@@ -125,6 +125,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 6. In the file MainPage.xaml.cs, add or uncomment the following `using` statements:
 
        	using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json;
 
 7. In this same file, replace the **TodoItem** class definition with the following code:
 

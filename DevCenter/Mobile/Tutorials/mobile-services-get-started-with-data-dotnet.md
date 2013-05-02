@@ -122,6 +122,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 6. In the file MainPage.xaml.cs, add or uncomment the following `using` statements:
 
        	using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json;
 
 7. In this same file, replace the **TodoItem** class definition with the following code:
 
@@ -186,12 +187,12 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
 6. In the MainPage.xaml.cs project file, replace the existing **RefreshTodoItems** method with the following code that filters out completed items:
 
-        private void RefreshTodoItems()
+        private async void RefreshTodoItems()
         {                       
             // This query filters out completed TodoItems. 
-            items = todoTable
+            items = await todoTable
                .Where(todoItem => todoItem.Complete == false)
-               .ToCollectionView();
+               .ToCollectionAsync();
 
             ListItems.ItemsSource = items;            
         }
