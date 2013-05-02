@@ -1,8 +1,4 @@
 
-<properties linkid="develop-other-tutorials-deploy-mongodb-worker-roles" urlDisplayName="Deploy MongoDB Worker Roles in Windows Azure" pageTitle="Deploy MongoDB Worker Roles in Windows Azure" metaKeywords="MongoDB, 10gen, Windows Azure" metaDescription="Deploy MongoDB Worker Roles in Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
-<div chunk="../chunks/article-left-menu.md" />
-
 # Deploy MongoDB Worker Roles in Azure
 *By [10gen Inc.][10gen-tutorial]*
  

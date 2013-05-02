@@ -1,8 +1,3 @@
-
-<properties linkid="develop-other-tutorials-solr-installer-for-windows-azure" urlDisplayName="Solr Installer for Windows Azure" pageTitle="Solr Installer for Windows Azure" metaKeywords="Solr, Windows Azure" metaDescription="Solr Installer for Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
-<div chunk="../chunks/article-left-menu.md" />
-
 # Solr Installer for Windows Azure
 
 *By Nick Ghinazzi, [Microsoft Open Technologies Inc.][ms-open-tech]*

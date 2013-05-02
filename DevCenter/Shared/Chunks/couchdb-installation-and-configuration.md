@@ -1,8 +1,3 @@
-
-<properties linkid="develop-other-tutorials-couchdb-installation-and-configuration" urlDisplayName="CouchDB" pageTitle="CouchDB Installation and Configuration" metaKeywords="CouchDB, Windows Azure" metaDescription="CouchDB Installation Configuration" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
-<div chunk="../chunks/article-left-menu.md" />
-
 # CouchDB Installation and Configuration
 
 *By Nick Ghinazzi, [Microsoft Open Technologies Inc.][ms-open-tech]*
