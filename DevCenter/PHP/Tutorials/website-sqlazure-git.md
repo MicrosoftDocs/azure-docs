@@ -303,10 +303,10 @@ To publish changes to application, follow these steps:
 [create-server]: ../Media/create_server.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
 [setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
-[credentials]: ../Media/credentials.jpg
+[credentials]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git_instructions.png
+[git-instructions]: ../../Shared/Media/git-instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [connection-string]: ../Media/connection_string.jpg
 [management-portal]: https://manage.windowsazure.com/
