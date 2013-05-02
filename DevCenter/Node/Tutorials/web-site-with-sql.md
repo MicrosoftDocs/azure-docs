@@ -501,7 +501,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git_instructions.png
+[git-instructions]: ../../Shared/Media/git-instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.jpg
