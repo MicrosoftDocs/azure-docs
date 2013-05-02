@@ -263,7 +263,7 @@ To publish changes to application, follow these steps:
 [credentials]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git_instructions.png
+[git-instructions]: ../../Shared/Media/git-instructions.png
 [git-change-push]: ../Media/php-git-change-push.png
 [git-initial-push]: ../Media/php-git-initial-push.png
 [deployments-list]: ../Media/php-deployments-list.png
