@@ -68,11 +68,11 @@ To download and run the installer, follow these steps:
 
 	Inst4WA.exe -XmlConfigPath CouchDBInstWR.xml -DomainName -Subscription "bar"
 
-Inst4WA.exe -XmlConfigPath \<yourpath>CouchDBInstWR.xml -DomainName \<youruniquename> -Subscription "bar"
+Inst4WA.exe -XmlConfigPath \&lt;yourpath&gt;CouchDBInstWR.xml -DomainName \&lt;youruniquename&gt; -Subscription "bar"
 
-**\<yourpath>** is the pathname for the CouchInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\<yourpath>**
+**&lt;yourpath&gt;** is the pathname for the CouchInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\&lt;yourpath&gt;**
 
-**\<YourUniqueName>** is the DNS name for your published CouchDB application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
+**&lt;YourUniqueName&gt;** is the DNS name for your published CouchDB application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
 The DeploymentModelCouchOnIaaS.xml file contains settings that
  are used by the installer. You can override these settings from a
  command prompt. 
@@ -83,7 +83,7 @@ While the installer is running, it will open a browser to
  file in one of those two locations for the installer to see it and
  import the settings.
 
-**Note:**Do not write your publish settings over an
+**Note:** Do not write your publish settings over an
  existing file. The installer will be watching these two locations
  for a *new* file to be created.
 
@@ -103,9 +103,9 @@ Once the installer has completed, you can create the CouchDB
 
 	.\couchCreateReplicaDB.ps1 databasename true
 
-**\<databasename>** is the name that will be assigned to your CouchDB cluster.
+**&lt;databasename&gt;** is the name that will be assigned to your CouchDB cluster.
 
-**\<connection-string-file>** is the full path and filename of the connectionString.json that the tool created in the CouchInstaller folder.
+**&lt;connection-string-file&gt;** is the full path and filename of the connectionString.json that the tool created in the CouchInstaller folder.
 
 **[true/false]** is an optional parameter of true
  or false, specifying whether the script will continue if it
@@ -116,7 +116,7 @@ The script installs a CouchDB database node on each of the
  configures endpoints for RDP, CouchDB, and Windows Remote
  Management (WinRM) access. For more information about how to
  connect to these endpoints, see the
- **connectionStrings\<dns-name>.json** file in the
+ **connectionStrings\&lt;dns-name&gt;.json** file in the
  CouchInstaller folder.
 
 After you complete the installation, you can migrate your
@@ -212,7 +212,7 @@ You can run Futon, the CouchDB administrative interface. To run
  Futon, go to this URL in your browser:
 
 
- http://\<dns-name>.cloudapp.net:5984/_utils
+ http://\&lt;dns-name&gt;.cloudapp.net:5984/_utils
 
 ![couch-futon][5]
 
