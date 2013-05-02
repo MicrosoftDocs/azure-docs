@@ -56,11 +56,11 @@ To download and run the installer, follow these steps:
  the SolrInstaller folder.
 6.  Run this command.
 
-    Inst4WA.exe -XmlConfigPath \<yourpath>CouchDBInstWR.xml -DomainName \<youruniquename> -Subscription "bar"
+    Inst4WA.exe -XmlConfigPath \&lt;yourpath&gt;CouchDBInstWR.xml -DomainName \&lt;youruniquename&gt; -Subscription "bar"
 
-**\<yourpath>** is the pathname for the SolrInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\<yourpath>**.
+**&lt;yourpath&gt;** is the pathname for the SolrInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\&lt;yourpath&gt;**.
 
-**\<YourUniqueName>** is the DNS name for your published Solr application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
+**&lt;YourUniqueName&gt;** is the DNS name for your published Solr application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
 
 While the installer is running, it opens a browser to download
  your publish settings file. Save this file to either your Downloads
