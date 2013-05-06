@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-Anroid-client" urlDisplayName="Android Client Library" pageTitle="How to use the Android client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service Android client library, Android client library" metaDescription="Learn how to use the Android client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="mobile-services-how-to-Anroid-client" writer="ricksal" urlDisplayName="Android Client Library" pageTitle="How to use the Android client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service Android client library, Android client library" metaDescription="Learn how to use the Android client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -24,6 +24,7 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 
 - [What is Mobile Services]
 - [Concepts]
+- [Setup and Prerequisites]
 - [How to: Create the Mobile Services client]
 - [How to: Create a table reference]
 	- [The API structure]
@@ -766,6 +767,7 @@ The Javadocs reference for the Android client API is at [http://dl.windowsazure.
 [Customize request headers]: #headers
 [Customize serialization]: #serialization
 [Next Steps]: #next-steps
+[Setup and Prerequisites]: #setup
 
 <!-- Images. -->
 [0]: ../Media/mobile-quickstart-startup-android.png
