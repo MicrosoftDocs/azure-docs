@@ -243,14 +243,14 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			// Use the Windows Azure Media Encoder, by specifying it by name.
 			MediaProcessorInfo mediaProcessor = mediaService.list(MediaProcessor.list().set("$filter", "Name eq 'Windows Azure Media Encoder'")).get(0);
 			
-			// Create a task with the specified media processor, in this case to transform the original asset to the H.264 HD 720p VBR preset.
+			// Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
 			// Information on the various configurations can be found at
 			// http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
 			// This example uses only one task, but others could be added.
 			Task.CreateBatchOperation task = Task.create(
 					mediaProcessor.getId(),
 					"<taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>")
-					.setConfiguration("H.264 HD 720p VBR").setName("MyTask");
+					.setConfiguration("H264 Broadband 720p").setName("MyTask");
 					
 			// Create a job creator that specifies the asset, priority and task for the job. 
 			Job.Creator jobCreator = Job.create()
