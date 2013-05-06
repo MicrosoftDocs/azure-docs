@@ -206,7 +206,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		private static void Upload() throws ServiceException, FileNotFoundException, NoSuchAlgorithmException 
 		{
 			// Create an asset.
-			asset = mediaService.create(Asset.create().setAlternateId("altId"));
+			asset = mediaService.create(Asset.create().setName("myasset").setAlternateId("altId"));
 			System.out.println("Created asset with id: " + asset.getId());
 	
 			// Create an access policy that provides Write access for 15 minutes.
