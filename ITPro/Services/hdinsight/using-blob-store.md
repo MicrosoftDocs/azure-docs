@@ -231,6 +231,6 @@ Now you understand how to use Windows Azure Blob Storage. To learn more, see the
 
 
 [upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[pig]: \en-us\manage\services\hdinsight\howto-pig\
-[hive]: \en-us\manage\services\hdinsight\howto-hive\
-[mapreduce]: \en-us\manage\services\hdinsight\howto-mapreduce\
+[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
+[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
