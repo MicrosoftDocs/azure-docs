@@ -245,7 +245,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			
 			// Create a task with the specified media processor, in this case to transform the original asset to the H.264 HD 720p VBR preset.
 			// Information on the various configurations can be found at
-			// http://msdn.microsoft.com/en-us/library/microsoft.expression.encoder.presets_members%28v=Expression.30%29.aspx.
+			// http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
 			// This example uses only one task, but others could be added.
 			Task.CreateBatchOperation task = Task.create(
 					mediaProcessor.getId(),
