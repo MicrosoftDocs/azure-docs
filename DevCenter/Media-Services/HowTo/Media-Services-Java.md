@@ -270,7 +270,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		}
 	
 		// Download the URL of the transformed asset.
-		// This code an access policy (with Read access) and a locator,
+		// This code creates an access policy (with Read access) and a locator,
 		// and uses those objects to retrieve the path.
 		// You can use the path to access the asset.
 		private static void Download() throws ServiceException 
