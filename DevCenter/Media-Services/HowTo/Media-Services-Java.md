@@ -353,7 +353,7 @@ The code above used a media processor by accessing it via a specific media proce
 
 Alternatively, the following code shows how to retrieve the ID of a media processor by name.
 
-	 String mediaProcessorName = "MP4 to Smooth Streams Task"; 
+	 String mediaProcessorName = "Storage Decryption"; 
 	 EntityListOperation<MediaProcessorInfo> operation;
      MediaProcessorInfo processor;
 
