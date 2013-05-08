@@ -57,7 +57,7 @@ HDInsight provides two options for storing data, Windows Azure Blob Storage and 
 
 Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-1. Download [sample.log](http://go.microsoft.com/fwlink/?LinkID=37003 "Sample.log") to your local computer.
+1. Download [sample.log][sample-log] to your local computer.
 
 2. Run **Azure Storage Explorer**.
 
@@ -209,3 +209,5 @@ While Hive makes it easy to query data using a SQL-like query language, other la
 * [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
 * [How to Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
+
+[sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
