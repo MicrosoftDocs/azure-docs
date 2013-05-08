@@ -112,7 +112,7 @@ The sample contains MapReduce programs written in Java that together count word 
 
 	Note the use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. For the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure SSL version, asvs://, for transferring your data when you are in production. For information on how to use the secure transport, see [Using HDInsight to process Blob Storage data](/en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/).
 
-5. The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ](http://hadoop.apache.org/common/docs/current/commands_manual.html#jar) for details. 
+5. The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ][jar-syntax] for details. 
 
 6. To run the program with these default values on your Hadoop cluster, simply click the blue **Execute job** button on the lower right side.
 
@@ -147,3 +147,4 @@ You have gotten set up with a Windows Azure and Azure Storage accounts that are 
 - For more information of Hive, see [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/).
 - For more information of MapReduce, see [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/).
 
+[jar-syntax]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#jar
