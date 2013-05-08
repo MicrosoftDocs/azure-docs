@@ -82,11 +82,11 @@ This section explains how to get to the HDInsight Service dashboard and sample g
 
 1. From the Windows Azure portal, click the name of the HDInsight cluster. 
 
-2. Click **Dashboard** from the top of the page. The dashboard provides quick glance of the metadata for the cluster. 
+2. Click **Dashboard** from the top of the page. The dashboard provides quick glance of the metadata for the cluster.  
 
 	![HDI.Dashboard](../media/HDI.Dashboard.PNG "Dashboard")
 
-3. Click **Manage** on the bottom of the page.
+3. Click **Manage Cluster** on the bottom of the page.
 
 4. Enter your credentials. The **User name** needed is the cluster user name, which was provided on the bottom of the previous dashboard (see the previous screenshot), which is "admin" by default when using the **Quick Create** process. The **Password** it expects is the one that you created for this the cluster (not the Windows Azure password).
 
@@ -117,10 +117,10 @@ To run the WordCount sample:
 
 	The downlods include the following files:
 
-	* **davinci.txt**: the input text file
-	* **hadoop-examples.jar**: the jar files that contains the files needed by Hadoop on Azure to deploy the application. 
-	* **WordCount.java**: the WordCount Java program file.
-	* **WordCount.js**
+		* **davinci.txt**: the input text file
+		* **hadoop-examples.jar**: the jar files that contains the files needed by Hadoop on Azure to deploy the application. 
+		* **WordCount.java**: the WordCount Java program file.
+		* **WordCount.js**
 
 2. Click **Deploy to your cluster** on the right-hand side of the page to begin the deployment. This brings up the **Create Job** page with the fields populated with the Wordcount sample data. 
 
@@ -132,11 +132,12 @@ To run the WordCount sample:
 
 	The use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. The output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. 
 
-<!--is the following paragraph correct? -->
+	<!--is the following paragraph correct? -->
 
 	For the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure SSL version, asvs://, for transferring your data when you are in production. For information on how to use the secure transport, see [Using HDInsight to process Blob Storage data](/en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/).
 
-5. The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ][jar-syntax] for details. 
+	The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. 
+
 
 3. Click **Execute job** to run the MapReduce job.
 
