@@ -115,7 +115,7 @@ To run the WordCount sample:
 
 	![HDI.WordCountSampleDeployment](../media/HDI.WordCountSampleDeployment.PNG "WordCount Sample Deployment")
 
-	The downlods include the following files:
+	The downloads include the following files:
 
 		* **davinci.txt**: the input text file
 		* **hadoop-examples.jar**: the jar files that contains the files needed by Hadoop on Azure to deploy the application. 
