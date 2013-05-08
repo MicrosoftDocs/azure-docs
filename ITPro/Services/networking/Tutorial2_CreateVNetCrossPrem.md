@@ -2,9 +2,9 @@
 
 <div chunk="../chunks/networking-left-nav.md" />
 
-<h1 id="vnettut1">Create a Virtual Network for Cross-Premises Connectivity</h1>
+<h1 id="vnettut1">Create a Virtual Network for Site-to-Site Cross-Premises Connectivity</h1>
 
-This tutorial walks you through the steps to cross-premises virtual network. The type of connection we will create is a site-to-site connection. If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
+This tutorial walks you through the steps to create a cross-premises virtual network. The type of connection we will create is a site-to-site connection. If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
 This tutorial assumes you have no prior experience using Windows Azure. It’s meant to help you become familiar with the steps required to create a site-to-site virtual network. If you’re looking for design scenarios and advanced information about Virtual Network, see the [Windows Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
@@ -79,18 +79,19 @@ In this tutorial you will learn:
 
 4.	On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the forward arrow on the lower right. 
 
-	It’s possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>It’s possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in <a href="http://go.microsoft.com/fwlink/?LinkID=248092">About Configuring a Virtual Network using the Management Portal</a>.</p> 
+	</div>
 
 -  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. Type *YourDNS* for the name and *10.1.0.4* for the IP address.
 -  **Configure Point-To-Site VPN:** Leave this field blank. 
 -  **Configure Site-To-Site VPN:** Select checkbox.
--  **LOCAL NETWORK:** Select **Specify a New Local Network** from the drop-down.list.
+-  **LOCAL NETWORK:** Select **Specify a New Local Network** from the drop-down list.
  
 	![](../media/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
-5.	On the **Site-To-Site Connectivity** page, enter the following information, and then click the checkmark in the lower right of the page. For more information about the settings on this page, see the **Site-to-Site Connectivity** page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092). 
-
-	Enter the following information:
+5.	On the **Site-To-Site Connectivity** page, enter the  information below, and then click the checkmark in the lower right of the page. For more information about the settings on this page, see the **Site-to-Site Connectivity** page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092). 
 
 -  **NAME:** Type *YourCorpHQ*.
 
