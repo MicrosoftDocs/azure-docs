@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Windows Azure" metaKeywords="" metaDescription="Learn about Linux on Windows Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Windows Azure" metaKeywords="" metaDescription="Learn about Linux on Windows Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
 <div chunk="../chunks/linux-left-nav.md" />
 
@@ -59,21 +59,21 @@ Note that the different distributions will be incorporating the agent to their o
  		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
 	</tr>
 	<tr>
-		<th> SUSE </th>
-		<td> SLES 11SP2</td>
+		<th> SUSE Linux Enterprise </th>
+		<td> SLES 11 SP2</td>
         <td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275154&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinuxagent<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=301278">Create base image</a></td>
 	</tr>
 	<tr>
-		<th> OPEN SUSE </th>
-		<td> Open SUSE 12.3</td>
+		<th> openSUSE </th>
+		<td> OpenSUSE 12.3</td>
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275155&amp;clcid=0x409">Latest Kernel required</a></td>
 		<td>RPM: In package repo under walinux<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254265">Create base image</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=301281">Create base image</a></td>
 	</tr>
 </table>
