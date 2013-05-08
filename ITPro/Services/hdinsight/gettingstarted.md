@@ -82,11 +82,11 @@ This section explains how to get to the HDInsight Service dashboard and sample g
 
 1. From the Windows Azure portal, click the name of the HDInsight cluster. 
 
-2. Click **Dashboard** from the top of the page. The dashboard provides quick glance of the metadata for the cluster. 
+2. Click **Dashboard** from the top of the page. The dashboard provides quick glance of the metadata for the cluster.  
 
 	![HDI.Dashboard](../media/HDI.Dashboard.PNG "Dashboard")
 
-3. Click **Manage** on the bottom of the page.
+3. Click **Manage Cluster** on the bottom of the page.
 
 4. Enter your credentials. The **User name** needed is the cluster user name, which was provided on the bottom of the previous dashboard (see the previous screenshot), which is "admin" by default when using the **Quick Create** process. The **Password** it expects is the one that you created for this the cluster (not the Windows Azure password).
 
@@ -134,7 +134,7 @@ To run the WordCount sample:
 
 	For the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure SSL version, asvs://, for transferring your data when you are in production. For information on how to use the secure transport, see [Using HDInsight to process Blob Storage data](/en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/).
 
-	The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ](http://hadoop.apache.org/common/docs/current/commands_manual.html#jar) for details. 
+	The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. 
 
 3. Click **Execute job** to run the MapReduce job.
 
