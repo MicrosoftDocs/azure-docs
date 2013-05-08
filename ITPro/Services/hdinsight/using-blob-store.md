@@ -203,17 +203,17 @@ Given a Blob Storage URI, you may need to be able to create the ASV URI. The map
 To access an file (or folder) at 
 
 <table border="1">
-<tr><th>AVS URI</th><th>Blob Storage URI</th></tr>
+<tr><th>Blob Storage URI</th><th>ASV URI</th></tr>
 
 <tr><td>http[s]://&lt;account&gt;/&lt;path-name&gt;</td><td>asv[s]://&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
 
-<tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;</td><td>asv[s]://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
+<tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;</td><td>asv[s]://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/<br />&lt;path-name&gt;</td></tr>
 
 <tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;<br/>
 
-where account and container are the values used for specifying the default file system.</td><td>asv:///&lt;path-name&gt;<br/> asvs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
+where account and container are the values used for specifying the default file system.</td><td>asv:///&lt;path-name&gt;<br/> asvs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/<br />&lt;path-name&gt;</td></tr>
 
-<tr><td>https://&lt;account&gt;.blob.core.windows.net/dailylogs/input/log1.txt</td><td>asvs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/input/log1.txt</td></tr>
+<tr><td>https://&lt;account&gt;.blob.core.windows.net/<br />dailylogs/input/log1.txt</td><td>asvs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/<br />input/log1.txt</td></tr>
 
 </table>
 

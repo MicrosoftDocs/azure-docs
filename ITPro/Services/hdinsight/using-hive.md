@@ -131,7 +131,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
 3. Click the name of the HDInsight cluster where you want to connect to.
-4. Click **Manage**.
+4. Click **Manage Cluster**.
 5. Enter your credential, and then click **Log On**.
 6. From the HDInsight portal, click **Interactive Console**.
 
