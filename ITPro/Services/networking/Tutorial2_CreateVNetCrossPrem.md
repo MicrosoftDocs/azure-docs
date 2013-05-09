@@ -200,7 +200,7 @@ This procedure assumes the following:
 
 	<table border="1">
 	<tr>
-	<th> </th>
+	<th>-</th>
 	<th>Cisco ASA</th>
 	<th>Cisco ISR/ASR</th>
 	<th>Juniper SSG/ISG</th>
