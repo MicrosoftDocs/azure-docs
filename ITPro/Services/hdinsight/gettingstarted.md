@@ -117,10 +117,10 @@ To run the WordCount sample:
 
 	The downloads include the following files:
 
-		* **davinci.txt**: the input text file
-		* **hadoop-examples.jar**: the jar files that contains the files needed by Hadoop on Azure to deploy the application. 
-		* **WordCount.java**: the WordCount Java program file.
-		* **WordCount.js**
+	* **davinci.txt**: the input text file
+	* **hadoop-examples.jar**: the jar files that contains the files needed by Hadoop on Azure to deploy the application. 
+	* **WordCount.java**: the WordCount Java program file.
+	* **WordCount.js**
 
 2. Click **Deploy to your cluster** on the right-hand side of the page to begin the deployment. This brings up the **Create Job** page with the fields populated with the Wordcount sample data. 
 
