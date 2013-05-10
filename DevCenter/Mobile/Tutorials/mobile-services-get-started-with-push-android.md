@@ -290,6 +290,9 @@ This concludes the tutorials that demonstrate the basics of working with push no
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
+* [Mobile Services android conceptual]
+  <br/>Learn more about using Mobile Services with Android devices.
+
 <!-- Anchors. -->
 [Register your app for push notifications]: #register
 [Configure Mobile Services]: #configure
@@ -330,5 +333,6 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Mobile Services android conceptual]: ../HowTo/mobile-services-client-android.md
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
