@@ -42,12 +42,12 @@ Note that the different distributions will be incorporating the agent to their o
 	</tr>
 	<tr>
 		<th>  Canonical UBUNTU </th>
-		<td> Ubuntu 12.04.1 and 12.10</td>
+		<td> Ubuntu 12.04.1, 12.10, and 13.04</td>
 		<td>In Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04.x only</a></td>
 		<td>Deb: In package repo under walinuxagent <br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254264">Download base VHD</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/p/?LinkId=301511">Download base VHD</a></td>
 	</tr>
 	<tr>
 		<th> CENTOS by Open Logic </th>
