@@ -312,7 +312,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			}
 		}
 
-		// Helper function to check to on the status of the job.
+		// Helper function to check on the status of the job.
 		private static void CheckJobStatus(String jobId) throws InterruptedException, ServiceException
 		{
 	        int maxRetries = 12; // Number of times to retry. Small jobs often take 2 minutes.
