@@ -1,4 +1,4 @@
-To use storage operations, you need a Windows Azure storage account. You
+To use storage operations, you need a Windows Azure storage account. You 
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API].)
 
