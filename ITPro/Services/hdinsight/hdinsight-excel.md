@@ -19,32 +19,32 @@ One key feature of Microsoft’s Big Data Solution is the integration of  Micros
 
 Follow the steps below to install the Hive ODBC Driver.
  
-1. Click the **Download** tile from the cluster dashboard on the HDInsight portal to bring up the links for downloading the Hive ODBC driver MSIs.
+1. The Hive ODBC driver can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/confirmation.aspx?id=37134 "Hive ODBC download"). From your cluster, click the **Download** tile from the cluster dashboard on the HDInsight portal to bring up the links for downloading the Hive ODBC driver MSIs.
 
 	![Hive ODBC Drivers](../media/HDI.HiveOdbcForExcel.Drivers.png)
 
-2. If you have the 32-bit version of Excel installed, double click the **HiveODBCSetupx86.msi** link. If you have the 64-bit version of Excel installed, double click the **HiveODBCSetupx64.msi** link. If you are not sure which version of Excel you have installed, open Excel, go to **File** -> **Help** and inspect the version information provided in the **About Microsoft Excel** section. Here is what you would expect to see in Excel 2010.
+2. Click on either the **HiveODBCSetupx86.msi** link or the **HiveODBCSetupx64.msi** link - they both just take you to the   [Microsoft Download Center](http://www.microsoft.com/en-us/download/confirmation.aspx?id=37134 "Hive ODBC download").
 
-- For Excel 2010, go to **File** -> **Help** and inspect the version information provided in the **About Microsoft Excel** section.
+	![Microsoft Download Center](../media/HDI.HiveOdbc.MSDownloadCenter.PNG)
 
-	![Check Excel 2010 Version](../media/HDI.HiveOdbc.Excel2010Version.PNG)
+3. Click the **Download** button and choose the download you want.
+ - If you have the 32-bit version of Windows installed, select the **HiveODBCSetupx86.msi** link. 
+- If you have the 64-bit version of Windows installed, select the **HiveODBCSetupx64.msi**.
+ 
+4. Click **Next** and then **Run** to bring up the **Microsoft ODBC Driver Hive Setup** wizard.
+
+	![Microsoft Download Center](../media/HDI.HiveOdbc.MSDriverForHiveSetupWizard.PNG)
 
 
-- For Excel 2013, go to **File** -> **Account** and inspect the version information provided in the **About Microsoft Excel** section.	
-
-	![Check Excel 2013 Version](../media/HDI.HiveOdbc.Excel2013Version.PNG)
-
-3. Click Run when prompted and read the license agreement. 
-
-4. If you agree to the license agreement, check the **I accept ...** box and then click the **Install** button. 
+5. Click **Next** and then **Run**. If you agree to the license agreement, check the **I accept ...** box and then click the **Install** button. 
    
 	![Accept the EULA](../media/EULA-accept.PNG)
 
-5. Once the installation has completed, click **Finish** to exit the Setup Wizard. 
+6. Once the installation has completed, click **Finish** to exit the Setup Wizard. 
 
 
 **Note**
-The Hive ODBC driver released is in Preview only and should not be used for production workloads. It is supported only on Windows and only to work with HDInsight Hive installations. Due to current limitations with Hive Server 1, the Hive ODBC driver is supported in single user mode only and should not be used to run concurrent queries from concurrent connections. Attempting to run multiple queries at the same time may result in unexpected behavior. Microsoft is working to provide support for the ODBC driver with Hive Server 2. Hive Server 2 provides support for concurrency for both ODBC and Java Database Connectivity (JDBC). When this driver is released, the existing ODBC driver will be deprecated. For more information about current Hive Server 1 limitations, see <a href="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API">https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Thrift+API</a>
+The Hive ODBC driver released is in Preview only and should not be used for production workloads. It is supported only on Windows and only to work with HDInsight Hive installations. If you have issues with the installation, see [Troubleshooting ODBC connectivity to HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight/thread/b4ca52ea-f7cf-420c-959d-53e09f801f7d).
 
 
 <h2><a id="CreateHiveODBCDataSource"></a>Create a Hive ODBC Data Source</h2>
@@ -63,22 +63,18 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 5. Click the **HIVE** driver in the ODBC driver list.  
 
-	![ODBCDSN](../media/HDI.HiveOdbc.CreateDataSource.PNG)
+	![ODBCDSN](../media/HDI.HiveOdbc.CreateNewDataSource.PNG)
 
 6. Click the **Finish** button. This will launch the **Hive Data Source Configuration** dialog. 
  
 
-	![DSNconfig](../media/HDI.HiveOdbc.HiveDataSourceConfig.png "DSN config")  
+	![DSNconfig](../media/HDI.HiveOdbc.HiveDataSourceConfiguration.jpg "Hive Data Source Configuration")  
 
-7. Enter a data source a name in the **Data Source Name** box. For Example, *myHiveData*. 
+7. Enter a data source a name in the **Data Source Name** box. In this example, *myHiveData2*. 
 
-8. In the **Host** box, replace the clustername placeholder variable with the actual name of the cluster that you created. For example, if your cluster name is "hdicluster2" then the final value for host should be "hdicluster2.azurehdinsight.net". Do not change the default port number of 563.
+8. In the **Host** box, replace the *clustername* placeholder variable with the actual name of the cluster that you created. For example, if your cluster name is "hdicluster2" then the final value for host should be "hdicluster2.azurehdinsight.net". Do not change the default port number of *563* or the default value of the Hive Server HTTP Path, */servlets/thrifths2*.
 
-9. Enter the username you used to authenticate on the portal.
-
-10. Click **OK** to save the configuration for the new Hive data source. 
-
-11. Click **OK** to close the ODBC Data Source Administrator dialog. 
+9. Click **OK** to close the **ODBC Hive Setup** dialog. 
 	
  
 <h2><a id="ImportData"></a>Import Data into Excel</h2>
@@ -95,13 +91,13 @@ The steps below describe the way to import data from a hive table into excel wor
 
 	![Welcome to the Data Connection Wizard](../media/excelconn.png) 
 
-5. In the **Connect to ODBC Data Source** dialog, select the Data Source name that you created in the previous step (in our example, *myHiveData*) and click **Next**.
+5. In the **Connect to ODBC Data Source** dialog, select the Data Source name that you created in the previous step (in our example, *myHiveData2*) and click **Next**.
 
-	![Welcome to the Data Connection Wizard](../media/HDI.HiveOdbc.ExcelDataConnectionWizard.png) 
+	![Welcome to the Data Connection Wizard](../media/HDI.HiveOdbc.ExcelDataConnectionWizard2.png) 
 
-6. In the **Hive Data Source Configuration** dialog, enter the password for the cluster and click **OK**.
+6. In the **Data Link Properties** wizard, re-enter the password for the cluster and click **OK**.
 
-	![Hive Data Source Configuration](../media/HDI.HiveOdcb.ExcelHiveDataSourceConfiguration.PNG) 
+	![Hive Data Source Configuration](../media/HDI.HiveOdbc.ExcelDataLinkProperties2.png) 
 
 
 7. When the **Select Database and Table** dialog in the **Data Connection Wizard** opens, select the table that you want to import (here, for example, the default "hivesamepletable") and click **Next**.
@@ -112,29 +108,18 @@ The steps below describe the way to import data from a hive table into excel wor
 
 	![Select Database and Table](../media/HDI.HiveOdbc.ExcelSaveDataConnectionFile.PNG) 
 
-9. There is a known issue when using the current Hive ODBC driver with Excel 2013. There is a workaround for this, but this workaround is not needed for Excel 2010. 
 
-- If you are using Excel 2013, complete the next two steps, 10 and 11, for the workaround.
- 
-- If you are using Excel 2010, skip the next two steps, and proceed from step 12 to import the data. 
-
-10. (Skip this step if you are using Excel 2010.) If you are using Excel 2013, the current ODBC driver may result in the program hanging when using the **Import Table Data** dialog. So cancel out of the **Import Table Data** dialog at this point. Go back to the **Get External Data** menu and select **Existing Connections** to open the **Existing Connections** wizard. 
-
-	![existingconnections](../media/HDI.HiveOdbc.ExistingConnectionsWizard.PNG "Existing Data Connections")  
-
-11. (Skip this step if you are using Excel 2010.) Select the *default hivesampletable* connection file you just created on this computer and click the **Open** button. This opens up the **Import Data** wizard.
-
-12. In the **Import Data** dialog, you can change or specify the query. To do so, click **Properties** to launch the **Connection Properties** dialog. 
+9. In the **Import Data** dialog, you can change or specify the query. To do so, click **Properties** to launch the **Connection Properties** dialog. 
 
 	![Select Database and Table](../media/HDI.HiveOdbc.ExcelImportData.png) 
 
-13. Click on the **Definition** tab and add "Limit 200" at the end of the query in the **Command text** text box. (You can also replace this query text with another query as needed.) Then click **OK** to return to the **Import Data** dialog. 
+10. Click on the **Definition** tab and add "Limit 200" at the end of the query in the **Command text** text box. (You can also replace this query text with another query as needed.) Then click **OK** to return to the **Import Data** dialog. 
 
 	![Connection Properties](../media/HDI.HiveOdbc.ExcelConnectionProperties.PNG "Excel Data Link")
 
-14. Click **OK** to close the **Import Data** dialog.  In the **Hive Data source Configuration** dialog that opens, re-enter the password and click **OK**.
+11. Click **OK** to close the **Import Data** dialog.  In the **Hive Data source Configuration** dialog that opens, re-enter the password and click **OK**.
 
-15. The data from the hive table will open in the Excel workbook, where is can be inspected and analyzed using BI tools.
+12. The data from the hive table will open in the Excel workbook, where is can be inspected and analyzed using BI tools.
 
 	![excelhive](../media/HDI.HiveOdbc.ExcelHiveTable.PNG "Excel Hive")  
 
@@ -145,7 +130,7 @@ The Hive ODBC driver makes it easy to import data from your HDInsight Service cl
 
 ## Next steps
 
-In this article you learned how to use the Hive ODBC adapter to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDINsight Service into SQL Azure. It is also possible to upload data into an HDinsight Service.
+In this article you learned how to use the Hive ODBC adapter to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Azure. It is also possible to upload data into an HDInsight Service.
 
 * For information on using Sqoop to copy data from an HDInsight Service to SQL Azure, see [Using HDInsight to process Blob Storage data and write the results to a SQL Database][blob-hdi-sql]. 
 
