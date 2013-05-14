@@ -113,7 +113,7 @@ to get the tools and set-up your development environment.
 
     ![][3]
 
-5.  In the Web Platform Installer, click **Add** and proceed with the installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][4]
 
@@ -618,7 +618,7 @@ To learn more about multi-tier scenarios, see:
   [2]: ../Media/getting-started-multi-tier-101.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [3]: ../Media/getting-started-3.png
-  [4]: ../Media/getting-started-4-WebPI2.png
+  [4]: ../Media/getting-started-4-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [5]: ../Media/getting-started-12.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
