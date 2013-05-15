@@ -101,7 +101,7 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
     </p> 
     </div>
 
-	![Cloud services remote] (../media/CloudServices_CreateNewCertDropDown.png)
+	![Cloud services create certificate] (../media/CloudServices_CreateNewCertDropDown.png)
 
  To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
