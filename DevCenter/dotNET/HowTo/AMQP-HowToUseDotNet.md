@@ -13,7 +13,7 @@ Support for AMQP 1.0 in Service Bus means that you can use the queuing and publi
 
 This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API. There is a companion how-to guide that explains how to do the same using the standard Java Message Service (JMS) API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
-<h2><span class="short-header">Getting Started</span>Getting Started with the Service Bus</h2>
+<h2><span class="short-header">Getting Started</span>Getting Started with Service Bus</h2>
 
 This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled “[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)”
 
