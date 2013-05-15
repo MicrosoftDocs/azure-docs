@@ -1,5 +1,8 @@
-<div chunk=”../chunks/article-left-menu.md” />
-# Windows Azure SQL Reporting for Application developers #
+<properties linkid="develop-dotnet-sql-reporting" urlDisplayName="SQL Reporting" pageTitle="How to use SQL Reporting (.NET) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use SQL Reporting programmatically in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# Windows Azure SQL Reporting for Application developers
 
 This topic provides information about deploying a report server project to Windows Azure SQL Reporting report server, and getting started information for application developers who integrate reports hosted by Windows Azure SQL Reporting in their applications, as well as develop management tools against SQL Reporting report servers.
 
