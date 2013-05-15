@@ -27,7 +27,7 @@ To complete this tutorial, you need a Windows Azure account that has the Windows
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial") page.</p> 
+<p>While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the <a href="http://www.windowsazure.com/en-us/pricing/free-trial/">Windows Azure Free Trial</a> page.</p> 
 </div>
 
 ##<a name="create"></a>Create a Windows Azure Storage Account
