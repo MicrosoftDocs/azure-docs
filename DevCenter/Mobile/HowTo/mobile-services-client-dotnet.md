@@ -7,7 +7,7 @@
 
 <div class="dev-center-tutorial-selector"> 
 	<a href="/en-us/develop/mobile/how-to-guides/how-to-dotnet-client" title=".NET Framework" class="current">.NET Framework</a>
-	<a href="/en-us/develop/mobile/how-to-guides/how-to-js-client" title="JavaScript">JavaScript</a> 
+	<a href="/en-us/develop/mobile/how-to-guides/how-to-js-client" title="JavaScript">HTML/JavaScript</a> 
 	<a href="/en-us/develop/mobile/how-to-guides/how-to-android-client" title="Android">Android</a>
 </div> 
 
