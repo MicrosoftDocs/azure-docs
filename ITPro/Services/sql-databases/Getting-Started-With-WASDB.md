@@ -1,7 +1,9 @@
 <properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="Get started tutorial" pageTitle="Getting started with SQL Database - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/sql-databases-left-nav.md" />
 
 #Getting Started with Windows Azure SQL Database
+
 In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes.
  
 
