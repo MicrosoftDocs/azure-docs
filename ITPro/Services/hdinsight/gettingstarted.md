@@ -36,7 +36,7 @@ The HDInsight provision process requires a Windows Azure Storage account to be u
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Your storage account should be created in the US East data center as storage accounts must be collocated with the HDInsight Service compute resources which are in US East.</p> 
+<p>Your storage account should be collocated in the same data center as your the HDInsight Service compute resources.</p> 
 </div>
 
 
@@ -71,11 +71,6 @@ You can use the Windows Azure Management portal to create and configure a new Ha
 	</table>
 
 5. Click **Create HDInsight Cluster** on the lower right. The cluster is now provisioned and when it will be available when its status is listed as **Running**. 
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Notice your cluster is automatically located in the East US data center, which is why you co-located your Azure storage account there when creating it</p> 
-	</div>
 
 ##<a name="dashboard"></a>Use the HDInsight Service Dashboard and Sample Gallery
 This section explains how to get to the HDInsight Service dashboard and sample gallery.
