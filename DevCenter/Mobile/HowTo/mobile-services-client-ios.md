@@ -4,9 +4,9 @@
 
 # How to use the iOS client library for Mobile Services
 <div class="dev-center-tutorial-selector"> 
-  <a href="/en-us/develop/mobile/how-to-guides/how-to-dotnet-client" title=".NET Framework">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client" title="JavaScript">JavaScript</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/how-to-ios-client" title="Objective-C">Objective-C</a> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
+  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client" title="HTML/JavaScript">HTML/JavaScript</a> 
+	<a href="/en-us/develop/mobile/how-to-guides/how-to-ios-client" title="iOS">iOS</a> 
 	<a href="/en-us/develop/mobile/how-to-guides/how-to-android-client" title="Android">Android</a>
 </div>	
 
