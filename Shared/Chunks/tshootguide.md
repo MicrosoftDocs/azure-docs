@@ -374,8 +374,7 @@ Windows Azure web sites uses the same failed request tracing
 functionality that has been available with IIS 7.0 and later. It is not,
 however, configurable like IIS failed request tracing. When you enable
 failed request tracing for Windows Azure web sites, **all** failed
-requests are captured. For more information on how to view failed
-request logs see: [View the results of failed request tracing].
+requests are captured. 
 
 <h2><a id="Cloudservices"></a>Windows Azure Cloud Services</h2>
 
@@ -805,7 +804,6 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Log Parser Plus]: http://logparserplus.com/Examples
 [TechNet Log Parser Examples]: http://technet.microsoft.com/en-us/library/ee692659.aspx
 [Office 2003 Web Components]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
-[View the results of failed request tracing]: http://diagnostics.antdf0.antares-test.windows-int.net/#failedrequests
 [CodePlex]: http://wappowershell.codeplex.com/
 [blog]: http://michaelwasham.com/2012/01/16/windows-azure-powershell-cmdlets-2-2-released/
 [How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
