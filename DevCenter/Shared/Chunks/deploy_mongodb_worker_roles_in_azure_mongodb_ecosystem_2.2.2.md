@@ -1,14 +1,14 @@
 
-# Deploy MongoDB Worker Roles in Azure
+# Deploy MongoDB Worker Roles in Windows Azure
 *By [10gen Inc.][10gen-tutorial]*
  
 The MongoDB Worker Role is currently a preview release. Please provide feedback at [mongodb-dev][1], [mongodb-user][2], or IRC #mongodb.
 
-The MongoDB Worker Role project allows you to deploy and run a MongoDB replica set on Windows Azure. Replica set members are run as Azure worker role instances. MongoDB data files are stored in an Azure page blob mounted as a cloud drive. One can use any MongoDB driver to connect to the MongoDB server instance. The MongoDB [*.Net driver*][3] is included as part of the package.
+The MongoDB Worker Role project allows you to deploy and run a MongoDB replica set on Windows Azure. Replica set members are run as Windows Azure worker role instances. MongoDB data files are stored in an Windows Azure page blob mounted as a cloud drive. One can use any MongoDB driver to connect to the MongoDB server instance. The MongoDB [*.Net driver*][3] is included as part of the package.
 
 ## Get the Package
 
-The MongoDB Azure Worker Role is delivered as a Visual Studio 2010 solution with associated source files. You can access the package at GitHub:
+The MongoDB Windows Azure Worker Role is delivered as a Visual Studio 2010 solution with associated source files. You can access the package at GitHub:
 
 https://github.com/mongodb/mongo-azure/
 
@@ -34,7 +34,7 @@ Once you have unzipped the package or cloned the repository, you will see the fo
 
 *   Setup: Contains a file called solutionsetup.cmd. **Run this before opening the solution file.**
 *   src: Contains all the project’s source code.
-*   src/SampleApplications: Contains sample applications that you can use to demo MongoDB on Azure. [See the listing for more info][4].
+*   src/SampleApplications: Contains sample applications that you can use to demo MongoDB on Windows Azure. [See the listing for more info][4].
 *   lib: Library files. Includes the MongoDB .NET driver
 *   Tools: Contains miscellaneous tools for the project.
 
@@ -73,7 +73,7 @@ In Visual Studio, run the solution using F5 or Debug-&gt;Start Debugging. This w
 
 You can verify this by using the monitoring application or MvcMovie sample application in the browser or by running mongo.exe against the running instances.
 
-### Deploy to Azure
+### Deploy to Windows Azure
 
 Once you have the application running locally, you can deploy the sample app solution to Windows Azure. You cannot execute locally (on the compute emulator) with data stored in Blob store. This is due to the use of Windows Azure Drive which requires both compute and storage are in the same location.
 
@@ -84,7 +84,7 @@ The MongoDB Worker Role runs mongod.exe with the following options:
     --dbpath --port --logpath --journal --nohttpinterface --logappend --replSet
     
 
-MongoDB creates the following containers and blobs on Azure storage:
+MongoDB creates the following containers and blobs on Windows Azure storage:
 
 *   Mongo Data Blob Container Name - mongoddatadrive(replica set name)
 *   Mongo Data Blob Name - mongoddblob(instance id).vhd
@@ -94,10 +94,10 @@ MongoDB creates the following containers and blobs on Azure storage:
 *   Can I run mongo.exe to connect?
     
     *   Yes if you set up remote desktop. Then you can connect to the any of the worker role instances and run e:approotMongoDBBinariesbinmongo.exe.
-*   Role instances do not start on deploy to Azure
+*   Role instances do not start on deploy to Windows Azure
     
     *   Check if the storage URLs have been specified correctly.
-*   Occasional socket exception using the .Net driver on Azure
+*   Occasional socket exception using the .Net driver on Windows Azure
 
 *   My MongoDB instances are running fine on the worker roles. The included manager app shows the instances are working fine but my client app cannot connect.
     
@@ -119,5 +119,5 @@ MongoDB creates the following containers and blobs on Azure storage:
  [4]: https://github.com/mongodb/mongo-azure/tree/master/src/SampleApplications
  [5]: https://www.windowsazure.com/en-us/develop/net/
  [6]: https://github.com/mongodb/mongo-azure/blob/master/src/README.md
- [7]: http://docs.mongodb.org/_images/azure-worker-roles-instance-maintainer-1.png
- [8]: http://docs.mongodb.org/_images/azure-worker-roles-instance-maintainer-2.png  
+ [7]: ../Media/azure-worker-roles-instance-maintainer-1.png
+ [8]: ../Media/azure-worker-roles-instance-maintainer-2.png  
