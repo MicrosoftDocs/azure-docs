@@ -1,6 +1,7 @@
 <properties linkid="mobile-services-how-to-iOS-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service iOS client library, iOS client library" writer="glenga" metaDescription="Learn how to use the iOS client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu-iOS.md"></div>
+
 # How to use the iOS client library for Mobile Services
 <div class="dev-center-tutorial-selector"> 
   <a href="/en-us/develop/mobile/how-to-guides/how-to-dotnet-client" title=".NET Framework">.NET Framework</a>
@@ -20,14 +21,12 @@ This guide shows you how to perform common scenarios using the iOS client for Wi
 - [How to: Create a table reference][]
 - [How to: Query data from a mobile service][]
 	- [Filter returned data]
-    - [Sort returned data]
-	- [Return data in pages]
+    - [Using the MSQuery object][How to: Use MSQuery]
 	- [Select specific columns]
 - [How to: Insert data into a mobile service]
 - [How to: Modify data in a mobile service]
 - [How to: Bind data to the user interface]
 - [How to: Authenticate users]
-	- [Cache authentication tokens]
 
 <!-- - [How to: Handle errors]
 - [How to: Design unit tests]
@@ -38,7 +37,7 @@ This guide shows you how to perform common scenarios using the iOS client for Wi
 
 <div chunk="../chunks/mobile-services-concepts.md" />
 
-##<a name="Setup"></a>Setup and Prerequisites</h2>
+##<a name="Setup"></a>Setup and Prerequisites
 
 This guide assumes that you have created a mobile service with a table.  For more information see [Create a table]. The examples in this topic use a table named `ToDoItem`, which has the following columns:
 
@@ -53,7 +52,7 @@ In addition, you must add the following reference in the appropriate files or in
 
 	#import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
-## <a name="create-client"></a>How to: Create the Mobile Services client
+<h2><a name="create-client"></a><span class="short-header">Create the client</span>How to: Create the Mobile Services client</h2>
 
 The following code creates the mobile service client object that is used to access your mobile service. 
 
@@ -66,14 +65,14 @@ You can also create your client from an **NSURL** object that is the URL of the 
 	MSClient *client = [MSClient clientWithApplicationURL:(NSURL *)url
 								 applicationKey:(NSString *)string];
 
-## <a name="table-reference"></a>How to: Create a table reference</h2>
+<h2><a name="table-reference"></a><span class="short-header">Create table reference</span>How to: Create a table reference</h2>
 
 Before you can access data from your mobile service, you must get a reference to the table from which you want to query, update, or delete items. In the following example, `ToDoItem` is the table name:
 
 	MSTable *table = [client tableWithName:@"ToDoItem"]; 
 
 
-<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
+<h2><a name="querying"></a><span class="short-header">Query data</span>How to: Query data from a mobile service</h2>
 
 Once you have a MSTable object you can then create your query.  The following simple query gets all the items in our ToDoItem table.
 
@@ -118,7 +117,7 @@ A single record can be retrieved by using its Id.
 
 Note that in this case the callback parameters are slightly different.  Instead of getting an array of results and an optional count, you instead just get the one record back.
 
-### <a name="query-object"></a>How to: Use MSQuery
+### <a name="query-object"></a>Using the MSQuery object
 
 Use the **MSQuery** object when you need a query that is more complex than just filtering rows, such as changing the sort order on your results or limiting the number of data records you get back. The following two examples show how to create an MSQuery object instance:
 
@@ -135,7 +134,7 @@ The MSQuery object enables you to control the following query behaviors:
 
 You further define a query by applying one or more functions. Once the query is defined, it is executed by calling the **readWithCompletion** function.
 
-#### <a name="sorting"></a>Using MSQuery to sort returned data
+#### <a name="sorting"></a>Sorting returned data
 
 The following functions are used to specify the fields used for sorting:
 
@@ -150,7 +149,7 @@ This query sorts the results first by duration and then by whether the task is c
 		//code to parse results here
 	}];	
 
-#### <a name="paging"></a>Using MSQuery to get pages of data
+#### <a name="paging"></a>Returning data in pages 
 
 Mobile Services limits the amount of records that are returned in a single response. To control the number of records displayed to your users you must implement a paging system.  Paging is performed by using the following three properties of the **MSQuery** object:
 
@@ -177,13 +176,13 @@ In the following example, a simple function requests 20 records from the server 
 		}];
 	}
 
-#### <a name="selecting"></a>Using MSQuery to limit the fields returned
+#### <a name="selecting"></a>Limiting the returned fields
 
 To limit which field are returned from your query, simply specify the names of the fields you want in the **selectFields** property. The following example returens only the text and completed fields:
 
 	query.selectFields = @["text", @"completed"];
 
-#### <a name="parameters"></a>Using MSQuery to specify additional querystring parameters
+#### <a name="parameters"></a>Specifying additional querystring parameters
 
 The client library makes it possible to include additional querystring parameters in the request to the server. These parameters might be required by your server side scripts. The following example adds two querystring parameters to the request:   
 
@@ -195,7 +194,7 @@ The client library makes it possible to include additional querystring parameter
 These parameters are appended to query URI as `myKey1=value1&myKey2=value2`. 
 For more information, see [How to: access custom parameters].
 
-## <a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
 To insert a new row into the table, you create a new [NSDictionary object] and pass that to the insert function. The following code inserts a new todo item into the table:
 
@@ -212,7 +211,7 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
 
-## <a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
+<h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
 
 Update an existing object by modfiying an item returned from a previous query and then calling the update function.
 
@@ -243,7 +242,7 @@ You can also just delete a record using its id directly, as in the following exa
 
 Note that, at minimum, the `id` attribute must be set when making updates and deletes.
 
-## <a name="authentication"></a>How to: Authenticate users</h2>
+<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
 Mobile Services enables you to use the following identity providers to authenticate users:
 
@@ -430,6 +429,7 @@ For more information see, New topic about processing headers in the server-side.
 [Customize request headers]: #custom-headers
 [Customize data type serialization]: #custom-serialization
 [Next Steps]: #next-steps
+[How to: Use MSQuery]: #query-object
 
 <!-- Images. -->
 
