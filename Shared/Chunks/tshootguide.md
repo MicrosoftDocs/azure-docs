@@ -808,7 +808,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [blog]: http://michaelwasham.com/2012/01/16/windows-azure-powershell-cmdlets-2-2-released/
 [How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
 [Daniel Pearson's presentation Windows Debugging and Troubleshooting]: http://technet.microsoft.com/en-us/edge/Video/hh867800
-[Suse Linux documentation]: https://secure-www.suse.com/documentation/sles11/
+[Suse Linux documentation]: https://www.suse.com/documentation/
 [list of storage explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/17/windows-azure-storage-explorers.aspx
 [Explorer for Azure Blob Storage]: http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx
 [enterprise service bus]: http://en.wikipedia.org/wiki/Enterprise_service_bus
