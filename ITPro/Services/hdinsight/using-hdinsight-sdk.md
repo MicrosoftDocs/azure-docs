@@ -4,7 +4,7 @@
 
 #Using the Hadoop .NET SDK with the HDInsight Service#
 
-The Hadoop .NET SDK provides .NET client libraries that makes it easier to work with Hadoop from .NET. In this tutorial you will learn how to get the Hadoop .NET SDK and use it to build a simple .NET based application that runs Hive queries using the Windows Azure HDInsight Service. 
+The Hadoop .NET SDK provides .NET client libraries that makes it easier to work with Hadoop from .NET. In this tutorial you will learn how to get the Hadoop .NET SDK and use it to build a simple .NET based application that runs Hive queries using the Windows Azure HDInsight Service. Given an actors.txt file, you will write an application to find the actor/actress who gets the most awards. 
 
 To enable the HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures).
 
@@ -49,7 +49,7 @@ You must also download the Actors.txt file used in this tutorial. Perform the fo
 
 2. Download [Actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003), and save the file to the C:\Tutorials folder.
 
-##<a id="create"></a>Create the application
+##<a id="create"></a>Create the Application
 
 In this section you will learn how to upload files to Hadoop cluster programmatically and how to execute Hive jobs using LINQ to Hive.
 
@@ -77,30 +77,30 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 4. Click **OK** to create the project.
 
 
-3. From the **Tools** menu, click **Library Package Manager**, click **Package Manager Console**.
+5. From the **Tools** menu, click **Library Package Manager**, click **Package Manager Console**.
 
-4. Run the following commands in the console to install the packages.
+6. Run the following commands in the console to install the packages.
 
 		install-package Microsoft.Hadoop.Hive 
 		install-package Microsoft.Hadoop.WebClient 
 
 	These commands add .NET libraries and references to them to the current Visual Studio project.
 
-6. From Solution Explorer, double-click **Program.cs** to open it.
+7. From Solution Explorer, double-click **Program.cs** to open it.
 
-7. Add the following using statements to the top of the file:
+8. Add the following using statements to the top of the file:
 
 		using Microsoft.Hadoop.WebHDFS.Adapters;
 		using Microsoft.Hadoop.WebHDFS;
 		using Microsoft.Hadoop.Hive;
 	
-7. In the Main() function, copy and paste the following code:
+9. In the Main() function, copy and paste the following code:
 		
 		// Upload actors.txt to Blob Storage
 		var asvAccount = [Storage-account-name.blob.core.windows.net];
 		var asvKey = [Storage account key];
 		var asvContainer = [Container name];
-		var localFile = "C:/Tutorials/Actors.txt"
+		var localFile = "C:/Tutorials/Actors.txt";
 		var hadoopUser = [Hadoop user name]; // The HDInsight cluster user
 		var hadoopUserPassword = [Hadoop user password]; // The HDInsight cluster user password
 		var clusterURI = [HDInsight cluster URL]; //"https://HDInsightCluster Name.azurehdinsight.net:563";
@@ -153,13 +153,19 @@ In this section you will learn how to upload files to Hadoop cluster programmati
         Console.WriteLine("\nPress any key to continue.");
         Console.ReadKey();
 
-##<a id="run"></a>Run the application
+10. Update the constants in the application. Windows Azure HDInsight Service uses Windows Azure Blob storage as the default file system. During the HDInsight provision process, a blob is designated as the default file system. You have the options to use the default file system container or a container in a different Blob storage. For more information see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
+
+	If you choose to use the default file system container, you can find the storage account name, the storage key, and the container name from the *c:\apps\dist\hadoop-1.1.0-SNAPSHOT\conf>core-site.xml* configuration file by remoting to the cluster. The container used as the default file system can be found by search *fs.default.name*; the storage account name and the account key can be found by searching *fs.azure.account.key*.
+	
+##<a id="run"></a>Run the Application
 
 While the application is open in Visual Studio, press **F5** to run the application. A console window should open and display the steps executed by the application as data is uploaded, stored into a Hive table, and finally queried. Once the application is complete and the query results have been returned, press any key to terminate the application.
 
+![HDI.HadoopSDKOutput](../media/HDI.HadoopSDKOutput.PNG "Console Application")
+
 <div class="dev-callout">
 <strong>Note</strong>
-<p>Each step performed by the application may take seconds or even minutes to complete. The time to upload the Actors.txt file will vary based on your Internet connection to the Windows Azure data center (East US for the HDinsight Service preview), while the other steps are dependent on cluster size.</p>
+<p>Each step performed by the application may take seconds or even minutes to complete. The time to upload the Actors.txt file will vary based on your Internet connection to the Windows Azure data center, while the other steps are dependent on cluster size.</p>
 </div>
 
 <div class="dev-callout">

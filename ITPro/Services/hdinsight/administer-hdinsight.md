@@ -16,12 +16,6 @@ In this topic, you will learn how to create an HDInsight cluster, and how to ope
 
 A Windows Azure storage account is required before you can create a HDInsight cluster. HDInsight uses Windows Azure Blob Storage to store data. For information on creating a Windows Azure storage account, see [How to Create a Storage Account](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/).
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Currently HDInsight is only available in the US East data center, so you must specify the US East location when creating your storage account.</p>
-</div>
-
-
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
 
