@@ -77,7 +77,7 @@ The installer downloads the Solr binaries.
 
 ![solr-binaries][3]
 
-The installer also adds a master worker role.
+The installer also adds a  worker role.
 
 ![solr-worker][4]
 
@@ -100,17 +100,13 @@ You can also import data from an Windows Azure Blob (select Import and
 
 ![solr-blob][6]
 
-Go to the Home tab and observe how the SolrMaster and the Slaves
+Go to the Home tab and observe how the Solr primary and the secondary
  are updating the status with the new index created based on the
  crawled data or the Wikipedia sample data from the Windows Azure
  Blob
 
 ![solr-index][7]
 
-Select search and type a query based on the content crawled. If
- the Wikipedia sample was used you may type "Alabama"
-
-![solr-query][8]
 
  [ms-open-tech]: http://msopentech.com
  [1]: ../Media/solr-architecture_499x305.jpg
