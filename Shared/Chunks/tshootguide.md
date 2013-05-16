@@ -244,10 +244,6 @@ notification by email, SMS, or a desktop application when an error is
 detected. This type of monitoring simulates what an end user does to
 successfully monitor an application.
 
-For other networking information, Microsoft Online Services provides a [performance tool test] that measures the response times, bandwidth, and
-overall connection quality. The latency between the different Microsoft
-data centers can be viewed with use Matthew Rosoff's [Azure Statistics].
-
 **Azure Check**
 
 Apica's [AzureCheck] is a tool that monitors your Windows Azure web
@@ -793,8 +789,6 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Keynote]: http://www.keynote.com/solutions/
 [Pingdom]: http://pingdom.com/
 [AlertBot]: http://www.alertbot.com/products/website-monitoring/default.aspx
-[performance tool test]: http://speedtest.noam.microsoftonline.com/
-[Azure Statistics]: http://latency.cloudapp.net/Default.aspx
 [AzureCheck]: http://www.apicasystem.com/monitoring/what-we-monitor/apica-azurecheck.aspx
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
