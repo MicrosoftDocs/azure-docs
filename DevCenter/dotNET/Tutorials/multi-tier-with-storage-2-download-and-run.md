@@ -273,9 +273,9 @@ The data that you have been entering and viewing is being stored in Windows Azur
 
 <h2><a name="StorageExpVS"></a><span class="short-header">Developer storage</span>Viewing developer storage in Visual Studio</h2>
 
-The **Windows Azure Storage** browser in **Server Explorer** (**Database Explorer** in Express editions of Visual Studio) provides a convenient read-only view of Windows Azure Storage resources.
+The **Windows Azure Storage** browser in **Server Explorer** provides a convenient read-only view of Windows Azure Storage resources.
 
-1. From the **View** menu in Visual Studio, choose **Server Explorer** (or **Database Explorer**).
+1. From the **View** menu in Visual Studio, choose **Server Explorer**.
 
 2. Expand the **(Development)** node underneath the **Windows Azure Storage** node.
 
