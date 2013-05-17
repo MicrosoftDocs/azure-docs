@@ -7,23 +7,15 @@ The CouchDB Installer for Windows Azure is a tool that
  clusters hosted in Windows Azure virtual machines (for IaaS) or
  Windows Azure worker roles (for PaaS).
 
-## Table of Contents
+    
+## IaaS or PaaS
+CouchDB can be run in either IaaS (Infrastructure as a Service) or PaaS configurations. The following points should be considered when decided whether to use IaaS or PaaS:
 
-This document covers how to use the installer for both IaaS and
- PaaS configurations.
+* For IaaS Windows Azure provides full access to a virtualized server.  You will be responsible for managing and updating your OS and CouchDB, and monitoring and managing connectivity, availability  and performance, as you would with any server in a data center.
+* For PaaS, Windows Azure manages your virtualized server hardware and OS for you.  You will be responsible for updating CouchDB as needed.  Windows Azure PaaS also provides preconfigured, scalable resources for load balancing, CPU core management, virtual memory and other services.
 
-*   CouchDB Installer - IaaS configuration 
- 
- 
-    *   Prerequisites
-    *   Run the installer
-    *   Configure CouchDB
-*   CouchDB Installer - PaaS configuration 
- 
- 
-    *   Prerequisites
-    *   Run the installer
-    *   Demo application
+This document covers how to use the installer for both IaaS and PaaS configurations.
+
 
 ## CouchDB Installer - IaaS configuration
 
