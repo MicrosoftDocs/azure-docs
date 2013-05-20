@@ -1,5 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Windows Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" metaDescription="Learn how to manage Windows Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" />
 
+<div chunk="../chunks/sql-databases-left-nav.md" />
 
 <h1><a id="swap"></a>How to Manage SQL Database</h1>
 

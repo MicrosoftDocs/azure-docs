@@ -56,7 +56,7 @@ HDInsight provides two options for storing data, Windows Azure Blob Storage and 
 
 Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-1. Download [sample.log](http://go.microsoft.com/fwlink/?LinkID=37003 "Sample.log") to your local computer.
+1. Download [sample.log][sample-log] to your local computer.
 
 2. Run **Azure Storage Explorer**.
 
@@ -131,7 +131,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
 3. Click the name of the HDInsight cluster where you want to connect to.
-4. Click **Manage**.
+4. Click **Manage Cluster**.
 5. Enter your credential, and then click **Log On**.
 6. From the HDInsight portal, click **Interactive Console**.
 
@@ -208,3 +208,5 @@ While Hive makes it easy to query data using a SQL-like query language, other la
 * [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
 * [How to Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
+
+[sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223

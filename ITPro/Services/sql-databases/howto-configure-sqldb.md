@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Windows Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" metaDescription="Learn how to create and configure a logical server using SQL Server in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/sql-databases-left-nav.md" />
 
 
 <h1><a id="configLogical"></a>How to Create and Configure SQL Database</h1>

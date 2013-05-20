@@ -206,7 +206,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		private static void Upload() throws ServiceException, FileNotFoundException, NoSuchAlgorithmException 
 		{
 			// Create an asset.
-			asset = mediaService.create(Asset.create().setAlternateId("altId"));
+			asset = mediaService.create(Asset.create().setName("myasset").setAlternateId("altId"));
 			System.out.println("Created asset with id: " + asset.getId());
 	
 			// Create an access policy that provides Write access for 15 minutes.
@@ -243,14 +243,14 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			// Use the Windows Azure Media Encoder, by specifying it by name.
 			MediaProcessorInfo mediaProcessor = mediaService.list(MediaProcessor.list().set("$filter", "Name eq 'Windows Azure Media Encoder'")).get(0);
 			
-			// Create a task with the specified media processor, in this case to transform the original asset to the H.264 HD 720p VBR preset.
+			// Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
 			// Information on the various configurations can be found at
-			// http://msdn.microsoft.com/en-us/library/microsoft.expression.encoder.presets_members%28v=Expression.30%29.aspx.
+			// http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx.
 			// This example uses only one task, but others could be added.
 			Task.CreateBatchOperation task = Task.create(
 					mediaProcessor.getId(),
 					"<taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>")
-					.setConfiguration("H.264 HD 720p VBR").setName("MyTask");
+					.setConfiguration("H264 Broadband 720p").setName("MyTask");
 					
 			// Create a job creator that specifies the asset, priority and task for the job. 
 			Job.Creator jobCreator = Job.create()
@@ -270,7 +270,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		}
 	
 		// Download the URL of the transformed asset.
-		// This code an access policy (with Read access) and a locator,
+		// This code creates an access policy (with Read access) and a locator,
 		// and uses those objects to retrieve the path.
 		// You can use the path to access the asset.
 		private static void Download() throws ServiceException 
@@ -312,7 +312,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			}
 		}
 
-		// Helper function to check to on the status of the job.
+		// Helper function to check on the status of the job.
 		private static void CheckJobStatus(String jobId) throws InterruptedException, ServiceException
 		{
 	        int maxRetries = 12; // Number of times to retry. Small jobs often take 2 minutes.
@@ -353,7 +353,7 @@ The code above used a media processor by accessing it via a specific media proce
 
 Alternatively, the following code shows how to retrieve the ID of a media processor by name.
 
-	 String mediaProcessorName = "MP4 to Smooth Streams Task"; 
+	 String mediaProcessorName = "Storage Decryption"; 
 	 EntityListOperation<MediaProcessorInfo> operation;
      MediaProcessorInfo processor;
 

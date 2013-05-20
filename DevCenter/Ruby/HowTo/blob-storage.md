@@ -119,11 +119,11 @@ To list the blobs within a container, use **list\_blobs()** method.
 
 This outputs the urls of all the blobs in all the containers for the account.
 
-	containers = azure_blob_service.list_containers().containers
+	containers = azure_blob_service.list_containers()
 	containers.each do |container|
-	  blobs = azure_blob_service.list_blobs(container.name).blobs
+	  blobs = azure_blob_service.list_blobs(container.name)
 	  blobs.each do |blob|
-		puts blob.name
+	    puts blob.name
 	  end
 	end
 

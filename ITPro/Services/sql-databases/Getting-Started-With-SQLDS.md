@@ -1,5 +1,6 @@
 <properties linkid="manage-services-getting-started-with-sqlds" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Data Sync - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Data Sync sync groups in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
+<div chunk="../chunks/sql-databases-left-nav.md" />
 
 #Getting Started with Windows Azure SQL Data Sync
 In this tutorial, you learn the fundamentals of Windows Azure SQL Data Sync using the Windows Azure (Preview) portal. 

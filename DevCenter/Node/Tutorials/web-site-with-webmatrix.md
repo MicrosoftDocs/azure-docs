@@ -120,7 +120,7 @@ You can easily modify and republish your application. Here, you will make a simp
 [webmatrix-node-express-site]: ../media/webmatrix-express-webiste.png
 [webmatrix-modify-index]: ../media/webmatrix-node-edit.png
 [webmatrix-republish]: ../media/webmatrix-republish.png
-[addaccount]: ../../../Shared/media/webmatrix-add-account.png
-[signin]: ../../../Shared/media/webmatrix-sign-in.png
-[sitefromtemplate]: ../../../Shared/media/webmatrix-site-from-template.png
+[addaccount]: ../../Shared/media/webmatrix-add-account.png
+[signin]: ../../Shared/media/webmatrix-sign-in.png
+[sitefromtemplate]: ../../Shared/media/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ../Media/webmatrix-node-site-azure.png

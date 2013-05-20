@@ -101,10 +101,6 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This adds the Mobile Services client library to the project.
 
-2. In both the MainPage.xaml.cs and App.xaml.cs project files, add or uncomment the following **using** statement:
-
-        using Microsoft.WindowsAzure.MobileServices;
-
 3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
 4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
@@ -113,16 +109,38 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   You will need these values when accessing the mobile service from your app code.
 
-5. In Visual Studio, open the file App.xaml.cs, uncomment the code that defines the **MobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
+5. In Visual Studio, open the file App.xaml.cs and add or uncomment the following `using` statement:
+
+       	using Microsoft.WindowsAzure.MobileServices;
+
+6. In this same file, uncomment the code that defines the **MobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
 
 		//public static MobileServiceClient MobileService = new MobileServiceClient( 
         //    "AppUrl", 
         //    "AppKey" 
         //); 
 
-  This creates a new instance of MobileServiceClient that is used to access your mobile service.
+  This creates a new instance of **MobileServiceClient** that is used to access your mobile service.
 
-6. In the file MainPage.xaml.cs, comment the line that defines the existing **items** collection, and uncomment the following lines:
+6. In the file MainPage.xaml.cs, add or uncomment the following `using` statements:
+
+       	using Microsoft.WindowsAzure.MobileServices;
+		using Newtonsoft.Json;
+
+7. In this same file, replace the **TodoItem** class definition with the following code:
+
+        public class TodoItem
+        {
+            public int Id { get; set; }
+
+            [JsonProperty(PropertyName = "text")]
+            public string Text { get; set; }
+
+            [JsonProperty(PropertyName = "complete")]
+            public bool Complete { get; set; }
+        }
+
+7. Comment the line that defines the existing **items** collection, then uncomment the following lines:
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
         private IMobileServiceTable<TodoItem> todoTable = 
@@ -136,9 +154,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This code inserts a new item into the table.
 
-8. In the **RefreshTodoItems** method, uncomment the following line of code:
+8. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code:
 
-        items = todoTable.ToCollectionAsync();
+        items = await todoTable.ToCollectionAsync();
 
    This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service. 
 
