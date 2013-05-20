@@ -27,11 +27,11 @@ The Solr installer places the Solr application on your
 *   Microsoft Internet Information Services (IIS), including the
  Web Server (IIS) roles ASP.NET, Tracing, Logging, and CGI.
 *   
- http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/
+ [http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/][http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/]
 *   The Microsoft .NET Framework 4 (full version).
 *   JRE for Windows 64-bit, which is owned by Sun Microsystems,
  Inc. You can download it from
- http://www.java.com/en/download/manual.jsp. You are responsible for
+ [http://www.java.com/en/download/manual.jsp][http://www.java.com/en/download/manual.jsp]. You are responsible for
  reading and accepting the license terms.
 *   If you are running Windows Server 2008 R2 and have not
  previously disabled the enhanced security configuration of
@@ -56,7 +56,7 @@ To download and run the installer, follow these steps:
  the SolrInstaller folder.
 6.  Run this command.
 
-    Inst4WA.exe -XmlConfigPath \&lt;yourpath&gt;CouchDBInstWR.xml -DomainName \&lt;youruniquename&gt; -Subscription "bar"
+    Inst4WA.exe -XmlConfigPath &lt;yourpath&gt;CouchDBInstWR.xml -DomainName &lt;youruniquename&gt; -Subscription "bar"
 
 **&lt;yourpath&gt;** is the pathname for the SolrInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\&lt;yourpath&gt;**.
 
@@ -77,13 +77,13 @@ The installer downloads the Solr binaries.
 
 ![solr-binaries][3]
 
-The installer also adds a master worker role.
+The installer also adds a  worker role.
 
 ![solr-worker][4]
 
 After the installer finishes running, open the Solr application
  in your browser by navigating to
- http://.cloudapp.net.
+ http://&lt;yourdomain&gt;.cloudapp.net.
 
 ## Solr application
 
@@ -95,23 +95,20 @@ Start by crawling some content
 
 ![solr-crawl][5]
 
-You can also import data from an Azure Blob (select Import and
+You can also import data from an Windows Azure Blob (select Import and
  then Import Wikipedia Data from Blob)
 
 ![solr-blob][6]
 
-Go to the Home tab and observe how the SolrMaster and the Slaves
+Go to the Home tab and observe how the Solr primary and the secondary
  are updating the status with the new index created based on the
  crawled data or the Wikipedia sample data from the Windows Azure
  Blob
 
 ![solr-index][7]
 
-Select search and type a query based on the content crawled. If
- the Wikipedia sample was used you may type "Alabama"
 
-![solr-query][8]
-
+ [ms-open-tech]: http://msopentech.com
  [1]: ../Media/solr-architecture_499x305.jpg
  [2]: ../Media/solr-settings_500x340.jpg
  [3]: ../Media/solr-binaries_500x253.jpg
@@ -121,3 +118,5 @@ Select search and type a query based on the content crawled. If
  [7]: ../Media/solr-index_496x280.jpg
  [8]: ../Media/solr-query_499x290.jpg  
  [github-installer]: https://github.com/MSOpenTech/Windows-Azure-Solr
+ [http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/]:http://learn.iis.net/page.aspx/29/installing-iis-7-and-above-on-windows-server-2008-or-windows-server-2008-r2/
+ [http://www.java.com/en/download/manual.jsp]: http://www.java.com/en/download/manual.jsp

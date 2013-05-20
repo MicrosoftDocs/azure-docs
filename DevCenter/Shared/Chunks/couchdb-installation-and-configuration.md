@@ -7,23 +7,15 @@ The CouchDB Installer for Windows Azure is a tool that
  clusters hosted in Windows Azure virtual machines (for IaaS) or
  Windows Azure worker roles (for PaaS).
 
-## Table of Contents
+    
+## IaaS or PaaS
+CouchDB can be run in either IaaS (Infrastructure as a Service) or PaaS configurations. The following points should be considered when decided whether to use IaaS or PaaS:
 
-This document covers how to use the installer for both IaaS and
- PaaS configurations.
+* For IaaS Windows Azure provides full access to a virtualized server.  You will be responsible for managing and updating your OS and CouchDB, and monitoring and managing connectivity, availability  and performance, as you would with any server in a data center.
+* For PaaS, Windows Azure manages your virtualized server hardware and OS for you.  You will be responsible for updating CouchDB as needed.  Windows Azure PaaS also provides preconfigured, scalable resources for load balancing, CPU core management, virtual memory and other services.
 
-*   CouchDB Installer - IaaS configuration 
- 
- 
-    *   Prerequisites
-    *   Run the installer
-    *   Configure CouchDB
-*   CouchDB Installer - PaaS configuration 
- 
- 
-    *   Prerequisites
-    *   Run the installer
-    *   Demo application
+This document covers how to use the installer for both IaaS and PaaS configurations.
+
 
 ## CouchDB Installer - IaaS configuration
 
@@ -66,11 +58,9 @@ To download and run the installer, follow these steps:
 * Open a command prompt (cmd.exe) as an administrator and cd to the CouchInstaller folder.
 * Run this command:
 
-	Inst4WA.exe -XmlConfigPath CouchDBInstWR.xml -DomainName -Subscription "bar"
+	Inst4WA.exe -XmlConfigPath &lt;yourpath&gt;CouchDBInstWR.xml -DomainName &lt;youruniquename&gt; -Subscription "bar"
 
-Inst4WA.exe -XmlConfigPath \&lt;yourpath&gt;CouchDBInstWR.xml -DomainName \&lt;youruniquename&gt; -Subscription "bar"
-
-**&lt;yourpath&gt;** is the pathname for the CouchInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\&lt;yourpath&gt;**
+**&lt;yourpath&gt;** is the pathname for the CouchInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **&lt;yourpath&gt;**
 
 **&lt;YourUniqueName&gt;** is the DNS name for your published CouchDB application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
 The DeploymentModelCouchOnIaaS.xml file contains settings that
@@ -116,7 +106,7 @@ The script installs a CouchDB database node on each of the
  configures endpoints for RDP, CouchDB, and Windows Remote
  Management (WinRM) access. For more information about how to
  connect to these endpoints, see the
- **connectionStrings\&lt;dns-name&gt;.json** file in the
+ **connectionStrings&lt;dns-name&gt;.json** file in the
  CouchInstaller folder.
 
 After you complete the installation, you can migrate your
