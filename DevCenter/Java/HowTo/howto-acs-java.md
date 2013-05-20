@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to develop and use Access Control with Java in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to develop and use Access Control with Java in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -155,31 +155,15 @@ To begin using Access Control Service (ACS) in Windows Azure, you must
 create an ACS namespace. The namespace provides a unique scope for
 addressing ACS resources from within your application.
 
-1.  Log into the [Windows Azure Management Portal][].
+1. Log into the [Windows Azure Management Portal][].
+2. Click **Active Directory**. 
+3. To create a new Access Control namespace, click **New**, click **App Services**, click **Access Control**, and then click **Quick Create**. 
+4. Enter a name for the namespace. Windows Azure verifies that the name is unique.
+5. Select the region in which the namespace is used. For the best performance, use the region in which you are deploying your application.
+6. If you have more than one subscription, select the subscription that you want to use for the ACS namespace.
+7. Click **Create**.
 
-    ![Windows Azure Management Portal page][portal_home_image]
-
-2.  In the lower left navigation pane of the Management Portal, click **Service Bus, Access Control & Caching**.
-
-    ![Management Portal Service Bus, Access Control, and Caching section][portal_sb_acs_caching]
-
-3.  In the upper left navigation pane of the Management Portal, click **Access Control**, and then click **New**.
-
-    ![New Access Control Service namespace][new_acs_namespace]
-
-4.  In **Create a new Service Namespace**, enter a namespace, and then to
-    make sure that it is unique, click **Check Availability**.
-
-    ![Create a new service namespace dialog][new_acs_namespace_dialog]
-
-5.  If it is available, select the country or region in which to use ACS
-    (for the best performance, use the same country/region in which you
-    are deploying your application), and then click **Create
-    Namespace**.
-
-The namespace appears in the Management Portal and takes a few minutes
-to activate. Wait until the status is **Active** before moving on to add
-IPs to your namespace.
+Windows Azure creates and activates the namespace. Wait until the status of the new namespace is **Active** before continuing. 
 
 ## <a name="add-IP">Add identity providers</a>
 
@@ -188,11 +172,11 @@ authentication. For demonstration purposes, this task shows how to add
 Windows Live as an IP, but you could use any of the IPs listed in the ACS
 Management Portal.
 
-1.  In the upper left navigation pane of Windows Azure Management
-    Portal, click **Access Control**, select the ACS namespace that you
-    want to configure, and then click **Access Control Service**.  
-    The ACS Management Portal appears. 
+
+1.  In the [Windows Azure Management Portal][], click **Active Directory**, select an Access Control namespace, and then click **Manage**. The ACS Management Portal opens.
+
     ![ACS Management Portal][acs_home_page]
+
 2.  In the left navigation pane of the ACS Management Portal, click **Identity providers**.
 3.  Windows Live ID is enabled by default, and cannot be deleted. For purposes of this tutorial, only Windows Live ID is used.
     This screen, however, is where you could add other IPs, by clicking the **Add** button.
@@ -321,8 +305,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Windows Azure**, and then click **Package for Windows Azure**.
 2. For **Project name**, type **MyAzureACSProject** and click **Next**.
-3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Windows Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial). Your screen will look similar to the following:
-    ![New Windows Azure deployment project][new_azure_deployment]
+3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Windows Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial).
 4. Click **Finish**.
 5. Click the **Run in Windows Azure Emulator** button.
 6. After your Java web application starts in the compute emulator, close all instances of your browser (so that any current browser sessions do not interfere with your ACS login test).
@@ -400,7 +383,7 @@ At this point, your certificate would be included in your deployment. Note that 
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
-[Windows Azure Management Portal]: http://windows.azure.com
+[Windows Azure Management Portal]: https://manage.windowsazure.com
 [acs_flow]: ../Media/ACSFlow.png
 [portal_home_image]: ../Media/PortalHomeImage.png
 [portal_sb_acs_caching]: ../Media/PortalSBACSCaching.png

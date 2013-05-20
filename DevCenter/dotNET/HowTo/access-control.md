@@ -253,7 +253,7 @@ federated authentication.
 2.  Copy the URI in the **WS-Federation Metadata** field. You will use it
     when adding a Security Token Service (STS) Reference in the next task.
     The should look similar to the following:  
-    [**https://ACSnamespace.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml**][]
+    **https://ACSnamespace.accesscontrol.windows.net/FederationMetadata/2007-06/FederationMetadata.xml**,
     where **ACSnamespace** is the name of your ACS namespace.
 
 Next, go back to Visual Studio and configure the application to use ACS.

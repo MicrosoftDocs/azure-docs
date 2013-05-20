@@ -1,4 +1,4 @@
-<properties linkid="mobile-get-started-with-push-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with push notifications for Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Push Notifications, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="mobile-get-started-with-push-dotnet" writer="glenga" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with push notifications for Mobile Services in Windows Azure" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Push Notifications, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Store apps." umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu-wp8.md" />
 
@@ -64,8 +64,8 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 		
 4. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
 
-         [DataMember(Name = "channel")]
-         public string Channel { get; set; }
+        [JsonProperty(PropertyName = "channel")]
+        public string Channel { get; set; }
 
     <div class="dev-callout"><b>Note</b>
 	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>

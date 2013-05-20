@@ -2,21 +2,23 @@
 
 <div chunk="../chunks/networking-left-nav.md" />
 
-<h1 id="vnettut1">Create a Virtual Network for Cross-Premises Connectivity</h1>
+<h1 id="vnettut1">Create a Virtual Network for Site-to-Site Cross-Premises Connectivity</h1>
 
-This tutorial walks you through the steps to create a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx) that connects to your company's network using the Management Portal. After completing this tutorial, you will have a virtual network where you can deploy your Windows Azure services and communicate with your company's network.
+This tutorial walks you through the steps to create a cross-premises virtual network. The type of connection we will create is a site-to-site connection. If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-This tutorial assumes you have no prior experience using Windows Azure.
+This tutorial assumes you have no prior experience using Windows Azure. It’s meant to help you become familiar with the steps required to create a site-to-site virtual network. If you’re looking for design scenarios and advanced information about Virtual Network, see the [Windows Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
-<!-- ADD INFO ABOUT POSSIBLY NEEDING A NETWORK ENGR TO DO THE VPN CONFIG -->
+After completing this tutorial, you will have a virtual network where you can deploy your Windows Azure services and virtual machines, which can then communicate directly with your company's network.
 
 For information about adding a virtual machine and extending your on-premises Active Directory to Windows Azure Virtual Network, see the following:
 
--  [Add a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/?LinkID=294356)
 
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
 For guidelines about deploying AD DS on Windows Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+
+For additional Virtual Network configuration procedures and settings, see [Windows Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652).
 
 ##  Objectives
 
@@ -26,8 +28,6 @@ In this tutorial you will learn:
 
 -  How to configure the virtual network to communicate with your company's network.
 
--  How to configure your VPN device to communicate with your Windows Azure virtual network.
-
 ##  Prerequisites
 
 -  Windows Live account with at least one valid, active subscription.
@@ -36,142 +36,153 @@ In this tutorial you will learn:
 
 -  The name and IP address of your DNS server (if you want to use your on-premises DNS server for name resolution).
 
--  The public IP address for your VPN device. This VPN device cannot be behind a NAT. You can get this from your network engineer.
+-  A VPN device with a public IPv4 address. You’ll need the IP address in order to complete the wizard. The VPN device cannot be located behind a NAT and must meet the minimum device standards. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) for more information. 
+
+	Note: You can use RRAS as part of your VPN solution. However, this tutorial doesn’t walk you through the RRAS configuration steps. 
+
+	For RRAS configuration information, see [Routing and Remote Access Service templates](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx). 
+
+-  Experience with configuring a router or someone that can help you with this step.
 
 -  The address space for your local network (on-premise network).
 
+
 ## High-Level Steps
 
-1.	[Create a Virtual Network] [CreateVN]
+1.	[Create a Virtual Network](#CreateVN)
 
-2.	[Start the gateway and gather information for your network administrator] [StartGateway]
+2.	[Start the gateway and gather information for your network administrator](#StartGateway)
 
-3.  [Configure your VPN device] [ConfigVPN]
+3.  [Configure your VPN device](#ConfigVPN)
 
 ##  <a name="CreateVN">Create a Virtual Network</a>
 
 **To create a virtual network that connects to your company's network:**
 
 1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
-2.	In the lower left-hand corner of the screen, click **New**. 
 
-	![CreateNew][]
+2.	In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Networks**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard. 
 
-3.	In the navigation pane, click **Network**, and then click **Custom Create**.
+	![](../media/CreateCrossVnet_01_OpenVirtualNetworkWizard.png)
 
-	![CustomCreate] []
+3.	On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right. For more information about the settings on the details page, see the **Virtual Network Details** section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
 
-4.	On the **Virtual Network Details** screen, enter the following information, and then click the next arrow.
-
--  **NAME:** Type *YourVirtualNetwork*.
+-  **NAME:** Name your virtual network. Type *YourVirtualNetwork*.
 
 -  **AFFINITY GROUP:** From the drop-down list, select **Create a new affinity group**. Affinity groups are a way to physically group Windows Azure services together at the same data center to increase performance. Only one virtual network can be assigned an affinity group.
 
 -  **REGION:** From the drop-down list, select the desired region. Your virtual network will be created at a datacenter located in the specified region.
 
--  **AFFINITY GROUP NAME:** Type *YourAffinityGroup*.
+-  **AFFINITY GROUP NAME:** Name the new affinity group. Type *YourAffinityGroup*.
 
-	![VNDetails] []
+	![](../media/CreateCrossVnet_02_VirtualNetworkDetails.png)
 
-5.	On the **Address Space and Subnets** screen, enter the following information, and then click the next arrow. Address space must be a private address range, specified in CIDR notation 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 (as specified by RFC 1918).
+4.	On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the forward arrow on the lower right. 
 
-	**NOTE:** After adding each address space, click the plus button.
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>It’s possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in <a href="http://go.microsoft.com/fwlink/?LinkID=248092">About Configuring a Virtual Network using the Management Portal</a>.</p> 
+	</div>
 
-*  **ADDRESS SPACE:** Type 10.4.0.0/16.
-*  **SUBNETS:** Enter the following:
-
-		-  *FrontEndSubnet, 10.4.2.0/24*
-		-  *BackEndSubnet, 10.4.3.0/24*
-		-  *ADDNSSubnet, 10.4.4.0/24*
+-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. Type *YourDNS* for the name and *10.1.0.4* for the IP address.
+-  **Configure Point-To-Site VPN:** Leave this field blank. 
+-  **Configure Site-To-Site VPN:** Select checkbox.
+-  **LOCAL NETWORK:** Select **Specify a New Local Network** from the drop-down list.
  
-	![AddressSpace] []
+	![](../media/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
-6.	On the **DNS Servers and Local Network** screen, enter the following information, and then click the forward arrow.
-
--  **DNS SERVERS:** Type *YourDNS*, *10.1.0.4*.
--  **Configure connection to local network:** Check this box.
--  **GATEWAY SUBNET:**  Type *10.4.1.0/24*.
--  **LOCAL NETWORK:** Select the default Create a new local network.
- 
-	![DNSServer] []
-
-7.	On the **Create New Local Network** screen, enter the following information, and then click the check mark in the lower right-hand corner. Your virtual network will be created in a few minutes.
-
-	**NOTE:** You get the VPN Device IP Address from your network administrator.
+5.	On the **Site-To-Site Connectivity** page, enter the  information below, and then click the checkmark in the lower right of the page. For more information about the settings on this page, see the **Site-to-Site Connectivity** page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092). 
 
 -  **NAME:** Type *YourCorpHQ*.
--  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. The device should not be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
+
+-  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. If you don’t have this information, you’ll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
 
 -  **ADDRESS SPACE:** Type *10.1.0.0/16*.
+-  **Add address space:** This tutorial does not require additional address space.
 
-	![CreateLocal] []
+	![](../media/CreateCrossVnet_04_SitetoSite.png)
 
-8.  You now have a virtual network in Windows Azure, which you can see on the portal's **Virtual Network** tab.
+6.  On the **Virtual Network Address Spaces** page, enter the  information below, and then click the checkmark on the lower right to configure your network. 
 
-	![VNCreated] []
+	Address space must be a private address range, specified in CIDR notation 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 (as specified by RFC 1918). For more information about the settings on this page, see **Virtual Network Address Spaces page** in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
 
+-  **Address Space:** Click **CIDR** in the upper right corner, then enter the following:
+	-  **Starting IP:** 10.4.0.0
+	-  **CIDR:** /16
+-  **Add subnet:** Enter the following:
+	-  **Rename Subnet-1** to *FrontEndSubnet* with the Starting IP *10.4.2.0/24*, and then click **add subnet**.
+	-  **add a subnet** called *BackEndSubnet* with the starting IP *10.4.3.0/24*.
+	-  **add a subnet** called *ADDNSSubnet* with the starting IP *10.4.4.0/24*.
+	-  **Add gateway subnet**  with the starting IP *10.4.1.0/24*.
+	-  **Verify** that you now have three subnets and a gateway subnet created, and then click the checkmark on the lower right to create your virtual network.
+
+	![](../media/CreateCrossVnet_05_VirtualNetworkAddressSpaces.png)
+
+7.	After clicking the checkmark, your virtual network will begin to create. When your virtual network has been created, you will see Created listed under Status on the networks page in the Management Portal. 
+
+	![](../media/CreateCrossVNet_06_VirtualNetworkCreatedStatus.png)
 
 ##  <a name="StartGateway">Start the Gateway</a>
 
+After creating your Windows Azure Virtual Network, use the following procedure to configure the virtual network gateway in order to create your site-to-site VPN. This procedure requires that you have a VPN device that meets the minimum requirements. For more information about VPN devices and device configuration, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098).
+
 **To start the gateway:**
 
-1.	When your virtual network has been created, the networks screen will show the **Status** is **Created**. 
+1.	When your virtual network has been created, the **networks** page will show **Created** as the status for your virtual network.
 
-	In the **Name** column, click **YourVirtualNetwork** to open the dashboard.
+	In the **NAME** column, click **YourVirtualNetwork** to open the dashboard.
  
-	![ViewDash] []
+	![](../media/CreateCrossVNet_07_ClickYourVirtualNetwork.png)
 
-2.	On the **Dashboard** page, on the bottom of the page, click **Create Gateway**. When prompted to confirm you want the gateway created, click **YES**.
+2.	Click **DASHBOARD** at the top of the page. On the Dashboard page, on the bottom of the page, click **CREATE GATEWAY**. Select either **Dynamic Routing** or **Static Routing** for the type of Gateway that you want to create. 
 
-	![CreateGW] []
+	Note that if you want to use this virtual network for point-to-site connections in addition to site-to-site, you must select Dynamic Routing as the gateway type. Before creating the gateway, verify that your VPN device will support the gateway type that you want to create. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098). When the system prompts you to confirm that you want the gateway created, click **YES**.
 
-3.	When the gateway creation starts, you will see the message as shown in the screenshot below.
+	![](../media/CreateCrossVnet_08_CreateGateway.png)
+
+3.	When the gateway creation starts, you will see a message letting you know that the gateway has been started.
 
 	It may take up to 15 minutes for the gateway to be created.
 
-	![GWCreating] []
+4.	After the gateway has been created, you’ll need to gather the following information that will be used to configure the VPN device. 
 
-4.   After the gateway has been created, you need to gather some information to send to your network administrator so they can configure the VPN device. The next steps walk you through this process.
-
-5.    On the dashboard, copy the Gateway IP Address:
-
-	![GWIP] []
-
-6.	Get the Shared Key. Click **VIEW KEY** at the bottom of the dashboard, and then copy the **SHARED KEY** in the dialog box.
-	<!-- THIS IS CONFUSING -->
-
-	![SharedKey] []
- 
-7.	Download the VPN configuration file. On the dashboard, click **DOWNLOAD**.
-
-	![DwnldVPN] []
- 
-8.	On the **Download VPN Device Config Script** dialog, select the vendor, platform, and operating system for your company's VPN device. Click the check button and save the file.
-
-	For additional supported  VPN devices and script templates, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248098).
-
-	![DwnldVPNConfig] []
-
-9.	Send your network administrator the following information:
 -  Gateway IP address
 -  Shared key
--  VPN configuration script
+-  VPN device configuration script template
+
+	The next steps walk you through this process.
+
+5.	To locate the Gateway IP Address – The Gateway IP address is located on the virtual network **DASHBOARD** page. 
+
+	![](../media/CreateCrossVnet_09_GatewayIP.png)
+
+6.	To acquire the Shared Key – The shared key is located on the virtual network **DASHBOARD** page. Click Manage Key at the bottom of the screen, and then copy the key displayed in the dialog box. 
+
+	![](../media/CreateCrossVNet_10_ManageSharedKey.png)
+
+7.	Download the VPN device configuration script template. On the dashboard, click **Download VPN Device Script**.
+
+8.	On the **Download a VPN Device Configuration Script** dialog box, select the vendor, platform, and operating system for your company’s VPN device. Click the checkmark button and save the file. 
+
+	![](../media/CreateCrossVnet_11_DownloadVPNDeviceScript.png)
+
+If you don’t see your VPN device in the drop-down list, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) in the MSDN library for additional script templates.
+
 
 ##  <a name="ConfigVPN">Configure the VPN Device (Network Administrator)</a>
 
-This procedure should be done by your network administrator. Because each VPN device is different, this is only a high-level procedure. 
+Because each VPN device is different, this is only a high-level procedure. This procedure should be done by your network administrator.
 
-You can get the VPN configuration script from the Management Portal or from the [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248098) section of the MSDN library.
+You can get the VPN configuration script from the Management Portal or from the [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248098), which also explains routing types and the devices that are compatible with the routing configuration that you select to use.
 
-For more information, see [Establish a Site-to-Site VPN Connection](http://go.microsoft.com/fwlink/?LinkId=254218) and your VPN device documentation.
+For additional information about configuring a virtual network gateway, see [Configure the Virtual Network Gateway in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=299878) and consult your VPN device documentation.
 
 This procedure assumes the following:
 
--  The VPN device has been configured at your company.
+-  The person configuring the VPN device is proficient at configuring the device that has been selected. Due to the number of devices that are compatible with virtual network and the configurations that are specific to each device family, these steps do not walk through device configuration at a granular level. Therefore, it’s important that the person configuring the device is familiar with the device and its configuration settings. 
 
-	<!-- CONFIRM THE FOLLOWING IS CORRECT
-	  The network administrator doing this procedure knows IPSec.
-	-->
+-  The device that you have selected to use is compatible with virtual network. Check [here](http://go.microsoft.com/fwlink/?LinkID=248098) for device compatibility.
+
 
 **To configure the VPN device:**
 
@@ -189,7 +200,7 @@ This procedure assumes the following:
 
 	<table border="1">
 	<tr>
-	<th> </th>
+	<th>-</th>
 	<th>Cisco ASA</th>
 	<th>Cisco ISR/ASR</th>
 	<th>Juniper SSG/ISG</th>
@@ -217,15 +228,21 @@ This procedure assumes the following:
 ##  Next Steps
 In order to extend your on-premises Active Directory to the virtual network you just created, continue with the following tutorials:
 
--  [Add a Virtual Machine to a Virtual Network](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/?LinkID=294356)
 
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
+
+If you want to export your virtual network settings to a network configuration file in order to back up your configuration or to use it as a template, see [Export Virtual Network Settings to a Network Configuration File](http://go.microsoft.com/fwlink/?LinkID=299880).
 
 ## See Also
 
 -  [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
 
+-  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+
 -  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+
+-  [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
 -  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx)
 
@@ -235,35 +252,3 @@ In order to extend your on-premises Active Directory to the virtual network you 
 [wa_com]: http://manage.windowsazure.com/
 [Tut2_VN]: ..Tutorial2_CreateVNetCrossPrem 
 [Tut3_VN]: ..Tutorial3_AddVMachineToVNet
-[CreateVN]: #CreateVN
-[StartGateway]: #StartGateway
-[ConfigVPN]: #ConfigVPN
-
-
-[CreateNew]: ../media/VNTut1_00_New.png
-
-[CustomCreate]: ../media/VNTut1_01_Network_CustomCreate.png
-
-[VNDetails]: ../media/VNTut1_02_VNDetails.png
-
-[AddressSpace]:	../media/VNTut2_03b_AddressSpaceAndSubnet_CrossPrem.png
-
-[DNSServer]:	../media/VNTut2_04_DNSServersAndLocalNetworks_CrossPrem.png
-
-[CreateLocal]:	../media/VNTut2_05_CreateLocalNetwork.png
-
-[VNCreated]:	../media/VNTut2_06_VNStatus_Created.png
-
-[ViewDash]:	../media/VNTut2_06b_VNStatus_ViewDashboard.png
-
-[CreateGW]:	../media/VNTut2_07_CreateGateway.png
-
-[GWCreating]:	../media/VNTut2_09_GatewayBeingCreated.png
-
-[GWIP]:	../media/VNTut2_10_GatewayIPAddress.png
-
-[SharedKey]:	../media/VNTut2_11_SharedKey.png
-
-[DwnldVPN]:	../media/VNTut2_12_DownloadVPNFile.png
-
-[DwnldVPNConfig]: ../media/VNTut2_13_DownloadVPNDeviceScript.png

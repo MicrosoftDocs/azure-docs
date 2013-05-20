@@ -112,7 +112,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT**. You will see a list of deployed Hadoop clusters.
 3. Click the Hadoop cluster where you want to upload data to.
-4. Click **Manage** on the bottom of the page
+4. Click **Manage Cluster** on the bottom of the page
 5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
 6. Click **Remote Desktop**.
 	

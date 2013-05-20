@@ -6,9 +6,11 @@
 
 # Enabling Diagnostics in Windows Azure
 
-Windows Azure Diagnostics (WAD) enables you to collect diagnostic data from a worker role or web role running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
+Windows Azure Diagnostics enables you to collect diagnostic data from a worker role or web role running in Windows Azure. You can use diagnostic data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
-This topic explains how to enable WAD in your application using the diagnostics.wadcfg configuration file. For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems, see [Troubleshooting Best Practices for Developing Windows Azure Applications][].
+This topic explains how to enable and configure Diagnostics in your application by creating and editing the diagnostics.wadcfg configuration file.  You can also configure Diagnostics before deployment or at run-time within Visual Studio 2012 using the Windows Azure Tools 2.0 or later.  For more information, see [Configuring Windows Azure Diagnostics][]. 
+
+For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems, see [Troubleshooting Best Practices for Developing Windows Azure Applications][].
 
 This task includes the following steps:
 
@@ -43,16 +45,16 @@ After you've imported the Diagnostics module you must configure diagnostics data
 
 <h2><a name="step2"> </a><span class="short-header">Add the diagnostics.wadcfg file</span>Step 2: Add the diagnostics.wadcfg file to your Visual Studio solution</h2>
 
-The Windows Azure SDK gives you the ability to configure WAD using an XML configuration file (diagnostics.wadcfg) instead of programatically configuring diagnostics in the [OnStart method][] of your role. This approach has several advantages over writing code:
+The Windows Azure SDK gives you the ability to configure Diagnostics using an XML configuration file (diagnostics.wadcfg) instead of programmatically configuring diagnostics in the [OnStart method][] of your role. This approach has several advantages over writing code:
 
-1. WAD starts before the [OnStart method][] is called, so errors in start-up tasks can be caught and logged.
+1. Diagnostics starts before the [OnStart method][] is called, so errors in start-up tasks can be caught and logged.
 2. Any changes made to the configuration at run time will remain after a restart.
-3. WAD configuration changes do not require the code to be rebuilt.
+3. Diagnostics configuration changes do not require the code to be rebuilt.
 4. You can automatically start the diagnostics monitor in a specific configuration without needing additional code (which might cause an exception that would prevent your role from starting).
 
 For web roles, the diagnostics.wadcfg configuration file is placed in the bin directory under the root directory of the role. For worker roles, the diagnostics.wadcfg configuration file is placed in the root directory of the role. If the configuration file exists in one of these locations when the Diagnostics module is imported, the diagnostics monitor configures settings using the configuration file instead of the default settings. When your web or worker role is deployed the configuration information in the diagnostics.wadcfg file is written to the **wad-control-container**  container in your storage account.
 
-See [Using the Windows Azure Diagnostics Configuration File][] for an example diagnostics.wadcfg XML file.  See [Windows Azure Diagnostics Configuration Schema][] for more information on the diagnostics.wadcfg file format. 
+See [Use the Windows Azure Diagnostics Configuration File][] for an example diagnostics.wadcfg XML file.  See [Windows Azure Diagnostics Configuration Schema][] for more information on the diagnostics.wadcfg file format. 
 
 ###To add a diagnostics.wadcfg file to your Visual Studio project:
 
@@ -68,7 +70,7 @@ See [Using the Windows Azure Diagnostics Configuration File][] for an example di
 
 	The **configurationChangePollInterval** attribute specifies the interval at which the diagnostic monitor polls for diagnostic configuration changes. The default is PT1M (1 minute). The **overallQuotaInMB** attribute specifies the total amount of file system storage allocated for all logging buffers. 
 
-	Instead of starting with an empty diagnostics.wadcfg file, you can replace the default XML with the example diagnostics.wadcfg file from [Using the Windows Azure Diagnostics Configuration File][]. 
+	Instead of starting with an empty diagnostics.wadcfg file, you can replace the default XML with the example diagnostics.wadcfg file from [Use the Windows Azure Diagnostics Configuration File][]. 
 4. Save your changes.
 5. In the Properties pane, change the diagnostics.wadcfg file properties so that **Build Action** is set to **Content** and **Copy to Output Directory** is set to **Copy always**.
 6. Save your changes.
@@ -85,9 +87,9 @@ Now that you've added the diagnostics.wadcfg file to your Visual Studio project,
 
 <h2><a name="step3"> </a><span class="short-header">Configure diagnostics</span>Step 3: Configure diagnostics for your application</h2>
 
-You configure the collection of different diagnostics data sources by modifying the diagnostics.wadcfg file. Only Windows Azure logs, IIS logs, and WAD infrastructure logs are collected by the diagnostic monitor by default.  By setting configuration using the diagnostics.wadcfg file, however, you can override the default behavior and explicitly add sources to collect specific types of diagnostic data. This section describes the types of diagnostic data sources that you can configure your application to collect and how to modify the diagnostics.wadcfg file.  
+You configure the collection of different diagnostics data sources by modifying the diagnostics.wadcfg file. Only Windows Azure logs, IIS logs, and Diagnostics infrastructure logs are collected by the diagnostic monitor by default.  By setting configuration using the diagnostics.wadcfg file, however, you can override the default behavior and explicitly add sources to collect specific types of diagnostic data. This section describes the types of diagnostic data sources that you can configure your application to collect and how to modify the diagnostics.wadcfg file.  
 
-Note: The example diagnostics.wadcfg file at [Using the Windows Azure Diagnostics Configuration File][] collects all types of diagnostics information.  If you're using the example diagnostics.wadcfg file, be sure to remove the data sources you do not want to collect in your application.
+Note: The example diagnostics.wadcfg file at [Use the Windows Azure Diagnostics Configuration File][] collects all types of diagnostics information.  If you're using the example diagnostics.wadcfg file, be sure to remove the data sources you do not want to collect in your application.
 
 ### Diagnostics Data Sources
 <table border="1">
@@ -104,48 +106,48 @@ Note: The example diagnostics.wadcfg file at [Using the Windows Azure Diagnostic
 <td>Yes</td>
 <td>Web and worker roles</td>
 <td>Table</td>
-<td>Logs trace messages sent from your code to the trace listener (a trace listener must be added to the web.config or app.config file). Log data will be transferred at the <b>scheduledTransferPeriod</b> transfer interval to storage table <b>WADLogsTable</b>.</td>
+<td>Logs trace messages sent from your code to the trace listener (a trace listener must be added to the web.config or app.config file). Log data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADLogsTable.</td>
 </tr>
 <tr>
 <td>IIS logs</td>
 <td>Yes</td>
 <td>Web roles only</td>
 <td>Blob</td>
-<td>Logs information about IIS sites. Log data will be transferred at the <b>scheduledTransferPeriod</b> transfer interval to the container you specify.</td>
+<td>Logs information about IIS sites. Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify.</td>
 </tr>
 <tr><td>Windows Azure Diagnostic infrastructure logs</td>
 <td>Yes</td>
 <td>Web and worker roles</td>
 <td>Table</td>
-<td>Logs information about the diagnostic infrastructure, the RemoteAccess module, and the RemoteForwarder module. Log data will transferred at the <b>scheduledTransferPeriod</b> transfer interval to storage table <b>WADDiagnosticInfrastructureLogsTable</b>.</td>
+<td>Logs information about the platform infrastructure, the RemoteAccess module, and the RemoteForwarder module, which can be helpful in debugging role starts and platform related failures.  Collecting Diagnostic infrastructure logs will generate a high volume of records.  Log data will transferred at the scheduledTransferPeriod transfer interval to storage table WADDiagnosticInfrastructureLogsTable.</td>
 </tr>
 <tr>
 <td>IIS Failed Request logs</td>
 <td>No</td>
 <td>Web roles only</td>
 <td>Blob</td>
-<td>Logs information about failed requests to an IIS site or application. You must also enable by setting tracing options under <b>system.WebServer</b> in Web.config. Log data will be transferred at the <b>scheduledTransferPeriod</b> transfer interval to the container you specify.</td>
+<td>Logs information about failed requests to an IIS site or application. You must also enable by setting tracing options under system.WebServer in Web.config. Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify.</td>
 </tr>
 <tr>
 <td>Windows Event logs</td>
 <td>No</td>
 <td>Web and worker roles</td>
 <td>Table</td>
-<td>Logs events that are typically used for troubleshooting application and driver software. Log data will be transferred at the <b>scheduledTransferPeriod</b> transfer interval to storage table <b>WADWindowsEventLogsTable</b>.</td>
+<td>Logs events that are typically used for troubleshooting application and driver software. Log data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADWindowsEventLogsTable.</td>
 </tr>
 <tr>
 <td>Performance counters</td>
 <td>No</td>
 <td>Web and worker roles</td>
 <td>Table</td>
-<td>Logs information about how well the operating system, application, or driver is performing. Performance counters must be specified explicitly. When these are added, performance counter data will be transferred at the <b>scheduledTransferPeriod</b> transfer interval to storage table <b>WADPerformanceCountersTable</b>.</td>
+<td>Logs information about how well the operating system, application, or driver is performing. Performance counters must be specified explicitly. When these are added, performance counter data will be transferred at the scheduledTransferPeriod transfer interval to storage table WADPerformanceCountersTable.</td>
 </tr>
 <tr>
 <td>Crash dumps</td>
 <td>No</td>
 <td>Web and worker roles</td>
 <td>Blob</td>
-<td>Logs information about the state of the operating system in the event of a system crash. Mini crash dumps are collected locally. Full dumps can be enabled. Log data will be transferred at the <b>scheduledTransferPeriod</b> transfer interval to the container you specify. Because ASP.NET handles most exceptions, this is generally useful only for a worker role.</td>
+<td>Logs information about the state of the operating system in the event of a system crash. Mini crash dumps are collected locally. Call the EnableCollectionToDirectory method to  enable crash dumps (pass in true to get full crash dumps, false to get mini crash dumps). Log data will be transferred at the scheduledTransferPeriod transfer interval to the container you specify. Because ASP.NET handles most exceptions, this is generally useful only for a worker role.</td>
 </tr>
 <tr>
 <td>Custom error logs</td>
@@ -160,10 +162,10 @@ Note: The example diagnostics.wadcfg file at [Using the Windows Azure Diagnostic
 
 There are several XML element attributes which are common to many of the diagnostic data source collection settings in the diagnostics.wadcfg file.  These are:
 
-- The **bufferQuotaInMB** attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Windows Azure logs, IIS logs, etc.). The default is 0.  When the quota is reached, the oldest data is deleted as new data is added. The sum of all the **bufferQuotaInMB** properties must be greater than the value of the **OverallQuotaInMB** attribute.  For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Windows Azure Applications][].
+- The **bufferQuotaInMB** attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Windows Azure logs, IIS logs, etc.). The default is 0.  When the quota is reached, the oldest data is deleted as new data is added. The sum of all the **bufferQuotaInMB** and **directoryQuotaInMB** properties must not be greater than the value of the **overallQuotaInMB** attribute.  Also, the **overallQuotaInMB** amount cannot exceed the  **LocalStorage** amount in the service definition (.csdef) file in your project.  For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Windows Azure Applications][].
 - The **scheduledTransferLogLevelFilter** attribute, which specifies the minimum severity level for log entries. For a description of log level filter settings, see [LogLevel Enumeration][]. The logging level setting you choose will affect the amount of data that is collected.
 - The **scheduledTransferPeriod** attribute, which specifies the interval between scheduled transfers of data, rounded up to the nearest minute. In the following examples it is set to PT30M (30 minutes). Setting the transfer period to a small value, such as 1 minute, will adversely impact your application's performance in production but can be useful for seeing diagnostics working quickly when you are testing.  The scheduled transfer period should be small enough to ensure that diagnostic data is not overwritten on the instance, but large enough that it will not impact the performance of your application.
-- The **directoryQuotaInMB** attribute specifies the maximum size of the directory in megabytes (default is 0).
+- The **directoryQuotaInMB** attribute specifies the maximum size of the directory in megabytes (default is 0). The sum of all the **bufferQuotaInMB** and **directoryQuotaInMB** properties must not be greater than the value of the **overallQuotaInMB** attribute.
 
 ### <a name="wad-logs"> </a>Windows Azure Logs
 
@@ -265,19 +267,66 @@ counters, see [Using Performance Counters in Windows Azure][].
 
 ### <a name="crash"> </a>Crash Dumps
 
-You collect crash dump data by adding the **CrashDumps** element to the diagnostics.wadcfg file.  Open the diagnostics.wadcfg file and add the following to the **DiagnosticMonitorConfiguration** element to initialize the collection of crash dumps:
+You collect crash dump data by specifying local storage resources in the ServiceDefinition.csdef file and programmatically enabling crash dumps in the [OnStart method] of your role (there is no declarative mechanism for enabling crash dumps). Perform the following steps to enable crash dumps: 
 
-		<Directories bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
-		   <CrashDumps container="wad-crash-dumps" directoryQuotaInMB="0" />
-		</Directories>
+1. Open the ServiceDefinition.csdef file, add the **LocalStorage** element, then save your changes. The following example shows the element added to the definition of a worker role:
 
-The **CrashDumps** element in this example specifies that crash dump information will be transferred to the **wad-crash-dumps** container in storage and that 0 MB of event log data will be allocated in local file system storage (the default).
+		<?xml version="1.0" encoding="utf-8"?>
+		<ServiceDefinition name="DiagWorkerRole" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2012-10.1.8">
+		<WorkerRole name="WorkerRole1" vmsize="Small">
+		<Imports> ... </Imports>
+		<LocalResources>
+		   <LocalStorage name="MyCustomCrashDumpsLocation" sizeInMB="1024" cleanOnRoleRecycle="false" />
+		</LocalResources>
+		</WorkerRole>
+		</ServiceDefinition>
+
+	Set the **name** attribute to any value desired.  Set the **sizeInMB** attribute value large enough to hold the anticipated crash dump data.  By setting the **cleanOnRoleRecycle** attribute value to false, you ensure that the local storage "MyCustomLogs" is not deleted when the role recycles. For more information about local storage resources, see [How to Configure Local Storage Resources][].
+
+2. Add the following code to the [OnStart method][] of your role. The following code snippet creates a DiagnosticMonitorConfiguration object, enables full crash dump collection to the *MyCustomCrashDumpsLocation* resource, adds the path to the list of directories that are monitored for diagnostic data, and sets a transfer interval of 30 minutes.
+
+		public override bool OnStart()
+		{
+		// Get the default initial configuration for DiagnosticMonitor.
+		DiagnosticMonitorConfiguration diagnosticConfiguration = DiagnosticMonitor.GetDefaultInitialConfiguration();
+
+		// Create a custom logging path for crash dumps.
+		string customCrashDumpsPath = RoleEnvironment.GetLocalResource("MyCustomCrashDumpsLocation").RootPath;
+
+		// Enable full crash dump collection to the custom path. Pass in false
+		// to enable mini crash dump collection. 
+		CrashDumps.EnableCollectionToDirectory(customCrashDumpsPath, true);
+
+		// Create a new DirectoryConfiguration object.
+		DirectoryConfiguration directoryConfiguration = new DirectoryConfiguration();
+
+		// Add the name for the blob container in Windows Azure storage.
+		directoryConfiguration.Container = "wad-crash-dumps";
+
+		// Add the directory size quota.
+		directoryConfiguration.DirectoryQuotaInMB = RoleEnvironment.GetLocalResource("MyCustomCrashDumpsLocation").MaximumSizeInMegabytes;
+
+		// Add the crash dumps path.
+		directoryConfiguration.Path = customCrashDumpsPath;
+
+		// Schedule a transfer period of 30 minutes.
+		diagnosticConfiguration.Directories.ScheduledTransferPeriod = TimeSpan.FromMinutes(30.0);
+
+		// Add the directoryConfiguration to the Directories collection.
+		diagnosticConfiguration.Directories.DataSources.Add(directoryConfiguration);
+
+		// Start the DiagnosticMonitor using the diagnosticConfig and our connection string.
+		DiagnosticMonitor.Start("Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString", diagnosticConfiguration);
+
+		return base.OnStart();
+		}
+
 
 ### <a name="custom"> </a>Custom Error Logs
 
 You can collect data in a custom log file. The custom log file is created in a local storage resource. You create the local storage resource by adding a **LocalResources** element to the service definition file and then updating the configuration of the Windows Azure diagnostic monitor. Perform the following steps to initialize the collection of custom log data.
 
-1.  Open the service definition file (CSDEF) using your favorite text editor and add the **LocalStorage** element. The following example shows the element added to the definition of a web role:
+1.  Open the service definition file (CSDEF) using your favorite text editor, add the **LocalStorage** element, then save your changes. The following example shows the element added to the definition of a web role:
 
         <?xml version="1.0" encoding="utf-8"?>
         <ServiceDefinition xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" name="MyService">
@@ -288,11 +337,9 @@ You can collect data in a custom log file. The custom log file is created in a l
           </WebRole>
         </ServiceDefinition>
 
-    Set the name attribute to any value desired.  Set the **sizeInMB** attribute value large enough to hold the anticipated log data.  By setting the **cleanOnRoleRecycle** attribute value to false, you ensure that the local storage "MyCustomLogs" is not deleted when the role recycles. For more information about local storage resources, see [How to Configure Local Storage Resources][].
+    Set the **name** attribute to any value desired.  Set the **sizeInMB** attribute value large enough to hold the anticipated log data.  By setting the **cleanOnRoleRecycle** attribute value to false, you ensure that the local storage "MyCustomLogs" is not deleted when the role recycles. For more information about local storage resources, see [How to Configure Local Storage Resources][].
 
-2.  Save the file.
-
-3.  Open the diagnostics.wadcfg file, add the following to the **DiagnosticMonitorConfiguration** element, and save your changes:
+2.  Open the diagnostics.wadcfg file, add the following to the **DiagnosticMonitorConfiguration** element, and save your changes:
 
 		<Directories bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
 		   <DataSources>
@@ -302,7 +349,7 @@ You can collect data in a custom log file. The custom log file is created in a l
 		   </DataSources>
 		</Directories>
 
-	Set the **container** attribute value to the name of the Windows Azure Storage container you want WAD to use.  WAD automatically creates the container if it does not exist.  Set the **name** and **directoryQuotaInMB** attribute value to the same value used for the **LocalStorage** attribute values in step 1. Set the **relativePath** attribute value, “.” means from the root of the local storage.
+	Set the **container** attribute value to the name of the Windows Azure Storage container you want Diagnostics to use.  Diagnostics automatically creates the container if it does not exist.  Set the **name** and **directoryQuotaInMB** attribute value to the same value used for the **LocalStorage** attribute values in step 1. Set the **relativePath** attribute value, “.” means from the root of the local storage.
 
 When a file is created in the directory that is specified in the **relativePath** attribute of the **LocalResource** element, it is transferred automatically as a blob to the container that is defined in the **container** attribute of the **DirectoryConfiguration** element when the scheduled transfer period ends. The file is not removed from the file system when it is transferred to storage, so you’ll need to implement a cleanup strategy. The file is removed by the Windows Azure diagnostic monitor if the size exceeds the diagnostics quota size that you configure.
 
@@ -343,7 +390,7 @@ Perhaps the most important diagnostic data is the trace messages that you as a d
 
 Trace messages are persisted to the **WADLogsTable** table (make sure you enabled this in the diagnostics.wadcfg file in **Step 3**). Windows Azure automatically associates the following information with each logged event: a timestamp, a tick count (which provides more detailed timing with 100-nanosecond granularity), and information about the deployment, role and role instance. This allows you to narrow down logs to specific instances.
 
-When using Trace, Debug and TraceSource, you must have a mechanism for collecting and recording the messages that are sent. Trace messages are received by listeners. The purpose of a listener is to collect, store, and route tracing messages. Listeners direct the tracing output to an appropriate target, such as a log, window, or text file. For WAD, the [DiagnosticMonitorTraceListener Class][] class is used.  
+When using Trace, Debug and TraceSource, you must have a mechanism for collecting and recording the messages that are sent. Trace messages are received by listeners. The purpose of a listener is to collect, store, and route tracing messages. Listeners direct the tracing output to an appropriate target, such as a log, window, or text file. For Diagnostics, the [DiagnosticMonitorTraceListener Class][] class is used.  
 
 To add a trace listener to your Windows Azure application:
 
@@ -372,14 +419,15 @@ Once you've configured diagnostics for your application save your changes, build
 
 Once your application is deployed and running the Diagnostics monitor will begin collecting performance counters and persisting that data to Windows Azure storage.  The following tools are some of the many options available to view data in a storage account:
 
--   **Server Explorer in Visual Studio** - If you install the Windows Azure Tools for Microsoft Visual Studio, you can use the Windows Azure Storage node in Server Explorer to view read-only blob and table data from your Windows Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Windows Azure. For more information, see [Browsing Storage Resources with Server Explorer][].
+-   **Server Explorer in Visual Studio** - If you install the Windows Azure Tools 2.0 or later for Visual Studio 2010 or Visual Studio 2012, you can use the Windows Azure Storage node in Server Explorer to view read-only blob and table data from your Windows Azure storage accounts. You can display data from your local storage emulator account and also from storage accounts you have created for Windows Azure. For more information, see [Browsing Storage Resources with Server Explorer][].
 -   **Azure Storage Explorer by Neudesic** - Azure Storage Explorer is a useful graphical user interface tool for inspecting and altering the data in your Windows Azure storage projects including the logs of your Windows Azure applications. To download the tool, see [Azure Storage Explorer][].
 -   **Azure Diagnostics Manager by Cerebrata** - Azure Diagnostics Manager is a Windows (WPF) based client for managing Windows Azure Diagnostics. It lets you view, download, and manage the diagnostics data collected by the applications running in Windows Azure. To download the tool, see [Azure Diagnostics Manager][].
 
-You can also programatically access the diagnostics data in Windows Azure Storage using the Windows Azure Storage Client Library for .NET.  For more information, see [How to use the Windows Azure Blob Storage Service][] and [How to use the Table Storage Service][].
+You can also programmatically access the diagnostics data in Windows Azure Storage using the Windows Azure Storage Client Library for .NET.  For more information, see [How to use the Windows Azure Blob Storage Service][] and [How to use the Table Storage Service][].
 
 <h2><a name="nextsteps"> </a><span class="short-header">Next steps</span>Next steps</h2>
 
+-	[Remotely Change the Diagnostic Monitor Configuration][] - Once you've deployed your application you can modify the Diagnostics configuration.
 -	[Using performance counters in Windows Azure] [] - You can use performance counters in a Windows Azure application to collect data that can help determine system bottlenecks and fine-tune system and application performance.
 -	[How to monitor cloud services] [] - You can monitor key performance metrics for your cloud services in the [Windows Azure Management Portal][].
 
@@ -387,6 +435,7 @@ You can also programatically access the diagnostics data in Windows Azure Storag
 
 - [Collecting Logging Data by Using Windows Azure Diagnostics][]
 - [Debugging a Windows Azure Application][]
+- [Configuring Windows Azure Diagnostics][]
 
   [Troubleshooting Best Practices for Developing Windows Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
   [Step 1: Import the Diagnostics module]: #step1
@@ -411,10 +460,13 @@ You can also programatically access the diagnostics data in Windows Azure Storag
   [Azure Diagnostics Manager]: http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx
   [Collecting Logging Data by Using Windows Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
   [Debugging a Windows Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx
-  [Using the Windows Azure Diagnostics Configuration File]: http://msdn.microsoft.com/en-us/library/gg604918.aspx
+  [Use the Windows Azure Diagnostics Configuration File]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411551.aspx
   [LogLevel Enumeration]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.loglevel.aspx
   [OnStart method]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
   [Windows Azure Diagnostics Configuration Schema]: http://msdn.microsoft.com/en-us/library/gg593185.aspx
   [How to use the Table Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
   [How to use the Windows Azure Blob Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/
   [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Remotely Change the Diagnostic Monitor Configuration]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432992.aspx
+  [Configuring Windows Azure Diagnostics]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx  
+   

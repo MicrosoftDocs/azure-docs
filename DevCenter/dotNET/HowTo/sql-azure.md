@@ -11,7 +11,7 @@ the database using the following .NET Framework data provider technologies:
 ADO.NET, ODBC, and EntityClient Provider.
 
 
-<h2><a id="Whatis"></a>What is SQL Database</h2>
+<h2><a name="Whatis"></a>What is SQL Database</h2>
 
 SQL Database provides a relational database management system for Windows Azure and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
@@ -25,7 +25,7 @@ SQL Database provides a relational database management system for Windows Azure 
 - [Connect Using EntityClient Provider](#using-entity)
 - [Next Steps](#next-steps)
 
-<h2><a id="PreReq1"></a>Sign in to Windows Azure</h2>
+<h2><a name="PreReq1"></a>Sign in to Windows Azure</h2>
 
 SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription.
 
@@ -34,11 +34,11 @@ SQL Database provides relational data storage, access, and management services o
 2. Your account is now created. You are ready to get started.
 
 
-<h2><a id="PreReq2"></a><span class="short-header">Create and configure SQL Database</span></h2>
+<h2><a name="PreReq2"></a><span class="short-header">Create and configure SQL Database</span></h2>
 
 Next, you'll create and configure a database and server. In the Windows Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
-<h3 id="createsrvr">Create a database instance and logical server</h3>
+<h3 name="createsrvr">Create a database instance and logical server</h3>
 
 1. Sign in to the [Windows Azure Management Portal][].
 
@@ -91,7 +91,7 @@ After the database is created, click on it to open its dashboard. The dashboard 
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
-<h3 id="configFWLogical">Configure the firewall for the logical server</h3>
+<h3 name="configFWLogical">Configure the firewall for the logical server</h3>
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
@@ -117,7 +117,7 @@ You now have a database instance, logical server, a firewall rule that allows in
 
 
 
-<h2><a id="Connect-DB"></a><span class="short-header">Connect to SQL Database</span></h2>
+<h2><a name="Connect-DB"></a><span class="short-header">Connect to SQL Database</span></h2>
 
 This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.

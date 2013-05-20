@@ -34,11 +34,11 @@ tables, see the [Next steps](#NextSteps) section.
 
 <div chunk="../../Shared/Chunks/howto-table-storage.md" />
 
-<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
+<h2><a name="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
 <div chunk="../../Shared/Chunks/create-storage-account.md" />
 
-## <a name="CreateApplication"> </a>Create a Java application
+## <a name="CreateApplication"></a>Create a Java application
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker

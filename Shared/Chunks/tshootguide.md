@@ -244,10 +244,6 @@ notification by email, SMS, or a desktop application when an error is
 detected. This type of monitoring simulates what an end user does to
 successfully monitor an application.
 
-For other networking information, Microsoft Online Services provides a [performance tool test] that measures the response times, bandwidth, and
-overall connection quality. The latency between the different Microsoft
-data centers can be viewed with use Matthew Rosoff's [Azure Statistics].
-
 **Azure Check**
 
 Apica's [AzureCheck] is a tool that monitors your Windows Azure web
@@ -378,8 +374,7 @@ Windows Azure web sites uses the same failed request tracing
 functionality that has been available with IIS 7.0 and later. It is not,
 however, configurable like IIS failed request tracing. When you enable
 failed request tracing for Windows Azure web sites, **all** failed
-requests are captured. For more information on how to view failed
-request logs see: [View the results of failed request tracing].
+requests are captured. 
 
 <h2><a id="Cloudservices"></a>Windows Azure Cloud Services</h2>
 
@@ -793,8 +788,6 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Keynote]: http://www.keynote.com/solutions/
 [Pingdom]: http://pingdom.com/
 [AlertBot]: http://www.alertbot.com/products/website-monitoring/default.aspx
-[performance tool test]: http://speedtest.noam.microsoftonline.com/
-[Azure Statistics]: http://latency.cloudapp.net/Default.aspx
 [AzureCheck]: http://www.apicasystem.com/monitoring/what-we-monitor/apica-azurecheck.aspx
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
@@ -811,12 +804,11 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Log Parser Plus]: http://logparserplus.com/Examples
 [TechNet Log Parser Examples]: http://technet.microsoft.com/en-us/library/ee692659.aspx
 [Office 2003 Web Components]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
-[View the results of failed request tracing]: http://diagnostics.antdf0.antares-test.windows-int.net/#failedrequests
 [CodePlex]: http://wappowershell.codeplex.com/
 [blog]: http://michaelwasham.com/2012/01/16/windows-azure-powershell-cmdlets-2-2-released/
 [How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
 [Daniel Pearson's presentation Windows Debugging and Troubleshooting]: http://technet.microsoft.com/en-us/edge/Video/hh867800
-[Suse Linux documentation]: https://secure-www.suse.com/documentation/sles11/
+[Suse Linux documentation]: https://www.suse.com/documentation/
 [list of storage explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/17/windows-azure-storage-explorers.aspx
 [Explorer for Azure Blob Storage]: http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx
 [enterprise service bus]: http://en.wikipedia.org/wiki/Enterprise_service_bus
