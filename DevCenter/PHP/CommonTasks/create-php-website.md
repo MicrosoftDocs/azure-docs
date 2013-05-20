@@ -11,22 +11,22 @@ In general, creating a PHP web site is no different that creating *any* web site
 Each option described below shows you how to create a web site in a shared hosting environment at no cost, but with some limitations on CPU usage and bandwidth usage. For more information, see [Windows Azure Web Sites Pricing][websites-pricing]. For information about how to upgrade and scale your web site, see [How to scale Web Sites][scale-websites].
 
 ##Table of Contents
-* [Create a web site using the Windows Azure Portal](#portal)
+* [Create a web site using the Windows Azure Management Portal](#portal)
 * [Create a web site using the Windows Azure Command Line Tools for Mac and Linux](#XplatTools)
 * [Create a web site using the Windows Azure PowerShell cmdlets](#PowerShell)
 
-<h2><a id="portal"></a>Create a PHP web site using the Windows Azure Portal</h2>
+<h2><a name="portal"></a>Create a PHP web site using the Windows Azure Management Portal</h2>
 
-When you create a web site in the Windows Azure Portal, you have three options: **QUICK CREATE**, **CREATE WITH DATABASE**, and **FROM GALLERY**. The instructions below will cover the **QUICK CREATE** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
+When you create a web site in the Windows Azure Management Portal, you have three options: **QUICK CREATE**, **CREATE WITH DATABASE**, and **FROM GALLERY**. The instructions below will cover the **QUICK CREATE** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
 
-To create a PHP web site using the Windows Azure Portal, do the following:
+To create a PHP web site using the Windows Azure Management Portal, do the following:
 
 1. Login to the [Windows Azure Management Portal].
 2. Click **+NEW** at the bottom of the page, then click **COMPUTE**, **WEB SITE**, and **QUICK CREATE**. Provide a **URL** for your web site and select the **REGION** for your web site. Finally, click **CREATE WEB SITE**.
 
 	![Select Quick Create web site](../Media/select-quickcreate-website.png)
 
-<h2><a id="XplatTools"></a>Create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux</h2>
+<h2><a name="XplatTools"></a>Create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux</h2>
 
 To create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux do the following:
 
@@ -48,7 +48,7 @@ Note that you can execute the `azure site create` command with any of the follow
 
 For information about additional options, see [How to create and manage a Windows Azure Web Site](/en-us/develop/php/how-to-guides/command-line-tools/#WebSites).
 
-<h2><a id="PowerShell"></a>Create a PHP web site using the Windows Azure PowerShell cmdlets</h2>
+<h2><a name="PowerShell"></a>Create a PHP web site using the Windows Azure PowerShell cmdlets</h2>
 
 To create a PHP web site using the Windows Azure PowerShell cmdlets, do the following:
 
@@ -70,7 +70,7 @@ Note that you can execute the `New-AzureWebSite` command with any of the followi
 
 For information about additional options, see [How to: Create and manage a Windows Azure Web Site](/en-us/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
 
-<h2><a id="NextSteps"></a>Next steps</h2>
+<h2><a name="NextSteps"></a>Next steps</h2>
 
 Now that you have created a PHP web site in Windows Azure Web Sites, you can manage, configure, monitor, deploy to, and scale your site. For more information, see the following links:
 
@@ -84,7 +84,7 @@ Now that you have created a PHP web site in Windows Azure Web Sites, you can man
 For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/develop/php/tutorials/) page.
 
 [waws]: /en-us/manage/services/web-sites/
-[Windows Azure Management Portal]: http://windows.azure.com/
+[Windows Azure Management Portal]: http://manage.windowsazure.com/
 [xplat-tools]: /en-us/develop/php/how-to-guides/command-line-tools/
 [powershell-cmdlets]: /en-us/develop/php/how-to-guides/powershell-cmdlets/
 [configure-php]: /en-us/develop/php/common-tasks/configure-php-web-site/

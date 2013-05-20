@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-dotnet" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your Windows Store app with Live Connect" metaKeywords="Windows Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" metaDescription="Learn how to use Live Connect single sign-on in Windows Azure Mobile Services from a Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-dotnet" writer="glenga" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your Windows Store app with Live Connect" metaKeywords="Windows Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso" metaDescription="Learn how to use Live Connect single sign-on in Windows Azure Mobile Services from a Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -139,7 +139,8 @@ Next, you will update the app to authenticate users with Live Connect before req
                     session = result.Session;
                     LiveConnectClient client = new LiveConnectClient(result.Session);
                     LiveOperationResult meResult = await client.GetAsync("me");
-                    MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
+                    MobileServiceUser loginResult = await App.MobileService
+                        .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
 	
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
                     var message = string.Format("You are now logged in - {0}", loginResult.UserId);

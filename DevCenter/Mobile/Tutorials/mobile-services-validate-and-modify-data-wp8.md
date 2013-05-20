@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-wp8" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Windows Phone)" metaKeywords="" metaDescription="Learn how to validate and modify data sent using server scripts from your Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-wp8" writer="glenga" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Windows Phone)" metaKeywords="" metaDescription="Learn how to validate and modify data sent using server scripts from your Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-wp8.md" />
 
@@ -71,8 +71,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
-            // This code inserts a new TodoItem into the database. When the operation completes
-            // and Mobile Services has assigned an Id, the item is added to the CollectionView
+            // This code inserts a new TodoItem into the database. 
+			// When the operation completes and Mobile Services has 
+			// assigned an Id, the item is added to the collection.
             try
             {
                 await todoTable.InsertAsync(todoItem);
@@ -126,19 +127,19 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
 
-	    public class TodoItem
-	    {
-	        public int Id { get; set; }
-          
-            [DataMember(Name="text")]
-	        public string Text { get; set; }
+        public class TodoItem
+        {
+            public int Id { get; set; }
 
-            [DataMember(Name="complete")]
-	        public bool Complete { get; set; }
-	        
-            [DataMember(Name="createdAt")]
-	        public DateTime? CreatedAt { get; set; }
-	    }
+            [JsonProperty(PropertyName = "text")]
+            public string Text { get; set; }
+
+            [JsonProperty(PropertyName = "complete")]
+            public bool Complete { get; set; }
+        
+            [JsonProperty(PropertyName = "createdAt")]
+            public DateTime? CreatedAt { get; set; }
+        }
 	
     This new class definition includes the new timestamp property, as a nullable DateTime type.
   
@@ -158,14 +159,14 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 7. Replace the existing **RefreshTodoItems** method with the following code:
 
-        private void RefreshTodoItems()
+        private async void RefreshTodoItems()
         {
             // This query filters out completed TodoItems and 
             // items without a timestamp. 
-            items = todoTable
+            items = await todoTable
                .Where(todoItem => todoItem.Complete == false
                    && todoItem.CreatedAt != null)
-               .ToCollectionView();
+               .ToCollectionAsync();
 
             ListItems.ItemsSource = items;
         }

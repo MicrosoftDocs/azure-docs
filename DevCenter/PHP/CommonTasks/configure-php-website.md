@@ -14,10 +14,10 @@ This guide will show you how to configure the built-in PHP runtime in Windows Az
 * [How to: Use a custom PHP runtime](#UseCustomPHP)
 * [Next steps](#NextSteps)
 
-<h2><a id="WhatIs"></a>What is Windows Azure Web Sites?</h2>
+<h2><a name="WhatIs"></a>What is Windows Azure Web Sites?</h2>
 Windows Azure Web Sites allows you to build highly scalable web sites on Windows Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Windows Azure Web Sites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
 
-<h2><a id="ChangeBuiltInPHP"></a>How to: Change the built-in PHP configuration</h2>
+<h2><a name="ChangeBuiltInPHP"></a>How to: Change the built-in PHP configuration</h2>
 By default, PHP 5.3 is installed and immediately available for use when you create a Windows Azure Web Site. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()].
 
 PHP 5.4 is also available, but not enabled by default. To enable it, follow these steps:
@@ -48,7 +48,7 @@ For either of the built-in PHP runtimes, you can change any of the configuration
 
 As an alternative to using a `.user.ini` file, you can use the [ini_set()] function in scripts to set configuration options that are not system-level directives.
 
-<h2><a id="EnableExtDefaultPHP"></a>How to: Enable extensions in the default PHP runtime</h2>
+<h2><a name="EnableExtDefaultPHP"></a>How to: Enable extensions in the default PHP runtime</h2>
 As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below.
 
 1. Add a `bin` directory to your root directoy.
@@ -66,7 +66,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 
 	![Save configuration settings][save-button]
 
-<h2><a id="UseCustomPHP"></a>How to: Use a custom PHP runtime</h2>
+<h2><a name="UseCustomPHP"></a>How to: Use a custom PHP runtime</h2>
 Instead of the default PHP runtime, Windows Azure Web Sites can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime in Windows Azure Web Sites, follow the steps below.
 
 1. Obtain a non-thread-safe, VC9 compatible version of PHP for Windows. Recent releases of PHP for Windows can be found here: [http://windows.php.net/download/]. Older releases can be found in the archive here: [http://windows.php.net/downloads/releases/archives/].
@@ -86,7 +86,7 @@ Instead of the default PHP runtime, Windows Azure Web Sites can use a PHP runtim
 
 	![Save configuration settings][save-button]
 
-<h2><a id="NextSteps"></a>Next steps</h2>
+<h2><a name="NextSteps"></a>Next steps</h2>
 Now that you’ve learned how to configure PHP in Windows Azure Web Sites, follow the links below to learn how to do more.
 
 - [Configure, monitor, and scale your web sites in Windows Azure]

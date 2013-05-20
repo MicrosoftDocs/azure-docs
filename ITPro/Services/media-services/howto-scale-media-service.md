@@ -36,7 +36,7 @@ The new encoding reserved units are allocated almost immediately.
 
 	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-4. By default every Media Services account can scale to up to 5 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
+4. By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
 
 	To open a support ticket do the following: 
 

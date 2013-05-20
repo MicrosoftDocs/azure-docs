@@ -115,7 +115,7 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 <li>Log on to the <a href="http://manage.windowsazure.com/">Windows Azure Management Portal</a> through your account.
 <ul>
 
-<li>If you do not have a Windows Azure account, go to <a href="http://www.windowsazure.com/en-us/pricing/free-trial/">Windows Azure 90-Day Free Trial</a>.</li>
+<li>If you do not have a Windows Azure account, <a href="http://www.windowsazure.com/en-us/pricing/free-trial/">sign up for a free trial of Windows Azure</a>.</li>
 </ul>
 </li>
 

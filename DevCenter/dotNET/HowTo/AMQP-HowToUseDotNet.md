@@ -1,29 +1,31 @@
-<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Windows Azure" metaKeywords="" metaDescription="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Windows Azure .NET Service Bus API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Windows Azure" metaKeywords="" metaDescription="Learn how to use Advanced Message Queuing Protocol (AMQP) 1.0 with the Windows Azure .NET Service Bus API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
 
-# How to use AMQP 1.0 with the .NET Service Bus .NET API
+# How to use AMQP 1.0 with the Service Bus .NET API
 
 <h2><span class="short-header">Introduction</span>Introduction</h2>
 
-The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that can be used to build robust, cross-platform messaging applications. AMQP 1.0 support was added to the Windows Azure Service Bus as a preview feature in October 2012. It is expected to transition to General Availability (GA) in the first half of 2013.
+The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire-level messaging protocol that you can use to build robust, cross-platform, messaging applications.
 
-The addition of AMQP 1.0 means that it’s now possible to leverage the queuing and publish/subscribe brokered messaging features of the Service Bus from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks and operating systems.
+Support for AMQP 1.0 in Service Bus means that you can use the queuing and publish/subscribe brokered messaging features from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks, and operating systems.
 
-This How-To guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from AMQP 1.0 using the .NET API.
+This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET applications using the Service Bus .NET API. There is a companion how-to guide that explains how to do the same using the standard Java Message Service (JMS) API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 
-<h2><span class="short-header">Getting Started</span>Getting Started with the Service Bus</h2>
+<h2><span class="short-header">Getting Started</span>Getting Started with Service Bus</h2>
 
-This guide assumes that you already have a Service Bus namespace. If not, then you can easily create one using the [Windows Azure Management Portal](http://manage.windowsazure.com). For a detailed walk-through of how to create Service Bus namespaces and Queues, refer to the How-To Guide entitled “[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)”
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled “[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)”
 
-<h2><span class="short-header">Downloading AMQP 1.0</span>Downloading the Service Bus AMQP 1.0 Preview Package</h2>
+<h2><span class="short-header">Downloading the SDK</span>Downloading the Service Bus SDK.</h2>
 
-Accessing the AMQP 1.0 support in the Service Bus from .NET requires an updated client library. You can download this via NuGet. The package is entitled “ServiceBus.Preview” and it contains a new Service Bus library named “Microsoft.ServiceBus.Preview.dll.” This library should be used instead of the production version (“Microsoft.ServiceBus.dll”) in order to use the AMQP 1.0 features.
+AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can download the latest SDK from NuGet at [http://nuget.org/packages/WindowsAzure.ServiceBus/](http://nuget.org/packages/WindowsAzure.ServiceBus/).
 
 <h2><span class="short-header">Coding .NET applications</span>Coding .NET applications</h2>
 
-By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. With this preview release, it’s possible to configure the library to use AMQP 1.0 instead. Other than configuring the protocol selection, as described in the next section, application code is unchanged. However, there are a few API features that are not supported in this preview release. These are called out later in the section “Unsupported features and restrictions.” Some of the advanced configuration settings also take on new meaning when using AMQP. None of these are used in this short How-To guide but more details are available in the Service Bus AMQP Preview Developers Guide.
+By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string as described in the next section. Other than this change, application code remains basically unchanged when using AMQP 1.0.
+
+In the current release there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section “Unsupported features and restrictions.” Some of the advanced configuration settings also have a different meaning when using AMQP. None of these settings are used in this short how-to guide but more details are available in the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
 
 ### Configuration via App.config
 
@@ -42,13 +44,13 @@ A sample App.config file is shown below:
 
 ### Configuring the Service Bus Connection String
 
-The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Service Bus connection string that is used to configure the connection to the Service Bus. The format is as follows:
+The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Service Bus connection string that is used to configure the connection to Service Bus. The format is as follows:
 
 	Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
 
 Where [namespace], [issuer name], and [issuer key] are obtained from the Windows Azure Management Portal. For more information, see [How to Use Service Bus Queues][].
 
-When using AMQP, the connection string is appended with “;TransportType=Amqp”, which informs the client library to make its connection to the Service Bus using AMQP 1.0.
+When using AMQP, the connection string is appended with “;TransportType=Amqp”, which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
 ### Configuring the Entity Name
 
@@ -56,20 +58,20 @@ This sample application uses the “EntityName” setting in the **appSettings**
 
 ### A simple .NET application using a Service Bus Queue
 
-The following simple example program sends BrokeredMessages to a Service Bus queue and receives the messages back.
+The following example sends and receives messages to and from a Service Bus queue.
 
 	// SimpleSenderReceiver.cs
-
+	
 	using System;
 	using System.Configuration;
 	using System.Threading;
 	using Microsoft.ServiceBus.Messaging;
-
+	
 	namespace SimpleSenderReceiver
 	{
-    	class SimpleSenderReceiver
-    	{
-        	private static string connectionString;
+	    class SimpleSenderReceiver
+	    {
+	        private static string connectionString;
 	        private static string entityName;
 	        private static Boolean runReceiver = true;
 	        private MessagingFactory factory;
@@ -77,19 +79,18 @@ The following simple example program sends BrokeredMessages to a Service Bus que
 	        private MessageReceiver receiver;
 	        private MessageListener messageListener;
 	        private Thread listenerThread;
-
+	
 	        static void Main(string[] args)
 	        {
 	            try
 	            {
 	                if ((args.Length > 0) && args[0].ToLower().Equals("sendonly"))
 	                    runReceiver = false;
-	
+	                
 	                string ConnectionStringKey = "Microsoft.ServiceBus.ConnectionString";
 	                string entityNameKey = "EntityName";
 	                entityName = ConfigurationManager.AppSettings[entityNameKey];
-	                connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];                
-	
+	                connectionString = ConfigurationManager.AppSettings[ConnectionStringKey];
 	                SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
 	
 	                Console.WriteLine("Press [enter] to send a message. " +
@@ -139,8 +140,10 @@ The following simple example program sends BrokeredMessages to a Service Bus que
 	            BrokeredMessage message = 
 	                new BrokeredMessage("Test AMQP message from .NET");
 	            sender.Send(message);
-	            Console.WriteLine("Sent message with MessageID = " + message.MessageId);
-	        }	
+	            Console.WriteLine("Sent message with MessageID = " 
+	                + message.MessageId);
+	        }
+	
 	    }
 	
 	    public class MessageListener
@@ -161,7 +164,8 @@ The following simple example program sends BrokeredMessages to a Service Bus que
 	                        messageReceiver.Receive(new TimeSpan(0, 0, 10));
 	                    if (message != null)
 	                    {
-	                        Console.WriteLine("Received message with MessageID = " + message.MessageId);
+	                        Console.WriteLine("Received message with MessageID = " + 
+	                            message.MessageId);
 	                        message.Complete();
 	                    }
 	                }
@@ -187,26 +191,25 @@ The following simple example program sends BrokeredMessages to a Service Bus que
 Running the application produces output of the form:
 
 	> SimpleSenderReceiver.exe
-	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	
-	Sent message with MessageID = 3f900a8971ec46febb01c3c27e8ebc3a
-	Received message with MessageID = 3f900a8971ec46febb01c3c27e8ebc3a
+	Sent message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
+	Received message with MessageID = fb7f5d3733704e4ba4bd55f759d9d7cf
 	
-	Sent message with MessageID = 6a402d2670d34141afed765381d67442
-	Received message with MessageID = 6a402d2670d34141afed765381d67442
+	Sent message with MessageID = d00e2e088f06416da7956b58310f7a06
+	Received message with MessageID = d00e2e088f06416da7956b58310f7a06
 	
-	Sent message with MessageID = e6333a37ba944612886d630dab78b62d
-	Received message with MessageID = e6333a37ba944612886d630dab78b62d
+	Received message with MessageID = f27f79ec124548c196fd0db8544bca49
+	Sent message with MessageID = f27f79ec124548c196fd0db8544bca49
 	exit
 
 <h2><span class="short-header">Cross-platform messaging</span>Cross-platform messaging between JMS and .NET</h2>
 
-This guide has shown how to send messages to the Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full-fidelity.
+This guide showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
 Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3), it’s possible to exchange messages between .NET and Java. 
 
-For more information about the details of cross-platform messaging using the Service Bus and AMQP 1.0, see the Service Bus AMQP Preview Developers Guide.
+For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
 
 ### JMS to .NET
 
@@ -265,41 +268,32 @@ To demonstrate .NET to JMS messaging:
 
 <h2><span class="short-header">Unsupported features</span>Unsupported features and restrictions</h2>
 
-There are several features of the .NET Service Bus API that are not currently supported in this preview release of AMQP 1.0 in the Service Bus, namely:
+The following features of the .NET Service Bus API are not currently supported when using AMQP:
 
 * Transactions
-* Receive by message sequence number, i.e. MessageReceiver.Receive(long sequenceNumber).
-* Session state, i.e., MessageSession.GetState()/SetState()
-* The use of parameters in subscription rule filters (SqlFilter.Parameters) and subscription rule actions (SqlRuleAction.Parameters)
-* CorrelationFilter is only supported when using CorrelationId
+* Send via transfer destination
+* Receive by message sequence number
+* Message and session browse
+* Session state
 * Batch-based APIs
 * Scaled-out receive
-* Message auto-forwarding
-* Message lock renewal
-* Some minor behavior differences
+* Runtime manipulation of subscription rules
+* Session lock renewal
+* Some minor differences in behavior
 
-See the Service Bus AMQP Preview Developers Guide for more information.
+For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx). This topic includes a detailed list of unsupported APIs.
 
 <h2><span class="short-header">Summary</span>Summary</h2>
 
-This How-To guide has shown how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API. The AMQP 1.0 support is available in preview today and is expected to transition to General Availability (GA) in the first half of 2013.
+This how-to guide showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.
 
-The Service Bus AMQP 1.0 support can also be used from other languages including Java, C, Python, and PHP. Components built using these different languages can exchange messages reliably and at full-fidelity using the AMQP 1.0 in the Service Bus. Further information is provided in the Service Bus AMQP 1.0 Preview Developers Guide.
-
-
-<h2><span class="short-header">Important notice</span>Important notice</h2>
-
-Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Preview”) is provided as a preview feature, and is governed by the Windows Azure Preview terms of use. Specifically, note that:
-
-* The Service Bus SLA does not apply to the AMQP Preview;
-* Any queue or topic that is addressed using the AMQP client libraries (for sending/receiving messages or other data) may not be preserved during the AMQP Preview or at the end of the AMQP Preview;
-* We may make breaking changes to AMPQ-related APIs or protocols during or at the end of the AMQP Preview.
+You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP. Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
 
 <h2><span class="short-header">Further information</span>Further information</h2>
 
 * [AMQP 1.0 support in Windows Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
-* [Service Bus AMQP Preview Developers Guide (included in the ServiceBus.Preview NuGet package)](http://aka.ms/tnwtu4)
+* [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 
 [How to Use Service Bus Queues]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/

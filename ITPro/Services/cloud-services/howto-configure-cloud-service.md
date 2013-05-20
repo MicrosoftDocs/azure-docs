@@ -95,6 +95,15 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 	![Cloud services remote] (../media/CloudServices_Remote.png)
 
+ <div class="dev-callout"> 
+    <b>Warning</b> 
+    <p>All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. If no certificate is installed you will see this option:	
+    </p> 
+    </div>
+
+	![Cloud services create certificate] (../media/CloudServices_CreateNewCertDropDown.png)
+
+ To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 3. In **Roles**, select the service role you want to update or select **All** for all roles.
 
@@ -122,4 +131,18 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 	d. Click **Open** and then **Connect** to start the Remote Desktop connection.
 
+###To disable Remote Access for role instances in the Management Portal###
+
+1. Log in to the [Management Portal](http://manage.windowsazure.com/) and click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
+
+2. Open the **Configure** page for the cloud service, and click **Remote**.
+
+3. In **Roles**, select the service role you want to update or select **All** for all roles.
+
+4. Un-check, or clear, the **Enable Remote Desktop** check box.
+
+5. Click OK (checkmark).
+
 [Set Up a Remote Desktop Connection for a Role in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
+
+[Using Remote Desktop with Windows Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx

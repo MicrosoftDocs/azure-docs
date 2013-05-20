@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" writer="glenga" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -110,8 +110,8 @@ Both your mobile service and your app are now configured to work with WNS.
 		
 4. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
 
-         [DataMember(Name = "channel")]
-         public string Channel { get; set; }
+        [JsonProperty(PropertyName = "channel")]
+        public string Channel { get; set; }
 
     <div class="dev-callout"><b>Note</b>
 	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>

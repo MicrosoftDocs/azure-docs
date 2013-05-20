@@ -395,7 +395,7 @@ Warning: Keep your app ID and secret secure. A malicious user who has your app I
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Add Roles to the Membership Database</h2>
 In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
 
-1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
+1. In the **View** menu click **Server Explorer**. <br/>
  <br/>![Publish][rxP3] <br/>
  <br/>![Publish][rxP2]<br/>
 1. In **Server Explorer**, expand **DefaultConnection** then expand **Tables**.
@@ -547,7 +547,7 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 	Data Source=tcp:d015leqjqx.database.windows.net,1433;
 	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
 1. Close the publish dialog.
-1. In the **View** menu click **Database Explorer** if you are using *Visual Studio Express for Web* or **Server Explorer** if you are using full Visual Studio. <br/>
+1. In the **View** menu click **Server Explorer**. <br/>
  <br/>![Publish][rxP3] <br/>
  <br/>![Publish][rxP2]<br/>
 1. Click on the **Connect to Database** icon.

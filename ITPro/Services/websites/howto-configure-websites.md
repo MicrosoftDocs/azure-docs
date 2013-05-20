@@ -82,13 +82,7 @@ For more information about Windows Azure Storage Access Keys, see [How to: View,
 	web site http://contoso.com, if the default document is set to default.htm, a user would be routed to http://www.contoso.com/default.htm when pointing 
 	their browser to http://www.contoso.com. If your web site contains more than one of the files in the list, then make sure your web site’s default document 
 	is at the top of the list by changing the order of the files in the list.</li>
-<li><strong>handler mappings</strong> -  Add custom script processors that handle requests.<ul><li>Extension: Enter the file name extension that requires a custom script processor (for example, *.php). Wildcard characters are accepted.
-</li>
-<li>Script processor path: Enter the file path to a custom script processor executable that handles requests for the specified file name extension (for example, php-cgi.exe). The path is relative to the web site’s FTP root directory.</li>
-<li>Additional Arguments (optional): Enter any additional arguments that the script processor requires.
-</li>
-
-</ul>
+<li><strong>handler mappings</strong> -  Add custom script processors to handle requests for specific file extensions. Specify the file extension to be handled in the <strong>Extension</strong> box (for example, *.php or handler.fcgi). Requests to files that match this pattern will be processed by the script processor specified in the <strong>Script Processor Path</strong> box. An absolute path is required for the script processor (the path D:\home\site\wwwroot can be used to refer to your site's root directory). Optional command-line arguments for the script processor may be specified in the <strong>Additional Arguments (Optional)</strong> box.
 </li>	
 	
 </ul></li>

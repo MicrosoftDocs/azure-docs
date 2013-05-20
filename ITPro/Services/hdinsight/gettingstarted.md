@@ -27,7 +27,7 @@ To complete this tutorial, you need a Windows Azure account that has the Windows
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial") page.</p> 
+<p>While the HDInsight Service is available as part of a Windows Azure Trial subscription, a trial subscription places limits on the amount of compute and storage resources available to you. For more information, see the <a href="http://www.windowsazure.com/en-us/pricing/free-trial/">Windows Azure Free Trial</a> page.</p> 
 </div>
 
 ##<a name="create"></a>Create a Windows Azure Storage Account
@@ -36,7 +36,7 @@ The HDInsight provision process requires a Windows Azure Storage account to be u
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Your storage account should be created in the US East data center as storage accounts must be collocated with the HDInsight Service compute resources which are in US East.</p> 
+<p>Your storage account should be collocated in the same data center as your the HDInsight Service compute resources.</p> 
 </div>
 
 
@@ -72,21 +72,16 @@ You can use the Windows Azure Management portal to create and configure a new Ha
 
 5. Click **Create HDInsight Cluster** on the lower right. The cluster is now provisioned and when it will be available when its status is listed as **Running**. 
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Notice your cluster is automatically located in the East US data center, which is why you co-located your Azure storage account there when creating it</p> 
-	</div>
-
 ##<a name="dashboard"></a>Use the HDInsight Service Dashboard and Sample Gallery
 This section explains how to get to the HDInsight Service dashboard and sample gallery.
 
 1. From the Windows Azure portal, click the name of the HDInsight cluster. 
 
-2. Click **Dashboard** from the top of the page. The dashboard provides quick glance of the metadata for the cluster. 
+2. Click **Dashboard** from the top of the page. The dashboard provides quick glance of the metadata for the cluster.  
 
 	![HDI.Dashboard](../media/HDI.Dashboard.PNG "Dashboard")
 
-3. Click **Manage** on the bottom of the page.
+3. Click **Manage Cluster** on the bottom of the page.
 
 4. Enter your credentials. The **User name** needed is the cluster user name, which was provided on the bottom of the previous dashboard (see the previous screenshot), which is "admin" by default when using the **Quick Create** process. The **Password** it expects is the one that you created for this the cluster (not the Windows Azure password).
 
@@ -115,7 +110,7 @@ To run the WordCount sample:
 
 	![HDI.WordCountSampleDeployment](../media/HDI.WordCountSampleDeployment.PNG "WordCount Sample Deployment")
 
-	The downlods include the following files:
+	The downloads include the following files:
 
 	* **davinci.txt**: the input text file
 	* **hadoop-examples.jar**: the jar files that contains the files needed by Hadoop on Azure to deploy the application. 
@@ -132,9 +127,12 @@ To run the WordCount sample:
 
 	The use of the asv:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. The output directory assumes a default path relative to the asv:///user/&lt;username&gt; folder. 
 
+	<!--is the following paragraph correct? -->
+
 	For the purpose of this introduction, the default prefix is being retained. But it is a best practice to use the secure SSL version, asvs://, for transferring your data when you are in production. For information on how to use the secure transport, see [Using HDInsight to process Blob Storage data](/en-us/manage/services/hdinsight/process-blob-data-and-write-to-sql/).
 
-	The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. See the documentation on [jar syntax ](http://hadoop.apache.org/common/docs/current/commands_manual.html#jar) for details. 
+	The **Final Command** contains the Hadoop jar command that executes the MapReduce program with the parameter values provided above. 
+
 
 3. Click **Execute job** to run the MapReduce job.
 
@@ -170,3 +168,4 @@ You have gotten set up with a Windows Azure and Azure Storage accounts that are 
 - For more information of Hive, see [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/).
 - For more information of Pig, see [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/).
 
+[jar-syntax]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#jar

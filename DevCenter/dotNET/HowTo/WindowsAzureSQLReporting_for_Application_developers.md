@@ -1,5 +1,8 @@
-<div chunk=”../chunks/article-left-menu.md” />
-# Windows Azure SQL Reporting for Application developers #
+<properties linkid="develop-dotnet-sql-reporting" urlDisplayName="SQL Reporting" pageTitle="How to use SQL Reporting (.NET) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use SQL Reporting programmatically in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+
+<div chunk="../chunks/article-left-menu.md" />
+   
+# Windows Azure SQL Reporting for Application developers
 
 This topic provides information about deploying a report server project to Windows Azure SQL Reporting report server, and getting started information for application developers who integrate reports hosted by Windows Azure SQL Reporting in their applications, as well as develop management tools against SQL Reporting report servers.
 
@@ -16,12 +19,12 @@ In this tutorial you will learn how to:
 
 
 ##Tutorials Segments##
-1.	[Deploy a Report Project][]
-2.	[Access SQL Reporting Reports in ReportViewer Controls][]
-3.	[Programmatically access Reports using SOAP Management Endpoint][]
-4.	[Next Steps][]
+1.	[Deploy a Report Project](#Deploy_ReportServer_Project)
+2.	[Access SQL Reporting Reports in ReportViewer Controls](#Access_Reports_In_ReportViewer)
+3.	[Programmatically access Reports using SOAP Management Endpoint](#Programmatically_Access)
+4.	[Next Steps](#NextSteps)
 
-<h2 id="Deploy_ReportServer_Project">Deploy a Report Project</h2>
+<h2><a name="Deploy_ReportServer_Project"></a>Deploy a Report Project</h2>
 From Business Intelligence Development Studio(BIDS) of SQL Server, you can deploy all the reports and shared data sources in a Report Server project to a Windows Azure SQL Reporting report server. You can deploy the entire project, or individual reports or data sources. Before you deploy reports or data sources, you need to set the project properties of the Report Server project in Business Intelligence Development Studio.
 
 <strong>To set deployment properties</strong>
@@ -64,7 +67,7 @@ In <strong>Solution Explorer</strong>, right-click the report and click <strong>
 In <strong>Solution Explorer</strong>, right-click the data source and click <strong>Deploy</strong>. You can view the status of the publishing process in the Output window.
 
 
-<h2 id="Access_Reports_In_ReportViewer">Access SQL Reporting Reports in ReportViewer Controls</h2>
+<h2><a name="Access_Reports_In_ReportViewer"></a>Access SQL Reporting Reports in ReportViewer Controls</h2>
 
 Similar to reports deployed to on-premise SQL Server Reporting Services (SSRS) report servers, reports deployed to Windows Azure SQL Reporting report servers can be displayed in ASP.NET applications using the Visual Studio ReportViewer control. 
 
@@ -179,7 +182,7 @@ For more information about the use of ReportViewer in a Windows Azure web site t
 		}
 		
 
-<h2 id="Programmatically_Access">Programmatically access Reports using SOAP Management Endpoint</h2>
+<h2><a name="Programmatically_Access"></a>Programmatically access Reports using SOAP Management Endpoint</h2>
 
 The SQL Reporting SOAP API provides several Web service endpoints for developing custom reporting solutions.The management functionality is exposed through the [ReportService2005][] and [ReportService2010][] endpoints. For the list of unsupported SOAP APIs in SQL Reporting, see [Guidelines and Limitations for Windows Azure SQL Reporting][].
 
@@ -221,7 +224,7 @@ Then, in the Web.config or App.config file, specify the application settings in 
 		</appSettings>
 
 
-<h2 id="NextSteps">Next steps</h2>
+<h2><a name="NextSteps"></a>Next steps</h2>
 
 Now you are familiar with SQL Reporting and how to integrate reports hosted by SQL Reporting in your applications, as well as develop management tools against SQL Reporting report servers. Now you can move to the next step by learning more about the available SOAP APIs in SQL Reporting. Refer the following topics:
 
@@ -268,11 +271,6 @@ Now you are familiar with SQL Reporting and how to integrate reports hosted by S
 
 [Tutorials (SSRS)]: http://msdn.microsoft.com/en-us/library/bb522859(v=sql.105)
 
-
-[Deploy a Report Project]: #Deploy_ReportServer_Project
-[Access SQL Reporting Reports in ReportViewer Controls]: #Access_Reports_In_ReportViewer
-[Programmatically access Reports using SOAP Management Endpoint]: #Programmatically_Access
-[Next Steps]: #NextSteps
 
 [ReportServerProperties]: ../media/ReportProject_PropertiesDialog.png
 [LoginDialog]: ../media/ReportProject_LoginDialog.png
