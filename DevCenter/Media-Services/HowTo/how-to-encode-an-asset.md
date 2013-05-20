@@ -78,7 +78,7 @@ For more information about processing assets, see:
 </ul>
 
 <h2>Next Steps</h2>
-Now that you know how to encode an assset, go to the [How To Protect an Asset with Media Services]( http://go.microsoft.com/fwlink/?LinkId=301813) topic.
+Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409) topic.
 
 [Windows Azure Marketplace]: https://datamarket.azure.com/
 [Encoder Preset]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
