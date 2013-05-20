@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -8,14 +8,14 @@ This tutorial shows you how to create a PHP-MySQL Windows Azure web site and how
  
 You will learn:
 
-* How to create a Windows Azure web site and a MySQL database using the Preview Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to create a Windows Azure web site and a MySQL database using the Windows Azure Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Windows Azure using Git.
  
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure web site. A screenshot of the completed application is below:
 
 ![Windows Azure PHP web site][running-app]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Web Sites preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Web Sites, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure  features</a>.</li> </ul> </div>
 
 ##Set up the development environment
 
@@ -30,7 +30,7 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 
 Follow these steps to create a Windows Azure web site and a MySQL database:
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Windows Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure web site][new-website]
@@ -244,7 +244,7 @@ To publish changes to application, follow these steps:
 
 	![Windows Azure PHP web site][running-app]
 
-4. You can also see the new deployment in the 'Deployments' tab on the management portal:
+4. You can also see the new deployment in the 'Deployments' tab on the Windows Azure Management Portal:
 
 	![List of web site deployments][deployments-list]
 
@@ -263,9 +263,9 @@ To publish changes to application, follow these steps:
 [credentials]: ../../Shared/Media/git-deployment-credentials.png
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git_instructions.png
+[git-instructions]: ../../Shared/Media/git-instructions.png
 [git-change-push]: ../Media/php-git-change-push.png
 [git-initial-push]: ../Media/php-git-initial-push.png
 [deployments-list]: ../Media/php-deployments-list.png
 [connection-string-info]: ../../Shared/Media/connection_string_info.png
-[preview-portal]: https://manage.windowsazure.com
+[management-portal]: https://manage.windowsazure.com

@@ -180,9 +180,6 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 
 Windows Azure provides different execution models because cloud platforms need to support many different scenarios. Anybody who wants to use this platform effectively—and if you’ve read this far, that probably includes you—needs to understand each one.
 
-##About the Author
-David Chappell is Principal of Chappell & Associates ([www.davidchappell.com][]) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
-
 [01_CreatingVMs]: ../Media/ExecModels_01_CreatingVMs.png
 [02_CloudServices]: ../Media/ExecModels_02_CloudServices.png
 [03_AppUsingSQLServer]: ../Media/ExecModels_03_AppUsingSQLServer.png
@@ -191,4 +188,3 @@ David Chappell is Principal of Chappell & Associates ([www.davidchappell.com][])
 [06_CloudServices2]: ../Media/ExecModels_06_CloudServices2.png
 [07_CombineTechnologies]: ../Media/ExecModels_07_CombineTechnologies.png
 
-[www.davidchappell.com]: http://www.davidchappell.com 

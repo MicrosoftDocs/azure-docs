@@ -14,7 +14,7 @@
 <p>This tutorial shows you how to add a cloud-based backend service to a Windows Phone 8 app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service.</p>
 <p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Nick Harris provides an introduction to Mobile Services and walks through creating your first mobile service and connecting to it from a Windows Store app.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816 " target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=290816 " target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">13:18</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">13:18</span></div>
 </div>
 
 A screenshot from the completed app is below:
@@ -43,9 +43,9 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
   ![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] and the [Mobile Services SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] on your local computer.
 
-4. Click **Create TodoItems table** to create a table to store app data.
+4. Click **Create TodoItem table** to create a table to store app data.
 
 5. Under **Download and run app**, click **Download**. 
 

@@ -309,7 +309,7 @@ Deleting an item is accomplished with a single call to `deleteItem`. The passed 
 
 To make your application store data into the cloud you need to first create a storage account in Windows Azure and then pass the proper authentication information to the *Configuration* class.
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Windows Azure Management Portal][management-portal].
 
 2. Click the **+ New** icon on the bottom left of the portal.
 
@@ -342,7 +342,7 @@ To make your application store data into the cloud you need to first create a st
 
 Follow these steps to create a Windows Azure Web Site:
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Windows Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Web Site][new-website]
@@ -436,7 +436,7 @@ To publish changes to application, follow these steps:
 [localhost-index]: http://localhost/tasklist/index.php
 [msdn-table-query-syntax]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ../Media/ws-storage-app.png
-[preview-portal]: https://manage.windowsazure.com
+[management-portal]: https://manage.windowsazure.com
 [new-website]: ../../Shared/Media/new_website.jpg
 [download-php-sdk]: /en-us/develop/php/download-php-sdk/
 [website-quick-create]: ../../Shared/Media/website-quick-create.png

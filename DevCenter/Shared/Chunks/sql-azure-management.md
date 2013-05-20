@@ -1,4 +1,3 @@
-<div chunk="../chunks/article-left-menu.md" />
 
 # Managing Windows Azure SQL Database using SQL Server Management Studio 
 
@@ -21,7 +20,7 @@ This task includes the following steps:
 -   [Step 4: Create and manage logins][]
 -   [Step 5: Monitor SQL Database using Dynamic Management Views][]
 
-<h2><a id="Step1" name="Step1"> </a><span class="short-header">Step 1: Get Management Studio</span></h2>
+<h2><a id="Step1" name="Step1"> </a>Step 1: Get Management Studio</h2>
 
 Management Studio is an integrated environment for
 managing SQL databases. When managing 
@@ -49,7 +48,7 @@ how to install SSMSE.
     page. Click **Close**. 
 
 
-<h2><a id="Step2" name="Step2"> </a><span class="short-header">Step 2: Connect to SQL Database</span></h2>
+<h2><a id="Step2" name="Step2"> </a>Step 2: Connect to SQL Database</h2>
 
 Connecting to SQL Database requires that you know the server name on Windows Azure. You might need to sign in to the portal to get this information.
 
@@ -111,7 +110,7 @@ provide examples of these statements. For more information about using
 Transact-SQL with SQL Database, including details about which commands are
 supported, see [Transact-SQL Reference (SQL Database)][].
 
-<h2><a id="Step3" name="Step3"> </a><span class="short-header">Step 3: Create and Manage Databases</span></h2>
+<h2><a id="Step3" name="Step3"> </a>Step 3: Create and Manage Databases</h2>
 
 While connected to the **master** database, you can create new
 databases on the server and modify or drop existing databases. The steps
@@ -170,7 +169,7 @@ specific information available from the links listed above.</p>
 </div>
 </div>
 
-<h2><a id="Step4" name="Step4"> </a><span class="short-header">Step 4: Create and Manage Logins</span></h2>
+<h2><a id="Step4" name="Step4"> </a>Step 4: Create and Manage Logins</h2>
 
 The master database keeps track of logins and which logins have
 permission to create databases or other logins. Manage logins by
@@ -246,7 +245,7 @@ across the entire server. For more information, see [Managing Databases and Logi
 
         SELECT * FROM sys.sql_logins;
 
-<h2><a id="Step5" name="Step5"> </a><span class="short-header">Step 5: Monitor SQL Database using Dynamic Management Views</span></h2>
+<h2><a id="Step5" name="Step5"> </a>Step 5: Monitor SQL Database using Dynamic Management Views</h2>
 
 SQL Database supports several dynamic management views that you
 can use to monitor an individual database. Below are a few examples of

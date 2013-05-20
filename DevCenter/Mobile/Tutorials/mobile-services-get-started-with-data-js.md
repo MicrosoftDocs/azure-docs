@@ -22,8 +22,6 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Mobile Services SDK]. 
-
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.</p> <ul> <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F" target="_blank">Windows Azure Free Trial</a>.</li> <li>If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li> </ul> </div> 
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
@@ -89,13 +87,13 @@ You are now ready to use the new mobile service as data storage for the app.
 
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
-0. If you haven't already installed the [Mobile Services SDK], install it now.
+1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-1. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Windows**, click **Extensions**, check **Windows Azure Mobile Services JavaScript Client**, and click **OK**. 
+2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.MobileServices.WinJS`, click **Install** on the **Windows Azure Mobile Services for WinJS** package, then accept the license agreement. 
 
   ![][7]
 
-  This adds a reference to the Mobile Services client to the project.
+  This adds the Mobile Services client library to the project.
 
 2. In the default.html project file, add the following script reference in the page header:
 
@@ -227,7 +225,7 @@ Once you have completed the data series, try one of these other tutorials:
 [4]: ../Media/mobile-create-page2.png
 [5]: ../Media/mobile-data-tab-empty.png
 [6]: ../Media/mobile-create-todoitem-table.png
-[7]: ../Media/mobile-add-reference-js.png
+[7]: ../Media/mobile-add-nuget-package-js.png
 [8]: ../Media/mobile-dashboard-tab.png
 [9]: ../Media/mobile-todoitem-data-browse.png
 [10]: ../Media/mobile-data-sample-download-js.png

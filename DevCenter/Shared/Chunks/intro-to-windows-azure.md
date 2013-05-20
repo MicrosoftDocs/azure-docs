@@ -115,27 +115,18 @@ Windows Azure runs today in several datacenters spread across the United States,
 
 - You can use Windows Azure Virtual Network to connect your own on-premises local network to a defined set of Windows Azure VMs.
 
-- You can use Windows Azure Connect to link one or more on-premises Windows servers to a specific Windows Azure application. 
-
 - If your Windows Azure application is running in multiple datacenters, you can use Windows Azure Traffic Manager to route requests from users intelligently across instances of the application.
 
-Figure 4 illustrates these three options.
+Figure 4 illustrates these options.
 
 ![Windows Azure networking](../Media/IntroAzure4.png)   
- **Figure 4: Windows Azure allows creating a cloud VPN, connecting a Windows Azure application to on-premises machines, and intelligently distributing user requests across different datacenters.**
+ **Figure 4: Windows Azure allows creating a cloud VPN, and intelligently distributing user requests across different datacenters.**
 
 ###Virtual Network###
 
 One useful way to use a public cloud is to treat it as an extension of your own datacenter. Because you can create VMs on demand, then remove them (and stop paying) when they're no longer needed, you can have computing power only when you want it. And since Windows Azure Virtual Machines lets you can create VMs running SharePoint, Active Directory, and other familiar on-premises software, this approach can work with the applications you already have.
 
 To make this really useful, though, your users ought to be able to treat these applications as if they were running in your own datacenter. This is exactly what Windows Azure Virtual Network allows. Using a VPN gateway device, an administrator can set up a virtual private network (VPN) between your local network and a defined group of VMs running in Windows Azure. Because you assign your own IP v4 addresses to the cloud VMs, they appear to be on your own network. Users in your organization can access the applications those VMs contain as if they were running locally.
-
-###Connect###
-
-Creating a VPN between your local network and a group of VMs in the cloud is useful, but it also requires VPN gateway hardware and the services of a network administrator. Suppose you're a developer who just wants to connect a single Windows Azure application to a specific group of Windows machines within your organization. Perhaps you've built a Cloud Services application that needs to access a database on one of those servers, for example, and you don't want to go to the trouble of configuring a VPN gateway.
-
-Windows Azure Connect is designed for this situation. Connect provides a simple way to establish a secure connection between a Windows Azure application and a group of computers running Windows. A developer just installs the Connect software on the on-premises machines-there's no need to involve a network administrator-and configures the Windows Azure application. Once this is done, the application can communicate with the on-premises computers as if they were on the same local network. 
-
 
 ###Traffic Manager###
 
@@ -281,7 +272,4 @@ Along with helping you build Windows Azure applications, these SDKs also provide
 Now that you have the big-picture, the next step is to write your first Windows Azure application. Choose your language, [get the appropriate SDK](http://www.windowsazure.com/en-us/develop/overview/), and go for it. Cloud computing is the new default--get started now.
 
 
-<h2><a id="author"></a>About the Author</h2>
-
-David Chappell is Principal of Chappell & Associates (www.davidchappell.com) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
 

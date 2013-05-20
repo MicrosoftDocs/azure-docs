@@ -1,16 +1,9 @@
 #Windows Azure Networking
 
-The easiest way to connect to Windows Azure applications and data is through an ordinary Internet connection. But this simple solution isn’t always the best approach. Windows Azure also provides three more technologies for connecting users to Windows Azure datacenters: 
-
-- Virtual Network
-- Connect
-- Traffic Manager 
-
-This article takes a look at each of these.
+The easiest way to connect to Windows Azure applications and data is through an ordinary Internet connection. But this simple solution isn’t always the best approach. Windows Azure also provides technologies for connecting users to Windows Azure datacenters.  This article takes a look at these technologies. 
 
 ##Table of Contents      
 - [Windows Azure Virtual Network](#Vnet)
-- [Windows Azure Connect](#Connect)
 - [Windows Azure Traffic Manager](#TrafficMngr)
 
 <a name="Vnet"></a>
@@ -34,21 +27,6 @@ Using Windows Azure Virtual Network makes sense in many situations. As already m
 Creating a VNET in a Windows Azure datacenter effectively gives you access to a large pool of on-demand resources. You can create VMs on demand, pay for them while they’re running, then remove them (and stop paying) when you no longer need them. This can be useful for scenarios that need fast access to a preconfigured machine, such as development teams building new software. Rather than wait for a local administrator to set up the resources they need, they can create these resources themselves in the public cloud. 
 
 And just as Virtual Network makes Windows Azure VMs appear local to on-premises resources, the reverse is also true: Software running in your local network now appears to be local to applications running in your Windows Azure VNET. Suppose you’d like to move an existing on-premises application to Windows Azure, for example, because you’ve determined that it will be less expensive to operate in the cloud. But what if the data that application uses is required by law to be stored on premises? In a situation like this, using Virtual Network lets the cloud application see an on-premises database system as if it were local—accessing it becomes straightforward. Whatever scenario you choose, the result is the same: Windows Azure becomes an extension of your own datacenter.
-
-<a name="Connect"></a>
-##Windows Azure Connect
-
-Sometimes, connecting your entire on-premises network to a group of Windows Azure VMs is the right thing to do. Windows Azure Virtual Network is designed to solve this problem. But what if you don’t need a solution that’s this general? Suppose instead that all you’d like to do is connect a single Windows Azure application—or even a single VM—to a specific group of computers on your local network. Addressing this problem is the goal of Windows Azure Connect, as [Figure 2](#Fig2) shows.
-
-<a name="Fig2"></a>![02_Connect][]
-  
-**Figure 2: Windows Azure Connect links one or more VMs in Windows Azure with a group of on-premises machines running Windows.**
-
-Unlike Virtual Network, Connect doesn’t require using a VPN gateway device, nor does it require the services (or approval) of a network administrator. Instead, anybody with administrative access to a Windows machine in the local network can install the required Windows Azure Connect software on that machine. Once this is done, the software can create an IPsec link with designated Windows Azure VMs. 
-
-As the figure shows, Connect doesn’t link two networks together; the Windows Azure VMs retain whatever IP addresses they already have. Instead, it creates direct IPsec connections between specific on-premises Windows computers and specific Windows Azure VMs. (To work with existing firewall settings, Connect actually sends IPsec on top of an SSL connection.) For Cloud Services applications, you can choose one or more roles to connect to, and Windows Azure will make it possible to communicate with each instance in those roles. For VMs created using Windows Azure Virtual Machines, you can install the same Windows Azure Connect software used for on-premises computers.
-
-Windows Azure Connect is useful in a variety of situations. An application running on Windows Azure might use Connect to link to an on-premises database system, for example, or a developer on the local network might use Connect to domain-join a cloud VM to an on-premises environment. While Connect isn’t as general a solution as Virtual Network, it is significantly easier to set up. Developers can do it without bothering their network admins and with no extra hardware. Which approach is right for you depends on exactly what problems you need to solve.
 
 <a name="TrafficMngr"></a>
 ##Windows Azure Traffic Manager
@@ -75,12 +53,6 @@ For this to work, Traffic Manager must have a current picture of which instances
 
 Not every application is big enough or global enough to need Traffic Manager. For those that do, however, this can be a quite useful service.
 
-##About the Author
-David Chappell is Principal of Chappell & Associates ([www.davidchappell.com][]) in San Francisco, California. Through his speaking, writing, and consulting, he helps people around the world understand, use, and make better decisions about new technologies.
-
 
 [01_Networking]: ../Media/Networking_01_Networking.png
-[02_Connect]: ../Media/Networking_02_Connect.png
 [03_TrafficManager]: ../Media/Networking_03_TrafficManager.png
-
-[www.davidchappell.com]: http://www.davidchappell.com 
