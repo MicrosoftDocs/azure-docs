@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -118,25 +118,17 @@ communicate with the storage REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-        azure@0.6.0 ./node_modules/azure
-		├── easy-table@0.0.1
+        azure@0.7.5 node_modules\azure
 		├── dateformat@1.0.2-1.2.3
-		├── xmlbuilder@0.3.1
-		├── eyes@0.1.7
-		├── colors@0.6.0-1
-		├── mime@1.2.5
-		├── log@1.3.0
-		├── commander@0.6.1
+		├── xmlbuilder@0.4.2
 		├── node-uuid@1.2.0
-		├── xml2js@0.1.14
-		├── async@0.1.22
-		├── tunnel@0.0.1
-		├── underscore@1.3.3
-		├── qs@0.5.0
-		├── underscore.string@2.2.0rc
-		├── sax@0.4.0
-		├── streamline@0.2.4
-		└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)
+		├── mime@1.2.9
+		├── underscore@1.4.4
+		├── validator@1.1.1
+		├── tunnel@0.0.2
+		├── wns@0.5.3
+		├── xml2js@0.2.7 (sax@0.5.2)
+		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -165,6 +157,11 @@ following code creates a **BlobService** object. Add the following near
 the top of **server.js**:
 
     var blobService = azure.createBlobService();
+
+You can also specify that all operations performed using the **BlobService**  are retried in the event of a transient failure by specifying the **ExponentialRetryPolicyFilter**. The following creates a **BlobService** object that uses the **ExponentialRetryPolicyFilter**:
+
+	var retryOperations = new azure.ExponentialRetryPolicyFilter();
+	var blobService = azure.createBlobService().withFilter(retryOperations);
 
 All blobs reside in a container. The call to
 **createContainerIfNotExists** on the **BlobService** object will return
