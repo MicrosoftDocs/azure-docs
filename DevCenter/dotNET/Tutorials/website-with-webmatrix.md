@@ -156,11 +156,11 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 [bakerysampleopeninwebmatrix2]: ../../../Shared/media/howtowebmatrix2ide.png
 [publishcomplete]: ../../../Shared/media/howtopublished2.png
 [bakerysample]: ../../../Shared/media/howtobakerysamplesite.png
-[addaccount]: ../../../Shared/media/webmatrix-add-account.png
-[signin]: ../../../Shared/media/webmatrix-sign-in.png
-[sitefromtemplate]: ../../../Shared/media/webmatrix-site-from-template.png
-[sitefromtemplatedetails]: ../../../Shared/media/webmatrix-site-from-template-details.png
-[sitefromtemplateazure]: ../../../Shared/media/webmatrix-site-from-template-azure.png
+[addaccount]: ../../Shared/media/webmatrix-add-account.png
+[signin]: ../../Shared/media/webmatrix-sign-in.png
+[sitefromtemplate]: ../../Shared/media/webmatrix-site-from-template.png
+[sitefromtemplatedetails]: ../../Shared/media/webmatrix-site-from-template-details.png
+[sitefromtemplateazure]: ../../Shared/media/webmatrix-site-from-template-azure.png
 
 [modify1]: ../media/website-with-webmatrix-sample-mod-1-1.png
 [modify2]: ../media/website-with-webmatrix-sample-mod-1-2.png

@@ -1,3 +1,6 @@
+
+<div chunk="../chunks/sql-databases-left-nav.md" />
+
 # How to Manage SQL Databases on Windows Azure
 
 This guide shows you how to perform administrative tasks for logical servers and database instances on Windows Azure SQL Database. 

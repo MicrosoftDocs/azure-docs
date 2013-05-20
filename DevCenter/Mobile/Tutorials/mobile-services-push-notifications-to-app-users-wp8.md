@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to your Windows Store app users by using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" writer="glenga" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to your Windows Store app users by using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-wp8.md" />
 
@@ -47,10 +47,10 @@ Next, you will modify the push notifications app to store data in this new table
         {
         	public int Id { get; set; }
 
-        	[DataMember(Name = "text")]
+	       	[JsonProperty(PropertyName = "text")]
 	        public string Text { get; set; }
 	
-	        [DataMember(Name = "complete")]
+	        [JsonProperty(PropertyName = "complete")]
 	        public bool Complete { get; set; }
         }
 
@@ -68,7 +68,7 @@ Next, you will modify the push notifications app to store data in this new table
 	    {
 	        public int Id { get; set; }
 	
-	        [DataMember(Name = "uri")]
+	        [JsonProperty(PropertyName = "uri")]
 	        public string Uri { get; set; }
 	    }
 

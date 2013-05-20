@@ -1,6 +1,6 @@
 Follow these steps to create a Windows Azure web site and a MySQL database:
 
-1. Login to the [Preview Management Portal][preview-portal].
+1. Login to the [Windows Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure web site][new-website]
@@ -49,4 +49,4 @@ Follow these steps to create a Windows Azure web site and a MySQL database:
 [new-mysql-db]: ../Media/new_mysql_db.jpg
 [go-to-dashboard]: ../Media/go_to_dashboard.png
 [download-publish-profile]: ../Media/download_publish_profile.jpg
-[preview-portal]: https://manage.windowsazure.com
+[management-portal]: https://manage.windowsazure.com

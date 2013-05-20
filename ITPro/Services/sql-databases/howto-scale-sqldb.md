@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-scale-a-sqldb" urlDisplayName="How to scale" pageTitle="How to scale a SQL Database - Windows Azure" metaKeywords="" metaDescription="Learn about options for scaling your SQL Database in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-
+<div chunk="../chunks/sql-databases-left-nav.md" />
 
 
 <h1 id="scale">How to Scale a SQL Database Solution</h1>
