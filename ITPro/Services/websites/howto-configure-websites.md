@@ -31,9 +31,9 @@ Follow these steps to change configuration options for a web site.
 Custom domains are available only in Shared and Reserved modes.
 </li>
 
-<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Reserved</strong> modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see [Configuring a custom domain name for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/).</li>
+<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Reserved</strong> modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
 
-<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about SNI, see [http://en.wikipedia.org/wiki/Server_Name_Indication](http://en.wikipedia.org/wiki/Server_Name_Indication "Server Name Indication").</li>
+<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
 
 <li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
@@ -55,7 +55,7 @@ Custom domains are available only in Shared and Reserved modes.
 </li>
 <li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Windows Azure Storage account.
 <br /><strong>Note:</strong> 
-For more information about Windows Azure Storage Access Keys, see [How to: View, copy, and regenerate storage access keys](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/ "How to: View, copy, and regenerate storage access keys").
+For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a>.
 </li></ul></li></ul></li>
 <li style="margin-left: 40px"><strong>site diagnostics</strong> – Set options for gathering diagnostic 
 	information for your web site, including:
