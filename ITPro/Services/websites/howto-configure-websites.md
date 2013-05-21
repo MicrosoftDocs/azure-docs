@@ -24,7 +24,17 @@ Follow these steps to change configuration options for a web site.
 	<li>Set the following configuration options for the web site as appropriate:
 	<ul>
 	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
-<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in Shared and Reserved modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see [Configuring a custom domain name for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/).</li>
+
+<li style="margin-left: 40px">
+<strong>certificates</strong> – Click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
+<br /><strong>Note:</strong>
+Custom domains are available only in Shared and Reserved modes.
+</li>
+
+<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Reserved</strong> modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see [Configuring a custom domain name for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/).</li>
+
+<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about SNI, see [http://en.wikipedia.org/wiki/Server_Name_Indication](http://en.wikipedia.org/wiki/Server_Name_Indication "Server Name Indication").</li>
+
 <li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
 <li><strong>Git URL</strong> – If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
