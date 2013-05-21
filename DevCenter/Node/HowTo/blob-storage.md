@@ -158,11 +158,6 @@ the top of **server.js**:
 
     var blobService = azure.createBlobService();
 
-You can also specify that all operations performed using the **BlobService**  are retried in the event of a transient failure by specifying the **ExponentialRetryPolicyFilter**. The following creates a **BlobService** object that uses the **ExponentialRetryPolicyFilter**:
-
-	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var blobService = azure.createBlobService().withFilter(retryOperations);
-
 All blobs reside in a container. The call to
 **createContainerIfNotExists** on the **BlobService** object will return
 the specified container if it exists or create a new container with the
@@ -196,6 +191,23 @@ Alternatively, you can modify the access level of a container by using **setCont
 				// Container access level set to 'container'
 			}
 		});
+
+###Filters
+
+Optional filtering operations can be applied to operations performed using **BlobService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
+
+		function handle (requestOptions, next)
+
+After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:
+
+		function (returnObject, finalCallback, next)
+
+In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
+
+Two filters that implement retry logic are included with the Windows Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **BlobService** object that uses the **ExponentialRetryPolicyFilter**:
+
+	var retryOperations = new azure.ExponentialRetryPolicyFilter();
+	var blobService = azure.createBlobService().withFilter(retryOperations);
 
 ## <a name="upload-blob"> </a>How to: Upload a Blob into a Container
 
