@@ -126,25 +126,17 @@ communicate with the storage REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-        azure@0.6.0 ./node_modules/azure
-		├── easy-table@0.0.1
+        azure@0.7.5 node_modules\azure
 		├── dateformat@1.0.2-1.2.3
-		├── xmlbuilder@0.3.1
-		├── eyes@0.1.7
-		├── colors@0.6.0-1
-		├── mime@1.2.5
-		├── log@1.3.0
-		├── commander@0.6.1
+		├── xmlbuilder@0.4.2
 		├── node-uuid@1.2.0
-		├── xml2js@0.1.14
-		├── async@0.1.22
-		├── tunnel@0.0.1
-		├── underscore@1.3.3
-		├── qs@0.5.0
-		├── underscore.string@2.2.0rc
-		├── sax@0.4.0
-		├── streamline@0.2.4
-		└── winston@0.6.1 (cycle@1.0.0, stack-trace@0.0.6, pkginfo@0.2.3, request@2.9.202)
+		├── mime@1.2.9
+		├── underscore@1.4.4
+		├── validator@1.1.1
+		├── tunnel@0.0.2
+		├── wns@0.5.3
+		├── xml2js@0.2.7 (sax@0.5.2)
+		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder you will
@@ -182,6 +174,23 @@ not already exist. The following example creates a new table named 'mytable' if 
 			// Table exists or created
 		}
 	});
+
+###Filters
+
+Optional filtering operations can be applied to operations performed using **TableService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
+
+		function handle (requestOptions, next)
+
+After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:
+
+		function (returnObject, finalCallback, next)
+
+In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
+
+Two filters that implement retry logic are included with the Windows Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
+
+	var retryOperations = new azure.ExponentialRetryPolicyFilter();
+	var tableService = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-entity"> </a>How to Add an Entity to a Table
 
