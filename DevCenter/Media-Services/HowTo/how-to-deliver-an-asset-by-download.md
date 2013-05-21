@@ -1,3 +1,7 @@
+<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle=" How to Deliver Media Assets - Windows Azure" metaKeywords="" metaDescription="Learn about options for delivering media assets that have been uploaded to Media Services in Windows Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <h1>How to: Deliver an Asset by Download</h1>
 
 This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Windows Azure CDN.
@@ -57,8 +61,8 @@ static void DownloadProgress(object sender, DownloadProgressChangedEventArgs e)
 
 For more information about delivering assets, see:
 <ul>
-<li><a href=http://msdn.microsoft.com/en-us/library/jj129575.aspx>Deliver Assets with the Media Services for .NET</a></li>
-<li><a href=http://msdn.microsoft.com/en-us/library/jj129578.aspx>Deliver Assets with the Media Services REST API</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129575.aspx">Deliver Assets with the Media Services for .NET</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129578.aspx">Deliver Assets with the Media Services REST API</a></li>
 </ul>
 
 <h2>Next Steps</h2>

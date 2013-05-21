@@ -1,3 +1,7 @@
+<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Windows Azure" metaKeywords="" metaDescription="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <h1>How to: Check Job Progress</h1>
 
 When you run jobs, you often require a way to track job progress. The following code example defines the StateChanged event handler. This event handler tracks job progress and provides updated status, depending on the state. The code also defines the LogJobStop method. This helper method logs error details.

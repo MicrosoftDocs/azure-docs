@@ -1,3 +1,7 @@
+<properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Windows Azure" metaKeywords="" metaDescription="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <h1><a name="manage-asset"> </a><span class="short header">Manage Assets</span>How to: Manage Assets in storage</h1>
 
 After you create media assets and upload them to Media Services, you can access and manage the assets on the server. You can also manage other objects on the server that are part of Media Services, including jobs, tasks, access policies, locators, and more.
@@ -66,8 +70,8 @@ foreach (IAsset asset in _context.Assets)
 
 For more information about managing assets, see:
 <ul>
-<li><a href=http://msdn.microsoft.com/en-us/library/jj129589.aspx>Manage Assets with the Media Services SDK for .NET</a></li>
-<li><a href=http://msdn.microsoft.com/en-us/library/jj129583.aspx>Manage Assets with the Media Services REST API</a></li></ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129589.aspx">Manage Assets with the Media Services SDK for .NET</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129583.aspx">Manage Assets with the Media Services REST API</a></li></ul>
 
 <h2>Next Steps</h2>
 Now that you know how to manage assets, go to the [How to Deliver an Asset by Download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409) topic.
