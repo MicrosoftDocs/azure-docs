@@ -403,6 +403,32 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 	
 	}
 
+The assets that you create are stored in Windows Azure storage. However, use only the Windows Azure media services APIs (not Windows Azure storage APIs) to add, update, or delete assets.
+
+###Determining which media processors are available
+
+The code above used a media processor by accessing it via a specific media processor name (and if there was more than one version, it would use the latest version). To determine which media processors are available, you could use the following code.
+
+    for (MediaProcessorInfo mediaProcessor:  mediaService.list(MediaProcessor.list()))
+    {
+        System.out.print(mediaProcessor.getName() + ", ");
+        System.out.print(mediaProcessor.getId() + ", ");  
+        System.out.print(mediaProcessor.getVendor() + ", ");  
+        System.out.println(mediaProcessor.getVersion());  
+    }
+
+Alternatively, the following code shows how to retrieve the ID of a media processor by name.
+
+    String mediaProcessorName = "MP4 to Smooth Streams Task"; 
+    EntityListOperation<MediaProcessorInfo> operation;
+    MediaProcessorInfo processor;
+
+    operation = MediaProcessor.list();
+    operation.getQueryParameters().putSingle("$filter", "Name eq '" + mediaProcessorName + "'");
+    processor = mediaService.list(operation).get(0); 
+    System.out.println("Processor named " + mediaProcessorName + 
+                       " has ID of " + processor.getId());
+
 ###Canceling a job
 Should you need to cancel a job that hasn't finished processing, the following code shows how to cancel a job by job ID.
 
