@@ -4,7 +4,7 @@
 
 #Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
 
-A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. Windows Azure stores a virtual machine's operating system in a virtual hard disk in VHD format (a .vhd file). A VHD of an operating system is called an image. This article shows you how to create your own image by uploading a .vhd file with an operating system you've installed and generalized. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. Windows Azure stores a virtual machine's operating system in a virtual hard disk in VHD format (a .vhd file). A VHD of an operating system that has been prepared for duplication is called an image. This article shows you how to create your own image by uploading a .vhd file with an operating system you've installed and generalized. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
 **Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
@@ -41,20 +41,15 @@ This article assumes that you have the following items:
   </TABLE>
 </P>
 
-
-- **The Add-AzureVHD cmdlet or the CSUpload command-line tool.** You use one of these tools to upload the .vhd file. 
-- The [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) cmdlet is part of the Windows Azure PowerShell module. 
-
-- The CSUpload tool is a part of the Windows Azure SDK. You must use the tools available in Windows Azure SDK June 2012 or later to upload .vhds to Windows Azure. 
-
-To download the SDK or the module, see [Windows Azure Downloads](/en-us/develop/downloads/).
+- The [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) cmdlet, which is part of the Windows Azure PowerShell module. To download the module, see [Windows Azure Downloads](/en-us/develop/downloads/).
 
 
 This task includes the following steps:
 
-- [Step 2: Prepare the image to be uploaded] []
+- [Step 1: Prepare the image to be uploaded] []
 - [Step 2: Create a storage account in Windows Azure] []
-- [Step 3: Upload the image to Windows Azure] []
+- [Step 3: Prepare the connection to Windows Azure] []
+- [Step 4: Upload the .vhd file] []
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
@@ -87,105 +82,79 @@ A storage account represents the highest level of the namespace for accessing th
 
 2. On the command bar, click **New**.
 
-	![Create storage account] (../media/create.png)
-
 3. Click **Storage Account**, and then click **Quick Create**.
 
-	![Quick create a storage account] (../media/createnewstorage.png)
+	![Quick create a storage account] (../media/Storage-quick-create.png)
 
-	The **Create a New Storage Account** dialog box appears.
+4. Fill out the fields as follows:
 
-	![Enter storage account details] (../media/storageinfo.png)
+	![Enter storage account details] (../media/Storage-create-account.png)
 
-4. Under URL, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
+- Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
+	
+- Choose the location or affinity group for the storage account. By specifying an affinity group, you can co-locate your cloud services in the same data center with your storage.
+ 
+- Decide whether to use geo-replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to a secondary location if a major failure occurs that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed. If legal requirements or organizational policy requires tighter control over the location of your cloud-based storage, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount.
 
-5. Choose the region or affinity group for the storage account. By specifying an affinity group, you can co-locate your cloud services in the same data center with your storage.
+5. Click **Create Storage Account**.
 
-6. Decide whether to use geo-replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to a secondary location if a major failure occurs that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed. If legal requirements or organizational policy requires tighter control over the location of your cloud-based storage, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount.
+	The account now appears under **Storage Accounts**.
 
-7. Click **Create a Storage Account**.
-
-	The account is now listed under **Storage Accounts**.
-
-	![Storage account successfully created] (../media/storagesuccess.png)
-
-
-## <a id="upload"> </a>Step 3: Upload the image to Windows Azure ##
-
-Uploading a.vhd file to Windows Azure consists of the following steps:
-
-1.	Upload the management certificate to your subscription.
-2.	Obtain the thumbprint of the certificate and the subscription ID.
-3.	Set the connection string.
-4.	Upload the .vhd file.
-
-### Upload the management certificate ###
-
-This step assumes you have exported the certificate to a .cer file so  it can be uploaded to your subscription in Windows Azure. 
-
-1. Sign in to the Windows Azure Management Portal.
-
-2. In the navigation pane, click **Settings**.
-
-3. Under **Management Certificates**, click **Upload a management certificate**.
-
-4. In **Upload a management certificate**, browse to the certificate file, and then click **OK**.
-
-### Obtain the thumbprint of the certificate and the subscription ID ###
-
-You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the .vhd file to Windows Azure.
-
-1. From the Management Portal, click **Settings**.
-
-2. Under **Management Certificates**, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
-
-You also need the ID of your subscription to upload the .vhd file.
-
-1. From the Management Portal, click **All Items**.
-
-2. In the center pane, under **Subscription**, copy the subscription and paste it to a location where you can retrieve it later.
-
-### Set the connection string###
-
-Next, set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/windowsazure/gg466228.aspx).
-
-1. Open a Windows Azure SDK Command Prompt window as an administrator.
-
-2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
-
-	`csupload Set-Connection "SubscriptionID=<Subscriptionid>;
-	CertificateThumbprint=<Thumbprint>;
-	ServiceManagementEndpoint=https:/management.core.windows.net"`
-
-	After you run the command, leave the window open for use in the next step.
-
-### Upload the .vhd file ###
-
-For this task, you use either Add-AzureVhd or CSUpload to upload the .vhd file.
-
-**Using Add-AzureVhd**  
+	![Storage account successfully created] (../media/Storagenewaccount.png)
 
 
-**Using CSUpload**
+## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Windows Azure ##
 
-1. Use the same Command Prompt window that you opened to set the connection string.
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Windows Azure. 
 
-2. Upload the .vhd file by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier and where **BlobStorageURL** is the URL for the storage account that you created earlier:
+1. Open a Windows Azure PowerShell window.
 
-	`csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows`
+2. Type: 
 
-You can place the .vhd file anywhere within your blob storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
+	`Get-AzurePublishSettingsFile`
+
+	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Windows Azure subscription. 
+
+3. Save the .publishsettings file. 
+
+4. Type:
+
+	`Import-AzurePublishSettingsFile <PathToFile>`
+
+	Where `<PathToFile>` is the full path to the .publishsettings file. 
+
+	For more information, see [Get Started with Windows Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+
+
+## <a id="upload"> </a>Step 4: Upload the .vhd file ##
+
+When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
+
+1. From the Windows Azure PowerShell window you used in the previous step, type:
+
+	`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
+
+	For more information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
 
 ##Add the Image to Your List of Custom Images ##
 After you upload the .vhd, you add it as an image to the list of custom images associated with your subscription.
 
+1. From the Management Portal, under **All Items**, click **Virtual Machines**.
+
+2. Under Virtual Machines, click **Images**, and then click **Create**.
+
+3. In **Create an image from a VHD**, specify a name and the URL to the .vhd that you uploaded.
+
+4. Check **I have run Sysprep on the virtual machine associated with this VHD** to acknowledge that you generalized the operating system in Step 2, and then click **OK**. 
+
 
 ## Next Steps ##
-After the image is available in your list, you can use it to create virtual machines. For instructions, see [link to custom create].
+After the image is available in your list, you can use it to create virtual machines. For instructions, see [Create a Virtual Machine Running Windows Server](../Windows/Tutorials/CreateVirtualMachineWindowsTutorial.md).
 
-[Step 1: t the image to be uploaded]: #prepimage
+[Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Windows Azure]: #createstorage
-[Step 3: Upload the image to Windows Azure]: #upload
+[Step 3: Prepare the connection to Windows Azure]: #prepAzure
+[Step 4: Upload the .vhd file]: #upload
 
 
 
