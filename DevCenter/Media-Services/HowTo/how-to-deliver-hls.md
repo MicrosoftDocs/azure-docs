@@ -1,3 +1,7 @@
+<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) – Windows Azure" metaKeywords="" metaDescription="How to Deliver Apple HTTP Live Streaming (HLS) – Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <h1>How to: Deliver Apple HLS streaming content</h1>
 
 This topic shows how to create a locator to Apple HTTP Live Streaming (HLS) content on a Media Services origin server. Using this approach, you can build a URL to Apple HLS content, and provide it to Apple iOS devices for playback. The basic approach to building the locator URL is the same. Build a locator to the Apple HLS streaming asset path on an origin server, and then build a full URL that links to the manifest for the streaming content.
@@ -55,8 +59,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 For more information about delivering assets, see:
 <ul>
-<li><a href=http://msdn.microsoft.com/en-us/library/jj129575.aspx>Deliver Assets with the Media Services for .NET</a></li>
-<li><a href=http://msdn.microsoft.com/en-us/library/jj129578.aspx>Deliver Assets with the Media Services REST API</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129575.aspx">Deliver Assets with the Media Services for .NET</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129578.aspx">Deliver Assets with the Media Services REST API</a></li>
 </ul>
 
 <h2>Next steps</h2>

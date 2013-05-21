@@ -1,3 +1,7 @@
+<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for  Media Services - Windows Azure" metaKeywords="" metaDescription="Learn how to use the Windows Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <h1><a name="encode-asset"> </a><span class="short header">How to: Encode an Asset</span></h1>
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
@@ -73,8 +77,8 @@ static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
 </code></pre>
 For more information about processing assets, see:
 <ul>
-<li> <a href=http://msdn.microsoft.com/en-us/library/jj129580.aspx> Process Assets with the Media Services SDK for .NET</a></li>
-<li> <a href=http://msdn.microsoft.com/en-us/library/jj129574.aspx>Process Assets with the Media Services REST API </li>
+<li> <a href="http://msdn.microsoft.com/en-us/library/jj129580.aspx"> Process Assets with the Media Services SDK for .NET</a></li>
+<li> <a href="http://msdn.microsoft.com/en-us/library/jj129574.aspx">Process Assets with the Media Services REST API</a></li>
 </ul>
 
 <h2>Next Steps</h2>
