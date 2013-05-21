@@ -319,7 +319,7 @@ To query a table, use the **TableQuery** object to build up a query
 expression using clauses such as **select**, **from**, **where**
 (including convenience clauses such as **wherePartitionKey**,
 **whereRowKey**, **whereNextPartitionKey**, and **whereNextRowKey**),
-**and**, **or**, **orderBy**, and **top**. Then pass the query
+**and**, **or**, and **top**. Then pass the query
 expression to the **queryEntities** method. You can use the results in a
 **for** loop inside the callback.
 
