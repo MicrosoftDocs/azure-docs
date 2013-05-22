@@ -44,9 +44,6 @@ static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCr
     assetFile.Upload(singleFilePath);
     Console.WriteLine("Done uploading of {0} using Upload()", assetFile.Name);
 
-    locator.Delete();
-    accessPolicy.Delete();
-
     return asset;
 }
 </code></pre>

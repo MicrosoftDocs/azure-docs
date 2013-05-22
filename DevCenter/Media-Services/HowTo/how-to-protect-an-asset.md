@@ -1,4 +1,4 @@
-<h1><a name="playready"> </a><span class="short header">Protect an Asset</span>How to: Protect an Asset with PlayReady Protection</h1>
+<h1>How to: Protect an Asset with PlayReady Protection</h1>
 
 In Windows Azure Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt an asset. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
 
