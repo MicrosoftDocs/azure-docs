@@ -1,5 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="What is Windows Azure Active Directory" metaKeywords="Windows Azure Active Directory, Windows Azure AD" metaDescription="Learn about Windows Azure AD." linkid="documentation-services-identity-what-is-windows-azure-active-directory" urlDisplayName="What is Windows Azure AD" headerExpose="" footerExpose="" disqusComments="0" />
 
+<div chunk="../chunks/identity-left-nav.md" />
 
 <h1 id="whatisaad">What is Windows Azure Active Directory?</h1>
 
