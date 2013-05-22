@@ -27,9 +27,9 @@ This guide shows you how to perform common scenarios using the iOS client for Wi
 - [How to: Modify data in a mobile service]
 - [How to: Bind data to the user interface]
 - [How to: Authenticate users]
+- [How to: Handle errors]
 
-<!-- - [How to: Handle errors]
-- [How to: Design unit tests]
+<!--- [How to: Design unit tests]
 - [How to: Customize the client]
 	- [Customize request headers]
 	- [Customize data type serialization]
@@ -178,7 +178,7 @@ In the following example, a simple function requests 20 records from the server 
 
 #### <a name="selecting"></a>Limiting the returned fields
 
-To limit which field are returned from your query, simply specify the names of the fields you want in the **selectFields** property. The following example returens only the text and completed fields:
+To limit which field are returned from your query, simply specify the names of the fields you want in the **selectFields** property. The following example returns only the text and completed fields:
 
 	query.selectFields = @["text", @"completed"];
 
@@ -200,9 +200,9 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 
 	NSDictionary *newItem = @{"text": "my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
-		//result will contain the new item that was inserted
-		//depending on your server scripts it may have additional or modified data compared
-		//to what was passed to the server
+		// The result contains the new item that was inserted,
+		// depending on your server scripts it may have additional or modified 
+		// data compared to what was passed to the server.
 	}];	
 
 <div class="dev-callout"><strong>Note</strong>
@@ -213,7 +213,7 @@ When dynamic schema is enabled, Mobile Services automatically generates new colu
 
 <h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
 
-Update an existing object by modfiying an item returned from a previous query and then calling the update function.
+Update an existing object by modifying an item returned from a previous query and then calling the **update** function.
 
 	NSMutableDictionary *item = [self.results.item objectAtIndex:0];
 	[item setObject:@YES forKey:"complete"];
@@ -377,11 +377,20 @@ To prevent users from having to authenticate every time they use run your applic
 
 When using a cached token, a user will not have to login again until the token expires. When a user tries to login with an expired token, a 401 unauthorized response is returned. At this point, the user must log in again to obtain a new token, which can again be cached. You can use filters to avoid having to write code that handles expired tokens whenever your app that calls your mobile service.  Filters allow you to intercept calls to and responses from your mobile service. The code in the filter tests the response for a 401, triggers the login process if the token is expired, and then retries the request that generated the 401. For details, see [Handling Expired Tokens].
 
-<!--
 <h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
 
-_This section shows how to perform property error handling._
+When a call is made to the mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is returned a non-null value. In your code, you should check this parameter and handle the error as needed.
 
+When an error has occurred, you can get more information by including the MSError.h file in the code. This file defines the following constants you can use to access additional data from `[error userInfo]`:
+
++ **MSErrorResponseKey**: the HTTP response data associated with the error
+* **MSErrorRequestKey**: the HTTP request data associated with the error
+
+In addition, a constant is defined for each error code. An explanation of these codes can be found in the MSError.h file.
+
+For an example of performing validation and handling any, see [Validate and modify data in Mobile Services by using server scripts]. In this topic, server-side validation is implemented by using server scripts. When invalid data is submitted, and error response is returned and this response is handled by the client.
+
+<!--
 <h2><a name="#unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
 
 _(Optional) This section shows how to write unit test when using the client library (info from Yavor)._
@@ -435,6 +444,7 @@ For more information see, New topic about processing headers in the server-side.
 
 <!-- URLs. -->
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-iOS.md
+[Validate and modify data in Mobile Services by using server scripts]: ../tutorials/validate-modify-and-augment-data-ios.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-iOS.md
 [iOS SDK]: https://developer.apple.com/xcode
