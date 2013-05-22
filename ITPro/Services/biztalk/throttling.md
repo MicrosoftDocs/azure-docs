@@ -1,4 +1,4 @@
-
+<properties linkid="throttling" urlDisplayName="BizTalk Services: Throttling" pageTitle="BizTalk Services: Throttling" metaKeywords="Get started Azure biztalk services, throttling, Azure unstructured data" metaDescription="Describes BizTalk Services: Throttling, including when a role instance throttles." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/throttling" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
 # **BizTalk Services: Throttling**
 
@@ -10,19 +10,18 @@ Windows Azure BizTalk Services implements Service throttling based on two condit
 The following table lists the throttling source and thresholds:
 
 
-<table>
-<table border>
+<table border="1">
 
 <tr bgcolor="FAF9F9">
         <td></td>
-        <td><b>Description</td>
-        <td><b>Low Threshold</td>
-        <td><b>High Threshold</td>
+        <td><b>Description</b></td>
+        <td><b>Low Threshold</b></td>
+        <td><b>High Threshold</b></td>
 </tr>
     <tr>
         <td>Memory</td>
         <td>% of total system memory available/PageFileBytes. 
-<br><br>
+<br/><br/>
 Total available PageFileBytes is approximately 2 times the RAM of the system.</td>
         <td>60%</td>
         <td>70%</td>
@@ -46,10 +45,10 @@ Windows Azure BizTalk Services tracks the throttling status (normal state vs. th
 
 When Azure BizTalk Services enters a throttling state, the following occurs:
 
-- Throttling is per role instance. For example:<br>
-RoleInstanceA is throttling. RoleInstanceB is not throttling. In this situation, messages in RoleInstanceB are processed as expected. Messages in RoleInstanceA are discarded and fail with the following error:<br><br>
-Server is busy. Please try again.<br><br>
-- Any pull sources do not poll or download a message. For example:<br>
+- Throttling is per role instance. For example:<br/>
+RoleInstanceA is throttling. RoleInstanceB is not throttling. In this situation, messages in RoleInstanceB are processed as expected. Messages in RoleInstanceA are discarded and fail with the following error:<br/><br/>
+Server is busy. Please try again.<br/><br/>
+- Any pull sources do not poll or download a message. For example:<br/>
 A pipeline pulls messages from an external FTP source. The role instance doing the pull gets into a throttling state. In this situation, the pipeline stops downloading additional messages until the role instance stops throttling.
 - A response is sent to the client so the client can resubmit the message.
 - You must wait until the throttling is resolved. Specifically, you must wait until the low threshold is reached.
@@ -65,12 +64,12 @@ A pipeline pulls messages from an external FTP source. The role instance doing t
 
 Additional Windows Azure BizTalk Services topics:
 
-[Installing the Windows Azure BizTalk Services SDK - June 2013 Preview](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br>
-[Tutorials: Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br>
-[How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br>
-[Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br>
-[Business to Business Messaging](http://go.microsoft.com/fwlink/p/?LinkID=303670)<br>
-[Rich Messaging Endpoints](http://go.microsoft.com/fwlink/p/?LinkID=303671)<br>
-[Message Transforms](http://go.microsoft.com/fwlink/p/?LinkID=303672)<br>
-[BizTalk Adapter Service](http://go.microsoft.com/fwlink/p/?LinkID=303673)<br>
+[Installing the Windows Azure BizTalk Services SDK - June 2013 Preview](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+[Tutorials: Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+[How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+[Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+[Business to Business Messaging](http://go.microsoft.com/fwlink/p/?LinkID=303670)<br/>
+[Rich Messaging Endpoints](http://go.microsoft.com/fwlink/p/?LinkID=303671)<br/>
+[Message Transforms](http://go.microsoft.com/fwlink/p/?LinkID=303672)<br/>
+[BizTalk Adapter Service](http://go.microsoft.com/fwlink/p/?LinkID=303673)<br/>
 

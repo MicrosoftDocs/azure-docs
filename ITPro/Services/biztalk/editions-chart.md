@@ -1,14 +1,17 @@
+<properties linkid="editions-chart" urlDisplayName="BizTalk Services Editions" pageTitle="BizTalk Services: Developer, Basic, Standard and Enterprise Editions Chart" metaKeywords="Get started Azure biztalk services, editions, Azure unstructured data" metaDescription="A chart that lists the differences with the different Windows Azure BizTalk Services editions." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/editions-chart" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
+
+
 # **BizTalk Services: Developer, Basic, Standard and Enterprise Editions Chart**
 
 Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard, and Premium. The following table lists the differences:
 
-<table border>
+<table border="1">
 <tr bgcolor="FAF9F9">
         <td></td>
-        <td><b>Developer</td>
-        <td><b>Basic</td>
-        <td><b>Standard</td>
-        <td><b>Premium</td>
+        <td><b>Developer</b></td>
+        <td><b>Basic</b></td>
+        <td><b>Standard</b></td>
+        <td><b>Premium</b></td>
 </tr>
 <tr>
 <td>Starting price</td>
@@ -133,8 +136,8 @@ A “unit” is the atomic level of a Windows Azure BizTalk Services deployment.
 To provision Windows Azure BizTalk Services in the Windows Azure Management Portal, go to [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Windows Azure BizTalk Services - June 2013 Preview](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## **See Also**
-[BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br>
-[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br>
-[BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br>
-[BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br>
-[How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br>
+[BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+[BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+[BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+[How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

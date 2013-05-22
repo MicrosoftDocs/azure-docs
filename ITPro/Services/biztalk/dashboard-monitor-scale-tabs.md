@@ -1,4 +1,4 @@
-
+<properties linkid="dashboard-monitor-scale-tabs" urlDisplayName="BizTalk Services tabs" pageTitle="BizTalk Services: Dashboard, Monitor and Scale tabs" metaKeywords="Get started Azure biztalk services, Azure unstructured data" metaDescription="Start monitoring your BizTalk Service using the Dashboard, Monitor, and Scale tabs in Windows Azure Management Portal." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/dashboard-monitor-scale-tabs" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
 # **BizTalk Services: Dashboard, Monitor and Scale tabs**
 
@@ -17,12 +17,12 @@ This opens a new window with the following options:
 This topic describes these tabs.
 
 
-##<a name="QuickStart"></a>**Quick Start**
+##<a href="QuickStart"></a>**Quick Start**
 
 When you click your BizTalk Service name, the Quick Start tab is displayed. In the Quick Start tab, you can do the following:
 
 
-<table border>
+<table border="1">
 <tr bgcolor="FAF9F9">
         <td><b>Option</b></td>
         <td><b>Description</b></td>
@@ -32,7 +32,7 @@ When you click your BizTalk Service name, the Quick Start tab is displayed. In t
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premise development computer. These templates create the <b>BizTalk Services</b> (bridge) and the <b>BizTalk Service Artifacts</b> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
 
-        <br><br>
+        <br/><br/>
 		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Windows Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Windows Azure BizTalk Services SDK - June 2013 Preview</a> lists the steps to get started.
         </td>
     </tr>
@@ -42,7 +42,7 @@ When you click your BizTalk Service name, the Quick Start tab is displayed. In t
 
         <td>Opens the Windows Azure BizTalk Services Portal hosted on Windows Azure where you add partners and create X12 and AS2 EDI agreements.
 
-        <br><br>
+        <br/><br/>
 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
@@ -60,7 +60,7 @@ When you click your BizTalk Service name, the Quick Start tab is displayed. In t
 In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
 
-<table border>
+<table border="1">
 <tr bgcolor="FAF9F9">
         <td><b>Option</b></td>
         <td><b>Description</b></td>
@@ -68,25 +68,25 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Ke
 <tr>
 <td>Manage</td>
 <td>When you click Manage, the Windows Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
-<br><br>
+<br/><br/>
 This is the same as <b>Create partner agreements</b> on the <b>Quick Start</b> tab.
-<br><br>
+<br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 
 <tr>
 <td>Sync Keys</td>
 <td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <b>Sync Keys</b> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
-<br><br>
+<br/><br/>
 For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
-<br><br>
+<br/><br/>
 <ol>
 <li>Click your BizTalk Service and click <b>Sync Keys</b>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Click your BizTalk Service and click <b>Sync Keys</b>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
-<br>
+<br/>
 This process is called “rollover keys”. The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
 </tr>
 
@@ -97,7 +97,7 @@ This process is called “rollover keys”. The purpose is to enable users to sw
 </table>
 
 
-##<a name="Dashboard"></a>**Dashboard**
+##<a href="Dashboard"></a>**Dashboard**
 
 The Dashboard displays the following information:
 
@@ -129,21 +129,21 @@ Modifies the time range the metrics are displayed in the graph. Options include:
 
 Lists your BizTalk Service properties, including the following:
 
-<table border>
+<table border="1">
 <tr bgcolor="FAF9F9">
         <td><b>Option</b></td>
         <td><b>Description</b></td>
 </tr>
 <tr>
 <td>Update Tracking Database credentials</td>
-<td>Changes the user name and password used to log into the Tracking Database.<br><br>
-When you provision the BizTalk Service, you enter a user name and password to log into the Tracking Database. Using this option, you can modify your BizTalk Service to use a different user name and password to log into the Tracking Database.<br><br>
+<td>Changes the user name and password used to log into the Tracking Database.<br/><br/>
+When you provision the BizTalk Service, you enter a user name and password to log into the Tracking Database. Using this option, you can modify your BizTalk Service to use a different user name and password to log into the Tracking Database.<br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Windows Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
 </tr>
 <tr>
 <td>Update SSL Certificate</td>
-<td>Can enter a different SSL certificate.<br><br>
-When you provision the BizTalk Service, you enter a SSL certificate. Using this option, you can modify your BizTalk Service to use a different SSL certificate.<br><br>
+<td>Can enter a different SSL certificate.<br/><br/>
+When you provision the BizTalk Service, you enter a SSL certificate. Using this option, you can modify your BizTalk Service to use a different SSL certificate.<br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Windows Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
 </tr>
 <tr>
@@ -160,7 +160,7 @@ When you provision the BizTalk Service, you enter a SSL certificate. Using this 
 </tr>
 <tr>
 <td>Edition</td>
-<td>Lists the Edition. Options include Developer, Basic, Standard, and Premium. This is the same Edition entered when the BizTalk Service is provisioned. <br><br>
+<td>Lists the Edition. Options include Developer, Basic, Standard, and Premium. This is the same Edition entered when the BizTalk Service is provisioned. <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302281">BizTalk Services: Developer, Basic, Standard and Premium Editions Chart</a> lists the edition differences, including costs.</td>
 </tr>
 <tr>
@@ -195,7 +195,7 @@ When you provision the BizTalk Service, you enter a SSL certificate. Using this 
 #### **Manage, Sync Keys and Delete**
 In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
-<table border>
+<table border="1">
 <tr bgcolor="FAF9F9">
         <td><b>Option</b></td>
         <td><b>Description</b></td>
@@ -203,25 +203,25 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Ke
 <tr>
 <td>Manage</td>
 <td>When you click Manage, the Windows Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
-<br><br>
+<br/><br/>
 This is the same as <b>Create partner agreements</b> on the <b>Quick Start</b> tab.
-<br><br>
+<br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 
 <tr>
 <td>Sync Keys</td>
 <td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <b>Sync Keys</b> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
-<br><br>
+<br/><br/>
 For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
-<br><br>
+<br/><br/>
 <ol>
 <li>Click your BizTalk Service and click <b>Sync Keys</b>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Click your BizTalk Service and click <b>Sync Keys</b>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
-<br>
+<br/>
 This process is called “rollover keys”. The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
 </tr>
 
@@ -232,7 +232,7 @@ This process is called “rollover keys”. The purpose is to enable users to sw
 </table>
 
 
-##<a name="Monitor"></a>**Monitor**
+##<a href="Monitor"></a>**Monitor**
 
 The Monitor tab displays the following information: 
 
@@ -256,24 +256,24 @@ Modifies the time range the metrics are displayed in the graph. Options include:
 #### **To remove or display metrics in the graph**
 
 >1. Click the **Monitor** tab.
->2. Click **Add Metrics** in the task bar:<br>
+>2. Click **Add Metrics** in the task bar:<br/>
 ![Click Add Metrics][AddMetrics]
 >3. Check the performance metrics you want to display on the **Monitor** tab.
 >4. Click the checkmark to return to the **Monitor** tab.
->5. Click the circle next to the metric to display that metric’s value in the graph.<br>
-For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:<br>
+>5. Click the circle next to the metric to display that metric’s value in the graph.<br/>
+For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:<br/>
 ![CPU Usage metric is grayed out][GrayedMetric]
-<br>
-Click the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:<br>
+<br/>
+Click the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:<br/>
 ![CPU Usage metric is enabled][EnabledMetric]
 
 >6. To remove a metric from the display graph and the list, click **Delete Metric** in the task bar. Clicking **Delete Metric** removes the metric from the Monitor tab. To add the metric back to the list, click **Add Metrics** in the task bar, check the metric, and click the checkmark to return to the **Monitor** tab. Click the grayed out circle to enable the metric in the graph.
 
-##<a name="Metrics"></a>**Available Metrics**
+##<a href="Metrics"></a>**Available Metrics**
 
 The following performance counters/metrics are available:
 
-<table border>
+<table border="1">
 <tr bgcolor="FAF9F9">
 <td><b>Metric</b></td>
 <td><b>Description</b></td>
@@ -304,12 +304,12 @@ The following performance counters/metrics are available:
 </tr>
 <tr>
 <td>Messages Sent</td>
-<td>A performance metric that displays the total number of messages sent by the BizTalk Service across all bridges within a time interval. This metric is incremented when a message sent from a pipeline reaches the route destination. This metric does not indicate that a message is successfully processed.<br><br>
+<td>A performance metric that displays the total number of messages sent by the BizTalk Service across all bridges within a time interval. This metric is incremented when a message sent from a pipeline reaches the route destination. This metric does not indicate that a message is successfully processed.<br/><br/>
 In a Request-Reply scenario, the metric is incremented when the route destination sends a receipt acknowledgement back to the pipeline.</td>
 </tr>
 <tr>
 <td>Processing Latency</td>
-<td>In milliseconds (ms), this performance metric displays the average time taken to process a message by the BizTalk Service across all bridges, excluding the time spent in destinations. Only messages successfully processed are counted.<br><br>
+<td>In milliseconds (ms), this performance metric displays the average time taken to process a message by the BizTalk Service across all bridges, excluding the time spent in destinations. Only messages successfully processed are counted.<br/><br/>
 When each of the following events occur, a timestamp is created:
 
 <bl>
@@ -318,12 +318,12 @@ When each of the following events occur, a timestamp is created:
 <li>Destination response is received</li>
 <li>Destination acknowledgement response sent to the gateway</li>
 </bl>
-<br>This metric shows the result of the following calculation:<br><br>
+<br/>This metric shows the result of the following calculation:<br/><br/>
 [Destination acknowledgement response sent to the gateway] – [Message enters the gateway] – [Destination response is received] + [Message is routed to the destination]</td>
 </tr>
 <tr>
 <td>RountdTrip Latency</td>
-<td>In milliseconds (ms), this performance metric displays the average time taken to process a message from the time it is received until it is fully processed by the BizTalk Service across all bridges. Only messages successfully processed are counted.<br><br>
+<td>In milliseconds (ms), this performance metric displays the average time taken to process a message from the time it is received until it is fully processed by the BizTalk Service across all bridges. Only messages successfully processed are counted.<br/><br/>
 When the following events occur, a timestamp is created:
 <bl>
 <li>Message enters the gateway</li>
@@ -331,15 +331,15 @@ When the following events occur, a timestamp is created:
 <li>Destination response is received</li>
 <li>Destination acknowledgement response sent to the gateway</li>
 </bl>
-<br>
+<br/>
 This metric shows the result of the following calculation:
-<br><br>
+<br/><br/>
 [Destination acknowledgement response sent to the gateway] – [Message enters the gateway]</td>
 </tr>
 </table>
 
 
-##<a name="Scale"></a>**Scale**
+##<a href="Scale"></a>**Scale**
 
 In the Scale tab, you can add or subtract the number of units used by your BizTalk Service. By default, there is one Unit configured. Additional Units can be added to scale your BizTalk Service. When you increase the scale, you are increasing throughput. The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power. For example, you increase the scale from 1 Unit to 2 Units. In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.
 
@@ -353,12 +353,12 @@ Increasing the number of units may impact pricing. If you increase the Units, cl
 
 Now that you’re familiar with the different tabs, you can learn more about the Windows Azure BizTalk Services features:
 
-[BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br>
+[BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
 
 ## **See Also**
-[BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br>
-[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br>
+[BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [AddMetrics]: ../Media/WABS_AddMetrics.png
