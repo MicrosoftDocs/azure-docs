@@ -140,13 +140,43 @@ The application you created is now running in the cloud.<br/>
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-You've seen how to deploy a web application to a Windows Azure Web Site. When you are finished with your deployed web site, you can delete it in the Windows Azure management portal. In the **Web Sites** tab, click the name of the site you want to delete and click **Delete**.
+In this tutorial, you've seen how to deploy a simple web application to a Windows Azure Web Site. Other resources are available to show you how to manage, scale, and troubleshoot the site, how to add database, authentication, and authorization functionality, and  how to decide if your application should run in a Windows Azure Cloud Service instead of a Windows Azure Web Site.
 
-For information about how to deploy a web application that includes a SQL Server database, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site][WebWithSQL].
+<h3>How to manage a web site</h3>
+When you're done with the site, you can delete it, and at times you might want to take it offline temporarily or change site settings. You can do some of these functions right from **Server Explorer** in Visual Studio.
 
-To learn more about how to configure, manage, and scale Windows Azure Web Sites, see the how-to topics on the [Web Sites management][WebSitesManagement] page.
+![Windows Azure Web Sites in Server Explorer](../Media/ServerExplorerWSSettings.png)
 
-You can deploy a web application to a Windows Azure Cloud Service instead of a Windows Azure Web Site. For more information, see [Windows Azure Execution Models](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/). For a tutorial that shows how to create a multi-tier ASP.NET web application and deploy it to a Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs - 1 of 5](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+![Web Site Configuration in Visual Studio](../Media/WSConfigurationInVS.png)
+
+For more information, see **Web Sites: Management Support within the Visual Studio Server Explorer** in [Announcing the release of Windows Azure SDK 2.0 for .NET ](http://weblogs.asp.net/scottgu/archive/2013/04/30/announcing-the-release-of-windows-azure-sdk-2-0-for-net.aspx) on ScottGu's blog.
+ 
+To delete your web site, you can use the Windows Azure Management Portal. The following screen shot shows **Stop**, **Restart**, and **Delete** buttons in the **Dashboard** tab of the management portal.
+
+![Management Portal Dashboard Tab](../Media/MPStopStartDelete.png)
+
+You can change site settings on the **Configure** tab. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
+
+<h3>How to scale a web site</h3>
+When your site is public and it starts to get more traffic, response times might slow down. To remedy that, you can easily add server resources in the **Scale** tab of the management portal.
+
+![Management Portal Scale Tab](../Media/MPScale.png)
+
+For more information, see [How to Scale a Web Site](/en-us/manage/services/web-sites/how-to-scale-websites/). (Adding server resources to scale a web site is not free.)
+
+<h3>How to troubleshoot a web site</h3>
+When the site stops working correctly, you might want to look at trace or log output for help with troubleshooting. Visual Studio provides built-in tooling to make it easy to view Windows Azure logs as they are generated in real time.
+
+![Logs in Visual Studio](../Media/LogsInVS.png)
+
+For more information, see **Web Sites: Streaming Diagnostic Logs** in [Announcing the release of Windows Azure SDK 2.0 for .NET ](http://weblogs.asp.net/scottgu/archive/2013/04/30/announcing-the-release-of-windows-azure-sdk-2-0-for-net.aspx) on ScottGu's blog. For information about web site monitoring functions that are available from the management portal, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
+
+
+<h3>How to add database and authorization functionality</h3>
+Most production web sites use a database and restrict some site functions to certain authorized users. For a tutorial that shows how to get started with database access, authentication, and authorization, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site][WebWithSQL].
+
+<h3>How to decide if your application should run in a Cloud Service</h3>
+In some scenarios you might want to run your application in a Windows Azure Cloud Service instead of a Windows Azure Web Site. For more information, see [Windows Azure Execution Models](/en-us/develop/net/fundamentals/compute/). For a tutorial series that shows how to create a multi-tier ASP.NET web application and deploy it to a Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 [Set Up the development environment]: #setupdevenv
 [Create a web site in Windows Azure]: #setupwindowsazure
@@ -158,8 +188,8 @@ You can deploy a web application to a Windows Azure Cloud Service instead of a W
 [PreviewPortal]: http://manage.windowsazure.com
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [windowsazure.com]: http://www.windowsazure.com
-[WebSitesManagement]: http://www.windowsazure.com/en-us/manage/services/web-sites/
-[WebWithSQL]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
+[WebSitesManagement]: /en-us/manage/services/web-sites/
+[WebWithSQL]: /en-us/develop/net/tutorials/web-site-with-sql-database/
 
 [AppRunningLocally]: ../Media/AppRunningLocally.png
 [ClickQuickCreate]: ../Media/ClickQuickCreate.png
