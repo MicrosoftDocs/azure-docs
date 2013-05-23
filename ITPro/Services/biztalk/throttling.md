@@ -1,5 +1,7 @@
 <properties linkid="throttling" urlDisplayName="BizTalk Services: Throttling" pageTitle="BizTalk Services: Throttling" metaKeywords="Get started Azure biztalk services, throttling, Azure unstructured data" metaDescription="Describes BizTalk Services: Throttling, including when a role instance throttles." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/throttling" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
+<div chunk="../chunks/biztalk-services-left-nav.md"/> 
+
 # **BizTalk Services: Throttling**
 
 Windows Azure BizTalk Services implements Service throttling based on two conditions: memory usage and the number of simultaneous messages processing. This topic lists the throttling thresholds and describes the Runtime behavior when a throttling condition occurs.

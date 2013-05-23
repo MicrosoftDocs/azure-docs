@@ -1,5 +1,7 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision a Windows Azure BizTalk Service" pageTitle="BizTalk Services: Provisioning Using Windows Azure Management Portal" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" metaDescription="Lists the steps to provision a BizTalk Service in the Windows Azure Management Portal." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/provisioning-biztalk-service" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
+<div chunk="../chunks/biztalk-services-left-nav.md"/> 
+
 # **BizTalk Services: Provisioning Using Windows Azure Management Portal**
 **Tip**
 

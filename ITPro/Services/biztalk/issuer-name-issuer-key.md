@@ -1,5 +1,7 @@
 <properties linkid="issuer-name-issuer-key" urlDisplayName="BizTalk Services Issuer Name and Issuer Key" pageTitle="BizTalk Services: Issuer Name and Issuer Key" metaKeywords="Get started Azure biztalk services, Issuer Name, Issuer Key, Azure unstructured data" metaDescription="Lists the steps to retrieve the ACS Issuer Name and Issuer Key and the Service Bus Issuer Name and Issuer Key." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/issuer-name-issuer-key" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
+<div chunk="../chunks/biztalk-services-left-nav.md"/> 
+
 # **BizTalk Services: Issuer Name and Issuer Key**
 
 Windows Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control (ACS) Issuer Name and Issuer Key. Specifically:
