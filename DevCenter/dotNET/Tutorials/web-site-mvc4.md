@@ -165,7 +165,7 @@ When your site is public and it starts to get more traffic, response times might
 For more information, see [How to Scale a Web Site](/en-us/manage/services/web-sites/how-to-scale-websites/). (Adding server resources to scale a web site is not free.)
 
 <h3>How to troubleshoot a web site</h3>
-When the site stops working correctly, you might want to look at trace or log output for help with troubleshooting. Visual Studio provides built-in tooling to make it easy to view Windows Azure logs as they are generated in real time.
+If the site stops working correctly, you might want to look at trace or log output for help with troubleshooting. Visual Studio provides built-in tooling to make it easy to view Windows Azure logs as they are generated in real time.
 
 ![Logs in Visual Studio](../Media/LogsInVS.png)
 
