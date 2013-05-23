@@ -110,7 +110,7 @@ Follow these steps to link a web site to a SQL Database:
 
 3. Click the **Linked Resources** tab and a message will be displayed on the **Linked Resources** page indicating **You have no linked resources**.
 
-4. Click **Link a Resource** to open the **Link Resource** wizard.
+4. Click **Link a Resource** to open the **Link a Resource** wizard.
 
 5. Click **Create a new resource** to display a list of resources types that can be linked to your web site.
 
@@ -121,9 +121,11 @@ Follow these steps to link a web site to a SQL Database:
 Windows Azure will create a SQL database with the specified parameters and link the database to the web site.
 
 ##<a name="howtoconfigMySQL"></a>How to: Configure a web site to use a MySQL database##
-To configure a web site to use a MySQL database you must create the web site with the **Create With Database** option and then specify either to "Use an existing MySQL database" or "Create a new MySQL database." 
+To configure a web site to use a MySQL database, follow the same steps to use a SQL database, but in the **Link a Resource** wizard, choose **MySQL Database** instead of **SQL Database**. 
 
-You can't add MySQL databases to a web site as a linked resource. They aren't displayed in the Management Portal as a type of cloud resource.
+Alternatively, you can create the web site with the **Custom Create** option. In the **Database** dropdown, choose either **Create a new MySQL database** or **Use an existing MySQL database**. 
+
+##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
 
 
 
