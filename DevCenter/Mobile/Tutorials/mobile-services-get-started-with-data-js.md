@@ -97,7 +97,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 2. In the default.html project file, add the following script reference in the page header:
 
-        <script type="text/javascript" src="/MobileServicesJavaScriptClient/MobileServices.js"></script>
+        <script type="text/javascript" src="/js/MobileServices.js"></script>
 
 3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
@@ -107,7 +107,12 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   You will need these values when accessing the mobile service from your app code.
 
-5. In Visual Studio, open the file default.js, uncomment the code that defines the **mobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
+5. In Visual Studio, open the file default.js, uncomment the following code that defines the **mobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
+
+            var mobileService = new WindowsAzure.MobileServiceClient(
+                "AppUrl",
+                "appKey"
+            );
 
   This creates a new instance of MobileServiceClient that is used to access your mobile service.
 
