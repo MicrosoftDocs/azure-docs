@@ -240,7 +240,7 @@ Let's use the ACS Management Portal to change the authentication of our WebACS a
 
 Done! Now, if you go back to Visual Studio, open the project for the WebACS app, and click **Identity and Access**, the tool lists both the Windows Live ID and Google identity providers.  And when you run the app, both identity providers are offered.
 
-	![][16]
+![][16]
 
 
 <h2><span class="short-header">What's Next</span>What's Next</h2>
@@ -275,7 +275,7 @@ To further explore ACS functionality and to experiment with more scenarios, see 
   [3]: ../../../DevCenter/dotNet/Media/acsCreateWebApp.png
   [4]: ../../../DevCenter/dotNet/Media/acsIdAndAccess0.png
   [5]: ../../../DevCenter/dotNet/Media/acsIdAndAccess1.png
-  [6]: ../../../DevCenter/dotNet/Media/acsMSFTAccount.png
+  [6]: ../../../DevCenter/dotNet/Media/acsMSFTAcct.png
   [7]: ../../../DevCenter/dotNet/Media/acsSignIn.png
   [8]: ../../../DevCenter/dotNet/Media/acsClickManage.png
   [9]: ../../../DevCenter/dotNet/Media/acsACSPortal.png
