@@ -2,7 +2,7 @@
 
 <div chunk="../chunks/biztalk-services-left-nav.md"/> 
 
-# **BizTalk Services: Developer, Basic, Standard and Enterprise Editions Chart**
+# **BizTalk Services: Developer, Basic, Standard and Premium Editions Chart**
 
 Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard, and Premium. The following table lists the differences:
 
@@ -16,10 +16,10 @@ Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard,
 </tr>
 <tr>
 <td>Starting price</td>
-<td>$100 per month per unit: Prorate hourly at $0.13 per hour</td>
-<td>$500 per month per unit: Prorate hourly at $0.67 per hour</td>
-<td>$3000 per month per unit: Prorate hourly at $4.03 per hour</td>
-<td>$6000 per month per unit: Prorate hourly at $8.06 per hour</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
 </tr>
 <tr>
 <td>Target Users</td>
@@ -79,7 +79,6 @@ Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard,
 </tr>
 <tr>
 <td>Supported protocols:
-
 <bl>
 <li>HTTP</li>
 <li>HTTPS</li>
@@ -115,13 +114,15 @@ Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard,
 <td>Not Included</td>
 <td>Not Included</td>
 <td>Included</td>
-</tr>Included<tr>
+</tr>
+<tr>
 <td>Use of Custom Code</td>
 <td>Included</td>
 <td>Included</td>
 <td>Included</td>
 <td>Included</td>
-</tr>Included<tr>
+</tr>
+<tr>
 <td>Use of Transforms, including XSLT</td>
 <td>Included</td>
 <td>Included</td>
