@@ -17,7 +17,7 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Windows Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/linux-on-endorsed-distributions.md). Note: This article includes a section at the end with [Information for Non Endorsed Distributions][].
+	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../otherresources/linux-on-endorsed-distributions.md). Note: This article includes a section at the end with [Information for Non Endorsed Distributions][].
 
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 
@@ -42,7 +42,7 @@ This task includes the following steps:
 - [Step 1: Prepare the image to be uploaded] []
 - [Step 2: Create a storage account in Windows Azure] []
 - [Step 3: Prepare the connection to Windows Azure] []
-- [Step 4: Upload the .vhd file] []
+- [Step 4: Upload the image to Windows Azure] []
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
@@ -378,7 +378,7 @@ You need to clear your current yum metadata:
 
 14. Click **Shutdown** in Hyper-V Manager.
 
-### Prepare the OpenSuse 12.3 operating system ###
+### Prepare the openSUSE 12.3 operating system ###
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -499,7 +499,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 	The account is now listed under **Storage Accounts**.
 
-	![Storage account successfully created] (../media/storagesuccess.png)
+	![Storage account successfully created] (../media/Storagenewaccount.png)
 
 
 ## <a id="#connect"> </a>Step 3: Prepare the connection to Windows Azure ##
@@ -581,9 +581,8 @@ The list below replaces step 2 of the process to create your own VHD:
 12.	You will then need to shut down the virtual machine and proceed with the upload.
 
 
-[Step 1: Install the Hyper-V role on your server]: #hyperv
-[Step 2: Create the image]: #createimage
-[Step 3: Create a storage account in Windows Azure]: #createstorage
-[Step 4: Prepare the image to be uploaded]: #prepimage
-[Step 5: Upload the image to Windows Azure]: #upload
+[Step 1: Prepare the image to be uploaded]: #prepimage
+[Step 2: Create a storage account in Windows Azure]: #createstorage
+[Step 3: Prepare the connection to Windows Azure]: #connect
+[Step 4: Upload the image to Windows Azure]: #upload
 [Information for Non Endorsed Distributions]: #nonendorsed
