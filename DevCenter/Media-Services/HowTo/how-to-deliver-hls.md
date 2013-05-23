@@ -4,6 +4,8 @@
 
 <h1>How to: Deliver Apple HLS streaming content</h1>
 
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409).
+
 This topic shows how to create a locator to Apple HTTP Live Streaming (HLS) content on a Media Services origin server. Using this approach, you can build a URL to Apple HLS content, and provide it to Apple iOS devices for playback. The basic approach to building the locator URL is the same. Build a locator to the Apple HLS streaming asset path on an origin server, and then build a full URL that links to the manifest for the streaming content.
 
 The following code example assumes that you have already obtained a reference to an HLS streaming asset, and the variable named **assetToStream** is referenced in the code. After you have run this code to generate an origin locator on the asset, you can use the resulting URL to play back the streaming content in an iOS device such as an iPad or an iPhone.

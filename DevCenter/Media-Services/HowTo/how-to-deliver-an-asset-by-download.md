@@ -3,6 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 
 <h1>How to: Deliver an Asset by Download</h1>
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Manage Assets](http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409).
 
 This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Windows Azure CDN.
 
