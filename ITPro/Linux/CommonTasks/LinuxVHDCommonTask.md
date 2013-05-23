@@ -4,138 +4,47 @@
 
 # Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System 
 
-A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. The operating systems are stored in virtual hard disk (.vhd) files. When you create a virtual machine, you can choose a .vhd file that is supplied for you in the Image Gallery, or you can use one that you have uploaded to Windows Azure. This article shows you how to create and upload a .vhd file. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. Windows Azure stores a virtual machine's operating system in a virtual hard disk in VHD format (a .vhd file). A VHD of an operating system that has been prepared for duplication is called an image. This article shows you how to create your own image by uploading a .vhd file with an operating system you've installed and generalized. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
-**Note**: When you create the virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see <a href="/en-us/manage/linux/other-resources/endorsed-distributions/">How to Create a Custom Virtual Machine</a>.
+**Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
-The following resources must be available to complete this task:
+##Prerequisites##
+This article assumes that you have the following items:
 
-- **Server running Hyper-V, with Hyper-V Manager installed.** This task depends on using the Hyper-V Manager that is a part of the Hyper-V role in the Windows Server. Multiple tools exist to create .vhd files. This article uses Hyper-V Manager to create the .vhd file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
-- **Linux operating system media.** Before you start this task, you must make sure that you have access to media that contains the Linux operating system. For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/linux-on-endorsed-distributions.md).
+- **A management certificate** - You have created a management certificate for the subscription for which you want to upload a VHD, and exported the certificate to a .cer file. For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx). 
 
-- **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
-- **CSUpload command-line tool.** This tool is a part of the Windows Azure SDK. You use this tool to set the connection to Windows Azure and upload the VHD file. You must use the tools available in Windows Azure SDK - June 2012 or later to upload VHDs to Windows Azure. To download the SDK and the tools, see [Windows Azure Downloads](/en-us/downloads/).
+- **Linux operating system installed in a .vhd file.**  - You have installed a supported Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solutions such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/en-us/library/hh846766.aspx). 
 
-This task includes the following steps:
+	**Important**: The newer VHDX format is not supported in Windows Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-- [Step 1: Install the Hyper-V role on your server] []
-- [Step 2: Create the image] []
-- [Step 3: Create a storage account in Windows Azure] []
-- [Step 4: Prepare the image to be uploaded] []
-- [Step 5: Upload the image to Windows Azure] []
+	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../other-resources/linux-on-endorsed-distributions.md). Note: This article includes a section at the end with [Information for Non Endorsed Distributions][].
 
-We also  have a generic section at the end with [Information for Non Endorsed Distributions][].
+- **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
+
+- **Add-AzureVhd cmdlet**, which is part of the Windows Azure PowerShell module. To download the module, see [Windows Azure Downloads](/en-us/develop/downloads/). For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
 
 For all distributions note the following:
 
 The Windows Azure Linux Agent (Waagent) is not compatible with NetworkManager. Networking configuration should use the ifcfg-eth0 file and should be controllable via the ifup/ifdown scripts. Waagent will refuse to install if the NetworkManager package is detected.
 
-NUMA is not supported because the Linux kernel versions below 2.6.37 have a bug. The installation of waagent will automatically disable NUMA in the GRUB configuration for the Linux kernel command line.
+NUMA is not supported because of a bug in Linux kernel versions below 2.6.37. The installation of waagent will automatically disable NUMA in the GRUB configuration for the Linux kernel command line.
 
-The Windows Azure Linux Agent Requires python-pyasn1 package installed.
+The Windows Azure Linux Agent requires that the python-pyasn1 package is installed.
 
-All of your VHDs for the OS must have sizes that are multiples of 1 MB.
+It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409).
 
-## <a id="hyperv"> </a>Step 1: Install the Hyper-V role on your server ##
+All of the VHDs must have sizes that are multiples of 1 MB.
 
-Multiple tools exist to create VHD files. In this task, you use Hyper-V Manager to create the VHD file that is uploaded to Windows Azure. For more information, see [Hyper-V](http://technet.microsoft.com/en-us/library/cc753637(WS.10).aspx).
+This task includes the following steps:
 
-1. On your server that is running Windows Server 2008, click **Start**, point to **Administrative Tools**, and then click **Server Manager**.
+This task includes the following steps:
 
-2. In the **Roles Summary** area, click **Add Roles**.
+- [Step 1: Prepare the image to be uploaded] []
+- [Step 2: Create a storage account in Windows Azure] []
+- [Step 3: Prepare the connection to Windows Azure] []
+- [Step 4: Upload the .vhd file] []
 
-	![Add roles] (../media/role.png)
-
-3. On the **Select Server Roles** page, click **Hyper-V**.
-
-4. On the **Create Virtual Networks** page, click one or more network adapters if you want to make their network connection available to virtual machines.
-
-5. On the **Confirm Installation Selections** page, click **Install**.
-
-6. The computer must be restarted to complete the installation. Click **Close** to finish the wizard, and then click **Yes** to restart the computer.
-
-7. After you restart the computer, log on with the same account you used to install the role. When the installation is complete, click **Close** to finish the wizard.
-
-	You can now see the Hyper-V role installed on the server:
-
-	![Hyper-V role added] (../media/rolehyperv.png)
-
-## <a id="createimage"> </a>Step 2: Create the image ##
-
-An image is a virtual hard disk (VHD) file that you can use as a template to create a new virtual machine. An image is a template because it doesn’t have specific settings like a configured virtual machine, such as the computer name and user account settings. The VHD contains the operating system, any operating system customizations, and your applications. You can create the VHD by completing the following steps in Hyper-V.
-
-1. On your server, click **Start**, click **All Programs**, click **Administrative Tools**, and then click **Hyper-V Manager**.
-
-2. In the **Actions** pane of Hyper-V Manager, click **New**, and then click **Virtual Machine**.
-
-	![Create virtual machine] (../media/newmachine.png)
-
-3. In the New Virtual Machine Wizard, provide a name and a location for the virtual machine, the amount of memory that you want the virtual machine to use, and the network adapter that you want the virtual machine to use.
-
-	You will be asked to provide information for the virtual hard disk that is used for creating the virtual machine.
-
-	![Enter virtual machine details] (../media/newvhd.png)
-
-4. On the Connect **Virtual Hard Disk** page, select **Create a virtual hard disk**. Provide the following information, and then click **Next**:
-
-	- **Name** - the name of the .vhd file. This is the file that you upload to Windows Azure.
-	- **Location** - the folder where the .vhd file is located. You should store the VHD file in a secure location.
-	- **Size** - the size of the virtual hard disk.  The maximum size for a virtual machine in Windows Azure is 127 GB.
-5. On the **Installation Options** page, select **Install an operating system from a boot CD/DVD –ROM media**, and then choose the method that is appropriate for your installation media.
-
-	![Choose the installation media] (../media/linuxchoosemedia.png)
-
-6. Finish the wizard to create the virtual machine.
-
-After the virtual machine is created it is not started by default. You must start the virtual machine to complete the installation of the operating system.
-
-1. In the center pane of Hyper-V Manager, select the virtual machine that you created in the previous procedure.
-
-2. In the **Actions** pane, click **Start**.
-
-	![Start the virtual machine] (../media/start.png)
-
-3. Click **Connect** to open the window for the virtual machine.
-
-	![Connect to the virtual machine] (../media/connect.png)
-
-4. Finish the installation of the operating system. For more information about installing the operating system, see the documentation provided by the Linux distributor. You must also prepare the image by completing specific steps for the distribution that you are using. You do this in [Step 4: Prepare the image to be uploaded] []. 
-
-	**Note:** It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409).
-
-## <a id="createstorage"> </a>Step 3: Create a storage account in Windows Azure ##
-
-A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a VHD file to Windows Azure that can be used for creating a virtual machine. You can create a storage account by using the Windows Azure Management Portal.
-
-1. Sign in to the Windows Azure Management Portal.
-
-2. On the command bar, click **New**.
-
-	![Create storage account] (../media/create.png)
-
-3. Click **Storage Account**, and then click **Quick Create**.
-
-	![Quick create a storage account] (../media/createnewstorage.png)
-
-	The **Create a New Storage Account** dialog box appears.
-
-	![Enter storage account details] (../media/storageinfo.png)
-
-4. Enter a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This value becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
-
-5. Choose the region that will contain the storage account.
-
-6. Choose whether you need geo-replication for the storage account. Geo-replication is turned on by default. During geo-replication, your data is replicated to a secondary region so that your storage fails over seamlessly to a secondary location in the event of a major failure that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed. If legal requirements or organizational policy requires tighter control over the location of your cloud-based storage, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount.
-
-7. Click **Create Storage Account**.
-
-	The account is now listed under **Storage Accounts**.
-
-	![Storage account successfully created] (../media/storagesuccess.png)
-
-
-
-## <a id="prepimage"> </a>Step 4: Prepare the image to be uploaded ##
+## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
 ### Prepare the CentOS 6.2 and CentOS 6.3 operating system ###
 
@@ -469,7 +378,7 @@ You need to clear your current yum metadata:
 
 14. Click **Shutdown** in Hyper-V Manager.
 
-### Prepare the OpenSuse 12.1 operating system ###
+### Prepare the OpenSuse 12.3 operating system ###
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -483,23 +392,23 @@ You need to clear your current yum metadata:
 
          | Alias | Name | Enabled | Refresh
       
-      1 | openSUSE_12.1_OSS     | openSUSE_12.1_OSS     | Yes     | Yes    
-      2 | openSUSE_12.1_Updates | openSUSE_12.1_Updates | Yes     | Yes
+      1 | openSUSE_12.3_OSS     | openSUSE_12.3_OSS     | Yes     | Yes    
+      2 | openSUSE_12.3_Updates | openSUSE_12.3_Updates | Yes     | Yes
 
    then the repositories are configured as expected, no adjustments are necessary.
 
    In case the command returns "No repositories defined. Use the 'zypper addrepo' command to add one 
    or more repositories." then the repositories need to be re-enabled:
 
-      # zypper ar -f http://download.opensuse.org/distribution/12.1/repo/oss openSUSE_12.1_OSS
-      # zypper ar -f http://download.opensuse.org/update/12.1 openSUSE_12.1_Updates
+      # zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
+      # zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
 
    Verify your repositories have been added by calling 'zypper lr', this is the expected output:
 
        | Alias | Name | Enabled | Refresh
      
-      1 | openSUSE_12.1_OSS     | openSUSE_12.1_OSS     | Yes     | Yes    
-      2 | openSUSE_12.1_Updates | openSUSE_12.1_Updates | Yes     | Yes
+      1 | openSUSE_12.3_OSS     | openSUSE_12.3_OSS     | Yes     | Yes    
+      2 | openSUSE_12.3_Updates | openSUSE_12.3_Updates | Yes     | Yes
 
    In case one of the relevant update repositories is not enabled, enable it with following command:
 
@@ -513,8 +422,7 @@ You need to clear your current yum metadata:
 
    \# zypper up kernel-default
 
-   Note: It is necessary to install the package 'perl' before updating the kernel, as there's
-         a missing dependency in openSUSE 12.1.
+   Note: It is necessary to install the package 'perl' before updating the kernel, because there's a missing dependency in openSUSE 12.3.
 
 
 7.	Disable automatic DVD ROM probing.
@@ -523,7 +431,7 @@ You need to clear your current yum metadata:
 
 	First, add the repository containing the new WALinuxAgent:
 
-      # zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.1/Cloud:Tools.repo
+      # zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.3/Cloud:Tools.repo
 
    Then, call 'zypper up WALinuxAgent' and you will get a similar message like the following:
 
@@ -562,60 +470,76 @@ You need to clear your current yum metadata:
 
 16. Click **Shutdown** in Hyper-V Manager.
 
-## <a id="upload"> </a>Step 5: Upload the image to Windows Azure ##
 
-To upload an image contained in a .vhd file to Windows Azure, perform the following steps:
+## <a id="createstorage"> </a>Step 2: Create a storage account in Windows Azure ##
 
-1.	Create and install a management certificate.
-2.	Obtain the thumbprint of the certificate and the subscription ID.
-3.	Set the connection.
-4.	Upload the .vhd file.
-
-### Create and install the management certificate ###
-
-You need a management certificate uploaded to Windows Azure before you can upload a VHD.  For more information about creating certificates, see [Create Management Certificates for Linux](http://go.microsoft.com/fwlink/p/?LinkID=279799&clcid=0x409).
-
-### Obtain the thumbprint of the certificate and the subscription ID ###
-
-You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the VHD file to Windows Azure.
-
-1.	In the Previous Management Portal, click **Hosted Services, Storage Accounts & CDN**, and then click **Management Certificates**.
-
-2.	In the center pane, click your certificate, and then record the thumbprint from the **Properties** pane by copying and pasting it to a location where you can retrieve it later.
-
-You also need the ID of your subscription to upload the VHD file.
+A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a .vhd file to Windows Azure that can be used for creating a virtual machine. You can create a storage account by using the Windows Azure Management Portal.
 
 1. Sign in to the Windows Azure Management Portal.
 
-2. From the Management Portal, click **All Items**.
+2. On the command bar, click **New**.
 
-3. In the center pane, under **Subscription**, copy the subscription and paste it to a location where you can retrieve it later.
-### Use the Linux command-line tool to upload the image ###
+	![Create storage account] (../media/create.png)
 
-You can upload an image by using the following command:
+3. Click **Storage Account**, and then click **Quick Create**.
+
+	![Quick create a storage account] (../media/storage-quick-create.png)
+
+4. Fill out the fields as follows:
+
+	![Enter storage account details] (../media/storage-create-account.png)
+
+- Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
+	
+- Choose the location or affinity group for the storage account. By specifying an affinity group, you can co-locate your cloud services in the same data center with your storage.
+ 
+- Decide whether to use geo-replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to a secondary location if a major failure occurs that can't be handled in the primary location. The secondary location is assigned automatically, and can't be changed. If legal requirements or organizational policy requires tighter control over the location of your cloud-based storage, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount.
+
+5. Click **Create Storage Account**.
+
+	The account is now listed under **Storage Accounts**.
+
+	![Storage account successfully created] (../media/storagesuccess.png)
+
+
+## <a id="#connect"> </a>Step 3: Prepare the connection to Windows Azure ##
+
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Windows Azure. 
+
+1. Open a Windows Azure PowerShell window.
+
+2. Type: 
+
+	`Get-AzurePublishSettingsFile`
+
+	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Windows Azure subscription. 
+
+3. Save the .publishsettings file. 
+
+4. Type:
+
+	`Import-AzurePublishSettingsFile <PathToFile>`
+
+	Where `<PathToFile>` is the full path to the .publishsettings file. 
+
+	For more information, see [Get Started with Windows Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+
+
+## <a id="upload"> </a>Step 4: Upload the image to Windows Azure ##
+
+When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
+
+Do one of the following:
+
+- From the Windows Azure PowerShell window you used in the previous step, type:
+
+	`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
+
+	For more information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+
+- Use the Linux command-line tool to upload the image. You can upload an image by using the following command:
 
 		Azure vm image create <image name> --location <Location of the data center> --OS Linux <Sourcepath to the vhd>
-
-
-### Use the CSUpload command-line tool to upload the image ###
-
-You must set the connection string that is used to access the subscription. The CSUpload Command-Line Tool is used to set the connection string that is used. For more information, see [CSUpload Command-Line Tool](http://msdn.microsoft.com/en-us/library/gg466228.aspx).
-
-1. Open a Windows Azure SDK Command Prompt window as an administrator.
-
-2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
-
-		csupload Set-Connection "SubscriptionID=<Subscriptionid>;CertificateThumbprint=<Thumbprint>;ServiceManagementEndpoint=https://management.core.windows.net"
-
-After the connection string is set, you use the CSUpload command-line tool to upload a VHD file to the Image Gallery in Windows Azure.
-
-1. Use the Windows Azure SDK Command Prompt window that you opened to set the connection string.
-
-2. Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier and where **BlobStorageURL** is the URL for the storage account that you created earlier:
-
-		csupload Add-PersistentVMImage -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" -Label <VHDName> -LiteralPath <PathToVHDFile> -OS Windows
-
-	You can place the VHD file anywhere within your Blog storage. **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the VHD. **PathToVHDFile** is the full path and name of the VHD file.
 
 ## <a id="nonendorsed"> </a>Information for Non Endorsed Distributions ##
 In essence all distributions running on Windows Azure will need to meet the following prerequisites to have a chance to properly run in the platform. 
