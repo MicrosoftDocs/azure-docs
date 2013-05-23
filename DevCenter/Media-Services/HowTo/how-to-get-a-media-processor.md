@@ -3,6 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 
 <h1>How to: Get a Media Processor Instance</h1>
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Create an Encrypted Asset and Upload into Storage](http://go.microsoft.com/fwlink/?LinkID=301733&clcid=0x409).
 
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
 

@@ -3,6 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 
 <h1><a name="encode-asset"> </a><span class="short header">How to: Encode an Asset</span></h1>
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to:Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409).
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
 

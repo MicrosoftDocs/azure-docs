@@ -3,6 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 
 <h1>How to: Check Job Progress</h1>
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Encode an Asset](http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409).
 
 When you run jobs, you often require a way to track job progress. The following code example defines the StateChanged event handler. This event handler tracks job progress and provides updated status, depending on the state. The code also defines the LogJobStop method. This helper method logs error details.
 
@@ -83,4 +84,4 @@ private static string JobIdAsFileName(string jobID)
 }
 </code></pre>
 <h1>Next Steps</h1>
-Now that you know how to create a job and track it's progress, the next step is protecting assets. For more information, see [How to Protect an Asset with Windows Azure Media Services](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409)
+Now that you know how to create a job and track it's progress, the next step is protecting assets. For more information, see [How to Protect an Asset with Windows Azure Media Services](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).

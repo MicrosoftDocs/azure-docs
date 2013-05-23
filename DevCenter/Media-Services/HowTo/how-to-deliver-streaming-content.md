@@ -4,6 +4,8 @@
 
 <h1>How to: Deliver streaming content</h1>
 
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Deliver an Asset by Download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409).
+
 In addition to downloading media content from Media Services, you can use adaptive bitrate streaming to deliver content. For example, you can create a direct URL, called a locator, to streaming content on a Media Services origin server. Client applications such as Microsoft Silverlight can play the streaming content directly from the locator.
 
 The following example shows how to create an origin locator for an output asset produced by a job. The example assumes that you have already obtained a reference to an asset that contains smooth streaming files, and the variable named **assetToStream** is referenced in the code. 

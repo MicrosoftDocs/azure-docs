@@ -4,6 +4,8 @@
 
 <h1><a name="create-asset"> </a><span class="short header">How to: Create an encrypted Asset and upload to storage</span></h1>
 
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [Setting Up Your Computer for Media Services](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
+
 To get media content into Media Services, first create an asset and add files to it, and then upload the asset. This process is called ingesting content.  
 
 When you create assets, you can specify three different options for encryption. 
