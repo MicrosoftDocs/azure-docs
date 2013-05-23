@@ -1,5 +1,7 @@
 <properties linkid="dashboard-monitor-scale-tabs" urlDisplayName="BizTalk Services tabs" pageTitle="BizTalk Services: Dashboard, Monitor and Scale tabs" metaKeywords="Get started Azure biztalk services, Azure unstructured data" metaDescription="Start monitoring your BizTalk Service using the Dashboard, Monitor, and Scale tabs in Windows Azure Management Portal." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/dashboard-monitor-scale-tabs" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
+<div chunk="../chunks/biztalk-services-left-nav.md"/> 
+
 # **BizTalk Services: Dashboard, Monitor and Scale tabs**
 
 The first time you open the Windows Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or click the **BIZTALK SERVICES** tab; and then click your BizTalk Service name.
