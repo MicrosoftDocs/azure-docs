@@ -292,7 +292,7 @@ You can also get a reference to the MSLoginController and display it yourself us
 
 ### Client-managed login (single sign-on)
 
-There are cases to handle the login process with the identity provider in your app. You might do this to enable a single sign-on functionality or when your app must contact the identity provider directly to obtain user information. In these cases, you can login to Mobile Services by providing a token obtained from a supported identity provider.
+There are cases when the login process is done outside of the Mobile Services client. You might do this to enable a single sign-on functionality or when your app must contact the identity provider directly to obtain user information. In these cases, you can login to Mobile Services by providing a token obtained independently from a supported identity provider.
 
 The following example uses the [Live Connect SDK] to enable single sign-on for iOS apps. 
 	
@@ -375,7 +375,7 @@ To prevent users from having to authenticate every time they use run your applic
 <p>Tokens are sensitive data and must be stored encrypted in case the device is lost or stolen.</p>
 </div>
 
-When using a cached token, a user will not have to login again until the token expires. When a user tries to login with an expired token, a 401 unauthorized response is returned. At this point, the user must log in again to obtain a new token, which can again be cached. You can use filters to avoid having to write code that handles expired tokens whenever your app that calls your mobile service.  Filters allow you to intercept calls to and responses from your mobile service. The code in the filter tests the response for a 401, triggers the login process if the token is expired, and then retries the request that generated the 401. For details, see [Handling Expired Tokens].
+When using a cached token, a user will not have to login again until the token expires. When a user tries to login with an expired token, a 401 unauthorized response is returned. At this point, the user must log in again to obtain a new token, which can again be cached. You can use filters to avoid having to write code that handles expired tokens wherever your app calls the mobile service.  Filters allow you to intercept calls to and responses from your mobile service. The code in the filter tests the response for a 401, triggers the login process if the token is expired, and then retries the request that generated the 401. For details, see [Handling Expired Tokens].
 
 <h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
 
