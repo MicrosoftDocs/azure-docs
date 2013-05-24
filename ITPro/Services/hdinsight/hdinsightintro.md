@@ -28,12 +28,12 @@ HDInsight Service clusters are deployed in Azure on compute nodes to execute Map
 
 To simplify the configuring, running, and post-processing of Hadoop jobs, the HDInsight Service provides JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight. It implements and makes available JavaScript, Pig and the Hadoop file system commands from the console. This simplified JavaScript approach enables IT and database professionals and a wider group of developers to deal with big data management and analysis by providing a more accessible path for them to begin using the Hadoop framework. HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
   
-Microsoft Data Explorer Preview for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Data Explorer, the HDInsight Service for Windows Azure also provides Open Database Connectivity (ODBC) drivers to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
+The Microsoft Data Explorer Preview for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Data Explorer, the HDInsight Service for Windows Azure also provides Open Database Connectivity (ODBC) drivers to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
 
 ###Outline
 This topic describes the Hadoop ecosystem supported by the HDInsight Service, the main use scenarios for HDInsight Services, and a guide to further resources. It contains the following sections:
 
- * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with ASV/HDFS and the MapReduce framework using either the Data Explorer or the Hive ODBC driver. Other open source programs that are part of the Hadoop ecosystem, such as Mahout, Pegasus, and Flume can also be downloaded and used with HDInsight. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
+ * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with ASV/HDFS and the MapReduce framework using either the Data Explorer or the Hive ODBC driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
 
  * <a href="#Scenarios">Big Data Scenarios for the HDInsight Service</a> - This section addresses the question: for what types of jobs is the HDInsight Service an appropriate technology?
 
@@ -48,7 +48,7 @@ The HDInsight Service offers a framework implementing Microsoft's cloud-based so
 
 The HDInsight Service provides implementations of Hive and Pig to integrate data processing and warehousing capabilities.  Microsoft’s Big Data solution  integrates with Microsoft's BI tools, such as SQL Server Analysis Services, Reporting Services, PowerPivot and Excel. This enables you to perform a straightforward BI on data stored and managed by the HDInsight Service. 
 
-Other Apache-compatible technologies and sister technologies that are part of the Hadoop ecosystem and have been built to run on top of Hadoop clusters can also be downloaded are used with the HDInsight Service. These include open source technologies such as Sqoop and Flume which integrate HDFS with relational data stores and log files, and Pegasus which provides graph-mining capabilities. 
+Other Apache-compatible technologies and sister technologies that are part of the Hadoop ecosystem and have been built to run on top of Hadoop clusters can also be downloaded are used with the HDInsight Service. These include open source technologies such as Sqoop which integrate HDFS with relational data stores. 
 
 ###Pig	
 
@@ -56,27 +56,15 @@ Pig is a high-level platform for processing big data on Hadoop clusters. Pig con
 
 ###Hive	
 
-Hive is a distributed data warehouse managing data stored in an HDFS. It is the Hadoop query engine. Hive is for analysts with strong SQL skills providing an SQL-like interface and a relational data model. Hive uses a language called HiveQL; a dialect of SQL. Hive, like Pig, is an abstraction on top of MapReduce and when run, Hive translates queries into a series of MapReduce jobs. Scenarios for Hive are closer in concept to those for RDBMS, and so are appropriate for use with more structured data. For unstructured data, Pig is better choice. The HDInsight Service includes an ODBC driver for Hive, which provides direct real-time querying from business intelligence tools such as Excel into Hadoop. For additional information, see [Welcome to Apache Hive!](http://hive.apache.org/)
-
-###Mahout
-
-Mahout is an open source machine-learning library facilitating building scalable matching learning libraries. Using the map/reduce paradigm, algorithms for clustering, classification and batch-based collaborative filtering developed for Mahout are implemented on top of Apache Hadoop. For additional information, see [What is Apache Mahout](http://mahout.apache.org/).
-
-###Pagasus	
-	
-Pegasus is a peta-scale graph mining system running on Hadoop. Graph mining is data mining used to find the patterns, rules, and anomalies characterizing graphs. A graph in this context is a set of objects with links existing between any two objects in the set. This structure type characterizes networks everywhere, including pages linked on the Web, computer and social networks (Facebook, Twitter), and many biological and physical systems. Prior to Pegasus, the maximum graph size that could be mined incorporated millions of objects. By developing algorithms that run in parallel on top of a Hadoop cluster, Pegasus develops algorithms to mine graphs containing billions of objects. For additional information, see the [Project Pegasus](http://www.cs.cmu.edu/~pegasus/) Web site.
+Hive is a distributed data warehouse managing data stored in an HDFS. It is the Hadoop query engine. Hive is for analysts with strong SQL skills providing an SQL-like interface and a relational data model. Hive uses a language called HiveQL; a dialect of SQL. Hive, like Pig, is an abstraction on top of MapReduce and when run, Hive translates queries into a series of MapReduce jobs. Scenarios for Hive are closer in concept to those for RDBMS, and so are appropriate for use with more structured data. For unstructured data, Pig is better choice. For additional information, see [Welcome to Apache Hive!](http://hive.apache.org/)
 
 ###Sqoop		
 
 Sqoop is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. Use Sqoop to import data from external structured data stores into the HDFS or related systems like Hive. Sqoop can also extract data from Hadoop and export the extracted data to external relational databases, enterprise data warehouses, or any other structured data store type. For additional information, see the  [Apache Sqoop](http://sqoop.apache.org/) Web site.
 
-###Flume
+###Business Intelligence Tools and Connectors
 
-Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large log data amounts to HDFS. Flume's architecture is streaming data flow based. It is robust and fault tolerant with tunable and reliability mechanisms with many failover and recovery mechanisms. It has a simple extensible data model enabling online analytical applications. For additional information, see the  [Flume](http://flume.apache.org/) incubation site.
-
-###Business Intelligence Tools
-
-Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Data Explorer or ODBC drivers. The Hive ODBC driver and Hive Add-in for Excel are available for download on the "HDInsight Service" portal.
+Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Data Explorer or ODBC Hive driver. The ODBC driver for Excel is available for download from the HDInsight Service portal.
 
  * The Data Explorer can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=36803).
 
