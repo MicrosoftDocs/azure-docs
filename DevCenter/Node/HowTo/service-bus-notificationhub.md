@@ -100,9 +100,9 @@ For more information the payload format, see The Notification Payload section of
 
 The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message to all clients:
 
-	var payload='{ 
+	var payload={ 
 	    alert: 'Hello!'
-	  }';
+	  };
 	notificationHubService.apns.send(null, payload, 
 	  function(error){
 	    if(!error){
