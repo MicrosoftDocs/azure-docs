@@ -50,7 +50,7 @@ using Windows Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
-In this tutorial, you will create an ASP.NET MVC 3 web site that will
+In this tutorial, you will create an ASP.NET MVC 4 web site that will
 allow you to see a list of products on the product inventory page.
 
 ![][0]
