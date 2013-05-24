@@ -3,7 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 
 <h1><a name="encode-asset"> </a><span class="short header">How to: Encode an Asset</span></h1>
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to:Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409).
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&clcid=0x409).
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
 
@@ -15,7 +15,7 @@ The following steps are required to encode media content using the Media Encoder
    4. Declare a task. To declare a task, you must give the task a friendly name, and then pass to it a media processor instance, a configuration string for handling the processing job, and a **TaskCreationOptions** setting (which specifies whether to encrypt the configuration data).  In this example, the code uses an encoder preset string to specify the encoding to use. 
    5. Specify an input asset for the task. This example uses the **CreateAssetAndUploadSingleFile** method defined in the [How to: Upload an Encrypted Asset] topic to upload an unencrypted asset. 
    6. Specify an output asset for the task. By default, all assets are created as encrypted for transport and storage in Media Services. To output an unencrypted asset for playback, the code specifies **AssetCreationOptions.None**.
-   7. Submit the job. The sample code creates an event handler for the **JobStateChanged** event to track the job's progress. The event handler code is described in the [How to Check Job Progress][] topic.
+   7. Submit the job. The sample code creates an event handler for the **JobStateChanged** event to track the job's progress. The event handler code is described in the [How to: Check Job Progress][] topic.
 
 The following method uploads a single asset and creates a job to encode the asset:
 
