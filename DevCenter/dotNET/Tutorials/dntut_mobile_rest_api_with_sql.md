@@ -668,7 +668,6 @@ For more information, see the [Open Web Application Security Project](https://ww
         using System.Web.Http.Controllers;
         using System.Web.Http.Filters;
         using System.Web.Mvc;
-
         namespace ContactManager.Filters
         {
             public class ValidateHttpAntiForgeryTokenAttribute : AuthorizationFilterAttribute
@@ -703,7 +702,6 @@ For more information, see the [Open Web Application Security Project](https://ww
                             return String.Equals(headerValue, "XMLHttpRequest", StringComparison.OrdinalIgnoreCase);
                         }
                     }
-
                     return false;
                 }
                 private void ValidateRequestHeader(HttpRequestMessage request)
