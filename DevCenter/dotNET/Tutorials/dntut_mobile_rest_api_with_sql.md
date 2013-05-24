@@ -132,42 +132,42 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 1. Replace the contents of the *_Layout.cshtml* file with the following code:
 <br/>
 
-		&lt;!DOCTYPE html&gt;<br/>
-	    &lt;html lang=&quot;en&quot;&gt;<br/>
-	    &lt;head&gt;<br/>
-	        &lt;meta charset=&quot;utf-8&quot; /&gt;<br/>
-	        &lt;title&gt;@ViewBag.Title - Contact Manager&lt;/title&gt;<br/>
-	        &lt;link href=&quot;~/favicon.ico&quot; rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; /&gt;<br/>
-	        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;<br/>
-	        @Styles.Render(&quot;~/Content/css&quot;)<br/>
-	        @Scripts.Render(&quot;~/bundles/modernizr&quot;)<br/>
-	    &lt;/head&gt;<br/>
-	    &lt;body&gt;<br/>
-	        &lt;header&gt;<br/>
-	            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
-	                &lt;div class=&quot;float-left&quot;&gt;<br/>
-	                    &lt;p class=&quot;site-title&quot;&gt;@Html.ActionLink(&quot;Contact Manager&quot;, &quot;Index&quot;, &quot;Home&quot;)&lt;/p&gt;<br/>              
-	                &lt;/div&gt;<br/>
-	            &lt;/div&gt;<br/>
-	        &lt;/header&gt;<br/>
-	        &lt;div id=&quot;body&quot;&gt;<br/>
-	            @RenderSection(&quot;featured&quot;, required: false)<br/>
-	            &lt;section class=&quot;content-wrapper main-content clear-fix&quot;&gt;<br/>
-	                @RenderBody()<br/>
-	            &lt;/section&gt;<br/>
-	        &lt;/div&gt;<br/>
-	        &lt;footer&gt;<br/>
-	            &lt;div class=&quot;content-wrapper&quot;&gt;<br/>
-	                &lt;div class=&quot;float-left&quot;&gt;<br/>
-	                    &lt;p&gt;&amp;copy; @DateTime.Now.Year - Contact Manager&lt;/p&gt;<br/>
-	                &lt;/div&gt;<br/>
-	            &lt;/div&gt;<br/>
-	        &lt;/footer&gt;<br/><br/>
-	    	@Scripts.Render("~/bundles/jquery")<br/>
-	    	@RenderSection("scripts", required: false)
-	    &lt;/body&gt;<br/>
-	    &lt;/html&gt;
-	
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		    <meta charset="utf-8" />
+		    <title>@ViewBag.Title - Contact Manager</title>
+		    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		    <meta name="viewport" content="width=device-width" />
+		    @Styles.Render("~/Content/css")
+		    @Scripts.Render("~/bundles/modernizr")
+		</head>
+		<body>
+		    <header>
+		        <div class="content-wrapper">
+		            <div class="float-left">
+		                <p class="site-title">@Html.ActionLink("Contact Manager", "Index", "Home")</p>
+		            </div>
+		        </div>
+		    </header>
+		    <div id="body">
+		        @RenderSection("featured", required: false)
+		        <section class="content-wrapper main-content clear-fix">
+		            @RenderBody()
+		        </section>
+		    </div>
+		    <footer>
+		        <div class="content-wrapper">
+		            <div class="float-left">
+		                <p>&copy; @DateTime.Now.Year - Contact Manager</p>
+		            </div>
+		        </div>
+		    </footer>
+		    @Scripts.Render("~/bundles/jquery")
+		    @RenderSection("scripts", required: false)
+		</body>
+		</html>
+			
 
 ### Run the application locally
 
