@@ -108,7 +108,7 @@ The **Import Publish Profile** dialog box appears.
     
 	![download .publishsettings file](../Media/rzDown2.png)<br/>
     
-	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+	<div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
 
 	d.  In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
 
