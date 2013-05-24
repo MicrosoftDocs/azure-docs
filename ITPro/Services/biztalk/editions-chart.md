@@ -2,13 +2,13 @@
 
 <div chunk="../chunks/biztalk-services-left-nav.md"/> 
 
-# **BizTalk Services: Developer, Basic, Standard and Premium Editions Chart**
+# BizTalk Services: Developer, Basic, Standard and Premium Editions Chart
 
 Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard, and Premium. The following table lists the differences:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td></td>
+        <td>-</td>
         <td><b>Developer</b></td>
         <td><b>Basic</b></td>
         <td><b>Standard</b></td>
@@ -16,10 +16,10 @@ Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard,
 </tr>
 <tr>
 <td>Starting price</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Windows Azure BizTalk Services Pricing</a>.</td>
 </tr>
 <tr>
 <td>Target Users</td>
@@ -131,15 +131,15 @@ Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard,
 </tr>
 </table>
 
-A “unit” is the atomic level of a Windows Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. A Basic Unit has twice the compute as Developer. Standard has twice the compute as Basic. Enterprise has twice the compute as Standard. When you scale BizTalk Service, you scale in terms of Units.
+A "unit" is the atomic level of a Windows Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. A Basic Unit has twice the compute as Developer. Standard has twice the compute as Basic. Enterprise has twice the compute as Standard. When you scale BizTalk Service, you scale in terms of Units.
 
-## **Next**
+## Next
 
 To provision Windows Azure BizTalk Services in the Windows Azure Management Portal, go to [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Windows Azure BizTalk Services - June 2013 Preview](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## **See Also**
-[BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-[BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-[BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-[How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+## See Also
+-  [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+-  [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+-  [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+-  [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+-  [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

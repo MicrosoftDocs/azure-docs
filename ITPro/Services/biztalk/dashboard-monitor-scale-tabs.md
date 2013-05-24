@@ -2,24 +2,24 @@
 
 <div chunk="../chunks/biztalk-services-left-nav.md"/> 
 
-# **BizTalk Services: Dashboard, Monitor and Scale tabs**
+# BizTalk Services: Dashboard, Monitor and Scale tabs
 
 The first time you open the Windows Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or click the **BIZTALK SERVICES** tab; and then click your BizTalk Service name.
 
 This opens a new window with the following options:
 
-[Quick Start](#QuickStart)
+- [Quick Start](#QuickStart)
 
-[Dashboard](#Dashboard)
+- [Dashboard](#Dashboard)
 
-[Monitor](#Monitor)
+- [Monitor](#Monitor)
 
-[Scale](#Scale)
+- [Scale](#Scale)
 
 This topic describes these tabs.
 
 
-##<a href="QuickStart"></a>**Quick Start**
+##<a name="QuickStart"></a>Quick Start
 
 When you click your BizTalk Service name, the Quick Start tab is displayed. In the Quick Start tab, you can do the following:
 
@@ -99,11 +99,11 @@ This process is called “rollover keys”. The purpose is to enable users to sw
 </table>
 
 
-##<a href="Dashboard"></a>**Dashboard**
+##<a name="Dashboard"></a>Dashboard
 
 The Dashboard displays the following information:
 
-#### **Metric Graph**
+#### Metric Graph
 
 A graph that shows a fixed list of performance metrics. These metrics provide real-time values regarding the health of your BizTalk Service. Metrics include:
 
@@ -116,10 +116,10 @@ A graph that shows a fixed list of performance metrics. These metrics provide re
 
 For a description of these performance metrics, go to [Available Metrics](#Metrics) in this topic.
 
-##### **Relative or Absolute**
+##### Relative or Absolute
 The graph shows trends, displaying only the current value of each metric; which is the **Relative** option. To display a Y axis to see the absolute values, select **Absolute**.
 
-##### **Interval**
+##### Interval
 Modifies the time range the metrics are displayed in the graph. Options include:
 
 - 1 Hour
@@ -127,7 +127,7 @@ Modifies the time range the metrics are displayed in the graph. Options include:
 - 7 Days
 
 
-#### **Quick Glance**
+#### Quick Glance
 
 Lists your BizTalk Service properties, including the following:
 
@@ -194,7 +194,7 @@ When you provision the BizTalk Service, you enter a SSL certificate. Using this 
 [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to provision a BizTalk Service.
 
 
-#### **Manage, Sync Keys and Delete**
+#### Manage, Sync Keys and Delete
 In the task bar at the bottom, you can **Manage** the BizTalk Service, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
 <table border="1">
@@ -234,20 +234,20 @@ This process is called “rollover keys”. The purpose is to enable users to sw
 </table>
 
 
-##<a href="Monitor"></a>**Monitor**
+##<a name="Monitor"></a>Monitor
 
 The Monitor tab displays the following information: 
 
-#### **Metric Graph**
+#### Metric Graph
 
 A graph that displays the selected performance metrics. These metrics provide real-time values regarding the health of your BizTalk Service. You choose which performance metrics are displayed. A maximum of six performance metrics can be displayed simultaneously.
 
 
-##### **Relative or Absolute**
+##### Relative or Absolute
 The graph shows trends, displaying only the current value of each metric; which is the **Relative** option. To display a Y axis to see the absolute values, select **Absolute**.
 
 
-##### **Interval**
+##### Interval
 Modifies the time range the metrics are displayed in the graph. Options include:
 
 - 1 Hour
@@ -255,7 +255,7 @@ Modifies the time range the metrics are displayed in the graph. Options include:
 - 7 Days
 
 
-#### **To remove or display metrics in the graph**
+#### To remove or display metrics in the graph
 
 >1. Click the **Monitor** tab.
 >2. Click **Add Metrics** in the task bar:<br/>
@@ -271,7 +271,7 @@ Click the grayed out circle to enable the **CPU Usage** metric to display its ou
 
 >6. To remove a metric from the display graph and the list, click **Delete Metric** in the task bar. Clicking **Delete Metric** removes the metric from the Monitor tab. To add the metric back to the list, click **Add Metrics** in the task bar, check the metric, and click the checkmark to return to the **Monitor** tab. Click the grayed out circle to enable the metric in the graph.
 
-##<a href="Metrics"></a>**Available Metrics**
+##<a name="Metrics"></a>Available Metrics
 
 The following performance counters/metrics are available:
 
@@ -341,7 +341,7 @@ This metric shows the result of the following calculation:
 </table>
 
 
-##<a href="Scale"></a>**Scale**
+##<a name="Scale"></a>Scale
 
 In the Scale tab, you can add or subtract the number of units used by your BizTalk Service. By default, there is one Unit configured. Additional Units can be added to scale your BizTalk Service. When you increase the scale, you are increasing throughput. The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power. For example, you increase the scale from 1 Unit to 2 Units. In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.
 
@@ -351,17 +351,17 @@ Increasing the number of units may impact pricing. If you increase the Units, cl
 
 
 
-## **Next**
+## Next
 
 Now that you’re familiar with the different tabs, you can learn more about the Windows Azure BizTalk Services features:
 
-[BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-[BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
+- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
 
-## **See Also**
-[BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-[How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+## See Also
+- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [AddMetrics]: ../Media/WABS_AddMetrics.png
 [GrayedMetric]: ../Media/WABS_GrayedMetric.png
