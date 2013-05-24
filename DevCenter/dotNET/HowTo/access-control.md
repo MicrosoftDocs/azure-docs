@@ -175,12 +175,6 @@ When your application is integrated with ACS and you have selected Windows Live 
 
 ![][6]
 
-If your relying party application is configured to offer more than one identity provider, the browser is first redirected to a page hosted by ACS that prompts you to choose an identity provider. 
-
-![][7]
-
-When you click to select an identity provider, you are redirected to the sign-in page for the identity provider and then, if you are authenticated, you are redirected to the application.
-
 Congratulations! You have successfully integrated ACS with your ASP.NET web application. ACS is now handling the authentication of users using their Microsoft account credentials.
 
 <h2><span class="short-header">View the Application in the ACS Management Portal</span>View the Application in the ACS Management Portal</h2>
@@ -238,10 +232,15 @@ Let's use the ACS Management Portal to change the authentication of our WebACS a
 	![][15]
 
 
-Done! Now, if you go back to Visual Studio, open the project for the WebACS app, and click **Identity and Access**, the tool lists both the Windows Live ID and Google identity providers.  And when you run the app, both identity providers are offered.
+Done! If you go back to Visual Studio, open the project for the WebACS app, and click **Identity and Access**, the tool lists both the Windows Live ID and Google identity providers.  
 
 ![][16]
 
+And, when you run your application, you'll see the effect. When an application supports more than one identity provider, the user's browser is first directed to a page hosted by ACS that prompts the user to choose an identity provider. 
+
+![][7]
+
+After the user selects an identity provider, the browser goes to the identity provider sign-in page.
 
 <h2><span class="short-header">What's Next</span>What's Next</h2>
 
