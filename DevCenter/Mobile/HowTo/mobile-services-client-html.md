@@ -6,7 +6,12 @@
 
 # How to use an HTML/JavaScript client for Windows Azure Mobile Services
 
-<div class="dev-center-tutorial-selector"><a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a> <a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="JavaScript" class="current">HTML/JavaScript</a> <a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector"> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
+  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client" title="HTML/JavaScript" class="current">HTML/JavaScript</a> 
+	<a href="/en-us/develop/mobile/how-to-guides/how-to-ios-client" title="iOS">iOS</a> 
+	<a href="/en-us/develop/mobile/how-to-guides/how-to-android-client" title="Android">Android</a>
+</div>
 
 
 This guide shows you how to perform common scenarios using an HTML/JavaScript client for Windows Azure Mobile Services. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the Mobile Services [Windows Store JavaScript quickstart] or [HTML quickstart]. The quickstart tutorial helps you configure your account and create your first mobile service.

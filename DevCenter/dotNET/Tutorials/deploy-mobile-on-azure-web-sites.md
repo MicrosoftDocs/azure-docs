@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile web site" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,  ASP.NET MVC" metaDescription="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile web site" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,  ASP.NET MVC" metaDescription="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra"/>
 
 
 
@@ -508,7 +508,7 @@ The **Import Publish Profile** dialog box appears.
     ![download sub](../Media/rzDownLoad.png)
     1. In your browser window, save the *.publishsettings* file.<br/>
     ![download pub file](../Media/rzDown2.png)
-    <div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+    <div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
     1. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
     ![download sub](../Media/rzDownLoad.png)
     1. Click **Import**.<br/>
