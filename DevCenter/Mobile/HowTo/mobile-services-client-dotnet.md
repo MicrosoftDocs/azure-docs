@@ -1,7 +1,7 @@
 <properties linkid="mobile-services-how-to-dotnet-client" urlDisplayName=".NET Client" pageTitle="How to use an .NET client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" metaDescription="Learn how to use a .NET client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
 
 
-<div chunk="../chunks/article-left-menu-dotnet.md" />
+<div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # How to use a .NET client for Windows Azure Mobile Services
 
