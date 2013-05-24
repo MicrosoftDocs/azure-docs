@@ -3,7 +3,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Active Directory Access Control
 
-This guide shows you how to use Windows Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers like Windows Live, Google, or Facebook when they try to gain access to a web application.
+This guide shows you how to use Windows Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers such as Microsoft, Google, Yahoo, and Facebook when they try to gain access to a web application.
 
 <h2><span class="short-header">Table of Contents</span>Table of Contents</h2>
 
@@ -47,9 +47,9 @@ To complete the tasks in this guide, you should understand the following terms a
 
 **Token** - A user gains access to an RP application by presenting a valid token that was issued by an authority that the RP application trusts. A collection of security data that is issued when a client is authenticated. It contains a set of claims, which are attributes of the authenticated user, such as a user's name or age, or an identifier for a user role. A token is digitally signed so its issuer can be identified and its content cannot be changed.
 
-**Identity Provider (IP)** - An  authority that authenticates user identities and issues security tokens, such as Microsoft account (Windows Live ID), Facebook,  Google, Twitter, and Active Directory. Tokens are generated  byby a Security Token Service (STS) that the IP uses. When ACS is configured to trust an IP, it accepts and validates the tokens that the IP issues. Because ACS can trust multiple IPs at the same time, when your application trusts ACS, you can  your application can offer users the option to be authenticated by any of the IPs that ACS trusts on your behalf.
+**Identity Provider (IP)** - An  authority that authenticates user identities and issues security tokens, such as Microsoft account (Windows Live ID), Facebook,  Google, Twitter, and Active Directory. When ACS is configured to trust an IP, it accepts and validates the tokens that the IP issues. Because ACS can trust multiple IPs at the same time, when your application trusts ACS, you can  your application can offer users the option to be authenticated by any of the IPs that ACS trusts on your behalf.
 
-**Federation Provider (FP)** - Identity providers (IPs) have direct knowledge of users, authenticate users by using their credentials, and issue claims about about users. A Federation Provider (FP) is a different kind of authority: instead of authenticating users directly, the FP brokers authentication; it acts as an intermediary between one RP and one or more IPs. Both IPs and FPs use a Security Token Services (STS) to generate the security tokens that they issue. ACS is an FP.
+**Federation Provider (FP)** - Identity providers (IPs) have direct knowledge of users, authenticate users by using their credentials, and issue claims about users. A Federation Provider (FP) is a different kind of authority. Instead of authenticating users directly, the FP brokers authentication. It acts as an intermediary between a relying party application and one or more IPs. ACS is a federation provider (FP).
 
 **ACS Rule Engine** - Claims transformation rules convert the claims in tokens from trusted IPs so they can be used by an RP. ACS includes a rule engine that  applies the claims transformation rules that you specify for your RP.
 
@@ -249,7 +249,7 @@ You have created a web application that is integrated with ACS. But, this is jus
  
 For example, you can add more identity providers for this RP or allow users registered in enterprise directories, such as Active Directory Domain Services, to log on to the web application.
 
-You can also add rules to your namespace that determine which authentication token claims are sent to an application for processing in the application business logic.
+You can also add rules to your namespace that determine which claims are sent to an application for processing in the application business logic.
 
 To further explore ACS functionality and to experiment with more scenarios, see [Access Control Service 2.0].
 
