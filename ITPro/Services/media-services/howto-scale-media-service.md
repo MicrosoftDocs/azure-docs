@@ -1,5 +1,6 @@
-<properties linkid="manage-services-how-to-scale-a-media-service" urlDisplayName="How to scale" pageTitle="How to scale a media service - Windows Azure" metaKeywords="Azure link resource, scaling media service" metaDescription="Learn how to scale a media service in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-scale-a-media-service" urlDisplayName="How to scale" pageTitle="How to scale a media service - Windows Azure" metaKeywords="Azure link resource, scaling media service" metaDescription="Learn how to scale a media service in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
+<div chunk="../../../devcenter/media-services/chunks/article-left-menu.md" />
 
 #How to Scale a Media Service  
 
