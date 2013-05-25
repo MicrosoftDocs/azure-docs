@@ -66,7 +66,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
+	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see <a href="en-us/manage/services/hdinsight/howto-blob-store/">Using Windows Azure Blob Storage with HDInsight</a>.</p> 
 	</div>
 
 7. From **Blob**, click **Upload**.
