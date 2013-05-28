@@ -26,7 +26,7 @@ This tutorial walks you through these basic steps to enable use of Service Bus's
 1. [Register your app for the Windows Store]
 2. [Create and Configure a Service Bus Notification Hub]
 3. [Connecting the App to the Notification Hub]
-4. [Add push notifications to the app]
+4. [Add tag data to table item]
 5. [Update scripts to send push notifications]
 6. [Insert data to receive notifications]
 
@@ -107,13 +107,13 @@ After the basic setup of the Windows app and its matching Windows Store profile,
 
 <h2><a name="connect-app"></a><span class="short-header">Connecting the App</span>Connecting the App to the Notification Hub</h2>
 
-Your Grid App is already linked to its Windows Store profile and that is linked to the Notification Hub. You will now send the application a “toast” alert in this quick first walkthrough. 
+Your App is now linked to its Windows Store profile and that is linked to the Notification Hub. You will now send the application a “toast” alert in this quick first walkthrough. 
 
 First, enable the toast capability in the manifest, which you do in Visual Studio 2012.
 
-1. Right-click the package.appx manifest file in the project and click Open With. In the dialog, click XML Text Editor.
+1. Right-click the **package.appxmanifest** manifest file in the project and click **Open With**. In the dialog, click **XML Text Editor**.
 
-2. Find the VisualElements node and add the attribute ToastCapable=”true” as shown in the following snippet. Save and close the application.
+2. Find the **VisualElements** node and add the attribute *ToastCapable=”true”* as shown in the following snippet. Save and close the application.
 
 		<VisualElements DisplayName="MyPushApp" Logo="Assets\Logo.png"
 		                SmallLogo="Assets\SmallLogo.png" Description="App1"
@@ -124,13 +124,13 @@ First, enable the toast capability in the manifest, which you do in Visual Studi
 		</VisualElements>
 
 
-3. The app must register with the Notification Hub at runtime, so that the particular app instance becomes known to the system. Technically, the app registers with both WNS and the Notification Hub, but the Service Bus API wraps these separate steps into a single step. It also remembers the settings across application restarts. In the app settings, you must provide a way for users to disable notifications. See Windows Store guidelines. This information is not covered in this walkthrough. 
+The app must register with the Notification Hub at runtime, so that the particular app instance running on your computer becomes known to the system. Technically, the app registers with both WNS and the Notification Hub, but the Service Bus API wraps these separate steps into a single step. It also remembers the settings across application restarts. In the app settings, you must provide a way for users to disable notifications. See <a href="http://msdn.microsoft.com/en-us/library/windows/apps/Hh761462.aspx">Windows Store guidelines</a>. This information is not covered in this walkthrough. 
 
-4. To implement the push notification client, add a reference to Microsoft.WindowsAzure.Messaging.Managed.dll for WinRT from within your project. Download it from here. 
+1. To implement the push notification client, add a reference to **Microsoft.WindowsAzure.Messaging.Managed.dll** for WinRT from within your project. Download it from <a href="http://go.microsoft.com/fwlink/?LinkID=277160">here</a>. Unzip the downloaded file: the dll you want is in the **releases** directory.
 
-5. Right-click the References node in your Visual Studio project and add the new reference. In the dialog, browse to the assembly location and select it.
+5. Right-click the **References** node in your Visual Studio project and add the new reference. In the dialog, browse to the assembly location and select it.
 
-6. Open the App.xaml.cs file. 
+6. Open the **App.xaml.cs** file. 
 
 7. Add the following using statements:
 
@@ -140,7 +140,7 @@ First, enable the toast capability in the manifest, which you do in Visual Studi
 		using Windows.UI.Notifications;
 		
 
-8. Inside the App class, add a field to hold a reference to the NotificationHub client class for the application – from the Service Bus Notification API:
+8. Inside the **App** class, add a field to hold a reference to the **NotificationHub** client class for the application – from the Service Bus Notification API:
 
 
 		sealed partial class App : Application
@@ -149,7 +149,7 @@ First, enable the toast capability in the manifest, which you do in Visual Studi
 		
 
 
-9. Initialize the notificationHub in the constructor. To create the connection string, you need the Notification Hub DefaultListenSharedAccessSignature value, from the portal. Creating the connection string with this key enables you to create a call signature that expresses access rights for adding a new registration. It does not confer any further rights. Replace mynamespace with your own namespace name and myhub with the name of your Notification Hub.
+9. Initialize the **notificationHub** in the constructor. To create the connection string, you need the Notification Hub **DefaultListenSharedAccessSignature** value, from the portal. Creating the connection string with this key enables you to create a call signature that expresses access rights for adding a new registration. It does not confer any further rights. Replace *mynamespace* with your own namespace name and ***myhub*** with the name of your Notification Hub.
 
 
 		public App()
@@ -157,7 +157,7 @@ First, enable the toast capability in the manifest, which you do in Visual Studi
 		    var cn = 
 		        ConnectionString.CreateUsingSharedAccessSecretWithListenAccess(
 		        new Uri("sb://mynamespace.servicebus.windows.net/ "),
-		        "… insert DefaultListenSharedAccessSignature key …”);
+		        "… insert DefaultListenSharedAccessSignature key …");
 		    notificationHub = new NotificationHub("myhub", cn);
 		
 		    this.InitializeComponent();
@@ -165,7 +165,7 @@ First, enable the toast capability in the manifest, which you do in Visual Studi
 		}
 		
 
-10. To initialize notifications and renew the registration on app startup, add two methods. The first is InitializeNotificationsAsync. This method refreshes existing registrations, and reacquires and reassociates the WNS channel URI whenever needed. It also creates a new registration; or, if a template registration called myToastRegistration already exists, it overwrites it.
+10. To initialize notifications and renew the registration on app startup, add two methods. The first is **InitializeNotificationsAsync**. This method refreshes existing registrations, and reacquires and reassociates the WNS channel URI whenever needed. It also creates a new registration; or, if a template registration called *myToastRegistration* already exists, it overwrites it.
 
 		async Task InitializeNotificationsAsync()
 		{
@@ -178,7 +178,7 @@ First, enable the toast capability in the manifest, which you do in Visual Studi
 		}
 
 
-11. The second method is **`BuildTextToastTemplate`**. It is used when calling **CreatingTemplateRegistrationAsync** on the **notificationHub** instance. It uses the Windows native notification template library. In the **ToastText01** template, modify its text node by adding a Notification Hub template expression: $(msg), as follows:
+11. The second method is **BuildTextToastTemplate**. It is used when calling **CreatingTemplateRegistrationAsync** on the **notificationHub** instance. It uses the Windows native notification template library. In the *ToastText01* template, modify its text node by adding a Notification Hub template expression: `$(msg)`, as follows:
 
 		XmlDocument BuildTextToastTemplate()
 		{
@@ -199,7 +199,7 @@ Each application instance can choose a different template and different customiz
 
 This model enables targeting hundreds of highly customized and concurrent notification registrations that can be served with notifications by sending a single message that carries the key/value information.
 
-12. To add the initialization function to the app, mark the OnLaunched method as asynchronous and add the required call:
+12. To add the initialization function to the app, mark the **OnLaunched** method as asynchronous and add the required call:
 
 		protected async override void OnLaunched(LaunchActivatedEventArgs args) 
 
@@ -210,7 +210,7 @@ This model enables targeting hundreds of highly customized and concurrent notifi
 		
 
 
-13. To perform the registration for other activation modes, add the same call to the OnActivated event override:
+13. To perform the registration for other activation modes, add the same call to the **OnActivated** event override:
 
 		protected async override void OnActivated(IActivatedEventArgs args) {
 		    base.OnActivated(args);
@@ -222,7 +222,12 @@ This model enables targeting hundreds of highly customized and concurrent notifi
 To recap, this procedure showed how to add highly scalable and highly customizable delivery of notification events to your Windows Store app with just a few lines of code.
 
 
-<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+<h2><a name="add-tag"></a><span class="short-header">Add tag data</span>Add tag data to table item</h2>
+
+Tags allow you to configure your app to filter the stream of push notifications and only receive the ones you are interested in. There are several steps to enable tags: your app must register for the tags you are interested in. And the backend app must somehow tell the Notification Hub what tag to apply to a notification.
+
+In this sample app, we will add a tag field to the Mobile Services table. Inserts
+to the table will generate notifications which will use the field for the tag value.
 
 1. Open the file App.xaml.cs and add the following using statement:
 
@@ -234,8 +239,8 @@ To recap, this procedure showed how to add highly scalable and highly customizab
 
 	    private async void AcquirePushChannel()
 	    {
-	            CurrentChannel =  
-	                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+            CurrentChannel =  
+                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
         }
 
    This code acquires and stores a push notification channel.
@@ -324,7 +329,7 @@ In this simple example a user receives a push notification with the data that wa
 [Register your app for the Windows Store]: #register
 [Connecting the App to the Notification Hub]: #connect-app
 [Update scripts to send push notifications]: #update-scripts
-[Add push notifications to the app]: #add-push
+[Add tag data to table item]: #add-tag
 [Insert data to receive notifications]: #test
 [Next Steps]:#next-steps
 
