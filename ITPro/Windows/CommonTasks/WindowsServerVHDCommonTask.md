@@ -149,7 +149,7 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 
 
 ## Next Steps ##
-After the image is available in your list, you can use it to create virtual machines. For instructions, see [Create a Virtual Machine Running Windows Server](../Windows/Tutorials/CreateVirtualMachineWindowsTutorial.md).
+After the image is available in your list, you can use it to create virtual machines. For instructions, see [Create a Virtual Machine Running Windows Server](../Tutorials/CreateVirtualMachineWindowsTutorial.md).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Windows Azure]: #createstorage
