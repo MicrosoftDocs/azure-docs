@@ -444,7 +444,7 @@ For more information see, New topic about processing headers in the server-side.
 
 <!-- URLs. -->
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-iOS.md
-[Validate and modify data in Mobile Services by using server scripts]: ../tutorials/validate-modify-and-augment-data-ios.md
+[Validate and modify data in Mobile Services by using server scripts]: ../tutorials/mobile-services-validate-and-modify-data-ios.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-iOS.md
 [iOS SDK]: https://developer.apple.com/xcode
@@ -452,8 +452,8 @@ For more information see, New topic about processing headers in the server-side.
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
-[Use scripts to authorize users]: ../tutorials/authorize-users-in-scripts-ios.md
+[Use scripts to authorize users]: ../tutorials/mobile-services-authorize-users-ios.md
 [Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: ./work-with-server-scripts.md/#access-headers
+[How to: access custom parameters]: ../howto/mobile-services-work-with-server-scripts.md/#access-headers
 [Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
