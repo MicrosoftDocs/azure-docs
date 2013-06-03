@@ -3,7 +3,11 @@
 #Load Balancing Virtual Machines#
 
 
-External communication with virtual machines can occur through endpoints. These endpoints are used for diffierent purposes, such as load-balanced traffic or for direct virtual machine connectivity, like RDP or SSH. You define endpoints that are associated to specific ports and are assigned a specific communication protocol. An endpoint can be assigned a protocol of TCP or UDP (the TCP protocol includes HTTP and HTTPS traffic). Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is defined for setting up communication rules on the virtual machine and the public port is used by Windows Azure to communicate with the virtual machine from external resources.
+External communication with virtual machines can occur through endpoints. These endpoints are used for different purposes, such as load-balanced traffic or for direct virtual machine connectivity, like RDP or SSH. You define endpoints that are associated to specific ports and are assigned a specific communication protocol. 
+
+An endpoint can be assigned a protocol of TCP or UDP (the TCP protocol includes HTTP and HTTPS traffic). Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is defined for setting up communication rules on the virtual machine and the public port is used by Windows Azure to communicate with the virtual machine from external resources.
+
+After you create an endpoint, you can also manage incoming traffic to the public port by configuring rules for the network access control list (ACL) of the endpoint. For more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816). For instructions about managing an ACL for an endpoint, see [How to set up communication with a virtual machine] [].
 
 **Note**: If you want learn about connecting to virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -68,11 +72,15 @@ After you connect additional virtual machines to the first machine and you creat
 
 ## <a id="lbprobes"> </a>Step 5: (Optional) Define load-balancing probes ##
 
-A virtual machine must be in a healthy state to receive network traffic. You can optionally define your own method for determining the health of the virtual machine by adding a load-balancing probe to the load-balanced endpoint. Windows Azure probes for a response from the virtual machine every 15 seconds and takes a virtual machine out of the rotation if no response is received after two probes. You must use PowerShell to define probes on the load balancer. For more information about using Windows Azure cmdlets, see [Getting Started with Windows Azure PowerShell] [].
+A virtual machine must be in a healthy state to receive network traffic. To define your own method for determining the health of the virtual machine, you can add a load-balancing probe to the load-balanced endpoint. Windows Azure probes for a response from the virtual machine every 15 seconds and takes a virtual machine out of the rotation if no response is received after two probes. You use cmdlets in the Windows Azure PowerShell to define probes on the load balancer.
 
-To change the configuration of an existing virtual machine using PowerShell, you must get the object that represents the virtual machine, modify the configuration, and then update the object to save the changes. The following example uses the Get-AzureVM cmdlet to retrieve the virtual machine object, pipes the object to the Set-AzureEndpoint cmdlet to change the load-balanced endpoint settings, and then pipes the changes to the Update-AzureVM cmdlet:
+To change the configuration of an existing virtual machine using Windows PowerShell, you'll need to get the object that represents the virtual machine, modify the configuration, and then update the object to save the changes. 
+
+The following example uses the Get-AzureVM cmdlet to retrieve the virtual machine object, pipes the object to the Set-AzureEndpoint cmdlet to change the load-balanced endpoint settings, and then pipes the changes to the Update-AzureVM cmdlet:
 
 	Get-AzureVM -ServiceName "MyService" -Name "MyTestVM2" | Set-AzureEndpoint -LBSetName "MyLBSet" –Name MyTestEndpoint2 –Protocol tcp –LocalPort 80 -ProbePort 80 -ProbeProtocol http -ProbePath "/" | Update-AzureVM
+
+For more information about using Windows Azure cmdlets, see [Get Started with Windows Azure PowerShell] [].
 
 To run the cmdlets that are listed in the previous example, you must know the following information:
 
@@ -114,4 +122,4 @@ The previous command produces the following results:
 [How to create a custom virtual machine]:../../Windows/HowTo/howto-custom-create-vm.md
 [How to set up communication with a virtual machine]:../../Windows/HowTo/howto-setup-endpoints-vm.md
 [How to connect virtual machines in a cloud service]:../../Windows/HowTo/howto-connect-vm-cloud-service.md
-[Getting Started with Windows Azure PowerShell]:http://msdn.microsoft.com/en-us/library/jj156055.aspx
+[Get Started with Windows Azure PowerShell]:http://msdn.microsoft.com/en-us/library/jj156055.aspx

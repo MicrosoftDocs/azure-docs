@@ -50,7 +50,7 @@ using Windows Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
-In this tutorial, you will create an ASP.NET MVC 3 web site that will
+In this tutorial, you will create an ASP.NET MVC 4 web site that will
 allow you to see a list of products on the product inventory page.
 
 ![][0]
@@ -199,14 +199,18 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 5.  In the **Solution Explorer**, right-click **ProductsServer**, then
     click **Properties**.
 6.  Click the **Application** tab on the left, then ensure that **.NET
-    Framework 4** appears in the **Target framework:** dropdown. If not, select it from the dropdown and then click **Yes**
+    Framework 4** or **.NET Framework 4.5** appears in the **Target framework:** dropdown. If not, select it from the dropdown and then click **Yes**
     when prompted to reload the project.
 
     ![][12]
 
+7.  If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
+
 7.  In **Solution Explorer**, right-click **References**, then click
     **Manage NuGet Packages**...
-8.  Search for ‘**WindowsAzure**’ and select the **Windows
+8.  In the left-hand column of the NuGet dialog, click **Online**.
+
+9. 	In the right-hand column, click the **Search** box, type ‘**WindowsAzure**’ and select the **Windows
     Azure Service Bus** item. Click **Install** to complete the
     installation, then close this dialog.
 
@@ -215,7 +219,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     Note that the required client assemblies are now referenced.
 
 9.  Add a new class for your product contract. In **Solution Explorer**,
-    right click **ProductsServer** and click **Add**, then click
+    right click the **ProductsServer** project and click **Add**, then click
     **Class**.
 
     ![][14]
@@ -322,10 +326,10 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
         <system.serviceModel>
           <extensions>
              <behaviorExtensions>
-                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="transportClientEndpointBehavior" type="Microsoft.ServiceBus.Configuration.TransportClientEndpointBehaviorElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </behaviorExtensions>
               <bindingExtensions>
-                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                 <add name="netTcpRelayBinding" type="Microsoft.ServiceBus.Configuration.NetTcpRelayBindingCollectionElement, Microsoft.ServiceBus, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
               </bindingExtensions>
           </extensions>
           <services>
@@ -347,25 +351,25 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
           </behaviors>
         </system.serviceModel>
 
-14. Press **F6** to build the application to verify the accuracy of your
-    work so far.
+14. Press **F6** or from the **Build** menu, click **Build Solution** to build the application to verify the accuracy of your work so far.
 
-<h2><span class="short-header">CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 3 APPLICATION</h2>
+<h2><span class="short-header">CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 4 APPLICATION</h2>
 
 In this section you will build a simple MVC 4 application that will
 display data retrieved from your product service.
 
 ### CREATE THE PROJECT
 
-1.  Using administrator privileges, launch either Microsoft Visual
-    Studio 2012 or Microsoft Visual Web Developer Express. To
+1.  Ensure that Microsoft Visual Studio 2012 is runnning with administrator privileges. If not, to
     launch Visual Studio with administrator privileges, right-click
     **Microsoft Visual Studio 2012 (or Microsoft Visual Web Developer
     Express)** and then click Run as administrator. The Windows
     Azure compute emulator, discussed later in this guide, requires that
     Visual Studio be launched with administrator privileges.
+
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
+
 3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET
     MVC 4 Web Application**. Name the project **ProductsPortal**. Then
     click **OK**.
@@ -415,20 +419,20 @@ display data retrieved from your product service.
                 {
                     var products = new List<Product> 
                         {new Product {Id = Identifier, Name = ProductName}};
-                    return View();
+                    return View(products);
                 }
 
             }
         }
 
-3.  In the **Solution Explorer**, expand Views\Shared:
+3.  In **Solution Explorer**, expand Views\Shared:
 
     ![][18]
 
 4.  Next, double-click _Layout.cshtml to open it in the Visual Studio editor.
 
 5.  Within the body tag, find the title of the page enclosed in `title` tags.
-    Change the title text from My MVC Application to LITWARE's Products. Also change **your logo here** to **LITWARE's Products**.
+    Change the title text from **My MVC Application** to **LITWARE's Products**. Also change **your logo here** to **LITWARE's Products**.
 
 6. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
@@ -441,7 +445,7 @@ display data retrieved from your product service.
 8.  Double-click Index.cshtml to open it in the Visual Studio editor.
     Replace the entire contents of the file with the following code:
 	
-		@model IEnumerable<ProductsPortal.Models.Product>
+		@model IEnumerable<ProductsWeb.Models.Product>
 
 		@{
     		ViewBag.Title = "Index";
@@ -454,6 +458,7 @@ display data retrieved from your product service.
         		<th>
             		@Html.DisplayNameFor(model => model.Name)
         		</th>
+                <th></th>
         		<th>
             		@Html.DisplayNameFor(model => model.Quantity)
         		</th>
@@ -499,7 +504,7 @@ Run the application to verify that it works.
 
     1.  To make your application deployable to the cloud, right-click
         the **ProductsPortal** project in **Solution Explorer** and
-        click **Add Windows Azure Deployment Project**.
+        click **Add Windows Azure Cloud Service Project**.
 
         ![][22]
 
@@ -513,16 +518,16 @@ Run the application to verify that it works.
 
     4.  A browser will still display your application running locally,
         and it will look and function the same way it did when you ran
-        it earlier as a regular ASP.NET MVC 3 application.
+        it earlier as a regular ASP.NET MVC 4 application.
 
     <h2><span class="short-header">PUT THE PIECES TOGETHER</span>PUT THE PIECES TOGETHER</h2>
 
     The next step is to hook up the on-premises products server with the
-    ASP.NET MVC3 application.
+    ASP.NET MVC4 application.
 
     1.  If it is not already open, in Visual Studio re-open the
         **ProductsPortal** project you created in the "Creating an
-        ASP.NET MVC 3 Application" section.
+        ASP.NET MVC 4 Application" section.
 
     2.  Similar to the step in the "Create an On-Premises Server"
         section, add the NuGet package to the project References. In
@@ -549,12 +554,6 @@ Run the application to verify that it works.
         your service namespace, and *yourIssuerSecret* with your key.
         This will allow the client to call the on-premises service,
         returning the result of the call.
-
-            using System;
-            using System.Collections.Generic;
-            using System.Linq;
-            using System.Web;
-            using System.Web.Mvc;
 
             namespace ProductsWeb.Controllers
             {
@@ -616,9 +615,9 @@ Run the application to verify that it works.
     11. Still in the Properties dialog, click **ProjectDependencies** on
         the left-hand side.
 
-    12. In the **Project Dependencies** dropdown, click
+    12. In the **Projects** dropdown, click
         **ProductsServer**. Ensure that **ProductsPortal** is unchecked,
-        and **ProductsPortal.Azure**is checked. Then click **OK**:
+        and **ProductsPortal.Azure** is checked. Then click **OK**:
 
         ![][26]
 
@@ -647,27 +646,24 @@ Run the application to verify that it works.
 
         ![][27]
 
-    3.  Sign-in using your Live ID:
+    3.  Sign-in using your Live ID.
 
-        ![][28]
 
     4.  Save the publish profile file to a location on your hard drive
-        where you can retrieve it:
+        where you can retrieve it.
 
-        ![][29]
 
     5.  Within the publish dialog, click on **Import**:
 
         ![][30]
 
-    6.  Browse for and select the file that you just downloaded, then
-        click **Next**.
+    6.  Browse for and select the file that you just downloaded.
     7.  Pick the Windows Azure subscription you would like to publish
         to:
 
         ![][31]
 
-    8.  7.If your subscription doesn’t already contain any hosted
+    8.  Click **Next**. If your subscription doesn’t already contain any hosted
         services, you will be asked to create one. The hosted service
         acts as a container for your application within your Windows
         Azure subscription. Enter a name that identifies your
@@ -703,7 +699,7 @@ Run the application to verify that it works.
         ![][35]
 
     12. When deployment is complete, you can view your Web site by
-        clicking the **Web site URL**link in the monitoring window.
+        clicking the **Web site URL** link in the monitoring window.
 
         ![][36]
 
@@ -732,21 +728,19 @@ Run the application to verify that it works.
     application.
 
     1.  Login to the [Windows Azure Management Portal],
-        and click on Hosted Sevices, Storage
-        Accounts & CDN, then Hosted Services:
+        click on Cloud Services, then click the name of your service.
 
-        ![][33]
-
-    2.  Click on Stop to temporarily suspend your application. You will
+    2.  Click the **Dashboard** tab, and then click on **Stop** to temporarily suspend your application. You will
         be able to start it again just by clicking on Start. Click on
         Delete to completely remove your application from Windows Azure
         with no ability to restore it.
 
-        ![][34]
+        ![][43]
 
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [NuGet]: http://nuget.org
   [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
   [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI2.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
@@ -772,9 +766,9 @@ Run the application to verify that it works.
   [21]: ../../../DevCenter/dotNet/Media/App1.png
   [22]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-21.png
   [23]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-22.png
-  [24]: ../../../DevCenter/dotNet/Media/hy-web-12.jpg
+  [24]: ../../../DevCenter/dotNet/Media/hy-web-12.png
   [25]: ../../../DevCenter/dotNet/Media/hy-web-13.png
-  [26]: ../../../DevCenter/dotNet/Media/hy-web-14.jpg
+  [26]: ../../../DevCenter/dotNet/Media/hy-web-14.png
   [27]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-33.png
   [28]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-34.png
   [29]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-25.png
@@ -784,10 +778,11 @@ Run the application to verify that it works.
   [33]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-39.png
   [34]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-40.png
   [35]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-41.png
-  [36]: ../../../DevCenter/dotNet/Media/App3.png
+  [36]: ../../../DevCenter/dotNet/Media/App2.png
   [37]: ../../../DevCenter/dotNet/Media/hy-service1.png
   [38]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
   [39]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
   [40]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [41]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-40.png
   [42]: ../Media/getting-started-41.png
+  [43]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-43.png

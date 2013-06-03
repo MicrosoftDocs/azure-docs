@@ -1,4 +1,9 @@
+<properties linkid="develop-media-services-how-to-guides-set-up-computer" urlDisplayName="Set up computer for Media Services" pageTitle="Set up computer for Media Services - Windows Azure" metaKeywords="" metaDescription="Learn about the prerequisites for Media Services using the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 <h1><a name="setup-dev"> </a><span class="short header">Setting up your computer for Media Services development</span></h1> 
+
 This section contains general prerequisites for Media Services development using the Media Services SDK for .NET. It also shows developers how to create a Visual Studio application for Media Services SDK development. 
 
 ###Prerequisites
@@ -37,7 +42,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
 
 At this point, you are ready to start developing a Media Services application.    
    
-<h2><a name="connect"> </a><span class="short header">Connect to Media Services</span></h2> 
+<h2><a name="setup-account"></a><span class="short header">Connect to Media Services</span></h2> 
 
 Nearly everything you do in Media Services programming requires a reference to the server context object. The server context gives you programmatic access to all Media Services programming objects.
 

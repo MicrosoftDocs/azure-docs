@@ -1,4 +1,4 @@
-<properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" metaDescription="Learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it to WordPress Multisite" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" metaDescription="Learn how to take an existing WordPress web site created through the gallery in Windows Azure and convert it to WordPress Multisite" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -6,7 +6,7 @@
 
 *By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-In this tutorial you will learn how to take an existing WordPress web site created through the Windows Azure Gallery and convert it into a WordPress Multisite install. Additionally you will learn how to assign a custom domain to each of the subsites within your install.It is assumed that you have an existing installation of WordPress. If you do not please follow the guidance provided in [Create a WordPress web site from the gallery in Windows Azure][website-from-gallery].
+In this tutorial you will learn how to take an existing WordPress web site created through the gallery in Windows Azure and convert it into a WordPress Multisite install. Additionally you will learn how to assign a custom domain to each of the subsites within your install.It is assumed that you have an existing installation of WordPress. If you do not please follow the guidance provided in [Create a WordPress web site from the gallery in Windows Azure][website-from-gallery].
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 Lets get started.
 ## Allow Multisite
