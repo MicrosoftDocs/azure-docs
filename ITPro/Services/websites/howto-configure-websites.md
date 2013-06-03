@@ -24,7 +24,17 @@ Follow these steps to change configuration options for a web site.
 	<li>Set the following configuration options for the web site as appropriate:
 	<ul>
 	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
-<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in Shared and Reserved modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see [Configuring a custom domain name for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/).</li>
+
+<li style="margin-left: 40px">
+<strong>certificates</strong> – Click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
+<br /><strong>Note:</strong>
+Custom domains are available only in Shared and Reserved modes.
+</li>
+
+<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Reserved</strong> modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
+
+<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
+
 <li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
 <li><strong>Git URL</strong> – If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
@@ -45,7 +55,7 @@ Follow these steps to change configuration options for a web site.
 </li>
 <li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Windows Azure Storage account.
 <br /><strong>Note:</strong> 
-For more information about Windows Azure Storage Access Keys, see [How to: View, copy, and regenerate storage access keys](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/ "How to: View, copy, and regenerate storage access keys").
+For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a>.
 </li></ul></li></ul></li>
 <li style="margin-left: 40px"><strong>site diagnostics</strong> – Set options for gathering diagnostic 
 	information for your web site, including:
@@ -100,7 +110,7 @@ Follow these steps to link a web site to a SQL Database:
 
 3. Click the **Linked Resources** tab and a message will be displayed on the **Linked Resources** page indicating **You have no linked resources**.
 
-4. Click **Link a Resource** to open the **Link Resource** wizard.
+4. Click **Link a Resource** to open the **Link a Resource** wizard.
 
 5. Click **Create a new resource** to display a list of resources types that can be linked to your web site.
 
@@ -111,9 +121,11 @@ Follow these steps to link a web site to a SQL Database:
 Windows Azure will create a SQL database with the specified parameters and link the database to the web site.
 
 ##<a name="howtoconfigMySQL"></a>How to: Configure a web site to use a MySQL database##
-To configure a web site to use a MySQL database you must create the web site with the **Create With Database** option and then specify either to "Use an existing MySQL database" or "Create a new MySQL database." 
+To configure a web site to use a MySQL database, follow the same steps to use a SQL database, but in the **Link a Resource** wizard, choose **MySQL Database** instead of **SQL Database**. 
 
-You can't add MySQL databases to a web site as a linked resource. They aren't displayed in the Management Portal as a type of cloud resource.
+Alternatively, you can create the web site with the **Custom Create** option. In the **Database** dropdown, choose either **Create a new MySQL database** or **Use an existing MySQL database**. 
+
+##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
 
 
 
