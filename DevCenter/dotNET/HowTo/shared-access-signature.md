@@ -738,6 +738,10 @@ The **Main()** method should now look like this in its entirety. Run it to write
 	    Console.ReadLine();
     }
 
+When you run the GenerateSharedAccessSignatures console application, you'll see output similar to the following in the console window. These are the shared access signatures that you'll use in Part 2 of the tutorial.
+
+![sas-console-output-1][]
+
 # Part 2: Create a Console Application to Test the Shared Access Signatures #
 
 To test the shared access signatures created in the previous examples, we’ll create a second console application that uses the signatures to perform operations on the container and on a blob.
@@ -977,7 +981,9 @@ static void Main(string[] args)
 }
 </pre>
 
-Run the console application and observe the output to see which operations are permitted for which signatures.
+Run the console application and observe the output to see which operations are permitted for which signatures. The output in the console window will look similar to the following:
+
+![sas-console-output-2][]
 
 # Next Steps #
 

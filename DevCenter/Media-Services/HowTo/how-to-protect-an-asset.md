@@ -1,4 +1,10 @@
-<h1><a name="playready"> </a><span class="short header">Protect an Asset</span>How to: Protect an Asset with PlayReady Protection</h1>
+<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Windows Azure" metaKeywords="" metaDescription="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
+<h1><a name="playready"></a>How to: Protect an Asset with PlayReady Protection</h1>
+
+This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Check Job Progress](http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409).
 
 In Windows Azure Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt an asset. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
 
@@ -99,8 +105,8 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 </code></pre>
 For more information on PlayReady protection, see:
 <ul>
-<li><a href=http://msdn.microsoft.com/en-us/library/dn189154.aspx>Protecting Assets with Microsoft PlayReady</a></li>
-<li><a href=http://www.microsoft.com/PlayReady/>Microsoft PlayReady</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/dn189154.aspx">Protecting Assets with Microsoft PlayReady</a></li>
+<li><a href="http://www.microsoft.com/PlayReady/">Microsoft PlayReady</a></li>
 </ul>
 
 <h2>Next Steps</h2>

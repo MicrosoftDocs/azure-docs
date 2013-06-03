@@ -7,14 +7,16 @@
 
 <div chunk="../../Shared/Chunks/disclaimer.md" />
 
-You use the Windows Azure Management Portal to scale your web sites, and to specify whether you want to run them in Free web site mode, Shared web site mode or Reserved web site mode.  
+You use the Windows Azure Management Portal to scale your web sites, and to specify whether you want to run them in Free web site mode, Shared web site mode or Reserved web site mode. 
+
+ <strong>Warning</strong><br />During preview, no SLA is provided to Web Sites.
 
 ## Table of Contents ##
 
 - [Free Web Site Mode](#freemode)
 - [Shared Web Site Mode](#sharedmode)
 - [Reserved Web Site Mode](#reservedmode)
-- [How to: Change Scale Options for a Web Site](#howtochangescale)
+- [How to Change Scale Options for a Web Site](#howtochangescale)
 
 ##<a name="freemode"></a>Free Web Site Mode
 
@@ -36,36 +38,38 @@ For this reason it is recommended that you configure any  "proof of concept” w
 
 ##<a name="sharedmode"></a>Shared Web Site Mode
 
-A web site that is configured as or updated to **Shared** mode uses a low-cost scaling mode that provides more performance than **Free** mode. Changing to **Shared** mode is easily done in the **Scale** tab of the management portal. These changes take only seconds to apply, and do not require code to be changed or the application to be redeployed.
+A web site that is configured as or updated to **Shared** mode uses a low-cost scaling mode that provides high availability and more performance than **Free** mode. Changing to **Shared** mode is easily done in the **Scale** tab of the management portal. These changes take only seconds to apply, and do not require code to be changed or the application to be redeployed.
 
 A web site in **Shared** mode is deployed in the same multi-tenant environment as one in **Free** mode, but has no quotas or upper limit to the amount of bandwidth it can serve. The first 5 GB of bandwidth served on a **Shared** web site is free; subsequent bandwidth is charged at the standard "pay-as-you-go" rate for outbound bandwidth.
 
-A web site running in **Shared** mode also now supports the ability to receive mapping for multiple custom DNS domain names, using both CNAME and A-records. Using A-records allows web sites to be accessed using only the domain name (e.g. http://microsoft.com in addition to http://www.microsoft.com). In the future, SNI-based SSL will also be available for web sites running in **Shared** mode.
+A web site running in **Shared** mode also now supports the ability to receive mapping for multiple custom DNS domain names, using both CNAME and A-records. Using A-records allows web sites to be accessed using only the domain name (e.g. http://microsoft.com in addition to http://www.microsoft.com). SNI-based SSL is also available for custom domain web sites running in **Shared** or **Reserved** mode.
+
+A web site running in **Shared** mode benefits from high availability even with a single instance, but you can add more instances ("scale out") for even greater performance and fault tolerance. For more information, see "How to Change Scale Options for a Web Site" later in this document.
  
 ##<a name="reservedmode"></a>Reserved Web Site Mode
 
-A web site that is configured as **Reserved** will provide more consistent performance than a web site that is configured as **Free** or **Shared**. 
+A web site that is configured as **Reserved** will provide high availability and more consistent performance than a web site that is configured as **Free** or **Shared**. 
 
-When you configure a web site as Reserved, you specify the size of the web site (**Small**, **Medium** or **Large**). A web site that is configured with a larger **Reserved Instance Size** will perform better under load. 
+When you configure a web site as Reserved, you specify the size of the web site (**Small**, **Medium** or **Large**). A web site that is "scaled up" (configured with a larger **Reserved Instance Size**) will perform better under load. 
 
 You also specify a value for **Reserved Instance Count** (from 1 to 3).
-Increasing the value for **Reserved Instance Count** will provide fault tolerance and improved performance through scale out.
+A web site running in **Reserved** mode benefits from high availability even with a single instance, but scaling out (that is, increasing the value for **Reserved Instance Count**) will provide even greater performance and fault tolerance.
 
-Before switching a web site from **Free** web site mode to **Reserved** web site mode you must first remove spending caps in place for your Web Site subscription.
+Before switching a web site from **Free** web site mode to **Reserved** web site mode, you must first remove the spending caps in place for your Web Site subscription.
 
 
-##<a name="howtochangescale"></a>How to: Change Scale Options for a Web Site
+##<a name="howtochangescale"></a>How to Change Scale Options for a Web Site
 A web site that is configured to run in **Free** or **Shared** web site mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [How to: Configure Virtual Machine Sizes][configvmsizes]. 
 
-To change scale options for a web site, in the Management Portal open the web site's **Scale** management page to configure the following scaling options:
+To change scale options for a web site, in the Management Portal, open the web site's **Scale** management page to configure the following scaling options:
 
 - **Web Site Mode** - Set to **Free** by default.  When you change the **Web Site Mode** from **Free** or **Shared** to **Reserved**, the web site is scaled up to run in a Small compute instance on a single dedicated core with access to additional memory, disk space and bandwidth. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes]. 
 
-- **Reserved Instance Size** - Provides options for additional scale up of a web site running in **Reserved** web site mode. If **Reserved Instance Size** is changed from **Small** to **Medium** or **Large**, the web site will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes].
+- **Instance Size** - Provides options for additional scale up of a web site running in **Reserved** web site mode. If **Instance Size** is changed from **Small** to **Medium** or **Large**, the web site will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [How to: Configure Virtual Machine Sizes][configvmsizes].
 
-- **Reserved/Shared Instance Count** - Increase this value to provide fault tolerance and improved performance through scale out by running additional web site instances. 
+- **Instance Count** - This option applies to both **Reserved** and **Shared** web sites. A single instance in **Shared** or **Reserved mode** already benefits from high availability, but you can provide even greater throughput and fault tolerance by running additional web site instances (that is, "scaling out"). 
 
-Note that as you increase the value for **Shared Instance Count** you also increase the possibility of exceeding the resources allocated to each Web Site subscription for running web sites in Shared web site mode. The resources allocated for this purpose are evaluated on a resource usage per day basis. For more information about resource usage quotas see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/). 
+Note that as you increase the value for **Instance Count** for a web site in **Shared** mode, you also increase the possibility of exceeding the resources allocated to each Web Site subscription. The resources allocated for this purpose are evaluated on a resource usage per day basis. For more information about resource usage quotas see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/). 
 
 
 [vs2010]:http://go.microsoft.com/fwlink/?LinkId=225683

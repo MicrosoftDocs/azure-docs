@@ -1,11 +1,16 @@
 <properties linkid="mobile-services-how-to-Anroid-client" writer="ricksal" urlDisplayName="Android Client Library" pageTitle="How to use the Android client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service Android client library, Android client library" metaDescription="Learn how to use the Android client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
-<div chunk="../chunks/article-left-menu-Android.md" />
+<div chunk="../chunks/article-left-menu-android.md" />
 
 # How to use the Android client library for Mobile Services
 
-<div class="dev-center-tutorial-selector"><a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a> <a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="JavaScript">HTML/JavaScript</a> <a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a></div>
+<div class="dev-center-tutorial-selector"> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
+  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a> 
+	<a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a> 
+	<a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a>
+</div>
 
 
 This guide shows you how to perform common scenarios using the Android client for Windows Azure Mobile Services.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart][Get started with Mobile Services]. The quickstart tutorial helps you configure your account and create your first mobile service.
