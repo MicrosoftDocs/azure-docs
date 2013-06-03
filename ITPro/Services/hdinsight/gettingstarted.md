@@ -15,11 +15,12 @@ This tutorial gets you started using Windows Azure HDInsight Service. HDInsight 
 * [Use the HDInsight Service dashboard and sample gallery](#dashboard)
 * [Run a sample MapReduce program from the sample gallery](#sample)
 * [Examine the sample MapReduce program output using the Interactive Console](#console)
+* [Connect to Microsoft Business Intelligence Tools](#dataexplorer)
 * [Next Steps](#nextsteps)
 
 ##<a name="subscribe"></a>Enable the HDInsight Service
 
-To complete this tutorial, you need a Windows Azure account that has the Windows Azure HDInsight feature enabled. 
+To complete this tutorial, you need a Windows Azure account that has the Windows Azure HDInsight feature enabled , and you need to have Excel 2010 or 2013 installed.
 
 - To create a free Windows Azure trial account in just a couple of minutes, see [Windows Azure Free Trial](/en-us/pricing/free-trial/ "Windows Azure Free Trial"). 
 
@@ -156,10 +157,35 @@ You can use the JavaScript Interactive Console to view the output from the WordC
 
 	![HDI.Hero.ReadWordCount](../media/HDI.Hero.ReadWordCounts.PNG "Read Wordcounts")
 	
- 
+ ##<a name="dataexplorer"></a>Connecting to Microsoft Business Intelligence Tools 
+
+The Data Explorer can be used to export results from HDInsight into Microsoft Business Intelligence (BI) tools such as Excel. You must have Excel 2010 or 2013 installed to complete this part of the tutorial. Here we will import the default Hive table that ships in HDInsight.
+
+1. Download the Data Explorer from from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=36803) and install it.
+
+2. Open up Excel, select the **Data Explorer** tab, select the **From Other Sources** option, and then From Windows Azure item.
+
+	![HDI.Hero.DataExplorerImportHdiData](../media/HDI.Hero.DataExplorerImportHdiData.png "Import Data")
+
+3. Enter the name of the Azure Blob Storage Account associated with your cluster and click **OK**.
+
+	![HDI.Hero.DataExplorer.HdiStore](../media/HDI.Hero.DataExplorer.HdiStore.PNG "Store Name")
+
+4. Enter the account key for the Azure Blob Storage Account in the Access Windows Azure HDInsight wizard and click **Save**. If you need to retrieve your key, return to the Windows Azure Portal, select your storage account, and click on the Manage Access Key icon on the bottom of the page. Click on the copy icon  to the right of the primary key and paste the value into the wizard.
+
+	![HDI.Hero.DataExplorer.StorageAccessKey](../media/HDI.Hero.DataExplorer.StorageAccessKey.PNG "Storage Access Key")
+
+5. In the **Query Editor**, select your cluster in the Navigator and then find and select the default HiveSampleData.txt file and click **Done**.
+
+	![HDI.Hero.DataExplorer.HiveTable](../media/HDI.Hero.DataExplorer.HiveTable.png "Hive Table")
+
+6. The query then imports the Hive Table into Excel.
+
+	![HDI.Hero.DataExplorer.HiveTableImported](../media/HDI.HiveOdbc.ExcelHiveTable.PNG "Hive Table Imported")
+
 
 ##<a name="nextsteps"></a>Next steps
-You have gotten set up with a Windows Azure and Azure Storage accounts that are needed to access the HDInsight Service. You have learned how to provision a cluster with the HDInsight Service, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
+In this tutorial, you have learned how to provision a cluster with the HDInsight Service, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
 
 
 - For information about running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/).

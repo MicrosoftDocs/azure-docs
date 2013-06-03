@@ -6,6 +6,20 @@
 
 Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault. Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage.  
 
+**Estimated time to complete:** 30 minutes
+
+## In this Article
+* [Big Data and Hadoop MapReduce](#mapreduce)
+* [Upload a sample log4j file to the blob storage](#uploaddata)
+* [Connect to an HDInsight Cluster](#connect)
+* [Create a MapReduce job](#createjob)
+* [Run the MapReduce job](#runjob)
+* [Tutorial clean up](#cleanup)
+* [Next steps](#nextsteps)
+
+##<a id="mapreduce"></a>  Big Data and Hadoop MapReduce
+Log files are a good example of big data. Most applications save errors, exceptions and other coded issues in log files. These log files contain a wealth of data that must be processed and mined, and they can get large in size. Working with big data is difficult using relational databases with statistics and visualization packages. Hadoop provides a MapReduce framework for writing applications that process large amounts of structured and semi-structured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
+
 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
 
 	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
@@ -19,35 +33,15 @@ This MapReduce job takes a log4j log file as input, and generates an output file
 	[ERROR] 1
 	[FATAL] 1
 
-**Estimated time to complete:** 30 minutes
-
-## In this Article
-* [Big Data and Hadoop MapReduce](#mapreduce)
-* [Upload a sample log4j file to the blob storage](#uploaddata)
-* [Connect to an HDInsight Cluster](#connect)
-* [Create a MapReduce job](#createjob)
-* [Run the MapReduce job](#runjob)
-* [Tutorial clean up](#cleanup)
-* [Next steps](#nextsteps)
-
-##<a id="mapreduce"></a>  Big Data and Hadoop MapReduce
-Generally, all applications save errors, exceptions and other coded issues in a log file. These log files can get quite large in size, containing a wealth of data that must be processed and mined. Log files are a good example of big data. Working with big data is difficult using relational databases with statistics and visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a MapReduce framework for writing applications that process large amounts of structured and semi-structured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
-
 The following figure is the visual representation of what you will accomplish in this tutorial:
 
 ![HDI.VisualObjective](../media/HDI.VisualObject.gif "Visual Objective")
 
-You will complete the following tasks in this tutorial:
-
-1. Upload a sample log4j file to the blob storage
-2. Connect to an HDInsight Cluster
-3. Create a MapReduce job
-4. Run the MapReduce job
-5. Tutorial Clean Up
+In the figure, the Map program performs filtering and sorting; and the Reduce program performs a summary operation. 
  
 ##<a id="uploaddata"></a>Upload a Sample Log4j File to the Blob Storage
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). Windows Azure Blob Storage is recommended. For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). 
+HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). Windows Azure Blob Storage is recommended. For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
@@ -72,7 +66,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).</p> 
+	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see <a href="en-us/manage/services/hdinsight/howto-blob-store/">Using Windows Azure Blob Storage with HDInsight</a>.</p> 
 	</div>
 
 7. From **Blob**, click **Upload**.
@@ -145,13 +139,13 @@ You must have an HDInsight cluster provisioned before you can work on this tutor
 
 	The asv syntax is for listing the files in the default file system.  To access files in other containers, use the following syntax: 
 
-		hadoop fs -ls asv[s]://[[<container>@]<storagename>.blob.core.windows.net]/<path>
+		hadoop fs -ls asv[s]://[[<containername>@]<storagename>.blob.core.windows.net]/<path>
 
 	For example, you can list the same file using the following command:
 
-		hadoop fs -ls asv://<container>@<storagename..blob.core.windows.net/sample.log
+		hadoop fs -ls asv://<containername>@<storagename>.blob.core.windows.net/sample.log
 
-	Replace *&lt;container&gt;* with the container name, and *&lt;storagename&gt;* with the Blob Storage account name. 
+	Replace *&lt;containername&gt;* with the container name, and *&lt;storagename&gt;* with the Blob Storage account name. 
 
 	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
@@ -159,7 +153,7 @@ You must have an HDInsight cluster provisioned before you can work on this tutor
 	 
 	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
 
-		#ls asvs://<container>@<storagename>.blob.core.windows.net/sample.log
+		#ls asvs://<containername>@<storagename>.blob.core.windows.net/sample.log
 
 	
 
@@ -168,7 +162,8 @@ The Java programming language is used in this sample. Hadoop Streaming allows de
 
 1. From Hadoop command prompt, run the following commands to make a directory and change directory to the folder:
 
-		mkdir c:\Tutorials
+		c:
+		mkdir \Tutorials
 		cd \Tutorials
 
 2. Run the following command to create a java file in the C:\Tutorials folder:
@@ -284,14 +279,15 @@ The Java programming language is used in this sample. Hadoop Streaming allows de
 
 5. Press **CTRL+S** to save the file.
 6. Close Notepad.
+7. Verify your current folder is C:\Tutorials.
 
-7. Compile the java file using the following command:
+8. Compile the java file using the following command:
 
 		C:\apps\dist\java\bin\javac -classpath C:\apps\dist\hadoop-1.1.0-SNAPSHOT\hadoop-core-*.jar log4jMapReduce.java
  
 	Make sure there is no compilation errors.
 
-6. Create a log4jMapReduce.jar file containing the Hadoop class files:
+9. Create a log4jMapReduce.jar file containing the Hadoop class files:
 
 		C:\apps\dist\java\bin\jar -cvf log4jMapReduce.jar *.class
  
@@ -308,34 +304,31 @@ Until now, you have uploaded a log4j log files to the Blob storage, and compiled
 
 1. From Hadoop command prompt, execute the following command to run the Hadoop MapReduce job:
 
-		hadoop jar log4jMapReduce.jar log4jMapReduce Tutorials/input/sample.log Tutorials/output
+		hadoop jar C:\Tutorials\log4jMapReduce.jar log4jMapReduce asv:///sample.log asv:///Tutorials/output
+
+ 
 
 	This command does a number of things: 
 	
 	- Calling the Hadoop program
-	- Specifying the jar file (log4jMapReduce.jar)
+	- Specifying the jar file (C:\Tutorials\log4jMapReduce.jar)
 	- Indicating the class file (log4jMapReduce)
-	- Specifying the input file (Tutorials/input/sample.log), and output directory (Tutorials/output) 
+	- Specifying the input file (asv:///sample.log), and output directory (asv:///Tutorials/output). The command creates the output folder if the folder doesn't exist.
 	- Running the MapReduce job 	
 
-	![HDI.MapReduceResults](../media/HDI.MapReduceResults.png "MapReduce job output")
+	![HDI.MapReduceResults](../media/HDI.MapReduceResults.png "MapReduce job results")
  
 	The Reduce programs begin to process the data when the Map programs are 100% complete. Prior to that, the Reducer(s) queries the Mappers for intermediate data and gathers the data, but waits to process. 
 	
-	There are 6 Reduce input records (that correspond to the six log levels), and 135 Map output records (that contain key value pairs). The Reduce program condensed the set of intermediate values that share the same key (DEBUG, ERROR, FATAL, and so on) to a smaller set of values.    
+	There are 6 Reduce input records (that correspond to the six log levels), and 1365 Map output records (that contain key value pairs). The Reduce program condensed the set of intermediate values that share the same key (DEBUG, ERROR, FATAL, and so on) to a smaller set of values.    
 
 2. View the output of the MapReduce job in HDFS:
 
-		hadoop fs -cat Tutorials/output/part-00000
+		hadoop fs -cat asv:///Tutorials/output/part-00000
 
 	By default, Hadoop creates files begin with the following naming convention: “part-00000”. Additional files created by the same job will have the number increased.The output look like:
 
-		DEBUG   434
-		ERROR   6
-		FATAL   2
-		INFO    96
-		TRACE   816
-		WARN    11
+	![HDI.MapReduceResults](../media/HDI.MapReduceOutput.png "MapReduce job output")
  
 	Notice that after running MapReduce that the data types are now totaled and in a structured format.  
 
@@ -349,7 +342,7 @@ The clean up task applies to this tutorial only; it is not performed in the actu
  
 2. Delete the output directory and recursively delete files within the directory:
 
-		hadoop fs –rmr Tutorials/output/
+		hadoop fs –rmr asv:///Tutorials/output/
  
 Congratulations! You have successfully completed this tutorial.
 

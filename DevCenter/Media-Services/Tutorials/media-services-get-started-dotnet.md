@@ -114,7 +114,7 @@ When you create assets, you can specify three different options for encrypting t
 
 	- **AssetCreationOptions.None**: no encryption. If you want to create an unencrypted asset, you must set this option.
 	- **AssetCreationOptions.CommonEncryptionProtected**: for Common Encryption Protected (CENC) files. An example is a set of files that are already PlayReady encrypted. 
-	- **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.
+	- **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Windows Azure storage.
 
 		<div class="dev-callout"> 
 	<strong>Note</strong> 
@@ -664,7 +664,7 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 <div class="dev-callout"> 
 <strong>Note</strong> 
-<p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
+<p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Windows Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
 </div>
 
 <h2>Next Steps</h2>

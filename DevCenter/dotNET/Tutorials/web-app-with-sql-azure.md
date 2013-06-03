@@ -138,7 +138,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	![saving the .publishsettings file][firsdeploy002]
 
-	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+	<div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
 
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 
@@ -166,7 +166,7 @@ This is all you need to do for now to create the application that you'll deploy 
     
 	![download pub file](../Media/rzDown2.png)
     
-	<div chunk="../../shared/chunks/publishsettingsFileWarningChunk.md" />
+	<div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
 	
 	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
     

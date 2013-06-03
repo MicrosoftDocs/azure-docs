@@ -24,7 +24,8 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial requires the following:
 
-+ Microsoft Visual Studio 2012 Express for Windows 8 RC, or a later version
++ Microsoft Visual Studio 2012 Express for Windows 8
++ Active Windows Store account
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 

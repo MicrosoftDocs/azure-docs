@@ -1,12 +1,9 @@
 #Windows Azure Execution Models
 
-Windows Azure provides three different execution models for running applications: 
+Windows Azure provides different execution models for running applications.  
 
-- Virtual Machines 
-- Web Sites
-- Cloud Services
 
-Each one provides a different set of services, and so which one you choose depends on exactly what you’re trying to do. This article looks at all three, describing each technology and giving examples of when you’d use it.
+Each one provides a different set of services, and so which one you choose depends on exactly what you’re trying to do. This article looks at three, describing each technology and giving examples of when you’d use it.
 
 ##Table of Contents
 
@@ -25,15 +22,33 @@ Windows Azure Virtual Machines lets developers, IT operations people, and others
 
 As the figure shows, you can create virtual machines using either the Windows Azure Management Portal or the REST-based Windows Azure Service Management API. The Management Portal can be accessed from any popular browser, including Internet Explorer, Mozilla, and Chrome. For the REST API, Microsoft provides client scripting tools for Windows, Linux, and Macintosh systems. Other software is also free to use this interface.
 
-However you access the platform, creating a new VM requires choosing a virtual hard disk (VHD) for the VM’s image. These VHDs are stored in Windows Azure blobs, and you have two choices: upload your own or use VHDs provided by Microsoft and its partners in the Windows Azure Virtual Machines *gallery*. The VHDs in the gallery include Windows Server 2008 R2, Windows Server 2008 R2 with SQL Server, and Windows Server 2012. The gallery also holds Linux images, including Suse, Ubuntu, and CentOS, provided by Microsoft partners. 
+However you access the platform, creating a new VM requires choosing a virtual hard disk (VHD) for the VM’s image. These VHDs are stored in Windows Azure blobs. 
 
-Along with a VHD, you specify the size of your new VM. The choices are:
+To get started you have two choices 
 
-- Extra Small, with a shared core and 768 megabytes of memory.
-- Small, with 1 core and 1.75 gigabytes of memory.
-- Medium, with 2 cores and 3.5 gigabytes of memory.
-- Large, with 4 cores and 7 gigabytes of memory.
-- Extra Large, with 8 cores and 14 gigabytes of memory.
+1. Upload your own VHD 
+2. Use VHDs provided by Microsoft and its partners in the Windows Azure Virtual Machines gallery or on the Microsoft open source [VMDepot](http://vmdepot.msopentech.com/) website. 
+
+The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operating system images as well as images that include Microsoft and other third party products installed on them.  The options are growing all the time. Examples include various versions, editions and configurations of:
+ 
+-	Windows Server 
+-	Linux servers such as Suse, Ubuntu and CentOS
+-	SQL Server
+-	BizTalk Server 
+-	SharePoint Server
+
+
+
+Along with a VHD, you specify the size of your new VM.  The full stats for each size [are listed on MSDN](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).  
+
+-	**Extra Small**, with a shared core and 768 GB  of memory.
+-	**Small**, with 1 core and 1.75GB  of memory.
+-	**Medium**, with 2 cores and 3.5GB  of memory.
+-	**Large**, with 4 cores and 7GB of memory.
+-	**Extra Large**, with 8 cores and 14GB of memory.
+-	**A6**, with 4 cores and 28GB of memory.
+-	**A7**, with 8 cores and 56GB of memory.
+
 
 Finally, you choose which Windows Azure datacenter your new VM should run in, whether in the US, Europe, or Asia. 
 
@@ -41,9 +56,11 @@ Once a VM is running, you pay for each hour it runs, and you stop paying when yo
 
 Each running VM has an associated *OS disk*, kept in a blob. When you create a VM using a gallery VHD, that VHD is copied to your VM’s OS disk. Any changes you make to the operating system of your running VM are stored here. For example, if you install an application that modifies the Windows registry, that change will be stored in your VM’s OS disk. The next time you create a VM from that OS disk, the VM continues running in the same state you left it in. For VHDs stored in the gallery, Microsoft applies updates when needed, such as operating system patches. For the VHDs in your own OS disks, however, you’re responsible for applying these updates (although Windows Update is turned on by default).
 
+Running VMs can also be modified and then captured using the sysprep tool. Sysprep removes specifics like the machine name so that a VHD image can be used to create additional VMs with the same general configuration. These images are stored in the Management portal alongside your uploaded images so they can be used as a starting point for additional VMs. 
+
 Virtual Machines also monitors the hardware hosting each VM you create. If a physical server running a VM fails, the platform notices this and starts the same VM on another machine. And assuming you have the right licensing, you can copy a changed VHD out of your OS disk, then run it someplace else, such as in your own on-premises datacenter or at another cloud provider. 
 
-Along with its OS disk, your VM has one or more *data disks*. Even though each of these looks to your VM like a mounted disk drive, the contents of each one is in fact stored in a blob. Every write made to a data disk is stored persistently in the underlying blob. As with all blobs, Windows Azure replicates these both within a single datacenter and across datacenters to guard against failures.
+Along with its OS disk, your VM has one or more data disks. Even though each of these looks like a mounted disk drive to your VM, the contents of each one is in fact stored in a blob. Every write made to a data disk is stored persistently in the underlying blob. As with all blobs, Windows Azure replicates these both within a single datacenter and across datacenters to guard against failures.
 
 Running VMs can be managed using the Management Portal, PowerShell and other scripting tools, or directly through the REST API. (In fact, whatever you can do through the Management Portal can be done programmatically through this API.) Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API.
 
@@ -91,7 +108,7 @@ Suppose an organization wishes to create a SharePoint farm but doesn’t want to
 
 A SharePoint farm has several components, each running in a Windows Azure VM created from a different VHD. What’s needed is the following:
 
-- Microsoft SharePoint. None of the images provided in the gallery include SharePoint, so the organization provides its own VHD for this.
+- Microsoft SharePoint. There are trial images in the gallery or the organization provides its own VHD.
 - Microsoft SQL Server. SharePoint depends on SQL Server, so the organization creates VMs running SQL Server 2012 from a standard gallery VHD.
 - Windows Server Active Directory. SharePoint also requires Active Directory, so the organization creates domain controllers in the cloud using a Windows Server image from the gallery. This isn’t strictly required—it’s also possible to use on-premises domain controllers—but SharePoint interacts frequently with Active Directory, and so the approach shown here will have better performance.
 
@@ -111,15 +128,13 @@ All of these things could be accomplished using Windows Azure Virtual Machines. 
  
 **Figure 5: Windows Azure Web Sites supports static web sites, popular web applications, and custom web applications built with various technologies.** 
 
-Windows Azure Web Sites runs Windows Server and Internet Information Services (IIS) in a virtual machine. As the figure shows, a single VM typically contains multiple web sites created by multiple users, although it’s also possible for a site to run in its own reserved VM. Whether a VM is shared or not, you can think of Web Sites as supporting three main scenarios: building static web sites, deploying popular open source applications, and creating web applications. It’s worth looking at each one separately.
+Windows Azure Web Sites runs Windows Server and Internet Information Services (IIS) for you in a virtual machine. As the figure shows, a single VM typically contains multiple web sites created by multiple users, although it’s also possible for a site to run in its own reserved VM. Whether a VM is shared or not, you can think of Web Sites as supporting three main scenarios: building static web sites, deploying popular open source applications, and creating web applications. It’s worth looking at each one separately.
 
-Building a static web site requires nothing more than copying files containing HTML and other web content into the appropriate directories, then letting IIS serve those files to users. Windows Azure Web Sites looks much like a standard IIS environment, so doing this is straightforward. 
-Web Sites also has built-in support for a number of popular open source applications, including Drupal, WordPress, and Joomla. A user can choose the application she wants from a menu, then have it automatically installed and made available for her to use. There’s no code to write—it’s just configuration. And because many of these applications use MySQL, they rely on a MySQL service provided for Windows Azure by ClearDB, a Microsoft partner.
+Building a static web site requires nothing more than copying files containing HTML and other web content into the appropriate directories, then letting Windows Azure Web Sites  serve those files to users. Windows Azure Web Sites looks much like a standard IIS environment, so doing this is straightforward. Web Sites also has built-in support for a number of popular open source applications, including Drupal, WordPress, and Joomla. A user can choose the application she wants from a menu, then have it automatically installed and made available for her to use. There’s no code to write—it’s just configuration. And because many of these applications use MySQL, they rely on a MySQL service provided for Windows Azure by ClearDB, a Microsoft partner.
 
-Developers can also create full-fledged web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, and Node.js, and once again, the environment looks like on-premises IIS. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes.
-Applications built on Web Sites are free to use other aspects of Windows Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because each copy typically begins running in a VM that already exists, starting a new application instance happens very quickly; it’s significantly faster than waiting for a new VM to be created. 
+Developers can also create full-fledged web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, and Node.js, just like on-premises IIS. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Web Sites are free to use other aspects of Windows Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because each copy typically begins running in a VM that already exists, starting a new application instance happens very quickly; it’s significantly faster than waiting for a new VM to be created. 
 
-As [Figure 5](#Fig5) shows, you can load code and other web content into Web Sites in several ways. A simple web site might use FTP, for example, or Microsoft’s WebDeploy technology. Web Sites also supports loading code from source control systems, including Git, Team Foundation Server, and the cloud-based Team Foundation Service. 
+As [Figure 5](#Fig5) shows, you can load code and other web content into Web Sites in several ways. You can use FTP, FTPS, or Microsoft’s WebDeploy technology. Web Sites also supports loading code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service. 
 
 Web hosting is a useful approach. Windows Azure Web Sites aims at providing this to a broad audience, whether they want to build static web sites, use popular open source web applications, or create custom web software.
 
@@ -150,6 +165,7 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 
 
 <a name="WhatShouldIUse"></a>
+>
 ##What Should I Use? Making a Choice
 
 All three Windows Azure execution models let you build scalable, reliable applications in the cloud. Given this essential similarity, which one should you use? The answer depends on what you’re trying to do.

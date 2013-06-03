@@ -1,6 +1,6 @@
-<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Windows Azure" metaKeywords="" metaDescription="Describes how to configure monitoring for your Media Services account in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Windows Azure" metaKeywords="" metaDescription="Describes how to configure monitoring for your Media Services account in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
-
+<div chunk="../../../devcenter/media-services/chunks/article-left-menu.md" />
 
 
 <h1><a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account</h1>

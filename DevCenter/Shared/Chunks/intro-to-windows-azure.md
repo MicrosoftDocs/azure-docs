@@ -32,7 +32,10 @@ services into distinct categories. Figure 1 shows one way to do this.
 ![Windows Azure components](../Media/IntroAzure1.png)   
  **Figure 1: Windows Azure provides Internet-accessible application services running in Microsoft datacenters.**
 
-To get started with Windows Azure, you need to know at least the basics about each of its components. The rest of this article walks through the technologies shown in the figure, describing what each one offers and when you might use it.
+To get started with Windows Azure, you need to know at least the basics about each of its components.You can also use the [What Is Windows Azure Poster](http://www.microsoft.com/en-us/download/details.aspx?id=35473) for a quick, visual way to get an overview. The colors of the boxes in Figure 1 correspond to their grouping on the poster. 
+
+The rest of this article walks through the technologies shown in the figure, describing what each one offers and when you might use it.
+
 
 
 <h2><a id="models"></a>Execution Models</h2>
@@ -59,7 +62,7 @@ Windows Azure VMs can be used in many different ways. You might use them to crea
 
 One of the most common things that people do in the cloud is run web sites and web applications. Windows Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs. What if you just want a web site where somebody else takes care of the administrative work for you?
 
-This is exactly what Windows Azure Web Sites provides. This execution model offers a managed web environment using Internet Information Services (IIS). You can move an existing IIS web site into Windows Azure Web Sites unchanged, or you can create a new one directly in the cloud. Once a web site is running, you can add or remove instances dynamically, relying on Web Sites to load balance requests across them. And as Figure 2 shows, Windows Azure Web Sites offers both a shared option, where your web site runs in a virtual machine with other sites, and a way for a site to run in its own VM. 
+This is exactly what Windows Azure Web Sites provides. This  execution model offers a managed web environment using the Windows Azure Management portal. You can move an existing web site into Windows Azure Web Sites unchanged, or you can create a new one directly in the cloud. Once a web site is running, you can add or remove instances dynamically, relying on Windows Azure Web Sites to load balance requests across them. Windows Azure Web Sites offers both a shared option, where your web site runs in a virtual machine with other sites, and a reserved option that allows a site to run in its own VM. The reserved option also lets you increase the size (computing power) of your instances if needed.
 
 Windows Azure Web Sites is intended to be useful for both developers and web design agencies. For development, it supports .NET, PHP, and Node.js, along with SQL Database and (from ClearDB, a Microsoft partner) MySQL for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating web sites and web applications in the public cloud.
 
@@ -77,6 +80,9 @@ As Figure 2 shows, you have two roles to choose from when you create an instance
 
 Each of the three Windows Azure execution models has its own role to play. Windows Azure Virtual Machines provides a general-purpose computing environment, Windows Azure Web Sites offers low-cost web hosting, and Windows Azure Cloud Services is the best choice for creating scalable, reliable applications with low administration costs. And as mentioned earlier, you can use these technologies separately or combine them as needed to create the right foundation for your application. The approach you choose depends on what problems you're trying to solve.
 
+###Mobile Services###
+
+If you are creating an app for a mobile device, Windows Azure Mobile Services provides key services that enable backend capabilities for mobile apps. Using it allows you to focus on coding your app instead investing time writing the underlying service components. Native client libraries make it easy to integrate Mobile Services functionality in all major device app platforms, including Windows Store, Windows Phone, iOS, Android, and HTML/JavaScript. Mobile Services allows you to do simple provisioning and management of data stored in a SQL Database, use notification services to deliver push notifications to your app, and authenticate users through well-known identity providers. You also can register custom business logic on the backend, including integration with other cloud services. A service can be scaled as an app becomes more popular, and monitoring and logging are supported.
 
 <h2><a id="data"></a>Data Management</h2>
 
@@ -150,13 +156,16 @@ One of the most common ways to use stored data is to create reports based on tha
 
 Another option for doing analytics with SQL Database data is to use on-premises business intelligence tools. To a client, SQL Database looks like SQL Server, and so the same technologies can work with both. For example, you're free to use on-premises SQL Server Reporting Services to create reports from SQL Database data. 
 
-###Hadoop###
+###HDInsight (Hadoop)###
 
 For many years, the bulk of data analysis has been done on relational data stored in a data warehouse built with a relational DBMS. This kind of business analytics is still important, and it will be for a long time to come. But what if the data you want to analyze is so big that relational databases just can't handle it? And suppose the data isn't relational? It might be server logs in a datacenter, for example, or historical event data from sensors, or something else. In cases like this, you have what's known as a big data problem. You need another approach.
 
 The dominant technology today for analyzing big data is Hadoop. An Apache open source project, this technology stores data using the Hadoop Distributed File System (HDFS), then lets developers create MapReduce jobs to analyze that data. HDFS spreads data across multiple servers, then runs chunks of the MapReduce job on each one, letting the big data be processed in parallel.
 
-As Figure 5 suggests, the Apache Hadoop-based Service for Windows Azure lets HDFS distribute data across multiple virtual machines, then spreads the logic of a MapReduce job across those VMs. Just as with on-premises Hadoop, data is processed locally-the logic and the data it works on are in the same VM-and in parallel for better performance. The Apache Hadoop-based Service for Windows Azure supports other components of the technology as well, including Hive and Pig, and Microsoft has also created an Excel plug-in for issuing Hive queries. 
+HDInsight is the name of the Windows Azure's Apache Hadoop-based service. As Figure 5 suggests, HDInsight lets HDFS store data on the cluster and distribute it across multiple VMs. It also spreads the logic of a MapReduce job across those VMs. Just as with on-premises Hadoop, data is processed locally-the logic and the data it works on are in the same VM-and in parallel for better performance. HDInsight can also store data in Windows Azure Storage Vault (ASV), which uses blobs.  Using ASV allows you to save money because you can delete your HDInsight cluster when not in use, but still keep your data in the cloud.
+ 
+HDinsight supports other components of the Hadoop ecosystem as well, including Hive and Pig. Microsoft has also created components that make it easier to work with data produced by HDInsight using traditional BI tools, such as the HiveODBC adapter and Data Explorer that work with Excel.
+
 
 
 
@@ -178,7 +187,7 @@ One common use of Queues today is to let a web role instance communicate with a 
 
 Whether they run in the cloud, in your data center, on a mobile device, or somewhere else, applications need to interact. The goal of Windows Azure Service Bus is to let applications running pretty much anywhere exchange data.
 
-As Figure 6 shows, Service Bus provides a queuing service. This service isn't identical to the Queues just described, however. Unlike Windows Azure Queues, for example, Service Bus provides a publish-and-subscribe mechanism. An application can send messages to a topic, while other applications can create subscriptions to this topic. This allows one-to-many communication among a set of applications, letting the same message be read by multiple recipients. And queuing isn't the only option: Service Bus also allows direct communication through its relay service, providing a secure way to interact through firewalls.
+As Figure 6 shows, Service Bus provides a queuing service. This service isn't identical to the Queues just described, however. Unlike Windows Azure Queues, for example, Service Bus provides a both queues (one-to-one) and publish-and-subscribe mechanisms. With publish-subscribe, an application can send messages to a topic, while other applications can create subscriptions to this topic. This allows one-to-many communication among a set of applications, letting the same message be read by multiple recipients. And queuing isn't the only option: Service Bus also allows direct communication through its relay service, providing a secure way to interact through firewalls. Service Bus relays enable applications to communicate by exchanging messages through an endpoint hosted in the cloud, rather than locally.
 
 Applications that communicate through Service Bus might be Windows Azure applications or software running on some other cloud platform. They can also be applications running outside the cloud, however. For example, think of an airline that implements reservation services in computers inside its own datacenter. The airline needs to expose these services to many clients, including check-in kiosks in airports, reservation agent terminals, and maybe even customers' phones. It might use Service Bus to do this, creating loosely coupled interactions among the various applications.
 
@@ -250,17 +259,17 @@ To distribute what it produces, an application can use the Windows Azure CDN, an
 
 <h2><a id="commerce"></a>Commerce</h2>
 
-The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with Windows Azure Marketplace, illustrated in Figure 9.
+The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with Windows Azure Marketplace and Windows Azure Store, illustrated in Figure 9.
 
 ![Windows Azure Commerce](../Media/IntroAzure9.png)   
- **Figure 9: Windows Azure Marketplace lets you find and buy Windows Azure applications and commercial datasets.**
+ **Figure 9: Windows Azure Marketplace and Windows Azure Store let you find and buy Windows Azure applications and commercial datasets.**
 
-Potential customers can search the Marketplace to find Windows Azure applications that meet their needs, then sign up to use them either through the application's creator or directly through the Marketplace. Customers can search the Marketplace for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor or directly through the Marketplace. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
+The difference between the two is that Marketplace is outside of the Windows Azure Management Portal, but the Store can be accessed from the portal. Potential customers can search either  to find Windows Azure applications that meet their needs, then sign up to use them either through the application's creator or directly through the Marketplace or Store. Customers can search either for commercial datasets as well, including demographic data, financial data, geographic data, and more. When they find something they like, they can access it either from the vendor, directly through the Marketplace or Store web locations or in some cases from the Management Portal. Applications can also use the Bing Search API through the Marketplace, giving them access to the results of web searches.
 
 
 <h2><a id="sdk"></a>SDKs</h2>
 
-Back in 2008, the very first pre-release version of Windows Azure supported only .NET development. Today, however, you can create Windows Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, and Python. There's also a general Windows Azure SDK that provides basic support for any language, such as C++. 
+Back in 2008, the very first pre-release version of Windows Azure supported only .NET development. Today, however, you can create Windows Azure applications in pretty much any language. Microsoft currently provides language-specific SDKs for .NET, Java, PHP, Node.js, Ruby, and Python. There's also a general Windows Azure SDK that provides basic support for any language, such as C++. 
 
 These SDKs help you build, deploy, and manage Windows Azure applications. They're available either from www.windowsazure.com or GitHub, and they can be used with Visual Studio and Eclipse. Windows Azure also offers command line tools that developers can use with any editor or development environment, including tools for deploying applications to Windows Azure from Linux and Macintosh systems. 
 

@@ -40,14 +40,6 @@ Generally, all applications save errors, exceptions and other coded issues in a 
 
 Log files are therefore a good example of big data. Working with big data is difficult using relational databases and statistics/visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a Hive data warehouse system that facilitates easy data summarization, ad-hoc queries, and the analysis of large datasets stored in Hadoop compatible file systems.
 
-In this tutorial, you will complete the following tasks:
-
-1 Upload a sample log4j file to Windows Azure Blob Storage
-2 Connect to the interactive console
-3 Create a Hive table and upload data to the table
-4 Run Hive queries
-5 Tutorial clean up
-
 ##<a id="uploaddata"></a>Upload a Sample Log4j File to Windows Azure Blob Storage
 
 HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
@@ -147,13 +139,13 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 	The asv syntax is for listing the files in the default file system.  To access files in other containers, use the following syntax: 
 
-		#ls asv[s]://[[<container>@]<storagename..blob.core.windows.net]/<path>
+		#ls asv[s]://[[<containername>@]<storagename>.blob.core.windows.net]/<path>
 
 	For example, you can list the same file using the following command:
 
-		#ls asv://container@storagename.blob.core.windows.net/sample.log
+		#ls asv://mycontainer@mystorage.blob.core.windows.net/sample.log
 
-	replace *container* with the container name, and *storagename* with the Storage account name. 
+	replace *mycontainer* with the container name, and *mystorage* with the Storage account name. 
 
 	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
@@ -161,7 +153,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
 
-		#ls asvs://container@storagename.blob.core.windows.net/sample.log 
+		#ls asvs://mycontainer@mystorage.blob.core.windows.net/sample.log 
 
 
 ##<a id="createhivetable"></a> Create a Hive Table and Upload Data to the Table
@@ -175,9 +167,17 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
  
 	Note the command is terminated by two single quotes with a space in between.
 
+3. Enter the following command to list the table:
+
+		show tables;
+
+	You shall see *log4jlogs* in the list.
+
 3. Enter the following Hive query to load the sample.log data into the logs table you just created,  replace **container** and **storagename**, and then click **Evaluate**.
 
-		LOAD DATA INPATH 'asv://container@storagename.blob.core.windows.net/sample.log' OVERWRITE INTO TABLE log4jLogs;
+		LOAD DATA INPATH 'asv://mycontainer@mystorage.blob.core.windows.net/sample.log' OVERWRITE INTO TABLE log4jLogs;
+	
+	You must replace *mycontainer* in the command with the actual container name, and *mystorage* with the actual storage account name.
 
 ##<a id="runhivequeries"></a> Run Hive Queries
 1. Enter the following query, and then click **Evaluate**.  The query returns the count of lines in the data:
@@ -192,7 +192,7 @@ You must have an HDInsight cluster previsioned before you can work on this tutor
 
 The clean up task applies to this tutorial only; it is not necessarily performed in an actual deployment. In this task, you will delete the table and the data so that if you like, you can run the tutorial again.  
 
-1. From the Hive console, delete the table log4jLogs:
+1. From the Hive console, enter the following query, and then click **Evaluate** to delete the table log4jLogs:
 
 		drop table log4jLogs;
 
