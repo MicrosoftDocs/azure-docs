@@ -10,6 +10,7 @@ In this tutorial you will be using the Windows Azure Storage Plugin for Jenkins 
 
 ## Table of Contents
 
+-   [Overview of Jenkins][]
 -   [Benefits of using the Blob service][]
 -   [Prerequisites][]
 -   [How to use the Blob service with Jenkins CI][]
@@ -17,6 +18,11 @@ In this tutorial you will be using the Windows Azure Storage Plugin for Jenkins 
 -   [How to configure the Windows Azure Storage plugin to use your storage account][]
 -   [How to create a post-build action that uploads your build artifacts to your storage account][]
 -   [Components used by the Blob service][]
+
+<h2><a name="overview"></a><span class="short header">Overview</span>Overview of Jenkins</h2>
+Jenkins enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This topic will show how to use Windows Azure blog storage as the repository of the build artifacts.
+
+More information about Jenkins can be found at [Meet Jenkins][].
 
 <h2><a name="benefits"></a><span class="short header">Benefits</span>Benefits of using the Blob service</h2>
 
@@ -127,8 +133,7 @@ The following provides an overview of the Blob service components.
 
     `http://example.blob.core.windows.net/myjob/2013-01-28_15-00-35/2/hello.txt`
 
-
-
+  [Overview of Jenkins]: #overview
   [Benefits of using the Blob service]: #benefits
   [Prerequisites]: #prerequisites
   [How to use the Blob service with Jenkins CI]: #howtouse
@@ -137,4 +142,4 @@ The following provides an overview of the Blob service components.
   [How to create a post-build action that uploads your build artifacts to your storage account]: #howtocreatepostbuild
   [Components used by the Blob service]: #components
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
-  
+  [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
