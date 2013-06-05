@@ -32,6 +32,9 @@
 
 This tutorial series shows how to create a multi-tier ASP.NET MVC 4 web application that uses Windows Azure Storage tables, queues, and blobs, and how to deploy the application to a Windows Azure Cloud Service. The tutorials assume that you have no prior experience using Windows Azure. On completing the series, you'll know how to build a resilient and scalable data-driven web application and deploy it to the cloud.
 
+This content is also available as a free e-book in 
+[the TechNet E-Book Gallery](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs).
+
 <h2><a name="whatyoulllearn"></a><span class="short-header">What You'll Learn</span>What You'll Learn</h2>
 
 In this tutorial series you'll learn the following:
