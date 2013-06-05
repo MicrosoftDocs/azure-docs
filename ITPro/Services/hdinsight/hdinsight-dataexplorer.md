@@ -4,11 +4,10 @@
 
 #How to Connect Excel to Windows Azure HDInsight with Data Explorer
 
-One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight Service. A primary example of this integration is the ability to connect Excel to the Azure Storage assocoiated with your HDInsight Hadoop cluster using the Data Explorer. This topic walks you through how to set up and use the Data Explorer from Excel to query data in an HDInsight cluster. There are three parts to this procedure:
+One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight Service. A primary example of this integration is the ability to connect Excel to the Azure storage account that stores the data assocoiated with your HDInsight cluster using the Data Explorer. This topic walks you through how to set up and use the Data Explorer from Excel to query data associated with an Hodoop in  an HDInsight. There are two parts to this procedure:
 
 1. [Install the Data Explorer](#InstallDataExplorer)
-2. [Create a data source](#CreateDataSource)
-3. [Import data into Excel](#ImportData)
+2. [Import data into Excel](#ImportData)
 
 **Prerequisites**:
 
@@ -29,17 +28,13 @@ The Data Explorer can be used to export results from HDInsight into Microsoft Bu
 
 	![HDI.Hero.DataExplorer.HdiStore](../media/HDI.Hero.DataExplorer.HdiStore.PNG "Store Name")
 
-4. Enter the account key for the Azure Blob Storage Account in the Access Windows Azure HDInsight wizard and click **Save**. If you need to retrieve your key, return to the Windows Azure Portal, select your storage account, and click on the Manage Access Key icon on the bottom of the page. Click on the copy icon  to the right of the primary key and paste the value into the wizard.
+4. Enter the account key for the Azure Storage Account in the Access Windows Azure HDInsight wizard and click **Save**. If you need to retrieve your key, return to the Windows Azure Portal, select your storage account, and click on the Manage Access Key icon on the bottom of the page. Click on the copy icon  to the right of the primary key and paste the value into the wizard.
 
 	![HDI.Hero.DataExplorer.StorageAccessKey](../media/HDI.Hero.DataExplorer.StorageAccessKey.PNG "Storage Access Key")
 
-<h2><a id="DataSource"></a>Create a Data Source</h2>
-
-1. TBD
-2. TBD
-3. TBD
 
 <h2><a id="ImportData"></a>Import Data</h2>
+HDInsight ships with a default Hive table that will be used here to illustrate how data can be imported into Excel using the Data Explorer.
 
 1. In the **Query Editor**, select your cluster in the Navigator and then find and select the default HiveSampleData.txt file and click **Done**.
 
