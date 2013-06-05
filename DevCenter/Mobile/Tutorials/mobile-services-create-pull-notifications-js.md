@@ -11,8 +11,7 @@
 
 This topic shows you how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu. For more information, see [Periodic notifications]. 
 
-You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. 
-This tutorial walks you through these steps to update push notifications in your app:
+You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. To do this, you will complete the following steps:
 
 1. [Define the custom API]
 2. [Update the app to turn on period notifications]
@@ -32,11 +31,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    This displays the **Create a new custom API** dialog.
 
-3. Keeping the default **Anybody with the application key** setting for all permissions, type _tiles_ in **API name**, and then click the check button.
+3. Change **Get permission** to **Everyone**, type _tiles_ in **API name**, and then click the check button.
 
    ![][2]
 
-  This creates the new API.
+  This creates the new API with public GET access.
 
 4. Click the new tiles entry in the API table.
 
@@ -59,7 +58,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 		        };
 		        var i = 0;
 		        console.log(results)
-		        results.forEach(function addText(item) {
+		        results.forEach(function(item) {
 		            tileText["text" + (i + 2)] = item.text;
 		            i++;
 		        });
@@ -82,6 +81,8 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 			</visual>
 		</tile>
 
+	The **exports.get** function is used because the client will send a GET request to access the tile template.
+
    	<div class="dev-callout"><b>Note</b>
    		<p>This custom API script uses the Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns module</a>, which is referenced by using the <strong>require</strong> function. This module is different from the <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns object</a> returned by the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">push object</a>, which is used to send push notifications from server scripts.</p>
    	</div>
@@ -102,7 +103,7 @@ Next, you will modify the quickstart app to start periodic notifications that up
 
         notifications.TileUpdateManager.createTileUpdaterForApplication().startPeriodicUpdate(url, recurrence);
 
-	This code turns on period notifications to request tile template data from the new **tiles** custom API. 
+	This code turns on period notifications to request tile template data from the new **tiles** custom API. Select a [PeriodicUpdateRecurrance] value that best matches the update frequency of your data.
 
 ## <a name="test-app"></a>Test the app
 
@@ -149,3 +150,4 @@ Now that you have created a periodic notification, consider finding out more abo
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+[PeriodicUpdateRecurrance]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx
