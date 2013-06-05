@@ -1,16 +1,17 @@
-<properties linkid="mobile-services-create-pull-notifications-dotnet" writer="glenga" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="mobile-services-create-pull-notifications-js" writer="glenga" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Define a custom API that supports pull notifications
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-    <a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
 </div>
 
-This topic shows you how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu. You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. 
+This topic shows you how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu. For more information, see [Periodic notifications]. 
 
+You will add this functionality to the app that you created when you completed either the [Get started with Mobile Services] or the [Get started with data] tutorial. 
 This tutorial walks you through these steps to update push notifications in your app:
 
 1. [Define the custom API]
@@ -45,153 +46,83 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 		exports.get = function(request, response) {
 		    var wns = require('wns');
-		    var xml = wns.createTileSquareBlock("Hi", "from Azure");
-		    response.set('content-type', 'application/xml');
-		    response.send(200, xml);
+		    var todoItems = request.service.tables.getTable('TodoItem');
+		    todoItems.where({
+		        complete: false
+		    }).read({
+		        success: sendResponse
+		    });
+		
+		    function sendResponse(results) {
+		        var tileText = {
+		            text1: "My todo list"
+		        };
+		        var i = 0;
+		        console.log(results)
+		        results.forEach(function addText(item) {
+		            tileText["text" + (i + 2)] = item.text;
+		            i++;
+		        });
+		        var xml = wns.createTileSquareText01(tileText);
+		        response.set('content-type', 'application/xml');
+		        response.send(200, xml);
+		    }
 		};
 
+	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+
+		<tile>
+			<visual>
+				<binding template="TileSquareText01">
+					<text id="1">My todo list</text>
+					<text id="2">Task 1</text>
+					<text id="3">Task 2</text>
+					<text id="4">Task 3</text>
+				</binding>
+			</visual>
+		</tile>
+
    	<div class="dev-callout"><b>Note</b>
-   		<p>This custom API uses the Node.js <a href="">wns module</a>, which is referenced by using the <strong>require</strong> function. This module is different from the <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns object</a> returned by the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">push object</a>, which is used to send push notifications from server scripts.</p>
+   		<p>This custom API script uses the Node.js <a href="http://go.microsoft.com/fwlink/p/?LinkId=306750">wns module</a>, which is referenced by using the <strong>require</strong> function. This module is different from the <a href="http://go.microsoft.com/fwlink/p/?LinkId=260591">wns object</a> returned by the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">push object</a>, which is used to send push notifications from server scripts.</p>
    	</div>
 
-Next, you will modify the push notifications app to store data in this new table instead of in the **TodoItem** table.
+Next, you will modify the quickstart app to start periodic notifications that update the live tile by requesting the new custom API.
 
 <h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to turn on period notifications</h2>
 
-1. In Visual Studio 2012 Express for Windows 8, open the project from the tutorial [Get started with push notifications], open up file MainPage.xaml.cs, and remove the **Channel** property from the **TodoItem** class. It should now look like this:
+1. In Visual Studio, press the F5 key to run the quickstart app from the previous tutorial.
 
-        public class TodoItem
-        {
-        	public int Id { get; set; }
+2. Make sure at least one item is displayed. If there are no items, type text in **Insert a TodoItem**, and then click **Save**.
 
-	       	[JsonProperty(PropertyName = "text")]
-	        public string Text { get; set; }
-	
-	        [JsonProperty(PropertyName = "complete")]
-	        public bool Complete { get; set; }
-        }
+3. In Visual Studio, expand the `\js` folder in Solution Explorer, open the default.js project, then add the following lines of code after that code that defines the **mobileService** variable:
 
-2. Replace the **ButtonSave_Click** event handler method with the original version of this method, as follows:
+        var notifications = Windows.UI.Notifications;
+        var recurrence = notifications.PeriodicUpdateRecurrence.hour;
+        var url = new Windows.Foundation.Uri(mobileService.applicationUrl, "/api/tiles");
 
-        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-        {
-            var todoItem = new TodoItem { Text = TextInput.Text };
-            InsertTodoItem(todoItem);
-        }
+        notifications.TileUpdateManager.createTileUpdaterForApplication().startPeriodicUpdate(url, recurrence);
 
-3. Add the following code that creates a new **Channel** class:
-
-	    public class Channel
-	    {
-	        public int Id { get; set; }
-	
-	        [JsonProperty(PropertyName = "uri")]
-	        public string Uri { get; set; }
-	    }
-
-4. Open the file App.xaml.cs and replace **AcquirePushChannel** method with the following code:
-
-	    private async void AcquirePushChannel()
-	    {
-	       CurrentChannel = 
-               await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-	
-	       IMobileServiceTable<Channel> channelTable = App.MobileService.GetTable<Channel>();
-	       var channel = new Channel { Uri = CurrentChannel.Uri };
-	       await channelTable.InsertAsync(channel);
-        }
-
-     This code inserts the current channel into the Channel table.
-
-## <a name="update-scripts"></a>Update server scripts
-
-1. In the Management Portal, click the **Data** tab and then click the **Channel** table. 
-
-   ![][3]
-
-2. In **channel**, click the **Script** tab and select **Insert**.
-   
-   ![][4]
-
-   This displays the function that is invoked when an insert occurs in the **Channel** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-		function insert(item, user, request) {
-			var channelTable = tables.getTable('Channel');
-			channelTable
-				.where({ uri: item.uri })
-				.read({ success: insertChannelIfNotFound });
-	        function insertChannelIfNotFound(existingChannels) {
-        	    if (existingChannels.length > 0) {
-            	    request.respond(200, existingChannels[0]);
-        	    } else {
-            	    request.execute();
-        	    }
-    	    }
-	    }
-
-   This script checks the **Channel** table for an existing channel with the same URI. The insert only proceeds if no matching channel was found. This prevents duplicate channel records.
-
-4. Click **TodoItem**, click **Script** and select **Insert**. 
-
-   ![][5]
-
-5. Replace the insert function with the following code, and then click **Save**:
-
-	    function insert(item, user, request) {
-    	    request.execute({
-        	    success: function() {
-            	    request.respond();
-            	    sendNotifications();
-        	    }
-    	    });
-
-	        function sendNotifications() {
-        	    var channelTable = tables.getTable('Channel');
-        	    channelTable.read({
-            	    success: function(channels) {
-                	    channels.forEach(function(channel) {
-                    	    push.wns.sendToastText04(channel.uri, {
-                        	    text1: item.text
-                    	    }, {
-                        	    success: function(pushResponse) {
-                            	    console.log("Sent push:", pushResponse);
-                        	    }
-                    	    });
-                	    });
-            	    }
-        	    });
-    	    }
-	    }
-
-    This insert script sends a push notification (with the text of the inserted item) to all channels stored in the **Channel** table.
+	This code turns on period notifications to request tile template data from the new **tiles** custom API. 
 
 ## <a name="test-app"></a>Test the app
 
-1. In Visual Studio, press the F5 key to run the app.
+1. In Visual Studio, press the F5 key to run the app again.
 
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
+	This will turn on periodic notifications.
 
-   ![][6]
+2. Navigate to the Start screen, locate the live tile for the app, and notice that item data is now displayed in the tile.
 
-   Note that after the insert completes, the app still receives a push notification from WNS.
-
-   ![][7]
-
-9. (Optional) Run the app on two machines at the same time, and repeat the previous step. 
-
-    The notification is sent to all running app instances.
+ ![][4]
 
 ## Next steps
 
-This concludes the tutorials that demonstrate the basics of working with push notifications. Consider finding out more about the following Mobile Services topics:
+Now that you have created a periodic notification, consider finding out more about the following Mobile Services topics:
 
 * [Get started with push notifications]
-
+	<br/>Periodic notifications are managed by Windows and occur only on a predefined schedule. Push notifications can be sent by the mobile service on demand and can be toast, tile, and raw notifications.
 
 * [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
+  <br/>Learn more about creating custom APIs.
 
 <!-- Anchors. -->
 [Define the custom API]: #define-custom-api
@@ -204,19 +135,17 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [1]: ../Media/mobile-custom-api-create.png
 [2]: ../Media/mobile-custom-api-create-dialog.png
 [3]: ../Media/mobile-custom-api-select.png
-[4]: ../Media/mobile-insert-script-channel.png
-[5]: ../Media/mobile-insert-script-push2.png
-[6]: ../Media/mobile-quickstart-push1.png
-[7]: ../Media/mobile-quickstart-push2.png
+[4]: ../Media/mobile-custom-api-live-tile.png
 
 <!-- URLs. -->
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: ./get-started/#create-new-service
-[Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-js.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-js.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-js.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
