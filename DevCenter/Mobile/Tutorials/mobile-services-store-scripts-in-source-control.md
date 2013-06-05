@@ -4,7 +4,7 @@
 
 # Store server scripts in source control
 
-This topic shows you how to set up source control for the first time in Windows Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. Source control is required to be able to define custom APIs.
+This topic shows you how to set up source control for the first time in Windows Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. 
 
 The tutorial guides you through the following steps:
 
@@ -96,11 +96,11 @@ Now that you have created your local repository, you can make changes to server 
 
 4. Type the following command to commit changes:
 
-		$ git commit -a -v -m "updated the insert script"
+		$ git commit -m "updated the insert script"
 
 5. Type the following command to upload the changes to the remote repository:
 
-		$ git commit -a -v -m "updated the insert script"
+		$ git push origin master
 	
 	You should see a series of commands that indicates that the commit is deployed to the mobile service.
 
