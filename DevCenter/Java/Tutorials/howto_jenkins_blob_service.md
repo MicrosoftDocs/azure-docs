@@ -20,7 +20,7 @@ In this tutorial you will be using the Windows Azure Storage Plugin for Jenkins 
 -   [Components used by the Blob service][]
 
 <h2><a name="overview"></a><span class="short header">Overview</span>Overview of Jenkins</h2>
-Jenkins enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This topic will show how to use Windows Azure blog storage as the repository of the build artifacts.
+Jenkins enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This topic will show how to use Windows Azure blob storage as the repository of the build artifacts.
 
 More information about Jenkins can be found at [Meet Jenkins][].
 
