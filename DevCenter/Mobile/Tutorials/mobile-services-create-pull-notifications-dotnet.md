@@ -58,7 +58,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 		        };
 		        var i = 0;
 		        console.log(results)
-		        results.forEach(function addText(item) {
+		        results.forEach(function(item) {
 		            tileText["text" + (i + 2)] = item.text;
 		            i++;
 		        });
