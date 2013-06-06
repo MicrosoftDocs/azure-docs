@@ -1,3 +1,5 @@
+<properties umbraconavihide="0" pagetitle="New Relic - Windows Azure Web Sites" metakeywords="Windows Azure new relic web sites, windows azure new relic, new relic web sites, windows azure web sites performance, windows azure web sites monitoring" metadescription="Learn how to use New Relic to monitor performance for Windows Azure Web Sites" linkid="dev-net-how-to-new-relic-web-sites" urldisplayname="New Relic- Windows Azure Web Sites" headerexpose="" footerexpose="" disquscomments="1" writer="larryfr"></properties>
+
 New Relic Application Performance Management on Windows Azure Web Sites
 ==
 
