@@ -244,13 +244,10 @@ notification by email, SMS, or a desktop application when an error is
 detected. This type of monitoring simulates what an end user does to
 successfully monitor an application.
 
-**Azure Check**
+**Apica Tools**
 
-Apica's [AzureCheck] is a tool that monitors your Windows Azure web
-application "from outside." In order to use this tool, download their
-code and add it to your deployment as a [startup task]. The advantage of
-this tool is that it does not require that you store your logs in your
-storage account thus reducing the cost of monitoring.
+Apica provides tools that monitors your Windows Azure web application "from outside." For more information, see <a href="http://www.apicasystem.com/integration-partners/">http://www.apicasystem.com/integration-partners/</a>.
+
 
 **AVIcode**
 
