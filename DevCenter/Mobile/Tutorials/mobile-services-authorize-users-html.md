@@ -53,7 +53,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 1. In a web browser, navigate to the index.html page for the app, then log-on with your chosen identity provider. 
 
-   Notice that this time, although there are items already in the TodoItem table from preview tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
+   Notice that this time, although there are items already in the TodoItem table from previous tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 
 3. In the app, enter text in **Enter new task** and then click **Add**.
 
