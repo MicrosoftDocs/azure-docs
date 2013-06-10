@@ -18,11 +18,7 @@ A screenshot of the completed application is below:
 Follow these steps to create a Windows Azure Web Site, and then enable Git publishing for the web site.
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p>
-<ul>
-<li>If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure Free Trial</a>.</li>
-<li>If you have an existing account but need to enable the Windows Azure Web Sites preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
-</ul>
+<p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account  in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Windows Azure Free Trial</a>.</p>
 </div>
 
 1. Login to the [Windows Azure Management Portal].
@@ -100,8 +96,21 @@ In this section, you will create a **server.js** file containing the 'hello worl
 		git push azure master
 
 	You will be prompted for the password you created earlier and will see the following output:
-	
-	![Git command line output][git-push-azure]
+
+		Password for 'testsite.scm.azurewebsites.net':
+		Counting objects: 3, done.
+		Delta compression using up to 8 threads.
+		Compressing objects: 100% (2/2), done.
+		Writing objects: 100% (3/3), 374 bytes, done.
+		Total 3 (delta 0), reused 0 (delta 0)
+		remote: New deployment received.
+		remote: Updating branch 'master'.
+		remote: Preparing deployment for commit id '5ebbe250c9'.
+		remote: Preparing files for deployment.
+		remote: Deploying Web.config to enable Node.js activation.
+		remote: Deployment successful.
+		To https://user@testsite.scm.azurewebsites.net/testsite.git
+		 * [new branch]      master -> master
     
 	If you navigate to the deployments tab of your Windows Azure Web Site within the management portal, you will see your first deployment in the deployment history:
 
@@ -150,7 +159,7 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 [portal-quick-create]: ../../Shared/Media/create-quick-website.png
 [portal-website-list]: ../Media/list-of-websites.png
 [portal-git-username-password]: ../../Shared/Media/git-deployment-credentials.png
-[git-instructions]: ../../Shared/Media/git_instructions.png
+[git-instructions]: ../../Shared/Media/git-instructions.png
 [git-push-azure]: ../Media/git_push_azure.png
 [git-deployments-first]: ../Media/git_deployments_first.png
 [git-deployments-second]: ../Media/git_deployments_second.png
