@@ -38,7 +38,7 @@ Windows Azure customers receive a 2 week trial subscription of New Relic Pro whe
 Sign up for New Relic using the Windows Azure Store
 --
 
-New Relic integrates seamlessly with Windows Azure Web Roles and Worker roles.
+New Relic integrates seamlessly with Windows Azure Web Roles, Worker roles and Web Sites.
 
 To sign up for New Relic directly from the Windows Azure Store, follow these four easy steps.
 
@@ -49,7 +49,6 @@ To sign up for New Relic directly from the Windows Azure Store, follow these fou
 3. Click **Store**.
 4. In the **Choose an Add-on** dialog, select **New Relic** and click **Next**.
 5. In the **Personalize Add-on** dialog, select the New Relic plan that you want.
-6. Enter a promotion code, if applicable.
 7. Enter a name for how the New Relic service will appear in your Windows Azure
    settings, or use the default value **NewRelic**. This name must be unique in
    your list of subscribed Windows Azure Store items.
@@ -58,12 +57,12 @@ To sign up for New Relic directly from the Windows Azure Store, follow these fou
 10. In the **Review Purchase** dialog, review the plan and pricing information,
     and review the legal terms. If you agree to the terms, click **Purchase**.
 11. After you click **Purchase**, your New Relic account will begin the creation process. You can monitor the status in the Windows Azure management portal.
-12. To retrieve your New Relic license key, click **Output Values**. 
+12. To retrieve your New Relic license key, click the Add-On you just created and then click **Connection Info**. 
 13. Copy the license key that appears. You will need to enter it when you install the New Relic Nuget package.
 
 ### Step 2. Install the New Relic package
 
-The New Relic Web Sites package is distributed as a NuGet package, which can be added to your Web Site using either Visual Studio or WebMatrix. If you are unfamiliar with using Visual Studio or WebMatrix with a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site using Visual Studio][vswebsite] or [Develop and deploy a web site with Microsoft WebMatrix][webmatrixwebsite].
+The New Relic Web Sites Agent is distributed as a NuGet package, which can be added to your Web Site using either Visual Studio or WebMatrix. If you are unfamiliar with using Visual Studio or WebMatrix with a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site using Visual Studio][vswebsite] or [Develop and deploy a web site with Microsoft WebMatrix][webmatrixwebsite].
 
 Perform the following steps for the specific development environment you are using:
 
