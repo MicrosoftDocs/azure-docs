@@ -34,6 +34,8 @@ To get an SSL certificate from a Certificate Authority you must generate a Certi
 
 ###Get a certificate using the IIS Manager
 
+This section describes the steps to obtain a certificate from a trusted Certificate Authority. If you wish to create a self-signed certificate for testing, see the [Self-signed Certificates](#bkmk_selfsigned) section of this document.
+
 1. Generate a Certificate Signing Request (CSR) with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
 
 2. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
@@ -139,6 +141,87 @@ Before performing the steps in this section, you must have associated a custom D
 6. Click **Save** to save the changes and enable SSL.
 
 At this point, you should be able to visit your website using HTTPS to verify that the certificate has been configured correctly.
+
+<a href="bkmk_reservedmode"></a><h2>Self-signed certificates (Optional)</h2>
+
+In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production. Self-signed certificates can fill this gap. A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority. While this certificate can be used to secure a web site, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA. Some browsers may even refuse to allow you to view the site.
+
+While there are multiple ways to create a self-signed certificate, this article only provides information on using **makecert** and **OpenSSL**.
+
+###Create a self-signed certificate using makecert
+
+You can create a test certificate from a Windows system that has Visual Studio installed by performing the following steps:
+
+1. From the **Start Menu** or **Start Screen**, search for **Developer Command Prompt**. Finally, right-click **Developer Command Prompt** and select **Run As Administrator**.
+
+	If you receive a User Account Control dialog, select **Yes** to continue.
+
+2. From the Developer Command Prompt, use the following command to create a new self-signed certificate. You must substitute **serverdnsname** with the DNS of your web site.
+
+		makecert -r -pe -b 01/01/2013 -e 01/01/2014 -eku 1.3.6.1.5.5.7.3.1 -ss My -n CN=serverdnsname -sky exchange -sp "Microsoft RSA SChannel Cryptographic Provider" -sy 12 -len 2048
+
+	This command will create a certificate that is good between the dates of 01/01/2013 and 01/01/2014, and will store the location in the CurrentUser certificate store.
+
+3. From the **Start Menu** or **Start Screen**, search for **Windows PowerShell** and start this application.
+
+4. From the Windows PowerShell prompt, use the following commands to export the certificate created previously:
+
+		$mypwd = ConvertTo-SecureString -String "password" -Force -AsPlainText
+		get-childitem cert:\currentuser\my -dnsname serverdnsname | export-pfxcertificate -filepath file-to-export-to.pfx -password $mypwd
+
+	This stores the specified password as a secure string in $mypwd, then finds the certificate by using the DNS name specified by the **dnsname** parameter, and exports to the file specified by the **filepath** parameter. The secure string containing the password is used to secure the exported file.
+
+###Create a self-signed certificate using OpenSSL
+
+1. Create a new document named **serverauth.cnf**, using the following as the contents of this file:
+
+        [ req ]
+        default_bits           = 2048
+        default_keyfile        = privkey.pem
+        distinguished_name     = req_distinguished_name
+        attributes             = req_attributes
+        x509_extensions        = v3_ca
+
+        [ req_distinguished_name ]
+        countryName			= Country Name (2 letter code)
+        countryName_min			= 2
+        countryName_max			= 2
+        stateOrProvinceName		= State or Province Name (full name)
+        localityName			= Locality Name (eg, city)
+        0.organizationName		= Organization Name (eg, company)
+        organizationalUnitName		= Organizational Unit Name (eg, section)
+        commonName			= Common Name (eg, your website's domain name)
+        commonName_max			= 64
+        emailAddress			= Email Address
+        emailAddress_max		= 40
+
+        [ req_attributes ]
+        challengePassword		= A challenge password
+        challengePassword_min		= 4
+        challengePassword_max		= 20
+
+        [ v3_ca ]
+         subjectKeyIdentifier=hash
+         authorityKeyIdentifier=keyid:always,issuer:always
+         basicConstraints = CA:false
+         keyUsage=nonRepudiation, digitalSignature, keyEncipherment
+         extendedKeyUsage = serverAuth
+
+	This specifies the configuration settings required to produce an SSL certificate that can be used by Windows Azure Web Sites.
+
+2. Generate a new self-signed certificate by using the following from a command-line, bash or terminal session:
+
+		openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
+
+	This creates a new certificate using the configuration settings specified in the **serverauth.cnf** file.
+
+3. To export the certificate to a .PFX file that can be uploaded to a Windows Azure Web Site, use the following command:
+
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+
+	When prompted, enter a password to secure the .pfx file.
+
+	The **myserver.pfx** produced by this command can be used to secure your Windows Azure Web Site for testing purposes.
 
 [customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
 [iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
