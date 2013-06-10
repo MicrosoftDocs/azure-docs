@@ -68,22 +68,19 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 3. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
-4. Once you have obtained a certificate from a CA, create a copy of the **myserver.key** named **myserver.pem**. Using a text editor, open this file and add the certificate returned from your CA to the end of this file. It should similar to the following:
+4. Once you have obtained a certificate from a CA, save it to a file named **myserver.crt**. If your CA provided the certificate in a text format, simply paste the certificate text into the **myserver.crt** file. The file should appear as follows when viewed in a text editor:
 
-		-----BEGIN RSA PRIVATE KEY-----
-		<private key contents omitted>
-		-----END RSA PRIVATE KEY-----
 		-----BEGIN CERTIFICATE-----
 		<certificate contents omitted>
 		-----END CERTIFICATE-----
 
 	Save the file.
 
-5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.pem** into **myserver.pfx**, which is the format required by Windows Azure Web Sites:
+5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Windows Azure Web Sites:
 
-		openssl pkcs12 -export -in myserver.pem -out myserver.pfx
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-	If prompted, enter a password to secure the new .pfx file.
+	When prompted, enter a password to secure the .pfx file.
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
 
