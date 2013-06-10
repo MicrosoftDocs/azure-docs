@@ -13,7 +13,7 @@
 </div>
 
 <div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from a Windows Store app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started">Get started with Mobile Services</a>.</p>
+<p>Visual Studio 2013 Preview includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service</a> in the Windows Dev Center.</p>
 </div>
 
 This tutorial walks you through these basic steps:
