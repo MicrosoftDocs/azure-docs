@@ -17,6 +17,8 @@ This topic includes the following sections:
 	+ [How to: Access custom parameters]
 + [How to: Define scheduled job scripts]
 + [How to: Access tables from scripts]
++ [How to: Do relational table joins]
++ [How to: Perform Bulk Inserts]
 + [How to: Map JSON types to database types]
 + [How to: Leverage modules and helper functions]
 + [How to: Write output to logs]
@@ -292,6 +294,150 @@ The following example writes auditing information to an **audit** table:
 		}
 	}
 
+
+<h2><a name="joins"></a><span class="short-header">Joins</span>How to: Do relational table joins</h2>
+
+You can join two tables by using the [mssql object]'s query method to pass in the  TSQL code that implements the join.
+
+We assume you have completed the [Getting Started with Data] tutorial so that you already have a Mobile Service and a **ToDoItem** table. We will add a **Priority** table to the service, and add a *priority code* to the **ToDoItem** table. We will then join the two tables together to generate a list of work items along with a priority description.
+
+We implement this by using a server script, which will populate the **Priority** table with  rows that contain a priority number and a text description. For example, the priority number 0 might have a description of "critical, must do now!". Next the script adds rows to the **ToDoItem** table that contain a text field and a priority number. Because of *dynamic schema* being enabled, the new field, priority number, will get added to the existing schema (note: we do NOT recomend leaving dynamic schema set on in production, but it is handy in development, and for this sample). Finally, we join the rows in the **ToDoItem** table with the **Priority** table, using the priority number as the join column. 
+
+Our first step is to create the **Priority** table. From your Mobile Service, click the Data tab, and then New. Enter your table name of "Priority" and click the check mark.
+
+![3][]
+
+Next we insert some items into the table. First create an on-demand scheduled job called **JoinTables**  (see [How to: Define scheduled job scripts]).
+
+Click on the **SCRIPT** tab and replace the function body with the following code.
+
+    	function priorities(){
+			var priorityTable = tables.getTable('Priority');
+		    //Write to my service log 
+		    console.info("Running 'insertpriorities' job."); 
+			var item = { number: 0, description: "critical and urgent" };
+			priorityTable.insert(item);
+			item.number = 1;
+			item.description = "critical";
+			priorityTable.insert(item);
+			item.number = 2;
+			item.description = "urgent";
+			priorityTable.insert(item);
+			item.number = 3;
+			item.description = "take your time";
+			priorityTable.insert(item);
+		}
+		
+Next add the following code right below the above code.
+
+    	function toDoItem(){
+			var ToDoItemTable = tables.getTable('ToDoItem');
+		    //Write to my service log 
+		    console.info("Running 'InsertWorkItems' job."); 
+			var item = { priority: 0, text: "fix this bug now" };
+			ToDoItemTable.insert(item);
+			item.priority = 1;
+			item.text = "we need to fix this one real soon now";
+			ToDoItemTable.insert(item);
+			item.priority = 2;
+			item.text = "this is important but not so much";
+			ToDoItemTable.insert(item);
+			item.priority = 3;
+			item.text = "good idea for the future";
+			ToDoItemTable.insert(item);
+		}
+
+Next add a function to do the actual join at the end.
+
+	    function join(){
+		    //Write to my service log 
+		    console.info("Running 'Join' job."); 
+			mssql.query('SELECT t.text, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
+	            success: function(results) {
+	                console.log(results);
+	            }
+	        });
+		}
+	
+Now add the following code at the very beginning, which causes one of the functions to be executed.
+
+			var command = "priorities";
+		    if (command == "priorities"){    
+		        priorities();
+		    }
+		    else
+		    if (command == "toDoItem"){ 
+		        toDoItem();   
+		    }  
+		    else
+		    if (command == "Join"){    
+		        join();
+		    } 
+		
+Now click **Save**.
+
+Note: certain levels of Windows Azure subscriptions only allow you to have a single scheduler script, so we have combined what could be three separate scripts into a single one.
+
+To run the script, press the "Run Once" button at the bottom of the page. The script will insert 4 rows into the **Priorities** table, which you can verify by clicking on the **DATA** tab from the Dashboard screen.
+
+Next, change the **command** variable at the top of the script to be assigned the value *toDoItem* and run the script again. The script will insert 4 rows into the **ToDoItem** table, which you can also verify.
+
+Finally, change the **command** variable to be assigned the value *Join* and run the script again. The script will now join the two tables and write the results to the log, which you can inspect by going back to your mobile services screen, and clicking **LOGS**. The line at the top represents the last execution of the script, and you can highlight it and click **DETAILS** in the page footer, to see the results of the join.	
+
+In a production scenario, you might put the join logic in the **join** function into a *Read* script for the **ToDoItem** table.
+
+<h2><a name="bulk-inserts"></a><span class="short-header">Bulk inserts</span>How to: Perform Bulk Inserts</h2>
+
+If you try to insert a large number of items (1000, for example) into table using a tight **for** or **while** loop, you might hit a SQL connection limit that will cause some of the inserts to fail. Your request may never complete or it may return a HTTP 500 Internal Server Error response.  To correctly handle this case, you can insert a batch of items (say 10) and once that completed, submit another batch of inserts to avoid this connection limit.
+
+The below script allows you to set a batch size with the number of records to insert in parallel, this number should be kept small. Note the function **insertItems** calls itself recursively when an async insert batch has completed. The for loop at the bottom inserts one record at a time, calling **insertComplete** on success and **errorHandler** on error. **insertComplete**  controls whether **insertItems** should be called recursively for the next batch, or whether we are done and should exit.
+
+		var todoTable = tables.getTable('TodoItem'); 
+		var recordsToInsert = 1000;
+		var batchSize = 10; 
+		var totalCount = 0;
+		var errorCount = 0; 
+		
+		function insertItems() {        
+		    var batchCompletedCount = 0;  
+		
+		    var insertComplete = function() { 
+		        batchCompletedCount++; 
+		        totalCount++; 
+		        if(batchCompletedCount === batchSize || totalCount === recordsToInsert) {                        
+		            if(totalCount < recordsToInsert) {
+		                // kick off the next batch 
+		                insertItems(); 
+		            } else { 
+		                // or we are done, report the status of the job 
+		                // to the log and don't do any more processing 
+		                console.log("Insert complete. %d Records processed. There were %d errors.", totalCount, errorCount); 
+		            } 
+		        } 
+		    }; 
+		
+		    var errorHandler = function(err) { 
+		        errorCount++; 
+		        console.warn("Ignoring insert failure as part of batch.", err); 
+		        insertComplete(); 
+		    };
+		
+		    for(var i = 0; i < batchSize; i++) { 
+		        var item = { text: "This is item number: " + totalCount + i }; 
+		        todoTable.insert(item, { 
+		            success: insertComplete, 
+		            error: errorHandler 
+		        }); 
+		    } 
+		} 
+		
+		insertItems(); 
+
+
+The entire code sample, and accompanying discussion, can be found in this [blog posting](http://blogs.msdn.com/b/jpsanders/archive/2013/03/20/server-script-to-insert-table-items-in-windows-azure-mobile-services.aspx). If you choose to use this code, you will need to adapt it to your specific situation, and thoroughly test it.
+
+
+
 <h2><a name="JSON-types"></a><span class="short-header">Map JSON types</span>How to: Map JSON types to database types</h2>
 
 The collections of data types on the client and in a Mobile Services database table are different, and sometimes map easily to one another, and other times do not. Mobile Services performs a number of type transformations in going from one to another:
@@ -426,10 +572,15 @@ Note that the string `%j` is used as the placeholder for a JSON object and that 
 [How to: Access tables from scripts]: #access-tables
 [How to: Access custom parameters]: #access-headers
 [How to: Work with users]: #work-with-users
+[How to: Do relational table joins]: #joins
+[How to: Perform Bulk Inserts]: #bulk-inserts
+
 
 <!-- Images. -->
 [1]: ../Media/mobile-insert-script-users.png
 [2]: ../Media/mobile-schedule-job-script.png
+[3]: ../Media/mobile-create-priority-table.png
+
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
@@ -458,12 +609,15 @@ Note that the string `%j` is used as the placeholder for a JSON object and that 
 [Modify the request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx
 [Modify the response]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
 [Management Portal]: https://manage.windowsazure.com/
+
 [Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commands to manage Windows Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
+[Getting Started with Data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Windows Store Push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone Push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
 [Android Push]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
+
 [Windows Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
 [Send HTTP request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
