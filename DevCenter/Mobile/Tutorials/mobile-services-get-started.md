@@ -94,6 +94,10 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * **Get started with push notifications** ( [C#][Get started with push notifications] / [JavaScript][Get started with push notifications JS] )
   <br/>Learn how to send a very basic push notification to your app.
 
+<div class="dev-callout"><b>Note</b>
+<p>Visual Studio 2013 Preview includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service</a> in the Windows Dev Center.</p>
+</div>
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
