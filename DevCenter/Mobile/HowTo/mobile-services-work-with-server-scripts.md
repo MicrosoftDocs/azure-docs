@@ -452,7 +452,7 @@ When you are writing server scripts using [insert], [update], [read] or [delete]
 
 When using the [tables object], the [mssql object], or by simply by allowing your table scripts to execute, the deserialized JavaScript objects get inserted into your SQL database. In that process, object properties are mapped to T-SQL types, as shown below.
 
-<table border=1>
+<table border="1">
 <tr>
 <td>JavaScript property</td>
 <td>T-SQL type</td>
