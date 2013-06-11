@@ -1,4 +1,4 @@
-1. Open a web browser and browse to [http://www.windowsazure.com][].
+1. Open a web browser and browse to [http://www.windowsazure.com]().
 
  ![Windows Azure Web Site][]
 
