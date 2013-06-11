@@ -53,7 +53,7 @@ The Solr installer places the Solr application on your
 
 
 
-**&lt;yourpath&gt;** is the pathname for the SolrInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **\&lt;yourpath&gt;**.
+**&lt;yourpath&gt;** is the pathname for the SolrInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **&lt;yourpath&gt;**.
 
 **&lt;YourUniqueName&gt;** is the DNS name for your published Solr application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
 
