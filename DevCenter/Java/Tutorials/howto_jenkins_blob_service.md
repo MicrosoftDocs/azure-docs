@@ -10,6 +10,7 @@ In this tutorial you will be using the Windows Azure Storage Plugin for Jenkins 
 
 ## Table of Contents
 
+-   [Overview of Jenkins][]
 -   [Benefits of using the Blob service][]
 -   [Prerequisites][]
 -   [How to use the Blob service with Jenkins CI][]
@@ -17,6 +18,11 @@ In this tutorial you will be using the Windows Azure Storage Plugin for Jenkins 
 -   [How to configure the Windows Azure Storage plugin to use your storage account][]
 -   [How to create a post-build action that uploads your build artifacts to your storage account][]
 -   [Components used by the Blob service][]
+
+<h2><a name="overview"></a><span class="short header">Overview</span>Overview of Jenkins</h2>
+Jenkins enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This topic will show how to use Windows Azure blob storage as the repository of the build artifacts.
+
+More information about Jenkins can be found at [Meet Jenkins][].
 
 <h2><a name="benefits"></a><span class="short header">Benefits</span>Benefits of using the Blob service</h2>
 
@@ -110,7 +116,7 @@ For instruction purposes, first we’ll need to create a job that will create se
     4. Click **Containers**.
     5. Click the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Jenkins job. Container names and blob names are lowercase (and case-sensitive) in Windows Azure storage. Within the list of blobs for the container named **myjob** you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
 
-<h2><a name=""></a><span class="short header">Blob service components</span>Components used by the Blob service</h2>
+<h2><a name="components"></a><span class="short header">Blob service components</span>Components used by the Blob service</h2>
 
 The following provides an overview of the Blob service components.
 
@@ -123,12 +129,11 @@ The following provides an overview of the Blob service components.
     
     (The format above applies to the public Windows Azure cloud. If you are using a different Windows Azure cloud, use the endpoint within the Windows Azure management portal to determine your URL endpoint.)
 
-    In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name in this tutorial was **MyJob**, and **${BUILD\_ID/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
+    In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name in this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
 
     `http://example.blob.core.windows.net/myjob/2013-01-28_15-00-35/2/hello.txt`
 
-
-
+  [Overview of Jenkins]: #overview
   [Benefits of using the Blob service]: #benefits
   [Prerequisites]: #prerequisites
   [How to use the Blob service with Jenkins CI]: #howtouse
@@ -137,4 +142,4 @@ The following provides an overview of the Blob service components.
   [How to create a post-build action that uploads your build artifacts to your storage account]: #howtocreatepostbuild
   [Components used by the Blob service]: #components
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
-  
+  [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
