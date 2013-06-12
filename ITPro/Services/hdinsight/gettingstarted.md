@@ -157,7 +157,7 @@ You can use the JavaScript Interactive Console to view the output from the WordC
 
 	![HDI.Hero.ReadWordCount](../media/HDI.Hero.ReadWordCounts.PNG "Read Wordcounts")
 	
- ##<a name="dataexplorer"></a>Connecting to Microsoft Business Intelligence Tools 
+##<a name="dataexplorer"></a>Connecting to Microsoft Business Intelligence Tools 
 
 The Data Explorer can be used to export results from HDInsight into Microsoft Business Intelligence (BI) tools such as Excel. You must have Excel 2010 or 2013 installed to complete this part of the tutorial. Here we will import the default Hive table that ships in HDInsight.
 

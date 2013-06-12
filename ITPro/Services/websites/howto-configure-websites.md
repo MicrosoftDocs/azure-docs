@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
 
-
+<div chunk="../chunks/web-sites-left-nav.md" />
 
 # How to Configure Web Sites #
 
@@ -26,14 +26,15 @@ Follow these steps to change configuration options for a web site.
 	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
 
 <li style="margin-left: 40px">
-<strong>certificates</strong> – Click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
+<strong>certificates</strong> – Click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.  For more information about configuring SSL, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. 
 <br /><strong>Note:</strong>
-Custom domains are available only in Shared and Reserved modes.
+SSL certificates are supported in Reserved mode only. Custom domains are available only in Shared and Reserved modes.
 </li>
 
 <li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Reserved</strong> modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
 
-<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
+<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about configuring SSL, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.  For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.<br /><strong>Note:</strong>
+SSL certificates are supported in Reserved mode only.</li>
 
 <li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
@@ -126,6 +127,7 @@ To configure a web site to use a MySQL database, follow the same steps to use a 
 Alternatively, you can create the web site with the **Custom Create** option. In the **Database** dropdown, choose either **Create a new MySQL database** or **Use an existing MySQL database**. 
 
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
+For information on configuring a Windows Azure web site to use SSL, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/" >Configuring an SSL certificate for a Windows Azure web site</a>.
 
 
 
