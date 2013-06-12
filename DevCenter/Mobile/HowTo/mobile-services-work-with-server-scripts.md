@@ -17,6 +17,7 @@ This topic includes the following sections:
 	+ [How to: Access custom parameters]
 + [How to: Define scheduled job scripts]
 + [How to: Access tables from scripts]
++ [How to: Map JSON types to database types]
 + [How to: Leverage modules and helper functions]
 + [How to: Write output to logs]
 
@@ -291,6 +292,55 @@ The following example writes auditing information to an **audit** table:
 		}
 	}
 
+<h2><a name="JSON-types"></a><span class="short-header">Map JSON types</span>How to: Map JSON types to database types</h2>
+
+The collections of data types on the client and in a Mobile Services database table are different, and sometimes map easily to one another, and other times do not. Mobile Services performs a number of type transformations in going from one to another:
+
+- the client language-specific types are serialized into JSON
+- the JSON representation is translated into JavaScript before appearing in server scripts
+- the JavaScript data types are converted into SQL database types when saved using the [tables object].
+
+The transformation from client schema into JSON varies across platforms.  JSON.NET is used in the Windows Store and Windows Phone clients. The Android client uses the gson library.  The iOS client uses the NSJSONSerialization class. The stock serialization behavior of each of these libraries is used, except in the case of date objects, which are converted to JSON strings containing the date encoded using ISO 8601.
+
+When you are writing server scripts using [insert], [update], [read] or [delete] functions, you have access to the JavaScript representation of your data. Mobile Services uses node.js’s deserialization function ([JSON.parse](http://es5.github.io/#x15.12)) to transform JSON on the wire into JavaScript objects. However Mobile Services does  a transformation to extract **Date** objects from ISO 8601 strings.
+
+When using the [tables object], the [mssql object], or by simply by allowing your table scripts to execute, the deserialized JavaScript objects get inserted into your SQL database. In that process, object properties are mapped to T-SQL types, as shown below.
+
+<table border=1>
+<tr>
+<td>JavaScript property</td>
+<td>T-SQL type</td>
+</tr><tr>
+<td>Number</td>
+<td>Float(53)</td>
+</tr><tr>
+<td>Boolean</td>
+<td>Bit</td>
+</tr><tr>
+<td>Date</td>
+<td>DateTimeOffset(3)</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Nvarchar(max)</td>
+</tr>
+<tr>
+<td>Buffer</td>
+<td>Not supported</td>
+</tr><tr>
+<td>Object</td>
+<td>Not supported</td>
+</tr><tr>
+<td>Array</td>
+<td>Not supported</td>
+</tr><tr>
+<td>Stream</td>
+<td>Not supported</td>
+</tr>
+</table> 
+
+
+
 <h2><a name="helper-functions"></a><span class="short-header">Modules and helpers</span>How to: leverage modules and helper functions</h2>
 
 Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
@@ -371,6 +421,7 @@ Note that the string `%j` is used as the placeholder for a JSON object and that 
 [How to: Write output to logs]: #write-to-logs
 [How to: Define scheduled job scripts]: #scheduler-scripts
 [How to: Refine access to tables]: #authorize-tables
+[How to: Map JSON types to database types]: #JSON-types
 [How to: Leverage modules and helper functions]: #modules-helper-functions
 [How to: Access tables from scripts]: #access-tables
 [How to: Access custom parameters]: #access-headers
@@ -387,9 +438,13 @@ Note that the string `%j` is used as the placeholder for a JSON object and that 
 [User object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
 [push object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
 [insert function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
 [update function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
 [delete function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
 [read function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
 [query object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
 [apns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj839711.aspx
 [mpns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj871025.aspx

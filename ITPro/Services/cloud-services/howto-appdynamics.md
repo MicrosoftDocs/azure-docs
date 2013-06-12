@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Windows Azure" metaKeywords="" metaDescription="Learn how to use AppDynamics for Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="manage-services-how-to-use-appdynamics" urlDisplayName="Monitor with AppDynamics" pageTitle="How to use AppDynamics with Windows Azure" metaKeywords="" metaDescription="Learn how to use AppDynamics for Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="ryanwi" />
 
-
+<div chunk="../chunks/cloud-services-left-nav.md" />
 
 #How To Use AppDynamics for Windows Azure#
 

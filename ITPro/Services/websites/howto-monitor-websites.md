@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
 
-
+<div chunk="../chunks/web-sites-left-nav.md" />
 
 #<a name="howtomonitor"></a>How to Monitor Web Sites
 
