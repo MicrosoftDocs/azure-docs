@@ -19,7 +19,7 @@ You'll learn:
 * How to use OAuth and the ASP.NET membership database to secure your application.
 * How to deploy a membership database to Windows Azure.
 * How to use a SQL database to store data in Windows Azure.
-* How to use Visual Studio to update and manage the membership database on SQL Azure.
+* How to use Visual Studio to update and manage the membership database.
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
 <br/><br/>
@@ -53,8 +53,6 @@ To start, set up your development environment by installing the Windows Azure SD
 
 
 When the installation is complete, you have everything necessary to start developing.
-
-
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
@@ -474,7 +472,7 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
 <br/>
 <br/> <br/>![cert Warn][rxNOT2]
 <br/> <br/>
-Windows Azure Web sites include a valid security certificate, so you won't see this warning when you deploy to Azure.
+Windows Azure Web sites include a valid security certificate, so you won't see this warning when you deploy to Windows Azure.
 <h2><a name="ppd"></a><span class="short-header">Prepare DB</span>Create a Data Deployment Script</h2>
 
 
@@ -493,7 +491,7 @@ Install SSMS  from [Microsoft SQL Server 2012 Express Download Center](http://ww
 
 On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices. The following image shows the step that install SSMS.
 
-<br/><br/>![SQL Install][rxSS]<br/> 
+<br/>![SQL Install][rxSS]<br/> 
 ### Create the development database script ###
 
 
@@ -537,7 +535,7 @@ The **Publish Web** wizard opens.
 <br/><br/>![settings][rxSettings]<br/> 
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
-Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL Azure database and add users to the *canEdit* role.
+Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
 <br/><br/>![settings][rxSettings]<br/> 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
@@ -559,7 +557,7 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 1. Enter your **User name** and **Password**, which are in the connection string you copied.
 1. Enter the database name (ContactDB, or the  string after "Initial Catalog=" in the database if you didn't name it ContactDB.) If you get an error dialog, see the next section. 
 1. Click **Test Connection**. If you get an error dialog, see the next section. 
- <br/>![add con dlg][rx4]<br/><br/>
+ <br/>![add con dlg][rx4]<br/>
 
 ## Cannot open server login error ##
 If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
