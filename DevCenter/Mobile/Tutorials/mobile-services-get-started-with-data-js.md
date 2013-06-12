@@ -122,7 +122,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
    This code creates a proxy object (**todoTable**) for the SQL Database **TodoItem**. 
 
-7. Replace the **InsertTodoItem** method with the following code:
+7. Replace the **InsertTodoItem** function with the following code:
 
         var insertTodoItem = function (todoItem) {
             // Inserts a new row into the database. When the operation completes
@@ -134,7 +134,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   This code inserts a new item into the table.
 
-8. Replace the **RefreshTodoItems** method with the following code:
+8. Replace the **RefreshTodoItems** function with the following code:
 
         var refreshTodoItems = function () {
             // This code refreshes the entries in the list by querying the TodoItems table. 
@@ -146,7 +146,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
    This sets the binding to the collection of items in the todoTable, which contains all completed items returned from the mobile service. 
 
-9. Replace the **UpdateCheckedTodoItem** method with the following code:
+9. Replace the **UpdateCheckedTodoItem** function with the following code:
         
         var updateCheckedTodoItem = function (todoItem) {
             // This code takes a freshly completed TodoItem and updates the database. 
@@ -177,7 +177,7 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
   Notice that the complete value has changed from **false** to **true**.
 
-6. In the default.js project file, replace the existing **RefreshTodoItems** method with the following code that filters out completed items:
+6. In the default.js project file, replace the existing **RefreshTodoItems** function with the following code that filters out completed items:
 
         var refreshTodoItems = function () {                     
             // More advanced query that filters out completed items. 

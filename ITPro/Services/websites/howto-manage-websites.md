@@ -1,6 +1,6 @@
-<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal web site management" metaDescription="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal web site management" metaDescription="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
 
-
+<div chunk="../chunks/web-sites-left-nav.md" />
 
 
 #<a name="howtomanage"></a>How to Manage Web Sites

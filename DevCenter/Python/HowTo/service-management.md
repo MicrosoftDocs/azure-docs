@@ -50,7 +50,7 @@ To create the `.cer` certificate, execute this:
 
 For more information about Windows Azure certificates, see [Managing Certificates in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-After you have created these files, you will need to upload the `.cer` file to Windows Azure via the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
+After you have created these files, you will need to upload the `.cer` file to Windows Azure via the "Upload" action of the "Settings" tab of the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
 After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Windows Azure, you can connect to the Windows Azure managent endpoint by passing the subscription id and the path to the `.pem` file to **ServiceManagementService**:
 
