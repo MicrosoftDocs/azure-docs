@@ -1,4 +1,4 @@
-<properties linkname="how-to-run-blitline-jobs" urldisplayname="blitline-images-with-saas" headerexpose="" pagetitle="Blitline Service - How To" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+Start typing in the blue box...<properties linkname="how-to-run-blitline-jobs" urldisplayname="blitline-images-with-saas" headerexpose="" pagetitle="Blitline Service - How To" metakeywords="" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -10,11 +10,11 @@ This guide will explain how to access Blitline services and how to submit jobs t
 
 <h2><a name="toc"></a>Table of contents</h2>
 
-[What is Blitline?][]   
-[What Blitline is NOT][]   
-[Create a Blitline account][]    
-[How to create a Blitline job][]  
-[How to save an image to your Azure Storage][]  
+[What is Blitline?][]
+[What Blitline is NOT][]
+[Create a Blitline account][]
+[How to create a Blitline job][]
+[How to save an image to your Azure Storage][]
 [Next steps][]
 
 <h2><a name="whatis"></a><span  class="short-header">What is Blitline?</span>What is Blitline?</h2>
@@ -29,7 +29,7 @@ For more information, see [http://www.blitline.com][].
 
 To clarify what Blitline is useful for, it is often easier to identify what Blitline does NOT do before moving forward.
 
-- Blitline does NOT have HTML widgets to upload images. You must have images available publicly or with restricted permissions available for Blitline to reach. 
+- Blitline does NOT have HTML widgets to upload images. You must have images available publicly or with restricted permissions available for Blitline to reach.
 
 - Blitline does NOT do live image processing, like Aviary.com
 
@@ -44,16 +44,16 @@ To clarify what Blitline is useful for, it is often easier to identify what Blit
 
 <h2><a name="createjob"></a><span  class="short-header">How to create a Blitline job</span>How to create a Blitline job</h2>
 
-Blitline uses JSON to define the actions you want to take on an image. This JSON is composed of a few simple fields. 
+Blitline uses JSON to define the actions you want to take on an image. This JSON is composed of a few simple fields.
 
 The simplest example is as follows:
 
-    json : '{ 
+    json : '{
        "application_id": "MY_APP_ID",
-       "src" : "http://cdn.blitline.com/filters/boys.jpeg", 
+       "src" : "http://cdn.blitline.com/filters/boys.jpeg",
        "functions" : [ {
-           "name": "resize_to_fit", 
-           "params" : { "width": 240, "height": 140 }, 
+           "name": "resize_to_fit",
+           "params" : { "width": 240, "height": 140 },
            "save" : { "image_identifier" : "external_sample_1" }
        } ]
     }'
@@ -72,7 +72,7 @@ Once you have your JSON all you need to do is **POST** it to <http://api.blitlin
 
 You will get JSON back that looks something like this:
 
-    { 
+    {
      "results":
          {"images":
             [{
@@ -101,10 +101,8 @@ Here is an example:
          "save" : {
              "image_identifier" : "YOUR_IMAGE_IDENTIFIER",
              "azure_destination" : {
-                 "application_name" : "YOUR_AZURE_APP",
-                 "container" : "YOUR_AZURE_STORAGE_CONTAINER",
-                 "key" : "KEY_VALUE_TO_SAVE_IMAGE_AS",
-                 "shared_access_signature" : "SAS_THAT_GIVES_BLITLINE_PERMISSION_TO_WRITE_TO_CONTAINER",
+                 "account_name" : "YOUR_AZURE_CONTAINER_NAME",
+                 "shared_access_signature" : "SAS_THAT_GIVES_BLITLINE_PERMISSION_TO_WRITE_THIS_OBJECT_TO_CONTAINER",
                }
            }
          }]
@@ -113,6 +111,17 @@ Here is an example:
 
 By filling in the CAPITALIZED values with your own, you can submit this JSON to http://api.blitline.com/job and the "src" image will be processed with a blur filter and then pushed to you Azure destination.
 
+<h3>Please note:</h3>
+
+The SAS must contain the entire SAS url, including the filename of the destination file.
+
+Example:
+
+    http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
+
+
+You can also read the latest edition of Blitline's Azure Storage docs <a href="http://www.blitline.com/docs/azure_storage">here</a>.
+<br/>
 <h2><a name="nextsteps"></a><span  class="short-header">Next Steps</span>Next Steps</h2>
 
 Visit blitline.com to read about all our other features:
@@ -130,4 +139,3 @@ Visit blitline.com to read about all our other features:
   [Create a Blitline account]: #createaccount
   [How to create a Blitline job]: #createjob
   [How to save an image to your Azure Storage]: #saveazure
-
