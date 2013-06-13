@@ -47,7 +47,7 @@ The Solr installer places the Solr application on your
 5. Launch a command prompt (cmd.exe) as an administrator and cd to the local folder selected above.
 
 ## Run the installer:
-    Inst4WA.exe -XmlConfigPath "<yourpath>/SolrInstWR.xml" -DomainName "<youruniquename>" -Subscription "<yoursubscriptionname>" -Location "<datacenterlocation>"
+    Inst4WA.exe -XmlConfigPath "<yourpath>/SolrInstWR.xml" -DomainName "<YourUniqueName>" -Subscription "<YourSubscriptionName>" -Location "<DatacenterLocation>"
 
  Note that we currently support Solr 3.x as well as 4.x. The names of the SolrInstWR.xml files indicate the Solr version that will be installed using that config file.
 
@@ -56,6 +56,10 @@ The Solr installer places the Solr application on your
 **&lt;yourpath&gt;** is the pathname for the SolrInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **&lt;yourpath&gt;**.
 
 **&lt;YourUniqueName&gt;** is the DNS name for your published Solr application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
+
+**&lt;YourSubscriptionName&gt;** is the human readable name for your subscription. You can find this in the publish settings file if it is not already known.
+
+**&lt;DatacenterLocation&gt;** is the human readable name for the datacenter location you would like the deployment to live. I.E: "West US"
 
 
 ## Solr application
