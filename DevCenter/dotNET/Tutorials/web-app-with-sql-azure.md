@@ -54,6 +54,8 @@ To start, set up your development environment by installing the Windows Azure SD
 
 When the installation is complete, you have everything necessary to start developing.
 
+
+
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
 Next, set up the Windows Azure environment by creating a Windows Azure Web Site and a SQL database.
@@ -491,7 +493,7 @@ Install SSMS  from [Microsoft SQL Server 2012 Express Download Center](http://ww
 
 On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices. The following image shows the step that install SSMS.
 
-<br/>![SQL Install][rxSS]<br/> 
+<br/><br/>![SQL Install][rxSS]<br/> 
 ### Create the development database script ###
 
 
@@ -557,7 +559,7 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 1. Enter your **User name** and **Password**, which are in the connection string you copied.
 1. Enter the database name (ContactDB, or the  string after "Initial Catalog=" in the database if you didn't name it ContactDB.) If you get an error dialog, see the next section. 
 1. Click **Test Connection**. If you get an error dialog, see the next section. 
- <br/>![add con dlg][rx4]<br/>
+ <br/>![add con dlg][rx4]<br/><br/>
 
 ## Cannot open server login error ##
 If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
@@ -737,7 +739,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [setup001]: ../Media/dntutmobile-setup-run-sdk-setup-exe.png
 [setup002]: ../Media/dntutmobile-setup-web-pi.png
 [setup003]: ../Media/dntutmobile-setup-azure-account-1.png
-[rxWSnew]: ../Media/rxWSnew.png
+[rxWSnew]: ../Media/rxWSnew2.png
 [rxCreateWSwithDB]: ../Media/rxCreateWSwithDB.png
 [setup006]: ../Media/dntutmobile-setup-azure-site-003.png
 [setup007]: ../Media/dntutmobile-setup-azure-site-004.png
