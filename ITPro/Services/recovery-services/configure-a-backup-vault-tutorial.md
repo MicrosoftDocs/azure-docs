@@ -1,26 +1,26 @@
-<properties linkid="manage-dataservices-recoveryservices-backup" urlDisplayName="Windows Azure Backup" pageTitle="Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="Windows Azure Backup, Online Backup, back-up service" metaDescription="Use Windows Azure Backup to help you protect important server data offsite with automated backups to Windows Azure, where they are available for easy data restoration." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
+<properties linkid="manage-dataservices-recoveryservices-backup" urlDisplayName="Windows Azure Backup" pageTitle="Configure Windows Azure Backup to quickly and easily back-up Windows Server" metaKeywords="Windows Azure Backup, Online Backup, back-up service" metaDescription="Use Windows Azure Backup to help you protect important server data offsite with automated backups to Windows Azure, where they are available for easy data restoration." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
 <div chunk="../chunks/recoveryservices-left-nav.md"/>
-<h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server</h1>
+<h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Backup to quickly and easily back-up Windows Server</h1>
 <div class="dev-callout"> 
 <strong>Note</strong>
  
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Recovery Services feature enabled.</p>
+<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Backup feature enabled.</p>
 <ul> 
 <li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Windows Azure Free Trial</a>.</li> 
  
-<li>If you have an existing account but need to enable the Windows Azure Recovery Services preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+<li>If you have an existing account but need to enable the Windows Azure Backup preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
 </ul>
  
 <p>After you request to join the Backup preview program wait for your status to become active. We are automatically approving all customers so this will not take a long time to occur.</p> 
 </div>
   
 
-To backup files and data from your Windows Server in Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
+To backup files and data from your Windows Server to Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
 
 <div class="dev-callout"> 
 <strong>Before you begin</strong> 
 <p>To successfully complete this tutorial you must have 
-an X.509 v3 certificate to register your servers with Recovery Services vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
+an X.509 v3 certificate to register your servers with backup vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
 
 <p>You can either use:</p> 
 <ul>
@@ -119,7 +119,7 @@ Once the agent is installed you can use the appropriate local management interfa
 		![Deleted Server](../media/RS_deletedserver.png)
 <h2><a id="next"></a>Next steps</h2>
 
-- To learn more about Windows Azure Recovery Services, see [Recovery Services Overview](http://go.microsoft.com/fwlink/p/?LinkId=290950). 
+- To learn more about Windows Azure Backup, see [Windows Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 
-- Visit the [Recovery Services Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visit the [Windows Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
