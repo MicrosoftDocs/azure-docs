@@ -124,8 +124,6 @@ The following shows how to make an outgoing call using the **twilio.rest** submo
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
 
-- **Note**: To troubleshoot SSL certificate validation errors, see [http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html][ssl_validation] 
-
 
 <h2><a href="#howto_send_sms"></a>How to: Send an SMS message</h2>
 The following shows how to send an SMS message using the **twilio.rest** submodule. The **From** number, **(415) 599-2671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
