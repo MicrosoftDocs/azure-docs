@@ -2,7 +2,7 @@
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
-# Define a custom API that supports pull notifications
+# Define a custom API that supports periodic notifications
 
 <div class="dev-center-tutorial-selector"> 
 	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#">Windows Store C#</a>

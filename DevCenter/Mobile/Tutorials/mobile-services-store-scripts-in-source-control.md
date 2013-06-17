@@ -25,7 +25,7 @@ To complete this tutorial, you must have already created a mobile service by com
    ![][1]
 
     <div class="dev-callout"><b>Note</b>
-	<p>Source control a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p>
+	<p>Source control a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p><p>Only a subscription owner can enable source control. Co-administrators are not provided with this option in the portal.</p>
     </div>
 
 3. Supply a **User name**, **New password**, confirm the password, then click the check button. 

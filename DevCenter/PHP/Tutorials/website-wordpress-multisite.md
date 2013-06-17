@@ -31,11 +31,11 @@ Be sure to save the file and upload it back to the server!## Network Setup
 # Adding custom domains
 The [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] plugin makes is a breeze to add custom domains to any site in your network. In order for the plugin to operate properly you need to do some additional setup on the Portal, then also at your domain registrar.
 ## Enable domain mapping to the web site
-The default free website mode does not support adding custom domains to Windows Azure web sites. You will need to switch to Shared or Reserved mode. You can accomplish this by:
+The default free website mode does not support adding custom domains to Windows Azure web sites. You will need to switch to Shared or Standard mode. You can accomplish this by:
 
 * Login to the Windows Azure Portal and locate your web site. 
 * Click on the **SCALE** tab in the main content area
-* Under **general** select either *SHARED* or *RESERVED*
+* Under **general** select either *SHARED* or *STANDARD*
 * Click **SAVE**
 
 ![Enabling domain mapping in the Windows Azure Web Sites Portal][wordpress-portal-shared]
