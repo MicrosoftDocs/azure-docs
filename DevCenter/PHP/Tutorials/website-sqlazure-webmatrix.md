@@ -24,7 +24,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ##Prerequisites
 
-1. Download the Tasklist application files from here: [http://go.microsoft.com/fwlink/?LinkId=252504][tasklist-sqlazure-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a SQL Database (SQL Server Express for local testing). The application consists of these files:
+1. [Download][tasklist-sqlazure-download] the Tasklist application files. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a SQL Database (SQL Server Express for local testing). The application consists of these files:
 
 * **index.php**: Displays tasks and provides a form for adding an item to the list.
 * **additem.php**: Adds an item to the list.

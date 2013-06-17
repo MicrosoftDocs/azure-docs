@@ -24,17 +24,17 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ##Prerequisites
 
-1. Download the Tasklist application files from here: [http://go.microsoft.com/fwlink/?LinkId=252506][tasklist-mysql-download]. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
+1. [Download][tasklist-mysql-download] the Tasklist application files. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
 
-* **index.php**: Displays tasks and provides a form for adding an item to the list.
-* **additem.php**: Adds an item to the list.
-* **getitems.php**: Gets all items in the database.
-* **markitemcomplete.php**: Changes the status of an item to complete.
-* **deleteitem.php**: Deletes an item.
-* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
-* **createtable.php**: Creates the MySQL table for the application. This file will only be called once.
+	* **additem.php**: Adds an item to the list.
+	* **createtable.php**: Creates the MySQL table for the application. This file will only be called once.
+	* **deleteitem.php**: Deletes an item.
+	* **getitems.php**: Gets all items in the database.
+	* **index.php**: Displays tasks and provides a form for adding an item to the list.
+	* **markitemcomplete.php**: Changes the status of an item to complete.
+	* **taskmodel.php**: Contains functions that add, get, update, and delete items from the database.
 
-2. Create a local MySQL database called `tasklist`. You can do this either from the Database workspace in WebMatrix (after it is installed below in the tutorial) or from the MySQL command prompt with this command:
+1. Create a local MySQL database called `tasklist`. You can do this either from the Database workspace in WebMatrix (after it is installed below in the tutorial) or from the MySQL command prompt with this command:
 
 		mysql> create database tasklist;
 
@@ -43,11 +43,11 @@ By following this tutorial, you will build a simple Tasklist web application in 
 <h2><a id="CreateWebsite"></a>Create a Windows Azure Web Site and MySQL database</h2>
 
 1. Login to the [Management Portal][preview-portal].
-2. Click the **+ New** icon on the bottom left of the portal.
+1. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Web Site][NewWebSite1]
 
-3. Click **WEB SITE**, then **CUSTOM CREATE**.
+1. Click **WEB SITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Web Site][NewWebSite2]
 
@@ -56,7 +56,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 	<p>In the preview release of Windows Azure Web Sites, you cannot create a MySQL Database for a web site after creating the web site. You must create a web site and a MySQL database as described in the steps below.</p> 
 	</div>
 
-4. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+1. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in web site details][NewWebSite3]
 
