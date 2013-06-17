@@ -1,16 +1,16 @@
-<properties linkid="mobile-services-call-custom-api-dotnet" writer="glenga" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from the client - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="mobile-services-call-custom-api-wp8" writer="glenga" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from the client - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to define a custom API and then call it from a Windows Phone app that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Call a custom API from the client
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/call-custom-api-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-dotnet" title="Windows Store C#">Windows Store C#</a>
     <a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-    <a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone 8">Windows Phone 8</a>
+    <a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a>
 </div>
 
-This topic shows you how to call a custom API from a Windows Store app. A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
+This topic shows you how to call a custom API from a Windows Phone app. A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
 
 The custom API created in this topic gives you the ability to send a single POST request that sets the completed flag to `true` for all the todo items in the table. Without this custom API, the client would have to send individual requests to update the flag for each todo item in the table.
 
@@ -84,10 +84,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## Next steps
 
-Now that you have created a custom API and called it from your Windows Store app, consider finding out more about the following Mobile Services topics:
-
-* [Define a custom API that supports periodic notifications]
-	<br/>Learn how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu.
+Now that you have created a custom API and called it from your Windows Phone app, consider finding out more about the following Mobile Services topics:
 
 * [Mobile Services server script reference]
   <br/>Learn more about creating custom APIs.
@@ -112,10 +109,10 @@ Now that you have created a custom API and called it from your Windows Store app
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started/#create-new-service
-[Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-wp8.md
+[Get started with data]: ../tutorials/mobile-services-get-started-with-data-wp8.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-wp8.md
+[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-wp8.md
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Define a custom API that supports periodic notifications]: ../tutorials/mobile-services-create-pull-notifications-dotnet.md
+[Define a custom API that supports periodic notifications]: ../tutorials/mobile-services-create-pull-notifications-wp8.md
 [Store server scripts in source control]: ../tutorials/mobile-services-store-scripts-in-source-control.md
