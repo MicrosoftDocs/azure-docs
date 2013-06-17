@@ -73,7 +73,7 @@ As an alternative to using an existing number for your applications, you can pur
 <h2><a href="#create_app"></a>Create a Python Application</h2>
 A Python application that uses the Twilio service and is running in Windows Azure is no different than any other Python application that uses the Twilio service. While Twilio services are REST-based and can be called from your Python app in several ways, this article will focus on how to use Twilio services with [Twilio library for Python from Github][twilio_python]. For more information about using the Twilio library for Python, see [https://twilio-python.readthedocs.org/en/latest/][the full documentation].
 
-Detailed instructions for building and deploying a Twilio/Python application to Windows Azure are available at [How to Make a Phone Call Using Twilio in a Python Application on Windows Azure][howto_phonecall_python].
+To set up a Python app on Azure, follow this [step-by-step guide](http://www.windowsazure.com/en-us/develop/python/tutorials/web-app-with-django/).  For the examples below, we will be using the Flask microframework.  This example will require a webserver to proxy the Flask test webserver that sits on port 5000.  For instructions on setting up an Azure VM for Flask, see this [step-by-step guide](http://sodesne.com/blog/2012/11/26/publishing-a-flask-app-with-azure).
 
 <h2><a href="#configure_app"></a>Configure Your Application to Use Twilio Libraries</h2>
 You can configure your application to use the Twilio library for Python in two ways:
@@ -182,6 +182,8 @@ The following Python Flask app creates a TwiML response that says **Hello World*
     # Run the Flask app
     if __name__ == "__main__":
         app.run()
+
+**Note:** By default, Flask runs on port 5000.  To view this port on your Azure VM, be sure to set up a webserver to proxy web requests to port 5000.  For full instructions on how to do this, view this [step-by-step guide](http://sodesne.com/blog/2012/11/26/publishing-a-flask-app-with-azure).
 
 As you can see from the example above, the TwiML response is simply an XML document. The Twilio module for Python contains classes that will generate TwiML for you. 
 
