@@ -137,7 +137,7 @@ Before performing the steps in this section, you must have associated a custom D
 
 6. Click **Save** to save the changes and enable SSL.
 
-At this point, you should be able to visit your website using HTTPS to verify that the certificate has been configured correctly.
+At this point, you should be able to visit your web site using HTTPS to verify that the certificate has been configured correctly.
 
 <a href="bkmk_selfsigned"></a><h2>Self-signed certificates (Optional)</h2>
 
