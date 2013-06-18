@@ -11,7 +11,7 @@ Troubleshooting a web site is accomplished by configuring the web site to displa
 
 <h2>What is Web Site Diagnostics?</h2>
 
-Windows Azure Web Sites provide diagnostic functionality for logging information from both the web server (IIS) as well as the web application. These are logically seperated into **site diagnostics** and **application diagnostics**.
+Windows Azure Web Sites provide diagnostic functionality for logging information from both the web server (IIS) as well as the web application. These are logically separated into **site diagnostics** and **application diagnostics**.
 
 Site diagnostics provide the following functionality:
 
