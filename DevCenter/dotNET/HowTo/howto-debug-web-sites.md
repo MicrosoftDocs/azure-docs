@@ -1,5 +1,7 @@
 <properties linkid="dotnet-how-to-debug-web-sites" urlDisplayName="How to debug" pageTitle="How to debug web sites - Windows Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" metaDescription="Learn how to debug Windows Azure web sites by using the diagnostics settings in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr" />
 
+<div chunk="../chunks/article-left-menu.md" />
+
 #How to debug an application in Windows Azure Web Sites
 
 Windows Azure provide built-in diagnostics to assist with debugging  an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
