@@ -28,45 +28,52 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to call the custom API</h2>
 
-1. In Visual Studio 2012 Express for Windows 8, open the MainPage.xaml file in your quickstart project, locate the **Button** element named `ButtonRefresh`, and replace it with the following XAML code: 
+1. In Visual Studio 2012 Express for Windows 8, open the default.html file in your quickstart project, locate the **button** element named `buttonRefresh`, and add the following new element right after it: 
 
-		<StackPanel Orientation="Horizontal">
-	        <Button Margin="72,0,0,0" Name="ButtonRefresh" 
-	                Click="ButtonRefresh_Click">Refresh</Button>
-	        <Button Margin="12,0,0,0" Name="ButtonCompleteAll" 
-	                Click="ButtonCompleteAll_Click">Complete All</Button>
-	    </StackPanel>
+		<button id="buttonCompleteAll" style="margin-left: 5px">Complete All</button>
 
 	This adds a new button to the page. 
 
-2. Open the MainPage.xaml.cs code file, and add the following class definition code:
+2. Open the default.js code file in the `js` project folder, locate the **refreshTodoItems** function and make sure that this function contains the following code:
 
-	    public class MarkAllResult
-	    {
-	        public int Count { get; set; }
-	    }
-
-	This class is used to hold the row count value returned by the custom API. 
-
-3. Locate the **RefreshTodoItems** method in the **MainPage** class, and make sure that the `query` is defined by using the following **Where** method:
-
-        .Where(todoItem => todoItem.Complete == false)
+	    todoTable.where({ complete: false })
+	       .read()
+	       .done(function (results) {
+	           todoItems = new WinJS.Binding.List(results);
+	           listItems.winControl.itemDataSource = todoItems.dataSource;
+	       });            
 
 	This filters the items so that completed items are not returned by the query.
 
-3. In the **MainPage** class, add the following method:
+3. After the **refreshTodoItems** function, add the following code:
 
-        private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
-        {
-            var result = await App.MobileService
-                .InvokeApiAsync<MarkAllResult>("completeall");
-            var dialog = new MessageDialog(result.Count + 
-                " item(s) marked as complete.");
-            await dialog.ShowAsync();
-            RefreshTodoItems();
-        }
+       var completeAllTodoItems = function () {
+            var okCommand = new Windows.UI.Popups.UICommand("OK");
 
-	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a request to the new custom API. The result returned by the custom API is displayed in a message dialog.
+            // Asynchronously call the custom API using the POST method. 
+            mobileService.invokeApi("completeall", {
+                body: null,
+                method: "post"
+            }).done(function (results) {
+                var message = results.result.count + " item(s) marked as complete.";
+                var dialog = new Windows.UI.Popups.MessageDialog(message);
+                dialog.commands.append(okCommand);
+                dialog.showAsync().done(function () {
+                    refreshTodoItems();
+                });
+            }, function (error) {
+                var dialog = new Windows.UI.Popups
+                    .MessageDialog(error.message);
+                dialog.commands.append(okCommand);
+                dialog.showAsync().done();
+            });
+        };
+
+        buttonCompleteAll.addEventListener("click", function () {
+            completeAllTodoItems();
+        });
+
+	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
 
 ## <a name="test-app"></a>Test the app
 
@@ -109,7 +116,6 @@ Now that you have created a custom API and called it from your Windows Store app
 [4]: ../Media/mobile-custom-api-windows-store-completed.png
 
 <!-- URLs. -->
-[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-js.md

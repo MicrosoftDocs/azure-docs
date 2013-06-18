@@ -58,15 +58,26 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
         private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
         {
-            var result = await App.MobileService
-                .InvokeApiAsync<MarkAllResult>("completeall");
-            var dialog = new MessageDialog(result.Count + 
-                " item(s) marked as complete.");
+            string message;
+            try
+            {
+                var result = await App.MobileService
+                    .InvokeApiAsync<MarkAllResult>("completeAll", 
+                    System.Net.Http.HttpMethod.Post, null);
+                message =  result.Count + " item(s) marked as complete.";
+                RefreshTodoItems();
+            }
+            catch (MobileServiceInvalidOperationException ex)
+            {
+                message = ex.Message;                
+            }
+
+            var dialog = new MessageDialog(message);
+            dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
-            RefreshTodoItems();
         }
 
-	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a request to the new custom API. The result returned by the custom API is displayed in a message dialog.
+	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
 
 ## <a name="test-app"></a>Test the app
 
@@ -109,7 +120,6 @@ Now that you have created a custom API and called it from your Windows Store app
 [4]: ../Media/mobile-custom-api-windows-store-completed.png
 
 <!-- URLs. -->
-[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started/#create-new-service
