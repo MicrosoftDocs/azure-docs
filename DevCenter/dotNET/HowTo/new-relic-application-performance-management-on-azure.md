@@ -23,11 +23,38 @@ New Relic special pricing through the Windows Azure Store
 --
 
 New Relic Standard is free to Windows Azure users
-New Relic Pro is offered in three packages
+New Relic Pro is offered based on instance size for Windows Azure Cloud Services
 
-* 1 host        $50
-* 2 to 5 hosts  $199
-* 6 to 10 hosts $349
+<table border="1">
+  <thead>
+    <tr>
+      <td>Instance Size</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Extra Small</td>
+      <td>$8.00</td>
+    </tr>
+    <tr>
+      <td>Small</td>
+      <td>$40.00</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>$75.00</td>
+    </tr>
+    <tr>
+      <td>Large</td>
+      <td>$140.00</td>
+    </tr>
+    <tr>
+      <td>Extra Large</td>
+      <td>$199.00</td>
+    </tr>
+  </tbody>
+</table>
 
 For hosts counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
