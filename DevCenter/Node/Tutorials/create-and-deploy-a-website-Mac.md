@@ -35,9 +35,13 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 
 	![Open web site dashboard][go-to-dashboard]
 
-6. At the bottom right of the Dashboard, select **Set up Git Publishing**.
+6. At the bottom right of the Quickstart page, select **Set up a deployment from source control**.
 
 	![Set up Git publishing][setup-git-publishing]
+
+6. When asked "Where is your source code?" select **Local Git repository**, and then click the arrow.
+
+	![where is your source code][where-is-code]
 
 7. To enable Git publishing, you must provide a user name and password. If you have previously enabled publishing for a Windows Azure Web Site, you will not be prompted for the user name or password. Instead, a Git repository will be created using the user name and password you previously specified. Make a note of the user name and password, as they will be used for Git publishing to all Windows Azure Web Sites you create.
 
@@ -166,3 +170,4 @@ While the steps in this article use the Windows Azure Portal to create a web sit
 [portal-website-stop-delete]: ../../Shared/Media/stop-delete-icons.png
 [setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
+[where-is-code]: ../../Shared/Media/where_is_code.png
