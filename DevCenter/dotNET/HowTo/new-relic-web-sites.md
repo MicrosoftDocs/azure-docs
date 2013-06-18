@@ -24,12 +24,40 @@ alerting, tracks application exceptions, and a whole lot more.
 New Relic special pricing through the Windows Azure Store
 --
 
-New Relic Standard is free to Windows Azure users
-New Relic Pro is offered in three packages
+New Relic Standard is free to Windows Azure users.
+New Relic Pro is offered in multiple packages based on which web site mode you are using, and the instance size if you are using reserved mode.
 
-* 1 host        $50
-* 2 to 5 hosts  $199
-* 6 to 10 hosts $349
+<table border="1">
+  <thead>
+    <tr>
+      <td>Web Site Mode</td>
+      <td>Instance Size</td>
+      <td>Price</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Shared</td>
+      <td>NA</td>
+      <td>$8.00</td>
+    </tr>
+    <tr>
+      <td>Standard</td>
+      <td>Small</td>
+      <td>$40.00</td>
+    </tr>
+    <tr>
+      <td>Standard</td>
+      <td>Medium</td>
+      <td>$75.00</td>
+    </tr>
+    <tr>
+      <td>Standard</td>
+      <td>Large</td>
+      <td>$140.00</td>
+    </tr>
+  </tbody>
+</table>
 
 For hosts counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
