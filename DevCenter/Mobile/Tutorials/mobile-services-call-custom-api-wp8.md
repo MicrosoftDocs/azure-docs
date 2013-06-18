@@ -4,10 +4,8 @@
 
 # Call a custom API from the client
 
-<div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/call-custom-api-dotnet" title="Windows Store C#">Windows Store C#</a>
-    <a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-    <a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone 8" class="current">Windows Phone 8</a>
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 This topic shows you how to call a custom API from a Windows Phone app. A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
