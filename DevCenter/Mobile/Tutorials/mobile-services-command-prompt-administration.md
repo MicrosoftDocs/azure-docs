@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-command-prompt-administration" urlDisplayName="Command prompt administration" pageTitle="Automate mobile services with command-line tools" metaKeywords="Windows Azure Mobile Services, command prompt, command line tool, mobile services" metaDescription="Learn how to use the Windows Azure command-line tool to automate the creation of management of Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-command-prompt-administration" urlDisplayName="Command prompt administration" pageTitle="Automate mobile services with command-line tools" metaKeywords="Windows Azure Mobile Services, command prompt, command line tool, mobile services" metaDescription="Learn how to use the Windows Azure command-line tool to automate the creation of management of Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1"  writer="glenga" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -191,6 +191,6 @@ Next steps here....
 [download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
-[reference-docs]: http://go.microsoft.com/fwlink/p?LinkId=252246
+[reference-docs]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
 [How to install the Windows Azure Command-Line Tools for Mac and Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 [http://www.windowsazure.com]: http://www.windowsazure.com
