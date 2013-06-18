@@ -82,7 +82,7 @@ Next, you will update the app to authenticate users before requesting resources 
         // Request authentication from Mobile Services using a Facebook login.
         var login = function () {
             return new WinJS.Promise(function (complete) {
-                mobileService.login("facebook").done(function (results) {;
+                mobileService.login("facebook").done(function (results) {
                     userId = results.userId;
                     refreshTodoItems();
                     var message = "You are now logged in as: " + userId;

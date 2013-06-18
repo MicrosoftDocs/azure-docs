@@ -18,7 +18,7 @@ You will add this functionality to the app that you created when you completed e
 2. [Update the app to call the custom API]
 3. [Test the app] 
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. This tutorial uses Visual Studio 2012 Express for Windows 8.
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. This tutorial uses Visual Studio 2012 Express for Windows Phone.
 
 ## <a name="define-custom-api"></a>Define the custom API
 
@@ -26,14 +26,14 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to call the custom API</h2>
 
-1. In Visual Studio 2012 Express for Windows 8, open the MainPage.xaml file in your quickstart project, locate the **Button** element named `ButtonRefresh`, and replace it with the following XAML code: 
+1. In Visual Studio 2012 Express for Windows Phone, open the MainPage.xaml file in your quickstart project, locate the **Button** element named `ButtonRefresh`, and replace it with the following XAML code: 
 
-		<StackPanel Orientation="Horizontal">
-	        <Button Margin="72,0,0,0" Name="ButtonRefresh" 
-	                Click="ButtonRefresh_Click">Refresh</Button>
-	        <Button Margin="12,0,0,0" Name="ButtonCompleteAll" 
-	                Click="ButtonCompleteAll_Click">Complete All</Button>
-	    </StackPanel>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Width="225" Name="ButtonRefresh" 
+                Click="ButtonRefresh_Click">Refresh</Button>
+            <Button Width="225"  Name="ButtonCompleteAll" 
+                Click="ButtonCompleteAll_Click">Complete All</Button>
+        </StackPanel>
 
 	This adds a new button to the page. 
 
@@ -54,15 +54,27 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 3. In the **MainPage** class, add the following method:
 
-        private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
-        {
-            var result = await App.MobileService
-                .InvokeApiAsync<MarkAllResult>("completeall");
-            var dialog = new MessageDialog(result.Count + 
-                " item(s) marked as complete.");
-            await dialog.ShowAsync();
-            RefreshTodoItems();
-        }
+		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
+		{
+		    string message;
+		    try
+		    {
+		        // Asynchronously call the custom API using the POST method. 
+		        var result = await App.MobileService
+		            .InvokeApiAsync<MarkAllResult>("completeAll", 
+		            System.Net.Http.HttpMethod.Post, null);
+		        message =  result.Count + " item(s) marked as complete.";
+		        RefreshTodoItems();
+		    }
+		    catch (MobileServiceInvalidOperationException ex)
+		    {
+		        message = ex.Message;                
+		    }
+		
+		    var dialog = new MessageDialog(message);
+		    dialog.Commands.Add(new UICommand("OK"));
+		    await dialog.ShowAsync();
+		}
 
 	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a request to the new custom API. The result returned by the custom API is displayed in a message dialog.
 
@@ -70,15 +82,15 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 1. In Visual Studio, press the **F5** key to rebuild the project and start the app.
 
-2. In the app, type some text in **Insert a TodoItem**, then click **Save**.
+2. In the app, type some text in **Insert a TodoItem**, then tap **Save**.
 
 3. Repeat the previous step until you have added several todo items to the list.
 
-4. Click the **Complete All** button.
+4. Tap the **Complete All** button.
 
   ![][4]
 
-	A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
+	A message box is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
 
 ## Next steps
 
@@ -101,7 +113,7 @@ Now that you have created a custom API and called it from your Windows Phone app
 [1]: ../Media/mobile-custom-api-create.png
 [2]: ../Media/mobile-custom-api-create-dialog2.png
 [3]: ../Media/mobile-custom-api-select2.png
-[4]: ../Media/mobile-custom-api-windows-store-completed.png
+[4]: ../Media/mobile-custom-api-windows-phone-completed.png
 
 <!-- URLs. -->
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
