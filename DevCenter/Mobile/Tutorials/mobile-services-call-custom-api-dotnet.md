@@ -56,26 +56,27 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 3. In the **MainPage** class, add the following method:
 
-        private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
-        {
-            string message;
-            try
-            {
-                var result = await App.MobileService
-                    .InvokeApiAsync<MarkAllResult>("completeAll", 
-                    System.Net.Http.HttpMethod.Post, null);
-                message =  result.Count + " item(s) marked as complete.";
-                RefreshTodoItems();
-            }
-            catch (MobileServiceInvalidOperationException ex)
-            {
-                message = ex.Message;                
-            }
-
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
+		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
+		{
+		    string message;
+		    try
+		    {
+		        // Asynchronously call the custom API using the POST method. 
+		        var result = await App.MobileService
+		            .InvokeApiAsync<MarkAllResult>("completeAll", 
+		            System.Net.Http.HttpMethod.Post, null);
+		        message =  result.Count + " item(s) marked as complete.";
+		        RefreshTodoItems();
+		    }
+		    catch (MobileServiceInvalidOperationException ex)
+		    {
+		        message = ex.Message;                
+		    }
+		
+		    var dialog = new MessageDialog(message);
+		    dialog.Commands.Add(new UICommand("OK"));
+		    await dialog.ShowAsync();
+		}
 
 	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
 
