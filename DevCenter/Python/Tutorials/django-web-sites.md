@@ -8,6 +8,8 @@ In this tutorial we’ll describe how to get started running Python on Windows A
 
 We’ll show you how to deploy an application built using the Django web framework.  We’ll walk through the steps of deploying your application and any required libraries, including Django.  We’ll put this all into a Git repository which makes it quick and simple to push updates to your web site.  And finally we’ll configure the newly created site via Windows Azure so that it runs your Python application.  
 
+<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+
 This tutorial uses Python 2.7 and Django 1.4.  You can either get these on your own or you can quickly and easily install these by using the Windows Installer link on [http://www.windowsazure.com/en-us/develop/python/](http://www.windowsazure.com/en-us/develop/python/).  
 
 **Note**: Windows Azure web sites now come with Python 2.7 and wfastcgi handler pre-installed.  However, web frameworks such as Django are not included.  You can still use a different Python interpreter if you prefer.  You just need to include it in the Git repository and configure the web site to use that interpreter instead of the Python 2.7 interpreter already installed.
