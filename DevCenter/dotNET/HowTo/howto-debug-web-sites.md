@@ -4,7 +4,7 @@
 
 #How to debug an application in Windows Azure Web Sites
 
-Windows Azure provide built-in diagnostics to assist with debugging  an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
+Windows Azure provides built-in diagnostics to assist with debugging  an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
 
 ##Table of Contents##
 
@@ -14,7 +14,7 @@ Windows Azure provide built-in diagnostics to assist with debugging  an applicat
 - [How to: Stream logs](#streamlogs)
 - [Next Steps](#nextsteps)
 
-<a href="whatisdiag"></a><h2>What is Web Site diagnostics?</h2>
+<a name="whatisdiag"></a><h2>What is Web Site diagnostics?</h2>
 
 Windows Azure Web Sites provide diagnostic functionality for logging information from both the web server as well as the web application. These are logically separated into **site diagnostics** and **application diagnostics**.
 
@@ -34,7 +34,7 @@ Application diagnostics logs information produced by the web application. ASP.NE
 
 Windows Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging.
 
-<a href="enablediag"></a><h2>How to: Enable diagnostics</h2>
+<a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
 
 Diagnostics can be enabled by visiting the **Configure** page of your Windows Azure Web Site in the [Windows Azure Management Portal](https://manage.microsoft.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable or disable logging. When enabling **application diagnostics** you must also select the **logging level** and whether to enable logging to the **file system** or **storage**:
 
@@ -48,7 +48,7 @@ For most scenarios, logging **application diagnostics** to the **file system** w
 	<b>Note</b> 
 	<p>All information logged for <b>site diagnostics</b> is stored on the web site file system.</p> </div>
 
-<a href="download"></a><h2>How to: Downloading logs</h2>
+<a name="download"></a><h2>How to: Downloading logs</h2>
 
 Diagnostic information stored to the web site file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Windows Azure PowerShell or the Windows Azure Command-Line Tools.
 
@@ -96,7 +96,7 @@ This will save the logs for the web site named 'websitename' to a file named **d
 	<b>Note</b> 
 	<p>If you have not installed the Windows Azure Command-Line Tools, or have not configured it to use your Windows Azure Subscription, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">How to Use Windows Azure Command-Line Tools</a>.</p></div>
 
-<a href="streamlogs"></a><h2>How to: Stream logs</h2>
+<a name="streamlogs"></a><h2>How to: Stream logs</h2>
 
 While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Windows Azure PowerShell or the Windows Azure Command-Line Tools.
 
@@ -136,7 +136,7 @@ To filter specific log types, such as HTTP, use the **-Path** parameter.
 	<b>Note</b> 
 	<p>If you have not installed the Windows Azure Command-Line Tools, or have not configured it to use your Windows Azure Subscription, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">How to Use Windows Azure Command-Line Tools</a>.</p></div>
 
-<a href="nextsteps"></a><h2>Next steps</h2>
+<a name="nextsteps"></a><h2>Next steps</h2>
 
 - [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Tutorial - Troubleshooting Web Sites](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
