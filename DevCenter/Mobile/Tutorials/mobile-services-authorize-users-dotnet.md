@@ -84,6 +84,9 @@ This concludes the tutorials that demonstrate the basics of working with authent
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
+
 <!-- Anchors. -->
 [Register server scripts]: #register-scripts
 [Next Steps]:#next-steps
@@ -105,3 +108,4 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

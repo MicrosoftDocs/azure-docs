@@ -180,7 +180,8 @@ Both your mobile service and your app are now configured to work with WNS.
 
 ## <a name="next-steps"> </a>Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The channel used by WNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Channel table in which to store channel URIs and send a push notification out to all stored channels when an insert occurs. 
+In this simple example a user receives a push notification with the data that was just inserted. The channel used by WNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Channel table in which to store channel URIs and send a push notification out to all stored channels when an insert occurs. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]
+
 
 <!-- Anchors. -->
 [Register your app for push notifications and configure Mobile Services]: #register
@@ -223,3 +224,4 @@ In this simple example a user receives a push notification with the data that wa
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

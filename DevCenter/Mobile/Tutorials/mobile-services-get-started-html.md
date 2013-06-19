@@ -115,6 +115,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * **[Get started with authentication]**
   <br/>Learn how to authenticate users of your app with an identity provider.
 
+* **[Mobile Services HTML/JavaScript How-to Conceptual Reference]**
+  <br/>Learn more about how to use Mobile Services with HTML/JavaScript 
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
@@ -144,3 +147,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [latest version of Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: ../HowTo/mobile-services-client-html.md
