@@ -54,7 +54,7 @@ This tutorial is based on several earlier Mobile Services tutorials. Before you 
 
 To be able to send push notifications to Windows Store apps from Mobile Services, you must submit your app to the Windows Store. You must then configure your mobile service to integrate with WNS.
 
-<div chunk="../chunks/mobile-services-register-windoes-store-app.md" />
+<div chunk="../chunks/mobile-services-register-windows-store-app.md" />
    
 
 7. Back in the Windows Dev Center page for your new app, click **Advanced features**. 
