@@ -4,12 +4,11 @@
 
 #<a name="howtomonitor"></a>How to Monitor Web Sites
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
-
 Web sites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web site as described below.
 
 ## Table of Contents ##
 - [How to: Add web site metrics](#websitemetrics)
+- [How to: Receive alerts from web site metrics](#howtoreceivealerts)
 - [How to: View usage quotas for a web site](#howtoviewusage)
 - [How to: Reduce resource usage](#resourceusage)
 - [What happens when a resource usage quota is exceeded](#exceeded)
@@ -17,7 +16,6 @@ Web sites provide monitoring functionality via the Monitor management page. The 
 - [How to: Monitor web endpoint status](#webendpointstatus)
 
 ##<a name="websitemetrics"></a>How to: Add web site metrics
-
 1. In the [Windows Azure Management Portal](http://manage.windowsazure.com/), from the web site's Management pages, click the **Monitor** tab to display the **Monitor** management page. By default the chart on the **Monitor** page displays the same metrics as the chart on the **Dashboard** page. 
 
 2. To view additional metrics for the web site, click **Add Metrics** at the bottom of the page to display the **Choose Metrics** dialog box. 
@@ -45,15 +43,15 @@ The following list describes the metrics that you can view in the chart on the *
 - **Http 404 errors** – Number of Http “404 Not Found” messages sent.
 - **Http 406 errors** – Number of Http “406 Not Acceptable” messages sent.
 
-
-
+##<a name="howtoreceivealerts"></a>How to: Receive alerts from web site metrics
+In **Standard** web site mode, you can receive alerts based on your web site monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Windows Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Configure and receive alerts for web site monitoring metrics](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
 ##<a name="howtoviewusage"></a>How to: View usage quotas for a web site
 
-Web sites can be configured to run in either **Shared** or **Reserved** web site mode from the web site's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 10 web sites in **Shared** web site mode. The pool of resources available to each Web Site subscription for this purpose is shared by other web sites in the same geo-region that are configured to run in **Shared** web site mode. Because these resources are shared for use by other web sites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web site's **Dashboard** management page.
+Web sites can be configured to run in either **Shared** or **Standard** web site mode from the web site's **Scale** management page. Each Azure subscription has access to a pool of resources provided for the purpose of running up to 100 web sites per region in **Shared** web site mode. The pool of resources available to each Web Site subscription for this purpose is shared by other web sites in the same geo-region that are configured to run in **Shared** mode. Because these resources are shared for use by other web sites, all subscriptions are limited in their use of these resources. Limits applied to a subscription's use of these resources are expressed as usage quotas listed under the usage overview section of each web site's **Dashboard** management page.
 
 **Note**  
-When a web site is configured to run in **Reserved** mode it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [How to Configure Virtual Machine Sizes][configvmsizes]. There are no limits to the resources a subscription can use for running web sites in **Reserved** mode however the number of **Reserved** mode web sites that can be created per subscription is limited to **100**.
+When a web site is configured to run in **Standard** mode, it is allocated dedicated resources equivalent to the **Small** (default), **Medium** or **Large** virtual machine sizes in the table at [Virtual Machine and Cloud Service Sizes for Windows Azure][vmsizes]. There are no limits to the resources a subscription can use for running web sites in **Standard** mode. However, the number of **Standard** mode web sites that can be created per region is 500.
  
 ### Viewing usage quotas for web sites configured for Shared web site mode ###
 To determine the extent that a web site is impacting resource usage quotas, follow these steps:
@@ -67,7 +65,7 @@ Resource usage quotas help prevent overuse of the following resources:
 - **CPU Time** – the amount of CPU time used by web sites running in **Shared** mode for the current quota interval.
 - **File System Storage** – The amount of file system storage in use by web sites running in **Shared** mode.
 
-When a subscription's usage quotas are exceeded Windows Azure takes action to stop overuse of resources. This is done to prevent any subscriber from exhausting resources to the detriment of other subscribers.
+When a subscription's usage quotas are exceeded, Windows Azure takes action to stop overuse of resources. This is done to prevent any subscriber from exhausting resources to the detriment of other subscribers.
 
 
 ##<a name="resourceusage"></a>How to: Reduce resource usage
@@ -84,22 +82,22 @@ Consider scaling back additional instances of shared mode web sites if resource 
 
 Windows Azure takes the following actions if a subscription's resource usage quotas are exceeded in a quota interval (24 hours):
 
- - **Data Out** – when this quota is exceeded Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
+ - **Data Out** – when this quota is exceeded, Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
 
- - **CPU Time** – when this quota is exceeded Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
+ - **CPU Time** – when this quota is exceeded, Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
 
- - **File System Storage** – Windows Azure prevents deployment of any web sites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations but all write operations, including those required for normal web site activity are blocked. When this occurs you could configure one or more web sites running in Shared web site mode to run in Reserved web site mode and reduce usage of file system storage below the File System Storage usage quota.
+ - **File System Storage** – Windows Azure prevents deployment of any web sites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations, but all write operations, including those required for normal web site activity, are blocked. When this occurs, you can configure one or more web sites running in Shared web site mode to run in Standard web site mode, or reduce usage of file system storage below the File System Storage usage quota.
 
 
 
 
 ##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a web site
 
-Web sites can be configured to capture and log diagnostic information from the web site's **Configure** management page. This topic describes how to capture diagnostics data to log files, download the log files to a local computer and then read the log files.
+Web sites can be configured to capture and log diagnostic information from the web site's **Configure** management page. This topic describes how to capture diagnostics data to log files, download the log files to a local computer, and then read the log files.
 
 ###Configuring diagnostics for a web site###
 
-Diagnostics for a web site is enabled on the **Configure** management page for the web site. Under the **Diagnostics** section of **Configure** management page you can enable or disable the following logging or tracing options:
+Diagnostics for a web site are enabled on the **Configure** management page for the web site. Under the **Diagnostics** section of **Configure** management page you can enable or disable the following logging or tracing options:
 
 - **Detailed Error Logging** – Turn on detailed error logging to capture all errors generated by your web site.
 - **Failed Request Tracing** – Turn on failed request tracing to capture information for failed client requests.
@@ -157,13 +155,9 @@ The .htm files include the following sections:
 
 
 ##<a name="webendpointstatus"></a>How to: Monitor web endpoint status
-Use the following procedure to configure web endpoint monitoring for your web site.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>This feature is only available in <b>Reserved</b> mode. You can monitor up to 2 endpoints from up to 3 geographic locations.</p> 
-</div>
- 
+This feature, available only in **Standard** mode, lets you monitor up to 2 endpoints from up to 3 geographic locations. 
+
 Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an HTTP get operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
 
 Uptime is monitored using HTTP response codes, and response time is measured in milliseconds. Uptime is considered 100% when the response time is less than 30 seconds and the HTTP status code is lower than 400. Uptime is 0% when the response time is greater than 30 seconds or the HTTP status code is greater than 400.
@@ -172,15 +166,14 @@ After you configure endpoint monitoring, you can drill down into the individual 
 
 **To configure endpoint monitoring:**
 
-1.	Open **Web Sites**. Then, to open the dashboard, click the name of the web site you want to configure.
-2.	Click **Configure**.
-
-	You will edit the **Endpoints** settings in the **monitoring** section.
-3.	Enter the name of the endpoint.
-4.	Enter the URL for the service that you want to monitor. For example, [http://contoso.cloudapp.net](http://contoso.cloudapp.net). 
-5.	Select one or more geographic locations from the list.
-6.	Optionally, repeat the previous 3 steps for a second endpoint.
-7.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the dashboard and **monitor** tab.
+1.	Open **Web Sites**. Click the name of the web site you want to configure.
+2.	Click the **Configure** tab. 
+3.     Go to the **Monitoring** section to enter your endpoint settings.
+4.	Enter a name for the endpoint.
+5.	Enter the URL for the service that you want to monitor. For example, [http://contoso.cloudapp.net](http://contoso.cloudapp.net). 
+6.	Select one or more geographic locations from the list.
+7.	Optionally, repeat the previous steps to create a second endpoint.
+8.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the **Dashboard** and **Monitor** tabs.
 
 
 [vs2010]:http://go.microsoft.com/fwlink/?LinkId=225683
@@ -192,7 +185,7 @@ After you configure endpoint monitoring, you can drill down into the individual 
 [howtoconfiganddownloadlogs]:http://go.microsoft.com/fwlink/?LinkId=252031
 [sqldbs]:http://go.microsoft.com/fwlink/?LinkId=246930
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[configvmsizes]:http://go.microsoft.com/fwlink/?LinkID=236449
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
 [webmatrix]:http://go.microsoft.com/fwlink/?LinkId=226244
 
 
