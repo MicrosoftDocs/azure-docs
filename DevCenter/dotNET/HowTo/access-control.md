@@ -3,7 +3,6 @@
 <div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Active Directory Access Control
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 23rd June 2013.***
 
 This guide shows you how to use Windows Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers such as Microsoft, Google, Yahoo, and Facebook when they try to gain access to a web application.
 
