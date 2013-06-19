@@ -37,6 +37,7 @@ This guide shows you how to perform common scenarios using a .NET client for Win
 - [How to: Customize the client]
 	- [Customize request headers]
 	- [Customize serialization]
+- [Next steps]
 	
 <div chunk="../chunks/mobile-services-concepts.md" />
 
@@ -487,6 +488,35 @@ Using this property, you may set Json.NET properties (there have many), includin
 	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 	client.SerializerSettings = settings;
 				
+
+
+<h2><a name="nextsteps"></a><span class="short-header">Next steps</h2>
+
+
+Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
+
+* [Get started with Mobile Services]
+  <br/>Learn the basics of how to use Mobile Services.
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using Mobile Services.
+
+* [Get started with authentication]
+  <br/>Learn how to authenticate users of your app with an identity provider.
+
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
+
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
+
+* [Authorize users with scripts]
+  <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+
+
+  
+
+
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -514,7 +544,7 @@ Using this property, you may set Json.NET properties (there have many), includin
 <!-- URLs. -->
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Get started with authentication]: ../mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Windows Store quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
 [Windows Phone quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/
 [Windows Store data tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
@@ -527,3 +557,7 @@ Using this property, you may set Json.NET properties (there have many), includin
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
+[Get started with data]: ../Tutorials/mobile-services-get-started-with-data-dotnet.md
+[Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-dotnet.md
+[Refine queries with paging]: ../Tutorials/mobile-services-paging-data-dotnet.md
+[Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-dotnet.md
