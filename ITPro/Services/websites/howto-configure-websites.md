@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
+<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../chunks/web-sites-left-nav.md" />
+
 
 # How to Configure Web Sites #
-
-<div chunk="../../Shared/Chunks/disclaimer.md" />
 
 In the Windows Azure Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
 
@@ -12,7 +10,7 @@ In the Windows Azure Management Portal you can change the configuration options 
 - [How to: Change configuration options for a web site](#howtochangeconfig)
 - [How to: Configure a web site to use a SQL database](#howtoconfigSQL)
 - [How to: Configure a web site to use a MySQL database](#howtoconfigMySQL)
-
+- [How to: Configure a web site to use SSL](#howtoconfigSSL)
 
 ##<a name="howtochangeconfig"></a>How to: Change configuration options for a web site
 
@@ -23,18 +21,17 @@ Follow these steps to change configuration options for a web site.
 	<li>Click the <strong>Configure</strong> tab to open the <strong>Configure</strong> management page.</li>
 	<li>Set the following configuration options for the web site as appropriate:
 	<ul>
-	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Reserved mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
+	<li style="margin-left: 40px"><strong>general</strong> – Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, there is an option to choose either a 32-bit or 64-bit platform. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
 
 <li style="margin-left: 40px">
-<strong>certificates</strong> – Click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.  For more information about configuring SSL, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. 
+<strong>certificates</strong> – In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
 <br /><strong>Note:</strong>
-SSL certificates are supported in Reserved mode only. Custom domains are available only in Shared and Reserved modes.
+Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.
 </li>
 
-<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Reserved</strong> modes, as specified on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
+<li style="margin-left: 40px"><strong>domain names</strong> – View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
 
-<li style="margin-left: 40px"><strong>SSL Bindings</strong> - Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For more information about configuring SSL, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.  For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.<br /><strong>Note:</strong>
-SSL certificates are supported in Reserved mode only.</li>
+<li style="margin-left: 40px"><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
 
 <li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
@@ -75,7 +72,7 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 	the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</li>
 	</ul>
 	</li>
-<li><strong>monitoring</strong> - For web sites in Reserved mode, test the availability of HTTP or HTTPS endpoints. You can test an endpoint from up to three geo-distributed locations. A monitoring test fails if the HTTP response code is greater than or equal to 400 or if the response takes more than 30 seconds. An endpoint is considered available if its monitoring tests succeed from all the specified locations.
+<li><strong>monitoring</strong> - For web sites in Standard mode, test the availability of HTTP or HTTPS endpoints. You can test an endpoint from up to three geo-distributed locations. A monitoring test fails if the HTTP response code is greater than or equal to 400 or if the response takes more than 30 seconds. An endpoint is considered available if its monitoring tests succeed from all the specified locations.
 </li>
 	<li><strong>app settings</strong> – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be 
 	injected into your .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node sites these settings will be 
@@ -127,7 +124,7 @@ To configure a web site to use a MySQL database, follow the same steps to use a 
 Alternatively, you can create the web site with the **Custom Create** option. In the **Database** dropdown, choose either **Create a new MySQL database** or **Use an existing MySQL database**. 
 
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
-For information on configuring a Windows Azure web site to use SSL, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/" >Configuring an SSL certificate for a Windows Azure web site</a>.
+For information about configuring SSL for a custom domain on Windows Azure, see [Configuring an SSL certificate for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/). 
 
 
 
