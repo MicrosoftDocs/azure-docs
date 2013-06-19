@@ -183,7 +183,8 @@ You have completed this working with data tutorial.
 
 Now that you have completed this tutorial, consider continuing on with the final tutorial in the data series: [Refine queries with paging].
 
-For more information, see [Work with server scripts].
+For more information, see [Work with server scripts] and [Mobile Services HTML/JavaScript How-to Conceptual Reference]
+
 
 <!-- Anchors. -->
 [Add string length validation]: #string-length-validation
@@ -208,3 +209,4 @@ For more information, see [Work with server scripts].
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: ../HowTo/mobile-services-client-html.md

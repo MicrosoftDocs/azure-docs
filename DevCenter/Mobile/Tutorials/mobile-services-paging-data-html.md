@@ -65,7 +65,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 ## <a name="next-steps"> </a>Next Steps
 
-This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Next, Learn how to authenticate users of your app in [Get started with authentication].
+This concludes the set of tutorials that demonstrate the basics of working with data in Mobile Services. Next, Learn how to authenticate users of your app in [Get started with authentication]. Learn more about how to use Mobile Services with HTML/JavaScript in [Mobile Services HTML/JavaScript How-to Conceptual Reference]
 
 <!-- Anchors. -->
 
@@ -81,3 +81,4 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkId=262412
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: ../HowTo/mobile-services-client-html.md

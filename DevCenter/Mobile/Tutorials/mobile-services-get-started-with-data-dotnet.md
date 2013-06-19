@@ -220,7 +220,10 @@ Once you have completed the data series, try one of these other tutorials:
 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
-
+  
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
+  
 <!-- Anchors. -->
 
 [Get the Windows Store app]: #download-app
@@ -257,3 +260,4 @@ Once you have completed the data series, try one of these other tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

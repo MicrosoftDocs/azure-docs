@@ -254,6 +254,9 @@ This tutorial demonstrated the basics of enabling an HTML app to work with data 
 * [Refine queries with paging]
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
+* [Mobile Services HTML/JavaScript How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with HTML/JavaScript.
+ 
 Once you have completed the data series, learn how to authenticate users of your app try one of these other tutorials by completing [Get started with authentication].
 
 <!-- Anchors. -->
@@ -288,3 +291,4 @@ Once you have completed the data series, learn how to authenticate users of your
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Download the HTML app project]:  http://go.microsoft.com/fwlink/?LinkID=286345
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: ../HowTo/mobile-services-client-html.md
