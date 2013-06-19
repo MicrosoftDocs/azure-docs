@@ -3,6 +3,8 @@
 <div chunk="../chunks/article-left-menu.md" />
 # How to Authenticate Web Users with Windows Azure Active Directory Access Control
 
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 23rd June 2013.***
+
 This guide shows you how to use Windows Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers such as Microsoft, Google, Yahoo, and Facebook when they try to gain access to a web application.
 
 <h2><span class="short-header">Table of Contents</span>Table of Contents</h2>
@@ -11,10 +13,11 @@ This guide shows you how to use Windows Azure Active Directory Access Control (a
 -   [Concepts][]
 -   [Prerequisites][]
 -   [Create an Access Control Namespace][]
--   [Create an ASP.NET Web Application][]
+-   [Create an ASP.NET MVC Application][]
 -   [Integrate your Web Application with ACS][]
 -   [Test the Integration with ACS][]
--   [View the Application in the ACS Management Portal][]
+-   [View Claims Sent By ACS][vcsb]
+-   [View the Application in the ACS Management Portal][vpp]
 -   [Add an Identity Provider][]
 -   [What's Next][]
 
@@ -96,7 +99,7 @@ addressing ACS resources within your application.
 
 	![][1]
 
-3.  To create a new Access Control namespace, click **New**, click **App Services**, click **Access Control**, and then click **Quick Create**. 
+3.  To create a new Access Control namespace, click **New**. **App Services** and **Access Control** will be selected. Click **Quick Create**. 
 
 	![][2]
 
@@ -104,32 +107,57 @@ addressing ACS resources within your application.
 
 5.  Select the region in which the namespace is used. For best performance, use the region in which you are deploying your application, and then click **Create**.
 
-Windows Azure creates and activates the namespace. Wait until the status of the new namespace is **Active** before continuing. 
+Windows Azure creates and activates the namespace.
 
+<h2><span class="short-header">Create an ASP.NET MVC Application</span>Create an ASP.NET MVC Application</h2>
 
-<h2><span class="short-header">Create an ASP.NET Web Application</span>Create an ASP.NET Web Application</h2>
+In this step, you create a ASP.NET MVC application. In later steps, we'll integrate this simple web forms application with ACS.
 
-In this step, you create a ASP.NET web application. In later steps, we'll integrate this simple web forms application with ACS.
+1.	Start Visual Studio 2012 or Visual Studio Express for Web 2012 (Previous versions of Visual Studio will not work with this tutorial).
+1.	Click **File**, and then click **New Project**.
+1.	Select the Visual C#/Web template, and then select **ASP.NET MVC 4 Web Application**.
 
-1.	Start Visual Studio 2012.
-
-2.	Click **File**, and then click **New Project**.
-
-3.	Select the Visual C#/Web template, and then select **ASP.NET Web Forms Application**.
-
-	We'll use a web forms application for this guide, but you can use any web application type for this task.
+	We'll use a MVC application for this guide, but you can use any web application type for this task.
 
 	![][3]
 
-4.	In **Name**, type **WebACS**, and then click **OK**.
+1. In **Name**, type **MvcACS**, and then click **OK**.
+1. In the next dialog, select **Internet Application**, and then click **OK**.
+1. Edit the *Views\Shared\_LoginPartial.cshtml* file and replace the contents with the following code:
 
-5.	To run and debug the application you have created, press F5. The default ASP.NET web forms application appears in your web browser.
+        @if (Request.IsAuthenticated)
+        {
+            string name = "Null ID";
+            if (!String.IsNullOrEmpty(User.Identity.Name))
+            {
+                name = User.Identity.Name;
+            }    
+            <text>
+            Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                    }
+            </text>
+        }
+        else
+        {
+            <ul>
+                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        }
+
+Currently, ACS doesn't set User.Identity.Name, so we need to make the above change.
+
+1. Press F5 to run the application. The default ASP.NET MVC application appears in your web browser.
 
 <h2><span class="short-header">Integrate your Web Application with ACS</span>Integrate your Web Application with ACS</h2>
 
 In this task, you will integrate your ASP.NET web application with ACS.
 
-1.	In Visual Studio 2012 Solution Explorer, right-click the application name, and then select **Identity and Access**.
+1.	In Solution Explorer, right-click the MvcACS project, and then select **Identity and Access**.
 
 	If the **Identity and Access** option does not appear on the context menu, install the Identity and Access Tool. For information, see [Identity and Access Tool]. 
 
@@ -137,9 +165,13 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 2.	On the **Providers** tab, select **Use the Windows Azure Access Control Service**.
 
-3.  Click **Configure**.
+    ![][44]
 
-	Visual Studio requests information about the Access Control namespace. Enter the namespace name, and then, switch back to the Windows Azure Management Portal to get the symmetric key.
+3.  Click the **Configure** link.
+
+    ![][444]
+
+	Visual Studio requests information about the Access Control namespace. Enter the namespace name you created earlier (Test in this images above, but you will have a different namespace). Switch back to the Windows Azure Management Portal to get the symmetric key.
 
 	![][17]
 
@@ -155,7 +187,7 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 	![][19]
 
-7.  In Visual Studio, paste the key in the **Enter the Management Key for the namespace** field.
+7.  In Visual Studio, paste the key in the **Enter the Management Key for the namespace** field and click **Save management key**, and then click **OK**.
 
 	![][20]
 
@@ -169,15 +201,96 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 This task explains how to test the integration of your RP application and ACS.
 
--	To run and debug your ASP.NET web application, in Visual Studio, press F5.
+-	Press F5 in Visual Studio to run the app.
 
-When your application is integrated with ACS and you have selected Windows Live ID (Microsoft account), instead of opening the default ASP.NET Web Forms application, your browser is redirected to the sign-in page for Microsoft accounts. When you sign in with a valid user name a password, you are then redirected to the  WebACS application.
+When your application is integrated with ACS and you have selected Windows Live ID (Microsoft account), instead of opening the default ASP.NET Web Forms application, your browser is redirected to the sign-in page for Microsoft accounts. When you sign in with a valid user name a password, you are then redirected to the  MvcACS application.
 
 ![][6]
 
 Congratulations! You have successfully integrated ACS with your ASP.NET web application. ACS is now handling the authentication of users using their Microsoft account credentials.
 
-<h2><span class="short-header">View the Application in the ACS Management Portal</span>View the Application in the ACS Management Portal</h2>
+<h2><a name="bkmk_viewClaims"></a>View Claims Sent By ACS</h2>
+
+In this section we will modify the application to view the claims sent by ACS.  The Identity and Access tool has created a rule group that passes through all claims from the IP to your application.  Note that different identity providers send different claims.
+
+1. Open the *Controllers\HomeController.cs* file. Add a **using** statement for **System.Threading**:
+
+ 	using System.Threading;
+
+1. In the HomeController class add the *Claims* method:
+
+    public ActionResult Claims()
+    {
+        ViewBag.Message = "Your claims page.";
+
+        ViewBag.ClaimsIdentity = Thread.CurrentPrincipal.Identity;
+
+        return View();
+    }
+
+1. Right click on the *Claims* method and select **Add View**.
+
+![][66]
+
+1. Click **Add**.
+
+1. Replace the contents of the *Views\Home\Claims.cshtml* file with the following code:
+
+        @{
+            ViewBag.Title = "Claims";
+        }
+        <hgroup class="title">
+            <h1>@ViewBag.Title.</h1>
+            <h2>@ViewBag.Message</h2>
+        </hgroup>
+        <h3>Values from Identity</h3>
+        <table>
+            <tr>
+                <td>
+                    IsAuthenticated: 
+                </td>
+                <td>
+                    @ViewBag.ClaimsIdentity.IsAuthenticated 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name: 
+                </td>        
+                <td>
+                    @ViewBag.ClaimsIdentity.Name
+                </td>        
+            </tr>
+        </table>
+        <h3>Claims from ClaimsIdentity</h3>
+        <table>
+            <tr>
+                <th>
+                    Claim Type
+                </th>
+                <th>
+                    Claim Value
+                </th>
+            </tr>
+                @foreach (System.Security.Claims.Claim claim in ViewBag.ClaimsIdentity.Claims ) {
+            <tr>
+                <td>
+                    @claim.Type
+                </td>
+                <td>
+                    @claim.Value
+                </td>
+            </tr>
+        }
+        </table>
+
+1. Run the application and navigate to the *Claims* method:
+
+![][666]
+
+For more information on using claims in your application, see the [Windows Identity Foundation library](http://msdn.microsoft.com/en-us/library/hh377151.aspx).
+
+<h2><a name="bkmk_VP"></a>View the App in the ACS Management Portal</h2>
 
 The Identity and Access Tool in Visual Studio automatically integrates your application with ACS.
 
@@ -185,7 +298,7 @@ When you select the Use Windows Azure Access Control option and then run your ap
 
 You can review and change these configuration settings in the ACS Management Portal. Use the following steps to review the changes in the portal.
 
-1.	Log into the Windows Azure Management Portal (https://manage.WindowsAzure.com).
+1.	Log into the Windows [Azure Management Portal](http://manage.WindowsAzure.com).
 
 2.	Click **Active Directory**. 
 
@@ -198,18 +311,18 @@ You can review and change these configuration settings in the ACS Management Por
 
 4.	Click **Relying party applications**.
 
-	The new WebACS application appears in the list of relying party applications. The realm is automatically set to the application main page.
+	The new MvcACS application appears in the list of relying party applications. The realm is automatically set to the application main page.
 
 	![][10]
 
 
-5.	Click **WebACS**.
+5.	Click **MvcACS**.
 
-	The Edit Relying Party Application page contains configuration settings for the WebACS web application. When you change the settings on this page and save them, the changes are immediately applied to the application.
+	The Edit Relying Party Application page contains configuration settings for the MvcACS web application. When you change the settings on this page and save them, the changes are immediately applied to the application.
 
 	![][11]
 
-6.	Scroll down the page to see the remaining configuration settings for the WebACS application, including the identity providers and claims transformation rules.
+6.	Scroll down the page to see the remaining configuration settings for the MvcACS application, including the identity providers and claims transformation rules.
 
 	![][12]
 
@@ -217,13 +330,13 @@ In the next section, we'll use the features of the ACS Management Portal to make
 
 <h2><span class="short-header">Add an Identity Provider</span>Add an Identity Provider</h2>
 
-Let's use the ACS Management Portal to change the authentication of our WebACS application. In this example, we'll add Google as an identity provider for WebACS.
+Let's use the ACS Management Portal to change the authentication of our MvcACS application. In this example, we'll add Google as an identity provider for MvcACS.
 
 1.	Click **Identity providers** (in the navigation menu) and then click **Add**.
 
 	![][13]
 
-2.	Click **Google** and then click **Next**. The WebACS app checkbox is selected by default. 
+2.	Click **Google** and then click **Next**. The MvcACS app checkbox is selected by default. 
 
 	![][14]
 
@@ -232,7 +345,7 @@ Let's use the ACS Management Portal to change the authentication of our WebACS a
 	![][15]
 
 
-Done! If you go back to Visual Studio, open the project for the WebACS app, and click **Identity and Access**, the tool lists both the Windows Live ID and Google identity providers.  
+Done! If you go back to Visual Studio, open the project for the MvcACS app, and click **Identity and Access**, the tool lists both the Windows Live ID and Google identity providers.  
 
 ![][16]
 
@@ -256,13 +369,15 @@ To further explore ACS functionality and to experiment with more scenarios, see 
   [What is ACS?]: #what-is
   [Concepts]: #concepts
   [Prerequisites]: #pre
-  [Create an ASP.NET Web Application]: #create-web-app
+  [Create an ASP.NET MVC Application]: #create-web-app
   [Create an Access Control Namespace]: #create-namespace
   [Integrate your Web Application with ACS]: #Identity-Access
   [Test the Integration with ACS]: #Test-ACS
   [View the Application in the ACS Management Portal]: acs-portal
   [Add an Identity Provider]: #add-IP
   [What's Next]: #whats-next
+  [vcsb]: #bkmk_viewClaims
+  [vpp]: #bkmk_VP
 
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
@@ -271,10 +386,14 @@ To further explore ACS functionality and to experiment with more scenarios, see 
   [0]: ../../../DevCenter/dotNet/Media/acs-01.png
   [1]: ../../../DevCenter/dotNet/Media/acsCreateNamespace.png
   [2]: ../../../DevCenter/dotNet/Media/acsQuickCreate.png
-  [3]: ../../../DevCenter/dotNet/Media/acsCreateWebApp.png
-  [4]: ../../../DevCenter/dotNet/Media/acsIdAndAccess0.png
+  [3]: ../../../DevCenter/dotNet/Media/rzMvc.png
+  [4]: ../../../DevCenter/dotNet/Media/rzIA.png
+[44]: ../../../DevCenter/dotNet/Media/rzPT.png
+ [444]: ../../../DevCenter/dotNet/Media/rzC.png
   [5]: ../../../DevCenter/dotNet/Media/acsIdAndAccess1.png
   [6]: ../../../DevCenter/dotNet/Media/acsMSFTAcct.png
+  [66]: ../../../DevCenter/dotNet/Media/rzAv.png
+  [666]: ../../../DevCenter/dotNet/Media/rzCl.png
   [7]: ../../../DevCenter/dotNet/Media/acsSignIn.png
   [8]: ../../../DevCenter/dotNet/Media/acsClickManage.png
   [9]: ../../../DevCenter/dotNet/Media/acsACSPortal.png
