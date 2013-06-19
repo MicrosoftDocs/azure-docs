@@ -6,7 +6,7 @@ In this tutorial, you'll learn:
 
 - How to deploy the site through the Windows Azure Portal.
  
-You'll build a Word press blog that uses a default template. The following illustration shows the completed application:
+You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
 
 ![Wordpress blog][13]
