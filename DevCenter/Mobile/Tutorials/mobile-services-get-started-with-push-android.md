@@ -125,7 +125,7 @@ You mobile service is now configured to work with GCM to send push notifications
 			return mRegistrationId;
 		}
 
-		public final void getRegistrationId(String registrationId) {
+		public final void setRegistrationId(String registrationId) {
 			mRegistrationId = registrationId;
 		}
 
@@ -171,13 +171,14 @@ You mobile service is now configured to work with GCM to send push notifications
 
 16. Add the following import statements:
 
+		import android.app.Notification;
 		import android.app.NotificationManager;
 		import android.support.v4.app.NotificationCompat;
 
 17. In the new class, add the following constructor:
 
 		public GCMIntentService(){
-		super(ToDoActivity.SENDER_ID);
+			super(ToDoActivity.SENDER_ID);
 		}
 
 	This code invokes the Superclass constructor with the app `SENDER_ID` value of the app.
@@ -187,10 +188,15 @@ You mobile service is now configured to work with GCM to send push notifications
 		@Override
 		protected void onMessage(Context context, Intent intent) {
 			
+			PendingIntent contentIntent = PendingIntent.getActivity(
+				context, 0, new Intent(context, ToDoActivity.class), 0);
+
+
 			NotificationCompat.Builder mBuilder =
 					new NotificationCompat.Builder(this)
 						.setSmallIcon(R.drawable.ic_launcher)
 						.setContentTitle("New todo item!")
+						.setContentIntent(contentIntent)
 						.setPriority(Notification.PRIORITY_HIGH)
 						.setContentText(intent.getStringExtra("message"));
 			NotificationManager mNotificationManager =
@@ -226,9 +232,9 @@ Your app is now updated to support push notifications.
 					request.respond();
 					push.gcm.send(item.channel, item.text, {
 						success: function(response) {
-							console.log(‘Push notification sent: ’, response);
+							console.log('Push notification sent: ', response);
 						}, error: function(error) {
-							console.log(‘Error sending push notification: ’, error);
+							console.log('Error sending push notification: ', error);
 						}
 					});
 				}
@@ -269,7 +275,7 @@ Your app is now updated to support push notifications.
 
   ![][28]
 
-7. Click the icon to display the notification, which appears in the graphic below.
+7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
 
   ![][27]
 
