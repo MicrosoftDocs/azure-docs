@@ -268,7 +268,7 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			todoItemTable.insert({
 			   text: "New Item",
 			   complete: false
-			}).read().done(function (result) {
+			}).done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
@@ -290,7 +290,7 @@ You can also specify a callback function to be invoked when the update is comple
 			todoItemTable.update({
 			   id: idToUpdate,
 			   text: newText
-			}).read().done(function (result) {
+			}).done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
@@ -310,7 +310,7 @@ You can also specify a callback function to be invoked when the delete is comple
 	
 			todoItemTable.del({
 			   id: idToDelete
-			}).read().done(function () {
+			}).done(function () {
 			   /* Do something */
 			}, function (err) {
 			   alert("Error: " + err);

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-dotnet" writer="glenga" urlDisplayName="Validate and Modify Data" pageTitle="User server scripts to validate and modify data - Mobile Services" metaKeywords="" metaDescription="Learn how to use server scripts to validate, modify, and augment data with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-dotnet" writer="glenga" urlDisplayName="Validate and Modify Data" pageTitle="Using server scripts to validate and modify data - Mobile Services" metaKeywords="" metaDescription="Learn how to use server scripts to validate, modify, and augment data with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -71,9 +71,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
-            // This code inserts a new TodoItem into the database. 
-			// When the operation completes and Mobile Services has 
-			// assigned an Id, the item is added to the collection.
+            // This code inserts a new TodoItem into the database.
+            // When the operation completes and Mobile Services has
+            // assigned an Id, the item is added to the collection.
             try
             {
                 await todoTable.InsertAsync(todoItem);
@@ -83,8 +83,8 @@ Now that the mobile service is validating data and sending error responses, you 
             {
                 MessageDialog errormsg = new MessageDialog(e.Response.Content, 
                     string.Format("{0} (HTTP {1})",                     
-                    e.Response.StatusDescription,
-                    e.Response.StatusCode));
+                    e.Response.ReasonPhrase,
+                    (int)e.Response.StatusCode));
                 var ignoreAsyncOpResult = errormsg.ShowAsync();
             }
         }
