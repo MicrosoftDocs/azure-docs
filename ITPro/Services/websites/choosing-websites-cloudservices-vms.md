@@ -20,19 +20,19 @@ This document provides guidance on how to make an informed decision in choosing 
    <th align="left" valign="top">Windows Azure Cloud Services are ideal for... </th>
    <th align="left" valign="top">Windows Azure Virtual Machines are ideal for... </th></tr>
 <tr>
-   <td valign="top"><b>Modern Web Applications</b>. Applications that consist of a client-side markup and scripting, server-side scripting and a database. You can scale out or up as needed.</td>
-   <td valign="top"><b>Multi-tier Applications</b>. Applications that are composed of multiple tiers. Each tier can be scaled independently, with asynchronous background processing, like order processing, using both web and worker roles.</td>
-   <td valign="top"><b>Server Applications</b>. Existing applications that leverage SQL Server, MySQL, MongoDB, SharePoint Server, etc.</td>
+   <td valign="top"><p><b>Modern Web Applications</b>. Applications that consist of a client-side markup and scripting, server-side scripting and a database. You can scale out or up as needed.</p></td>
+   <td valign="top"><p><b>Multi-tier Applications</b>. Applications that are composed of multiple tiers. Each tier can be scaled independently, with asynchronous background processing, like order processing, using both web and worker roles.</p></td>
+   <td valign="top"><p><b>Server Applications</b>. Existing applications that leverage SQL Server, MySQL, MongoDB, SharePoint Server, etc.</p></td>
 </tr>
 <tr>
-   <td valign="top"><b>Continuous Development</b>. Deploy directly from your source code repository by using Git or Team Foundation Service.</td>
-   <td valign="top"><b>Applications that Require Advanced Administration</b>. Applications that require administrator access, remote desk"top" access, or running code with elevated privileges.</td>
-   <td valign="top"><b>Existing Line-of-business Applications</b>. Choose an image from the gallery or upload your own VHD.</td>
+   <td valign="top"><p><b>Continuous Development</b>. Deploy directly from your source code repository by using Git or Team Foundation Service.</p></td>
+   <td valign="top"><p><b>Applications that Require Advanced Administration</b>. Applications that require administrator access, remote desk"top" access, or running code with elevated privileges.</p></td>
+   <td valign="top"><p><b>Existing Line-of-business Applications</b>. Choose an image from the gallery or upload your own VHD.</p></td>
 </tr>
 <tr>
-   <td valign="top"><b>Popular Open Source Applications</b>. Launch a website with a few clicks with such applications as WordPress, Joomla!, and Drupal. Create advanced, high-traffic open-source websites on Windows Azure.</td>
-   <td valign="top"><b>Applications that Require Advanced Networking</b>. Applications that require network isolation with Windows Azure Virtual Network.</td>
-   <td valign="top"><b>Windows or Linux</b>. Support for Windows Server and community/commercial versions of Linux. Connect virtual machines with Cloud Services to take advantage of PaaS services.</td>
+   <td valign="top"><p><b>Popular Open Source Applications</b>. Launch a website with a few clicks with such applications as WordPress, Joomla!, and Drupal. Create advanced, high-traffic open-source websites on Windows Azure.</p></td>
+   <td valign="top"><p><b>Applications that Require Advanced Networking</b>. Applications that require network isolation with Windows Azure Virtual Network.</p></td>
+   <td valign="top"><p><b>Windows or Linux</b>. Support for Windows Server and community/commercial versions of Linux. Connect virtual machines with Cloud Services to take advantage of PaaS services.</p></td>
 </tr>
 </table>
 
@@ -47,99 +47,99 @@ When you consider the options, virtual machines can be used for almost any appli
    <th align="left" valign="top">Web Roles</th>
 </tr>
 <tr>
-   <td valign="top">Access to services like Service Bus, Storage, SQL Database</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Access to services like Service Bus, Storage, SQL Database</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Integrated MySQL-as-a-service support</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top"><b>Yes</b>, see note below</td>
+   <td valign="top"><p>Integrated MySQL-as-a-service support</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p><b>Yes</b>, see note below</p></td>
 </tr>
 <tr>
-   <td valign="top">Support for ASP.NET, classic ASP, Node.js, PHP, Python</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Support for ASP.NET, classic ASP, Node.js, PHP, Python</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Scale out to multiple instances without redeploy</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Scale out to multiple instances without redeploy</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Support for SSL</td>
-   <td valign="top"><b>Yes</b>, see note below</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Support for SSL</p></td>
+   <td valign="top"><p><b>Yes</b>, see note below</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Visual Studio integration</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Visual Studio integration</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Deploy code with TFS</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Deploy code with TFS</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Deploy code with GIT, FTP</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top">No</td>
+   <td valign="top"><p>Deploy code with GIT, FTP</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p>No</p></td>
 </tr>
 <tr>
-   <td valign="top">Deploy code with Web Deploy</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top">No, see note below</td>
+   <td valign="top"><p>Deploy code with Web Deploy</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p>No, see note below</p></td>
 </tr>
 <tr>
-   <td valign="top">WebMatrix support</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top">No</td>
+   <td valign="top"><p>WebMatrix support</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p>No</p></td>
 </tr>
 <tr>
-   <td valign="top">Near-instant deployment</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top">No</td>
+   <td valign="top"><p>Near-instant deployment</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p>No</p></td>
 </tr>
 <tr>
-   <td valign="top">Instances share content and configuration</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top">No</td>
+   <td valign="top"><p>Instances share content and configuration</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p>No</p></td>
 </tr>
 <tr>
-   <td valign="top">Scale up to larger machines without redeploy</td>
-   <td valign="top"><b>Yes</b></td>
-   <td valign="top">No</td>
+   <td valign="top"><p>Scale up to larger machines without redeploy</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
+   <td valign="top"><p>No</p></td>
 </tr>
 <tr>
-   <td valign="top">Multiple deployment environments (production and staging)</td>
-   <td valign="top">No</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Multiple deployment environments (production and staging)</p></td>
+   <td valign="top"><p>No</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Network isolation with Windows Azure Virtual Network</td>
-   <td valign="top">No</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Network isolation with Windows Azure Virtual Network</p></td>
+   <td valign="top"><p>No</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Support for Windows Azure Traffic Manager Preview</td>
-   <td valign="top">No</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Support for Windows Azure Traffic Manager Preview</p></td>
+   <td valign="top"><p>No</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Support for CDN</td>
-   <td valign="top">No</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Support for CDN</p></td>
+   <td valign="top"><p>No</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Remote desk"top" access to servers</td>
-   <td valign="top">No</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Remote desk"top" access to servers</p></td>
+   <td valign="top"><p>No</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 <tr>
-   <td valign="top">Ability to define/execute start-up tasks</td>
-   <td valign="top">No</td>
-   <td valign="top"><b>Yes</b></td>
+   <td valign="top"><p>Ability to define/execute start-up tasks</p></td>
+   <td valign="top"><p>No</p></td>
+   <td valign="top"><p><b>Yes</b></p></td>
 </tr>
 </table>
 
