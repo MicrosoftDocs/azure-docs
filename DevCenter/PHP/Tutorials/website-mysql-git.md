@@ -35,7 +35,7 @@ Follow these steps to create a Windows Azure web site and a MySQL database:
 
 	![Create New Windows Azure web site][new-website]
 
-3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
+3. Click **WEB SITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new web site][custom-create]
 	
@@ -63,8 +63,6 @@ Follow these steps to create a Windows Azure web site and a MySQL database:
 	![Create publishing credentials][credentials]
 
 	It will take a few seconds to set up your repository.
-
-	![Creating Git repository][creating-repo]
 
 9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
 
@@ -255,7 +253,7 @@ To publish changes to application, follow these steps:
 [localhost-index]: http://localhost/registration/index.php
 [running-app]: ../Media/running_app_2.png
 [new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/custom_create.jpg
+[custom-create]: ../../Shared/Media/custom_create.png
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
