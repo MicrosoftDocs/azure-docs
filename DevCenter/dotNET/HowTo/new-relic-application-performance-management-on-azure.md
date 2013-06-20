@@ -1,5 +1,6 @@
-New Relic Application Performance Management on Windows Azure
-==
+<div chunk="../chunks/article-left-menu.md" />
+
+#New Relic Application Performance Management on Windows Azure
 
 This guide describes how to add New Relic's world-class performance
 monitoring to your Windows Azure hosted applications. We'll cover the fast and simple
