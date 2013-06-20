@@ -381,6 +381,7 @@ Save the script.
 <div class="dev-callout"><strong>Note</strong>
 <p>
 Because certain Windows Azure subscriptions allow only one scheduler script, in this example, we combined what could be three separate scripts into one.
+</p>
 </div>
 
 
@@ -459,7 +460,7 @@ When you are writing server scripts that use [insert], [update], [read] or [dele
 
 When you use the [tables object] or the [mssql object], or just let your table scripts execute, the deserialized JavaScript objects are inserted into your SQL database. In that process, object properties are mapped to T-SQL types:
 
-<table border=1>
+<table border="1">
 <tr>
 <td>JavaScript property</td>
 <td>T-SQL type</td>
