@@ -1,19 +1,17 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" writer="glenga" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-notification-hubs-dotnet" writer="glenga" urlDisplayName="Get Started with Notification Hubs" pageTitle="Get started with Notification Hubs - Mobile Services" metaKeywords="" metaDescription="Learn how to use Notification Hubs with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Get started with notification hubs in Mobile Services
-<div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a> <a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a>
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-notification-hubs-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
 </div>	
 
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app using a Service Bus Notification Hub, which  enables a user to send device push notifications through third-party application platforms, including:
  
-• The Windows Push Notification Services (WNS) for Windows 8.
-
-
-• The Apple Push Notification service (APNs).
+- The Windows Push Notification Services (WNS) for Windows 8.
+- The Apple Push Notification service (APNs).
 
 Support for the Microsoft Push Notification Service (MPNS) for Windows Phone, and Google Cloud Messaging (GCM), targeting the Android platform, will be added soon.
 
