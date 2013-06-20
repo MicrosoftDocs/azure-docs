@@ -160,7 +160,7 @@ Instead of relying on the Twilio-provided URL, you can create your own URL site 
 
 The following script results in a TwiML response that says Hello World on the call.
 
-     var twilio = require('twilio');
+    var twilio = require('twilio');
 
     exports.post = function(request, response) {
 
@@ -174,8 +174,6 @@ The following script results in a TwiML response that says Hello World on the ca
 For more information about TwiML, see [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
 
 Once you have set up a way to provide TwiML responses, you can pass that URL into the **client.makeCall** method as shown in the following code sample:
-
-
     
 	var twilio = require('twilio');
 
