@@ -496,7 +496,7 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 To control which web sites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</h2>
+<h2><a name="nextsteps"></a>Next steps</h2>
 
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:

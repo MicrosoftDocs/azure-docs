@@ -490,7 +490,7 @@ Using this property, you may set Json.NET properties (there have many), includin
 				
 
 
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</h2>
+<h2><a name="nextsteps"></a>Next steps</h2>
 
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
