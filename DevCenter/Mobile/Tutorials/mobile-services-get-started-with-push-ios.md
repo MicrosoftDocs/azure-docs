@@ -67,49 +67,74 @@ Next, you will register your app with Apple, enable push notifications, and uplo
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **App IDs**, then click **New App ID**.
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to .
 
-   ![][1]
+   ![][105] 
 
-3. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, then click **Submit**. 
+2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
 
-   ![][2]
+   ![][106]
 
-   This generates your app ID.
+   ![][107] 
+
+   ![][108]
+   
+
+   This generates your app ID and requests you to **Submit** the information. Click **Submit**
+   
+   ![][109] 
+   
+   Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
+   
+   ![][110]
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
     </div>
 
-4. Locate the app ID that you just created, then click **Configure**. 
+3. Locate the app ID that you just created, and click on its row. 
 
-   ![][3]
+   ![][111]
+   
+   Clicking on the app ID will display details on the app and app ID:
+   
+   ![][112] 
+   
+   ![][113]
 
-5. Check the **Enable for Apple Push Notification service** check box, then click the **Continue** button for the **Development Push SSL Certificate**.
+4. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
 
-   ![][4]
+   ![][114] 
 
-   This displays the Apple Push Notification service SSL Certificate Assistant. 
+   This displays the "Add iOS Certificate" assistant.
+   
+   ![][115] 
+
 
     <div class="dev-callout"><b>Note</b>
 	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
     </div>
 
-6. Click **Browse**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
+5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
 
-  ![][8]
-
-7. After the certificate is created by the portal, click **Continue** and on the next screen click **Download**. 
+  ![][116]
+  
+6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
  
+  ![][118]
+
+  ![][119]  
+  
+
    This downloads the signing certificate and saves it to your computer in your Downloads folder. 
 
-  ![][9]
+  ![][9] 
 
     <div class="dev-callout"><b>Note</b>
 	<p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
     </div>
 
-8. Double-click the downloaded push certificate **aps_development.cer**.
+7. Double-click the downloaded push certificate **aps_development.cer**.
 
    This installs the new certificate in the Keychain, as shown below:
 
@@ -123,35 +148,39 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 <h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
  
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning**, then click **New Profile**.
+1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
 
-   ![][12]
+   ![][120]
 
-2. Enter a **Profile Name**, select the **Certificates** and **Devices** to use for testing, select the **App ID**, then click **Submit**.
+2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**
 
-   ![][13]
+   ![][121]
 
+3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**
+
+   ![][122]
+
+4. In the **Select certificates** screen, select the certificate created earlier, and click **Continue**
+  
+   ![][123]
+
+5. Next, select the **Devices** to use for testing, and click **Continue**
+
+   ![][124]
+
+6. Finally, pick a name for the profile in **Profile Name**, click **Generate**, and click **Done**
+
+   ![][125]
+   
+   ![][126]
+	
   This creates a new provisioning profile.
 
-3. From the list of provisioning profiles, click the **Download** button for this new profile.
+7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Refresh** button at the bottom of the middle pane. 
 
-   ![][14]
+   ![][103]
 
-   This downloads the profile to the local computer.
-
-    <div class="dev-callout"><b>Note</b>
-	<p>You may need to refresh the page to see the new profile.</p>
-    </div>
-
-4. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Import** button at the very bottom of the middle pane. 
-
-   ![][15]
-
-5. Locate the downloaded provisioning profile and click **Open**.
-
-   ![][16] 
-
-6. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
+8. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
 
    ![][17]
 
@@ -374,6 +403,34 @@ In this simple example a user receives a push notification with the data that wa
 [25]: ../Media/mobile-quickstart-push3-ios.png
 [26]: ../Media/mobile-quickstart-push4-ios.png
 [28]: ../Media/mobile-services-ios-push-step18.png
+
+[101]: ../Media/mobile-services-ios-push-01.png
+[102]: ../Media/mobile-services-ios-push-02.png
+[103]: ../Media/mobile-services-ios-push-03.png
+[104]: ../Media/mobile-services-ios-push-04.png
+[105]: ../Media/mobile-services-ios-push-05.png
+[106]: ../Media/mobile-services-ios-push-06.png
+[107]: ../Media/mobile-services-ios-push-07.png
+[108]: ../Media/mobile-services-ios-push-08.png
+[109]: ../Media/mobile-services-ios-push-09.png
+[110]: ../Media/mobile-services-ios-push-10.png
+[111]: ../Media/mobile-services-ios-push-11.png
+[112]: ../Media/mobile-services-ios-push-12.png
+[113]: ../Media/mobile-services-ios-push-13.png
+[114]: ../Media/mobile-services-ios-push-14.png
+[115]: ../Media/mobile-services-ios-push-15.png
+[116]: ../Media/mobile-services-ios-push-16.png
+[117]: ../Media/mobile-services-ios-push-17.png
+[118]: ../Media/mobile-services-ios-push-18.png
+[119]: ../Media/mobile-services-ios-push-19.png
+[120]: ../Media/mobile-services-ios-push-20.png
+[121]: ../Media/mobile-services-ios-push-21.png
+[122]: ../Media/mobile-services-ios-push-22.png
+[123]: ../Media/mobile-services-ios-push-23.png
+[124]: ../Media/mobile-services-ios-push-24.png
+[125]: ../Media/mobile-services-ios-push-25.png
+[126]: ../Media/mobile-services-ios-push-26.png
+[127]: ../Media/mobile-services-ios-push-27.png
 
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
