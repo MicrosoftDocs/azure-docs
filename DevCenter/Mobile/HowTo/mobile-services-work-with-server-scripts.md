@@ -54,7 +54,7 @@ Here are the canonical main-function signatures for the table operations:
 
 
 <div class="dev-callout"><strong>Note</strong>
-<p>A function that's registered to the delete operation must be named{TBD 2 fonts to fix} del because delete is a reserved keyword in JavaScript. </p>
+<p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
 </div> 
 
 ###<a name="register-table-scripts"></a>How to: Register table scripts
