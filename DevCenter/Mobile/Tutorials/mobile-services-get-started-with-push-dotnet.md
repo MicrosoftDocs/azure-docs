@@ -59,15 +59,15 @@ To be able to send push notifications to Windows Store apps from Mobile Services
 
    This adds the required Windows Store registration information to the application manifest.    
 
-7. Back in the Windows Dev Center page for your new app, click **Advanced features**. 
+7. Back in the Windows Dev Center page for your new app, click **Services**. 
 
    ![][4] 
 
-8. In the Advanced Features page, click **Push notifications and Live Connect services info**, then click **Authenticating your service**.
+8. In the Services page, click **Live Services site** under **Windows Azure Mobile Services**.
 
-   ![][16]
+	![][17]
 
-9. Make a note of the values of **Client secret** and **Package security identifier (SID)**. 
+9. Click **Authenticating your service** and make a note of the values of **Client secret** and **Package security identifier (SID)**. 
 
    ![][5]
 
@@ -207,6 +207,7 @@ In this simple example a user receives a push notification with the data that wa
 [14]: ../Media/mobile-quickstart-push2.png
 [15]: ../Media/mobile-app-enable-toast-win8.png
 [16]: ../Media/mobile-services-win8-app-push-connect.png
+[17]: ../Media/mobile-services-win8-edit2-app.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
