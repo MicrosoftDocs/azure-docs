@@ -13,7 +13,7 @@
 </div>
 
 <div class="dev-callout"><b>Note</b>
-<p><i>Visual Studio 2013 Preview</i> includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service using Visual Studio 2013</a> in the Windows Dev Center.</p>
+<p><em>Visual Studio 2013 Preview</em> includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service using Visual Studio 2013</a> in the Windows Dev Center.</p>
 </div>
 
 This tutorial walks you through these basic steps:
