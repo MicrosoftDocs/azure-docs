@@ -13,7 +13,7 @@
 </div>
 
 <div class="dev-callout"><b>Note</b>
-<p><i>Visual Studio 2013 Preview</i> includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service using Visual Studio 2013</a> in the Windows Dev Center.</p>
+<p><em>Visual Studio 2013 Preview</em> includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service using Visual Studio 2013</a> in the Windows Dev Center.</p>
 </div>
 
 This tutorial walks you through these basic steps:
@@ -221,6 +221,9 @@ Once you have completed the data series, try one of these other tutorials:
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
+  
 <!-- Anchors. -->
 
 [Get the Windows Store app]: #download-app
@@ -257,3 +260,4 @@ Once you have completed the data series, try one of these other tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/?LinkId=262308
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

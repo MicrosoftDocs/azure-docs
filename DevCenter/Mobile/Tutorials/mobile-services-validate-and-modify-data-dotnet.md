@@ -195,6 +195,9 @@ Server scripts are also used when authorizing users and for sending push notific
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
+
 <!-- Anchors. -->
 [Add string length validation]: #string-length-validation
 [Update the client to support validation]: #update-client-validation
@@ -220,3 +223,4 @@ Server scripts are also used when authorizing users and for sending push notific
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

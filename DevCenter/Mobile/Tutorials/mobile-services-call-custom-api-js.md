@@ -45,27 +45,27 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 3. After the **refreshTodoItems** function, add the following code:
 
-       var completeAllTodoItems = function () {
-            var okCommand = new Windows.UI.Popups.UICommand("OK");
-
-            // Asynchronously call the custom API using the POST method. 
-            mobileService.invokeApi("completeall", {
-                body: null,
-                method: "post"
-            }).done(function (results) {
-                var message = results.result.count + " item(s) marked as complete.";
-                var dialog = new Windows.UI.Popups.MessageDialog(message);
-                dialog.commands.append(okCommand);
-                dialog.showAsync().done(function () {
-                    refreshTodoItems();
-                });
-            }, function (error) {
-                var dialog = new Windows.UI.Popups
-                    .MessageDialog(error.message);
-                dialog.commands.append(okCommand);
-                dialog.showAsync().done();
-            });
-        };
+		var completeAllTodoItems = function () {
+		    var okCommand = new Windows.UI.Popups.UICommand("OK");
+		
+		    // Asynchronously call the custom API using the POST method. 
+		    mobileService.invokeApi("completeall", {
+		        body: null,
+		        method: "post"
+		    }).done(function (results) {
+		        var message = results.result.count + " item(s) marked as complete.";
+		        var dialog = new Windows.UI.Popups.MessageDialog(message);
+		        dialog.commands.append(okCommand);
+		        dialog.showAsync().done(function () {
+		            refreshTodoItems();
+		        });
+		    }, function (error) {
+		        var dialog = new Windows.UI.Popups
+		            .MessageDialog(error.message);
+		        dialog.commands.append(okCommand);
+		        dialog.showAsync().done();
+		    });
+		};
 
         buttonCompleteAll.addEventListener("click", function () {
             completeAllTodoItems();

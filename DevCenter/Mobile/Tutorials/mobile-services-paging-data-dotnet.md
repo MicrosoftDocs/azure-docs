@@ -78,6 +78,9 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
+  
 <!-- Anchors. -->
 
 [Next Steps]:#next-steps
@@ -94,3 +97,4 @@ This concludes the set of tutorials that demonstrate the basics of working with 
 [JavaScript and HTML]: ./mobile-services-paging-data-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

@@ -293,7 +293,11 @@ Now that you have been able to securely upload images by integrating your mobile
 + [Mobile Services server script reference]
 
   Reference topics for using server scripts to perform server-side tasks and integration with other Windows Azure components and external resources.
- 
+
++ [Mobile Services .NET How-to Conceptual Reference]
+
+  Learn more about how to use Mobile Services with .NET
+
 
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
@@ -326,3 +330,4 @@ Now that you have been able to securely upload images by integrating your mobile
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
 [Windows Azure Storage Client library for Windows Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
