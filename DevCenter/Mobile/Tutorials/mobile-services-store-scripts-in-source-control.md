@@ -2,7 +2,7 @@
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
-# Store server scripts in source control
+# Store server scripts in source control and use NPM
 
 This topic shows you how to set up source control for the first time in Windows Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. 
 
@@ -11,6 +11,7 @@ The tutorial guides you through the following steps:
 1. [Enable source control in your mobile service].
 2. [Install Git and create the local repository].
 3. [Deploy updated script files to your mobile service].
+<li><a href="#use-npm">Use a NPM module in your server script</a>.</li>
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
@@ -113,6 +114,28 @@ Now that you have created your local repository, you can make changes to server 
    ![][6]
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
+
+<h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use a NPM module in your server script</h2>
+<p>Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).</p>
+
+<ol>
+<li>Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.<br />
+<pre class="prettyprint">npm install node-uuid</pre></li>
+<li>Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:<br/>
+<pre class="prettyprint">function insert(item, user, request) {
+    var uuid = reuire('node-uuid');
+    item.uuid = uuid.v1();
+    request.execute();
+    console.log(item);
+}</pre>
+The code adds a uuid column to the table, populating it with unique GUID identifiers.</li>
+<li>Just like in the previous section, in the Git command prompt, type the following command to commit and push your changes to your mobile service:
+<pre class="prettyprint">$ git add .
+$ git commit –m "added node-uuid module”
+$ git push origin master
+</pre>
+This will commit and push both the added node-uuid module as well as the changes to the todoitem.insert.js script.</li>
+
 
 ## <a name="next-steps"> </a>Next steps
 
