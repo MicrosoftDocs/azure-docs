@@ -69,24 +69,19 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to .
 
-   ![][105] 
+   ![][102] 
 
 2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
 
-   ![][106]
-
-   ![][107] 
-
-   ![][108]
+   ![][103]
    
-
    This generates your app ID and requests you to **Submit** the information. Click **Submit**
    
-   ![][109] 
+   ![][104] 
    
    Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
    
-   ![][110]
+   ![][105]
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
@@ -94,21 +89,19 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 3. Locate the app ID that you just created, and click on its row. 
 
-   ![][111]
+   ![][106]
    
-   Clicking on the app ID will display details on the app and app ID:
+   Clicking on the app ID will display details on the app and app ID. Click the **Settings** button.
    
-   ![][112] 
+   ![][107] 
    
-   ![][113]
-
 4. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
 
-   ![][114] 
+   ![][108] 
 
    This displays the "Add iOS Certificate" assistant.
    
-   ![][115] 
+   ![][108] 
 
 
     <div class="dev-callout"><b>Note</b>
@@ -117,14 +110,11 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
 
-  ![][116]
+  ![][110]
   
 6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
  
-  ![][118]
-
-  ![][119]  
-  
+  ![][111]  
 
    This downloads the signing certificate and saves it to your computer in your Downloads folder. 
 
@@ -150,35 +140,33 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
  
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
 
-   ![][120]
+   ![][112]
 
 2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**
 
-   ![][121]
+   ![][113]
 
 3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**
 
-   ![][122]
+   ![][114]
 
 4. In the **Select certificates** screen, select the certificate created earlier, and click **Continue**
   
-   ![][123]
+   ![][115]
 
 5. Next, select the **Devices** to use for testing, and click **Continue**
 
-   ![][124]
+   ![][116]
 
 6. Finally, pick a name for the profile in **Profile Name**, click **Generate**, and click **Done**
 
-   ![][125]
-   
-   ![][126]
+   ![][117]
 	
   This creates a new provisioning profile.
 
 7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Refresh** button at the bottom of the middle pane. 
 
-   ![][103]
+   ![][101]
 
 8. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
 
@@ -421,16 +409,6 @@ In this simple example a user receives a push notification with the data that wa
 [115]: ../Media/mobile-services-ios-push-15.png
 [116]: ../Media/mobile-services-ios-push-16.png
 [117]: ../Media/mobile-services-ios-push-17.png
-[118]: ../Media/mobile-services-ios-push-18.png
-[119]: ../Media/mobile-services-ios-push-19.png
-[120]: ../Media/mobile-services-ios-push-20.png
-[121]: ../Media/mobile-services-ios-push-21.png
-[122]: ../Media/mobile-services-ios-push-22.png
-[123]: ../Media/mobile-services-ios-push-23.png
-[124]: ../Media/mobile-services-ios-push-24.png
-[125]: ../Media/mobile-services-ios-push-25.png
-[126]: ../Media/mobile-services-ios-push-26.png
-[127]: ../Media/mobile-services-ios-push-27.png
 
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
