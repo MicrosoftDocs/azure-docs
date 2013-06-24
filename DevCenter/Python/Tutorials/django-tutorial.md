@@ -1,3 +1,7 @@
+<properties linkid="django-azure-tutorial" urlDisplayName="Django on Azure with Python Toosl for Visual Studio" pageTitle="Django on Azure with Visual Studio (Python) - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+<div chunk="../chunks/article-left-menu.md" />
+
 #Django on Azure with Python Tools for Visual Studio
 
 ##Overview
