@@ -10,7 +10,7 @@ In this tutorial you will learn how to take an existing WordPress web site creat
 Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 Lets get started.
 ## Allow Multisite
-You first need to enable Multisite through the `wp-config.php` file with the **WP_ALLOW_MULTISITE** constant. There are two methods to edit your web site files: the first is through FTP, and the second through Git. If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:
+You first need to enable Multisite through the `wp-config.php` file with the **WP\_ALLOW\_MULTISITE** constant. There are two methods to edit your web site files: the first is through FTP, and the second through Git. If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:
 * [PHP web site with MySQL and FTP][website-w-mysql-and-ftp-ftp-setup]
 * [PHP web site with MySQL and Git][website-w-mysql-and-git-git-setup]
 Open the `wp-config.php` file with the editor of your choosing and add the following above the `/* That's all, stop editing! Happy blogging. */` line.
