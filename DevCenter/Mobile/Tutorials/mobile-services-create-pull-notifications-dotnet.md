@@ -5,8 +5,7 @@
 # Define a custom API that supports periodic notifications
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-    <a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/create-pull-notifications-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 </div>
 
 This topic shows you how to use a custom API to support periodic notifications in a Windows Store app. With period notifications enabled, Windows will periodically access your custom API endpoint and use the returned XML, in a tile-specific format, to update the app tile on start menu. For more information, see [Periodic notifications]. 
@@ -128,6 +127,9 @@ Now that you have created a periodic notification, consider finding out more abo
 * [Mobile Services server script reference]
   <br/>Learn more about creating custom APIs.
 
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
+
 <!-- Anchors. -->
 [Define the custom API]: #define-custom-api
 [Update the app to turn on period notifications]: #update-app
@@ -154,3 +156,4 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
 [PeriodicUpdateRecurrance]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

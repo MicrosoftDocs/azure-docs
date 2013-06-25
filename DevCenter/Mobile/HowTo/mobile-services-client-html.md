@@ -268,7 +268,7 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			todoItemTable.insert({
 			   text: "New Item",
 			   complete: false
-			}).read().done(function (result) {
+			}).done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
@@ -290,7 +290,7 @@ You can also specify a callback function to be invoked when the update is comple
 			todoItemTable.update({
 			   id: idToUpdate,
 			   text: newText
-			}).read().done(function (result) {
+			}).done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
@@ -310,7 +310,7 @@ You can also specify a callback function to be invoked when the delete is comple
 	
 			todoItemTable.del({
 			   id: idToDelete
-			}).read().done(function () {
+			}).done(function () {
 			   /* Do something */
 			}, function (err) {
 			   alert("Error: " + err);
@@ -356,6 +356,10 @@ To login with Facebook, use the following code. If you are using an identity pro
 		});
 
 Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more details, see the [Get started with authentication] tutorial.
+
+<div class="dev-callout"><b>Note</b>
+<p>When you register the package information from a Windows Store app with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. After the package information is registered with Mobile Services, you can call the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <i>useSingleSignOn</i> parameter. If you do not do this, your Windows Store app users will be presented with a login prompt every time that the login method is called. For information on how to register your app package, see the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js/">Get started with push notifications</a>.</p>
+</div>
 
 <h3>Client flow</h3>
 

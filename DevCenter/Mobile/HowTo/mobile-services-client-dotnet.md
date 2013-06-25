@@ -328,6 +328,10 @@ To login with Facebook, use the following code. If you are using an identity pro
 
 Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more information, see the "Get started with authentication" tutorial ([Windows Store authentication]/[Windows Phone authentication])
 
+<div class="dev-callout"><b>Note</b>
+<p>When you register the package information from a Windows Store app with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. After the package information is registered with Mobile Services, you can call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <i>useSingleSignOn</i> parameter. If you do not do this, your Windows Store app users will be presented with a login prompt every time that the login method is called. For information on how to register your app package, see the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/">Get started with push notifications</a>.</p>
+</div>
+
 <h3>Client flow</h3>
 
 In the most simplified form, we can use the client flow as shown in this snippet for Facebook or Google. 

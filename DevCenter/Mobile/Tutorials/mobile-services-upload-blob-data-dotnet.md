@@ -3,7 +3,7 @@
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="article-left-menu-windows-store" umb_chunkpath="devcenter/mobile" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
 # Upload images to Windows Azure Storage by using Mobile Services
-<div class="dev-center-tutorial-selector"> 
+<div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
 <!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone 8</a>
@@ -293,7 +293,11 @@ Now that you have been able to securely upload images by integrating your mobile
 + [Mobile Services server script reference]
 
   Reference topics for using server scripts to perform server-side tasks and integration with other Windows Azure components and external resources.
- 
+
++ [Mobile Services .NET How-to Conceptual Reference]
+
+  Learn more about how to use Mobile Services with .NET
+
 
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
@@ -326,3 +330,4 @@ Now that you have been able to securely upload images by integrating your mobile
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
 [Windows Azure Storage Client library for Windows Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
