@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications in iOS apps with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications in iOS apps with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" writer="krisragh" editor="mollybos" />
 
 <div chunk="../chunks/article-left-menu-ios.md" />
 
