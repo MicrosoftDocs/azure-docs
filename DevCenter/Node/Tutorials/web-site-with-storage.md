@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -658,7 +658,7 @@ While the steps in this article describe using the Table Service to store inform
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png
-[download-publishing-settings]: ../../Shared/Media/azure-account-download.png
+[download-publishing-settings]: ../../Shared/Media/azure-account-download-cli.png
 [portal-new]: ../../Shared/Media/plus-new.png
 [portal-storage-account]: ../../Shared/Media/new-storage.png
 [portal-quick-create-storage]: ../../Shared/Media/quick-storage.png

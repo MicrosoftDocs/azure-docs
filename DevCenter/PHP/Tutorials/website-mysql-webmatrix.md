@@ -1,4 +1,4 @@
-<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
@@ -53,7 +53,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>In the preview release of Windows Azure Web Sites, you cannot create a MySQL Database for a web site after creating the web site. You must create a web site and a MySQL database as described in the steps below.</p> 
+	<p>You cannot create a MySQL Database for a web site after creating the web site. You must create a web site and a MySQL database as described in the steps below.</p> 
 	</div>
 
 1. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
