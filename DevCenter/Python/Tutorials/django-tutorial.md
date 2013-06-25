@@ -1,11 +1,15 @@
-<properties linkid="django-azure-tutorial" urlDisplayName="Django on Azure with Python Toosl for Visual Studio" pageTitle="Django on Azure with Visual Studio (Python) - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="django-ptvs-tutorial" urlDisplayName="Django with Python Tools for Visual Studio" pageTitle="Django with Python Tools for Visual Studio 2.0 Beta - Windows Azure tutorial" metaKeywords="Azure Django Web Site, Azure Django Cloud Service, PTVS" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure using Python Tools for Visual Studio 2.0 Beta." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
-#Django on Azure with Python Tools for Visual Studio
+#Django with Python Tools for Visual Studio 2.0 Beta
 
 ##Overview
-In this tutorial, we'll use Python Tools for Visual Studio to create a simple Django application, which lets users vote on polls.  We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Azure.  We'll show how to enable the Django admin interface, and use it to add polls to our database.  We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to an Azure Web Site and Azure Cloud Service.
+In this tutorial, we'll use Python Tools for Visual Studio 2.0 Beta to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to an Azure Web Site and Azure Cloud Service.
+
+This tutorial focuses on Python Tools for Visual Studio and Windows Azure. For more details on Django and the polls application built in this tutorial, see [https://www.djangoproject.com/](https://www.djangoproject.com/).
+
+**Note:** This tutorial is also encapsulated in a [Youtube video](http://www.youtube.com/watch?v=GcPYjDhyAlM).
 
 ##Requirements
 To complete the tutorial, you'll need
@@ -48,11 +52,11 @@ Python Tools for Visual Studio supports Python Virtual Environments.  We'll crea
 
 	![](../Media/django-tutorial-004-install-django-output.png)
 
-	BETA NOTE: In rare cases, you may see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup will fail but installation will still be successful (scroll up in the output window to verify this). This is due to PTVS getting a lock on the newly created temporary files/folders, which prevents the pip cleanup step from deleting them.
+	**Beta Note:** In rare cases, you may see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup will fail but installation will still be successful (scroll up in the output window to verify this). This is due to PTVS getting a lock on the newly created temporary files/folders, which prevents the pip cleanup step from deleting them.
 
 1. Right-click on **env** and Install Python package: **pytz** (optional but recommended, used by django for timezone support)
 
-NOTE: In solution explorer, under References, you'll see a node for Django 1.4. This is used for Windows Azure Cloud Service deployment, to install Python and Django on the target machine. Don't delete the reference to Django 1.4 from the references note. Since we are using a virtual environment and installing our own Django package in it, the Django package installed in our virtual environment will be used.
+**Note:** In solution explorer, under References, you'll see a node for Django 1.4. This is used for Windows Azure Cloud Service deployment, to install Python and Django on the target machine. Don't delete the reference to Django 1.4 from the references note. Since we are using a virtual environment and installing our own Django package in it, the Django package installed in our virtual environment will be used.
 
 ##Create the polls application
 
@@ -347,7 +351,7 @@ In the following 2 sections we'll show how to use a SQL database and a MySQL dat
 
 Another option would be to create a Virtual Machine and install a database server.  See instructions [here](http://www.windowsazure.com/en-us/manage/linux/common-tasks/mysql-on-a-linux-vm/) for setting up MySQL on an Azure Linux VM.
 
-NOTE: It's possible to use a sqlite3 database on Azure (for development purposes only, we do not recommend using it in production). You'll need to add the **db.sqlite3** file to your project in order to deploy the database with your django application.
+**Note:** It's possible to use a sqlite3 database on Azure (for development purposes only, we do not recommend using it in production). You'll need to add the **db.sqlite3** file to your project in order to deploy the database with your django application.
 
 ###SQL Database
 
@@ -359,7 +363,7 @@ In this section, we'll create a SQL database on Azure, add the necessary package
 
 1. In the **CONFIGURE** tab of the newly created server, you'll see your current client IP address displayed. Next to it, click on **ADD TO THE ALLOWED IP ADDRESSES**.
 
-	NOTE: Sometimes Azure doesn't detect the client IP address correctly. If you get an error when you synchronize the database, you should copy/paste the IP address from the error message and add it to the allowed IP addresses.
+	**Note:** Sometimes Azure doesn't detect the client IP address correctly. If you get an error when you synchronize the database, you should copy/paste the IP address from the error message and add it to the allowed IP addresses.
 
 1. Next, we'll create the database. In the **DATABASES** tab, click on **ADD** from the bottom bar.
 
@@ -432,7 +436,7 @@ In the Azure Store, you can add various services to your account, including a My
 
 1. Right-click on the project node and select **Validate Django App**.
 
-	BETA NOTE: There is a bug in PTVS 2.0 Beta that prevents the shell from working if you use the **Open Django Shell** command without first using either **Validate Django App** or **Django Sync DB**. **Validate Django App** doesn't change any state, and launches the shell, so it is a good workaround. This will be fixed after Beta.
+	**Beta Note:** There is a bug in PTVS 2.0 Beta that prevents the shell from working if you use the **Open Django Shell** command without first using either **Validate Django App** or **Django Sync DB**. **Validate Django App** doesn't change any state, and launches the shell, so it is a good workaround. This will be fixed after Beta.
 
 1. In this interactive window, we can access our database using our models.  Enter the following code to add a poll to the database:
 
@@ -504,7 +508,7 @@ Hosting Django in a Virtual Machine is out of scope for this tutorial.  It invol
 
 ####Run in Emulator
 
-BETA NOTE: There are issues in PTVS 2.0 Beta with Virtual Environments and the Azure Emulator. These will be fixed after Beta.
+**Beta Note:** There are issues in PTVS 2.0 Beta with Virtual Environments and the Azure Emulator. These will be fixed after Beta.
 
 1. You'll need to **restart Visual Studio as an Administrator** to be able to run in the compute emulator.
 
