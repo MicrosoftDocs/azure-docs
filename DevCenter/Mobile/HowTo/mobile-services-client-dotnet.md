@@ -5,11 +5,9 @@
 
 # How to use a .NET client for Windows Azure Mobile Services
 
-<div class="dev-center-tutorial-selector"> 
+<div class="dev-center-tutorial-selector sublanding"> 
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
 </div>
 
 
@@ -494,9 +492,7 @@ Using this property, you may set Json.NET properties (there have many), includin
 	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 	client.SerializerSettings = settings;
 
-
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</h2>
-
+<h2><a name="nextsteps"></a>Next steps</h2>
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
@@ -518,8 +514,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 * [Authorize users with scripts]
   <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 
-
-  
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -560,7 +554,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-
 [Get started with data]: ../Tutorials/mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ../Tutorials/mobile-services-get-started-with-users-dotnet.md
 [Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-dotnet.md
