@@ -1,10 +1,10 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-dotnet" writer="glenga" urlDisplayName="Validate and Modify Data" pageTitle="User server scripts to validate and modify data - Mobile Services" metaKeywords="" metaDescription="Learn how to use server scripts to validate, modify, and augment data with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-dotnet" writer="glenga" urlDisplayName="Validate and Modify Data" pageTitle="Using server scripts to validate and modify data - Mobile Services" metaKeywords="" metaDescription="Learn how to use server scripts to validate, modify, and augment data with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Validate and modify data in Mobile Services by using server scripts
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone 8">Windows Phone 8</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a></div>
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Windows Store app to take advantage of these new behaviors.</p>
@@ -71,9 +71,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
-            // This code inserts a new TodoItem into the database. 
-			// When the operation completes and Mobile Services has 
-			// assigned an Id, the item is added to the collection.
+            // This code inserts a new TodoItem into the database.
+            // When the operation completes and Mobile Services has
+            // assigned an Id, the item is added to the collection.
             try
             {
                 await todoTable.InsertAsync(todoItem);
@@ -83,8 +83,8 @@ Now that the mobile service is validating data and sending error responses, you 
             {
                 MessageDialog errormsg = new MessageDialog(e.Response.Content, 
                     string.Format("{0} (HTTP {1})",                     
-                    e.Response.StatusDescription,
-                    e.Response.StatusCode));
+                    e.Response.ReasonPhrase,
+                    (int)e.Response.StatusCode));
                 var ignoreAsyncOpResult = errormsg.ShowAsync();
             }
         }
@@ -197,7 +197,7 @@ Server scripts are also used when authorizing users and for sending push notific
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
-  
+
 <!-- Anchors. -->
 [Add string length validation]: #string-length-validation
 [Update the client to support validation]: #update-client-validation
@@ -223,5 +223,4 @@ Server scripts are also used when authorizing users and for sending push notific
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-
 [Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
