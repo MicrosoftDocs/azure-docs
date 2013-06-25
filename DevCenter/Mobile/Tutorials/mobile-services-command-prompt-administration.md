@@ -45,21 +45,21 @@ To test the installation, type `azure` at the command prompt. When the installat
 
 To get started, you must first download and import your publish settings. Then you can use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 
-	azure account download
+		azure account download
 
 This opens your default browser and prompts you to sign in to the Management Portal. After signing in, your `.publishsettings` file is downloaded. Note the location of this saved file.
 
 Next, import the `.publishsettings` file by running the following command, replacing `<path-to-settings-file>` with the path to your `.publishsettings` file:
 
-	azure account import <path-to-settings-file>
+		azure account import <path-to-settings-file>
 
 You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
 
-	azure account clear
+		azure account clear
 
 To see a list of options for `account` commands, use the `-help` option:
 
-	azure account -help
+		azure account -help
 
 After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Windows Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Windows Azure Mobile Services from the command line or in batch files.  
 
@@ -97,13 +97,13 @@ By including `-a` and `-q` parameters, this command also deletes the SQL Databas
 
 The following command creates a table in the specified mobile service, where `<service-name>` is the name of the mobile service and `<table-name>` is the name of the table to create:
 
-		mobile table create <service-name> <table-name>
+		azure mobile table create <service-name> <table-name>
 
 This creates a new table with the default permissions, `application`, for the table operations: `insert`, `read`, `update`, and `delete`. 
 
 The following command creates a new table with public `read` permission but with `delete` permission granted only to administrators:
 
-		mobile table create <service-name> <table-name> -p read=public,delete=admin
+		azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
 The following table shows the script permission value compared to the permission value in the [Windows Azure Management Portal].
 
@@ -139,7 +139,7 @@ The following command uploads and registers a function to an operation on a tabl
 
 Note that this operation uploads a JavaScript (.js) file from the local computer. The name of the file must be composed  from the table and operation names, and it must be located in the `table` subfolder relative to the location where the command is executed. For example, the following operation uploads and registers a new `insert` script that belongs to the `TodoItems` table:
 
-		  azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoitems.insert.js
 
 The function declaration in the script file must also match the registered table operation. This means that for an `insert` script, the uploaded script contains a function with the following signature:
 
