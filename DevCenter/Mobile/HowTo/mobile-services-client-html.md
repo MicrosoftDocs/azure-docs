@@ -6,11 +6,8 @@
 
 # How to use an HTML/JavaScript client for Windows Azure Mobile Services
 
-<div class="dev-center-tutorial-selector"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+<div class="dev-center-tutorial-selector sublanding"> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
 </div>
 
 
@@ -503,8 +500,7 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 To control which web sites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
-<h2><a name="nextsteps"></a><span class="short-header">Next steps</h2>
-
+<h2><a name="nextsteps"></a>Next steps</h2>
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
@@ -525,7 +521,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 * [Authorize users with scripts]
   <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
-
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -554,7 +549,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-html.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Get started with authentication]: ../Tutorials/mobile-services-get-started-with-users-html.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-html.md
 [then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
 [Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx

@@ -151,7 +151,7 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started/#create-new-service
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md#create-new-service
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
