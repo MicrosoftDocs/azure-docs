@@ -135,7 +135,7 @@ $ git commit –m "added node-uuid module”
 $ git push origin master
 </pre>
 This will commit and push both the added node-uuid module as well as the changes to the todoitem.insert.js script.</li>
-
+</ol>
 
 ## <a name="next-steps"> </a>Next steps
 
