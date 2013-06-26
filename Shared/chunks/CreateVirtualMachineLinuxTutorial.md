@@ -5,13 +5,13 @@ Creating a virtual machine that is running the Linux operating system is easy wh
 
 You will learn:
 
-- [What is a virtual machine in Windows Azure] []
-- [How to create a custom virtual machine running the Linux OS] []
+- [About virtual machines in Windows Azure] []
+- [How to create the virtual machine] []
 - [How to log on to the virtual machine after you create it] []
 - [How to attach a data disk to the new virtual machine] []
 - [How to set up communication with the virtual machine] []
 
-Note: This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Note**: This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 ## <a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
 
@@ -34,11 +34,7 @@ You use the **From Gallery** method to create a custom virtual machine in the Ma
 1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 On the command bar, click **New**.
 
-	![Create new virtual machine] (../../itpro/linux/media/create.png)
-
 2. Click **Virtual Machine**, and then click **From Gallery**.
-
-	![Choose to create a virtual machine From Gallery] (../../itpro/linux/media/createnew.png)
 
 3. From **Platform Images**, select the one of the images, and then click the arrow to continue.
 
@@ -46,11 +42,11 @@ On the command bar, click **New**.
 
 5. In **Virtual Machine Name**, type the name that you want to use. For this virtual machine, type **MyTestVM1**.
 
-6. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, accept the default of **Extra Small**.
+6. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, choose the smallest available size.
 
 7. In **New User Name**, type the name of the account that you will use to administer the virtual machine. You cannot use root for the user name. For this virtual machine, type **NewUser1**.
 
-8. Under Authentication, check **Upload Compatible SSH Key for Authentation** if you have an X.509 key in .cer or .pem format, or check **Provide a Password**. Then, provide the required information.
+8. Under Authentication, check **Provide a Password**. Then, provide the required information.
 
 9. Click the arrow to continue.
 
@@ -66,7 +62,7 @@ On the command bar, click **New**.
 	
 15. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the check mark to create the virtual machine.
     
-The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as **Running** in the Windows Azure Management Portal.
+After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
 
 ![Successful virtual machine creation] (../../itpro/linux/media/vmsuccesslinux.png)
 
@@ -220,8 +216,8 @@ To learn more about Linux on Windows Azure, see the following articles:
 
 
 [Next Steps]: #next
-[What is a virtual machine in Windows Azure]: #virtualmachine
-[How to create a custom virtual machine running the Linux OS]: #custommachine
+[About virtual machines in Windows Azure]: #virtualmachine
+[How to create the virtual machine]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
