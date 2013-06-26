@@ -177,7 +177,7 @@ After you configure endpoint monitoring, you can drill down into the individual 
 
 	You will edit the **Endpoints** settings in the **monitoring** section.
 3.	Enter the name of the endpoint.
-4.	Enter the URL for the service that you want to monitor. For example, [http://contoso.cloudapp.net](http://contoso.cloudapp.net). 
+4.	Enter the URL for the service that you want to monitor. For example, http://contoso.cloudapp.net. 
 5.	Select one or more geographic locations from the list.
 6.	Optionally, repeat the previous 3 steps for a second endpoint.
 7.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the dashboard and **monitor** tab.
