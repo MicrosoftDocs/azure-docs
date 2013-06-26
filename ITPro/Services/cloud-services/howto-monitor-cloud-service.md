@@ -13,6 +13,7 @@ Monitoring displays in the Management Portal are highly configurable. You can ch
 ##Table of Contents##
 * [Concepts](#concepts)
 * [How to: Configure monitoring for cloud services](#verbose)
+* [How to: Receive alerts for cloud services metrics](#receivealerts)
 * [How to: Add metrics to the metrics table](#addmetrics)
 * [How to: Customize the metrics chart](#customizechart)
 * [How to: Access verbose monitoring data outside the Management Portal](#accessverbose)
@@ -83,6 +84,10 @@ If you're turning on verbose monitoring, perform the next procedure after you co
 After you turn on verbose monitoring, you should start seeing the monitoring data in the Management Portal within the hour.
 
 The raw performance counter data and aggregated monitoring data are stored in the storage account in tables qualified by the deployment ID for the roles. 
+
+<h2><a id="receivealerts"></a>How to: Receive alerts for cloud service metrics</h2>
+
+You can receive alerts based on your cloud service monitoring metrics. On the **Settings** page of the Windows Azure Management Portal, you can create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 <h2><a id="addmetrics"></a>How to: Add metrics to the metrics table</h2>
 

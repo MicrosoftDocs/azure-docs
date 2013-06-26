@@ -195,7 +195,7 @@ The **change\_deployment\_configuration** method allows you to upload a new serv
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
 	name = 'myhostedservice'
-	deployment_name = 'myhostedservice'
+	deployment_name = 'v1'
 	configuration = base64.b64encode(open('path_to_cscfg', 'rb'))
 
 	result = sms.change_deployment_configuration(name, deployment_name, configuration)
