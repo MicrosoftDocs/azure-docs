@@ -9,10 +9,14 @@ For media content on the server, you can encode the content with a number of med
 
 <h2>Encoding to MP4</h2>
 The following method uploads a single asset and creates a job to encode the asset to MP4 using the "H264 Broadband 720p" preset which will create a single MP4 using H264 encoding at 720p resolution:
+<pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
 	{
     	//Create an encrypted asset and upload to storage.
-		IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, inputMediaFilePath);// Declare a new job.
+		IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted, 
+			inputMediaFilePath);
+
+		// Declare a new job.
 
     	IJob job = _context.Jobs.Create("My encoding job");
 	
@@ -92,7 +96,7 @@ The following method uploads a single asset and creates a job to encode the asse
 	            break;
     	}
 	}
-
+</code></pre>
 <h2>Encoding to Smooth Streaming</h2>
 If you want to encode a video to smooth streaming there are two options:
 <ul>
@@ -103,8 +107,8 @@ If you want to encode a video to smooth streaming there are two options:
 To encode directly to Smooth Streaming use the code shown above, but use one of the Smooth Streaming encoder presets. For a complete list of encoder presets, see [Task Preset Strings for Windows Azure Media Encoder](http://msdn.microsoft.com/en-us/library/jj129582.aspx). 
 
 To convert an MP4 to Smooth Streaming, use the Windows Azure Media Packager. The Windows Azure Media Packager does not support string presets so you must specify configuration options in XML. The XML required to convert MP4 to Smooth Streaming can be found at [Task Preset for Windows Azure Media Packager][]. Copy and paste the XML to a file named MediaPackager_MP4ToSmooth.xml in your project. The following code illustrates how to convert an MP4 asset to Smooth Streaming. The method below takes an existing asset and converts it to. 
-
-<code> private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
+<pre><code>
+private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
  {
 	// Declare a new job to contain the tasks
     IJob job = _context.Jobs.Create("Convert to Smooth Streaming job");
@@ -138,7 +142,8 @@ To convert an MP4 to Smooth Streaming, use the Windows Azure Media Packager. The
         Console.WriteLine("\nExiting method due to job error.");
     }
     return job;
-}</code>
+}
+</code></pre>
 
 For more information about processing assets, see:
 <ul>
