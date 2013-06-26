@@ -451,6 +451,6 @@ For more information see, New topic about processing headers in the server-side.
 [Permissions]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
 [Use scripts to authorize users]: ../tutorials/mobile-services-authorize-users-ios.md
 [Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts/#access-headers
+[How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
