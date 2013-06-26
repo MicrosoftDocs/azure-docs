@@ -9,7 +9,7 @@ In this tutorial, we'll use Python Tools for Visual Studio 2.0 Beta to create a 
 
 This tutorial focuses on Python Tools for Visual Studio and Windows Azure. For more details on Django and the polls application built in this tutorial, see [https://www.djangoproject.com/](https://www.djangoproject.com/).
 
-**Note:** This tutorial is also encapsulated in a [Youtube video](http://www.youtube.com/watch?v=GcPYjDhyAlM).
+**Note:** This tutorial is also encapsulated in a [Youtube video](http://www.youtube.com/watch?v=S7A7VNnsA_8).
 
 ##Requirements
 To complete the tutorial, you'll need
