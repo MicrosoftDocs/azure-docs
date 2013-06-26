@@ -2,7 +2,7 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-#Django with Python Tools for Visual Studio 1.5
+#Creating Django applications with Python Tools for Visual Studio 1.5
 
 **Note:** This tutorial is also encapsulated in a [Youtube video](http://www.youtube.com/watch?v=UsLti4KlgAY).
 
