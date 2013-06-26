@@ -13,7 +13,7 @@ You will learn:
 
 Note: This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-## <a id="virtualmachine"> </a>What is a virtual machine in Windows Azure ##
+## <a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
 
 A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and recreate it whenever you need to, and you can access the virtual machine just as you do with a server in your office. Virtual hard disk (VHD) files are used to create a virtual machine. The following types of VHDs are used for a virtual machine:
 
@@ -25,11 +25,13 @@ The following options are available for using images to create a virtual machine
 - Create a virtual machine by using an image that is provided in the Image Gallery of the Windows Azure Management Portal.
 - Create and upload a .vhd file that contains an image to Windows Azure, and then create a virtual machine using the image. For more information about creating and uploading a custom image, see [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](/en-us/manage/linux/common-tasks/upload-a-vhd/).
 
-## <a id="custommachine"> </a>How to create a custom virtual machine running the Linux operating system by using the Management Portal ##
+Each virtual machine resides in a cloud service, either by itself, or grouped with other virtual machines. You can place virtual machines in the same cloud service to enable the virtual machines to communicate with each other, to load-balance network traffic among virtual machines, and to maintain high availability of the machines. For more information about cloud services and virtual machines, see the "Execution Models" section in [Introducing Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=311926).
+
+## <a id="custommachine"> </a>How to create the virtual machine ##
 
 You use the **From Gallery** method to create a custom virtual machine in the Management Portal. This method provides more options for configuring the virtual machine when you create it, such as the connected resources, the DNS name, and the network connectivity if needed.
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 On the command bar, click **New**.
 
 	![Create new virtual machine] (../../itpro/linux/media/create.png)
@@ -38,42 +40,35 @@ On the command bar, click **New**.
 
 	![Choose to create a virtual machine From Gallery] (../../itpro/linux/media/createnew.png)
 
-3. The **Select the virtual machine operating system** dialog box appears. 
+3. From **Platform Images**, select the one of the images, and then click the arrow to continue.
 
-4. From **Platform Images**, select the **OpenLogic CentOS 6.2** image, and then click the arrow to continue.
+4. If multiple versions of the image are available, in **Version Release Date**, pick the version you want to use.
 
-	The **Virtual machine configuration** dialog box appears.
+5. In **Virtual Machine Name**, type the name that you want to use. For this virtual machine, type **MyTestVM1**.
 
-5. In **Virtual Machine Name**, type the name that you want to use for the virtual machine. The name must be 15 characters or less. For this virtual machine, type **MyTestVM1**.
+6. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, accept the default of **Extra Small**.
 
-6. In **New User Name**, type the name of the account that you will use to administer the virtual machine. You cannot use root for the user name. For this virtual machine, type **NewUser1**.
+7. In **New User Name**, type the name of the account that you will use to administer the virtual machine. You cannot use root for the user name. For this virtual machine, type **NewUser1**.
 
-7. In **New Password**, type a strong password for the administrative account on the virtual machine. For this virtual machine, type **@dm1nVM1**. In **Confirm Password**, retype the password.
-
-8. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, accept the default of **Extra Small**.
+8. Under Authentication, check **Upload Compatible SSH Key for Authentation** if you have an X.509 key in .cer or .pem format, or check **Provide a Password**. Then, provide the required information.
 
 9. Click the arrow to continue.
 
-	The **Virtual machine mode** dialog box appears.
+10. You can place virtual machines together in the cloud service, but for this tutorial, you're only creating a single virtual machine. To do this, select **Create a new cloud service**.
 
-10. You can connect virtual machines together under a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Standalone Virtual Machine**.
+11. In **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service. For this virtual machine, type **MyService1**.
 
-11. A virtual machine that you create is contained in a cloud service. In **DNS Name**, type a name for the cloud service that is created for the virtual machine. The entry can contain from 3-24 lowercase letters and numbers. This value becomes part of the URI that is used to contact the cloud service that the machine belongs to. For this virtual machine, type **MyService1**.
+12. In **Region/Affinity Group/Virtual Network**, select where you want to locate the virtual machine.
 
-12. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use Automatically Generated Storage Account**.
-
-13. In **Region/Affinity Group/Virtual Network**, select where you want to locate the virtual machine.
+13. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use an Automatically Generated Storage Account**.
 
 14. Click the arrow to continue.
-
-	The **Virtual machine options** dialog box appears.
-
 	
-15. The options on this page are only used if you are connecting this virtual machine to other machines or if you are adding the machine to a virtual network. For this virtual machine, you are not creating an availability set or connecting to a virtual network. Click the check mark to create the virtual machine.
+15. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the check mark to create the virtual machine.
     
-	The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as **Running** in the Windows Azure Management Portal.
+The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as **Running** in the Windows Azure Management Portal.
 
-	![Successful virtual machine creation] (../../itpro/linux/media/vmsuccesslinux.png)
+![Successful virtual machine creation] (../../itpro/linux/media/vmsuccesslinux.png)
 
 ## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
 

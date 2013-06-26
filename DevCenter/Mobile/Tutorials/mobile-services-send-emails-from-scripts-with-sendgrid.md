@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Windows Azure Mobile Services" metaKeywords="Windows Azure SendGrid, SendGrid service, Azure emailing, mobile services email" metaDescription="Learn how to use the SendGrid service to send email from your Windows Azure Mobile Services app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Windows Azure Mobile Services" metaKeywords="Windows Azure SendGrid, SendGrid service, Azure emailing, mobile services email" metaDescription="Learn how to use the SendGrid service to send email from your Windows Azure Mobile Services app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -6,7 +6,7 @@
 
 This topic shows you how can add email functionality to your mobile service. In this tutorial you add server side scripts to send email using SendGrid. When complete, your mobile service will send an email each time a record is inserted.
 
-SendGrid is a cloud-based email service that provides reliable email delivery, scalability, and real-time analytics, along with flexible APIs that make custom integration easy. For more information, see [http://sendgrid.com][].
+SendGrid is a cloud-based email service that provides reliable email delivery, scalability, and real-time analytics, along with flexible APIs that make custom integration easy. For more information, see <http://sendgrid.com>.
 
 This tutorial walks you through these basic steps to enable email functionality:
 

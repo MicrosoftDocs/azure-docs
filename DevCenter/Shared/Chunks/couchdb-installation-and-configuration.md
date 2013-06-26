@@ -28,7 +28,7 @@ The installer provisions a specified number of CouchDB nodes,
 
 ![couch-iaas][1]
 
-**Note:** the bidirectional replication between
+**Note:** The bidirectional replication between
  CouchDB nodes is handled through the same HTTP endpoint that is
  used by client applications through the load balancer.
 
@@ -53,14 +53,14 @@ The installer provisions a specified number of CouchDB nodes,
 
 To download and run the installer, follow these steps:
 
-* Click on this link: https://github.com/MSOpenTech/Windows-Azure-CouchDB
-* Select "Open" and drag the CouchInstaller folder to a location of your choice.
-* Open a command prompt (cmd.exe) as an administrator and cd to the CouchInstaller folder.
-* Run this command:
+*   Click this link: [https://github.com/MSOpenTech/Windows-Azure-CouchDB](https://github.com/MSOpenTech/Windows-Azure-CouchDB)
+*   Select "Open" and drag the CouchInstaller folder to a location of your choice.
+*   Open a command prompt (cmd.exe) as an administrator and cd to the CouchInstaller folder.
+*   Run this command:
 
 	Inst4WA.exe -XmlConfigPath &lt;yourpath&gt;CouchDBInstWR.xml -DomainName &lt;youruniquename&gt; -Subscription "bar"
 
-**&lt;yourpath&gt;** is the pathname for the CouchInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **&lt;yourpath&gt;**
+**&lt;yourpath&gt;** is the pathname for the CouchInstaller folder. Note that if you followed the instructions earlier, that will be the current folder and you can use the . alias for **&lt;yourpath&gt;**.
 
 **&lt;YourUniqueName&gt;** is the DNS name for your published CouchDB application. Note that the DNS name must be unique across all Windows Azure deployments (*.cloudapp.net). If the DNS name you enter has already been used, the installer returns an error message.
 The DeploymentModelCouchOnIaaS.xml file contains settings that
@@ -149,7 +149,6 @@ To download and run the installer, follow these steps:
 
 *   Click on this link to go to the Github repo for the
  installer: [https://github.com/MSOpenTech/Windows-Azure-CouchDB][github-installer]
-*   
 *   Click on Downloads and then click on the most recent .zip
  package listed.
 *   Select "Open" and drag the CouchInstaller folder to a location
@@ -157,8 +156,8 @@ To download and run the installer, follow these steps:
 *   Open a command prompt (cmd.exe) as an administrator and cd to
  the CouchInstaller folder.
 *   Run this command:
-*   Inst4WA.exe -XmlConfigPath
- CouchDBInstWR.xml -DomainName
+
+	Inst4WA.exe -XmlConfigPath CouchDBInstWR.xml -DomainName
   -Subscription "bar"
 
  is the pathname for the CouchInstaller folder.
@@ -202,7 +201,7 @@ You can run Futon, the CouchDB administrative interface. To run
  Futon, go to this URL in your browser:
 
 
- http://\&lt;dns-name&gt;.cloudapp.net:5984/_utils
+ http://	&lt;dns-name&gt;.cloudapp.net:5984/_utils
 
 ![couch-futon][5]
 
@@ -216,3 +215,4 @@ More information about Futon can be found on the [CouchDB
  [5]: ../Media/couch-futon_500x324.jpg
  [6]: http://guide.couchdb.org/draft/tour.html#futon  
  [github-installer]: https://github.com/MSOpenTech/Windows-Azure-CouchDB
+ [ms-open-tech]: http://msopentech.com
