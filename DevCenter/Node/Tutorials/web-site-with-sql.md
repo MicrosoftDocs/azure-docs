@@ -51,7 +51,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 * A web browser
 
-<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+<!--div chunk="../../Shared/Chunks/create-account-and-websites-note.md" /-->
 
 ##Create a web site with database
 
@@ -62,7 +62,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Create New Windows Azure Website][new-website]
 
-3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
+3. Click **WEB SITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Website][custom-create]
 
@@ -95,7 +95,6 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	It will take a few seconds to set up your repository.
 
-	![Creating Git repository][creating-repo]
 
 9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
 
@@ -504,7 +503,8 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [git-instructions]: ../../Shared/Media/git-instructions.png
 [linked-resources]: ../Media/linked_resources.jpg
 [new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/custom_create.jpg
+[custom-create]: ../../Shared/Media/custom_create.png
+
 [node-sql-finished]: ../media/sql_todo_final.png
 [node-sql-empty]: ../media/sql_todo_empty.png
 [node-sql-list-items]: ../media/sql_todo_list.png

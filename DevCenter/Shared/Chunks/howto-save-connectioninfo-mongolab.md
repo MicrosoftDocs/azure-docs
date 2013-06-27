@@ -14,11 +14,11 @@ The Web Site Dashboard displays.
 
 1. For **Name**, enter MONGOLAB_URI.
 1. For **Value**, paste the connection string we obtained in the previous section.
-1. Select **Custom** in the Type drop-down (instead of the default **SQLAzure**).
+1. Select **Custom** in the **Type** drop-down list (instead of the default **SQLAzure**).
 1. Click **Save** on the toolbar.  
 ![SaveWebSite][button-website-save]
 
-Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the code above references **CUSTOMCONNSTR\_MONGOLAB_URI.**
+**Note:** Windows Azure adds the **CUSTOMCONNSTR\_** prefix to this variable, which is why the code above references **CUSTOMCONNSTR\_MONGOLAB_URI.**
 
 [entry-website]: ..\Media\entry-website.png
 [focus-mongolab-websitedashboard-config]: ..\Media\focus-mongolab-websitedashboard-config.png

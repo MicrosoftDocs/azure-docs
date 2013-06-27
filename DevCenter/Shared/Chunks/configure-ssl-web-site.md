@@ -2,7 +2,7 @@
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This common task discusses how to enable SSL for a Windows Azure Web Site.
 
-The steps in this task require you to configure your web sites for reserved mode, which may incur additional costs if you are currently using free or shared mode. For more information, see For more information on shared and reserved mode pricing, see [Pricing Details][pricing].
+The steps in this task require you to configure your web sites for standard mode, which may incur additional costs if you are currently using free or shared mode. For more information, see For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 
 <a href="bkmk_getcert"></a><h2>Get a Certificate</h2>
@@ -84,9 +84,9 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
 
-<a href="bkmk_reservedmode"></a><h2>Configure reserved mode</h2>
+<a href="bkmk_standardmode"></a><h2>Configure standard mode</h2>
 
-Enabling SSL on a web site is only available for the reserved mode of Windows Azure web sites. Before switching a web site from the free web site mode to the reserved web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on shared and reserved mode pricing, see [Pricing Details][pricing].
+Enabling SSL on a web site is only available for the standard mode of Windows Azure web sites. Before switching a web site from the free web site mode to the standard web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 1. In your browser, open the [Management Portal][portal].
 
@@ -98,15 +98,15 @@ Enabling SSL on a web site is only available for the reserved mode of Windows Az
 
 	![The scale tab][scale]
 
-4. In the **general** section, set the web site mode by clicking **RESERVED**.
+4. In the **general** section, set the web site mode by clicking **STANDARD**.
 
-	![reserved mode selected][reserved]
+	![standard mode selected][standard]
 
 5. Click **Save**. When prompted, click **Yes**.
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>If you receive a "Configuring scale for web site '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available reserved instance servers to satisfy this request." error. If you receive this error, you will need to try again later to upgrade your account.</p> 
+	<p>If you receive a "Configuring scale for web site '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, you will need to try again later to upgrade your account.</p> 
 	</div>
 
 <a href="bkmk_getcert"></a><h2>Configure SSL</h2>
@@ -137,9 +137,9 @@ Before performing the steps in this section, you must have associated a custom D
 
 6. Click **Save** to save the changes and enable SSL.
 
-At this point, you should be able to visit your website using HTTPS to verify that the certificate has been configured correctly.
+At this point, you should be able to visit your web site using HTTPS to verify that the certificate has been configured correctly.
 
-<a href="bkmk_reservedmode"></a><h2>Self-signed certificates (Optional)</h2>
+<a href="bkmk_selfsigned"></a><h2>Self-signed certificates (Optional)</h2>
 
 In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production. Self-signed certificates can fill this gap. A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority. While this certificate can be used to secure a web site, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA. Some browsers may even refuse to allow you to view the site.
 
@@ -231,7 +231,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 [website]: ../media/sslwebsite.png
 [scale]: ../media/sslscale.png
-[reserved]: ../media/sslreserved.png
+[standard]: ../media/sslreserved.png
 [pricing]: https://www.windowsazure.com/en-us/pricing/details/
 [configure]: ../media/sslconfig.png
 [uploadcert]: ../media/ssluploadcert.png

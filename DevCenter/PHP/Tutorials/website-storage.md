@@ -315,7 +315,7 @@ To make your application store data into the cloud you need to first create a st
 
 	![Create New Windows Azure web site][new-website]
 
-3. Click **Storage**, then **Quick Create**.
+3. Click **Data Services**, **Storage**, then **Quick Create**.
 
 	![Custom Create a new web site][storage-quick-create]
 	
@@ -347,7 +347,7 @@ Follow these steps to create a Windows Azure Web Site:
 
 	![Create New Windows Azure Web Site][new-website]
 
-3. Click **Web Site**, then **Quick Create**.
+3. Click **Compute**, **Web Site**, then **Quick Create**.
 
 	![Custom Create a new web site][website-quick-create]
 	
@@ -362,9 +362,13 @@ Follow these steps to create a Windows Azure Web Site:
 	![Open web site dashboard][go-to-dashboard]
 
 
-6. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
+6. At the bottom right of the Quickstart page, select **Set up a deployment from source control**.
 
 	![Set up Git publishing][setup-git-publishing]
+
+6. When asked "Where is your source code?" select **Local Git repository**, and then click the arrow.
+
+	![where is your source code][where-is-code]
 
 7. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
@@ -372,16 +376,11 @@ Follow these steps to create a Windows Azure Web Site:
 
 	It will take a few seconds to set up your repository.
 
-	![Creating Git repository][creating-repo]
+8. Once the Git repository is ready, you will be presented with instructions on the Git commands to use in order to setup a local repository and then push the files to Windows Azure.
 
-8. When your repository is ready, click **Push my local files to Windows Azure**.
+	![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
 
-	![Get Git instructions for pushing files][push-files]
-
-	Make note of the instructions on the resulting page - they will be needed later.
-
-	![Git instructions][git-instructions]
-
+	Note the instructions, as these will be used in the next section to publish the application.
 
 ##Publish Your Application
 
@@ -452,3 +451,4 @@ To publish changes to application, follow these steps:
 [creating-repo]: ../Media/creating_repo.jpg
 [push-files]: ../Media/push_files.jpg
 [git-instructions]: ../../Shared/Media/git-instructions.png
+[where-is-code]: ../../Shared/Media/where_is_code.png

@@ -1,4 +1,4 @@
-<properties linkid="dev-php-how-to-php-web site" urlDisplayName="PHP Web Site" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" metaDescription="Learn how to create a PHP web site in Windows Azure Web Sites" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="bswan" editor="mollybos" manager="paulettm" />
+<properties linkid="dev-php-how-to-php-web site" urlDisplayName="PHP Web Site" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" metaDescription="Learn how to create a PHP web site in Windows Azure Web Sites" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="paulettm" editor="mollybos" manager="paulettm" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
