@@ -77,7 +77,7 @@ Once you have a MSTable object you can then create your query.  The following si
 		if(error) {
 			NSLog(@"ERROR %@", error);
 		} else {
-			for(NSDictionary *item in results) {
+			for(NSDictionary *item in items) {
 				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
 			}
 		}

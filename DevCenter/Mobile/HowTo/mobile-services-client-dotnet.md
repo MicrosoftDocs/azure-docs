@@ -327,6 +327,10 @@ To login with Facebook, use the following code. If you are using an identity pro
 
 Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more information, see the "Get started with authentication" tutorial ([Windows Store authentication]/[Windows Phone authentication])
 
+<div class="dev-callout"><b>Note</b>
+<p>When you register the package information from a Windows Store app with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. After the package information is registered with Mobile Services, you can call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <i>useSingleSignOn</i> parameter. If you do not do this, your Windows Store app users will be presented with a login prompt every time that the login method is called. For information on how to register your app package, see the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/">Get started with push notifications</a>.</p>
+</div>
+
 <h3>Client flow</h3>
 
 In the most simplified form, we can use the client flow as shown in this snippet for Facebook or Google. 
@@ -487,11 +491,8 @@ Using this property, you may set Json.NET properties (there have many), includin
 	var settings = new JsonSerializerSettings();
 	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 	client.SerializerSettings = settings;
-				
-
 
 <h2><a name="nextsteps"></a>Next steps</h2>
-
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
@@ -512,10 +513,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 * [Authorize users with scripts]
   <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
-
-
-  
-
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -540,11 +537,11 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [How to: Work with untyped data]: #untyped
 [Customize request headers]: #headers
 [Customize serialization]: #serialization
+[Next steps]: #nextsteps
 
 <!-- URLs. -->
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Windows Store quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
 [Windows Phone quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/
 [Windows Store data tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
@@ -558,6 +555,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [Get started with data]: ../Tutorials/mobile-services-get-started-with-data-dotnet.md
+[Get started with authentication]: ../Tutorials/mobile-services-get-started-with-users-dotnet.md
 [Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-dotnet.md
 [Refine queries with paging]: ../Tutorials/mobile-services-paging-data-dotnet.md
 [Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-dotnet.md

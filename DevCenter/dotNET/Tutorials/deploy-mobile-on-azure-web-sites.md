@@ -6,7 +6,7 @@
 
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 15 April 2013.***
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) Updated 26 June 2013.***
 
 This tutorial will teach you the basics of how to deploy a web application to to a Windows Azure web site. For the purposes of this tutorial we will work with mobile features in an ASP.NET MVC 4 web application. To perform the steps in this tutorial, you can use Microsoft Visual Studio 2012. You can also use [Visual Studio Express 2012][] or Visual Web Developer 2010 Express Service Pack 1 ("Visual Web Developer or VWD"), which are a free versions of Microsoft Visual Studio. 
 

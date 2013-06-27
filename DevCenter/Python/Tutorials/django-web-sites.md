@@ -35,7 +35,6 @@ Next, we want to add support for publishing via Git.  This can be done by clicki
 From the "Set up deployment" dialog, scroll down and select "Local Git" option then click the right arrow to continue.
 
 After setting up Git publishing you’ll momentarily see a page informing you the repo is being created and then you’ll be taken to the deployments tab after the repo has been created which includes instructions on how to connect.  
->>>>>>> 34715cca9c26bc53aef92b81729af1a0f79fbd45
 
 ![](../Media/django-ws-006.png)
 
