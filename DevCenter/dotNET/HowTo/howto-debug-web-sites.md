@@ -4,7 +4,7 @@
 
 #How to debug an application in Windows Azure Web Sites
 
-Windows Azure provides built-in diagnostics to assist with debugging  an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
+Windows Azure provides built-in diagnostics to assist with debugging an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
 
 ##Table of Contents##
 
@@ -25,6 +25,9 @@ Site diagnostics allow to you enable or disable the following:
 - **Failed Request Tracing** - Logs detailed information on failed requests, including a trace of the components used to process the request and the time taken in each component.
 - **Web Server Logging** - Logs all HTTP transactions on a web site using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561).
 
+<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>All information logged for <b>site diagnostics</b> is stored on the web site file system.</p> </div>
 
 ###Application diagnostics
 
@@ -33,6 +36,10 @@ Application diagnostics logs information produced by the web application. ASP.NE
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 Windows Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging.
+
+<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.</p> </div>
 
 <a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
 
@@ -46,7 +53,7 @@ For most scenarios, logging **application diagnostics** to the **file system** w
 
 <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>All information logged for <b>site diagnostics</b> is stored on the web site file system.</p> </div>
+	<p>Both <b>Application diagnostics (file system)</b> and <b>Application diagnostics (storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
 
 <a name="download"></a><h2>How to: Downloading logs</h2>
 
@@ -103,6 +110,10 @@ While developing an application, it is often useful to see logging information i
 <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>Some types of logging buffer writes to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.</p></div>
+
+<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Log streaming will also stream inforamtion written to any text file stored in the <b>D:\home\LogFiles\</b> folder.</p></div>
 
 ###Streaming with Windows Azure PowerShell
 
