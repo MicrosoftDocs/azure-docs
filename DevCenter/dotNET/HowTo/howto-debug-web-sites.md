@@ -19,6 +19,7 @@ Windows Azure provides built-in diagnostics to assist with debugging an applicat
 Windows Azure Web Sites provide diagnostic functionality for logging information from both the web server as well as the web application. These are logically separated into **site diagnostics** and **application diagnostics**.
 
 ###Site diagnostics
+
 Site diagnostics allow to you enable or disable the following:
 
 - **Detailed Error Logging** - Logs detailed error information for HTTP status codes that indicate a failure (status code 400 or greater).
@@ -28,6 +29,7 @@ Site diagnostics allow to you enable or disable the following:
 <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>All information logged for <b>site diagnostics</b> is stored on the web site file system.</p> </div>
+
 
 ###Application diagnostics
 
@@ -54,6 +56,10 @@ For most scenarios, logging **application diagnostics** to the **file system** w
 <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>Both <b>Application diagnostics (file system)</b> and <b>Application diagnostics (storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
+
+<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>Diagnostics can also be enabled from Windows Azure PowerShell using the <b>Set-AzureWebsite</b> cmdlet.</p><p>If you have not installed Windows Azure PowerShell, or have not configured it to use your Windows Azure Subscription, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/">How to Use Windows Azure PowerShell</a>.</p></div>
 
 <a name="download"></a><h2>How to: Downloading logs</h2>
 
