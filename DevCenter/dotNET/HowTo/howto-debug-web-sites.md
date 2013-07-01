@@ -73,7 +73,7 @@ The directory structure that the logs are stored in is as follows:
 
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. 
 
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formattied using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)
 
 * **Deployment logs** - /LogFiles/[deployment method]. The deployment logs are located in a folder named after the deployment method. For example, /LogFiles/Git.
 
@@ -119,7 +119,7 @@ While developing an application, it is often useful to see logging information i
 
 <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>Log streaming will also stream inforamtion written to any text file stored in the <b>D:\home\LogFiles\</b> folder.</p></div>
+	<p>Log streaming will also stream information written to any text file stored in the <b>D:\home\LogFiles\</b> folder.</p></div>
 
 ###Streaming with Windows Azure PowerShell
 
