@@ -2,7 +2,7 @@
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This common task discusses how to enable SSL for a Windows Azure Web Site.
 
-The steps in this task require you to configure your web sites for standard mode, which may incur additional costs if you are currently using free or shared mode. For more information, see For more information on shared and standard mode pricing, see [Pricing Details][pricing].
+The steps in this task require you to configure your web sites for standard mode, which may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 
 <a href="bkmk_getcert"></a><h2>Get a Certificate</h2>
