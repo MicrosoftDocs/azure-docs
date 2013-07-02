@@ -4,6 +4,8 @@
 
 #Using Windows Azure Storage with a Hudson Continuous Integration solution
 
+*By [Microsoft Open Technologies Inc.][ms-open-tech]*
+
 The following information shows how to use the Windows Azure Blob service as a repository of build artifacts created by a Hudson Continuous Integration (CI) solution. One of the scenarios where you would find this useful is when you’re coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. 
 
 In this tutorial you will be using the Windows Azure Storage Plugin for Hudson CI made available by Microsoft Open Technologies, Inc.
@@ -148,3 +150,4 @@ The following provides an overview of the Blob service components.
   [Components used by the Blob service]: #components
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+  [ms-open-tech]: http://msopentech.com
