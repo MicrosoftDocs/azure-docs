@@ -13,7 +13,7 @@ An endpoint can be assigned a protocol of TCP or UDP (the TCP protocol includes 
 
 If you configure load balancing, Windows Azure provides round-robin load balancing of network traffic to publicly defined ports of a cloud service. A load-balanced endpoint is a specific TCP or UDP endpoint used by all members of a cloud service.
 
-For a cloud service that contains instances of web roles or worker roles, you set the number of instances running in the service to more than two and define a public endpoint in the service definition. For a cloud service that contains virtual machines, you group the new virtual machines in the same cloud service when you create them. You add an endpoint to a virtual machine after you create it.
+For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition. For a cloud service that contains virtual machines, you group the new virtual machines in the same cloud service when you create them. You add an endpoint to a virtual machine after you create it.
 
 The following image shows a load-balanced endpoint that is shared among three virtual machines and uses a public and private port of 80.
 
@@ -31,10 +31,9 @@ This task includes the following steps:
 
 You can create the first virtual machine by using one of the following methods:
 
-- **Quick Create** - You can quickly create a virtual machine by choosing an image from the Image Gallery and providing basic information such as a name for the virtual machine and an administrator name and password. For more information, see [How to quickly create a virtual machine] [].
-- **From Gallery** - You can create a virtual machine by providing advanced settings, such as size, connected resources, DNS name, and network connection. For instructions, see [Create a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) or [Create a Virtual Machine Running Windows Server](https://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/).
+- **Quick Create** - Create a virtual machine by choosing an image from the Image Gallery and providing basic information. When you use this method, a cloud service is automatically created for you using a default name. For instructions, see [How to quickly create a virtual machine] []. **Note**: After the virtual machine is created, the **Cloud Services** page of the Management Portal lists the name of the cloud service as well as other information about the service.
 
-When you create the first virtual machine, a cloud service is created for you.
+- **From Gallery** - Create a virtual machine with additional configuration options, such as the cloud service name. For instructions, see [Create a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) or [Create a Virtual Machine Running Windows Server](https://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/).
 
 ## <a id="addendpoint"> </a>Step 2: Add an endpoint to the first virtual machine ##
 
