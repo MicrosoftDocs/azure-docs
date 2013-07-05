@@ -5,7 +5,7 @@ contoso.com.
 
 <div class="dev-callout"> 
 <b>Note</b> 
-	<p>The procedures in this task apply to Windows Azure Cloud Services. For storage accounts, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-storage/">Configuring a Custom Domain Name for a Windows Azure Storage Account</a>. For Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
+	<p>The procedures in this task apply to Windows Azure Cloud Services. For storage accounts, see <a href="/en-us/develop/net/common-tasks/custom-dns-storage/">Configuring a Custom Domain Name for a Windows Azure Storage Account</a>. For Web Sites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
 </div>
 
 This task will show you how to:
@@ -55,16 +55,16 @@ is the same.
     CNAME record forwards all traffic from **www.contoso.com** to
     **contoso.cloudapp.net**, the DNS name of our deployed application:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tr>
-		<td><strong>Alias</strong></td>
-		<td><strong>Host name</strong></td>
-	</tr>
-	<tr>
-		<td>www</td>
-		<td>contoso.cloudapp.net</td>
-	</tr>
-</table>
+	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+		<tr>
+			<td><strong>Alias</strong></td>
+			<td><strong>Host name</strong></td>
+		</tr>
+		<tr>
+			<td>www</td>
+			<td>contoso.cloudapp.net</td>
+		</tr>
+	</table>
 
 A visitor of **www.contoso.com** will never see the true host
 (contoso.cloudapp.net), so the forwarding process is invisible to the
@@ -86,6 +86,7 @@ end user.
 -   [How to Map CDN Content to a Custom Domain][]
 
   [Expose Your Application on a Custom Domain]: #access-app
+  [Add a CNAME Record for Your Custom Domain]: #add-cname
   [Expose Your Data on a Custom Domain]: #access-data
   [VIP swaps]: http://msdn.microsoft.com/en-us/library/ee517253.aspx
   [Create a CNAME record that associates the subdomain with the storage account]:

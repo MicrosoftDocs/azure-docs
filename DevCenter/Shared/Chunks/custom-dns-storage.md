@@ -4,7 +4,7 @@ You can configure a custom domain for accessing blob data in your Windows Azure 
 
 <div class="dev-callout"> 
 <b>Note</b> 
-	<p>The procedures in this task apply to Windows Azure storage accounts. For cloud services, see <a href = "http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name for a Windows Azure Cloud Service</a>; for Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
+	<p>The procedures in this task apply to Windows Azure storage accounts. For cloud services, see <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name for a Windows Azure Cloud Service</a>; for Web Sites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
 </div>
 
 There are two ways to point your custom domain to the blob endpoint for your storage account. The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint. A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain &mdash; note that the subdomain is always required. The destination domain is your Blob service endpoint.
@@ -140,4 +140,4 @@ For example, you might use the following URI to access a web form via a
 
 ## Additional Resources
 
--   [How to Map CDN Content to a Custom Domain][]
+-   <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx">How to Map CDN Content to a Custom Domain</a>
