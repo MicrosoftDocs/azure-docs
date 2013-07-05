@@ -106,6 +106,14 @@ To be able to store app data in the new mobile service, you must first create a 
 	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
     </div>
 
+6. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
+
+  ![][11]
+
+	<div class="dev-callout"><b>Note</b>
+		<p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
+	</div>
+
 You are now ready to use the new mobile service as data storage for the app.
 
 <h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
@@ -253,9 +261,6 @@ This tutorial demonstrated the basics of enabling an HTML app to work with data 
 
 * [Refine queries with paging]
   <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
-
-* [Mobile Services HTML/JavaScript How-to Conceptual Reference]
-  <br/>Learn more about how to use Mobile Services with HTML/JavaScript.
  
 Once you have completed the data series, learn how to authenticate users of your app try one of these other tutorials by completing [Get started with authentication].
 
@@ -280,7 +285,7 @@ Once you have completed the data series, learn how to authenticate users of your
 [8]: ../Media/mobile-dashboard-tab.png
 [9]: ../Media/mobile-todoitem-data-browse.png
 [10]: ../Media/mobile-data-sample-download-html.png
-
+[11]: ../Media/mobile-services-set-cors-localhost.png
 
 <!-- URLs. -->
 [Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-html.md
@@ -291,4 +296,8 @@ Once you have completed the data series, learn how to authenticate users of your
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Download the HTML app project]:  http://go.microsoft.com/fwlink/?LinkID=286345
+
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: ../HowTo/mobile-services-client-html.md
+
+[Cross-origin resource sharing]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+
