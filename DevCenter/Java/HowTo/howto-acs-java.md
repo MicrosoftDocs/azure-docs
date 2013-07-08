@@ -378,7 +378,7 @@ At this point, your certificate would be included in your deployment. Note that 
 [Deploy to the compute emulator]: #deploy_compute_emulator
 [Deploy to Windows Azure]: #deploy_azure
 [Next steps]: #next_steps
-[project website]: http://wastarterkit4java.codeplex.com/releases/view/61026
+[project web site]: http://wastarterkit4java.codeplex.com/releases/view/61026
 [How to view SAML returned by the Windows Azure Access Control Service]: /en-us/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
