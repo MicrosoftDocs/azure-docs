@@ -51,7 +51,7 @@ In this tutorial, you will:
     </p> 
     </div>
 
-   Click the next arrow in the bottom left (->) to continue.
+   Click the next arrow on the bottom right to continue.
 
 	![VM Configuration] [Image4]
 
@@ -326,12 +326,15 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 - How to create a SQL Server virtual machine in Windows Azure using the existing on-premises SQL Server disk
 - How to create a SQL Server virtual machine in Windows Azure using the existing on-premises SQL Server virtual machine 
 - How to use PowerShell to set up a SQL Server virtual machine in Windows Azure 
+- How to Use Attached Data Disk to Store Database Files
 
 [Connectivity Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294723)
 
 - Tutorial: Connect to SQL Server in the same cloud service 
 - Tutorial: Connect to SQL Server in a different cloud service 
 - Tutorial: Connect ASP.NET application to SQL Server in Windows Azure via Virtual Network 
+
+[New white paper: Performance Guidance for SQL Server in Windows Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
 
 [Performance Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294724)
 
@@ -341,7 +344,8 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 
 [High Availability and Disaster Recovery for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294727)
 
-- Tutorial: AlwaysOn Availability Groups in Windows Azure 
+- Tutorial: AlwaysOn Availability Groups in Windows Azure (GUI)
+- Tutorial: AlwaysOn Availability Groups in Windows Azure (PowerShell)
 - Tutorial: AlwaysOn Availability Groups in Hybrid IT
 - Tutorial: Database Mirroring for High Availability in Windows Azure
 - Tutorial: Database Mirroring for Disaster Recovery in Windows Azure
@@ -352,7 +356,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 
 [SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294729)
 
-
+- Use PowerShell to Create a Windows Azure Virtual Machine Running SQL Server Business Intelligence
 
 ###See Also###
 
