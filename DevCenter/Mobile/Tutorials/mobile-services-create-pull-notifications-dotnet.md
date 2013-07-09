@@ -129,11 +129,7 @@ Now that you have created a periodic notification, consider finding out more abo
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 6b498e07dc9317cd1ea1e63f279cfffa5ace33df
 <!-- Anchors. -->
 [Define the custom API]: #define-custom-api
 [Update the app to turn on period notifications]: #update-app
@@ -160,9 +156,5 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
 [PeriodicUpdateRecurrance]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx
-<<<<<<< HEAD
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
 
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
-=======
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
->>>>>>> 6b498e07dc9317cd1ea1e63f279cfffa5ace33df
