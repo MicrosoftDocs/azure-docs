@@ -224,4 +224,4 @@ In this simple example a user receives a push notification with the data that wa
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
