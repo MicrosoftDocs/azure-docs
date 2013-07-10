@@ -9,8 +9,8 @@ Windows Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, 
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-<td><b>Task</b></td>
-<td><b>Which Issuer Name and Issuer Key</b></td>
+<td><strong>Task</strong></td>
+<td><strong>Which Issuer Name and Issuer Key</strong></td>
 </tr>
 <tr>
 <td>Deploying your application from Visual Studio</td>
