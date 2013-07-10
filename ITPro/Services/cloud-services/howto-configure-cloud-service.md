@@ -77,7 +77,11 @@ Remote Desktop enables you to access the desktop of a role running in Windows Az
 
 On the **Configure** page for your cloud service, you can enable Remote Desktop or change the local Administrator account or password used to connect to the virtual machines, the certificate used in authentication, or the expiration date.
 
-**Note**   If your cloud service consists of two or more connected Windows Server-based virtual machines, you don’t have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If your cloud service consists of two or more connected Windows Server-based virtual machines, you don’t have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.</p> 
+</div>
+
 
 ###To configure Remote Access in the service definition file###
 
