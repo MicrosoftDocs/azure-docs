@@ -28,8 +28,8 @@ To provision Windows Azure BizTalk Services, the following prerequisites are req
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td><b>Requirement</b></td>
-        <td><b>Description</b></td>
+        <td><strong>Requirement</strong></td>
+        <td><strong>Description</strong></td>
 </tr>
 <tr>
 <td>Windows Azure Subscription</td>
@@ -57,7 +57,7 @@ The Windows Azure account can have multiple subscriptions and can be managed by 
 
 <tr>
 <td>SSL private certificate</td>
-<td>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. <br/><br/><b>Important</b><br/>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.<br/><br/>When sending the certificate request to your certification authority, specify the following certificate properties:
+<td>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. <br/><br/><strong>Important</strong><br/>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.<br/><br/>When sending the certificate request to your certification authority, specify the following certificate properties:
 <br/>
 
 <ul>
@@ -90,7 +90,7 @@ The following steps create a new Windows Azure SQL Database Server:
 
 >	<table border="1">
 <tr>
-<td><b>Database Name</b></td>
+<td><strong>Database Name</strong></td>
 <td>Enter the SQL Database name. Some examples:<br/>
 <em>BTSService</em>SQLDev1
 <br/>

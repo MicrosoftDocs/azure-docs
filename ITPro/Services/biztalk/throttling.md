@@ -16,9 +16,9 @@ The following table lists the throttling source and thresholds:
 
 <tr bgcolor="FAF9F9">
         <td>-</td>
-        <td><b>Description</b></td>
-        <td><b>Low Threshold</b></td>
-        <td><b>High Threshold</b></td>
+        <td><strong>Description</strong></td>
+        <td><strong>Low Threshold</strong></td>
+        <td><strong>High Threshold</strong></td>
 </tr>
     <tr>
         <td>Memory</td>
