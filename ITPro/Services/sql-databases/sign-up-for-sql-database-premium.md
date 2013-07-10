@@ -81,15 +81,15 @@ As Premium database capacity is limited, please only request quota for servers o
 
 <h2><a id="Upgrade"></a>Step 3: Upgrade a database to Premium</h2>
 
-Once you have been granted Premium database quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. See link to Manage Premium Databases.
+Once you have been granted Premium database quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
 	![Image9] []
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium database, see:
 
-* [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
-* [Getting Started with Windows Azure SQL Database](../getting-started-w-sql-databases/)
+* [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927)
+* [Windows Azure SQL Database Premium Offer Guidance](http://go.microsoft.com/fwlink/p/?LinkId=313650)
 
 
 
