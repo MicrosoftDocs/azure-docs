@@ -145,12 +145,6 @@ After enabling diagnostics for a web site, click the **Save** icon at the bottom
 
 Diagnostics can be further modified by adding key/value pairs to the **app settings** section of the **Configure** management page. The following settings can be configured from **app settings**:
 
-**DIAGNOSTICS_LASTRESORTFILE**
-
-- The location of the 'last resort' file, which contains information about internal errors encountered by the logging process.
-
-- Default value: logging-errors.txt
-
 **DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
 
 - The location in which application logs will be saved, relative to the web root.
