@@ -4,7 +4,11 @@
 
 #How to Connect Excel to Windows Azure HDInsight via HiveODBC
 
-One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight Service. A primary example of this integration is the ability to connect Excel to the Hive data warehouse framework of an HDInsight Hadoop cluster via the Hive Open Database Connectivity (ODBC) driver. This topic walks you through how to set up and use the Hive ODBC driver from Excel to query data in an HDInsight cluster. There are three parts to this procedure:
+One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight Service. An example of this integration is the ability to connect Excel to the Hive data warehouse framework of an HDInsight Hadoop cluster via the Hive Open Database Connectivity (ODBC) driver. 
+
+It is also possible to connect the data associcated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For infomation on installing and using Power Query, see [How to Connect Excel to Windows Azure HDInsight with Power Query](/en-us/manage/services/hdinsight/connect-excel-to-data-explorer/).
+
+This topic walks you through how to set up and use the Hive ODBC driver from Excel to query data in an HDInsight cluster. There are three parts to this procedure:
 
 1. [Install the Hive ODBC Driver](#InstallHiveODBCDriver)
 2. [Create a Hive ODBC Data Source](#CreateHiveODBCDataSource)
