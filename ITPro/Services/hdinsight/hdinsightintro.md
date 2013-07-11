@@ -28,12 +28,12 @@ HDInsight Service clusters are deployed in Azure on compute nodes to execute Map
 
 To simplify the configuring, running, and post-processing of Hadoop jobs, the HDInsight Service provides JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight. It implements and makes available JavaScript, Pig and the Hadoop file system commands from the console. This simplified JavaScript approach enables IT and database professionals and a wider group of developers to deal with big data management and analysis by providing a more accessible path for them to begin using the Hadoop framework. HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
   
-The Microsoft Data Explorer Preview for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Data Explorer, the HDInsight Service for Windows Azure also provides Open Database Connectivity (ODBC) drivers to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
+Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, the HDInsight Service for Windows Azure also provides Open Database Connectivity (ODBC) drivers to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
 
 ###Outline
 This topic describes the Hadoop ecosystem supported by the HDInsight Service, the main use scenarios for HDInsight Services, and a guide to further resources. It contains the following sections:
 
- * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with ASV/HDFS and the MapReduce framework using either the Data Explorer or the Hive ODBC driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
+ * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with ASV/HDFS and the MapReduce framework using either the Power Query or the Hive ODBC driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
 
  * <a href="#Scenarios">Big Data Scenarios for the HDInsight Service</a> - This section addresses the question: for what types of jobs is the HDInsight Service an appropriate technology?
 
@@ -64,9 +64,9 @@ Sqoop is tool that transfers bulk data between Hadoop and relational databases s
 
 ###Business Intelligence Tools and Connectors
 
-Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Data Explorer or ODBC Hive driver. The ODBC driver for Excel is available for download from the HDInsight Service portal.
+Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Power Query add-in or ODBC Hive driver. The ODBC driver for Excel is available for download from the HDInsight Service portal.
 
- * The Data Explorer can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=36803).
+ * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379).
 
  * For information Analysis Services, see [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx).	
 
@@ -107,7 +107,7 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 
 * [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx) - A powerful data mashup and data exploration tool. 
 
-* [Microsoft Data Explorer](http://www.microsoft.com/en-us/download/details.aspx?id=36803) - Import data from Windows Azure HDInsight or any HDFS. This add on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources..	
+* [Microsoft Power Query](http://www.microsoft.com/en-us/download/details.aspx?id=39379) - Import data from Windows Azure HDInsight or any HDFS. This add on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources.	
 			
 * [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx) - Build comprehensive, enterprise-scale analytic solutions that deliver actionable insights.	
 
