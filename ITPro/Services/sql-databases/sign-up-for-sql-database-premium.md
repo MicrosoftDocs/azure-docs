@@ -83,7 +83,7 @@ As Premium database capacity is limited, please only request quota for servers o
 
 Once you have been granted Premium database quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
-	![Image9] []
+![Image9] []
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium database, see:
@@ -101,7 +101,5 @@ For additional information about Premium database, see:
 [Image6]: ../media/RequestQuota-Figure6.png
 [Image7]: ../media/PendingApproval-Figure7.png
 [Image8]: ../media/QuotaApproved-Figure8.png
-[Image9]: ../media/PremiumDatabase-Figure9.png
+[Image9]: ../media/PremiumDatabase-Figure9a.png
 
-
-sd
