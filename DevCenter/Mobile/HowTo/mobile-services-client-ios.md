@@ -3,11 +3,8 @@
 <div chunk="../chunks/article-left-menu-iOS.md"></div>
 
 # How to use the iOS client library for Mobile Services
-<div class="dev-center-tutorial-selector"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+<div class="dev-center-tutorial-selector sublanding"> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
 </div>
 
 This guide shows you how to perform common scenarios using the iOS client for Windows Azure Mobile Services. The samples are written in objective-C and require the [Mobile Services SDK].  This tutorial also requires the [iOS SDK]. The scenarios covered include querying for data; inserting, updating, and deleting data; authenticating users; and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart][Get started with Mobile Services]. The quickstart tutorial helps you configure your account and create your first mobile service.
@@ -80,7 +77,7 @@ Once you have a MSTable object you can then create your query.  The following si
 		if(error) {
 			NSLog(@"ERROR %@", error);
 		} else {
-			for(NSDictionary *item in results) {
+			for(NSDictionary *item in items) {
 				NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
 			}
 		}
@@ -454,6 +451,6 @@ For more information see, New topic about processing headers in the server-side.
 [Permissions]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
 [Use scripts to authorize users]: ../tutorials/mobile-services-authorize-users-ios.md
 [Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: ../howto/mobile-services-work-with-server-scripts.md/#access-headers
+[How to: access custom parameters]: ../howto/mobile-services-work-with-server-scripts.md#access-headers
 [Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965

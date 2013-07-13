@@ -1070,7 +1070,7 @@ This command displays scale information, including current compute mode and numb
 
 **mobile scale change [options] [servicename]**
 
-This command changes the scale of the mobile service from free to reserved mode.
+This command changes the scale of the mobile service from free to premium mode.
 
 	~$azure mobile scale change -c Reserved -i 1 todolist
 	info:    Executing command mobile scale change
@@ -1083,7 +1083,7 @@ This command supports the following additional options:
 + **-i `<count>` or **--numberOfInstances `<count>`**: The number of instances used when running in reserved mode.
 
 <div class="dev-callout"><b>Note</b>
-   <p>When you set compute mode to `Reserved`, all of your mobile services in the same region run in reserved mode.</p>
+   <p>When you set compute mode to `Reserved`, all of your mobile services in the same region run in premium mode.</p>
 </div>  
 
 ##<a name="Manage_tool_local_settings"></a>Manage tool local settings

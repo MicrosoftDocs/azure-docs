@@ -6,11 +6,8 @@
 
 # How to use an HTML/JavaScript client for Windows Azure Mobile Services
 
-<div class="dev-center-tutorial-selector"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a> 
-	<a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+<div class="dev-center-tutorial-selector sublanding"> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
 </div>
 
 
@@ -37,6 +34,7 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 - [How to: Use promises]
 - [How to: Customize request headers]
 - [How to: Use cross-origin resource sharing]
+- [Next steps]
 
 <div chunk="../chunks/mobile-services-concepts.md" />
 
@@ -268,7 +266,7 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			todoItemTable.insert({
 			   text: "New Item",
 			   complete: false
-			}).read().done(function (result) {
+			}).done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
@@ -290,7 +288,7 @@ You can also specify a callback function to be invoked when the update is comple
 			todoItemTable.update({
 			   id: idToUpdate,
 			   text: newText
-			}).read().done(function (result) {
+			}).done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
@@ -310,7 +308,7 @@ You can also specify a callback function to be invoked when the delete is comple
 	
 			todoItemTable.del({
 			   id: idToDelete
-			}).read().done(function () {
+			}).done(function () {
 			   /* Do something */
 			}, function (err) {
 			   alert("Error: " + err);
@@ -356,6 +354,10 @@ To login with Facebook, use the following code. If you are using an identity pro
 		});
 
 Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more details, see the [Get started with authentication] tutorial.
+
+<div class="dev-callout"><b>Note</b>
+<p>When you register the package information from a Windows Store app with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. After the package information is registered with Mobile Services, you can call the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <i>useSingleSignOn</i> parameter. If you do not do this, your Windows Store app users will be presented with a login prompt every time that the login method is called. For information on how to register your app package, see the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js/">Get started with push notifications</a>.</p>
+</div>
 
 <h3>Client flow</h3>
 
@@ -498,6 +500,28 @@ Filters are used for a lot more than customizing request headers. They can be us
 
 To control which web sites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist using the Configure tab. You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications.
 
+<h2><a name="nextsteps"></a>Next steps</h2>
+
+Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
+
+* [Get started with Mobile Services]
+  <br/>Learn the basics of how to use Mobile Services.
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using Mobile Services.
+
+* [Get started with authentication]
+  <br/>Learn how to authenticate users of your app with an identity provider.
+
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
+
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
+
+* [Authorize users with scripts]
+  <br/>Learn how to take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
 [Concepts]: #concepts
@@ -517,6 +541,7 @@ To control which web sites are allowed to interact with and send requests to you
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
 [How to: Use cross-origin resource sharing]: #hostnames
+[Next steps]: #nextsteps
 
 
 
@@ -524,7 +549,7 @@ To control which web sites are allowed to interact with and send requests to you
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-html.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Get started with authentication]: ./mobile-services-get-started-with-users-html.md
+[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-html.md
 [then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
 [Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
@@ -539,5 +564,8 @@ To control which web sites are allowed to interact with and send requests to you
 [HTML quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
 [Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
 [Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Get started with authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-html/
 [You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[Get started with data]: ../Tutorials/mobile-services-get-started-with-data-html.md
+[Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-html.md
+[Refine queries with paging]: ../Tutorials/mobile-services-paging-data-html.md
+[Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-html.md

@@ -48,7 +48,7 @@ To create a MySQL database as a linked resource when you create a [Windows Azure
 1. Log in to the [Windows Azure Management Portal][portal].
 2. Click **+NEW** at the bottom of the page, then select **COMPUTE**, **WEB SITE**, and **CREATE WITH DATABASE**.
 
-	![Create website with database](../../Shared/Media/create-website-with-database.png)
+	![Create website with database](../../Shared/Media/custom_create.png)
 
 3. Provide a **URL** for your web site, select the **REGION** for your site, and choose **Create a new MySQL database** from the **DATABASE** dropdown. Optionally, you can replace the default name for the connection string. Click the arrow at the bottom of the page.
 

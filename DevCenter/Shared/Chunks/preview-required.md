@@ -1,11 +1,13 @@
-The following instructions assume that you are using the [Windows Azure Management Portal] preview. When viewing the portal, it should display the word Preview at the top of the page.
+The following instructions assume that you are using the [Windows Azure Management Portal]. When viewing the portal, you should see your user name in the top right corner of the page. 
 
-![image of preview portal][preview-portal]
+To navigate to the previous portal, click your user name, and in the menu that is displayed, click **Previous portal**.
 
-If you are using the Production portal, you can switch to the Preview portal by clicking the **Visit the Preview Portal** link at the bottom of the page.
+![previous portal link][previous-portal-link]
 
-![image of the visit the preview portal link][preview-portal-link]
+From the previous portal, you can switch to the new portal by clicking the **Take me to the new portal** link at the bottom of the page.
+
+![image of the take me to the new portal link][new-portal-link]
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[preview-portal]: ../../Shared/Media/preview-portal-button.png
-[preview-portal-link]: ../../Shared/Media/switch-to-preview.png
+[previous-portal-link]: ../../shared/media/previous-portal-link.png
+[new-portal-link]: ../../Shared/Media/switch-to-preview.png

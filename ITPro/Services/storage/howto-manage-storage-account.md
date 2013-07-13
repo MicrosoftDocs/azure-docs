@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage a storage account - Windows Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" metaDescription="Learn how to manage storage accounts in Windows Azure by using the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage a storage account - Windows Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" metaDescription="Learn how to manage storage accounts in Windows Azure by using the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
 
-
+<div chunk="../chunks/storage-left-nav.md" />
 
 
 <h1><a id="managestorageaccounts"></a>How To Manage Storage Accounts</h1>
@@ -84,9 +84,9 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 	sure you back up anything you want to save before you delete the account.
 	</p>
 	<p>
-	If your storage account contains VHD files that are being used by a Windows Azure 
+	If your storage account contains any VHD files or disks for a Windows Azure 
 	virtual machine, then you must delete any images and disks that are using those VHD files 
-	before you can delete the storage account. 
+	before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the Disks tab and delete any disks contained in the storage account. To delete images, navigate to the Images tab and delete any images stored in the account.
 	</p>
 </div>
 

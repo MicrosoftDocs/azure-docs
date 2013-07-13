@@ -1,5 +1,7 @@
 <properties linkid="manage-services-storage-SQL-Server-backup" urlDisplayName="Blob Service" pageTitle="How to Use Windows Azure Storage for SQL Server Backup and Restore" metaKeywords="Get started Azure blob, Azure unstructured data, SQL Server Backup to Cloud,SQL Server Restore from Cloud" metaDescription="Get started using the Windows Azure blob storage service to backup and restore SQl Server databases." metaCanonical="http://www.windowsazure.com/en-us/develop/net/blob-storage" umbracoNaviHide="0" disqusComments="1" writer="karaman" editor="tysonn" manager="clairt" />
 
+<div chunk="../chunks/storage-left-nav.md" />
+
 <h1 id="SQLServerBackupandRestoretostorage">  How to Use Windows Azure Storage for SQL Server Backup and Restore</h1>
 
 The feature that provides the ability to write SQL Server backups to the Windows Azure Blob storage service was released in SQL Server 2012 SP1 CU2. You can use this functionality to back up to and restore from the Windows Azure Blob service from a on-premises SQL Server database or a SQL Server database in a Windows Azure Virtual Machine. Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.   In this release, you can issue BACKUP or RESTORE statements by using T-SQL or SMO. Back up to or restore from the Windows Azure Blob storage service by using SQL Server Management Studio Backup or Restore Wizard is not available.

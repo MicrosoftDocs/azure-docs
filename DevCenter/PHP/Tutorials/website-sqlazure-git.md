@@ -32,7 +32,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Create New Windows Azure Web Site][new-website]
 
-3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
+3. Click **WEB SITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Web Site][custom-create]
 
@@ -55,17 +55,19 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 	![Open web site dashboard][go-to-dashboard]
 
 
-7. At the bottom of the Quick Start page, click **Set up Git publishing**. 
+7. At the bottom of the Quick Start page, click **Set up deployment from source control**. 
 
 	![Set up Git publishing][setup-git-publishing]
+
+6. When asked "Where is your source code?" select **Local Git repository**, and then click the arrow.
+
+	![where is your source code][where-is-code]
 
 8. To enable Git publishing, you must provide a user name and password. Make a note of the user name and password you create. (If you have set up a Git repository before, this step will be skipped.)
 
 	![Create publishing credentials][credentials]
 
 	It will take a few seconds to set up your repository.
-
-	![Creating Git repository][creating-repo]
 
 9. When your repository is ready, you will see instructions for pushing your application files to the repository. Make note of these instructions - they will be needed later.
 
@@ -297,7 +299,7 @@ To publish changes to application, follow these steps:
 [localhost-index]: http://localhost/tasklist/index.php
 [running-app]: ../Media/running_app_3.png
 [new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/custom_create.jpg
+[custom-create]: ../../Shared/Media/custom_create.png
 [website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
 [database-settings]: ../Media/database_settings.jpg
 [create-server]: ../Media/create_server.jpg
@@ -311,3 +313,4 @@ To publish changes to application, follow these steps:
 [connection-string]: ../Media/connection_string.jpg
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+[where-is-code]: ../../Shared/Media/where_is_code.png

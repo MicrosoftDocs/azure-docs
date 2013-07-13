@@ -39,7 +39,7 @@ The VHDs in the gallery and on VMDepot include clean Microsoft and Linux operati
 
 
 
-Along with a VHD, you specify the size of your new VM.  The full stats for each size [are listed on MSDN](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).  
+Along with a VHD, you specify the size of your new VM.  The full stats for each size are listed [in the Windows Azure library](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).  
 
 -	**Extra Small**, with a shared core and 768 GB  of memory.
 -	**Small**, with 1 core and 1.75GB  of memory.
@@ -120,23 +120,18 @@ As these examples show, you can use Windows Azure Virtual Machines to create and
 <a name="WebSites"></a>
 ##Web Sites
 
-People use web technologies in many different ways. A student might create a web site for her basketball team using nothing but static HTML files. An IT consultant might use a popular open source application to set up a content management system for a small business. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users.
+People use web technologies in many different ways. A corporation may need to migrate or setup a presence web site that can handle millions of hits a week and be deployed in several data centers across the globe. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users. A corporate developer may need to setup an application to track expense reports in the Cloud for authenticated users from his corporate Active Directory. An IT consultant might use a popular open source application to set up a content management system for a small business.
+All of these things could be accomplished using Windows Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If you need to implement a web site or web application, there’s an easier (and cheaper) solution: the approach commonly known as Platform as a Service (PaaS). As Figure 5 shows, Windows Azure provides this with Web Sites.
 
-All of these things could be accomplished using Windows Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If all you want is a web site or web application, there’s an easier (and probably cheaper) solution: the approach commonly known as web hosting. As [Figure 5](#Fig5) shows, Windows Azure provides this with Web Sites. 
 
 <a name="Fig5"></a>![05_Websites][]
  
 **Figure 5: Windows Azure Web Sites supports static web sites, popular web applications, and custom web applications built with various technologies.** 
 
-Windows Azure Web Sites runs Windows Server and Internet Information Services (IIS) for you in a virtual machine. As the figure shows, a single VM typically contains multiple web sites created by multiple users, although it’s also possible for a site to run in its own reserved VM. Whether a VM is shared or not, you can think of Web Sites as supporting three main scenarios: building static web sites, deploying popular open source applications, and creating web applications. It’s worth looking at each one separately.
-
-Building a static web site requires nothing more than copying files containing HTML and other web content into the appropriate directories, then letting Windows Azure Web Sites  serve those files to users. Windows Azure Web Sites looks much like a standard IIS environment, so doing this is straightforward. Web Sites also has built-in support for a number of popular open source applications, including Drupal, WordPress, and Joomla. A user can choose the application she wants from a menu, then have it automatically installed and made available for her to use. There’s no code to write—it’s just configuration. And because many of these applications use MySQL, they rely on a MySQL service provided for Windows Azure by ClearDB, a Microsoft partner.
-
-Developers can also create full-fledged web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, and Node.js, just like on-premises IIS. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Web Sites are free to use other aspects of Windows Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because each copy typically begins running in a VM that already exists, starting a new application instance happens very quickly; it’s significantly faster than waiting for a new VM to be created. 
-
-As [Figure 5](#Fig5) shows, you can load code and other web content into Web Sites in several ways. You can use FTP, FTPS, or Microsoft’s WebDeploy technology. Web Sites also supports loading code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service. 
-
-Web hosting is a useful approach. Windows Azure Web Sites aims at providing this to a broad audience, whether they want to build static web sites, use popular open source web applications, or create custom web software.
+Windows Azure Web Sites is built on top of Windows Azure Cloud Services to create a Platform as a Service solution optimized for running web applications. As the figure shows, Web Sites runs on a set of single VMs that may contain multiple web sites created by multiple users as well as standard VMs that belong to an individual user. VMs are a part of a pool of resources managed by Windows Azure Web Sites and thus allow for high reliability and fault tolerance.
+Getting started is easy. With Windows Azure Web Sites, users can select from a range of applications, frameworks and template and create a web site in seconds. They can then use their favorite development tools (WebMatrix, Visual Studio, any other editor) and source control options to setup continuous integration and develop as a team. Applications that rely on a MySQL DB can consume a MySQL service provided for Windows Azure by ClearDB, a Microsoft partner.
+Developers can create large, scalable web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Web Sites are free to use other aspects of Windows Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because new Web Sites instances are created in VMs that already exist, starting a new application instance happens very quickly; it’s significantly faster than waiting for a new VM to be created.
+As [Figure 5](#Fig5) shows, you can publish code and other web content into Web Sites in several ways. You can use FTP, FTPS, or Microsoft’s WebDeploy technology. Web Sites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
 
 <a name="CloudServices"></a>
 ##Cloud Services

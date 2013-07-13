@@ -16,7 +16,7 @@ You will learn:
 
 ## Sign into Windows Azure
 
-1. Launch WebMatrix
+1. Launch WebMatrix.
 2. If this is the first time you've used WebMatrix 3, you will be prompted to sign into Windows Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Choose to **Sign in** using your Microsoft Account.
 
 	![Add Account][addaccount]
@@ -60,7 +60,7 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![][modify3]
 
-3. Change the values in the following lines to match your own email provider:
+4. Change the values in the following lines to match your own email provider:
 
 		WebMail.SmtpServer = "smtp.live.com";
 		WebMail.SmtpPort  = 25;
@@ -135,7 +135,7 @@ You can use WebMatrix to modify the site and republish it to your Windows Azure 
 
 6. Republish the site by clicking **Publish** on the **Home** ribbon.
 
-7. On the **Publish Preview** dialog box make sure both the Order.cshtml is checked and click continue.
+7. On the **Publish Preview** dialog box, make sure both the Order.cshtml is checked, and click continue.
 
 8. Click on the link to open the web site in your browser and test the update on your Windows Azure web site.
 

@@ -52,12 +52,6 @@ Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotco
 
 Follow the instructions for creating an account.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>Some Windows Azure features are only available on request as they are currently in preview. To see a list of features that are in preview, select the <strong>preview features</strong> link from your account settings:</p>
-<img src="../media/preview-button.png"/>
-<p>To gain access to any of the listed previews, select the <strong>try it now</strong> button beside the item, select your subscripton from the list, and then select the checkbox.</p>
-</div>
-
 <h2><a id="Account"></a>How to download and import publish settings</h2>
 
 To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
@@ -230,6 +224,5 @@ For a complete list of commands for creating and managing virtual machines, use 
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 [Windows Azure Web Site]: ../media/freetrial.png
-[open preview features tab]: ../media/preview-button.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png

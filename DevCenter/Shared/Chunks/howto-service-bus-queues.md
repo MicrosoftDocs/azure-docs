@@ -84,10 +84,10 @@ namespace.
 2.  Select the namespace you just created from the list shown:   
     ![][2]
 
-3.  Click **Access Key**.   
+3.  Click **Connection Information**.   
     ![][3]
 
-4.  In the **Connect to your namespace** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
+4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
  [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png

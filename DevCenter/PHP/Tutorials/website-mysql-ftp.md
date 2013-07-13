@@ -26,7 +26,7 @@ Follow these steps to create a Windows Azure Web Site and a MySQL database:
 
 	![Create New Windows Azure Web Site][new-website]
 
-3. Click **WEB SITE**, then **CREATE WITH DATABASE**.
+3. Click **WEB SITE**, then **CUSTOM CREATE**.
 
 	![Custom Create a new Web Site][custom-create]
 	
@@ -255,7 +255,7 @@ After uploading both `index.php` and `createtable.php`, browse to **http://[site
 [localhost-index]: http://localhost/tasklist/index.php
 [running-app]: ../Media/running_app_2.png
 [new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/custom_create.jpg
+[custom-create]: ../../Shared/Media/custom_create.png
 [website-details]: ../../Shared/Media/website_details.jpg
 [new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
 [go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png

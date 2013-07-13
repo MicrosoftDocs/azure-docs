@@ -3,7 +3,7 @@
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Authenticate your Windows Store app with Live Connect single sign-on
-<div class="dev-center-tutorial-selector"> 
+<div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone">Windows Phone</a>
 </div>	
 
@@ -185,7 +185,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. For information about how to use other identity providers for authentication, see [Get started with authentication].
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. For information about how to use other identity providers for authentication, see [Get started with authentication]. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -224,3 +224,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-users-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md

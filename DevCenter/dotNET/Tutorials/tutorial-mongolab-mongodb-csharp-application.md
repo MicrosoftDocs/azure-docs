@@ -4,7 +4,7 @@
 
 <p><em>By Eric Sedor, MongoLab</em></p>
 
-Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
+Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial, you will:
 
 1. [Provision the Database][provision] - The Windows Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
 1. [Create the App][create] - It'll be a simple C# ASP.NET MVC app for making notes.

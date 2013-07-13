@@ -38,7 +38,7 @@ To clarify what Blitline is useful for, it is often easier to identify what Blit
 
 ### To sign up for a Blitline account
 
-1. Log in to the [Windows Azure Management Portal][].
+1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com/).
 
 2. In the lower pane of the management portal, click **New**.
 

@@ -343,7 +343,7 @@ retrieve a single entity from the Table service.
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable ojbect that represents the "people" table.
+    // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create a retrieve operation that takes a customer entity.

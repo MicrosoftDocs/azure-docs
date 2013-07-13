@@ -157,7 +157,7 @@ When you provision the BizTalk Service, you enter a SSL certificate. Using this 
 <td>This URL routes to your BizTalk Service. This is the same as the <b>Domain URL</b> entered when your BizTalk Service is provisioned. </td>
 </tr>
 <tr>
-<td>Public virtual IP address (VIP)</td>
+<td>Public Virtual IP (VIP) Address</td>
 <td>This IP address is assigned to your BizTalk Service. It is used for all input endpoints and is the source address for outbound traffic. This IP address belongs to your BizTalk Service as long as it is provisioned. If you delete the BizTalk Service, the IP address is assigned to another service deployment.</td>
 </tr>
 <tr>

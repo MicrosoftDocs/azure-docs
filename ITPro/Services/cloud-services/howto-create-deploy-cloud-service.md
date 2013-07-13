@@ -1,5 +1,6 @@
-<properties linkid="manage-services-how-to-create-and-deploy-a-cloud-service" urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Windows Azure" metaKeywords="Azure creating cloud service, deleting cloud service" metaDescription="Learn how to create and deploy a cloud service using the Quick Create method in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-create-and-deploy-a-cloud-service" urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Windows Azure" metaKeywords="Azure creating cloud service, deleting cloud service" metaDescription="Learn how to create and deploy a cloud service using the Quick Create method in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ryanwi" />
 
+<div chunk="../chunks/cloud-services-left-nav.md" />
 
 #How to Create and Deploy a Cloud Service
 

@@ -16,7 +16,7 @@ You can subscribe to an Azure-hosted, fully-managed MongoDB database in the Wind
 1. Select your desired **Region**.
 1. Click **Next**.  
 ![Next][button-next]
-1. Review your store purchase information and click **Purchase** to confirm.  
+1. Review your store purchase information, and then click **Purchase** to confirm.  
 ![Next][button-purchase]  
 1. The toolbar progress button provides your provisioning status.  
 ![ProgressButton][button-progress]  

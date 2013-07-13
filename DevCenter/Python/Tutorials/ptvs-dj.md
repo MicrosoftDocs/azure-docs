@@ -2,10 +2,11 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-# Python Django Web Application using Visual Studio
+#Creating Django applications with Python Tools for Visual Studio 1.5
 
-**Note:** This tutorial is also encapsulated in [Youtube video](http://www.youtube.com/watch?v=UsLti4KlgAY).
+**Note:** This tutorial is also encapsulated in a [Youtube video](http://www.youtube.com/watch?v=UsLti4KlgAY).
 
+**Note:** A [newer and more extensive tutorial][] targeting PTVS 2.0 Beta is now available.
 
 Developing for Windows Azure is easy when using the available tools.
 This tutorial assumes you have no prior experience using Windows Azure.
@@ -164,4 +165,5 @@ Once it's all setup you can click on the link below DNS Name to view your web si
 
 
 [How to Install Python]: ../commontasks/how-to-install-python.md
+[newer and more extensive tutorial]: ./django-tutorial.md
 

@@ -37,13 +37,13 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	b.  Under URL: type the name of the storage account, and for **Region/Affinity Group**, select the region of the affinity group, such as West US. By selecting a region for the storage account, it can be used with any affinity group in the virtual network.
 
-2.	Install [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx). The VM where you plan to install AD DS must be created using Windows Azure PowerShell in order for the DNS client settings of the domain controller to persist after service healing. 
+2.	Install [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx). The VM where you plan to install AD DS must be created using Windows Azure PowerShell in order for the DNS client settings of the domain controller to persist after service healing. The installation of Windows Azure PowerShell requires the installation of Microsoft .NET Framework 4.5 and Windows Management Framework 3.0. If they are not already installed, your computer will need to restart to complete their installation. 
 
 	a.  Go to [https://www.windowsazure.com/en-us/](https://www.windowsazure.com/en-us/).
 
-	b.  Click **Manage**, then click **Downloads**.
+	b.  Click **Downloads**, click **Command-line tools**, then click **Windows Azure PowerShell**.
 
-	c.  Under **Windows**, click **Install**, then click **Run**. Click **Yes** if prompted by the **User Account Control** dialog. 
+	c.  Click **Run**. Click **Yes** if prompted by the **User Account Control** dialog. 
 
 	d.  Click **Install** to go through installation wizard, click **I accept**, and when the wizard is done, click **Finish**. 
 
@@ -70,14 +70,14 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 		powershell ise
 
-8.	Paste the following script into Windows Azure PowerShell ISE, replacing the placeholders (such as *subscriptionname*) with your own values, and the run the script. If necessary, click **Networks** in the Management Portal to obtain the subscription name. The storage account name is the name you specified in step 1. The image name used in following script installs Windows Server 2008 R2 with Service Pack 1 (SP1), but the image names are updated periodically. To get a list of currently available images, run <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152878.aspx">Get-AzureVMImage</a>. You can install Windows Server 2012, but be aware that the virtualized domain controller safeguards that are built into Windows Server 2012 are not available on Windows Azure Virtual Networks. The virtualized domain controller safeguards require support for VM-GenerationID, which Windows Azure Virtual Networks do not provide at the present time. For more information about virtualized domain controller safeguards, see <a href="http://technet.microsoft.com/en-us/library/hh831734.aspx">Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)</a>. 
+8.	Paste the following script into Windows Azure PowerShell ISE, replacing the placeholders (such as *subscriptionname*) with your own values, and the run the script. If necessary, click **Networks** in the Management Portal to obtain the subscription name. The storage account name is the name you specified in step 1. The image name used in following script installs Windows Server 2012, but the image names are updated periodically. To get a list of currently available images, run <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152878.aspx">Get-AzureVMImage</a>. Windows Azure Virtual Networks support the virtualized domain controller safeguards that are present beginning with Windows Server 2012. For more information about virtualized domain controller safeguards, see <a href="http://technet.microsoft.com/en-us/library/hh831734.aspx">Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)</a>. 
 
 	
 
 	    cls
 		
 	    Import-Module "C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1"
-	    Import-AzurePublishSettingsFile '*E:\PowerShell\ MyAccount.publishsettings*'
+	    Import-AzurePublishSettingsFile '*E:\PowerShell\MyAccount.publishsettings*'
 	    Set-AzureSubscription -SubscriptionName *subscriptionname* -CurrentStorageAccount *storageaccountname*
 	    Select-AzureSubscription -SubscriptionName *subscriptionname*
 	
@@ -88,19 +88,19 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 		$myDNS = New-AzureDNS -Name 'myDNS' -IPAddress '127.0.0.1'
 		$vmname = '*ContosoDC1*'
 		# OS Image to Use
-		$image = 'MSFT__Win2K8R2SP1-Datacenter-201207.01-en.us-30GB.vhd'
+		$image = 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201305.01-en.us-127GB.vhd'
 		$service = '*myazuredemodcsvc*'
 		$AG = '*YourAffinityGroup*'
 		$vnet = '*YourVirtualNetwork*'
 	
 		#VM Configuration
 		$MyDC = New-AzureVMConfig -name $vmname -InstanceSize 'Small' -ImageName $image |
-			Add-AzureProvisioningConfig -Windows -Password '*p@$$w0rd*' |
+			Add-AzureProvisioningConfig -Windows -AdminUserName 'Justinha001' -Password '*p@$$w0rd*' |
 				Set-AzureSubnet -SubnetNames '**BackEnd**'
 
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyDC -DnsSettings $myDNS -VNetName $vnet
 
-	If you rerun the script, you need to supply a unique value for $service. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
+	If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName –Service <service name>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
 
 9.	In the management portal, click the name of the VM you created, and on the bottom of the screen, click **Attach**, and click **Attach Empty Disk**.
 
@@ -128,7 +128,7 @@ Before you install Active Directory Domain Services (AD DS) on a Windows Azure v
 
 	![Sign7] (../media/Sign7.png)
 
-15.	Type your credentials.
+15.	Type your credentials using the format .\<AdminUserName>.
 
 	![Sign8] (../media/Sign8.png)
 
@@ -294,7 +294,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 		
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
 
-If you rerun the script, you need to supply a unique value for $service. After the Windows Azure PowerShell cmdlet successfully completes, the VMs will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VMs are provisioned, you can log on to them.		
+If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName –Service <service name>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VMs will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VMs are provisioned, you can log on to them.		
 
 ## See Also
 

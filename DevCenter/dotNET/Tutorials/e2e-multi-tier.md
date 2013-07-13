@@ -164,11 +164,11 @@ application.
 
 	![][30]
 
-8. Click **Access Key**.
+8. Click **Connection Information**.
 
 	![][31]
 
-9.  In the **Connect to your namespace** pane, find the **Default Issuer** and **Default Key** entries.
+9.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** entries.
 
 10.  Make a note of the key, or copy it to the clipboard.
 

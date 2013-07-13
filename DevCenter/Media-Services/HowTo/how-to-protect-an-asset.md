@@ -110,4 +110,4 @@ For more information on PlayReady protection, see:
 </ul>
 
 <h2>Next Steps</h2>
-Now that you know how to protect asssets with Media services, go to the [How To Manage Assets](http://go.microsoft.com/fwlink/?LinkId=301815) topic.
+Now that you know how to protect asssets with Media services, go to the [How To Manage Assets](http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409) topic.

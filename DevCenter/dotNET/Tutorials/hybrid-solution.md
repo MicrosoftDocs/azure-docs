@@ -150,12 +150,12 @@ namespace.
 	![][39]
   
 
-2.  Click **Access Key**.   
+2.  Click **Connection Information**.   
 
 	![][40]
 
 
-3.  In the **Connect to your namespace** pane, find the **Default Issuer** and **Default Key** entries.   
+3.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** entries.   
     
 
 4.  Make a note of the key, or copy it to the clipboard.

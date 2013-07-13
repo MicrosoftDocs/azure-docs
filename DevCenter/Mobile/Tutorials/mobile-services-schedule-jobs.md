@@ -2,7 +2,7 @@
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
-# Schedule recurring jobs in Mobile Services 
+# Schedule recurring jobs in Mobile Services  
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:</p>

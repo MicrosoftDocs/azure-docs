@@ -8,7 +8,7 @@ This tutorial gets you started using HDInsight Server Developer Preview, an impl
 
 Like the Windows Azure HDInsight Service, this local development environment for HDInsight simplifies the configuring, running, and post-processing of Hadoop jobs by providing JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight and handles Pig Latin as well as JavaScript and Hadoop file system commands. 
 
-The HDInsight Server Developer Preview provides the same components from the Hadoop ecosystem as Windows Azure HDInsight Service. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions").
+The HDInsight Server Developer Preview provides the same components from the Hadoop ecosystem as Windows Azure HDInsight Service. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions")
 
 It is now possible to configure a local cluster in the HDInsight Server Developer Preview to use Azure Storage instead of local storage. This procedure is not covered in this getting started topic. But, for instructions on how to configure this more advanced scenario, see the [Release Notes](http://gettingstarted.hadooponazure.com/releaseNotes.html#asv "use azure storage").
 

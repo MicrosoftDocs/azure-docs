@@ -14,7 +14,7 @@ Follow these steps to create a new mobile service.
 
     This displays the **New Mobile Service** dialog.
 
-4.	In the **Create a mobile service** page, type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
+4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
 
 	![][3]
 

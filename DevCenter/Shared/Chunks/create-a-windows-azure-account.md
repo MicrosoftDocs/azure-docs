@@ -1,12 +1,11 @@
 # Create a Windows Azure account and enable preview features
 
-In order to deploy applications to Windows Azure, you need an account. This article describes how to create a free trial account and how to enable Windows Azure preview features, including Web Sites, Virtual Machines, and Media Services, for the account.
+In order to deploy applications to Windows Azure, you need an account. This article describes how to create a free trial account and how to enable Windows Azure preview features, including BizTalk Services, HDInsight, and Windows Azure Back, for the account.
 
 ## Create a Windows Azure account
 
 1.  Open a web browser and browse to <a href="http://www.windowsazure.com">http://www.windowsazure.com</a>
-2.  To get started with a free account, click <strong>Free trial</strong> in the upper right corner and follow the steps. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.<br />
-    ![Windows Azure Web Site][0]
+2.  To get started with a free account, navigate to the [Windows Azure Free Trial](/en-us/pricing/free-trial/) page and follow the steps to create your trial account. You'll need a credit card number and a mobile phone number for proof of identity, but you will not be billed.
 
 <h2><a id="enable"></a>Enable Windows Azure preview features</h2>
 
@@ -20,8 +19,6 @@ In order to deploy applications to Windows Azure, you need an account. This arti
 
 
 [http://www.windowsazure.com]: http://www.windowsazure.com
-[Windows Azure Web Site]: ../media/freetrialonwindowsazurehomepage.png
-[0]: ../media/freetrialonwindowsazurehomepage.png
 [1]: ../media/antares-iaas-preview-01.png
 [2]: ../media/antares-iaas-preview-05.png
 [3]: ../media/antares-iaas-preview-06.png

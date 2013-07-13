@@ -1,5 +1,6 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Windows Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" metaDescription="Learn how to manage cloud services in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Windows Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" metaDescription="Learn how to manage cloud services in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ryanwi" />
 
+<div chunk="../chunks/cloud-services-left-nav.md" />
 
 #How to Manage Cloud Services
 
