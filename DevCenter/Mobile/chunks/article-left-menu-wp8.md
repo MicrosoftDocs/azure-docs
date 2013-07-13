@@ -6,7 +6,7 @@
 <li><a href="/en-us/develop/mobile/">Mobile Home</a></li>
 <li class="menu-mobile-resources"><a href="/en-us/develop/mobile/resources-wp8/">Tutorials and Resources</a></li>
 <li class="menu-mobile-samples"><a href="/en-us/develop/mobile/wp8-samples/">Samples</a></li>
-<li class="menu-mobile-reference"><a href="/en-us/develop/mobile/reference/">Reference</a></li>
+<li class="menu-mobile-reference"><a href="/en-us/develop/mobile/reference-wp8/">Reference</a></li>
 </ul>
 <ul class="links">
 <li class="forum"><a href="http://social.msdn.microsoft.com/Forums/en-US/azuremobile/threads">Forums</a></li>

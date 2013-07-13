@@ -15,7 +15,7 @@ This tutorial gets you started using Windows Azure HDInsight Service. HDInsight 
 * [Use the HDInsight Service dashboard and sample gallery](#dashboard)
 * [Run a sample MapReduce program from the sample gallery](#sample)
 * [Examine the sample MapReduce program output using the Interactive Console](#console)
-* [Connect to Microsoft Business Intelligence Tools](#dataexplorer)
+* [Connect to Microsoft Business Intelligence Tools](#powerquery)
 * [Next Steps](#nextsteps)
 
 ##<a name="subscribe"></a>Enable the HDInsight Service
@@ -157,15 +157,15 @@ You can use the JavaScript Interactive Console to view the output from the WordC
 
 	![HDI.Hero.ReadWordCount](../media/HDI.Hero.ReadWordCounts.PNG "Read Wordcounts")
 	
-##<a name="dataexplorer"></a>Connecting to Microsoft Business Intelligence Tools 
+##<a name="powerquery"></a>Connecting to Microsoft Business Intelligence Tools 
 
-The Data Explorer can be used to export results from HDInsight into Microsoft Business Intelligence (BI) tools such as Excel. You must have Excel 2010 or 2013 installed to complete this part of the tutorial. Here we will import the default Hive table that ships in HDInsight.
+The Power Query add-in for Excel can be used to export output from HDInsight into Excel where Microsoft Business Intelligence (BI) tools can be used to further process or display the results. You must have Excel 2010 or 2013 installed to complete this part of the tutorial. Here we will import the default Hive table that ships in HDInsight.
 
-1. Download the Data Explorer from from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=36803) and install it.
+1. Download the Microsoft Power Query for Excel from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379) and install it.
 
-2. Open up Excel, select the **Data Explorer** tab, select the **From Other Sources** option, and then From Windows Azure item.
+2. Open up Excel, select the **Power Query** tab, select the **From Other Sources** option, and then From Windows Azure item.
 
-	![HDI.Hero.DataExplorerImportHdiData](../media/HDI.Hero.DataExplorerImportHdiData.png "Import Data")
+	![HDI.Hero.PowerQuery.ImportHdiData](../media/HDI.Hero.PowerQuery.ImportHdiData.png "Import Data")
 
 3. Enter the name of the Azure Blob Storage Account associated with your cluster and click **OK**.
 
@@ -185,7 +185,7 @@ The Data Explorer can be used to export results from HDInsight into Microsoft Bu
 
 
 ##<a name="nextsteps"></a>Next steps
-In this tutorial, you have learned how to provision a cluster with the HDInsight Service, run a MapReduce job on it, and use the Interactive Console to view the output from the job.
+In this tutorial, you have learned how to provision a cluster with the HDInsight Service, run a MapReduce job on it, use the Interactive Console to view the output from the job, and import the results into Excel where they can be further processed and graphically displayed using BI tools.
 
 
 - For information about running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/).
