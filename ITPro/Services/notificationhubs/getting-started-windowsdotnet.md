@@ -1,5 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
+put correct left menu
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Get started with Notification Hubs
@@ -10,10 +11,6 @@
 
 This topic shows you how to use Windows Azure Notification Hubs to send push notifications to a Windows Store app. 
 In this tutorial you create a blank Windows Store app that receives push notifications using the Windows Push Notification service (WNS). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
-
-<div class="dev-callout"><b>Note</b>
-	<p><em>Visual Studio 2013 Preview</em> includes new features that make it easy to setup push notifications in your Windows Store app using Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">Quickstart: Adding push notifications for a mobile service</a> in the Windows Dev Center.</p>
-</div>
 
 This tutorial walks you through these basic steps to enable push notifications:
 
