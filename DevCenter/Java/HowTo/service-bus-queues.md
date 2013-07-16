@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
 
 
@@ -46,17 +46,17 @@ token permissions to manage it, and the **ServiceBusContract** class is
 the sole point of communication with Azure.
 
 The **ServiceBusService** class provides methods to create, enumerate,
-and delete queues. The example below shows how a **ServiceBusService**
-can be used to create a queue named "TestQueue" within a "HowToSample"
-service namespace:
+and delete queues. The example below shows how a **ServiceBusService** object
+can be used to create a queue named "TestQueue", with a namespace named "HowToSample":
 
-    String issuer = "<obtained from portal>";
-    String key = "<obtained from portal>";
     Configuration config = 
     	ServiceBusConfiguration.configureWithWrapAuthentication(
-			“HowToSample”, 
-			issuer, 
-			key);
+          "HowToSample",
+          "your_service_bus_owner",
+          "your_service_bus_key",
+          ".servicebus.windows.net",
+          "-sb.accesscontrol.windows.net/WRAPv0.9");
+
     ServiceBusContract service = ServiceBusService.create(config);
     QueueInfo queueInfo = new QueueInfo("TestQueue");
     try
@@ -91,13 +91,14 @@ To send a message to a Service Bus Queue, your application will obtain a
 message for the "TestQueue" queue we created above within our
 "HowToSample" service namespace:
 
-    String issuer = "<obtained from portal>";
-    String key = "<obtained from portal>";
     Configuration config = 
     	ServiceBusConfiguration.configureWithWrapAuthentication(
-			“HowToSample”, 
-			issuer,
-			key);
+          "HowToSample",
+          "your_service_bus_owner",
+          "your_service_bus_key",
+          ".servicebus.windows.net",
+          "-sb.accesscontrol.windows.net/WRAPv0.9");
+
     ServiceBusContract service = ServiceBusService.create(config);
     QueueInfo queueInfo = new QueueInfo("TestQueue");
     try
