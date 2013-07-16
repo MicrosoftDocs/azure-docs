@@ -141,7 +141,7 @@ Before performing the steps in this section, you must have associated a custom d
 <b>Note</b> 
 <p>If you selected <b>IP based SSL</b> and your custom domain is configured using an A record, you must perform the following additional steps:</p>
 <ol>
-<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Adress</b>:</p>
+<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Address</b>:</p>
 <img src="../media/staticip.png" />
 <p>Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain.</p><p>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</p>
 </li>
