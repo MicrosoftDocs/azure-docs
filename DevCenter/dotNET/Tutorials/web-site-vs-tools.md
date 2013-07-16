@@ -159,6 +159,12 @@ In this section you'll do the following tasks:
 
    The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
 
+3. Add a [trace element](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) under `<system.web>` in the Web.config file, such as the following example:
+
+		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+
+  
+
 3. Press CTRL+F5 to run the application.
 
 4. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL will be similar to http://localhost:53370/trace.axd).
@@ -171,7 +177,7 @@ In this section you'll do the following tasks:
 
    ![trace.axd](../Media/tws-traceaxd2.png)
 
-By default, `trace.axd` is only available locally. If you wanted to make it available from a remote site, you could add a [trace element](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) under `<system.web>` in the Web.config file, such as the following example:
+By default, `trace.axd` is only available locally. If you wanted to make it available from a remote site, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
@@ -250,9 +256,9 @@ Web server logs record all HTTP activity on the site. In order to see them in th
 
    ![Monitor web server logs](../Media/tws-monitorwslogson.png)
 
-4. In the browser window that now shows your **Contact** page, click **Home**, then click **About**, and then click **Contact**.
+4. In the browser window that shows the web site, click **Home**, then click **About**, and then click **Contact**.
 
-   The application logs might appear first, followed after a few more seconds by the web server logs.
+   The application logs generally appear first, followed after a while by the web server logs.
 
    ![Web server logs in Output window](../Media/tws-wslogs.png)
 
@@ -270,7 +276,7 @@ Detailed error logs provide some additional information about HTTP requests that
 
    ![Monitor all logs](../Media/tws-monitorall.png)
 
-4. In the address bar of the browser window, add an extra character to the URL and click Enter to cause a 404 error.
+4. In the address bar of the browser window, add an extra character to the URL to cause a 404 error (for example, `http://localhost:53370/Home/Contactx`), and press Enter.
 
    After several seconds the detailed error log appears in the Visual Studio **Output** window. The log output is long, and the following image only shows part of it.
 
@@ -306,7 +312,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 Application tracing logs can also be sent to a Windows Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the management portal, and view them in the **Logs** tab of the **Azure Web Site** window.
 
-You can send logs to both the file system and a storage account, and you can specify a different severity level for each. You currently have file system logs set to verbose level; you'll set storage logs to information level.
+You can send logs to both the file system and a storage account, and you can specify a different severity level for each. You currently have file system logs set to verbose level; you'll set storage logs to information level. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
 One advantage of sending application tracing logs to storage is that you get some additional information with each log that you don't get from file system logs.
 
@@ -336,11 +342,13 @@ One advantage of sending application tracing logs to storage is that you get som
 
   ![Click Manage Connection](../Media/tws-stgsettingsmgmtportal.png)
 
-5. In the **Manage diagnostic storage** box, choose your storage account, click **Synchronize primary key**, and then click the check mark.
+  In the **Manage diagnostic storage** box, you can choose your storage account if you have more than one. The **Storage Account Key** field defaults to the primary key value of the selected storage account.
 
   ![Click Manage Connection](../Media/tws-choosestorageacct.png)
 
-6. Click **Save**.
+6. In the **Manage diagnostic storage** box click the check mark to close the box.
+
+6. In the management portal **Configure** tab, click **Save**.
 
 7. In the browser window that displays the application web site, click **Home**, then click **About**, and then click **Contact**.
 
@@ -350,7 +358,7 @@ One advantage of sending application tracing logs to storage is that you get som
 
   ![Click Refresh](../Media/tws-refreshstorage.png)
 
-  The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs.
+  The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. (If you don't see any logs, a possible cause is failing to click **Save** after making changes on the management portal Configure tab.)
 
   ![Storage logs](../Media/tws-storagelogs.png)
 
@@ -384,7 +392,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
    ![Enable failed request tracing](../Media/tws-failedrequeston.png)
 
-4. In the address bar of the browser window that now shows the application **Contact** page, add an extra character to the URL and click Enter to cause a 404 error.
+4. In the address bar of the browser window that shows the web site, add an extra character to the URL and click Enter to cause a 404 error.
 
    This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
 
