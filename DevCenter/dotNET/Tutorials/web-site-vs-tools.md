@@ -455,12 +455,10 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 
 * [ASP.NET Tracing](http://msdn.microsoft.com/en-us/library/ms972204.aspx)<br/>
   Old but still a good resource for a basic introduction to the subject.
-* [Tracing in ASP.NET 2.0](http://www.beansoftware.com/ASP.NET-Tutorials/Tracing-ASP.NET.aspx)<br/>
-  Similar to the above resource but includes some information about trace listeners.
 * [Trace Listeners](http://msdn.microsoft.com/en-us/library/4y5y10s7.aspx)<br/>
-  More information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx).
+  Information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx).
 * [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](http://msdn.microsoft.com/en-us/library/b0ectfxd.aspx)<br/>
-  This too is old, but includes some additional information that the introductory articles don't cover.
+  This too is old, but includes some additional information that the introductory article doesn't cover.
 * [ELMAH](http://nuget.org/packages/elmah/)<br/>
   A popular error logging utility for ASP.NET. [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) are a good place to get started.
 * [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
