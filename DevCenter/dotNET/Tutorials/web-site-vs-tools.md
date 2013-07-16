@@ -444,7 +444,7 @@ For more information about troubleshooting Windows Azure Web Sites (WAWS), see t
   A basic introductory white paper that includes a short section on WAWS.
 * [Troubleshooting a Web Site](/en-us/develop/net/best-practices/troubleshooting-web-sites/)<br/>
   An introduction that focuses on WAWS.
-* [How to debug an application in Windows Azure Web Sites](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)<br/>
+* [Enable diagnostic logging for Windows Azure Web Sites](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)<br/>
   Covers much of the same information provided by this tutorial but focuses on how to get diagnostic logs without using Visual Studio. 
 * [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)<br/>
   The [configure diagnostics and download logs](/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics) section has valuable information not included in the troubleshooting documents.
