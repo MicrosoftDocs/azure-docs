@@ -358,7 +358,9 @@ One advantage of sending application tracing logs to storage is that you get som
 
   ![Click Refresh](../Media/tws-refreshstorage.png)
 
-  The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. (If you don't see any logs, a possible cause is failing to click **Save** after making changes on the management portal Configure tab.)
+  The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. 
+
+  (If you get a "table not found" error for the WAWSAppLogTable, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
 
   ![Storage logs](../Media/tws-storagelogs.png)
 
@@ -396,7 +398,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
    This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
 
-2. In the **Configuration** tab of the **Azure Web Site** window, click **Open in Management Portal**.
+2. In Visual Studio, in the **Configuration** tab of the **Azure Web Site** window, click **Open in Management Portal**.
 
 3. In the management portal, click **Dashboard**, and then click **Reset your deployment credentials** in the **Quick Glance** section.
 
@@ -406,11 +408,11 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
    ![New FTP user name and password](../Media/tws-enterftpcredentials.png)
 
-5. In a new browser window, go to the URL that is shown under **FTP Host Name** in the **Dashboard** tab of the management portal page for your web site. **FTP Host Name** is located farther down the page in the **Quick Glance** section.
+5. In the management portal **Dashboard** tab press F5 to refresh the page, and then scroll down to where you see **Deployment / FTP User**. Notice that the user name has the site name prefixed to it. **When you log in, you have to use this full user name with the site name prefixed to it as shown here.**
 
-6. Log in using the FTP credentials that you created earlier.
+5. In a new browser window, go to the URL that is shown under **FTP Host Name** in the **Dashboard** tab of the management portal page for your web site. **FTP Host Name** is located near **Deployment / FTP User** in the **Quick Glance** section.
 
-   **Note:** When you log in, you have to use the full user name as displayed in the **Dashboard** under **Deployment / FTP User**, which will have the site name prefixed to it.
+6. Log in using the FTP credentials that you created earlier (including the site name prefix for the user name).
 
    The browser shows the root folder of the site.
 
