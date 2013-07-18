@@ -138,7 +138,7 @@ To send notifications using a .NET app:
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toastMessage = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                 "<wp:Notification xmlns:wp=\"WPNotification\">" +
                    "<wp:Toast>" +
                         "<wp:Text1>Hello From .NET!</wp:Text1>" +
@@ -149,7 +149,8 @@ To send notifications using a .NET app:
 
 4. Then add the following line in your Main method:
 
-         SendNotificationAsync()
+         SendNotificationAsync();
+		 Console.ReadLine();
 
 5. Press the F5 key to run the app. You should receive a toast notification.
 

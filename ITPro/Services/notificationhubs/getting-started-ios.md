@@ -296,7 +296,8 @@ To send notifications using a .NET app:
 
 4. Then add the following line in your Main method:
 
-         SendNotificationAsync()
+         SendNotificationAsync();
+		 Console.ReadLine();
 
 5. Press the F5 key to run the app. You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
 
