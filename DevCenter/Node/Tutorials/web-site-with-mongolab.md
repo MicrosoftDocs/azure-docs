@@ -74,11 +74,18 @@ In this section you will set up your development environment and lay the code fo
 
     The output of this command should appear similar to the following:
 
-		express@2.5.9 /usr/local/lib/node_modules/express
-		├── mime@1.2.4 
-		├── mkdirp@0.3.0 
-		├── qs@0.4.2 
-		└── connect@1.8.7 
+		express@3.3.4 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
+		├── methods@0.0.1
+		├── fresh@0.1.0
+		├── cookie-signature@1.0.1
+		├── range-parser@0.0.4
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.3 (mime@1.2.9)
+		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
  
 4. To create the scaffolding which will be used for this application, use the **express** command:
 
@@ -111,14 +118,27 @@ In this section you will set up your development environment and lay the code fo
 
     The output of this command should appear similar to the following:
 
-		express@2.5.8 ./node_modules/express
-		├── mime@1.2.4
-		├── qs@0.4.2
-		├── mkdirp@0.3.0
-		└── connect@1.8.7
-		jade@0.26.0 ./node_modules/jade
-		├── commander@0.5.2
-		└── mkdirp@0.3.0
+		express@3.3.4 node_modules\express
+		├── methods@0.0.1
+		├── fresh@0.1.0
+		├── range-parser@0.0.4
+		├── cookie-signature@1.0.1
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.3 (mime@1.2.9)
+		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+
+		jade@0.33.0 node_modules\jade
+		├── character-parser@1.0.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── with@1.1.0 (uglify-js@2.3.6)
+		├── constantinople@1.0.1 (uglify-js@2.3.6)
+		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		└── monocle@0.1.48 (readdirp@0.2.5)
 
 	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
 
@@ -128,9 +148,15 @@ In this section you will set up your development environment and lay the code fo
 
 	The output of this command should appear similar to the following:
 
-		mongoose@2.6.5 ./node_modules/mongoose
+		mongoose@3.6.15 node_modules\mongoose
+		├── regexp-clone@0.0.1
+		├── sliced@0.0.3
+		├── muri@0.3.1
 		├── hooks@0.2.1
-		└── mongodb@1.0.2
+		├── mpath@0.1.1
+		├── ms@0.1.0
+		├── mpromise@0.2.1 (sliced@0.0.4)
+		└── mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
 
     You can safely ignore any message about installing the C++ bson parser.
 	
