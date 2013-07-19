@@ -182,7 +182,7 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 	      , itemDate      : { type: Date, default: Date.now }
         });
 
-        module.exports = mongoose.model('TaskModel', TaskSchema)
+        module.exports = mongoose.model('TaskModel', TaskSchema);
 
 5. Save and close the **task.js** file.
 
@@ -190,7 +190,7 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 1. In the **tasklist/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 
-2. Add the folowing code to **tasklist.js**. This loads the mongoose module and the task model defined in **task.js**. The TaskList function is used to create the connection to the MongoDB server based on the **connection** value, and provides the methods **showTasks**, **addTask**, and **completeTasks**:
+2. Add the following code to **tasklist.js**. This loads the mongoose module and the task model defined in **task.js**. The TaskList function is used to create the connection to the MongoDB server based on the **connection** value, and provides the methods **showTasks**, **addTask**, and **completeTasks**:
 
 		var mongoose = require('mongoose')
 	      , task = require('../models/task.js');
@@ -284,47 +284,20 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 #### Replace app.js
 
 1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
-1. Replace the contents with the following code. This will initialize **TaskList** with the connection string for the MongoDB server, add the functions defined in **tasklist.js** as routes, and start your app server:
+1. Add the following code to the beginning of the **app.js** file. This will initialize **TaskList** with the connection string for the MongoDB server:
 
-		var express = require('express')
-  			, routes = require('./routes')
-  			, user = require('./routes/user')
-  			, http = require('http')
-  			, path = require('path');
 		var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
-		var app = express();
+ 	Note the second line; you access an environment variable that you'll configure later, which contains the connection information for your mongo instance. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost" instead of `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.
 
-		app.configure(function(){
-		  app.set('port', process.env.PORT || 3000);
-		  app.set('views', __dirname + '/views');
-		  app.set('view engine', 'jade');
-		  app.use(express.favicon());
-		  app.use(express.logger('dev'));
-		  app.use(express.bodyParser());
-		  app.use(express.methodOverride());
-		  app.use(app.router);
-		  app.use(express.static(path.join(__dirname, 'public')));
-    	});
-
-		app.configure('development', function(){
-		  app.use(express.errorHandler());
-    	});
+2. Find the lines beginning with `app.get` and replace them with the following lines:
 
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		http.createServer(app).listen(app.get('port'), function(){
-		  console.log("Express server listening on port " + app.get('port'));
-		});
-
-1. Note the following code above:  
-		
-		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI); 
-		
-	The TaskList constructor takes a MongoDB connection URI. Here, you access an environment variable that you'll configure later. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost" instead of `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.  
+	This adds the functions defined in **tasklist.js** as routes.
 
 4. Save the **app.js** file.
 
@@ -368,7 +341,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		warn:   The '/Users/user1/.azure/publishSettings.xml' file contains sensitive information.
 		warn:   Remember to delete it now that it has been imported.
 		info:   Account publish settings imported successfully
-		info:   account iomport command OK
+		info:   account import command OK
 
 
 4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
@@ -386,7 +359,7 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
 1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your web site (in step 9).  
-![buttonGitPublishing][button-git-publishing]
+<!--![buttonGitPublishing][button-git-publishing]-->
 1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Windows Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
 
 		azure site create myuniquesitename --git  
@@ -442,7 +415,7 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 You're almost done!
 
 ### Configure your environment
-Remember process.env.CUSTOMCONNSTR_MONGOLAB_URI in the code? We want to populate that environment variable with the value provided to Windows Azure during your MongoLab database provisioning.
+Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to populate that environment variable with the value provided to Windows Azure during your MongoLab database provisioning.
 
 #### Get the MongoLab connection string
 
