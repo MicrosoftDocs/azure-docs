@@ -117,8 +117,9 @@ Your notification hub is now configured to work with WNS, and you have the conne
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
+		using Windows.UI.Popups;
 
-3. Add the following code to App.xaml.cs:
+3. Add the following code to App.xaml.cs, in the `App` class:
 	
 	    private async void InitNotificationsAsync()
         {
@@ -126,9 +127,18 @@ Your notification hub is now configured to work with WNS, and you have the conne
 			
             var hub = new NotificationHub("<hub name>", "<connection string with listen access>");              
 			await hub.RegisterNativeAsync(channel.Uri);
+            
+            // Displays the registration ID so you know it was successful
+            if (result.RegistrationId != null)
+            {
+                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+
         }
 
-    Make sure to insert the name of your hub and the connection string called *DefaultListenSharedAccessSignature* that you obtained in the previous section.
+    Make sure to insert the name of your hub and the connection string called **DefaultListenSharedAccessSignature** that you obtained in the previous section.
     This code will retrieve the ChannelURI for the app from WNS, and will register that ChannelURI with your notification hub.
     
 4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
@@ -136,8 +146,10 @@ Your notification hub is now configured to work with WNS, and you have the conne
         InitNotificationsAsync();
 
     This guarantees that the ChannelURI is registered in your notification hub each time the application is launched.
-	
-5. Press the **F5** key to run the app.
+
+5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
+   
+   ![][19]
 
 <h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
 
@@ -145,21 +157,29 @@ You can send notifications using notification hubs from any back-end using the <
 
 To send notifications using a .NET app:
 
-1. In Visual Studio 2012 Express for Windows 8, create a new Visual C# Windows Store project using the **Blank App** template. 
+1. With the previous solution still open in Visual Studio, in Solution Explorer double-click **Package.appxmanifest** to open it in the Visual Studio editor.
+
+2. Scroll down to **All Image Assets** and click **Badge Logo**. In **Notifications**, set **Toast capable** to **Yes**:
+
+   ![][18]
+
+   From the **File** menu, click **Save All**.
+
+3. Now create a new Visual C# console application: 
 
    ![][13]
 
-2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then click **Library Package Manager**, then click **Package Manager Console**. Then, in the console window type the following:
+4. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then click **Library Package Manager**, then click **Package Manager Console**. Then, in the console window type the following:
 
         Install-Package WindowsAzure.ServiceBus
 
     then press **Enter**.
 
-2. Open the file Program.cs and add the following `using` statement:
+5. Open the file Program.cs and add the following `using` statement:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In the `Program` class, add the following method:
+6. In the `Program` class, add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -168,12 +188,14 @@ To send notifications using a .NET app:
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-4. Then add the following line in the `Main` method:
+   Make sure to insert the name of your hub and the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." Note that this is the connection string with **Full** access, not **Listen** access.
+
+7. Then add the following lines in the `Main` method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Press the **F5** key to run the app. You should receive a toast notification.
+8. Press the **F5** key to run the app. You should receive a toast notification.
 
    ![][14]
 
@@ -191,11 +213,10 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 4. When the job is created, click the job name. Then click the **Script** tab in the top bar.
 
-5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
+5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. When you are finished, click **Save** on the bottom bar.
 
         var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>',
-    <connection string with full access>');
+        var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
         notificationHubService.wns.sendToastText01(
             null,
             {
@@ -239,6 +260,8 @@ In this simple example you sent broadcast notifications to all your Windows devi
 [15]: notification-hub-scheduler1.png
 [16]: notification-hub-scheduler2.png
 [17]: mobile-services-win8-edit2-app.png
+[18]: notification-hub-win8-app-toast.png
+[19]: notification-hub-windows-reg.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
