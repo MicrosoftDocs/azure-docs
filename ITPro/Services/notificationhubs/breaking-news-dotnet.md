@@ -4,7 +4,7 @@ In this topic you will learn how to use Notification Hubs to broadcast breaking 
 
 The app that you will build allows client devices to subscribe to different breaking news categories, and then enables the back-end to broadcast push notifications of any category reaching the users that previously subscribed to it.
 
-	![][]
+![][1] ![][2]
 
 You will use *tags* to represent categories. Tags are simple string and do not have to be provisioned in advance. Simply specify a specific tag when you register a set of devices, and when pushing a notification to that tag, all those devices will receive your notification. For more information about tags, refer to [Notification Hubs Guidance].
 
@@ -190,11 +190,11 @@ Assume familiar with Apple tutorial
 	
 	Your storyboard should look as follows:
 	
-    ![][]
+   ![][3]
     
 3. In the assistant editor, create outlets for all the switched and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 
-   ![][]
+   ![][4]
 
 4. Create an Action for your button called "subscribe". Your BreakingNewsViewController.h should contain the following:
 			
@@ -209,8 +209,8 @@ Assume familiar with Apple tutorial
 
 5. Create a new class called Notifications. Copy the following code in the interface section of the file Notifications.h:
 
-			- (void) storeCategoriesAndSubscribeWithCategories:(NSArray*) categories completion: (void (^)(NSError* error))completion;
-			- (void) subscribeWithCategories:(NSSet*) categories completion:(void (^)(NSError *))completion;
+			- (void)storeCategoriesAndSubscribeWithCategories:(NSArray*) categories completion: (void (^)(NSError* error))completion;
+			- (void)subscribeWithCategories:(NSSet*) categories completion:(void (^)(NSError *))completion;
 
 6. Add the following import directibe in Notifications.m:
 
@@ -218,21 +218,17 @@ Assume familiar with Apple tutorial
 
 7. Copy the following code in the implementation section of the file Notifications.m:
 		
-			- (void) storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
+			- (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
 			    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 			    [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
 			    
-			    [self subscribeWithCategories:categories completion:^(NSError* error) {
-			        completion(error);
-			    }];
+			    [self subscribeWithCategories:categories completion:completion];
 			}
 
-			- (void) subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion{
+			- (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion{
 			    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string>" notificationHubPath:@"<hub name>"];
 			    
-			    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: ^(NSError* error) {
-			        completion(error);
-			    }];
+			    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
 			}
 
 	Make sure to replace the placeholders with your notification hub name and your connection string with listen access. 
@@ -240,7 +236,7 @@ Assume familiar with Apple tutorial
 
 8. Now we will create a singleton instance of the Notification class in our AppDelegate. In your BreakingNewsAppDelegate.h, add the following property:
 
-			@property (strong, nonatomic) Notifications* notifications;
+			@property (nonatomic) Notifications* notifications;
 	Then initialize it in your *didFinishLaunchingWithOptions* method in BreakingNewsAppDelegate.m, which should contain the following:
 	
 			self.notifications = [[Notifications alloc] init];
@@ -251,6 +247,16 @@ Assume familiar with Apple tutorial
 	
 			self.notifications.deviceToken = deviceToken;
 	Note that at this time you should not have any other code in this method. If you followed the Get Started with Notification Hub tutorial you might have a call to the *registerNativeWithDeviceToken* method of a SBNotificationHub, remove that call.
+
+	Finally, add the following method, which will handle the notification in case it is received when the app is running. This app will display a simple **UIAlert**, but you can decide otherwise.
+
+			- (void)application:(UIApplication *)application didReceiveRemoteNotification:
+				(NSDictionary *)userInfo {
+			    NSLog(@"%@", userInfo);
+			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+			    [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+			    [alert show];
+		    }
 
 9. In your BreakingNewsViewController.m, XCode has created the method *subscribe*, copy the following content in it:
 
@@ -277,6 +283,8 @@ Assume familiar with Apple tutorial
 		    }];
 	This method creates an NSMutableArray of categories and uses the Notifications class to store the list in the local storage and register the corresponding tags with your Notification Hub.
 
+	Note: In case the call to your Notification Hub fails, you might want to either retry or reset the switches and the local store to the previous state. In this tutorial we assume, for simplicity's sake, that the app will re-register with the Notification Hub next time it starts, correcting the misalignment.
+
 Our app is now able to store a set of categories in the device local storage and to register with the notification hub whenever the user changes the selection of categories. Since it is not guaranteed that the user will regularly subscribe, we have to make sure that when the app starts, we register with notification hub the categories that have been stored in the local storage.
 
 You can now run the app and verify that clicking the subscribe button will trigger a registration to your Notification Hub.
@@ -285,10 +293,10 @@ You can now run the app and verify that clicking the subscribe button will trigg
 
 1. First we have to add the code to retrieve the categories in the Notifications class, add the following method in the interface section of the file Notifications.h:
 
-		- (NSSet*) retrieveCategories;
+		- (NSSet*)retrieveCategories;
 	Then add the corresponding implementation in the file Notifications.m:
 	
-		- (NSSet*) retrieveCategories {
+		- (NSSet*)retrieveCategories {
 		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 		    
 		    NSArray* categories = [defaults stringArrayForKey:@"BreakingNewsCategories"];
@@ -355,7 +363,7 @@ We used the following tags for our categories
             var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">Breaking News!</text></binding></visual></toast>";
             await hub.SendWindowsNativeNotificationAsync(toast, "<category>");
 
-			var alert = "{\"aps\":{\"alert\":\"Breaking News!\"}}";
+			var alert = "{\"aps\":{\"alert\":\"Breaking News!\"}, \"inAppMessage\":\"Breaking News!\"}";
             await hub.SendAppleNativeNotificationAsync(toast, "<category>");
         }
 
@@ -399,3 +407,11 @@ We assume you already have your [Mobile Service].
 
 ## Next Steps
 In this tutorial we learned how to broadcast breaking news by category. If you want to learn how to send private notifications to single users please follow [Use Notification Hubs to send notifications to users]. Also, if you want to learn how to expand the breaking news app by sending localized notifications follow [Use Notification Hubs to broadcast localized Breaking News].
+
+<!-- Images. -->
+[1]: notification-hub-breakingnews-win1.png
+[2]: notification-hub-breakingnews-ios1.png
+
+[3]: notification-hub-breakingnews-ios2.png
+[4]: notification-hub-breakingnews-ios3.png
+[5]: notification-hub-breakingnews-ios4.png
