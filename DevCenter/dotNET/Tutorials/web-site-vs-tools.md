@@ -31,7 +31,9 @@ This tutorial's purpose is to show how to view tracing information by using Visu
 
 <h2><a name="prerequisites"></a><span class="short-header">Prerequisites</span></h2>
 
-This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Deploying an ASP.NET Web Application to a Windows Azure Web Site][GetStarted]. In that tutorial, you imported credentials for your Windows Azure subscription into Visual Studio. When you did that, Visual Studio added Windows Azure nodes to **Server Explorer**, and you'll be using those nodes in this tutorial.
+This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Deploying an ASP.NET Web Application to a Windows Azure Web Site][GetStarted]. In that tutorial, you import credentials for your Windows Azure subscription into Visual Studio. When you do that, Visual Studio adds Windows Azure nodes to **Server Explorer**, and you'll be using those nodes in this tutorial.
+
+<div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
 
 <h2><a name="sitemanagement"></a><span class="short-header">Site management</span>Site configuration and management</h2>
 
@@ -140,7 +142,7 @@ In this section you'll do the following tasks:
 
    ![Tracing in Debug window](../Media/tws-debugtracing.png)
 
-   The following steps show to view trace output in a web page, without compiling in debug mode.
+   The following steps show how to view trace output in a web page, without compiling in debug mode.
 
 2. Open the application Web.config file (the one located in the project folder) and add a `<system.diagnostics>` element at the end of the file just before the closing `</configuration>` element:
 
@@ -162,8 +164,6 @@ In this section you'll do the following tasks:
 3. Add a [trace element](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) under `<system.web>` in the Web.config file, such as the following example:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
-
-  
 
 3. Press CTRL+F5 to run the application.
 
@@ -223,6 +223,8 @@ However, when you selected **View Streaming Logs in Output Window**, Visual Stud
 
    ![Verbose trace output](../Media/tws-verbosetraces.png)
 
+In this section you enabled and disabled logging by using Windows Azure Web Site settings. You can also enable and disable trace listeners by modifying the Web.config file. However, modifying the Web.config file causes the app domain to recycle, while enabling logging via the web site doesn't do that. If the problem takes a long time to reproduce, or is intermittent, recycling the app domain might "fix" it and force you to wait until it happens again. Enabling diagnostics in Windows Azure doesn’t do this, so you can start capturing error information immediately.
+
 ### Output window features
 
 The **Windows Azure Logs** tab of the **Output** Window has several buttons and a text box:
@@ -236,9 +238,10 @@ These perform the following functions:
 * Start or stop monitoring logs.
 * Specify which logs to monitor.
 * Download logs.
-* Enter a search string to filter logs.
-* Use a regular expression for the search string.
+* Filter logs based on a search string or a regular expression.
 * Close the **Output** window.
+
+If you enter a search string or regular expression, Visual Studio filters logging information at the client. That means you can enter the criteria after the logs are displayed in the **Output** window and you can change filtering criteria without having to regenerate the logs.
 
 <h2><a name="webserverlogs"></a><span class="short-header">Web server logs</span>View web server logs</h2>
 
@@ -374,7 +377,7 @@ One advantage of sending application tracing logs to storage is that you get som
 
   ![Storage logs in table view](../Media/tws-tracelogtableview.png)
 
-  This view shows additional fields you don't see in any other views.
+  This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
 
 7. To look at the details for a single row, right-click one of the rows, and then click **Edit**.
 
@@ -451,6 +454,12 @@ For more information about troubleshooting Windows Azure Web Sites (WAWS), see t
 * [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)<br/>
   The [configure diagnostics and download logs](/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics) section has valuable information not included in the troubleshooting documents.
 
+For help with a specific troubleshooting question, start a thread in one of the following forums:
+
+* [The Windows Azure forum on the ASP.NET site](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
+* [The Windows Azure forum on MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/).
+* [StackOverflow.com](http://www.stackoverflow.com).
+
 ### Tracing in ASP.NET applications
 
 There are no thorough and up-to-date introductions to ASP.NET tracing available on the Internet. The best you can do is get started with old introductory materials written for Web Forms because MVC didn't exist yet, and supplement that with newer blog posts that focus on specific issues. Some good places to start are the following resources:
@@ -461,14 +470,27 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
   Information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx).
 * [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](http://msdn.microsoft.com/en-us/library/b0ectfxd.aspx)<br/>
   This too is old, but includes some additional information that the introductory article doesn't cover.
-* [ELMAH](http://nuget.org/packages/elmah/)<br/>
-  A popular error logging utility for ASP.NET. [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) are a good place to get started.
-* [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  How to use the command line to do what this tutorial shows how to do in Visual Studio. [Glimpse](http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx) is a tool for debugging ASP.NET applications. 
+* [Tracing in ASP.NET MVC Razor Views](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+  Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](http://msdn.microsoft.com/en-us/library/bb397417.aspx) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
+
+			try
+			{
+			    // Your code that might cause an exception to be thrown.
+			}
+			catch (Exception ex)
+			{
+			    Trace.TraceError("Exception: " + ex.ToString());
+			    throw;
+			} 
+
 * [Scott Guthrie: Building Real World Cloud Apps with Windows Azure - Part 2](http://vimeo.com/68215602)<br/>
   See 47:00-55:36 in this video for up-to-date recommendations for tracing in Windows Azure cloud applications.
+* [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+  How to use the command line to do what this tutorial shows how to do in Visual Studio. [Glimpse](http://www.hanselman.com/blog/NuGetPackageOfTheWeek5DebuggingASPNETMVCApplicationsWithGlimpse.aspx) is a tool for debugging ASP.NET applications. 
 
-Also, note that you don't have to use ASP.NET or System.Diagnostics tracing. The Windows Azure Web Site streaming log service will stream any *.txt*, *.html*, or *.log* file that it finds in the *LogFiles* folder. Therefore, you could create your own logging system that writes to the file system of the web site, and your file will be automatically streamed and downloaded. All you have to do is write application code that creates files in the *d:\home\logfiles* folder. 
+For error logging, an alternative to writing your own tracing code is to use an open-source logging framework such as [ELMAH](http://nuget.org/packages/elmah/). For more information, see [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
+
+Also, note that you don't have to use ASP.NET or System.Diagnostics tracing if you want to get streaming logs from Windows Azure. The Windows Azure Web Site streaming log service will stream any *.txt*, *.html*, or *.log* file that it finds in the *LogFiles* folder. Therefore, you could create your own logging system that writes to the file system of the web site, and your file will be automatically streamed and downloaded. All you have to do is write application code that creates files in the *d:\home\logfiles* folder. 
 
 ### Analyzing web server logs
 
