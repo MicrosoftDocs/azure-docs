@@ -56,22 +56,22 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 1. Setup the Python Fast CGI Handler
 
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI "/+[fullPath='c:\Python27\python.exe', arguments='C:\inetpub\wwwroot\wfastcgi.py']"
+		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI "/+[fullPath='c:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py']"
 
 
 
 1. Register the handler for this site
 
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers "/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python27\python.exe|C:\inetpub\wwwroot\wfastcgi.py',resourceType='Unspecified']"
+		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers "/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python27\python.exe|C:\Python27\Scripts\wfastcgi.py',resourceType='Unspecified']"
 
 
 1. Configure the handler to run your Django application
 
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\inetpub\wwwroot\wfastcgi.py'].environmentVariables.[name='DJANGO_SETTINGS_MODULE',value='DjangoApplication.settings']" /commit:apphost
+		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='DJANGO_SETTINGS_MODULE',value='DjangoApplication.settings']" /commit:apphost
 
 1. Configure PYTHONPATH so your Django app can be found by the Python interpreter
 
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\inetpub\wwwroot\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\wwwroot\DjangoApplication']" /commit:apphost
+		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\wwwroot\DjangoApplication']" /commit:apphost
 
 	You should see the following:
 
@@ -79,10 +79,10 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 1. Tell the FastCGI to WSGI gateway which WSGI handler to use:
 
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\inetpub\wwwroot\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
+		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
 
 
-1. Download wfastcgi.py from [http://pytools.codeplex.com/releases/view/82132](http://pytools.codeplex.com/releases/view/88766) and save it to C:\inetpub\wwwroot.  This is the location the previous commands used for registering the FastCGI handler.
+1. Download wfastcgi.py from [codeplex](http://go.microsoft.com/fwlink/?LinkID=316392&clcid=0x409) and save it to C:\Python27\Scripts.  This is the location the previous commands used for registering the FastCGI handler. Alternatively, you can install it using Web Platform Installer.  Search for 'WFastCGI'.
 
 
 ## Creating a new Django application
