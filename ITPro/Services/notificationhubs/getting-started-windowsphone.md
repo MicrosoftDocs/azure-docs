@@ -74,44 +74,37 @@ Now you have the connection strings to register your Windows Phone 8 app and sen
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-3. Add the following to App.xaml.cs:
-	
-	    public static HttpNotificationChannel CurrentChannel { get; private set; }
+3. At the top of the **Application_Launching** method in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
-        private async void InitNotificationsAsync()
+        var channel = HttpNotificationChannel.Find("MyPushChannel");
+        if (channel == null)
         {
-            CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
-            if (CurrentChannel == null)
-            {
-                CurrentChannel = new HttpNotificationChannel("MyPushChannel");
-                CurrentChannel.Open();
-                CurrentChannel.BindToShellToast();
-            }
-
-            var hub = new NotificationHub("mynotificationhub", "Endpoint=sb://mynotificationhub-ns.servicebus.windows-bvt.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=2VRVBGMREn7ENjgbh2JhX/7ncySzwMfqf9l/Ca9K07I=");
-            await hub.RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
+            channel = new HttpNotificationChannel("MyPushChannel");
+            channel.Open();
+            channel.BindToShellToast();
         }
+
+        channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+        {
+            var hub = new NotificationHub("<hub name>", "<connection string>");
+            await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+        });
 
     Make sure to insert the name of your hub and the connection string called *DefaultListenSharedAccessSignature* obtained in the previous section.
     This code will retrieve the ChannelURI for the app from MPNS, and will then register that ChannelURI with your Notification Hub.
+	Also, since we run this code in the **Application_Launching** method, we are sure that the ChannelURI is registered in your Notification Hub each time the application is launched.
 
 	<div class="dev-callout"><b>Note</b>
 		<p>In this this tutorial, we will send a toast notification to the device. When you send a tile notification, you must instead call the <strong>BindToShellTile</strong> method on the channel. To support both toast and tile notifications, call both <strong>BindToShellTile</strong> and  <strong>BindToShellToast</strong> </p>
-	</div>
-    
-4. At the top of the **Application_Launching** method in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
+	</div>	
 
-        InitNotificationsAsync();
-
-    This guarantees that the ChannelURI is registered in your Notification Hub each time the application is launched.
-
-5. In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
+4. In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
    ![][14]
 
    This makes sure that your app can receive push notifications.
 	
-6. Press the F5 key to run the app.
+5. Press the F5 key to run the app.
 
 <h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
 
