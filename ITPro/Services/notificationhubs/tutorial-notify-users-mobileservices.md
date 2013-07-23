@@ -58,30 +58,51 @@ Because notification registration must only be completed after a client has been
 5. Click the **Script** tab and replace the existing code with the following:
 
 		exports.post = function(request, response) {
+
+			// Create a notification hub instance.
 		    var azure = require('azure');
 		    var hub = azure.createNotificationHubService('<NOTIFICATION_HUB_NAME>', 
 				'<LISTEN_SAS_CONNECTION_STRING>');
 		
-		    // Get the device ID and clien platform from the query parameters.
-		    var deviceId = request.query.deviceid;
-		    var platform = request.query.platform;
+		    // Get the registration info that we need from the request. 
+		    var platform = request.body.platform;
 		    var userId = request.user.userId;
-		
+		    var installationId = request.header('X-ZUMO-INSTALLATION-ID');
+		    
 		    if (platform === 'win8') {
-		        hub.wns.createNativeRegistration(deviceId, {
-		            uid: userId
-		        }, function(error, response) {
-		            console.log(response);
-		            console.error(error);
-		        });        
+		        hub.wns.createNativeRegistration(request.body.channelUri, 
+				[userId, installationId], 
+		        function(error, registration) {           
+		           if (!error)
+		           { 
+		               // Return the registration.
+		               response.send(200, registration);
+		           }
+		           else
+		           {
+		               response.send(500, 'Registration failed!');
+		           }
+		        });	
 		    } else if (platform === 'ios') {
-		        hub.apns.notificationHubService(deviceId, request.user.userId, function(error) {
-		            console.error(error);
+		        hub.apns.createNativeRegistration(request.body.deviceToken, 
+				[userId, installationId], 
+		        function(error, registration) {           
+		           if (!error)
+		           { 
+		               // Return the registration.
+		               response.send(200, registration);
+		           }
+		           else
+		           {
+		               response.send(500, 'Registration failed!');
+		           }
 		        });
 		    } else {
-		        response.send(500, 'unknown client');
+		        response.send(500, 'Unknown client.');
 		    }
 		};
+
+	This code gets platform and and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to create a new registration. This registration is tagged with the user ID and installation ID.
 
 6. Update the script to replace _`<NOTIFICATION_HUB_NAME>`_ and _`<LISTEN_SAS_CONNECTION_STRING>`_ with values for your notification hub, then click **Save**.
 
@@ -120,23 +141,33 @@ The final step is to add code that sends notifications in the mobile service. Th
 		    var azure = require('azure');
 		    var hub = azure.createNotificationHubService('<NOTIFICATION_HUB_NAME>', 
 		    '<FULL_SAS_CONNECTION_STRING>');
+
+		    // Get the user ID since authentication is required.
+		    var wnsPayload = '<toast><visual><binding template="ToastText02"><text id="1">New item added:</text><text id="2">' + item.text + '</text></binding></visual></toast>';
+		
 		    request.execute({
 		        success: function() {
-		            // Write to the response and then send the notification in the background
+		            // Write to the response and  send a notification to the user on all devices.
 		            request.respond();
-		            
-		            // Call the templated method to cover both WNS and APNS?
-		            hub.wns.sendToastText04(item.channel, {
-		                text1: item.text
-		            }, {
-		                success: function(pushResponse) {
-		                    console.log("Sent push:", pushResponse);
+		            console.log(user.userId);
+		            // Send to Windows Store apps.
+		            hub.wns.send(user.userId, wnsPayload, 'wns/toast', function(error) {
+		                if (error) {
+		                    console.log(error);
+		                }
+		            });
+		            // Send to iOS apps.
+		            hub.apns.send(user.userId,item.text,function(error) {
+		                if (error) {
+		                    console.log(error);
 		                }
 		            });
 		        }
 		    });
 		}
-
+	
+	This attempts to send notifications to the tag for the current logged-in user in both Windows Store and iOS apps.
+		
 4. Update the script to replace _`<NOTIFICATION_HUB_NAME>`_ and _`<FULL_SAS_CONNECTION_STRING>`_ with values for your notification hub, then click **Save**.
 
    This registers a new insert script, which uses Notification Hubs to send a push notification (the inserted text) to the channel provided in the insert request.

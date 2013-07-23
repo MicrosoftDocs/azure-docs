@@ -17,14 +17,21 @@ This topic shows you how to request push notification registration with Windows 
 
 1. In Visual Studio 2012 Express for Windows 8, open the MainPage.xaml.cs file in the project that you created when you completed the prerequisite tutorial [Get started with authentication].
 
-2. Add the following code that defines the RegistrationResult class:
+2. Add the following code that defines the **NotificationRequest** and **RegistrationResult** classes:
+
+        public class NotificationRequest
+        {
+            public string channelUri { get; set; }
+            public string platform { get; set; }
+        }
 
         public class RegistrationResult
         {
             public string RegistrationId { get; set; }
+            public string ExpirationTime { get; set; }
         }
 
-  This class will hold the registration ID returned when the custom API is called.
+  These classes will hold the request body and the registration ID returned when the custom API is called, respectively.
 
 3. In the **MainPage** class, add the following method:
 
@@ -38,25 +45,30 @@ This topic shows you how to request push notification registration with Windows 
                 .PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            // Define query parameters.
-            var parameters = new Dictionary<string, string>();
-            parameters.Add("platform", "win8");
-            parameters.Add("deviceid", channel.Uri);
+            // Create the body of the request.
+            var body = new NotificationRequest 
+            {
+                channelUri = channel.Uri, 
+                platform = "win8" 
+            }; 
 
             try
             {
-                // Call the custom API method with the supplied parameters.
+                // Call the custom API POST method with the supplied body.
                 var result = await App.MobileService
-                    .InvokeApiAsync<RegistrationResult>("register_notifications",
-                    System.Net.Http.HttpMethod.Post, parameters);
+                    .InvokeApiAsync<NotificationRequest, 
+                    RegistrationResult>("register_notifications", body,
+                    System.Net.Http.HttpMethod.Post, null);
 
-                message = result.RegistrationId;
+                // Set the response, which is the ID of the registration.
+                message = string.Format("Registration ID: {0}", result.RegistrationId);
             }
             catch (MobileServiceInvalidOperationException ex)
             {
                 message = ex.Message;
             }
 
+            // Display a message dialog.
             var dialog = new MessageDialog(message);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
