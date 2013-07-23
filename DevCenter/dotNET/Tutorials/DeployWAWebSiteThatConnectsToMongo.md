@@ -457,7 +457,7 @@ In this section you will deploy the My Task List application using Git.
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
-9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: <a href="http://mytasklistapp.azurewebsites.net">http://mytasklistapp.azurewebsites.net</a>.
+9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: http://mytasklistapp.azurewebsites.net.
 
 <h2><span class="short-header">Summary</span>Summary</h2>
 
