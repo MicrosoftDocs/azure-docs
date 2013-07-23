@@ -139,7 +139,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
         }
 
     Make sure to insert the name of your hub and the connection string called **DefaultListenSharedAccessSignature** that you obtained in the previous section.
-    This code will retrieve the ChannelURI for the app from WNS, and will register that ChannelURI with your notification hub.
+    This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your notification hub.
     
 4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
