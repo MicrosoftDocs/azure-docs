@@ -62,7 +62,7 @@ Three cloud service features require special configurations before you export a 
 
  ![CloudServices_QuickCreate](../Media/CloudServices_QuickCreate.png)
 
-2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: [http://*myURL*.cloudapp.net](http://myURL.cloudapp.net).
+2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: http://*myURL*.cloudapp.net.
 
 3. In **Region/Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Windows Azure services within a region.
 
