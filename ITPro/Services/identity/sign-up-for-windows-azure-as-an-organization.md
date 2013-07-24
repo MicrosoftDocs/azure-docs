@@ -18,6 +18,6 @@ Want to sign up for Windows Azure as an organization? [**Sign up now**](http://g
 
 **Additional Resources**
 
-* [What is Windows Azure AD?](./what-is-windows-azure-active-directory.md) 
+* [What is Windows Azure AD?](/en-us/manage/services/identity/what-is-windows-azure-active-directory/) 
 * [Windows Azure AD Library on TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
 * [Windows Azure AD Library on MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
