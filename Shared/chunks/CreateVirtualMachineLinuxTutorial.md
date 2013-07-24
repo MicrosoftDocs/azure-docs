@@ -5,13 +5,12 @@ Creating a virtual machine that is running the Linux operating system is easy wh
 
 You will learn:
 
-- [What is a virtual machine in Windows Azure] []
-- [How to create a custom virtual machine running the Linux OS] []
+- [About virtual machines in Windows Azure] []
+- [How to create the virtual machine] []
 - [How to log on to the virtual machine after you create it] []
 - [How to attach a data disk to the new virtual machine] []
-- [How to set up communication with the virtual machine] []
 
-Note: This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Note**: This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 ## <a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
 
@@ -34,11 +33,7 @@ You use the **From Gallery** method to create a custom virtual machine in the Ma
 1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
 On the command bar, click **New**.
 
-	![Create new virtual machine] (../../itpro/linux/media/create.png)
-
 2. Click **Virtual Machine**, and then click **From Gallery**.
-
-	![Choose to create a virtual machine From Gallery] (../../itpro/linux/media/createnew.png)
 
 3. From **Platform Images**, select the one of the images, and then click the arrow to continue.
 
@@ -46,11 +41,11 @@ On the command bar, click **New**.
 
 5. In **Virtual Machine Name**, type the name that you want to use. For this virtual machine, type **MyTestVM1**.
 
-6. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, accept the default of **Extra Small**.
+6. In **Size**, select the size that you want to use for the virtual machine. The size that you choose depends on the number of cores that are needed for your application.  For this virtual machine, choose the smallest available size.
 
 7. In **New User Name**, type the name of the account that you will use to administer the virtual machine. You cannot use root for the user name. For this virtual machine, type **NewUser1**.
 
-8. Under Authentication, check **Upload Compatible SSH Key for Authentation** if you have an X.509 key in .cer or .pem format, or check **Provide a Password**. Then, provide the required information.
+8. Under Authentication, check **Provide a Password**. Then, provide the required information.
 
 9. Click the arrow to continue.
 
@@ -62,17 +57,19 @@ On the command bar, click **New**.
 
 13. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use an Automatically Generated Storage Account**.
 
-14. Click the arrow to continue.
-	
-15. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the check mark to create the virtual machine.
-    
-The virtual machine is created and operating system settings are configured. When the virtual machine is created, you will see the new virtual machine listed as **Running** in the Windows Azure Management Portal.
+14. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the check mark to create the virtual machine.
+
+15. Click the arrow to continue.
+
+16. Under Endpoints, a new endpoint is automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
+  
+After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
 
 ![Successful virtual machine creation] (../../itpro/linux/media/vmsuccesslinux.png)
 
 ## <a id="logon"> </a>How to log on to the virtual machine after you create it ##
 
-To manage the settings of the virtual machine and the applications that run on the machine, you can use a Secure Shell (SSH) client. To do this, you must install an SSH client on your computer that you want to use to access the virtual machine. There are many SSH client programs that you can choose from. The following are possible choices:
+To manage the settings of the virtual machine and the applications that run on the machine, you can use an SSH client. To do this, you must install an SSH client on your computer that you want to use to access the virtual machine. There are many SSH client programs that you can choose from. The following are possible choices:
 
 - If you are using a computer that is running a Windows operating system, you might want to use an SSH client such as PuTTY. For more information, see [PuTTY Download](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - If you are using a computer that is running a Linux operating system, you might want to use an SSH client such as OpenSSH. For more information, see [OpenSSH](http://www.openssh.org/).
@@ -171,42 +168,6 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	The data disk is now ready to use as **/mnt/datadrive**.
 
-## <a id="endpoints"> </a>How to set up communication with the virtual machine ##
-
-All virtual machines that you create in Windows Azure can automatically communicate with other virtual machines in the same cloud service or virtual network. However, you need to add an endpoint to a machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints.
-
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
-
-2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine that you previously created.
-
-3. Click **Endpoints**.
-
-	![Endpoints] (../../itpro/linux/media/endpointswindows.png)
-
-4. For this tutorial, you add an endpoint for communicating with the virtual machine using the TCP protocol. Click **Add Endpoint**.
-
-	![Add endpoints] (../../itpro/linux/media/addendpointstart.png)
-
-	The **Add Endpoint** dialog box appears.
-
-	![Add single endpoint] (../../itpro/linux/media/addendpointwindows.png)
-
-5. Accept the default selection of **Add Endpoint**, and then click the arrow to continue.
-
-	The **New Endpoint Details** page appears.
-
-	![Define the endpont] (../../itpro/linux/media/endpointtcpwindows.png)
-
-6. In **Name**, type **MyTCPEndpoint1**.
-
-7. In **Public Port** and **Private Port**, type **80**. These port numbers can be different. The public port is the entry point for communication from outside of Windows Azure and is used by the Windows Azure load balancer. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. Linux images that are available in the Image Gallery may have their local firewall disabled. If the firewall is disabled, you must open the external endpoint to enable communication with the virtual machine.
-
-8. Click the check mark to create the endpoint.
-
-	You will now see the endpoint listed on the **Endpoints** page.
-
-	![Endpont successfully created] (../../itpro/linux/media/endpointwindowsnew.png)
-
 
 ##Next Steps 
 
@@ -214,14 +175,11 @@ To learn more about Linux on Windows Azure, see the following articles:
 
 - [Introduction to Linux on Windows Azure](/en-us/manage/linux/tutorials/intro-to-linux/)
 
-- [How to guides](/en-us/manage/linux/how-to-guides/)
-
-- [Common tasks](/en-us/manage/linux/common-tasks/)
+- [How to use the Windows Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/command-line-tools/)
 
 
 [Next Steps]: #next
-[What is a virtual machine in Windows Azure]: #virtualmachine
-[How to create a custom virtual machine running the Linux OS]: #custommachine
+[About virtual machines in Windows Azure]: #virtualmachine
+[How to create the virtual machine]: #custommachine
 [How to log on to the virtual machine after you create it]: #logon
 [How to attach a data disk to the new virtual machine]: #attachdisk
-[How to set up communication with the virtual machine]: #endpoints

@@ -9,7 +9,6 @@ You will learn:
 - [How to create the virtual machine] []
 - [How to log on to the virtual machine after you create it] []
 - [How to attach a data disk to the new virtual machine] []
-- [How to set up communication with the virtual machine] []
 
 **Note:** This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -36,12 +35,7 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 2. On the command bar, click **New**.
 
-	![Create new virtual machine] (../../itpro/windows/media/create.png)
-
 3. Click **Virtual Machine**, and then click **From Gallery**.
-	
-	![Create virtual machine from gallery] (../../itpro/windows/media/createnew.png)
-
 	
 4. Click **Platform Images**, select one of the images, and then click the arrow to continue.
 	
@@ -49,7 +43,7 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 6. In **Virtual Machine Name**, type the name that you want to use for the virtual machine. For this virtual machine, type **MyTestVM1**.
 
-7. In **Size**, select the size of the virtual machine. The size you should select depends on the number of cores required to run your application. 
+7. In **Size**, select the size of the virtual machine. The size you should select depends on the number of cores required to run your application. For this virtual machine, choose the smallest available size.
 
 8. In **New User Name**, type a name for the administrative account that you want to use to manage the server. For this virtual machine, type **MyTestVM1Admin**.
 
@@ -57,7 +51,7 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 10. Click the arrow to continue.
 
-11. You can connect virtual machines together under a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Create a new cloud service**.
+11. You can place virtual machines together under a cloud service to provide robust applications, but for this tutorial, you only create a single virtual machine. To do this, select **Create a new cloud service**.
 
 12. In **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service. For this virtual machine, type **MyService1**.
 
@@ -65,11 +59,16 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 14. You can select a storage account where the VHD file is stored. For this tutorial, accept the default setting of **Use an Automatically Generated Storage Account**.
 
-15. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Use the default of **Enable Windows PowerShell Remoting** to make it easier to run administrative commands and scripts on the virtual machine.
+15. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. 
 
-16. Click the check mark to create the virtual machine.
+16. Click the arrow to continue.
+
+17. Under Endpoints, new endpoints are created to allow connections for Remote Desktop and Windows PowerShell remoting. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/setup-endpoints/).
+
+18. Click the check mark to create the virtual machine.
     
-	Windows Azure creates the virtual machine and configures the operating system settings. After Windows Azure creates the virtual machine, it is listed as **Running** in the Windows Azure Management Portal.
+	After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
+
 
 	![Successful virtual machine creation] (../../itpro/windows/media/vmsuccesswindows.png)
 
@@ -147,39 +146,15 @@ After you attach the data disk to the virtual machine, the disk is offline and n
 
 	![Initialization success] (../../itpro/windows/media/initializesuccess.png)
 
-## <a id="endpoints"> </a>How to set up communication with the virtual machine ##
 
-All virtual machines that you create in Windows Azure can automatically communicate with other virtual machines in the same cloud service or virtual network. However, you need to add an endpoint to a virtual machine for other resources on the Internet or other virtual networks to communicate with it. You can associate specific ports and a protocol to endpoints.
 
-1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
+##Next Steps 
 
-2. Click **Virtual Machines**, and then select the **MyTestVM1** virtual machine.
+To learn more about configuring Windows virtual machines on Windows Azure, see the following articles:
 
-3. Click **Endpoints**.
+-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/connect-to-a-cloud-service/)
 
-	![Add endponts] (../../itpro/windows/media/endpointswindows.png)
-
-4. For this tutorial, you will add an endpoint for communicating with the virtual machine using the TCP protocol. Click **Add Endpoint**.
-
-	![Endpoints] (../../itpro/windows/media/addendpointstart.png)
-
-	The **Add Endpoint** dialog box appears.
-
-5. Accept the default selection of **Add Endpoint**, and then click the arrow to continue.
-
-	The **New Endpoint Details** dialog box appears.
-
-	![Define the endpont] (../../itpro/windows/media/endpointtcpwindows.png)
-
-6. In the Name field, type **MyTCPEndpoint1**.
-
-7. In the **Public Port** and **Private Port** fields, type **80**. These port numbers can be different. The public port is the entry point for communication from outside Windows Azure. The Windows Azure load balancer uses the public port. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application.
-
-8. Click the check mark to create the endpoint.
-
-	You will now see the endpoint listed on the **Endpoints** page.
-
-	![Endpont successfully created] (../../itpro/windows/media/endpointwindowsnew.png)
+-[Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/manage/windows/common-tasks/manage-vm-availability/)
 
 [About virtual machines in Windows Azure]: #virtualmachine
 [How to create the virtual machine]: #custommachine
