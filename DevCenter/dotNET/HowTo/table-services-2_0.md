@@ -102,7 +102,7 @@ If you are writing an application that is not a Windows Azure cloud service, (se
 
 	<configuration>
   		<appSettings>
-    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey" />
+    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
   		</appSettings>
 	</configuration>
 
