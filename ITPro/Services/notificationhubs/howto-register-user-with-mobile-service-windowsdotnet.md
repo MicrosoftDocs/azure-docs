@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Register for Google Authentication" pageTitle="Register for Google authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, Google application authenticate, authenticate mobile services" metaDescription="Learn how to register your apps to use Google to authenticate with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Windows Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" metaDescription="Learn how to request push notification registration in a Windows Store app with Windows Azure Notification Hubs when registeration is performed by Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -80,23 +80,19 @@ This topic shows you how to request push notification registration with Windows 
 
 		await RegisterNotification();
 
-	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.
+	<div class="dev-callout"><b>Note</b>
+	<p>This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.</p>
+	</div>
 
 Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-google-developers.png
-[2]: ../Media/mobile-services-google-create-client.png
-[3]: ../Media/mobile-services-google-create-client2.png
-[4]: ../Media/mobile-services-google-create-client3.png
-[5]: ../Media/mobile-services-google-app-details.png
+
 
 <!-- URLs. -->
 [Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md
-[accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

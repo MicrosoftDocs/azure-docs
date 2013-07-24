@@ -83,62 +83,61 @@ Because notification registration must only be completed after a client has been
 		            }
 		        }
 		
-		    // Function called to log errors.
+		        // Function called to log errors.
 		    var logErrors = function(error) {
 		            if (error) {
 		                console.error(error)
 		            }
 		        }
 		    // Check for existing registrations.
-		    var existingRegs = 
-		        hub.listRegistrationsByTag(installationId, 100, logErrors);
-		    var updated = false;
-		    var firstRegistration = true;
-		
-		    if (existingRegs) {
-		        for (var i = 0; i < existingRegs.length; i++) {
-		            if (firstRegistration) {
-		                if (platform === 'win8') {
-		                    hub.wns.updateNativeRegistration(existingRegs[i],
-		                    request.body.channelUri, 
-		                    [userId, installationId], registrationComplete);
-		                } else if (platform === 'ios') {
-		                    hub.apns.updateNativeRegistration(existingRegs[i],
-		                    request.body.deviceToken, 
-		                    [userId, installationId], registrationComplete);
+		    hub.listRegistrationsByTag(installationId, function(error, existingRegs) {
+		        var firstRegistration = true;
+		        if (existingRegs) {
+		            for (var i = 0; i < existingRegs.length; i++) {
+		                if (firstRegistration) {
+		                    // Update an existing registration.
+		                    if (platform === 'win8') {
+		                        existingRegs[i].channelUri = request.body.channelUri;
+		                        hub.updateRegistration(existingRegs[i], registrationComplete);
+		                    } else if (platform === 'ios') {
+		                        existingRegs[i].deviceToken = request.body.deviceToken;
+		                        hub.updateRegistration(existingRegs[i], registrationComplete);
+		                    } else {
+		                        response.send(500, 'Unknown client.');
+		                    }
 		                } else {
-		                    response.send(500, 'Unknown client.');
+		                    // We shouldn't have any extra registrations; delete if we do.
+		                    hub.deleteRegistration(existingRegs[i], logErrors);
 		                }
+                    	firstRegistration = false;
+		            }
+		        } else {
+		            // Create a new registration.
+		            if (platform === 'win8') {
+		                hub.wns.createNativeRegistration(request.body.channelUri, 
+		                [userId, installationId], function(error, registration) {
+		                    if (!error) {
+		                        // Return the registration.
+		                        response.send(200, registration);
+		                    } else {
+		                        response.send(500, 'Registration failed!');
+		                    }
+		                });
+		            } else if (platform === 'ios') {
+		                hub.apns.createNativeRegistration(request.body.deviceToken, 
+		                [userId, installationId], function(error, registration) {
+		                    if (!error) {
+		                        // Return the registration.
+		                        response.send(200, registration);
+		                    } else {
+		                        response.send(500, 'Registration failed!');
+		                    }
+		                });
 		            } else {
-		                // We shouldn't have any extra registrations; delete if we do.
-		                hub.deleteRegistration(existingRegs[i], logErrors);
+		                response.send(500, 'Unknown client.');
 		            }
 		        }
-		    } else {
-		        if (platform === 'win8') {
-		            hub.wns.createNativeRegistration(request.body.channelUri, 
-		            [userId, installationId], function(error, registration) {
-		                if (!error) {
-		                    // Return the registration.
-		                    response.send(200, registration);
-		                } else {
-		                    response.send(500, 'Registration failed!');
-		                }
-		            });
-		        } else if (platform === 'ios') {
-		            hub.apns.createNativeRegistration(request.body.deviceToken, 
-		            [userId, installationId], function(error, registration) {
-		                if (!error) {
-		                    // Return the registration.
-		                    response.send(200, registration);
-		                } else {
-		                    response.send(500, 'Registration failed!');
-		                }
-		            });
-		        } else {
-		            response.send(500, 'Unknown client.');
-		        }
-		    }
+		    });
 		}
 
 	This code gets platform and and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to update a registration, if it exists, or create a new registration. This registration is tagged with the user ID and installation ID.
@@ -181,15 +180,15 @@ The final step is to add code that sends notifications in the mobile service. Th
 		    var hub = azure.createNotificationHubService('<NOTIFICATION_HUB_NAME>', 
 		    '<FULL_SAS_CONNECTION_STRING>');
 		
-		    // Create the payload for a Windows Store app.
+ 		   // Create the payload for a Windows Store app.
 		    var wnsPayload = '<toast><visual><binding template="ToastText02"><text id="1">New item added:</text><text id="2">' + item.text + '</text></binding></visual></toast>';
 		
-		    // Execute the request and send notifications.		
+		    // Execute the request and send notifications.
 		    request.execute({
 		        success: function() {
-		            // Write to the response and  send a notification to the user on all devices.
+		            // Write the default response and send a notification 
+		            // to the user on all devices by using the userId tag.
 		            request.respond();
-		            console.log(user.userId);
 		            // Send to Windows Store apps.
 		            hub.wns.send(user.userId, wnsPayload, 'wns/toast', function(error) {
 		                if (error) {
@@ -197,7 +196,9 @@ The final step is to add code that sends notifications in the mobile service. Th
 		                }
 		            });
 		            // Send to iOS apps.
-		            hub.apns.send(user.userId,item.text,function(error) {
+		            hub.apns.send(user.userId, {
+		                alert: item.text
+		            }, function(error) {
 		                if (error) {
 		                    console.log(error);
 		                }
