@@ -346,61 +346,61 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[5]: mobile-services-ios-push-step5.png
-[6]: mobile-services-ios-push-step6.png
-[7]: mobile-services-ios-push-step7.png
+[5]: ../media/mobile-services-ios-push-step5.png
+[6]: ../media/mobile-services-ios-push-step6.png
+[7]: ../media/mobile-services-ios-push-step7.png
 
-[9]: mobile-services-ios-push-step9.png
-[10]: mobile-services-ios-push-step10.png
+[9]: ../media/mobile-services-ios-push-step9.png
+[10]: ../media/mobile-services-ios-push-step10.png
 
-[17]: mobile-services-ios-push-step17.png
-[18]: mobile-services-ios-push-step18.png
+[17]: ../media/mobile-services-ios-push-step17.png
+[18]: ../media/mobile-services-ios-push-step18.png
 
-[103]: mobile-services-ios-push-03.png
-[105]: mobile-services-ios-push-05.png
-[106]: mobile-services-ios-push-06.png
-[107]: mobile-services-ios-push-07.png
-[108]: mobile-services-ios-push-08.png
-[109]: mobile-services-ios-push-09.png
-[110]: mobile-services-ios-push-10.png
-[111]: mobile-services-ios-push-11.png
-[112]: mobile-services-ios-push-12.png
-[113]: mobile-services-ios-push-13.png
-[114]: mobile-services-ios-push-14.png
-[115]: mobile-services-ios-push-15.png
-[116]: mobile-services-ios-push-16.png
-[117]: mobile-services-ios-push-17.png
-[118]: mobile-services-ios-push-18.png
-[119]: mobile-services-ios-push-19.png
+[103]: ../media/mobile-services-ios-push-03.png
+[105]: ../media/mobile-services-ios-push-05.png
+[106]: ../media/mobile-services-ios-push-06.png
+[107]: ../media/mobile-services-ios-push-07.png
+[108]: ../media/mobile-services-ios-push-08.png
+[109]: ../media/mobile-services-ios-push-09.png
+[110]: ../media/mobile-services-ios-push-10.png
+[111]: ../media/mobile-services-ios-push-11.png
+[112]: ../media/mobile-services-ios-push-12.png
+[113]: ../media/mobile-services-ios-push-13.png
+[114]: ../media/mobile-services-ios-push-14.png
+[115]: ../media/mobile-services-ios-push-15.png
+[116]: ../media/mobile-services-ios-push-16.png
+[117]: ../media/mobile-services-ios-push-17.png
+[118]: ../media/mobile-services-ios-push-18.png
+[119]: ../media/mobile-services-ios-push-19.png
 
-[120]: mobile-services-ios-push-20.png
-[121]: mobile-services-ios-push-21.png
-[122]: mobile-services-ios-push-22.png
-[123]: mobile-services-ios-push-23.png
-[124]: mobile-services-ios-push-24.png
-[125]: mobile-services-ios-push-25.png
-[126]: mobile-services-ios-push-26.png
+[120]: ../media/mobile-services-ios-push-20.png
+[121]: ../media/mobile-services-ios-push-21.png
+[122]: ../media/mobile-services-ios-push-22.png
+[123]: ../media/mobile-services-ios-push-23.png
+[124]: ../media/mobile-services-ios-push-24.png
+[125]: ../media/mobile-services-ios-push-25.png
+[126]: ../media/mobile-services-ios-push-26.png
 
-[27]: notification-hub-create-from-portal.png
-[28]: notification-hub-create-from-portal2.png
-[29]: notification-hub-select-from-portal.png
-[210]: notification-hub-select-from-portal2.png
-[211]: notification-hub-configure-ios.png
-[212]: notification-hub-connection-strings.png
-
-
-[213]: notification-hub-create-console-app.png
-[214]: notification-hub-windows-toast.png
+[27]: ../media/notification-hub-create-from-portal.png
+[28]: ../media/notification-hub-create-from-portal2.png
+[29]: ../media/notification-hub-select-from-portal.png
+[210]: ../media/notification-hub-select-from-portal2.png
+[211]: ../media/notification-hub-configure-ios.png
+[212]: ../media/notification-hub-connection-strings.png
 
 
-[215]: notification-hub-scheduler1.png
-[216]: notification-hub-scheduler2.png
+[213]: ../media/notification-hub-create-console-app.png
+[214]: ../media/notification-hub-windows-toast.png
 
 
-[31]: notification-hub-create-ios-app.png
-[32]: notification-hub-create-ios-app2.png
-[33]: notification-hub-create-ios-app3.png
-[34]: notification-hub-create-ios-app4.png
+[215]: ../media/notification-hub-scheduler1.png
+[216]: ../media/notification-hub-scheduler2.png
+
+
+[31]: ../media/notification-hub-create-ios-app.png
+[32]: ../media/notification-hub-create-ios-app2.png
+[33]: ../media/notification-hub-create-ios-app3.png
+[34]: ../media/notification-hub-create-ios-app4.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

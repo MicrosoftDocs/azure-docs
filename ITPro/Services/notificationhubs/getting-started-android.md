@@ -338,31 +338,31 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[1]: mobile-services-google-developers.png
-[2]: mobile-services-google-create-server.png
-[3]: mobile-services-google-create-server2.png
-[4]: mobile-services-google-create-server3.png
+[1]: ../media/mobile-services-google-developers.png
+[2]: ../media/mobile-services-google-create-server.png
+[3]: ../media/mobile-services-google-create-server2.png
+[4]: ../media/mobile-services-google-create-server3.png
 
-[7]: notification-hub-create-from-portal.png
-[8]: notification-hub-create-from-portal2.png
-[9]: notification-hub-select-from-portal.png
-[10]: notification-hub-select-from-portal2.png
-[11]: notification-hub-configure-android.png
-[12]: notification-hub-connection-strings.png
+[7]: ../media/notification-hub-create-from-portal.png
+[8]: ../media/notification-hub-create-from-portal2.png
+[9]: ../media/notification-hub-select-from-portal.png
+[10]: ../media/notification-hub-select-from-portal2.png
+[11]: ../media/notification-hub-configure-android.png
+[12]: ../media/notification-hub-connection-strings.png
 
-[13]: notification-hub-create-android-app.png
-[14]: notification-hub-create-android-app2.png
-[15]: notification-hub-create-android-app4.png
-[16]: notification-hub-create-android-app5.png
-[17]: notification-hub-create-android-app6.png
+[13]: ../media/notification-hub-create-android-app.png
+[14]: ../media/notification-hub-create-android-app2.png
+[15]: ../media/notification-hub-create-android-app4.png
+[16]: ../media/notification-hub-create-android-app5.png
+[17]: ../media/notification-hub-create-android-app6.png
 
-[18]: notification-hub-create-android-app7.png
-[19]: notification-hub-create-android-app8.png
+[18]: ../media/notification-hub-create-android-app7.png
+[19]: ../media/notification-hub-create-android-app8.png
 
-[20]: notification-hub-create-console-app.png
-[21]: notification-hub-android-toast.png
-[22]: notification-hub-scheduler1.png
-[23]: notification-hub-scheduler2.png
+[20]: ../media/notification-hub-create-console-app.png
+[21]: ../media/notification-hub-android-toast.png
+[22]: ../media/notification-hub-scheduler1.png
+[23]: ../media/notification-hub-scheduler2.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

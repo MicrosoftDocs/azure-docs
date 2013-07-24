@@ -201,28 +201,28 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: mobile-services-submit-win8-app.png
-[1]: mobile-services-win8-app-name.png
-[2]: notification-hub-create-win8-app.png
-[3]: notification-hub-associate-win8-app.png
-[4]: mobile-services-select-app-name.png
-[5]: mobile-services-win8-edit-app.png
-[6]: mobile-services-win8-app-push-auth.png
-[7]: notification-hub-create-from-portal.png
-[8]: notification-hub-create-from-portal2.png
-[9]: notification-hub-select-from-portal.png
-[10]: notification-hub-select-from-portal2.png
-[11]: notification-hub-configure-wns.png
-[12]: notification-hub-connection-strings.png
+[0]: ../media/mobile-services-submit-win8-app.png
+[1]: ../media/mobile-services-win8-app-name.png
+[2]: ../media/notification-hub-create-win8-app.png
+[3]: ../media/notification-hub-associate-win8-app.png
+[4]: ../media/mobile-services-select-app-name.png
+[5]: ../media/mobile-services-win8-edit-app.png
+[6]: ../media/mobile-services-win8-app-push-auth.png
+[7]: ../media/notification-hub-create-from-portal.png
+[8]: ../media/notification-hub-create-from-portal2.png
+[9]: ../media/notification-hub-select-from-portal.png
+[10]: ../media/notification-hub-select-from-portal2.png
+[11]: ../media/notification-hub-configure-wns.png
+[12]: ../media/notification-hub-connection-strings.png
 
-[13]: notification-hub-create-wp-app.png
-[14]: mobile-app-enable-push-wp8.png
+[13]: ../media/notification-hub-create-wp-app.png
+[14]: ../media/mobile-app-enable-push-wp8.png
 
-[213]: notification-hub-create-console-app.png
-[214]: notification-hub-windows-toast.png
-[215]: notification-hub-scheduler1.png
-[216]: notification-hub-scheduler2.png
-[217]: mobile-services-win8-edit2-app.png
+[213]: ../media/notification-hub-create-console-app.png
+[214]: ../media/notification-hub-windows-toast.png
+[215]: ../media/notification-hub-scheduler1.png
+[216]: ../media/notification-hub-scheduler2.png
+[217]: ../media/mobile-services-win8-edit2-app.png
 
 <!-- URLs. -->
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
