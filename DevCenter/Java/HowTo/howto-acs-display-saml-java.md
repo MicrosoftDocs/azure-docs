@@ -1,11 +1,11 @@
-<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" metaDescription="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" metaDescription="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="waltpo" editor="mollybos" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
 
 # How to view SAML returned by the Windows Azure Access Control Service
 
-This guide will show you how to view the underlying Security Assertion Markup Language (SAML) returned to your application by the Winodws Azure Access Control Service (ACS). The guide builds on the [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse topic][], by providing code that displays the SAML information. The completed application will look similar to the following.
+This guide will show you how to view the underlying Security Assertion Markup Language (SAML) returned to your application by the Windows Azure Access Control Service (ACS). The guide builds on the [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse][] topic, by providing code that displays the SAML information. The completed application will look similar to the following.
 
 ![Example SAML output][saml_output]
 
@@ -19,15 +19,27 @@ For more information on ACS, see the [Next steps](#next_steps) section.
 ## Table of Contents
 
 -   [Prerequisites][]
--   [Modify the JSP file to display SAML][]
 -   [Add the JspWriter library to your build path and deployment assembly][]
+-   [Modify the JSP file to display SAML][]
 -   [Run the application][]
 -   [Next steps][]
 
 
 ## <a name="pre">Prerequisites</a>
 
-To complete the tasks in this guide, complete the sample at [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse topic][] and use it as the starting point for this tutorial.
+To complete the tasks in this guide, complete the sample at [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse][] and use it as the starting point for this tutorial.
+
+## <a name="add_library">Add the JspWriter library to your build path and deployment assembly</a>
+
+Add the library that contains the **javax.servlet.jsp.JspWriter** class to your build path and deployment assembly. If you are using Tomcat, the library is **jsp-api.jar**, which is located in the Apache **lib** folder.
+
+1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Build Path**, click **Configure Build Path**, click the **Libraries** tab, and then click **Add External JARs**.
+2. In the **JAR Selection** dialog, navigate to the necessary JAR, select it, and then click **Open**.
+3. With the **Properties for MyACSHelloWorld** dialog still open, click **Deployment Assembly**.
+4. In the **Web Deployment Assembly** dialog, click **Add**.
+5. In the **New Assembly Directive** dialog, click **Java Build Path Entries** and then click **Next**.
+6. Select the appropriate library and click **Finish**.
+7. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
 
 ## <a name="modify_jsp">Modify the JSP file to display SAML</a>
 
@@ -163,21 +175,9 @@ Modify **index.jsp** to use the following code.
 	</body>
 	</html>
 
-## <a name="add_library">Add the JspWriter library to your build path and deployment assembly</a>
-
-Add the library that contains the **javax.servlet.jsp.JspWriter** class to your build path and deployment assembly. If you are using Tomcat, the library is **jsp-api.jar**, which is located in the Apache **lib** folder.
-
-1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Java Build Path**, click **Configure Build Path**, click the **Libraries** tab, and click **Add External JARs**.
-2. In the **JAR Selection** dialog, navigate to the necessary JAR, select it, and click **Open**.
-3. With the **Properties for MyACSHelloWorld** dialog still open, click **Deployment Assembly**.
-4. In the **Web Deployment Assembly** dialog, click **Add**.
-5. In the **New Assembly Directive** dialog, click **Java Build Path Entries** and click **Next**.
-6. Select the appropriate library and click **Finish**.
-7. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
-
 ## <a name="run_application">Run the application</a>
 
-1. Run your application in the computer emulator or deploy to Windows Azure, using the steps documented at [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse topic][].
+1. Run your application in the computer emulator or deploy to Windows Azure, using the steps documented at [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse][].
 2. Launch a browser and open your web application. After you log on to your application, you'll see SAML information, including the security assertion provided by the identity provider.
 
 ## <a name="next_steps">Next steps</a>
@@ -190,5 +190,5 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Run the application]: #run_application
 [Next steps]: #next_steps
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse topic]: howto-acs-java.md
+[How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse]: howto-acs-java.md
 [saml_output]: ../media/SAML_Output.png

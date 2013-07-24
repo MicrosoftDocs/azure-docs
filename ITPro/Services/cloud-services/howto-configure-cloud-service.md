@@ -77,7 +77,11 @@ Remote Desktop enables you to access the desktop of a role running in Windows Az
 
 On the **Configure** page for your cloud service, you can enable Remote Desktop or change the local Administrator account or password used to connect to the virtual machines, the certificate used in authentication, or the expiration date.
 
-**Note**   If your cloud service consists of two or more connected Windows Server-based virtual machines, you don’t have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If your cloud service consists of two or more connected Windows Server-based virtual machines, you don’t have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.</p> 
+</div>
+
 
 ###To configure Remote Access in the service definition file###
 
@@ -97,9 +101,8 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
     <b>Warning</b> 
     <p>All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. If no certificate is installed you will see this option:	
     </p> 
+	<img src="../media/CloudServices_CreateNewCertDropDown.png" alt="Configuration Page" />
     </div>
-
-	![Cloud services create certificate] (../media/CloudServices_CreateNewCertDropDown.png)
 
  To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
