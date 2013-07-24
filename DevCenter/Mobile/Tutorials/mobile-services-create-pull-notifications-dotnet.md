@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-create-pull-notifications-dotnet" writer="glenga" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="mobile-services-create-pull-notifications-dotnet" writer="glenga" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Windows Azure Mobile Services" metaKeywords="custom api" metaDescription="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
@@ -129,11 +129,7 @@ Now that you have created a periodic notification, consider finding out more abo
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 6b498e07dc9317cd1ea1e63f279cfffa5ace33df
 <!-- Anchors. -->
 [Define the custom API]: #define-custom-api
 [Update the app to turn on period notifications]: #update-app
@@ -151,7 +147,7 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md#create-new-service
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md/#create-new-service
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
@@ -160,9 +156,5 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
 [PeriodicUpdateRecurrance]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx
-<<<<<<< HEAD
+[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
 
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
-=======
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
->>>>>>> 6b498e07dc9317cd1ea1e63f279cfffa5ace33df
