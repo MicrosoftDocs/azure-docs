@@ -67,4 +67,4 @@ For more information about delivering assets, see:
 </ul>
 
 <h2>Next Steps</h2>
-This topic explained downloading an asset from Windows Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkId=301816) topic.
+This topic explained downloading an asset from Windows Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942) topic.

@@ -19,7 +19,7 @@ Blitline is a cloud-based image processing service that provides enterprise leve
 
 The fact is that image processing has been done over and over again, usually rebuilt from the ground up for each and every web site. We realize this because we've built them a million times too. One day we decided that perhaps it's time we just do it for everyone. We know how to do it, to do it fast and efficiently, and save everyone work in the meantime.
 
-For more information, see [http://www.blitline.com]().
+For more information, see [http://www.blitline.com](http://www.blitline.com).
 
 <h2><a name="whatisnot"></a><span  class="short-header">What Blitline is NOT...</span>What Blitline is NOT...</h2>
 
@@ -148,7 +148,7 @@ By filling in the CAPITALIZED values with your own, you can submit this JSON to 
 
 <h2><a name="nextsteps"></a><span  class="short-header">Next Steps</span>Next Steps</h2>
 
-Visit blitline.com to read about all our other features:
+Visit blitline.com to read about other features:
 
 * [Blitline API Endpoint Docs](http://www.blitline.com/docs/api)
 * [Blitline API Functions](http://www.blitline.com/docs/functions)
