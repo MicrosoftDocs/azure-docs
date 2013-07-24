@@ -824,7 +824,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Troubleshoot and Optimize Queries with SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [SQL Database Performance Considerations and Troubleshooting]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [Improving Your I/O Performance]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
-[System Center Monitoring Pack for SQL Database]: http://www.microsoft.com/download/en/details.aspx?id=28951
+[System Center Monitoring Pack for SQL Database]: http://www.microsoft.com/en-us/download/details.aspx?id=10631
 [Errors and Events Reference (Database Engine)]: http://go.microsoft.com/fwlink/p/?LinkId=166622
 [Retry Logic for Transient Failures in SQL Database]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
 [SQL Database Retry Logic Sample]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401
