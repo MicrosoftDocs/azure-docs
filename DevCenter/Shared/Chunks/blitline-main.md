@@ -148,7 +148,7 @@ By filling in the CAPITALIZED values with your own, you can submit this JSON to 
 
 <h2><a name="nextsteps"></a><span  class="short-header">Next Steps</span>Next Steps</h2>
 
-Visit blitline.com to read about all our other features:
+Visit blitline.com to read about other features:
 
 * [Blitline API Endpoint Docs](http://www.blitline.com/docs/api)
 * [Blitline API Functions](http://www.blitline.com/docs/functions)
