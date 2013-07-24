@@ -77,7 +77,7 @@ Press **F5** to run the application. When it is open, use it to browse to differ
 
 #### Writing a MapReduce streaming job 
 
-Hadoop Streaming is a utility that lets you create and run MapReduce jobs by creating an executable or a script in any language. Both the mapper and reducer read the input from STDIN and write the output to STDOUT. For more information about Hadoop Streaming, see the [Hadoop streaming decomentation](http://hadoop.apache.org/common/docs/current/streaming.html).
+Hadoop Streaming is a utility that lets you create and run MapReduce jobs by creating an executable or a script in any language. Both the mapper and reducer read the input from STDIN and write the output to STDOUT. For more information about Hadoop Streaming, see the [Hadoop streaming decomentation](http://hadoop.apache.org/docs/stable/streaming.html).
 
 
 Open Microsoft Visual Studio 2010 as Administrator.
