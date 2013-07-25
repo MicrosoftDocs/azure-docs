@@ -167,7 +167,7 @@ You might want to look at trace or log output for help with troubleshooting. Vis
 
 ![Logs in Visual Studio](../Media/LogsInVS.png)
 
-For more information, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/) on ScottGu's blog.
+For more information, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 <h3>How to add database and authorization functionality</h3>
 Most production web sites use a database and restrict some site functions to certain authorized users. For a tutorial that shows how to get started with database access, authentication, and authorization, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site][WebWithSQL].
