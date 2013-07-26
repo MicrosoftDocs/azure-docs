@@ -50,6 +50,8 @@ Visual Studio provides access to a subset of the site management functions and c
    ![Azure Web Site window](../Media/tws-configtab.png)
 
    In this tutorial you'll be using the logging and tracing drop-downs. 
+   
+   For information about the App Settings and Connection Strings boxes in this window, see [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
    If you want to perform a site management task that can't be done this window, you can click **Full Web Site Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
