@@ -1,16 +1,12 @@
-<properties linkid="" urlDisplayName="Notify Users" pageTitle="Notify Users of your mobile service with Notification Hubs" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial create an app and register to receive notifications from your mobile service bu using Notification Hubs for Windows Store development in C#/VB" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="Notify Users" pageTitle="Notify Users of your mobile service with Notification Hubs" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to register to receive notifications from your mobile service by using Notification Hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<!--<div chunk="../chunks/article-left-menu-windows-store.md" />-->
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # <a name="getting-started"> </a>Notify users with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/ITPro/mobile/tutorials/notify-users-mobile-dotnet" title="Mobile Services" class="current">Mobile Services</a>
-    <a href="/en-us/develop/mobile/tutorials/notify-users-webapi-dotnet" title="ASP.NET">ASP.NET</a>
-<!--|
-    <a href="/en-us/develop/mobile/tutorials/notify-users-mobile-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-    <a href="/en-us/develop/mobile/tutorials/notify-users-mobile-ios" title="iOS">iOS</a>
--->
+    <a href="/en-us/manage/services/notification-hubs/notify-users-mobile-services" title="Mobile Services" class="current">Mobile Services</a>
+    <a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="ASP.NET">ASP.NET</a>
 </div> 
 
 This tutorial shows you how to use Windows Azure Notification Hubs to send push notifications to a specific app user on a specific device. A Windows Azure Mobile Services backend is used to authenticate clients and to generate notifications. This tutorial builds on the notification hub that you created in the previous **Get started with Notification Hubs** tutorial. The notification registration code is moved from the client to the backend service. This ensures that registration is only completed after a client has been positively authenticated by the service. It also means that notification hub credentials aren't distributed with the client app. The service also controls the tags requested during registration.
@@ -39,7 +35,17 @@ This tutorial builds upon the app and notification hub that you created in **Get
 
 Because notification registration must only be completed after a client has been positively authenticated by the service, the registration is performed a custom API defined in the mobile service. This custom API is called by an authenticated client to request notification registration. In this section, you will update the authenticated mobile service that you defined when you completed the **Get started with authentication in Mobile Services** tutorial. 
 
-1. Log into the [Windows Azure Management Portal][Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Windows Azure Management Portal][Management Portal], click **Service Bus**, your namespace, **Notification Hubs**, then choose your notification hub and click **Connection Information**.  
+
+	![][6]
+
+2. Note the name of your notification hub and copy the connection string for the **DefaultFullSharedAccessSignature**.
+
+	![][7]
+
+	You will use this connection string, along with the notification hub name, to both register for and send notifications.
+
+2. Still in the Management Portal, click **Mobile Services**, and then click your app.
 
    ![][0]
 
@@ -107,7 +113,7 @@ Because notification registration must only be completed after a client has been
 		                    }
 		                } else {
 		                    // We shouldn't have any extra registrations; delete if we do.
-		                    hub.deleteRegistration(existingRegs[i], logErrors);
+		                    hub.deleteRegistration(existingRegs[i].RegistrationId, logErrors);
 		                }
                     	firstRegistration = false;
 		            }
@@ -154,8 +160,8 @@ Next, you need to update the TodoList app to request registration for notificati
 
 1. Follow the steps in one of the following versions of **Register the current user for push notifications by using a mobile service**, depending on your client platform:
 
-	+ [Windows Store C# version][Client topic Windows Store C# version]
-	+ [iOS version][Client topic iOS version]
+	+ <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-mobile-service-windowsdotnet" target="_blank">Windows Store C# version</a>
+	+ <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-mobile-service-ios" target="_blank">iOS version</a>
 
 2. Run the updated app, login using Facebook, and then verify that the registration ID assigned to the notification is displayed.
 
@@ -231,10 +237,12 @@ Now that the notifications are configured, it's time to test the app by insertin
 
 	Note that after the insert completes, the app receives a push notification from Notification Hubs.
 
+3. (Optional) Deploy the client app to a second device, then run the app and insert text. 
 
+	Note that a notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed this tutorial...
+Now that you have completed this tutorial, consider completing the [Use Notification Hubs to send breaking news] tutorial. For more information about Notification Hubs, see [Windows Azure Notification Hubs].
 
 <!-- Anchors. -->
 [Update your mobile service to register for notifications]: #register-notification
@@ -248,6 +256,8 @@ Now that you have completed this tutorial...
 [3]: ../Media/mobile-custom-api-select.png
 [4]: ../Media/mobile-portal-data-tables.png
 [5]: ../Media/mobile-insert-script-push2.png
+[6]: ../Media/notification-hub-select-hub-connection.png
+[7]: ../Media/notification-hub-connection-strings.png
 
 <!-- URLs. -->
 [Get started Windows Store]: ./getting-started-windowsdotnet.md
