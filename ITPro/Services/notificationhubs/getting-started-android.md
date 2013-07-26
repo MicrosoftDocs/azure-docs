@@ -1,7 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-put correct left menu
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
