@@ -8,9 +8,9 @@
     	<a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="Windows Store C#" >Windows Store C#</a>
 </div>
 
-This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to a Windows Store app. In this tutorial you start with the app created in [Get started with Notification Hubs]. When complete, you will be able to register for categories you are interested in, and receive only push notifications for those categories.
+This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to an iOS app. In this tutorial you start with the app created in [Get started with Notification Hubs]. When complete, you will be able to register for categories you are interested in, and receive only push notifications for those categories.
 
-Note that the same concepts can be seamlessly applied to iOS, Windows Phone 8, and Android clients too. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
+Note that the same concepts can be seamlessly applied to Windows Store, Windows Phone 8, and Android clients too. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
 
 This tutorial walks you through these basic steps to enable this scenario:
 
@@ -22,13 +22,13 @@ This tutorial walks you through these basic steps to enable this scenario:
 
 There are two pieces to this scenario:
 
-- the Windows Store app allows client devices to subscribe to different breaking news categories, using a Notification feature called **tags**; 
+- the iOS client app allows devices to subscribe to different breaking news categories, using a Notification feature called **tags**; 
 
 - the back-end broadcasts breaking news push notifications for all the categories, but the user will only recieve those notifications they have previously subscribed to.
 
 
 
-If your app has to push notifications to specific users and, more importantly, the notification content is private, please follow the topic [Use Notification Hubs to send notifications to users].
+If your app has to push notifications to specific users and, more importantly, the notification content is private, please follow the topic TBD Link [Use Notification Hubs to send notifications to users].
 
 ##Prerequisites ##
 
@@ -380,11 +380,11 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 
 <!-- Images. -->
 [1]: notification-hub-breakingnews-win1.png
-[2]: notification-hub-breakingnews-ios1.png
+[2]: ../media/notification-hub-breakingnews-ios1.png
 
-[3]: notification-hub-breakingnews-ios2.png
-[4]: notification-hub-breakingnews-ios3.png
-[5]: notification-hub-breakingnews-ios4.png
+[3]: ../media/notification-hub-breakingnews-ios2.png
+[4]: ../media/notification-hub-breakingnews-ios3.png
+[5]: ../media/notification-hub-breakingnews-ios4.png
 [6]: mobile-services-win8-app-push-auth.png
 [7]: notification-hub-create-from-portal.png
 [8]: notification-hub-create-from-portal2.png
@@ -392,16 +392,18 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 [10]: notification-hub-select-from-portal2.png
 [11]: notification-hub-configure-wns.png
 [12]: notification-hub-connection-strings.png
-[13]: notification-hub-create-console-app.png
-[14]: notification-hub-windows-toast.png
-[15]: notification-hub-scheduler1.png
-[16]: notification-hub-scheduler2.png
+[13]: ../media/notification-hub-create-console-app.png
+[14]: ../media/notification-hub-windows-toast.png
+[15]: ../media/notification-hub-scheduler1.png
+[16]: ../media/notification-hub-scheduler2.png
 [17]: mobile-services-win8-edit2-app.png
 [18]: notification-hub-win8-app-toast.png
 [19]: notification-hub-windows-reg.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-dotnet.md
+[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
+[Use Notification Hubs to send notifications to users] : tutorial-notify-users-mobileservices.md
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

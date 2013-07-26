@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Register for Google Authentication" pageTitle="Register for Google authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, Google application authenticate, authenticate mobile services" metaDescription="Learn how to register your apps to use Google to authenticate with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Windows Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" metaDescription="Learn how to request push notification registration in a Windows Store app with Windows Azure Notification Hubs when registeration is performed by Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 
@@ -17,14 +17,21 @@ This topic shows you how to request push notification registration with Windows 
 
 1. In Visual Studio 2012 Express for Windows 8, open the MainPage.xaml.cs file in the project that you created when you completed the prerequisite tutorial [Get started with authentication].
 
-2. Add the following code that defines the RegistrationResult class:
+2. Add the following code that defines the **NotificationRequest** and **RegistrationResult** classes:
+
+        public class NotificationRequest
+        {
+            public string channelUri { get; set; }
+            public string platform { get; set; }
+        }
 
         public class RegistrationResult
         {
             public string RegistrationId { get; set; }
+            public string ExpirationTime { get; set; }
         }
 
-  This class will hold the registration ID returned when the custom API is called.
+  These classes will hold the request body and the registration ID returned when the custom API is called, respectively.
 
 3. In the **MainPage** class, add the following method:
 
@@ -38,25 +45,30 @@ This topic shows you how to request push notification registration with Windows 
                 .PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            // Define query parameters.
-            var parameters = new Dictionary<string, string>();
-            parameters.Add("platform", "win8");
-            parameters.Add("deviceid", channel.Uri);
+            // Create the body of the request.
+            var body = new NotificationRequest 
+            {
+                channelUri = channel.Uri, 
+                platform = "win8" 
+            }; 
 
             try
             {
-                // Call the custom API method with the supplied parameters.
+                // Call the custom API POST method with the supplied body.
                 var result = await App.MobileService
-                    .InvokeApiAsync<RegistrationResult>("register_notifications",
-                    System.Net.Http.HttpMethod.Post, parameters);
+                    .InvokeApiAsync<NotificationRequest, 
+                    RegistrationResult>("register_notifications", body,
+                    System.Net.Http.HttpMethod.Post, null);
 
-                message = result.RegistrationId;
+                // Set the response, which is the ID of the registration.
+                message = string.Format("Registration ID: {0}", result.RegistrationId);
             }
             catch (MobileServiceInvalidOperationException ex)
             {
                 message = ex.Message;
             }
 
+            // Display a message dialog.
             var dialog = new MessageDialog(message);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
@@ -68,23 +80,19 @@ This topic shows you how to request push notification registration with Windows 
 
 		await RegisterNotification();
 
-	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.
+	<div class="dev-callout"><b>Note</b>
+	<p>This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.</p>
+	</div>
 
 Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-google-developers.png
-[2]: ../Media/mobile-services-google-create-client.png
-[3]: ../Media/mobile-services-google-create-client2.png
-[4]: ../Media/mobile-services-google-create-client3.png
-[5]: ../Media/mobile-services-google-app-details.png
+
 
 <!-- URLs. -->
 [Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md
-[accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-[Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

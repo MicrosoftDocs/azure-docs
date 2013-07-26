@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Getting Started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -139,7 +139,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
         }
 
     Make sure to insert the name of your hub and the connection string called **DefaultListenSharedAccessSignature** that you obtained in the previous section.
-    This code will retrieve the ChannelURI for the app from WNS, and will register that ChannelURI with your notification hub.
+    This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your notification hub.
     
 4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
@@ -242,26 +242,26 @@ In this simple example you sent broadcast notifications to all your Windows devi
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: mobile-services-submit-win8-app.png
-[1]: mobile-services-win8-app-name.png
-[2]: notification-hub-create-win8-app.png
-[3]: notification-hub-associate-win8-app.png
-[4]: mobile-services-select-app-name.png
-[5]: mobile-services-win8-edit-app.png
-[6]: mobile-services-win8-app-push-auth.png
-[7]: notification-hub-create-from-portal.png
-[8]: notification-hub-create-from-portal2.png
-[9]: notification-hub-select-from-portal.png
-[10]: notification-hub-select-from-portal2.png
-[11]: notification-hub-configure-wns.png
-[12]: notification-hub-connection-strings.png
-[13]: notification-hub-create-console-app.png
-[14]: notification-hub-windows-toast.png
-[15]: notification-hub-scheduler1.png
-[16]: notification-hub-scheduler2.png
-[17]: mobile-services-win8-edit2-app.png
-[18]: notification-hub-win8-app-toast.png
-[19]: notification-hub-windows-reg.png
+[0]: ../media/mobile-services-submit-win8-app.png
+[1]: ../media/mobile-services-win8-app-name.png
+[2]: ../media/notification-hub-create-win8-app.png
+[3]: ../media/notification-hub-associate-win8-app.png
+[4]: ../media/mobile-services-select-app-name.png
+[5]: ../media/mobile-services-win8-edit-app.png
+[6]: ../media/mobile-services-win8-app-push-auth.png
+[7]: ../media/notification-hub-create-from-portal.png
+[8]: ../media/notification-hub-create-from-portal2.png
+[9]: ../media/notification-hub-select-from-portal.png
+[10]: ../media/notification-hub-select-from-portal2.png
+[11]: ../media/notification-hub-configure-wns.png
+[12]: ../media/notification-hub-connection-strings.png
+[13]: ../media/notification-hub-create-console-app.png
+[14]: ../media/notification-hub-windows-toast.png
+[15]: ../media/notification-hub-scheduler1.png
+[16]: ../media/notification-hub-scheduler2.png
+[17]: ../media/mobile-services-win8-edit2-app.png
+[18]: ../media/notification-hub-win8-app-toast.png
+[19]: ../media/notification-hub-windows-reg.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

@@ -1,7 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-ios" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-put correct left menu
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -9,7 +8,7 @@ put correct left menu
 </div>	
 
 
-This topic shows you how to use Windows Azure Notification Hubs to send push notifications to an iOS app. 
+This topic shows you how to use Windows Azure Notification Hubs to send push notifications to an iOS application. 
 In this tutorial you create a blank iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
 This tutorial walks you through these basic steps to enable push notifications:
@@ -21,7 +20,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 5. [Connecting your app to the Notification Hub]
 6. [Send notifications from your back-end]
 
-This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use Notification Hubs to address specific users and groups of devices. This tutorial requires the following:
+This tutorial demonstrates the simple broadcast scenario using notification hubs. Be sure to follow along with the next tutorial to learn how to use notification hubs to address specific users and groups of devices. This tutorial requires the following prerequisites:
 
 + [Mobile Services iOS SDK]
 + [XCode 4.5][Install Xcode] 
@@ -32,9 +31,9 @@ This tutorial demonstrates the simple broadcast scenario using Notification Hubs
    <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
    </div>
 
-Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Store apps. 
+Completing this tutorial is a prerequisite for all other notification hub tutorials for Windows Store apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
@@ -58,9 +57,9 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
   ![][7]
   
-  This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
+  This saves the CSR file in the selected location; the default location is in the desktop. Remember the location chosen for this file.
 
-Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
+Next, register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
@@ -79,7 +78,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    ![][108]
    
 
-   This generates your app ID and requests you to **Submit** the information. Click **Submit**
+   This generates your app ID and requests that you submit the information. Click **Submit**.
    
    ![][109] 
    
@@ -95,13 +94,13 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    ![][111]
    
-   Clicking on the app ID will display details on the app and app ID:
+   Clicking on the app ID will display details about the app and the app ID:
    
    ![][112] 
    
    ![][113]
 
-4. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
+4. Scroll to the bottom of the screen and click **Create Certificate...** under the section **Development Push SSL Certificate**.
 
    ![][114] 
 
@@ -114,18 +113,18 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
     </div>
 
-5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
+5. Click **Choose File**, browse to the location in which you saved the CSR file that you created in the first task, and then click **Generate**. 
 
   ![][116]
   
-6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
+6. After the certificate is created by the portal, click **Download**, and then click **Done**.
  
   ![][118]
 
   ![][119]  
   
 
-   This downloads the signing certificate and saves it to your computer in your Downloads folder. 
+   This downloads the signing certificate and saves it to your computer in your **Downloads** folder. 
 
   ![][9] 
 
@@ -143,31 +142,31 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
     </div>
 
-Later, you will use this certificate to generate a .p12 file and upload it to your Notification Hub to enable push notifications through APNS.
+Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
 
 <h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
  
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
+1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This displays the **Add iOS Provisioning Profile** Wizard.
 
    ![][120]
 
-2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**
+2. Select **iOS App Development** under **Development** as the provisioning profile type, and click **Continue**.
 
    ![][121]
 
-3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**
+3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**.
 
    ![][122]
 
-4. In the **Select certificates** screen, select the certificate created earlier, and click **Continue**
+4. In the **Select certificates** screen, select the certificate you created earlier, and click **Continue**.
   
    ![][123]
 
-5. Next, select the **Devices** to use for testing, and click **Continue**
+5. Next, select the **Devices** to use for testing, and click **Continue**.
 
    ![][124]
 
-6. Finally, pick a name for the profile in **Profile Name**, click **Generate**, and click **Done**
+6. Finally, choose a name for the profile in **Profile Name**, click **Generate**, and click **Done**.
 
    ![][125]
    
@@ -175,43 +174,43 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 	
   This creates a new provisioning profile.
 
-7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and import the provisioning profile you just created.
+7. In Xcode, open the Organizer, select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and import the provisioning profile you just created.
 
-8. Select your device from the left, and import again the provisioning profile. 
+8. On the left, select your device, and again import the provisioning profile. 
 
-9. In Keychain Access, right-click the new certificate, click **Export**, insert a name for your certificate, select the **.p12** format, then click **Save**.
+9. In Keychain Access, right-click the new certificate, click **Export**, type a name for your certificate, select the **.p12** format, and then click **Save**.
 
    ![][18]
 
   Make a note of the file name and location of the exported certificate.
 
-This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your Notification Hub.
+This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
 
 <h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
 
-1. Log on to the [Windows Azure Management Portal], click **+NEW** at the bottom of the screen.
+1. Log on to the [Windows Azure Management Portal], and click **+NEW** at the bottom of the screen.
 
 2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
    ![][27]
 
-3. Insert a name for your notification hub, select your desired Region, then click **Create a new Notification Hub**.
+3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
    ![][28]
 
-4. Click the namespace you just created (usually ***notification hub name*-ns**), then click on the **Configure** tab at the top.
+4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click the **Configure** tab at the top.
 
    ![][29]
 
-5. Select the tab **Notification Hubs** at the top, then click on the notification hub you just created.
+5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
 
    ![][210]
 
-6. Select the tab **Configure** at the top, and click the button **Upload** for apple notification setting. Then select the **.p12** certificate you exported earlier, the password for the certificate, and make sure to select if you want to use the **Production** (if you want to push to users that purchased your app from the store) or **Sandbox** (during development) push service.
+6. Select the **Configure** tab at the top, and then click **Upload** for the Apple notification settings. Then select the **.p12** certificate you exported earlier, and the password for the certificate. Make sure to select whether you want to use the **Production** (if you want to send push notifications to users that purchased your app from the store) or the **Sandbox** (during development) push service.
 
    ![][211]
 
-7. Select the tab **Dashboard** at the top, and click the button **Connection Information**. Take note of the two connection strings.
+7. Click the **Dashboard** tab at the top, and then click **Connection Information**. Take note of the two connection strings.
 
    ![][212]
 
@@ -227,7 +226,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
    ![][32]
 
-3. Download the Azure Mobile SDK for iOS. Open the zip file and drag the folder WindowsAzureMessaging.framework into the Framework folder in your XCode project. Select **Copy items in destination group's folder**, the click **OK**
+3. Download the Windows Azure Mobile SDK for iOS. Open the .zip file and drag the folder WindowsAzureMessaging.framework into the Framework folder in your XCode project. Select **Copy items in destination group's folder**, then click **OK**.
 
    ![][33]
 
@@ -235,7 +234,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
-5. In your AppDelegate.m file add the following code in the *didFinishLaunchingWithOptions* method:
+5. In your AppDelegate.m file add the following code in the `didFinishLaunchingWithOptions` method:
 
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
@@ -271,11 +270,11 @@ You can send notifications using Notification Hubs from any back-end using our <
 
 To send notifications using a .NET app:
 
-1. In Visual Studio 2012 Express for Windows 8, create a new Visual C# Windows Store project using the Blank App template. 
+1. Create a new Visual C# console application: 
 
    ![][213]
 
-2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In Visual Studio Main Menu, select **TOOLS** -> **Library Package Manager** -> **Package Manager Console**. Then, in the console window type:
+2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
         Install-Package WindowsAzure.ServiceBus
 
@@ -285,7 +284,7 @@ To send notifications using a .NET app:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In your Program class add the following method:
+3. In your `Program` class add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -294,7 +293,7 @@ To send notifications using a .NET app:
             await hub.SendAppleNativeNotificationAsync(toast);
         }
 
-4. Then add the following line in your Main method:
+4. Then add the following line in your `Main` method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -318,8 +317,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
 
         var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>',
-    <connection string with full access>');
+        var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
         notificationHubService.hub.apple.send(
 	        null,
 	        {
@@ -347,61 +345,61 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[5]: mobile-services-ios-push-step5.png
-[6]: mobile-services-ios-push-step6.png
-[7]: mobile-services-ios-push-step7.png
+[5]: ../media/mobile-services-ios-push-step5.png
+[6]: ../media/mobile-services-ios-push-step6.png
+[7]: ../media/mobile-services-ios-push-step7.png
 
-[9]: mobile-services-ios-push-step9.png
-[10]: mobile-services-ios-push-step10.png
+[9]: ../media/mobile-services-ios-push-step9.png
+[10]: ../media/mobile-services-ios-push-step10.png
 
-[17]: mobile-services-ios-push-step17.png
-[18]: mobile-services-ios-push-step18.png
+[17]: ../media/mobile-services-ios-push-step17.png
+[18]: ../media/mobile-services-ios-push-step18.png
 
-[103]: mobile-services-ios-push-03.png
-[105]: mobile-services-ios-push-05.png
-[106]: mobile-services-ios-push-06.png
-[107]: mobile-services-ios-push-07.png
-[108]: mobile-services-ios-push-08.png
-[109]: mobile-services-ios-push-09.png
-[110]: mobile-services-ios-push-10.png
-[111]: mobile-services-ios-push-11.png
-[112]: mobile-services-ios-push-12.png
-[113]: mobile-services-ios-push-13.png
-[114]: mobile-services-ios-push-14.png
-[115]: mobile-services-ios-push-15.png
-[116]: mobile-services-ios-push-16.png
-[117]: mobile-services-ios-push-17.png
-[118]: mobile-services-ios-push-18.png
-[119]: mobile-services-ios-push-19.png
+[103]: ../media/mobile-services-ios-push-03.png
+[105]: ../media/mobile-services-ios-push-05.png
+[106]: ../media/mobile-services-ios-push-06.png
+[107]: ../media/mobile-services-ios-push-07.png
+[108]: ../media/mobile-services-ios-push-08.png
+[109]: ../media/mobile-services-ios-push-09.png
+[110]: ../media/mobile-services-ios-push-10.png
+[111]: ../media/mobile-services-ios-push-11.png
+[112]: ../media/mobile-services-ios-push-12.png
+[113]: ../media/mobile-services-ios-push-13.png
+[114]: ../media/mobile-services-ios-push-14.png
+[115]: ../media/mobile-services-ios-push-15.png
+[116]: ../media/mobile-services-ios-push-16.png
+[117]: ../media/mobile-services-ios-push-17.png
+[118]: ../media/mobile-services-ios-push-18.png
+[119]: ../media/mobile-services-ios-push-19.png
 
-[120]: mobile-services-ios-push-20.png
-[121]: mobile-services-ios-push-21.png
-[122]: mobile-services-ios-push-22.png
-[123]: mobile-services-ios-push-23.png
-[124]: mobile-services-ios-push-24.png
-[125]: mobile-services-ios-push-25.png
-[126]: mobile-services-ios-push-26.png
+[120]: ../media/mobile-services-ios-push-20.png
+[121]: ../media/mobile-services-ios-push-21.png
+[122]: ../media/mobile-services-ios-push-22.png
+[123]: ../media/mobile-services-ios-push-23.png
+[124]: ../media/mobile-services-ios-push-24.png
+[125]: ../media/mobile-services-ios-push-25.png
+[126]: ../media/mobile-services-ios-push-26.png
 
-[27]: notification-hub-create-from-portal.png
-[28]: notification-hub-create-from-portal2.png
-[29]: notification-hub-select-from-portal.png
-[210]: notification-hub-select-from-portal2.png
-[211]: notification-hub-configure-ios.png
-[212]: notification-hub-connection-strings.png
-
-
-[213]: notification-hub-create-console-app.png
-[214]: notification-hub-windows-toast.png
+[27]: ../media/notification-hub-create-from-portal.png
+[28]: ../media/notification-hub-create-from-portal2.png
+[29]: ../media/notification-hub-select-from-portal.png
+[210]: ../media/notification-hub-select-from-portal2.png
+[211]: ../media/notification-hub-configure-ios.png
+[212]: ../media/notification-hub-connection-strings.png
 
 
-[215]: notification-hub-scheduler1.png
-[216]: notification-hub-scheduler2.png
+[213]: ../media/notification-hub-create-console-app.png
+[214]: ../media/notification-hub-windows-toast.png
 
 
-[31]: notification-hub-create-ios-app.png
-[32]: notification-hub-create-ios-app2.png
-[33]: notification-hub-create-ios-app3.png
-[34]: notification-hub-create-ios-app4.png
+[215]: ../media/notification-hub-scheduler1.png
+[216]: ../media/notification-hub-scheduler2.png
+
+
+[31]: ../media/notification-hub-create-ios-app.png
+[32]: ../media/notification-hub-create-ios-app2.png
+[33]: ../media/notification-hub-create-ios-app3.png
+[34]: ../media/notification-hub-create-ios-app4.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

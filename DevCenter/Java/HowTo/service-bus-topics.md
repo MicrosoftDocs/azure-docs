@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -46,17 +46,17 @@ token permissions to manage it, and the **ServiceBusContract** class is
 the sole point of communication with Azure.
 
 The **ServiceBusService** class provides methods to create, enumerate,
-and delete topics. The example below shows how a **ServiceBusService**
-can be used to create a topic named "TestTopic" within a "HowToSample"
-service namespace:
+and delete topics. The example below shows how a **ServiceBusService** object
+can be used to create a topic named "TestTopic", with a namespace named "HowToSample":
 
-    String issuer = "<obtained from portal>";
-    String key = "<obtained from portal>";
     Configuration config = 
     	ServiceBusConfiguration.configureWithWrapAuthentication(
-			“HowToSample”,
-			issuer,
-			key);  
+          "HowToSample",
+          "your_service_bus_owner",
+          "your_service_bus_key",
+          ".servicebus.windows.net",
+          "-sb.accesscontrol.windows.net/WRAPv0.9");
+
 	ServiceBusContract service = ServiceBusService.create(config);
     TopicInfo topicInfo = new TopicInfo("TestTopic");
 	try  
@@ -80,7 +80,7 @@ to create a topic named "TestTopic" with a maximum size of 5GB:
 
 **Note:** You can use the **listTopics** method on
 **ServiceBusContract** objects to check if a topic with a specified name
-already exists within a service namespace..
+already exists within a service namespace.
 
 ## <a name="bkmk_HowToCreateSubscrip"> </a>How to Create Subscriptions
 
@@ -98,12 +98,14 @@ subscription's virtual queue. The following example creates a
 subscription named "AllMessages" and uses the default **MatchAll**
 filter.
 
-    String issuer = "<obtained from portal>";
-	String key = "<obtained from portal>";
-    Configuration config = 	ServiceBusConfiguration.configureWithWrapAuthentication(
-			“HowToSample”,
-			issuer,
-			key);    
+    Configuration config = 
+    	ServiceBusConfiguration.configureWithWrapAuthentication(
+          "HowToSample",
+          "your_service_bus_owner",
+          "your_service_bus_key",
+          ".servicebus.windows.net",
+          "-sb.accesscontrol.windows.net/WRAPv0.9");
+  
 	ServiceBusContract service = ServiceBusService.create(config);
     try 
 	{
@@ -171,12 +173,14 @@ To send a message to a Service Bus Topic, your application will obtain a
 message for the "TestTopic" topic we created above within our
 "HowToSample" service namespace:
 
-    String issuer = "<obtained from portal>";
-	String key = "<obtained from portal>";
-	Configuration config = 	ServiceBusConfiguration.configureWithWrapAuthentication(
-			“HowToSample”,
-			issuer,
-			key);
+    Configuration config = 
+    	ServiceBusConfiguration.configureWithWrapAuthentication(
+          "HowToSample",
+          "your_service_bus_owner",
+          "your_service_bus_key",
+          ".servicebus.windows.net",
+          "-sb.accesscontrol.windows.net/WRAPv0.9");
+
 	ServiceBusContract service = ServiceBusService.create(config);
 	TopicInfo topicInfo = new TopicInfo("TestTopic");
 	try 

@@ -1,7 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-put correct left menu
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -9,10 +8,10 @@ put correct left menu
 </div>	
 
 
-This topic shows you how to use Windows Azure Notification Hubs to send push notifications to an Android app. 
-In this tutorial you create a blank Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
+This topic shows you how to use Windows Azure Notification Hubs to send push notifications to an Android application. 
+In this tutorial, you create a blank Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
 
-This tutorial walks you through these basic steps to enable push notifications:
+The tutorial walks you through these basic steps to enable push notifications:
 
 1. [Enable Google Cloud Messaging]
 2. [Configure your Notification Hub]
@@ -20,14 +19,14 @@ This tutorial walks you through these basic steps to enable push notifications:
 4. [Run your app with the emulator]
 5. [Send notifications from your back-end]
 
-This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use Notification Hubs to address specific users and groups of devices. This tutorial requires the following:
+This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. This tutorial requires the following:
 
-+ Android SDK (we assume you will be using Eclipse), which you can download from <a href="http://developer.android.com/sdk/index.html">here</a>
++ Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://developer.android.com/sdk/index.html">here</a>
 + Active Windows Store account
 
-Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Android apps. 
+Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
 <h2><a name="register"></a><span class="short-header">Enable Google Cloud Messaging</span>Enable Google Cloud Messaging</h2>
 
@@ -43,11 +42,11 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
     </div>
 
-2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 
+2. Click **Overview** in the left column, and make a note of the project number in the **Dashboard** section. 
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
-3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toogle to turn on **Google Cloud Messaging for Android** and accept the terms of service. 
+3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
 
 4. Click **API Access**, and then click **Create new Server key...** 
 
@@ -61,37 +60,37 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
    ![][4] 
 
-Next, you will use this API key value to enable your Notification Hub to authenticate with GCM and send push notifications on behalf of you app.
+Next, you will use this API key value to enable your notification hHub to authenticate with GCM and send push notifications on behalf of your application.
 
 <h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
 
-1. Log on to the [Windows Azure Management Portal], click **+NEW** at the bottom of the screen.
+1. Log on to the [Windows Azure Management Portal], and then click **+NEW** at the bottom of the screen.
 
 2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
    ![][7]
 
-3. Insert a name for your notification hub, select your desired Region, then click **Create a new Notification Hub**.
+3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
    ![][8]
 
-4. Click the namespace you just created (usually ***notification hub name*-ns**), then click on the **Configure** tab at the top.
+4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click **Configure** at the top.
 
    ![][9]
 
-5. Select the tab **Notification Hubs** at the top, then click on the notification hub you just created.
+5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
 
    ![][10]
 
-6. Select the tab **Configure** at the top, enter the **API Key** value obtained in the previous section, and then click **Save**.
+6. Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
 
    ![][11]
 
-7. Select the tab **Dashboard** at the top, and click the button **Connection Information**. Take note of the two connection strings.
+7. Select the **Dashboard** tab at the top, then click **Connection Information**. Take note of the two connection strings.
 
    ![][12]
 
-Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send notifications.
+Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
 
 <h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
 
@@ -99,7 +98,8 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    ![][13]
 
-2. Set Minimum Required SDK to API 8: Android 2.2 (Froyo). Then follow the wizard, making sure to select **Create activity** to create a blank activity.
+2. Set Minimum Required SDK to API 8: Android 2.2 (Froyo). Then follow the wizard, making sure to click **Create activity** to create a blank activity.
+
    ![][14]
 
 3. Open the Android SDK Manager from the top toolbar of Eclipse. Click **Google APIs**, **Google Cloud Messaging for Android Library**, and **Google Play Service**, as shown below. Click Install Packages. Restart Eclipse.
@@ -118,9 +118,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    ![][16]
 
-Now, set up the application to obtain a *registrationId* from GCM, and use the *registrationId* to register the app instance to the Notification Hub.
+	Now, set up the application to obtain a *registrationId* from GCM, and use the *registrationId* to register the app instance to the notification hub.
 
-7. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace <your package> with the package you selected for your app in step 1 (com.microsoft.testnotificationhubs in this example).
+7. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace `<your package>` with the package you selected for your app in step 1 (`com.microsoft.testnotificationhub`s in this example).
 
         <uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -133,7 +133,7 @@ Now, set up the application to obtain a *registrationId* from GCM, and use the *
 8. In the **MainActivity** class, add the following private members.
 
 	<div class="dev-callout"><b>Note</b>
-    <p>Make sure to use your sender ID obtained previously..</p>
+    <p>Make sure to use the sender ID you obtained earlier.</p>
     </div> 
 
 		private String SENDER_ID = "<your project number>";
@@ -255,11 +255,11 @@ You can send notifications using Notification Hubs from any back-end using our <
 
 To send notifications using a .NET app:
 
-1. In Visual Studio 2012 Express for Windows 8, create a new Visual C# Windows Store project using the Blank App template. 
+1. Create a new Visual C# console application: 
 
    ![][20]
 
-2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In Visual Studio Main Menu, select **TOOLS** -> **Library Package Manager** -> **Package Manager Console**. Then, in the console window type:
+2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
         Install-Package WindowsAzure.ServiceBus
 
@@ -269,7 +269,7 @@ To send notifications using a .NET app:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In your Program class add the following method:
+3. In your `Program` class add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -277,7 +277,7 @@ To send notifications using a .NET app:
             await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Windows Azure!\"}}");
         }
 
-4. Then add the following line in your Main method:
+4. Then add the following lines in your Main method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -304,8 +304,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
         var azure = require('azure');
     
-    	var notificationHubService = azure.createNotificationHubService('<hub name>',
-    '<connection string>');
+    	var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
 
     	notificationHubService.hub.gcm.send(
 	        null,
@@ -338,31 +337,31 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[1]: mobile-services-google-developers.png
-[2]: mobile-services-google-create-server.png
-[3]: mobile-services-google-create-server2.png
-[4]: mobile-services-google-create-server3.png
+[1]: ../media/mobile-services-google-developers.png
+[2]: ../media/mobile-services-google-create-server.png
+[3]: ../media/mobile-services-google-create-server2.png
+[4]: ../media/mobile-services-google-create-server3.png
 
-[7]: notification-hub-create-from-portal.png
-[8]: notification-hub-create-from-portal2.png
-[9]: notification-hub-select-from-portal.png
-[10]: notification-hub-select-from-portal2.png
-[11]: notification-hub-configure-android.png
-[12]: notification-hub-connection-strings.png
+[7]: ../media/notification-hub-create-from-portal.png
+[8]: ../media/notification-hub-create-from-portal2.png
+[9]: ../media/notification-hub-select-from-portal.png
+[10]: ../media/notification-hub-select-from-portal2.png
+[11]: ../media/notification-hub-configure-android.png
+[12]: ../media/notification-hub-connection-strings.png
 
-[13]: notification-hub-create-android-app.png
-[14]: notification-hub-create-android-app2.png
-[15]: notification-hub-create-android-app4.png
-[16]: notification-hub-create-android-app5.png
-[17]: notification-hub-create-android-app6.png
+[13]: ../media/notification-hub-create-android-app.png
+[14]: ../media/notification-hub-create-android-app2.png
+[15]: ../media/notification-hub-create-android-app4.png
+[16]: ../media/notification-hub-create-android-app5.png
+[17]: ../media/notification-hub-create-android-app6.png
 
-[18]: notification-hub-create-android-app7.png
-[19]: notification-hub-create-android-app8.png
+[18]: ../media/notification-hub-create-android-app7.png
+[19]: ../media/notification-hub-create-android-app8.png
 
-[20]: notification-hub-create-console-app.png
-[21]: notification-hub-android-toast.png
-[22]: notification-hub-scheduler1.png
-[23]: notification-hub-scheduler2.png
+[20]: ../media/notification-hub-create-console-app.png
+[21]: ../media/notification-hub-android-toast.png
+[22]: ../media/notification-hub-scheduler1.png
+[23]: ../media/notification-hub-scheduler2.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

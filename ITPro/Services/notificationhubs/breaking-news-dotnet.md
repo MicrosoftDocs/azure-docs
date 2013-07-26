@@ -345,8 +345,9 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 [Next Steps]:#next-steps
 
 <!-- Images. -->
+
 [0]: mobile-services-submit-win8-app.png
-[1]: notification-hub-breakingnews-win1.png
+[1]: ../media/notification-hub-breakingnews-win1.png
 [2]: notification-hub-create-win8-app.png
 [3]: notification-hub-associate-win8-app.png
 [4]: mobile-services-select-app-name.png
@@ -358,10 +359,10 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 [10]: notification-hub-select-from-portal2.png
 [11]: notification-hub-configure-wns.png
 [12]: notification-hub-connection-strings.png
-[13]: notification-hub-create-console-app.png
-[14]: notification-hub-windows-toast.png
-[15]: notification-hub-scheduler1.png
-[16]: notification-hub-scheduler2.png
+[13]: ../media/notification-hub-create-console-app.png
+[14]: ../media/notification-hub-windows-toast.png
+[15]: ../media/notification-hub-scheduler1.png
+[16]: ../media/notification-hub-scheduler2.png
 [17]: mobile-services-win8-edit2-app.png
 [18]: notification-hub-win8-app-toast.png
 [19]: notification-hub-windows-reg.png
@@ -384,3 +385,4 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+

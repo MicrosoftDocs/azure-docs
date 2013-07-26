@@ -115,7 +115,7 @@ MongoDB creates the following containers and blobs on Windows Azure storage:
 [10gen-tutorial]: http://docs.mongodb.org/ecosystem/tutorial/deploy-mongodb-worker-roles-in-azure/
  [1]: https://groups.google.com/forum/?fromgroups#!forum/mongodb-dev
  [2]: https://groups.google.com/forum/?fromgroups#!forum/mongodb-user
- [3]: http://docs.mongodb.org/drivers/csharp/#csharp-language-center
+ [3]: http://docs.mongodb.org/ecosystem/drivers/csharp/
  [4]: https://github.com/mongodb/mongo-azure/tree/master/src/SampleApplications
  [5]: https://www.windowsazure.com/en-us/develop/net/
  [6]: https://github.com/mongodb/mongo-azure/blob/master/src/README.md
