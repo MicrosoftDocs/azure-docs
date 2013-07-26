@@ -1,23 +1,45 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Windows Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" metaDescription="Learn how to request push notification registration in a Windows Store app with Windows Azure Notification Hubs when registeration is performed by Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Register the current user for push notifications by using a mobile service
 
 <div class="dev-center-tutorial-selector sublanding">
- <!--   <a href="/en-us/ITPro/mobile/tutorials/notify-users-mobile-dotnet" title="Mobile Services" class="current">Mobile Services</a>
-    <a href="/en-us/develop/mobile/tutorials/notify-users-webapi-dotnet" title="ASP.NET">ASP.NET</a>
-|-->
-    <a href="/en-us/develop/mobile/tutorials/notify-users-mobile-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-    <a href="/en-us/develop/mobile/tutorials/notify-users-mobile-ios" title="iOS">iOS</a>
-
+    <a href="/en-us/manage/services/notification-hubs/register-users-with-mobile-services-windowsdotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-with-mobile-services-ios" title="iOS">iOS</a>
 </div>
 
-This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registeration is performed by Windows Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
+This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by Windows Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
 
-1. In Visual Studio 2012 Express for Windows 8, open the MainPage.xaml.cs file in the project that you created when you completed the prerequisite tutorial [Get started with authentication].
+1. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the prerequisite tutorial [Get started with authentication].
 
-2. Add the following code that defines the **NotificationRequest** and **RegistrationResult** classes:
+2. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
+
+  ![][1]
+
+   This displays the **Associate Your App with the Windows Store** Wizard.
+
+3. In the wizard, click **Sign in** and then login with your Microsoft account.
+
+4. Select the app that you registered in [Notify users with Notification Hubs], click **Next**, and then click **Associate**.
+
+   ![][2]
+
+   This adds the required Windows Store registration information to the application manifest.  
+
+  	<div class="dev-callout"><b>Note</b>
+	<p>This reuses the Windows Store registration from the Notification Hubs tutorial app with this Mobile Services app. This may prevent the Notification Hubs tutorial app from receiving notifications</p>
+	</div>
+
+5. In Solution Explorer, double-click the Package.appxmanifest project file to open it in the Visual Studio editor.
+
+6. Scroll down to **All Image Assets** and click **Badge Logo**. In **Notifications**, set **Toast capable** to **Yes**:
+
+   ![][3]
+
+	This enables this Mobile Services tutorial app to receive toast notifications.
+
+7. In Visual Studio, open the MainPage.xaml.cs file and add the following code that defines the **NotificationRequest** and **RegistrationResult** classes:
 
         public class NotificationRequest
         {
@@ -33,7 +55,7 @@ This topic shows you how to request push notification registration with Windows 
 
   These classes will hold the request body and the registration ID returned when the custom API is called, respectively.
 
-3. In the **MainPage** class, add the following method:
+8. In the **MainPage** class, add the following method:
 
         private async System.Threading.Tasks.Task RegisterNotification()
         {
@@ -76,7 +98,7 @@ This topic shows you how to request push notification registration with Windows 
 
 	This method creates a channel for push notifications and sends it, along with the device type, to the custom API method that creates a registration in Notification Hubs. This custom API was defined in [Notify users with Notification Hubs].
 
-4. Add the following line of code to the **OnNavigatedTo** method, just after the **Authenticate** method is called:
+9. Add the following line of code to the **OnNavigatedTo** method, just after the **Authenticate** method is called:
 
 		await RegisterNotification();
 
@@ -89,7 +111,9 @@ Now that the client app has been updated, return to the [Notify users with Notif
 <!-- Anchors. -->
 
 <!-- Images. -->
-
+[1]: ../Media/mobile-services-select-app-name.png
+[2]: ../Media/notification-hub-associate-win8-app.png
+[3]: ../Media/notification-hub-win8-app-toast.png
 
 <!-- URLs. -->
 [Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md
