@@ -409,9 +409,9 @@ We assume you already have your [Mobile Service].
 In this tutorial we learned how to broadcast breaking news by category. If you want to learn how to send private notifications to single users please follow [Use Notification Hubs to send notifications to users]. Also, if you want to learn how to expand the breaking news app by sending localized notifications follow [Use Notification Hubs to broadcast localized Breaking News].
 
 <!-- Images. -->
-[1]: notification-hub-breakingnews-win1.png
-[2]: notification-hub-breakingnews-ios1.png
+[1]: ../media/notification-hub-breakingnews-win1.png
+[2]: ../media/notification-hub-breakingnews-ios1.png
 
-[3]: notification-hub-breakingnews-ios2.png
-[4]: notification-hub-breakingnews-ios3.png
-[5]: notification-hub-breakingnews-ios4.png
+[3]: ../media/notification-hub-breakingnews-ios2.png
+[4]: ../media/notification-hub-breakingnews-ios3.png
+[5]: ../media/notification-hub-breakingnews-ios4.png
