@@ -20,7 +20,7 @@ This tutorial walks you through these basic steps to enable this scenario:
 4. [Send notifications from your back-end]
 
 
-There are two pieces to this scenario:
+There are two parts to this scenario:
 
 - the iOS client app allows devices to subscribe to different breaking news categories, using a Notification feature called **tags**; 
 
@@ -28,37 +28,31 @@ There are two pieces to this scenario:
 
 
 
-If your app has to push notifications to specific users and, more importantly, the notification content is private, please follow the topic TBD Link [Use Notification Hubs to send notifications to users].
-
 ##Prerequisites ##
 
-You must have already completed the [Get started with Notification Hubs] tutorial and have the code available.
+You must have already completed the [Get started with Notification Hubs] tutorial and have the code available. You also need Visual Studio 2012.
 
 
 <h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
 
+The app lets you choose the categories to subscribe to. When you choose **subscribe**, the app converts the selected categories into ***tags*** and  registers them with the Notification Hub.
 
-The app lets the user choose the categories to which they want to subscribe. When the user chooses **subscribe**, the app will convert the selected categories into ***tags*** and then register them with the Notification Hub.
-
-Tags are simple string and do not have to be provisioned in advance. Simply specify a specific tag when you register a device. When pushing a notification to that tag, all devices that have registered for that tag will receive the notification. For more information about tags, refer to [Notification Hubs Guidance].
+Tags are simple string and do not have to be provisioned in advance. Simply specify a specific tag when you register a device. When pushing a notification to that tag, all devices that have registered for the tag will receive the notification. For more information about tags, refer to [Notification Hubs Guidance].
 
 ![][2]
 
 <h2><a name="processing"></a><span class="client processing">App ui</span>Client App Processing</h2>
 
-Note: As shown in [Get started with Notification Hubs] and explained in [Notification Hubs Guidance], you have to register your client app with your notification hub in order to update the device's ChannelURI or device token, as well as register for the tags you are interested in.
+You register your client app with your notification hub in order to update the device's ChannelURI or device token, as well as register for the tags you are interested in. Generally, you register every time your app starts, but in order to save power and data transmission, you can reduce the frequency by avoiding registration if, when your app starts, less than a specified amount of time (usually a day) has passed since last registration.
 
- Generally, you register every time your app starts, but in order to save power and data transmission, you can reduce the frequency by avoiding registration if, when your app starts, less than a specified amount of time (usually a day) has passed since last registration.
+Registrations in your notification hub can expire. This means that you cannot reliably store your preferences (the categories you chose) in your notification hub. In this topic we use the device local storage to store your preferences and then register the correct tags to your notification hub. You can also store that information in the cloud using your own app back-end or a [Mobile Service].
 
-Remember, though, that registrations in your notification hub can expire. This means that you cannot safely store your users' preferences (the categories they selected) using only your Notification Hub. In this topic we will use the device local storage to store user preferences and then register the correct tags to your Notification Hub. In general, you can store that information in the cloud using your own app back-end or a [Mobile Service].
+If you decide to change the tags you are interested in, you must re-register for the change to be reflected in your notification hub. Otherwise you might lose notifications targeted, or get notifications that you don't want.
 
-Important: if you decide to change the tags you are interested in, you have to re-register or the change will not be reflected in your Notification Hub and you might lose notifications targeted at the device or send notifications that the user should not receive.
+Summary:
 
-Summarizing:
-
-+ Your device registration in the Notification Hub might expire, so you have to store the selected categories in the device local storage.
-+ You have to register your app with your Notification Hub, every time the user changes the selected categories, and every time your app starts
-
++ Your device registration in the notification hub might expire, so you have to store the selected categories in the device local storage.
++ You have to register your app with your notification hub, every time you change the selected categories, and every time your app starts
 
 <h2><a name="building-client"></a><span class="building app">App ui</span>Building the iOS client app</h2>
 
@@ -242,11 +236,13 @@ Our app is now able to store a set of categories in the device local storage and
 You can now run the app and verify that clicking the subscribe button will trigger a registration to your Notification Hub.
 
 
-
 <div chunk="../chunks/notification-hubs-back-end.md" />
 
+
 ## Next Steps
-In this tutorial we learned how to broadcast breaking news by category. If you want to learn how to send private notifications to single users please follow [Use Notification Hubs to send notifications to users]. Also, if you want to learn how to expand the breaking news app by sending localized notifications follow [Use Notification Hubs to broadcast localized Breaking News].
+In this tutorial we learned how to broadcast breaking news by category. 
+
+To learn how to expand the breaking news app by sending localized notifications,  see [Use Notification Hubs to broadcast localized Breaking News]. If your app must push notifications to specific users and the notification content is private, see the tutorial [Use Notification Hubs to send notifications to users].
 
 <!-- Anchors. -->
 [The app user interface]: #ui
@@ -280,6 +276,7 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 <!-- URLs. -->
 [Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
 [Use Notification Hubs to send notifications to users] : tutorial-notify-users-mobileservices.md
+[Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

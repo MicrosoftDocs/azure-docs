@@ -20,7 +20,7 @@ This tutorial walks you through these basic steps to enable this scenario:
 4. [Send notifications from your back-end]
 
 
-There are two pieces to this scenario:
+There are two parts to this scenario:
 
 - the Windows Store app allows client devices to subscribe to different breaking news categories, using a Notification feature called **tags**; 
 
@@ -28,18 +28,16 @@ There are two pieces to this scenario:
 
 
 
-If your app has to push notifications to specific users and, more importantly, the notification content is private, please follow the topic [Use Notification Hubs to send notifications to users].
-
 ##Prerequisites ##
 
-You must have already completed the [Get started with Notification Hubs] tutorial and have the code available.
+You must have already completed the [Get started with Notification Hubs] tutorial and have the code available. You also need Visual Studio 2012.
 
 <h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
 
 
-The app lets the user choose the categories to which they want to subscribe. When the user chooses **subscribe**, the app will convert the selected categories into ***tags*** and then register them with the Notification Hub.
+The app lets you choose the categories to subscribe to. When you choose **subscribe**, the app converts the selected categories into ***tags*** and  registers them with the Notification Hub.
 
-Tags are simple string and do not have to be provisioned in advance. Simply specify a specific tag when you register a device. When pushing a notification to that tag, all devices that have registered for that tag will receive the notification. For more information about tags, refer to [Notification Hubs Guidance].
+Tags are simple string and do not have to be provisioned in advance. Simply specify a specific tag when you register a device. When pushing a notification to that tag, all devices that have registered for the tag will receive the notification. For more information about tags, refer to [Notification Hubs Guidance].
 
 
 
@@ -47,26 +45,24 @@ Tags are simple string and do not have to be provisioned in advance. Simply spec
 
 <h2><a name="processing"></a><span class="client processing">App ui</span>Client App Processing</h2>
 
-Note: As shown in [Get started with Notification Hubs] and explained in [Notification Hubs Guidance], you have to register your client app with your notification hub in order to update the device's ChannelURI or device token, as well as register for the tags you are interested in.
+You register your client app with your notification hub in order to update the device's ChannelURI or device token, as well as register for the tags you are interested in. Generally, you register every time your app starts, but in order to save power and data transmission, you can reduce the frequency by avoiding registration if, when your app starts, less than a specified amount of time (usually a day) has passed since last registration.
 
- Generally, you register every time your app starts, but in order to save power and data transmission, you can reduce the frequency by avoiding registration if, when your app starts, less than a specified amount of time (usually a day) has passed since last registration.
+Registrations in your notification hub can expire. This means that you cannot reliably store your preferences (the categories you chose) in your notification hub. In this topic we use the device local storage to store your preferences and then register the correct tags to your notification hub. You can also store that information in the cloud using your own app back-end or a [Mobile Service].
 
-Remember, though, that registrations in your notification hub can expire. This means that you cannot safely store your users' preferences (the categories they selected) using only your Notification Hub. In this topic we will use the device local storage to store user preferences and then register the correct tags to your Notification Hub. In general, you can store that information in the cloud using your own app back-end or a [Mobile Service].
+If you decide to change the tags you are interested in, you must re-register for the change to be reflected in your notification hub. Otherwise you might lose notifications targeted, or get notifications that you don't want.
 
-Important: if you decide to change the tags you are interested in, you have to re-register or the change will not be reflected in your Notification Hub and you might lose notifications targeted at the device or send notifications that the user should not receive.
+Summary:
 
-Summarizing:
-
-+ Your device registration in the Notification Hub might expire, so you have to store the selected categories in the device local storage.
-+ You have to register your app with your Notification Hub, every time the user changes the selected categories, and every time your app starts
++ Your device registration in the notification hub might expire, so you have to store the selected categories in the device local storage.
++ You have to register your app with your notification hub, every time you change the selected categories, and every time your app starts
 
 
 <h2><a name="building-client"></a><span class="building app">App ui</span>Building the Windows Store client app</h2>
 
-We assume that you already followed the [Get started with Notification Hubs] in order to set up your app and create and/or configure your Notification Hub. Specifically, make sure to go through the following sections:
+We assume that you already followed the [Get started with Notification Hubs] in order to set up your app and create and/or configure your notification hub. Specifically, make sure to go through the following sections:
 
 + Register your app for push notifications
-+ Configure your Notification Hub (if you already have a Notification Hub, start at step 4)
++ Configure your notification hub (if you already have a Notification Hub, start at step 4)
 
 Then, make sure to install the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>.
 
@@ -205,136 +201,14 @@ Our app is now able to store a set of categories in the device local storage and
 You can now run the app and verify that clicking the subscribe button will trigger a registration to your Notification Hub.
 
 
-<h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
+<div chunk="../chunks/notification-hubs-back-end.md" />
 
-You can send notifications using notification hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. 
-
-This section shows how to send notifications in two different ways:
-
-- using a console app
-- using a Mobile Services script
-
-We also include the needed code to broadcast to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices
-
-
-
-## To send notifications using a C# console app ##
-
-1. In Visual Studio create a new Visual C# console application: 
-
-   ![][13]
-
-2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then click **Library Package Manager**, then click **Package Manager Console**. Then, in the console window type the following:
-
-        Install-Package WindowsAzure.ServiceBus
-
-    then press **Enter**.
-
-3. Open the file Program.cs and add the following `using` statement:
-
-        using Microsoft.ServiceBus.Notifications;
-
-4. In the `Program` class, add the following method:
-
-        private static async void SendNotificationAsync()
-        {
-		    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-		
-            var category = "World";
-            var toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Politics";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Business";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Technology";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Science";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Sports";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-		
-		    var alert = "{\"aps\":{\"alert\":\"Breaking News!\"}, \"inAppMessage\":\"Breaking News!\"}";
-		    await hub.SendAppleNativeNotificationAsync(toast, "<category>");
-		 }
-
-   Make sure to insert the name of your hub and the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." Note that this is the connection string with **Full** access, not **Listen** access.
-
-Note that this code sends one notification for each of 6 tags. Your device will only receive notitications for the ones you have registered for.
-
-Also note the last line of code sends an alert to an iOS device. this shows how a single notification hub can push notifications to multiple device types. In this line, replace the category placeholder with any one of the category tags that we used in our client apps ("World", "Politics", "Business", "Technology", "Science", "Sports").
-
-7. Then add the following lines in the `Main` method:
-
-         SendNotificationAsync();
-		 Console.ReadLine();
-
-8. Press the **F5** key to run the app. You should receive a toast notification for each category that you registered for.
-
-   ![][14]
-
-## Mobile Services ##
-
-To send a notification using a Mobile Service, follow [Get started with Mobile Services], then do the following:
-
-1. Log on to the [Windows Azure Management Portal], and click your Mobile Service.
-
-2. Select the tab **Scheduler** on the top.
-
-   ![][15]
-
-3. Create a new scheduled job, insert a name, and then click **On demand**.
-
-   ![][16]
-
-4. When the job is created, click the job name. Then click the **Script** tab in the top bar.
-
-5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. When you are finished, click **Save** on the bottom bar.
-
-    var azure = require('azure');
-    var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
-    notificationHubService.wns.sendToastText01(
-        '<category>',
-        {
-            text1: 'Breaking News!'
-        },
-        function (error) {
-            if (!error) {
-                console.warn("Notification successful");
-            }
-    });
-    notificationHubService.hub.apple.send(
-        '<category>',
-        {
-            alert: "Breaking News!"
-        },
-        function (error)
-        {
-            if (!error) {
-                console.warn("Notification successful");
-            }
-        }
-    );
-
-
-
-6. Click **Run Once** on the bottom bar. You should receive a toast notification.
-
-
+<div chunk="../chunks/notification-hubs-back-end.md" />
 
 ## Next Steps
-In this tutorial we learned how to broadcast breaking news by category. If you want to learn how to send private notifications to single users please follow [Use Notification Hubs to send notifications to users]. Also, if you want to learn how to expand the breaking news app by sending localized notifications follow [Use Notification Hubs to broadcast localized Breaking News].
+In this tutorial we learned how to broadcast breaking news by category.
+
+To learn how to expand the breaking news app by sending localized notifications,  see [Use Notification Hubs to broadcast localized Breaking News]. If your app must push notifications to specific users and the notification content is private, see the tutorial [Use Notification Hubs to send notifications to users]. 
 
 
 <!-- Anchors. -->
@@ -369,6 +243,8 @@ In this tutorial we learned how to broadcast breaking news by category. If you w
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-dotnet.md
+[Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
