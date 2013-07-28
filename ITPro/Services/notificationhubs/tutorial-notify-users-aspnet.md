@@ -2,10 +2,10 @@
 
 <div chunk="../chunks/notification-hubs-left-nav.md" />
 
-# <a name="getting-started"> </a>Notify users with Notification Hubs
+# Notify users with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/notify-users-mobile-services" title="Mobile Services">Mobile Services</a>
+    <a href="/en-us/manage/services/notification-hubs/notify-users" title="Mobile Services">Mobile Services</a>
     <a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="ASP.NET" class="current">ASP.NET</a>
 </div> 
 
@@ -302,7 +302,13 @@ The app that you created when you completed the tutorial when you completed the 
 	Note that a notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed this tutorial, consider completing the [Use Notification Hubs to send breaking news]. For more information about Notification Hubs, see [Windows Azure Notification Hubs].
+Now that you have completed this tutorial, consider completing the following tutorials:
+
++ **Use Notification Hubs to send breaking news ([Windows Store C#][Breaking news .NET] / [iOS][Breaking news iOS])**<br/>This platform-specific tutorial shows you how to use tags to enable users to subscribe to types of notifications in which they are interested. 
+
++ **[Send cross-platform notifications to users with Notification Hubs]**<br/>This tutorial extends the current **Notify users with Notification Hubs** tutorial to use platform-specific templates to register for notifications. This enables you to send notifications from a single method in your server-side code.
+
+For more information about Notification Hubs, see [Windows Azure Notification Hubs].
 
 <!-- Anchors. -->
 [Create an ASP.NET application with authentication]: #create-application
@@ -320,7 +326,6 @@ Now that you have completed this tutorial, consider completing the [Use Notifica
 [5]: ../Media/mobile-insert-script-push2.png
 
 <!-- URLs. -->
-[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
 [Get started Windows Store]: ./getting-started-windowsdotnet.md
 [Get started iOS]: ./getting-started-ios.md
 [Get started Android]: ./getting-started-android.md
@@ -333,5 +338,7 @@ Now that you have completed this tutorial, consider completing the [Use Notifica
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Create a mobile-friendly REST service using ASP.NET Web API and SQL Database]: /en-us/develop/net/tutorials/rest-service-using-web-api/
-
+[Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform.md
+[Breaking news .NET]: ./breaking-news-dotnet.md
+[Breaking news iOS]: ./breaking-news-dotnet.md
 [Windows Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257

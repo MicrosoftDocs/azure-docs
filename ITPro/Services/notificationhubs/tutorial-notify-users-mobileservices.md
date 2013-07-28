@@ -5,7 +5,7 @@
 # <a name="getting-started"> </a>Notify users with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/notify-users-mobile-services" title="Mobile Services" class="current">Mobile Services</a>
+    <a href="/en-us/manage/services/notification-hubs/notify-users" title="Mobile Services" class="current">Mobile Services</a>
     <a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="ASP.NET">ASP.NET</a>
 </div> 
 
@@ -242,7 +242,13 @@ Now that the notifications are configured, it's time to test the app by insertin
 	Note that a notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed this tutorial, consider completing the [Use Notification Hubs to send breaking news] tutorial. For more information about Notification Hubs, see [Windows Azure Notification Hubs].
+Now that you have completed this tutorial, consider completing the following tutorials:
+
++ **Use Notification Hubs to send breaking news ([Windows Store C#][Breaking news .NET] / [iOS][Breaking news iOS])**<br/>This platform-specific tutorial shows you how to use tags to enable users to subscribe to types of notifications in which they are interested. 
+
++ **[Send cross-platform notifications to users with Notification Hubs]**<br/>This tutorial extends the current **Notify users with Notification Hubs** tutorial to use platform-specific templates to register for notifications. This enables you to send notifications from a single method in your server-side code.
+
+For more information about Notification Hubs, see [Windows Azure Notification Hubs].
 
 <!-- Anchors. -->
 [Update your mobile service to register for notifications]: #register-notification
@@ -271,3 +277,6 @@ Now that you have completed this tutorial, consider completing the [Use Notifica
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+[Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform.md
+[Breaking news .NET]: ./breaking-news-dotnet.md
+[Breaking news iOS]: ./breaking-news-dotnet.md

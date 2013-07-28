@@ -2,14 +2,14 @@
 
 <div chunk="../chunks/notification-hubs-left-nav.md" />
 
-# Register the current user for push notifications by using a mobile service
+# Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-windowsdotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a>
     <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-ios" title="iOS">iOS</a>
 </div>
 
-This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by ASP.NET Wen API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
+This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
 
 1. In Visual Studio 2012, open the app.xaml.cs file in the project that you created when you completed the prerequisite tutorial [Notify users with Notification Hubs].
 
