@@ -53,7 +53,7 @@ Completing this tutorial is a prerequisite for all other notification hubs tutor
 You now have the connection strings required to register your Windows Phone 8 app and send notifications.
 
 <div class="dev-callout"><b>Note</b>
-		<p>This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications you can send to each channel. Notification Hubs support [MPNS authenticated mode]. Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.<p>
+		<p>This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications you can send to each channel. Notification Hubs support [MPNS authenticated mode]. Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.</p>
 </div>
 
 <h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
