@@ -5,7 +5,7 @@
 # <a name="getting-started"> </a>Notify users with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/notify-users-mobile-services" title="Mobile Services" class="current">Mobile Services</a>
+    <a href="/en-us/manage/services/notification-hubs/notify-users" title="Mobile Services" class="current">Mobile Services</a>
     <a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="ASP.NET">ASP.NET</a>
 </div> 
 
@@ -179,7 +179,7 @@ The final step is to add code that sends notifications in the mobile service. Th
 
    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
-3. Replace the insert function with the following code, and then click **Save**:
+3. Replace the insert function with the following code:
 
 		function insert(item, user, request) {
 		    var azure = require('azure');
@@ -237,12 +237,22 @@ Now that the notifications are configured, it's time to test the app by insertin
 
 	Note that after the insert completes, the app receives a push notification from Notification Hubs.
 
+	<div class="dev-callout"><b>Note</b>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ingored. To see how to levage templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+	</div>
+
 3. (Optional) Deploy the client app to a second device, then run the app and insert text. 
 
 	Note that a notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
-Now that you have completed this tutorial, consider completing the [Use Notification Hubs to send breaking news] tutorial. For more information about Notification Hubs, see [Windows Azure Notification Hubs].
+Now that you have completed this tutorial, consider completing the following tutorials:
+
++ **Use Notification Hubs to send breaking news ([Windows Store C#][Breaking news .NET] / [iOS][Breaking news iOS])**<br/>This platform-specific tutorial shows you how to use tags to enable users to subscribe to types of notifications in which they are interested. 
+
++ **[Send cross-platform notifications to users with Notification Hubs]**<br/>This tutorial extends the current **Notify users with Notification Hubs** tutorial to use platform-specific templates to register for notifications. This enables you to send notifications from a single method in your server-side code.
+
+For more information about Notification Hubs, see [Windows Azure Notification Hubs].
 
 <!-- Anchors. -->
 [Update your mobile service to register for notifications]: #register-notification
@@ -271,3 +281,6 @@ Now that you have completed this tutorial, consider completing the [Use Notifica
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+[Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-mobileservice.md
+[Breaking news .NET]: ./breaking-news-dotnet.md
+[Breaking news iOS]: ./breaking-news-dotnet.md
