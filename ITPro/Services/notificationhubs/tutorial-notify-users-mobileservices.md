@@ -179,7 +179,7 @@ The final step is to add code that sends notifications in the mobile service. Th
 
    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
-3. Replace the insert function with the following code, and then click **Save**:
+3. Replace the insert function with the following code:
 
 		function insert(item, user, request) {
 		    var azure = require('azure');
@@ -237,6 +237,10 @@ Now that the notifications are configured, it's time to test the app by insertin
 
 	Note that after the insert completes, the app receives a push notification from Notification Hubs.
 
+	<div class="dev-callout"><b>Note</b>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ingored. To see how to levage templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+	</div>
+
 3. (Optional) Deploy the client app to a second device, then run the app and insert text. 
 
 	Note that a notification is displayed on each device.
@@ -277,6 +281,6 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
-[Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform.md
+[Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-mobileservice.md
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
