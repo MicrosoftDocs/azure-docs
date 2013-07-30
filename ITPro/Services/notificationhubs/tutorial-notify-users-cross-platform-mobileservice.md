@@ -31,8 +31,8 @@ Complete the following steps to send cross-platform notifications using template
             // Create a new registration.
             var template;
             if (platform === 'win8') {                
-                template = '<toast><visual><binding template="ToastText01"><text id="1>$(message)</text></binding></visual></toast>';
-                hub.wns.createRawTemplateRegistration(request.body.channelUri, 
+                template = '{ text1: "$(message)" }';
+                hub.wns.createToastText01Registration(request.body.channelUri, 
                 [userId, installationId], template, function(error, registration) {
                     if (!error) {
                         // Return the registration.
