@@ -78,73 +78,58 @@ Because notification registration must only be completed after a client has been
 		    var platform = request.body.platform;
 		    var userId = request.user.userId;
 		    var installationId = request.header('X-ZUMO-INSTALLATION-ID');
-		
+		    
 		    // Function called when registration is completed.
 		    var registrationComplete = function(error, registration) {
-		            if (!error) {
-		                // Return the registration.
-		                response.send(200, registration);
-		            } else {
-		                response.send(500, 'Registration failed!');
-		            }
+		        if (!error) {
+		            // Return the registration.
+		            response.send(200, registration);
+		        } else {
+		            response.send(500, 'Registration failed!');
 		        }
-		
-		        // Function called to log errors.
+		    }
+		    // Function called to log errors.
 		    var logErrors = function(error) {
-		            if (error) {
-		                console.error(error)
-		            }
+		        if (error) {
+		            console.error(error)
 		        }
-		    // Check for existing registrations.
+		    }
+		    // Get existing registrations.
 		    hub.listRegistrationsByTag(installationId, function(error, existingRegs) {
 		        var firstRegistration = true;
-		        if (existingRegs) {
+		        if (existingRegs.length > 0) {
 		            for (var i = 0; i < existingRegs.length; i++) {
 		                if (firstRegistration) {
 		                    // Update an existing registration.
 		                    if (platform === 'win8') {
-		                        existingRegs[i].channelUri = request.body.channelUri;
-		                        hub.updateRegistration(existingRegs[i], registrationComplete);
+		                        existingRegs[i].ChannelUri = request.body.channelUri;                        
+		                        hub.updateRegistration(existingRegs[i], registrationComplete);                        
 		                    } else if (platform === 'ios') {
-		                        existingRegs[i].deviceToken = request.body.deviceToken;
+		                        existingRegs[i].DeviceToken = request.body.deviceToken;
 		                        hub.updateRegistration(existingRegs[i], registrationComplete);
 		                    } else {
 		                        response.send(500, 'Unknown client.');
 		                    }
+		                    firstRegistration = false;
 		                } else {
 		                    // We shouldn't have any extra registrations; delete if we do.
 		                    hub.deleteRegistration(existingRegs[i].RegistrationId, logErrors);
 		                }
-                    	firstRegistration = false;
 		            }
-		        } else {
-		            // Create a new registration.
-		            if (platform === 'win8') {
-		                hub.wns.createNativeRegistration(request.body.channelUri, 
-		                [userId, installationId], function(error, registration) {
-		                    if (!error) {
-		                        // Return the registration.
-		                        response.send(200, registration);
-		                    } else {
-		                        response.send(500, 'Registration failed!');
-		                    }
-		                });
-		            } else if (platform === 'ios') {
-		                hub.apns.createNativeRegistration(request.body.deviceToken, 
-		                [userId, installationId], function(error, registration) {
-		                    if (!error) {
-		                        // Return the registration.
-		                        response.send(200, registration);
-		                    } else {
-		                        response.send(500, 'Registration failed!');
-		                    }
-		                });
-		            } else {
-		                response.send(500, 'Unknown client.');
-		            }
-		        }
-		    });
-		}
+                } else {
+                    // Create a new registration.
+                    if (platform === 'win8') {                
+                        hub.wns.createNativeRegistration(request.body.channelUri, 
+                        [userId, installationId], registrationComplete);
+                    } else if (platform === 'ios') {
+                        hub.apns.createNativeRegistration(request.body.deviceToken, 
+                        [userId, installationId], registrationComplete);
+                    } else {
+                        response.send(500, 'Unknown client.');
+                    }
+                }
+            });
+        }
 
 	This code gets platform and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to update a registration, if it exists, or create a new registration. This registration is tagged with the user ID and installation ID.
 
