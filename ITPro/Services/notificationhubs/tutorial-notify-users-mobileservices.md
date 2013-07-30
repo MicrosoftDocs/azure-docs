@@ -59,7 +59,7 @@ Because notification registration must only be completed after a client has been
 
    ![][2]
 
-  This creates the new API that requires users to be authenticated before calling by using the HTTP POST method. We don't need to set the other HTTP methods because we won't implement them.
+  This creates the API that requires users to be authenticated before calling by using the HTTP POST method. We don't need to set the other HTTP methods because we won't implement them.
 
 4. Click the new **register_notifications** entry in the API table.
 
@@ -146,7 +146,7 @@ Because notification registration must only be completed after a client has been
 		    });
 		}
 
-	This code gets platform and and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to update a registration, if it exists, or create a new registration. This registration is tagged with the user ID and installation ID.
+	This code gets platform and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to update a registration, if it exists, or create a new registration. This registration is tagged with the user ID and installation ID.
 
 6. Update the script to replace _`<NOTIFICATION_HUB_NAME>`_ and _`<FULL_SAS_CONNECTION_STRING>`_ with values for your notification hub, then click **Save**.
 
@@ -220,14 +220,12 @@ The final step is to add code that sends notifications in the mobile service. Th
    This registers a new insert script, which uses Notification Hubs to send a push notification (the inserted text) to the channel provided in the insert request.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim allows your insert script full access, including the ability to send notifications to registered clients.</p>
+		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim provides your insert script with full access, including the ability to send notifications to registered clients.</p>
 	</div>
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
 Now that the notifications are configured, it's time to test the app by inserting data to generate a notification.
-
-**_Note that these client steps are slightly different for Win8 vs iOS, so I left them generic_**
 
 1. Run the app. 
 
@@ -238,12 +236,12 @@ Now that the notifications are configured, it's time to test the app by insertin
 	Note that after the insert completes, the app receives a push notification from Notification Hubs.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ingored. To see how to levage templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 3. (Optional) Deploy the client app to a second device, then run the app and insert text. 
 
-	Note that a notification is displayed on each device.
+	A notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed this tutorial, consider completing the following tutorials:

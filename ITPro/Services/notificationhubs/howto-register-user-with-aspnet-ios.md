@@ -1,172 +1,209 @@
-<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-windowsphonedotnet" urlDisplayName="Notify Windows Store app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Windows Azure registering application, Notification Hubs, Azure push notifications, push notification Windows Store app" metaDescription="Learn how to request push notification registration in a Windows Store app with Windows Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Windows Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" metaDescription="Learn how to request push notification registration in an iOS app with Windows Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
 <div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a>
-    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-ios" title="iOS">iOS</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-dotnet/" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-ios" title="iOS" class="current">iOS</a>
 </div>
 
 This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
 
-1. In Visual Studio 2012, open the app.xaml.cs file in the project that you created when you completed the prerequisite tutorial [Notify users with Notification Hubs].
+1. In your MainStoryboard_iPhone.storyboard, add the following components from the object library:
 
-2. Locate the **InitNotificationsAsync** method and comment-out the code in the method.
+	+ **Label**: "Push to User with Notification Hubs"	
+	+ **Label**: "InstallationId"
+	+ **Label**: "User"
+	+ **Text Field**: "User"
+	+ **Label**: "Password"
+	+ **Text Field**: "Password"
+	+ **Button**: "Login"
+	
+	At this point, your storyboard looks like the following:
+	
+   ![][0] 
+    
+2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 
-	You will instead use the ASP.NET Web API to register for notifications.
+   ![][1]
 
-3. In **Solution Explorer**, right-click the project name, and then select **Manage NuGet Packages**.
+   Your BreakingNewsViewController.h file should now contain the following code:
+			
+			@property (weak, nonatomic) IBOutlet UILabel *installationId;
+			@property (weak, nonatomic) IBOutlet UITextField *User;
+			@property (weak, nonatomic) IBOutlet UITextField *Password;
+			
+			- (IBAction)login:(id)sender;
 
-4. In the left pane, select the **Online** category, search for `json.net`, click **Install** on the **Json.NET** package, then accept the license agreement. 
+5. Create a class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
 
-  ![][0]
+			@property (readonly, nonatomic) NSString* installationId;
+			@property (nonatomic) NSData* deviceToken;
 
-  This adds the third-party Newtonsoft.Json.dll assembly to your project.
+6. Copy the following code in the implementation section of the DeviceInfo.m file:
+		
+			@synthesize installationId = _installationId;
 
-3. In Solution Explorer, right-click the project, click **Add** and then **Class**, then type `LocalStorageManager` and click **Add**.
+			- (id)init {
+			    if (!(self = [super init]))
+					return nil;
+			    
+			    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+			    _installationId = [defaults stringForKey:@"PushToUserInstallationId"];
+			    if(!_installationId) {
+			        CFUUIDRef newUUID = CFUUIDCreate(kCFAllocatorDefault);
+			        _installationId = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, newUUID);
+			        CFRelease(newUUID);
+			        
+			        //store the install ID so we don't generate a new one next time
+			        [defaults setObject:_installationId forKey:@"PushToUserInstallationId"];
+			        [defaults synchronize];
+			    }
+			    
+			    return self;
+			}
+			
+			- (NSString*)getDeviceTokenInHex {
+			    const unsigned *tokenBytes = [[self deviceToken] bytes];
+			    NSString *hexToken = [NSString stringWithFormat:@"%08X%08X%08X%08X%08X%08X%08X%08X",
+			                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+			                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+			                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+			    return hexToken;
+			}
 
-	![][1] 
+7. In PushToUserAppDelegate.h, add the following property singleton:
 
-	This adds a new code file for the **LocalStorageManager** class to the project.
+			@property (strong, nonatomic) DeviceInfo* deviceInfo;
 
-4. Open the new LocalStorageManager.cs project file and add the following **using** statement:
+8. In the **didFinishLaunchingWithOptions** method in PushToUserAppDelegate.m, add the following code:
+	
+			self.deviceInfo = [[DeviceInfo alloc] init];
+			
+		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-		using Windows.Storage;
+	The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present is you have already completed the [Get Started with Notification Hubs] tutorial.
+	
+9. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
 
-5. Replace the **LocalStorageManager** class definition with the following code:
+			self.deviceInfo.deviceToken = deviceToken;
 
-        class LocalStorageManager
-        {
-            private static ApplicationDataContainer GetLocalStorageContainer()
-            {
-                if (!ApplicationData.Current.LocalSettings
-                    .Containers.ContainsKey("InstallationContainer"))
-                {
-                    ApplicationData.Current.LocalSettings
-                        .CreateContainer("InstallationContainer",                                                            
-                        ApplicationDataCreateDisposition.Always);
-                }
-                return ApplicationData.Current.LocalSettings
-                    .Containers["InstallationContainer"];
-            }
+	This sets the device token for the request. 
+	
+	<div class="dev-callout"><b>Note</b>
+	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Get Started with Notification Hubs</a> tutorial, you must comment-out or remove that call.</p>
+	</div>
+	
+10.	In the PushToUserAppDelegate.m file, add the following handler method:
+	
+			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+			    NSLog(@"%@", userInfo);
+			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+			                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+			                          @"OK" otherButtonTitles:nil, nil];
+			    [alert show];
+			}
 
-            public static string GetInstallationId()
-            {
-                var container = GetLocalStorageContainer();
-                if (!container.Values.ContainsKey("InstallationId"))
-                {
-                    container.Values["InstallationId"] = Guid.NewGuid().ToString();
-                }
-                return (string)container.Values["InstallationId"];
-            }
-        }
+	 This method displays an alert in the UI when your app receives notifications while it is running.
 
-	This code creates and stores a device-specific installation ID, which is used as a tag when creating notifications. If an installation ID already exists, it is used instead.
+9. Open the PushToUserViewController.m file, and return the keyboard in the following implementation:
+	
+			- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+			    if (theTextField == self.User || theTextField == self.Password) {
+			        [theTextField resignFirstResponder];
+			    }
+			    return YES;
+			}
+	
+9. In the **viewDidLoad** method in the PushToUserViewController.m file, initialize the installationId label as follows:
+				
+			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
+    		Self.installationId.text = deviceInfo.installationId;
+    		
+10. Add the following properties in interface in PushToUserViewController.m:
+    
+    		@property (readonly) NSOperationQueue* downloadQueue;
+			- (NSString*)base64forData:(NSData*)theData;
+			
+11. Then, add the following implementation:
+		
+			- (NSOperationQueue *)downloadQueue {
+			    if (!_downloadQueue) {
+			        _downloadQueue = [[NSOperationQueue alloc] init];
+			        _downloadQueue.name = @"Download Queue";
+			        _downloadQueue.maxConcurrentOperationCount = 1;
+			    }
+			    return _downloadQueue;
+			}
+			
+			// base64 encoding
+			- (NSString*)base64forData:(NSData*)theData
+			{
+			    const uint8_t* input = (const uint8_t*)[theData bytes];
+			    NSInteger length = [theData length];
+			    
+			    static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+			    
+			    NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
+			    uint8_t* output = (uint8_t*)data.mutableBytes;
+			    
+			    NSInteger i;
+			    for (i=0; i < length; i += 3) {
+			        NSInteger value = 0;
+			        NSInteger j;
+			        for (j = i; j < (i + 3); j++) {
+			            value <<= 8;
+			            
+			            if (j < length) {
+			                value |= (0xFF & input[j]);
+			            }
+			        }
+			        
+			        NSInteger theIndex = (i / 3) * 4;
+			        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+			        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+			        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+			        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
+			    }
+			    
+			    return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+			}
 
-6. Open the MainPage.xaml project file, and replace the root **Grid** element with the following XAML code:
+	
+12. Copy the following code into the **login** handler method created by XCode:
 
-        <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-            <Grid Margin="120, 58, 120, 80" >
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MaxWidth="200"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  
-	                           TextWrapping="Wrap" Text="Push To Users with Notification Hubs" 
-	                           FontSize="42"  VerticalAlignment="Top"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Installation Id:" 
-	                           FontSize="24" VerticalAlignment="Center" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Name="InstId" FontSize="24" 
-	                           VerticalAlignment="Center"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Username:" FontSize="24" 
-	                           VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Name="User" FontSize="24" 
-	                         Width="300" Height="40" HorizontalAlignment="Left"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Password:" FontSize="24" 
-	                           VerticalAlignment="Center" />
-                <PasswordBox Grid.Row="3" Grid.Column="1" Name="Password" FontSize="24" 
-	                             Width="300" Height="40" HorizontalAlignment="Left"/>
-                <Button Name="Login" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
-	                        Content="Login and Register for Push" FontSize="24" Click="Login_Click" />
-            </Grid>
-        </Grid>
-
-	This code creates a UI for collecting a username and password and displaying the installation ID. 
-
-7. Back in the MainPage.xaml.cs file, add the following **using** directives:
-
-		using Newtonsoft.Json;
-		using System.Net.Http;
-		using System.Text;
-		using Windows.Networking.PushNotifications;
-		using Windows.UI.Popups;
-
-8. Add the following definition in the **MainPage** class:
-
-		private string registerUri = "https://<SERVICE_ROOT_URL>/api/register";
-        
-	Replace _`<SERVICE_ROOT_URL>`_ with the root URI of the Web API that you created in **Notify users with Notification Hubs**. 
-
-8. Add the following method to the **MainPage** class:
-
-        private async void Login_Click(object sender, RoutedEventArgs e)
-        {
-            // Get the info that we need to request registration.
-            var installationId = InstId.Text = LocalStorageManager.GetInstallationId();
-            var channel = await PushNotificationChannelManager
-                .CreatePushNotificationChannelForApplicationAsync();
-            var user = User.Text;
-            var pwd = Password.Password;
-
-            // Define a registration to pass in the body of the POST request.
-            var registration = new Dictionary<string, string>()
-                                   {{"platform", "windows"},
-                                   {"instId", installationId.ToString()},
-                                   {"channelUri", channel.Uri}};
-
-            // Create a new client to send the HTTP registration request.
-            var client = new HttpClient();
-            var request =
-                new HttpRequestMessage(HttpMethod.Post, new Uri(registerUri));
-            
-            // Add the Authorization header with the basic login credentials.
-            var auth = "Basic " +
-                Convert.ToBase64String(Encoding.UTF8.GetBytes(user + ":" + pwd));
-            request.Headers.Add("Authorization", auth);
-            request.Content = new StringContent(JsonConvert.SerializeObject(registration),
-                Encoding.UTF8, "application/json");
-
-            string message;
-
-            try
-            {
-                // Send the registration request.
-                HttpResponseMessage response = await client.SendAsync(request);
-
-                // Get and display the response, either the registration ID
-                // or an error message.
-                message = await response.Content.ReadAsStringAsync();
-                message = string.Format("Registration ID: {0}", message);
-            }
-            catch (Exception ex)
-            {
-                message = ex.Message;
-            }
-
-            // Display a message dialog.
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
+			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
+    
+		    // build JSON
+		    NSString* json = [NSString stringWithFormat:@"{\"platform\":\"ios\", \"instId\":\"%@\", \"deviceToken\":\"%@\"}", deviceInfo.installationId, [deviceInfo getDeviceTokenInHex]];
+		    
+		    // build auth string
+		    NSString* authString = [NSString stringWithFormat:@"%@:%@", self.User.text, self.Password.text];
+		    
+		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://nhnotifyuser.azurewebsites.net/api/register"]];
+		    [request setHTTPMethod:@"POST"];
+		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+		    [request addValue:[@([json lengthOfBytesUsingEncoding:NSUTF8StringEncoding]) description] forHTTPHeaderField:@"Content-Length"];
+		    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+		    [request addValue:[NSString stringWithFormat:@"Basic %@",[self base64forData:[authString dataUsingEncoding:NSUTF8StringEncoding]]] forHTTPHeaderField:@"Authorization"];
+		    
+		    // connect with POST
+		    [NSURLConnection sendAsynchronousRequest:request queue:[self downloadQueue] completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
+		        // add UIAlert depending on response.
+		        if (error != nil) {
+		            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+		            if ([httpResponse statusCode] == 200) {
+		                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Back-end registration" message:@"Registration successful" delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+		                [alert show];
+		            } else {
+		                NSLog(@"status: %ld", (long)[httpResponse statusCode]);
+		            }
+		        } else {
+		            NSLog(@"error: %@", error);
+		        }
+		    }];
 
 	This method gets both an installation ID and channel for push notifications and sends it, along with the device type, to the authenticated Web API method that creates a registration in Notification Hubs. This Web API was defined in [Notify users with Notification Hubs].
 
@@ -175,10 +212,11 @@ Now that the client app has been updated, return to the [Notify users with Notif
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ../Media/notification-hub-add-nuget-package-json.png
-[1]: ../Media/notification-hub-create-aspnet-class.png
+[0]: ../Media/notification-hub-user-aspnet-ios1.png
+[1]: ../Media/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
 [Notify users with Notification Hubs]: ./tutorial-notify-users-aspnet.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Get Started with Notification Hubs]: getting-started-ios.md

@@ -28,7 +28,7 @@ This tutorial walks you through the following basic steps:
 
 <a name="create-application"></a><h2><span class="short-header">Create the ASP.NET app</span>Create an ASP.NET application with authentication</h2>
 
-First we need to create a new ASP.NET Web API application. This backend service will authenticate clients, register for push notifications on behalf of an authenticated user, and send out notifications.
+First you will create an ASP.NET Web API application. This backend service will authenticate clients, register for push notifications on behalf of an authenticated user, and send out notifications.
 
 1. In Visual Studio or Visual Studio Express 2012 for Web, click **File** then **New project from the File menu, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET MVC 4 Web Application**, enter the name  _NotificationService_, and click **OK**.
 
@@ -36,13 +36,13 @@ First we need to create a new ASP.NET Web API application. This backend service 
 
 2. In the **New ASP.NET MVC Project** dialog, click **Empty**, then click **OK**.
 
-	This creates a new ASP.NET MVC project.
+	This creates an ASP.NET MVC project.
 
 3. In Solution Explorer, right-click the project, click **Add** and then **Class**, then type `AuthenticationTestHandler` and click **Add**.
 
 	![][1] 
 
-	This adds a new code file for the **AuthenticationTestHandler** class to the project.
+	This adds a code file for the **AuthenticationTestHandler** class to the project.
 
 4. Open the new AuthenticationTestHandler.cs project file and replace the class definition with the following code:
 
@@ -114,7 +114,7 @@ First we need to create a new ASP.NET Web API application. This backend service 
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-	This requires that requests to the ASPo.NET application contain the Authorization header.
+	This requires that requests to the ASP.NET application contain the Authorization header.
 
 Now that we have created the basic application with a mock authentication scheme to provide us with a user name. 
 
@@ -144,7 +144,7 @@ The next step is to add the registration logic for notification hubs to the ASP.
 
 	![][3]
 
-	This adds a new controller class to the project. This controller, when invoked, will do the work of registering a device with Notification Hubs.
+	This adds a controller class to the project. This controller, when invoked, will do the work of registering a device with Notification Hubs.
 
 6. Open the new RegisterController.cs project file and add the following **using** statements.
 
@@ -169,7 +169,7 @@ The next step is to add the registration logic for notification hubs to the ASP.
 8. Update the code in the constructor to replace _`<NOTIFICATION_HUB_NAME>`_ and _`<FULL_SAS_CONNECTION_STRING>`_ with values for your notification hub, then click **Save**.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim allows your custom API method to create and update registrations.</p>
+		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim allows your Web API to create and update registrations.</p>
 	</div>
 
 9. Add the following Post method code into the RegisterController class:
@@ -246,11 +246,11 @@ The next step is to add the registration logic for notification hubs to the ASP.
             return registration;
         }
 
-	This code is invoked by a POST request and gets platform and and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to update a registration, if it exists, or create a new registration. This registration is tagged with the user ID and installation ID.
+	This code is invoked by a POST request and gets platform and deviceID information from the message body. This data, along with the installation ID from the request header and the user ID of the logged-in user, is used to update a registration. If a registration does not exists, it creates a new registration. This registration is tagged with the user ID and installation ID.
 
 10. Add the following sendNotification method:
 
-        // Basic implementation that sends a notification to Windows Store and iOS app clients.
+        // Basic implementation that sends a not ification to Windows Store and iOS app clients.
         private async Task sendNotification(string notificationText, string tag)
         {
             try
@@ -278,7 +278,7 @@ Next, we will update the client app that you created when you completed the tuto
 
 <a name="update-app"></a><h2><span class="short-header">Update the app</span>Update the app to log in and request registration</h2>
 
-The app that you created when you completed the tutorial when you completed the tutorial **Get started with Notification Hubs** requests registration directly from the notification hub. We will remove this registration code from the client app and replace it with a call to the new Register API in the ASP.NET Web API application.
+The app that you created when you completed the tutorial **Get started with Notification Hubs** requests registration directly from the notification hub. You will remove this registration code from the client app and replace it with a call to the new Register API in the ASP.NET Web API application.
 
 1. Press F5 to start the ASP.NET application and attempt to load the default page. 
 
@@ -298,12 +298,12 @@ The app that you created when you completed the tutorial when you completed the 
 	You will also receive a push notification.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ingored. To see how to levage templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 4. (Optional) Deploy the client app to a second device, then run the app and insert text. 
 
-	Note that a notification is displayed on each device.
+	A notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed this tutorial, consider completing the following tutorials:

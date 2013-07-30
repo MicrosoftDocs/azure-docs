@@ -45,10 +45,10 @@ This topic shows you how to request push notification registration with Windows 
 	This updates the **deviceToken** property.
 
 	<div class="dev-callout"><b>Note</b>
-	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs] tutorial, you must comment-out or remove that call.</p>
+	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Get Started with Notification Hubs</a> tutorial, you must comment-out or remove that call.</p>
 	</div>
 	
-5.  (Optional) In the QSAppDelegate.m file, add the following method: 
+5.  (Optional) In the QSAppDelegate.m file, add the following handler method: 
 	
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 			    NSLog(@"%@", userInfo);
