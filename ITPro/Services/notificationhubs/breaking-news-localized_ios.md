@@ -16,14 +16,13 @@ This tutorial walks you through these basic steps to enable this scenario:
 
 1. [Template concepts] 
 2. [The app user interface]
-3. [Client app processing]
-4. [Building the Windows Store client app]
-5. [Send notifications from your back-end]
+3. [Building the iOS app]
+4. [Send notifications from your back-end]
 
 
 There are two parts to this scenario:
 
-- the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories; 
+- iOS app allows client devices to specify a language, and to subscribe to different breaking news categories; 
 
 - the back-end broadcasts the notifications, using the **tag** and **template** feautres of Windows Azure Notification Hubs.
 
@@ -43,7 +42,7 @@ In [Use Notification Hubs to send breaking news] you built an app that used **ta
 Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.
 In this topic we will show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
 
-Note: Clearly, one way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
+Note: one way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
 
 At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
 
@@ -68,18 +67,19 @@ Templates are a very powerful feature you can learn more about in our [Notificat
 We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
 
-In order to adapt your client apps to receive localized messages, you have to replace your *native* registrations (i.e. registrations that do you specify a template) with template registrations.
-
-
-1. In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages we support: English, French, and Mandarin.
+In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages we support: English, French, and Mandarin.
 
 	![][13]
 	
-	Then make sure to add an IBOutlet in your ViewController.h as shown below:
+Then make sure to add an IBOutlet in your ViewController.h as shown below:
 	
 	![][14]
 	
-2. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown below:
+<h2><a name="building-client"></a><span class="building app">App ui</span>Building the iOS app</h2>
+
+In order to adapt your client apps to receive localized messages, you have to replace your *native* registrations (i.e. registrations that do you specify a template) with template registrations.
+
+1. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown below:
 
 		- (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
 
@@ -168,15 +168,15 @@ In order to adapt your client apps to receive localized messages, you have to re
 
 ## Next Steps
 
-For more information on how to use templates you can refer to the topic [How to use Notification Hubs to push cross-platform notifications to users] and also on the [Notification Hubs Guidance] article. A reference for the template expression language is in our [Notification Hubs How-To for Windows Store].
+For more information on using templates, see [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services] and also see [Notification Hubs Guidance]. A reference for the template expression language is [Notification Hubs How-To for Windows Store].
 
 		
 <!-- Anchors. -->
+[Template concepts]: #concepts
 [The app user interface]: #ui
-[Client App Processing]: #client-processing
-[Building the Windows Store client app]: #building-client
+[Building the iOS app]: #building-client
 [Send notifications from your back-end]: #send
-[Next Steps]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
@@ -187,10 +187,6 @@ For more information on how to use templates you can refer to the topic [How to 
 [4]: mobile-services-select-app-name.png
 [5]: mobile-services-win8-edit-app.png
 [6]: mobile-services-win8-app-push-auth.png
-[7]: notification-hub-create-from-portal.png
-[8]: notification-hub-create-from-portal2.png
-[9]: notification-hub-select-from-portal.png
-[10]: notification-hub-select-from-portal2.png
 [11]: notification-hub-configure-wns.png
 [12]: notification-hub-connection-strings.png
 [13]: ../media/ios_localized1.png
@@ -205,7 +201,8 @@ For more information on how to use templates you can refer to the topic [How to 
 [Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-dotnet.md
 [Use Notification Hubs to send breaking news]: breaking-news-ios.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
-
+[Notify users with Notification Hubs: ASP.NET]: tutorial-notify-users-aspnet.md
+[Notify users with Notification Hubs: Mobile Services]: tutorial-notify-users-mobileservices.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

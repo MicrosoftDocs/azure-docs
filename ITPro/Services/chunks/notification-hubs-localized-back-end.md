@@ -1,6 +1,6 @@
 <h2><a name="send"></a><span class="short-header">Send localized notifications</span>Send localized notifications from your back-end</h2>
 
-In your back-end apps, you now have to switch to sending template notifications instead of native payloads. This will simplify the back-end code as you will not have to send multiple payloads for the different platforms.
+In your back-end app, you now have to switch to sending template notifications instead of native payloads. This will simplify the back-end code as you will not have to send multiple payloads for the different platforms.
 
 When you send template notifications you only need to provide a set of properties, in our case we will send the set of properties containing the localized version of the current news, for instance:
 
@@ -16,7 +16,7 @@ This section shows how to send notifications in two different ways:
 - using a console app
 - using a Mobile Services script
 
-We also include the needed code to broadcast to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices
+The included code broadcasts to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices.
 
 
 

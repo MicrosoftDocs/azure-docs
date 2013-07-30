@@ -215,7 +215,7 @@ To learn how to expand the breaking news app by sending localized notifications,
 [Client App Processing]: #client-processing
 [Building the Windows Store client app]: #building-client
 [Send notifications from your back-end]: #send
-[Next Steps]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
