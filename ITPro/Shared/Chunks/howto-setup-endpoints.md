@@ -29,19 +29,17 @@ Default values for the ports and protocol for these endpoints are provided when 
 
 4.	Click **Add**.
 
-	The **Add Endpoint** dialog box appears.
+	The **Add Endpoint** dialog box appears. Choose whether to add the endpoint to a load-balanced set and then click the arrow to continue.
+	
+6. In **Name**, type a name for the endpoint.
 
-	![Add endpoint] (../media/Endpointwizardadddetails.png)
+7. In protocol, specify either **TCP** or **UDP**.
 
-5. Accept the default selection of **Add Endpoint**, and then click the arrow to continue.
+8. In **Public Port** and **Private Port**, type port numbers that you want to use. These port numbers can be different. The public port is the entry point for communication from outside of Windows Azure and is used by the Windows Azure load balancer. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application.
 
-	![Specify endpoint details] (../media/EndpointWizardAddDetails.PNG)
+9. Click **Create a load-balancing set** if this endpoint will be the first one in a load-balanced set.
 
-6. In **Name**, enter a name for the endpoint.
-
-7. In **Public Port** and **Private Port**, type 80. These port numbers can be different. The public port is the entry point for communication from outside of Windows Azure and is used by the Windows Azure load balancer. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application.
-
-8.	Click the check mark to create the endpoint.
+10.	Click the check mark to create the endpoint.
 
 	You will now see the endpoint listed on the **Endpoints** page.
 
