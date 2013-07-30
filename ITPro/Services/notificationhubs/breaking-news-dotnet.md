@@ -201,7 +201,6 @@ Our app is now able to store a set of categories in the device local storage and
 You can now run the app and verify that clicking the subscribe button will trigger a registration to your Notification Hub.
 
 
-<div chunk="../chunks/notification-hubs-back-end.md" />
 
 <div chunk="../chunks/notification-hubs-back-end.md" />
 
@@ -216,7 +215,7 @@ To learn how to expand the breaking news app by sending localized notifications,
 [Client App Processing]: #client-processing
 [Building the Windows Store client app]: #building-client
 [Send notifications from your back-end]: #send
-[Next Steps]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 

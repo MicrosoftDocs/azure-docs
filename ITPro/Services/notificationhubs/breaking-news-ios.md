@@ -242,7 +242,7 @@ You can now run the app and verify that clicking the subscribe button will trigg
 ## Next Steps
 In this tutorial we learned how to broadcast breaking news by category. 
 
-To learn how to expand the breaking news app by sending localized notifications,  see [Use Notification Hubs to broadcast localized Breaking News]. If your app must push notifications to specific users and the notification content is private, see the tutorial [Use Notification Hubs to send notifications to users].
+To learn how to expand the breaking news app by sending localized notifications,  see [Use Notification Hubs to broadcast localized Breaking News]. If your app must push notifications to specific users and the notification content is private, see the tutorials [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services].
 
 <!-- Anchors. -->
 [The app user interface]: #ui
@@ -275,8 +275,10 @@ To learn how to expand the breaking news app by sending localized notifications,
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
-[Use Notification Hubs to send notifications to users] : tutorial-notify-users-mobileservices.md
+[Use Notification Hubs to broadcast localized Breaking News]: breaking-news-localized-ios.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
+[Notify users with Notification Hubs: ASP.NET]: tutorial-notify-users-aspnet.md
+[Notify users with Notification Hubs: Mobile Services]: tutorial-notify-users-mobileservices.md
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -293,5 +295,5 @@ To learn how to expand the breaking news app by sending localized notifications,
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
 
