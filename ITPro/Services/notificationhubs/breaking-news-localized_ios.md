@@ -9,7 +9,64 @@
     	<a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="Windows Store C#">Windows Store C#</a>
 </div>
 
-Start from your Breaking News app.
+
+This topic shows you how to use the **template** feature of Windows Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+
+This tutorial walks you through these basic steps to enable this scenario:
+
+1. [Template concepts] 
+2. [The app user interface]
+3. [Client app processing]
+4. [Building the Windows Store client app]
+5. [Send notifications from your back-end]
+
+
+There are two parts to this scenario:
+
+- the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories; 
+
+- the back-end broadcasts the notifications, using the **tag** and **template** feautres of Windows Azure Notification Hubs.
+
+
+
+##Prerequisites ##
+
+You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available. You also need Visual Studio 2012.
+
+
+<h2><a name="concepts"></a><span class="short-header">concepts</span>Template concepts</h2>
+
+In [Use Notification Hubs to send breaking news] you built an app that used **tags** to subscribe to notifications for different news categories.
+Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.
+In this topic we will show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
+
+Note: Clearly, one way to send localized notifications is to create multiple versions of each tag. For instance, if we want to support English, French, and Mandarin, we would have three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic we will use templates to avoid the proliferation of tags and the requirements of sending multiple messages.
+
+At a high level, templates are a way to specify how a specific device wants to receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
+
+		{
+			"News_English": "...",
+			"News_French": "...",
+			"News_Mandarin": "..."
+		}
+
+Then we will make sure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news will register the following:
+
+		{
+			aps:{
+				alert: "$(News_French)"
+			}
+		}
+
+Templates are a very powerful feature you can learn more about template in our [Notification Hubs Guidance] article. A reference for the template expression language is in our [Notification Hubs How-To for Windows Store].
+
+<h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
+
+We will now modify the Breaking News app that you created in the topic [How to use Notification Hubs to send breaking news] to send localized breaking news using templates.
+
+
+In order to adapt your client apps to receive localized messages, you have to replace your *native* registrations (i.e. registrations that do you specify a template) with template registrations.
+
 
 1. In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages we support: English, French, and Mandarin.
 
@@ -102,6 +159,13 @@ Start from your Breaking News app.
 	        }
 	    }];
 
+
+<div chunk="../chunks/notification-hubs-localized-back-end.md" />
+
+
+## Next Steps
+
+For more information on how to use templates you can refer to the topic [How to use Notification Hubs to push cross-platform notifications to users] and also on the [Notification Hubs Guidance] article. A reference for the template expression language is in our [Notification Hubs How-To for Windows Store].
 
 		
 <!-- Anchors. -->

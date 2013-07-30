@@ -95,31 +95,33 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. When you are finished, click **Save** on the bottom bar.
 
-    var azure = require('azure');
-    var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
-    notificationHubService.wns.sendToastText01(
-        '<category>',
-        {
-            text1: 'Breaking News!'
-        },
-        function (error) {
-            if (!error) {
-                console.warn("Notification successful");
-            }
-    });
-    notificationHubService.hub.apple.send(
-        '<category>',
-        {
-            alert: "Breaking News!"
-        },
-        function (error)
-        {
-            if (!error) {
-                console.warn("Notification successful");
-            }
-        }
-    );
-
+	    var azure = require('azure');
+	    var notificationHubService = azure.createNotificationHubService(
+				'<hub name>', 
+				'<connection string with full access>');
+	    notificationHubService.wns.sendToastText01(
+	        '<category>',
+	        {
+	            text1: 'Breaking News!'
+	        },
+	        function (error) {
+	            if (!error) {
+	                console.warn("Notification successful");
+	            }
+	    });
+	    notificationHubService.hub.apple.send(
+	        '<category>',
+	        {
+	            alert: "Breaking News!"
+	        },
+	        function (error)
+	        {
+	            if (!error) {
+	                console.warn("Notification successful");
+	            }
+	        }
+	    );
+	
 
 
 6. Click **Run Once** on the bottom bar. You should receive a toast notification.

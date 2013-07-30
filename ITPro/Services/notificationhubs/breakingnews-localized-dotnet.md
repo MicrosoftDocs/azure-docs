@@ -35,9 +35,6 @@ You must have already completed the [Use Notification Hubs to send breaking news
 
 <h2><a name="concepts"></a><span class="short-header">concepts</span>Template concepts</h2>
 
-
-<h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
-
 In [Use Notification Hubs to send breaking news] you built an app that used **tags** to subscribe to notifications for different news categories.
 Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.
 In this topic we will show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
@@ -62,23 +59,18 @@ Then we will make sure that devices register with a template that refers to the 
 		  </visual>
 		</toast>
 
-While an iOS app that wants to register for French news will register the following:
 
-		{
-			aps:{
-				alert: "$(News_French)"
-			}
-		}
 
 Templates are a very powerful feature you can learn more about template in our [Notification Hubs Guidance] article. A reference for the template expression language is in our [Notification Hubs How-To for Windows Store].
 
+
+<h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
+
 We will now modify the Breaking News app that you created in the topic [How to use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
-## Client apps
 
 In order to adapt your client apps to receive localized messages, you have to replace your *native* registrations (i.e. registrations that do you specify a template) with template registrations.
 
-### Windows Store
 
 In your Windows Store app:
 
@@ -163,7 +155,7 @@ In your Windows Store app:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
-### iOS
+
 
 ## Back-end apps
 
