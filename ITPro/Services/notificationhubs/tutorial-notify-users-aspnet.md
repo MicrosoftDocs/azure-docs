@@ -169,7 +169,7 @@ The next step is to add the registration logic for notification hubs to the ASP.
 8. Update the code in the constructor to replace _`<NOTIFICATION_HUB_NAME>`_ and _`<FULL_SAS_CONNECTION_STRING>`_ with values for your notification hub, then click **Save**.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim allows your custom API method to create and update registrations.</p>
+		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim allows your Web API to create and update registrations.</p>
 	</div>
 
 9. Add the following Post method code into the RegisterController class:
@@ -298,12 +298,12 @@ The app that you created when you completed the tutorial **Get started with Noti
 	You will also receive a push notification.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to leverage templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 4. (Optional) Deploy the client app to a second device, then run the app and insert text. 
 
-	Note that a notification is displayed on each device.
+	A notification is displayed on each device.
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed this tutorial, consider completing the following tutorials:

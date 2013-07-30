@@ -29,7 +29,7 @@ This topic shows you how to request push notification registration with Windows 
 
 	![][1] 
 
-	This adds a new code file for the **LocalStorageManager** class to the project.
+	This adds code file for the **LocalStorageManager** class to the project.
 
 4. Open the new LocalStorageManager.cs project file and add the following **using** statement:
 
@@ -63,7 +63,7 @@ This topic shows you how to request push notification registration with Windows 
             }
         }
 
-	This code creates and stores a device-specific installation ID, which is used as a tag when creating notifications. If an installation ID already exists, it is used instead.
+	This code creates and stores a device-specific installation ID, which is used as a tag when creating notifications. If an installation ID exists, it is used instead.
 
 6. Open the MainPage.xaml project file, and replace the root **Grid** element with the following XAML code:
 
@@ -133,7 +133,7 @@ This topic shows you how to request push notification registration with Windows 
                                    {"instId", installationId.ToString()},
                                    {"channelUri", channel.Uri}};
 
-            // Create a new client to send the HTTP registration request.
+            // Create a client to send the HTTP registration request.
             var client = new HttpClient();
             var request =
                 new HttpRequestMessage(HttpMethod.Post, new Uri(registerUri));

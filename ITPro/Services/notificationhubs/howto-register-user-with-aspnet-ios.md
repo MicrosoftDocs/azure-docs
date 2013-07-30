@@ -21,7 +21,7 @@ This topic shows you how to request push notification registration with Windows 
 	+ **Text Field**: "Password"
 	+ **Button**: "Login"
 	
-	At this point, your storyboard should look like the following:
+	At this point, your storyboard looks like the following:
 	
    ![][0] 
     
@@ -37,7 +37,7 @@ This topic shows you how to request push notification registration with Windows 
 			
 			- (IBAction)login:(id)sender;
 
-5. Create a new class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
+5. Create a class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
 
 			@property (readonly, nonatomic) NSString* installationId;
 			@property (nonatomic) NSData* deviceToken;

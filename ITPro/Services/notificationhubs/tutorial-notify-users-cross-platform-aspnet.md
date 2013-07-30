@@ -12,7 +12,7 @@
 In the previous tutorial [Notify users with Notification Hubs], you learned how to push notifications to all devices registered by a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Notification Hubs supports templates, which let you specify how a specific device wants to receive notifications. This simplifies sending cross-platform notifications. This topic demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information on templates, see [Windows Azure Notification Hubs Overview][Templates].
 
 <div class="dev-callout"><b>Note</b>
-	<p>Notification Hubs allows a device to register multiple templates with the same tag. In this case, an incoming message targeting that tag results in multiple notifications delivered to the device, one for each template. This enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store application.</p>
+	<p>Notification Hubs allows a device to register multiple templates with the same tag. In this case, an incoming message targeting that tag results in multiple notifications delivered to the device, one for each template. This enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.</p>
 </div>
 
 Complete the following steps to send cross-platform notifications using templates:
@@ -48,6 +48,12 @@ Complete the following steps to send cross-platform notifications using template
         }
 
 	This code sends a notification to all platforms at the same time and without having to specify a native payload. Notification Hubs builds and delivers the correct payload to every device with the provided _tag_ value, as specified in the registered templates.
+
+4. Run the client app again and verify that registration succeeds.
+
+5. (Optional) Deploy the client app to a second device, then run the app. 
+
+	Note that a notification is displayed on each device.
 
 ## Next Steps
 
