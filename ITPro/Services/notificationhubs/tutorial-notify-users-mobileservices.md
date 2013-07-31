@@ -145,8 +145,8 @@ Next, you need to update the TodoList app to request registration for notificati
 
 1. Follow the steps in one of the following versions of **Register the current user for push notifications by using a mobile service**, depending on your client platform:
 
-	+ <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-mobile-service-windowsdotnet" target="_blank">Windows Store C# version</a>
-	+ <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-mobile-service-ios" target="_blank">iOS version</a>
+	+ [Windows Store C# version][Client topic Windows Store C# version]
+	+ [iOS version][Client topic iOS version]
 
 2. Run the updated app, login using Facebook, and then verify that the registration ID assigned to the notification is displayed.
 

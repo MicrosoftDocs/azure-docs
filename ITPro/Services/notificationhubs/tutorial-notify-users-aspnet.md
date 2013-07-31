@@ -290,8 +290,8 @@ The app that you created when you completed the tutorial **Get started with Noti
 
 2. Follow the steps in one of the following versions of **Register the current user for push notifications by using ASP.NET Web API**, depending on your client platform:
 
-	+ <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-windowsdotnet" target="_blank">Windows Store C# version</a>
-	+ <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios" target="_blank">iOS version</a>
+	+ [Windows Store C# version][Client topic Windows Store C# version]
+	+ [iOS version][Client topic iOS version]
 
 3. Run the updated app, login with the service by using the same string for username and password, and then verify that the registration ID assigned to the notification is displayed.
 
