@@ -4,8 +4,8 @@
 
 # Use Notification Hubs to send breaking news to iOS devices
 <div class="dev-center-tutorial-selector sublanding"> 
-		<a href="/en-us/manage/services/notification-hubs/notify-users-mobile-ios" title="iOS" class="current">iOS</a>
-    	<a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="Windows Store C#" >Windows Store C#</a>
+		<a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS" class="current">iOS</a>
+    	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#" >Windows Store C#</a>
 </div>
 
 This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to an iOS app. In this tutorial you start with the app created in [Get started with Notification Hubs]. When complete, you will be able to register for categories you are interested in, and receive only push notifications for those categories.
