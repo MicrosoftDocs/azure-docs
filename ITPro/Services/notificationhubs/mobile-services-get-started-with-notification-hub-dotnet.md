@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-notification-hubs-dotnet" writer="glenga" urlDisplayName="Get Started with Notification Hubs" pageTitle="Get started with Notification Hubs - Mobile Services" metaKeywords="" metaDescription="Learn how to use Notification Hubs with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Get started with Notification Hubs in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -49,7 +49,7 @@ This tutorial is based on an earlier Mobile Services tutorial. Before you start 
 
 <h2><a name="register"></a><span class="short-header">Register</span>Register your app for the Windows Store</h2>
 
-<div chunk="../chunks/mobile-services-register-windows-store-app.md" />
+<div chunk="../../../devcenter/mobile/chunks/mobile-services-register-windows-store-app.md" />
 
 
    
