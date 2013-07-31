@@ -1,4 +1,4 @@
-<properties linkid="" urlDisplayName="Notify Users" pageTitle="Notify Users of your ASP.NET service with Notification Hubs" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to register to receive notifications from your ASP.NET service by using Notification Hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="notification-hubs-how-to-guides-howto-notify-users-aspnet" urlDisplayName="Notify Users" pageTitle="Notify Users of your ASP.NET service with Notification Hubs" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to register to receive notifications from your ASP.NET service by using Notification Hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/notification-hubs-left-nav.md" />
 
