@@ -31,7 +31,7 @@ This tutorial demonstrates the simple broadcast scenario using notification hubs
    <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
    </div>
 
-Completing this tutorial is a prerequisite for all other notification hub tutorials for Windows Store apps. 
+Completing this tutorial is a prerequisite for all other notification hub tutorials for iOS apps. 
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
@@ -65,7 +65,7 @@ Next, register your app with Apple, enable push notifications, and upload this e
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to .
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
 
    ![][105] 
 
@@ -100,7 +100,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    
    ![][113]
 
-4. Scroll to the bottom of the screen and click **Create Certificate...** under the section **Development Push SSL Certificate**.
+4. Click **Edit**, then scroll to the bottom of the screen and click **Create Certificate...** under the section **Development Push SSL Certificate**.
 
    ![][114] 
 
@@ -257,7 +257,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
 		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		    [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+		    [[userInfo objectForKey:@"aps"] valueForKey:@”alert”] delegate:nil cancelButtonTitle:
 		    @"OK" otherButtonTitles:nil, nil];
 		    [alert show];
 		}
@@ -290,7 +290,7 @@ To send notifications using a .NET app:
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
             var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
-            await hub.SendAppleNativeNotificationAsync(toast);
+            await hub.SendAppleNativeNotificationAsync(alert);
         }
 
 4. Then add the following line in your `Main` method:
