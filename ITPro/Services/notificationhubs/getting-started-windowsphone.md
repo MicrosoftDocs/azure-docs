@@ -73,36 +73,30 @@ You now have the connection strings required to register your Windows Phone 8 ap
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-3. Add the following code to App.xaml.cs:
+3. At the following code at the top of **Application_Launching** method in App.xaml.cs:
 	
-	    public static HttpNotificationChannel CurrentChannel { get; private set; }
-
-            CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
-            if (CurrentChannel == null)
-            {
-                CurrentChannel = new HttpNotificationChannel("MyPushChannel");
-                CurrentChannel.Open();
-                CurrentChannel.BindToShellToast();
-            }
-
-            var hub = new NotificationHub("<hub name>", "<connection string with listen access>");
-            await hub.RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
+	    var channel = HttpNotificationChannel.Find("MyPushChannel");
+        if (channel == null)
+        {
+            channel = new HttpNotificationChannel("MyPushChannel");
+            channel.Open();
+            channel.BindToShellToast();
         }
 
+        channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+        {
+            var hub = new NotificationHub("<hub name>", "<connection string>");
+            await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+        });
+
     Make sure to insert the name of your hub and the connection string called **DefaultListenSharedAccessSignature** that you obtained in the previous section.
-    This code retrieves the ChannelURI for the app from MPNS, and then registers that ChannelURI with your notification hub.
+    This code retrieves the ChannelURI for the app from MPNS, and then registers that ChannelURI with your notification hub. It also guarantees that the ChannelURI is registered in your notification hub each time the application is launched.
 
 	<div class="dev-callout"><b>Note</b>
 		<p>This tutorial sends a toast notification to the device. When you send a tile notification, you must instead call the <strong>BindToShellTile</strong> method on the channel. To support both toast and tile notifications, call both <strong>BindToShellTile</strong> and  <strong>BindToShellToast</strong>. </p>
 	</div>
     
-4. At the top of the **Application_Launching** method in App.xaml.cs, add the following call to the  **InitNotificationsAsync** method:
-
-        InitNotificationsAsync();
-
-    This guarantees that the ChannelURI is registered in your notification hub each time the application is launched.
-
-5. In Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
+4. In Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
    ![][14]
 
@@ -152,40 +146,9 @@ To send notifications using a .NET app:
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Press the F5 key to run the app. You should receive a toast notification.
+5. Press the F5 key to run the app. You should receive a toast notification. Make sure to have your Windows Phone emulator running and your app closed.
 
    ![][214]
-
-To send a notification using a Mobile Service, follow [Get started with Mobile Services], then:
-
-1. Log on to the [Windows Azure Management Portal], and select your mobile service.
-
-2. Click the tab **Scheduler** at the top.
-
-   ![][215]
-
-3. Create a new scheduled job, insert a name, and click **On demand**.
-
-   ![][216]
-
-4. When the job is created, click the job name. Then click the tab **Script** in the top bar.
-
-5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for **DefaultFullSharedAccessSignature** that you obtained earlier. Click **Save**.
-
-        var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
-        notificationHubService.mpns.sendToast(
-            null,
-            {
-                text1: 'Hello from Mobile Services!!!'
-            },
-            function (error) {
-                if (!error) {
-                    console.warn("Notification successful");
-                }
-        });
-
-6. Click **Run Once** on the bottom bar. You should receive a toast notification.
 
 ## <a name="next-steps"> </a>Next steps
 
