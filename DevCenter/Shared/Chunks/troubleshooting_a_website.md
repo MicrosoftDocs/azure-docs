@@ -41,6 +41,8 @@ Concepts introduced in this article include:
 <h2>Install developer tools and create a web site on your local computer</h2>
 
 Before discussing how to troubleshoot a web site, we must first create a web site. This section walks through using Microsoft WebMatrix to create a simple web site and deploy the web site to Windows Azure.
+
+**Note**: For information on using Visual Studio to troubleshoot Windows Azure Web Sites, see [Troubleshooting Windows Azure Web Sites in Visual Studio].
 ###<a name="installwebmatrix"></a>Install Microsoft WebMatrix
 Visit [http://www.microsoft.com/web/webmatrix][webmatrix] and click the **Free Download** button.  This will run the Web Platform Installer which installs all the dependencies you need to run WebMatrix and then install WebMatrix.
 ###<a name="createlocalsite"></a>Create a Web Site on your local computer with WebMatrix
@@ -350,7 +352,7 @@ This parameter definition provides a clue as to the cause of the error.  Accordi
 Checking the web site's \root\App\_Data\ directory, we can verify that there is no file named StarterSite.sdf because we renamed it to StarterSite.bak. After renaming this file back to startersite.sdf, the InitializeDatabaseConnection() method finds the file that it was expecting, and the web site works as expected. 
 
 ###Next Steps
-
+- [Troubleshooting Windows Azure Web Sites in Visual Studio]
 - [ASP.NET MVC web site with SQL Database]
 - [Create and deploy a web site with WebMatrix]
 - [Create a web site from the gallery]
@@ -374,6 +376,7 @@ Checking the web site's \root\App\_Data\ directory, we can verify that there is 
 [Create a web site from the gallery]:http://www.windowsazure.com/en-us/develop/net/tutorials/website-from-gallery/
 [Web site with MongoDB on a virtual machine]:http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-mongodb-vm/
 
+[Troubleshooting Windows Azure Web Sites in Visual Studio]:http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
 [ASP.NET MVC web site with SQL Database]:http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
 [Create and deploy a web site with WebMatrix]:http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/
 [Create a web site from the gallery]:http://www.windowsazure.com/en-us/develop/net/tutorials/website-from-gallery/
