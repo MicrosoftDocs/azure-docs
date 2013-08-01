@@ -128,7 +128,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 			
             var hub = new NotificationHub("<hub name>", "<connection string with listen access>");              
-			await hub.RegisterNativeAsync(channel.Uri);
+			var result = await hub.RegisterNativeAsync(channel.Uri);
             
             // Displays the registration ID so you know it was successful
             if (result.RegistrationId != null)
@@ -218,7 +218,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. When you are finished, click **Save** on the bottom bar.
 
         var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
+        var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
         notificationHubService.wns.sendToastText01(
             null,
             {
