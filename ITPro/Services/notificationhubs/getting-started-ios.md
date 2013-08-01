@@ -338,7 +338,9 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 In this simple example you broadcast notifications to all your iOS devices. In order to target specific users refer to the tutorial [Use Notification Hubs to push notifications to users], while if you want to segment your users by interest groups you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and on the [Notification Hubs How-To for iOS].
 
 <!-- Anchors. -->
-[Register your app for push notifications]: #register
+[Generate the certificate signing request]: #certificates
+[Register your app and enable push notifications]: #register
+[Create a provisioning profile for the app]: #profile
 [Configure your Notification Hub]: #configure-hub
 [Connecting your app to the Notification Hub]: #connecting-app
 [Send notifications from your back-end]: #send
@@ -402,6 +404,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [34]: ../media/notification-hub-create-ios-app4.png
 
 <!-- URLs. -->
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwlink/?LinkID=277161
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
