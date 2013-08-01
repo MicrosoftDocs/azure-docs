@@ -87,7 +87,7 @@ The raw performance counter data and aggregated monitoring data are stored in th
 
 <h2><a id="receivealerts"></a>How to: Receive alerts for cloud service metrics</h2>
 
-You can receive alerts based on your cloud service monitoring metrics. On the **Settings** page of the Windows Azure Management Portal, you can create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
+You can receive alerts based on your cloud service monitoring metrics. On the **Management Services** page of the Windows Azure Management Portal, you can create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 <h2><a id="addmetrics"></a>How to: Add metrics to the metrics table</h2>
 
