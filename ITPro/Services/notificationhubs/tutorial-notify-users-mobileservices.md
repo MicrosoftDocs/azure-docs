@@ -267,3 +267,4 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-mobileservice.md
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
+[Windows Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
