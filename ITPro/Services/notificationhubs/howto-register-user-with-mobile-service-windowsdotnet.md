@@ -5,7 +5,7 @@
 # Register the current user for push notifications by using a mobile service
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-mobile-services-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+    <a href="/en-us/manage/services/notification-hubs/howto-register-user-with-mobile-service-windows-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
     <a href="/en-us/manage/services/notification-hubs/register-users-ios" title="iOS">iOS</a>
 </div>
 

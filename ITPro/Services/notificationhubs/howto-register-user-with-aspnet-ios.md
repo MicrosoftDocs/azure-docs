@@ -5,7 +5,7 @@
 # Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-dotnet/" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-dotnet" title="Windows Store C#">Windows Store C#</a>
     <a href="/en-us/manage/services/notification-hubs/register-users-ios" title="iOS" class="current">iOS</a>
 </div>
 
