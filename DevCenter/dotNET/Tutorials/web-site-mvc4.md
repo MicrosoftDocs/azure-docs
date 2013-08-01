@@ -149,8 +149,6 @@ When you're done with the site, you can delete it, and at times you might want t
 
 ![Web Site Configuration in Visual Studio](../Media/WSConfigurationInVS.png)
 
-For more information, see **Web Sites: Management Support within the Visual Studio Server Explorer** in [Announcing the release of Windows Azure SDK 2.0 for .NET ](http://weblogs.asp.net/scottgu/archive/2013/04/30/announcing-the-release-of-windows-azure-sdk-2-0-for-net.aspx) on ScottGu's blog.
- 
 To delete your web site, you can use the Windows Azure Management Portal. The following screen shot shows **Stop**, **Restart**, and **Delete** buttons in the **Dashboard** tab of the management portal.
 
 ![Management Portal Dashboard Tab](../Media/MPStopStartDelete.png)
@@ -165,12 +163,11 @@ When your site is public and it starts to get more traffic, response times might
 For more information, see [How to Scale a Web Site](/en-us/manage/services/web-sites/how-to-scale-websites/). (Adding server resources to scale a web site is not free.)
 
 <h3>How to troubleshoot a web site</h3>
-If the site stops working correctly, you might want to look at trace or log output for help with troubleshooting. Visual Studio provides built-in tooling to make it easy to view Windows Azure logs as they are generated in real time.
+You might want to look at trace or log output for help with troubleshooting. Visual Studio provides built-in tooling to make it easy to view Windows Azure logs as they are generated in real time.
 
 ![Logs in Visual Studio](../Media/LogsInVS.png)
 
-For more information, see **Web Sites: Streaming Diagnostic Logs** in [Announcing the release of Windows Azure SDK 2.0 for .NET ](http://weblogs.asp.net/scottgu/archive/2013/04/30/announcing-the-release-of-windows-azure-sdk-2-0-for-net.aspx) on ScottGu's blog. For information about web site monitoring functions that are available from the management portal, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
-
+For more information, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 <h3>How to add database and authorization functionality</h3>
 Most production web sites use a database and restrict some site functions to certain authorized users. For a tutorial that shows how to get started with database access, authentication, and authorization, see [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site][WebWithSQL].
