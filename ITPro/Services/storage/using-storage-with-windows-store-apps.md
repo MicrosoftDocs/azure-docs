@@ -26,7 +26,7 @@ Next, add a reference to the Windows Azure Storage Client Library by right click
 
 <h3>Using the library with the Blob and Queue services</h3>
 
-At this point, your app is ready to communicate with the Windows Azure Blob and Queue services. Add the following **using** statements so that Windows Azure Storage types can be referenced directly:
+At this point, your app is ready to communicate with the Blob and Queue services. Add the following **using** statements so that Windows Azure Storage types can be referenced directly:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
@@ -45,7 +45,7 @@ Build and run the application. Clicking on the button will first check if a cont
 
 <h3>Using the library with the Table service</h3>
 
-Types used to communicate with Windows Azure Table service depend on WCF Data Services for Windows Store Apps library. Next, add a reference to the required WCF libraries by using Package Manager Console:
+Types used to communicate with Table service depend on WCF Data Services for Windows Store Apps library. Next, add a reference to the required WCF libraries by using Package Manager Console:
 
 ![store-apps-storage-package-manager][]
 
