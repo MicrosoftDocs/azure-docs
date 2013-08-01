@@ -298,7 +298,7 @@ The app that you created when you completed the tutorial **Get started with Noti
 	You will also receive a push notification.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 4. (Optional) Deploy the client app to a second device, then run the app and insert text. 
