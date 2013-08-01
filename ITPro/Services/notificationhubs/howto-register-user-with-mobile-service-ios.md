@@ -5,8 +5,8 @@
 # Register the current user for push notifications by using a mobile service
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-with-mobile-services-windowsdotnet" title="Windows Store C#">Windows Store C#</a>
-    <a href="/en-us/manage/services/notification-hubs/register-users-with-mobile-services-ios" title="iOS" class="current">iOS</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-mobile-services-dotnet" title="Windows Store C#">Windows Store C#</a>
+    <a href="/en-us/manage/services/notification-hubs/register-users-ios" title="iOS" class="current">iOS</a>
 </div>
 
 This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by Windows Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
