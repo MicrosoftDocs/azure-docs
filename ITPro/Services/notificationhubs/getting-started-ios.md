@@ -4,7 +4,9 @@
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
-	# clicker for iOS, Android, Windows Phone
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
+    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS" class="current">iOS</a>
 </div>	
 
 
@@ -404,7 +406,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [34]: ../media/notification-hub-create-ios-app4.png
 
 <!-- URLs. -->
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwlink/?LinkID=277161
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

@@ -4,7 +4,9 @@
 
 # Getting Started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
-	# clicker for iOS, Android, Windows Phone
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
+    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS" class="current">iOS</a>
 </div>	
 
 
