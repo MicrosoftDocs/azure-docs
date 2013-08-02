@@ -8,7 +8,7 @@
     	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#" >Windows Store C#</a>
 </div>
 
-This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to an iOS app. In this tutorial you start with the app created in [Get started with Notification Hubs]. When complete, you will be able to register for categories you are interested in, and receive only push notifications for those categories.
+This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to an iOS app. In this tutorial you start with the app created in [How To: Service Bus Notification Hubs (iOS Apps)]. When complete, you will be able to register for categories you are interested in, and receive only push notifications for those categories.
 
 Note that the same concepts can be seamlessly applied to Windows Store, Windows Phone 8, and Android clients too. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
 
@@ -30,7 +30,7 @@ There are two parts to this scenario:
 
 ##Prerequisites ##
 
-You must have already completed the [Get started with Notification Hubs] tutorial and have the code available. You also need Visual Studio 2012.
+You must have already completed the [How To: Service Bus Notification Hubs (iOS Apps)] tutorial and have the code available. You also need Visual Studio 2012.
 
 
 <h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
@@ -41,7 +41,7 @@ Tags are simple string and do not have to be provisioned in advance. Simply spec
 
 ![][2]
 
-<h2><a name="processing"></a><span class="client processing">App ui</span>Client App Processing</h2>
+<h2><a name="client-processing"></a><span class="client processing">App ui</span>Client App Processing</h2>
 
 You register your client app with your notification hub in order to update the device's ChannelURI or device token, as well as register for the tags you are interested in. Generally, you register every time your app starts, but in order to save power and data transmission, you can reduce the frequency by avoiding registration if, when your app starts, less than a specified amount of time (usually a day) has passed since last registration.
 
@@ -56,7 +56,7 @@ Summary:
 
 <h2><a name="building-client"></a><span class="building app">App ui</span>Building the iOS client app</h2>
 
-We assume that you already followed the [Get started with Notification Hubs] in order to set up your app and create and/or configure your Notification Hub. 
+We assume that you already followed the [How To: Service Bus Notification Hubs (iOS Apps)] in order to set up your app and create and/or configure your Notification Hub. 
 Specifically, make sure to go through the following sections:
 
 + Generate the certificate signing request
@@ -138,7 +138,7 @@ Assume familiar with Apple tutorial
 			
 		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	The first line initializes the Notification singleton, while the second one starts the registration for push notifications (you should have added this line while following the [Get Started with Notification Hubs] tutorial).
+	The first line initializes the Notification singleton, while the second one starts the registration for push notifications (you should have added this line while following the [How To: Service Bus Notification Hubs (iOS Apps)] tutorial).
 	Remember that the Notification class has a property that has to hold the device token for this device provided by APNs. In order to obtain this information, you have to implement the method *didRegisterForRemoteNotificationsWithDeviceToken* in your AppDelegate, and copy the following code:
 	
 			self.notifications.deviceToken = deviceToken;
@@ -236,6 +236,9 @@ Our app is now able to store a set of categories in the device local storage and
 You can now run the app and verify that clicking the subscribe button will trigger a registration to your Notification Hub.
 
 
+
+<h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
+
 <div chunk="../chunks/notification-hubs-back-end.md" />
 
 
@@ -274,7 +277,7 @@ To learn how to expand the breaking news app by sending localized notifications,
 [19]: notification-hub-windows-reg.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized Breaking News]: breaking-news-localized-ios.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
 [Notify users with Notification Hubs: ASP.NET]: tutorial-notify-users-aspnet.md

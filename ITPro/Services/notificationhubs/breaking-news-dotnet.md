@@ -43,7 +43,7 @@ Tags are simple string and do not have to be provisioned in advance. Simply spec
 
 ![][1] 
 
-<h2><a name="processing"></a><span class="client processing">App ui</span>Client App Processing</h2>
+<h2><a name="client-processing"></a><span class="client processing">App ui</span>Client App Processing</h2>
 
 You register your client app with your notification hub in order to update the device's ChannelURI or device token, as well as register for the tags you are interested in. Generally, you register every time your app starts, but in order to save power and data transmission, you can reduce the frequency by avoiding registration if, when your app starts, less than a specified amount of time (usually a day) has passed since last registration.
 
@@ -201,6 +201,7 @@ Our app is now able to store a set of categories in the device local storage and
 You can now run the app and verify that clicking the subscribe button will trigger a registration to your Notification Hub.
 
 
+<h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
 
 <div chunk="../chunks/notification-hubs-back-end.md" />
 
