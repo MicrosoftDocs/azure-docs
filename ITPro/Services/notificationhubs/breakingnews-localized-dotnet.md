@@ -155,10 +155,13 @@ Change your MainPage.xaml to include a locale combobox:
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. Finally, in your App.xaml.cs file, make sure to update your call to the Notifications singleton in the *OnLaunched* method:
+4. Finally, in your App.xaml.cs file, make sure to update your call to the 
+Notifications singleton in the *OnLaunched* method:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
+
+<h2><a name="send"></a><span class="short-header">Send localized notifications</span>Send localized notifications from your back-end</h2>
 
 <div chunk="../chunks/notification-hubs-localized-back-end.md" />
 

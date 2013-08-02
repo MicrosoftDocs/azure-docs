@@ -1,4 +1,4 @@
-<h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
+
 
 You can send notifications using notification hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. 
 
