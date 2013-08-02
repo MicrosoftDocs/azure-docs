@@ -303,6 +303,8 @@ To send notifications using a .NET app:
 
 5. Press the F5 key to run the app. You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
 
+You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].
+
 To send a notification using a Mobile Service, follow [Get started with Mobile Services], then:
 
 1. Log on to the [Windows Azure Management Portal], and select your Mobile Service.
@@ -321,7 +323,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
         var azure = require('azure');
         var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
-        notificationHubService.hub.apple.send(
+        notificationHubService.apns.send(
 	        null,
 	        {
 	            alert: "Hello from Mobile Services!"
@@ -417,3 +419,8 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+
+[Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
+[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
+
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1

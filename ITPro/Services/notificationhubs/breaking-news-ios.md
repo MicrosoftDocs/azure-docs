@@ -151,7 +151,7 @@ Assume familiar with Apple tutorial
 				(NSDictionary *)userInfo {
 			    NSLog(@"%@", userInfo);
 			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-			    [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+			    [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
 			    [alert show];
 		    }
 
