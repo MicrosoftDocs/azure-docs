@@ -202,6 +202,8 @@ To send notifications using a .NET app:
 
    ![][14]
 
+You can find all the possible payloads on MSDN in the [toast catalog], [tile catalog], and [badge overview].
+
 To send a notification using a Mobile Service, follow [Get started with Mobile Services], then do the following:
 
 1. Log on to the [Windows Azure Management Portal], and click your Mobile Service.
@@ -283,3 +285,10 @@ In this simple example you sent broadcast notifications to all your Windows devi
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+
+[Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
+[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
+
+[toast catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx

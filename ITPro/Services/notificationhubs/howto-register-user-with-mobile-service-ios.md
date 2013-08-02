@@ -53,7 +53,7 @@ This topic shows you how to request push notification registration with Windows 
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 			    NSLog(@"%@", userInfo);
 			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-			                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+			                          [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle:
 			                          @"OK" otherButtonTitles:nil, nil];
 			    [alert show];
 			}
