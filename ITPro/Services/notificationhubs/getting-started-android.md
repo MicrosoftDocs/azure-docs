@@ -4,7 +4,10 @@
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
-	# clicker for iOS, Android, Windows Phone
+	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android" class="current">Android</a>
+    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a>
 </div>	
 
 
@@ -21,14 +24,16 @@ The tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. This tutorial requires the following:
 
-+ Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://developer.android.com/sdk/index.html">here</a>
-+ Active Windows Store account
++ Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://developer.android.com/sdk/index.html">here</a>.
++ Active Windows Store account.
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
 <h2><a name="register"></a><span class="short-header">Enable Google Cloud Messaging</span>Enable Google Cloud Messaging</h2>
+
+<p></p>
 
 <div class="dev-callout"><b>Note</b>
 <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
@@ -380,3 +385,6 @@ In this simple example you broadcast notifications to all your Android devices. 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/en-us/library/dn282661.aspx
+
+[Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
+[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md

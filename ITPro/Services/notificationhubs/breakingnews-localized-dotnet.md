@@ -5,8 +5,8 @@
 # Use Notification Hubs to send localized breaking news
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/manage/services/notification-hubs/breaking-localized-news-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-		<a href="/en-us/manage/services/notification-hubs/breaking-localized-news-ios" title="iOS">iOS</a>
+    	<a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+		<a href="/en-us/manage/services/notification-hubs/breaking-news-localized-ios" title="iOS">iOS</a>
 </div>
 
 This topic shows you how to use the **template** feature of Windows Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
@@ -155,10 +155,13 @@ Change your MainPage.xaml to include a locale combobox:
          dialog.Commands.Add(new UICommand("OK"));
          await dialog.ShowAsync();
 
-4. Finally, in your App.xaml.cs file, make sure to update your call to the Notifications singleton in the *OnLaunched* method:
+4. Finally, in your App.xaml.cs file, make sure to update your call to the 
+Notifications singleton in the *OnLaunched* method:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
+
+<h2><a name="send"></a><span class="short-header">Send localized notifications</span>Send localized notifications from your back-end</h2>
 
 <div chunk="../chunks/notification-hubs-localized-back-end.md" />
 

@@ -4,7 +4,7 @@
 
 # Get started with Notification Hubs in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-notification-hubs-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/mobile-services-get-started-with-notification-hub-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
 </div>	
 
 

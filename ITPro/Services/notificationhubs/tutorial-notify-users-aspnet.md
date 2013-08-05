@@ -298,7 +298,7 @@ The app that you created when you completed the tutorial **Get started with Noti
 	You will also receive a push notification.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 4. (Optional) Deploy the client app to a second device, then run the app and insert text. 
@@ -341,8 +341,9 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+
 [Create a mobile-friendly REST service using ASP.NET Web API and SQL Database]: /en-us/develop/net/tutorials/rest-service-using-web-api/
 [Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-aspnet.md
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
-[Windows Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
+[Windows Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
