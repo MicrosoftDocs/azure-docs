@@ -4,7 +4,10 @@
 
 # Getting Started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
-	# clicker for iOS, Android, Windows Phone
+	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
+    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a>
 </div>	
 
 
@@ -126,7 +129,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 			
             var hub = new NotificationHub("<hub name>", "<connection string with listen access>");              
-			await hub.RegisterNativeAsync(channel.Uri);
+			var result = await hub.RegisterNativeAsync(channel.Uri);
             
             // Displays the registration ID so you know it was successful
             if (result.RegistrationId != null)
@@ -199,6 +202,8 @@ To send notifications using a .NET app:
 
    ![][14]
 
+You can find all the possible payloads on MSDN in the [toast catalog], [tile catalog], and [badge overview].
+
 To send a notification using a Mobile Service, follow [Get started with Mobile Services], then do the following:
 
 1. Log on to the [Windows Azure Management Portal], and click your Mobile Service.
@@ -216,7 +221,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. When you are finished, click **Save** on the bottom bar.
 
         var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
+        var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
         notificationHubService.wns.sendToastText01(
             null,
             {
@@ -280,3 +285,10 @@ In this simple example you sent broadcast notifications to all your Windows devi
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+
+[Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
+[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
+
+[toast catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx
