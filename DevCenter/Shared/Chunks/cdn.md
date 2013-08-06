@@ -72,11 +72,6 @@ Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-    **Tip:** If you prefer to allow your customers to access blobs by
-    using your own custom subdomain, you can create a custom domain for
-    the storage account. For more information, see [How to Register a
-    Custom Subdomain Name for Accessing Blobs in Windows Azure].
-
 5.  From the **Region/Affinity Group** drop-down list, select a geographic location for the storage account. Alternatively, use an affinity group. For instructions on creating an affinity group, see [How to Create an Affinity Group in Windows Azure].
 6. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
 7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
