@@ -17,12 +17,12 @@ Each option described below shows you how to create a web site in a shared hosti
 
 <h2><a name="portal"></a>Create a PHP web site using the Windows Azure Management Portal</h2>
 
-When you create a web site in the Windows Azure Management Portal, you have three options: **QUICK CREATE**, **CREATE WITH DATABASE**, and **FROM GALLERY**. The instructions below will cover the **QUICK CREATE** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
+When you create a web site in the Windows Azure Management Portal, you have three options: **Quick Create**, **Create with Database**, and **From Gallery**. The instructions below will cover the **Quick Create** option. For information about the other two options, see [Create a PHP-MySQL Windows Azure web site and deploy using Git][website-mysql-git] and [Create a WordPress web site from the gallery in Windows Azure][wordpress-gallery].
 
 To create a PHP web site using the Windows Azure Management Portal, do the following:
 
 1. Login to the [Windows Azure Management Portal].
-2. Click **+NEW** at the bottom of the page, then click **COMPUTE**, **WEB SITE**, and **QUICK CREATE**. Provide a **URL** for your web site and select the **REGION** for your web site. Finally, click **CREATE WEB SITE**.
+2. Click **New** at the bottom of the page, then click **Compute**, **Web Site**, and **Quick Create**. Provide a **URL** for your web site and select the **Region** for your web site. Finally, click **Create Web Site**.
 
 	![Select Quick Create web site](../Media/select-quickcreate-website.png)
 
@@ -78,7 +78,7 @@ Now that you have created a PHP web site in Windows Azure Web Sites, you can man
 * [How to configure PHP in Windows Azure Web Sites][configure-php]
 * [How to manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
 * [How to monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
-* [How to scale Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
+* [How to scale Web Sites](/en-us/manage/services/web-sites/how-to-scale-websites/)
 * [Publishing with Git](/en-us/develop/php/common-tasks/publishing-with-git/)
 
 For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/develop/php/tutorials/) page.
