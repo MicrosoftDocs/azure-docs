@@ -105,7 +105,7 @@ The configuration alternative is to use a web.config file under the web site roo
 		    			<conditions>
 							<add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
 		    			</conditions>
-		    			<action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="false" />
+		    			<action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="true" />
 					</rule>
 	    		</rules>
 			</rewrite>
