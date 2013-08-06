@@ -414,6 +414,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with Mobile Services]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started-ios.md
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
