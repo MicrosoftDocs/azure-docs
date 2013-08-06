@@ -63,7 +63,7 @@ When you have referenced the WCF Data Services NuGet package, change the code in
     var table = tableClient.GetTableReference("table1");
     await table.CreateIfNotExistsAsync();
     
-This code check whether a table named *table1* exists in your account, and create it if not.
+This code checks whether a table named *table1* exists in your account, and creates it if not.
 
 You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, available in the same package that you downloaded. This library contains additional functionality such as reflection based serialization and generic queries. Note that this library does not support JavaScript.
 
