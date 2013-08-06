@@ -20,20 +20,25 @@ When you create an application that uses Service Bus, you will need to
 add a reference to the Service Bus assembly and include the
 corresponding namespaces.
 
-### Add a Reference to the Service Bus Assembly
+<h2><span class="short-header">Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
 
-1.  In Visual Studio's **Solution Explorer**, right-click
-    **References**, and then click **Add Reference**.
+The Service Bus **NuGet** package is the easiest way to get the
+Service Bus API and to configure your application with all of the
+Service Bus dependencies. The NuGet Visual Studio extension makes it
+easy to install and update libraries and tools in Visual Studio and
+Visual Web Developer. The Service Bus NuGet package is the easiest way
+to get the Service Bus API and to configure your application with all of
+the Service Bus dependencies.
 
-2.  In the **Browse** tab, go to C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\v2.0\\ref and add a **Microsoft.ServiceBus.dll** reference.
+To install the NuGet package in your application, do the following:
 
-### Import the Service Bus Namespaces
+1.  In Solution Explorer, right-click **References**, then click
+    **Manage NuGet Packages**.
+2.  Search for WindowsAzure" and select the **Windows Azure
+    Service Bus** item. Click **Install** to complete the installation,
+    then close this dialog.
 
-Add the following to the top of any C\# file where you want to use
-Service Bus topics and subscriptions:
-
-	using Microsoft.ServiceBus;
-	using Microsoft.ServiceBus.Messaging;
+    ![][7]
 
 You are now ready to write code against Service Bus.
 
@@ -407,6 +412,7 @@ links to learn more.
   [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
   [6]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
+  [7]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
