@@ -179,7 +179,7 @@ our "TestQueue":
 		    if (message != null && message.getMessageId() != null)
 		    {
 			    System.out.println("MessageID: " + message.getMessageId());    
-			    // Display the topic message.
+			    // Display the queue message.
 			    System.out.print("From queue: ");
 			    byte[] b = new byte[200];
 			    String s = null;
