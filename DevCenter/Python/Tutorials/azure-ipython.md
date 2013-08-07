@@ -39,11 +39,11 @@ virtual machines, and we will cover the setup of IPython on both types of virtua
 
 ### Linux VM
 
-Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* distribution.
+Follow the instructions given [here][portal-vm-linux] to create a virtual machine of the *OpenSUSE* or *Ubuntu* distribution. This tutorial uses OpenSUSE 12.3 and Ubuntu Server 13.04. We'll assume the default user name *azureuser*.
 
 ### Windows VM
 
-Follow the instructions given [here][portal-vm-windows] to create a virtual machine of the *Windows Server 2008 R2* distribution.
+Follow the instructions given [here][portal-vm-windows] to create a virtual machine of the *Windows Server 2012 Datacenter* distribution. In this tutorial, we'll assume that the user name is *azureuser*.
 
 ## Create an Endpoint for the IPython Notebook
 
@@ -68,53 +68,79 @@ After this step, the "Endpoints" Dashboard tab will look like this:
 To run the IPython Notebook on our VM, we must first install IPython and
 its dependencies.
 
-### Linux
+### Linux (OpenSUSE)
 
 To install IPython and its dependencies, SSH into the Linux VM and carry out 
 the following steps.
 
-1.  Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and
-    other IPython's dependencies by doing:
+Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other IPython's dependencies by doing:
 
-        sudo zypper install python-matplotlib
-        sudo zypper install python-tornado
-        sudo zypper install ipython
+    sudo zypper install python-matplotlib
+    sudo zypper install python-tornado
+    sudo zypper install ipython
 
-2.  Download and install the latest version of IPython by doing:
+### Linux (Ubuntu)
 
-        sudo easy_install http://github.com/ipython/ipython/tarball/master
+To install IPython and its dependencies, SSH into the Linux VM and carry out 
+the following steps.
+
+Install [NumPy][numpy], [Matplotlib][matplotlib], [Tornado][tornado] and other IPython's dependencies by doing:
+
+    sudo apt-get install python-matplotlib
+    sudo apt-get install python-tornado
+    sudo apt-get install ipython
+    sudo apt-get install ipython-notebook
 
 ### Windows
 
 To install IPython and its dependencies on the Windows VM, Remote Desktop to connect to the VM. Then carry out the following steps, 
 using the Windows PowerShell to run all command line actions.
 
-1.  Install Python 2.7.2 (32 bit) from http://python.org. You will also need to
-    add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` environment
-    variable.
+**Note**: In order to download anything using Internet Explorer, you'll need to change some security settings.  From **Server Manager**, click on **Local Server**, then on **IE Enhanced Security Configuration** and turn it off for administrators.  You can enable it again once you're done installing IPython.
 
-2.  Install distribute by downloading the file 
-    http://python-distribute.org/distribute_setup.py and then running the
+1.  Install Python 2.7.5 (32 bit) from [python.org](http://www.python.org/download). 
+    You will also need to add `C:\Python27` and `C:\Python27\Scripts` to your `PATH` 
+    environment variable.
+
+1.  Install distribute by downloading the file **distribute_setup.py**
+    from [python-distribute.org](http://python-distribute.org/) and then running the
     command:
 
         python distribute_setup.py
 
-3.  Install [Tornado][tornado] and [PyZMQ][pyzmq] by running the commands:
+1.  Install [Tornado][tornado] and [PyZMQ][pyzmq] by running the commands:
 
         easy_install tornado
         easy_install pyzmq
 
-4.  Download and install [NumPy][numpy] and [Matplotlib][matplotlib] using the
-    `.exe` binary installers available on their respective web sites.
+1.  Download and install [NumPy][numpy] using the
+    `.exe` binary installer available on their web site.  As of this writing, the latest version is **numpy-1.7.1-win32-superpack-python2.7.exe**.
 
-5.  Download and install OpenSSL. You will need to install both the 
-    "Win32 OpenSSL v1.0.1c Light" and "Visual C++ 2008  Redistributable" from
-    http://slproweb.com/products/Win32OpenSSL.html. You will also need to add
+1.  Download and install [Matplotlib][matplotlib] using the
+    `.exe` binary installer available on their web site.  As of this writing, the latest version is **matplotlib-1.2.1.win32-py2.7.exe**.
+
+1.  Download and install OpenSSL. You will need to install both the 
+    **Win32 OpenSSL v1.0.1e Light** and **Visual C++ 2008  Redistributable** from
+    [http://slproweb.com/products/Win32OpenSSL.html](http://slproweb.com/products/Win32OpenSSL.html). You will also need to add
     `C:\OpenSSL-Win32\bin` to your `PATH` environment variable.
 
-5.  Download and install the latest version of IPython by doing:
+1.  Install the IPython using the command:
 
-        easy_install http://github.com/ipython/ipython/tarball/master
+        easy_install ipython
+
+1.  Open a port in Windows Firewall.  On Windows Server 2012, the firewall will block incoming connections by default.  To open port 9999, follow these steps:
+
+    - Start **Windows Firewall with Advanced Security** from the Start Screen.
+
+    - Click on **Inbound Rules** in the left panel.
+
+	- Click on **New Rule...** in the Actions panel.
+
+	- In the New Inbound Rule Wizard, select **Port**.
+
+	- In the next screen, select **TCP** and enter **9999** in **Specific local ports**.
+
+	- Accept defaults, give the rule a name and click Finish.
 
 ### Configure the IPython Notebook
 
@@ -126,13 +152,17 @@ IPython configuration profile to encapsulate the configuration information:
 Next we `cd` to the profile directory to create our SSL certificate and edit
 the profiles configuration file.
 
-On Linux:
+On Linux (OpenSUSE):
 
     cd ~/.config/ipython/profile_nbserver/
 
+On Linux (Ubuntu):
+
+    cd ~/.ipython/profile_nbserver/
+
 On Windows:
 
-    cd ~\.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 On both platforms create the SSL certificate as follows:
 
@@ -164,29 +194,31 @@ file has a number of fields and by default all are commented out.  You can open
 this file with any text editor of your liking, and you should ensure that it
 has at least the following content:
 
-     c = get_config()
+    c = get_config()
+    
+    # This starts plotting support always with matplotlib
+    c.IPKernelApp.pylab = 'inline'
+    
+    # You must give the path to the certificate file.
+    
+    # If using a Linux VM (OpenSUSE):
+    c.NotebookApp.certfile = u'/home/azureuser/.config/ipython/profile_nbserver/mycert.pem'
 
-     # This starts plotting support always with matplotlib
-     c.IPKernelApp.pylab = 'inline'
-
-     # You must give the path to the certificate file.
-
-     # If using a Linux VM:
-     c.NotebookApp.certfile = u'/home/ipadmin/.config/ipython/profile_nbserver/mycert.pem'
-
-     # And if using a Windows VM:
-     c.NotebookApp.certfile = r'C:\Users\Administrator\.ipython\profile_nbserver\mycert.pem'
-
-     # Create your own password as indicated above
-     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
-
-     # Network and browser details. We use a fixed port (9999) so it matches
-     # our Windows Azure setup, where we've allowed traffic on that port
-     
-     c.NotebookApp.ip = '*'
-     c.NotebookApp.port = 9999
-     c.NotebookApp.open_browser = False
-
+    # If using a Linux VM (Ubuntu):
+    c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
+    
+    # And if using a Windows VM:
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
+    
+    # Create your own password as indicated above
+    c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
+    
+    # Network and browser details. We use a fixed port (9999) so it matches
+    # our Windows Azure setup, where we've allowed traffic on that port
+    
+    c.NotebookApp.ip = '*'
+    c.NotebookApp.port = 9999
+    c.NotebookApp.open_browser = False
 
 ### Run the IPython Notebook
 
@@ -300,7 +332,7 @@ profiling and parallel computing integration.
 [ipython]:      http://ipython.org                  "IPython"
 [tornado]:      http://www.tornadoweb.org/          "Tornado"
 [PyZMQ]:        https://github.com/zeromq/pyzmq     "PyZMQ"
-[NumPy]:        http://www.numpy.org/             "NumPy"
+[NumPy]:        http://www.numpy.org/               "NumPy"
 [Matplotlib]:   http://matplotlib.sourceforge.net/  "Matplotlib"
 
 [portal-vm-windows]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/

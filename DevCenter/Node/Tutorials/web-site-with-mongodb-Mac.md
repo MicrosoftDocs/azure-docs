@@ -4,6 +4,7 @@
 <div chunk="../chunks/article-left-menu.md" />
 
 # Node.js Web Application with Storage on MongoDB (Virtual Machine)
+
 This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
 
 You will learn:
@@ -14,6 +15,11 @@ You will learn:
 * How to use the Cross-Platform Tools for Windows Azure to create a Windows Azure Web Site
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On</a>.</p>
+</div>
  
 The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
@@ -70,11 +76,18 @@ In this section you will create a new Node application and use npm to add module
 
     The output of this command should appear similar to the following:
 
-		express@2.5.9 /usr/local/lib/node_modules/express
-		├── mime@1.2.4 
-		├── mkdirp@0.3.0 
-		├── qs@0.4.2 
-		└── connect@1.8.7 
+		express@3.3.4 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
+		├── methods@0.0.1
+		├── fresh@0.1.0
+		├── cookie-signature@1.0.1
+		├── range-parser@0.0.4
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.3 (mime@1.2.9)
+		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14) 
  
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -88,21 +101,25 @@ In this section you will create a new Node application and use npm to add module
 	The output of this command should appear similar to the following:
 
 		create : .
-   		create : ./package.json
-   		create : ./app.js
-   		create : ./public
-   		create : ./public/javascripts
-   		create : ./public/images
-   		create : ./public/stylesheets
-   		create : ./public/stylesheets/style.css
-   		create : ./routes
-   		create : ./routes/index.js
-   		create : ./views
-   		create : ./views/layout.jade
-   		create : ./views/index.jade
-		
-   		dont forget to install dependencies:
-   		$ cd . && npm install
+	    create : ./package.json
+	    create : ./app.js
+	    create : ./public/stylesheets
+	    create : ./public/stylesheets/style.css
+	    create : ./public
+	    create : ./public/javascripts
+	    create : ./public/images
+	    create : ./routes
+ 	    create : ./routes/index.js
+	    create : ./routes/user.js
+	    create : ./views
+	    create : ./views/layout.jade
+	    create : ./views/index.jade
+
+	    install dependencies:
+	      $ cd . && npm install
+
+	    run the app:
+ 	      $ node app
 
 	After this command completes, you should have several new directories and files in the **tasklist** directory.
 
@@ -116,14 +133,27 @@ The **package.json** file is one of the files created by the **express** command
 
     The output of this command should appear similar to the following:
 
-		express@2.5.8 ./node_modules/express
-		├── mime@1.2.4
-		├── qs@0.4.2
-		├── mkdirp@0.3.0
-		└── connect@1.8.7
-		jade@0.26.0 ./node_modules/jade
-		├── commander@0.5.2
-		└── mkdirp@0.3.0
+		express@3.3.4 node_modules\express
+		├── methods@0.0.1
+		├── fresh@0.1.0
+		├── range-parser@0.0.4
+		├── cookie-signature@1.0.1
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.3 (mime@1.2.9)
+		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+
+		jade@0.33.0 node_modules\jade
+		├── character-parser@1.0.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── with@1.1.0 (uglify-js@2.3.6)
+		├── constantinople@1.0.1 (uglify-js@2.3.6)
+		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		└── monocle@0.1.48 (readdirp@0.2.5)
 
 	This installs all of the default modules that Express needs.
 
@@ -133,9 +163,15 @@ The **package.json** file is one of the files created by the **express** command
 
 	The output of this command should appear similar to the following:
 
-		mongoose@2.6.5 ./node_modules/mongoose
+		mongoose@3.6.15 node_modules\mongoose
+		├── regexp-clone@0.0.1
+		├── sliced@0.0.3
+		├── muri@0.3.1
 		├── hooks@0.2.1
-		└── mongodb@1.0.2
+		├── mpath@0.1.1
+		├── ms@0.1.0
+		├── mpromise@0.2.1 (sliced@0.0.4)
+		└── mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
 
     <div class="dev-callout">
 	<strong>Note</strong>
@@ -166,7 +202,7 @@ In this section you will extend the basic application created by the **express**
 	      , itemDate      : { type: Date, default: Date.now }
         });
 
-        module.exports = mongoose.model('TaskModel', TaskSchema)
+        module.exports = mongoose.model('TaskModel', TaskSchema);
 
 5. Save and close the **task.js** file.
 
@@ -231,21 +267,20 @@ In this section you will extend the basic application created by the **express**
 
 1. In the **tasklist** directory, open the **app.js** file in a text editor. This file was created earlier by running the **express** command.
 
-2. Replace the content after the `//Routes` comment with the following code. This will initialize **TaskList** with the connection string for the MongoDB server and add the  functions defined in **tasklist.js** as routes:
+2. Add the following code to the beginning of the **app.js** file. This will initialize the **TaskList** with the connection string for the MongoDB server:
 
         var TaskList = require('./routes/tasklist');
-		var taskList = new TaskList('mongodb://mongodbserver/tasks');
+		var taskList = new TaskList(process.env.MONGODB_URI);
+
+	Note the second line; you access an environment variable that you'll configure later, which contains the connection information for your mongo instance. If you have a local mongo instance running for development purposes, you may want to temporarily set this value to "localhost" instead of process.env.MONGODB_URI.
+
+3. Find the lines beginning with `app.get` and replace them with the following lines:
 
     	app.get('/', taskList.showTasks.bind(taskList));
     	app.post('/addtask', taskList.addTask.bind(taskList));
     	app.post('/completetask', taskList.completeTask.bind(taskList));
 
-		app.listen(process.env.port || 3000);
-
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>You must replace the connection string above with the connection string for the MongoDB server you created earlier. For example, <strong>mongodb://mymongodb.cloudapp.net/tasks</strong>.</p>
-	</div>
+	This adds the functions defined in **tasklist.js** as routes.
 
 4. Save the **app.js** file.
 
@@ -289,7 +324,7 @@ In this section you will extend the basic application created by the **express**
 
 3. Save and close **index.jade** file.
 
-##Run your application locally
+<!-- ##Run your application locally
 
 To test the application on your local machine, perform the following steps:
 
@@ -313,7 +348,7 @@ To test the application on your local machine, perform the following steps:
 
 6. To complete a task, simply check the checkbox in the Complete column, and then click **Update tasks**. While there is no visual change after clicking **Update tasks**, the document entry in MongoDB has now been marked as completed.
 
-7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys.
+7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys. -->
 
 ##Deploy your application to Windows Azure
 
@@ -414,6 +449,14 @@ Before using the command-line tools with Windows Azure, you must first download 
 	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Windows Azure Web Sites</a>.</p>
 	</div>
 
+###Set the MONGODB_URL environment variable
+
+The application expects the connection string for the MongoDB instance to be available in the MONGODB_URI environment variable. To set this value for the web site, use the following command:
+
+	azure site config add MONGODB_URI=mongodb://mymongodb.cloudapp.net/tasks
+
+This will create a new application setting for the web site, which will be used to populate the MONGODB_URI environment variable read by the web site. Replace the value of 'mymongodb.cloudapp.net' with the name of the virtual machine that MongoDB was installed on.
+
 ###Publish the application
 
 1. In the Terminal window, change directories to the **tasklist** directory if you are not already there.
@@ -450,6 +493,8 @@ Before using the command-line tools with Windows Azure, you must first download 
 ##Next steps
 
 While the steps in this article describe using MongoDB to store information, you can also use the Windows Azure Table Service. See [Node.js Web Application with the Windows Azure Table Service] for more information.
+
+To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On](/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
 
 ##Additional resources
 
