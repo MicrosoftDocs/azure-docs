@@ -235,9 +235,9 @@ below performs a loop and processes messages in the "HighMessages" subscription 
 		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
 	
 		while(true)  { 
-		    ReceiveSubscriptionMessageResult  resulSubMsg = 
+		    ReceiveSubscriptionMessageResult  resultSubMsg = 
 		        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-		    BrokeredMessage message = resulSubMsg.getValue();
+		    BrokeredMessage message = resultSubMsg.getValue();
 		    if (message != null && message.getMessageId() != null)
 		    {
 		            System.out.println("Body: " + message.toString());
