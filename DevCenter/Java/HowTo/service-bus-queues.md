@@ -91,26 +91,16 @@ To send a message to a Service Bus Queue, your application will obtain a
 message for the "TestQueue" queue we created above within our
 "HowToSample" service namespace:
 
-    Configuration config = 
-    	ServiceBusConfiguration.configureWithWrapAuthentication(
-          "HowToSample",
-          "your_service_bus_owner",
-          "your_service_bus_key",
-          ".servicebus.windows.net",
-          "-sb.accesscontrol.windows.net/WRAPv0.9");
-
-    ServiceBusContract service = ServiceBusService.create(config);
-    QueueInfo queueInfo = new QueueInfo("TestQueue");
     try
     {
-         CreateQueueResult result = service.createQueue(queueInfo);
-         BrokeredMessage message = new BrokeredMessage("sendMessageWorks");
-         service.sendQueueMessage("TestQueue", message);
+        BrokeredMessage message = new BrokeredMessage("MyMessage");
+        service.sendQueueMessage("TestQueue", message);
     }
-	catch (ServiceException e) {
-         System.out.print("ServiceException encountered: ");
-         System.out.println(e.getMessage());
-         System.exit(-1);
+    catch (ServiceException e) 
+    {
+        System.out.print("ServiceException encountered: ");
+        System.out.println(e.getMessage());
+        System.exit(-1);
     }
 
 Messages sent to (and received from ) Service Bus queues are instances
@@ -129,10 +119,10 @@ The following example demonstrates how to send five test messages to the
 
     for (int i=0; i<5; i++)
     {
-         // Create message, passing a string message for the body
+         // Create message, passing a string message for the body.
          BrokeredMessage message = new BrokeredMessage("Test message " + i);
-         // Set some additional custom app-specific property
-         message.setProperty("TestProperty", "TestValue" + i); 
+         // Set an additional app-specific property.
+         message.setProperty("MyProperty", i); 
          // Send message to the queue
          service.sendQueueMessage("TestQueue", message);
     }
@@ -177,40 +167,56 @@ processed using **PeekLock** mode (not the default mode). The example
 below does an infinite loop and processes messages as they arrive into
 our "TestQueue":
 
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-    while(true)
-    { 
-         ReceiveQueueMessageResult resultQM = 
-			service.receiveQueueMessage("TestQueue", opts);
-         BrokeredMessage message = resultQM.getValue(); 
-         if (message != null && message.getMessageId() != null)
-         {
-            try 
-            {
-               System.out.println("Body: " + message.toString());
-               System.out.println("MessageID: " + message.getMessageId());
-               System.out.println("Custom Property: " + 
-					message.getProperty("TestProperty"));
-               // Remove message from queue
-               System.out.println("Deleting this message.");
-               service.deleteMessage(message);
-            }
-            catch (Exception ex)
-            {
-               // Indicate a problem, unlock message in queue
-               System.out.println("Inner exception encountered!");
-               service.unlockMessage(message);
-            }
-         }
-         else
-         {
-            System.out.println("Finishing up - no more messages.");
-            break; 
-			// Added to handle no more messages in the queue.
-            // Could instead wait for more messages to be added.
-         }
-    }
+    	try
+	{
+		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+	
+		while(true)  { 
+	         ReceiveQueueMessageResult resultQM = 
+	     			service.receiveQueueMessage("TestQueue", opts);
+		    BrokeredMessage message = resultQM.getValue();
+		    if (message != null && message.getMessageId() != null)
+		    {
+			    System.out.println("MessageID: " + message.getMessageId());    
+			    // Display the topic message.
+			    System.out.print("From queue: ");
+			    byte[] b = new byte[200];
+			    String s = null;
+			    int numRead = message.getBody().read(b);
+			    while (-1 != numRead)
+	            {
+	                s = new String(b);
+	                s = s.trim();
+	                System.out.print(s);
+	                numRead = message.getBody().read(b);
+			    }
+	            System.out.println();
+			    System.out.println("Custom Property: " + 
+			        message.getProperty("MyProperty"));
+			    // Remove message from queue.
+			    System.out.println("Deleting this message.");
+			    //service.deleteMessage(message);
+		    }  
+		    else  
+		    {        
+		        System.out.println("Finishing up - no more messages.");        
+		        break; 
+		        // Added to handle no more messages.
+		        // Could instead wait for more messages to be added.
+		    }
+	    }
+	}
+	catch (ServiceException e) {
+	    System.out.print("ServiceException encountered: ");
+	    System.out.println(e.getMessage());
+	    System.exit(-1);
+	}
+	catch (Exception e) {
+	    System.out.print("Generic exception encountered: ");
+	    System.out.println(e.getMessage());
+	    System.exit(-1);
+	} 	
 
 ## <a name="bkmk_HowToHandleAppCrashes"> </a>How to Handle Application Crashes and Unreadable Messages
 
