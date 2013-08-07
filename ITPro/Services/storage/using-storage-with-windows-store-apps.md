@@ -1,4 +1,4 @@
-<properties linkid="dev-net-2-how-to-queue-service" urlDisplayName="Queue Service (2.0)" pageTitle="How to use the queue storage service - Windows Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" metaDescription="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-net-2-how-to-storage-store-apps" urlDisplayName="Using Storage with Windows Store Apps" pageTitle="Using Windows Azure Storage with Windows Store Apps" metaKeywords="Get started Azure storage   Azure blob   Azure queue   Azure table   Windows Store   Windows Runtime Windows Azure Storage Client Library for Windows Runtime" metaDescription="Learn how to develop Windows Store apps that make use of Windows Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 <div chunk="../chunks/storage-left-nav.md" />
 
@@ -63,7 +63,7 @@ When you have referenced the WCF Data Services NuGet package, change the code in
     var table = tableClient.GetTableReference("table1");
     await table.CreateIfNotExistsAsync();
     
-This code check whether a table named *table1* exists in your account, and create it if not.
+This code checks whether a table named *table1* exists in your account, and creates it if not.
 
 You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, available in the same package that you downloaded. This library contains additional functionality such as reflection based serialization and generic queries. Note that this library does not support JavaScript.
 
