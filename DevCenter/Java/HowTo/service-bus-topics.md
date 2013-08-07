@@ -240,19 +240,31 @@ below performs a loop and processes messages in the "HighMessages" subscription 
 		    BrokeredMessage message = resultSubMsg.getValue();
 		    if (message != null && message.getMessageId() != null)
 		    {
-		            System.out.println("Body: " + message.toString());
-		            System.out.println("MessageID: " + message.getMessageId());
-		            System.out.println("Custom Property: " + 
-		                message.getProperty("MessageNumber"));
-		            // Remove message from topic
-		            System.out.println("Deleting this message.");
-		            service.deleteMessage(message);
+			    System.out.println("MessageID: " + message.getMessageId());    
+			    // Display the topic message.
+			    System.out.print("From topic: ");
+			    byte[] b = new byte[200];
+			    String s = null;
+			    int numRead = message.getBody().read(b);
+			    while (-1 != numRead)
+	            {
+	                s = new String(b);
+	                s = s.trim();
+	                System.out.print(s);
+	                numRead = message.getBody().read(b);
+			    }
+	            System.out.println();
+			    System.out.println("Custom Property: " + 
+			        message.getProperty("MessageNumber"));
+			    // Delete message.
+			    System.out.println("Deleting this message.");
+			    service.deleteMessage(message);
 		    }  
 		    else  
 		    {        
 		        System.out.println("Finishing up - no more messages.");        
 		        break; 
-		        // Added to handle no more messages in the topic.
+		        // Added to handle no more messages.
 		        // Could instead wait for more messages to be added.
 		    }
 	    }
