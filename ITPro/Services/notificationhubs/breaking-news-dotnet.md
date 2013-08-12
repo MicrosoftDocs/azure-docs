@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-breaking-news-windowsdotnet" writer="ricksal" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -205,10 +205,12 @@ You can now run the app and verify that clicking the subscribe button will trigg
 
 <div chunk="../chunks/notification-hubs-back-end.md" />
 
-## Next Steps
+## <a name="next-steps"> </a>Next steps
+
 In this tutorial we learned how to broadcast breaking news by category.
 
-To learn how to expand the breaking news app by sending localized notifications,  see [Use Notification Hubs to broadcast localized Breaking News]. If your app must push notifications to specific users and the notification content is private, see the tutorial [Use Notification Hubs to send notifications to users]. 
+To learn how to expand the breaking news app by sending localized notifications,  see [Use Notification Hubs to broadcast localized Breaking News]. If your app must push notifications to specific users and the notification content is private, see the tutorial [Notify users with Notification Hubs]. 
+
 
 
 <!-- Anchors. -->
@@ -219,7 +221,6 @@ To learn how to expand the breaking news app by sending localized notifications,
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-
 [0]: mobile-services-submit-win8-app.png
 [1]: ../media/notification-hub-breakingnews-win1.png
 [2]: notification-hub-create-win8-app.png
@@ -241,9 +242,14 @@ To learn how to expand the breaking news app by sending localized notifications,
 [18]: notification-hub-win8-app-toast.png
 [19]: notification-hub-windows-reg.png
 
-<!-- URLs. -->
+<!-- URLs.-->
 [Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-dotnet.md
+[Use Notification Hubs to broadcast localized Breaking News]: breakingnews-localized-dotnet.md 
+[Notify users with Notification Hubs]: tutorial-notify-users-mobileservices.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
+
+[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -259,6 +265,8 @@ To learn how to expand the breaking news app by sending localized notifications,
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+
+
+
+
 

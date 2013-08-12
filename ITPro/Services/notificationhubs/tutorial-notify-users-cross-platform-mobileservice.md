@@ -128,6 +128,6 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
 [Windows Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notify users with Notification Hubs]: ./tutorial-notify-users-aspnet.md 
+[Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md 
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx
