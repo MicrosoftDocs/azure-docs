@@ -221,7 +221,7 @@ Now that the notifications are configured, it's time to test the app by insertin
 	Note that after the insert completes, the app receives a push notification from Notification Hubs.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 3. (Optional) Deploy the client app to a second device, then run the app and insert text. 
@@ -267,3 +267,4 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-mobileservice.md
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
+[Windows Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx

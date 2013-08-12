@@ -1,4 +1,4 @@
-<h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
+
 
 You can send notifications using notification hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. 
 
@@ -33,33 +33,14 @@ We also include the needed code to broadcast to both Windows Store and iOS devic
         {
 		    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
 		
-            var category = "World";
-            var toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
+            var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
+            foreach (var category in categories) {
+                var toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
+                await hub.SendWindowsNativeNotificationAsync(toast, category);
 
-            category = "Politics";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Business";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Technology";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Science";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-            category = "Sports";
-            toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-            await hub.SendWindowsNativeNotificationAsync(toast, category);
-
-		
-		    var alert = "{\"aps\":{\"alert\":\"Breaking News!\"}, \"inAppMessage\":\"Breaking News!\"}";
-		    await hub.SendAppleNativeNotificationAsync(toast, "<category>");
+                var alert = "{\"aps\":{\"alert\":\"Breaking "+ category +" News!\"}}";
+                await hub.SendAppleNativeNotificationAsync(alert, category);
+            }
 		 }
 
    Make sure to insert the name of your hub and the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." Note that this is the connection string with **Full** access, not **Listen** access.
@@ -109,7 +90,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 	                console.warn("Notification successful");
 	            }
 	    });
-	    notificationHubService.hub.apple.send(
+	    notificationHubService.apns.send(
 	        '<category>',
 	        {
 	            alert: "Breaking News!"

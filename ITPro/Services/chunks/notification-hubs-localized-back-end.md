@@ -1,4 +1,4 @@
-<h2><a name="send"></a><span class="short-header">Send localized notifications</span>Send localized notifications from your back-end</h2>
+
 
 In your back-end app, you now have to switch to sending template notifications instead of native payloads. This will simplify the back-end code as you will not have to send multiple payloads for the different platforms.
 
