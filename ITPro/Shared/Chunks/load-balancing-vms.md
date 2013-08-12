@@ -13,7 +13,7 @@ An endpoint can be assigned a protocol of TCP or UDP (the TCP protocol includes 
 
 If you configure load balancing, Windows Azure provides round-robin load balancing of network traffic to publicly defined ports of a cloud service. A load-balanced endpoint is a specific TCP or UDP endpoint used by all members of a cloud service.
 
-For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition. For a cloud service that contains virtual machines, you group the new virtual machines in the same cloud service when you create them. You add an endpoint to a virtual machine after you create it.
+For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition. For a cloud service that contains virtual machines, you group the new virtual machines in the same cloud service when you create them. You can add an endpoint to a virtual machine when you create it, or you can add it later.
 
 The following image shows a load-balanced endpoint that is shared among three virtual machines and uses a public and private port of 80.
 
@@ -21,93 +21,75 @@ The following image shows a load-balanced endpoint that is shared among three vi
 
 This task includes the following steps:
 
-- [Step 1: Create the first virtual machine] []
-- [Step 2: Add an endpoint to the first virtual machine] []
-- [Step 3: Add virtual machines to the cloud service] []
-- [Step 4: Set up load balancing of the virtual machines] []
-- [Step 5: (Optional) Define load-balancing probes] []
+- [Step 1: Create the first virtual machine and an endpoint] []
+- [Step 2: Create additional virtual machines in the same cloud service] []
+- [Step 3: Set up load balancing of the virtual machines] []
+- [Step 4: Add virtual machines to the load-balanced set] []
 
 ## <a id="firstmachine"> </a>Step 1: Create the first virtual machine ##
 
-You can create the first virtual machine by using one of the following methods:
+You can create the first virtual machine by using either the **From Gallery** or the **Quick Create** method. 
 
-- **Quick Create** - Create a virtual machine by choosing an image from the Image Gallery and providing basic information. When you use this method, a cloud service is automatically created for you using a default name. For instructions, see [How to quickly create a virtual machine] []. **Note**: After the virtual machine is created, the **Cloud Services** page of the Management Portal lists the name of the cloud service as well as other information about the service.
+- **From Gallery** - The **From Gallery** method allows you to create an endpoint when you create the virtual machine, and it allows you to specify a name for the cloud service that is created when you create the virtual machine. For instructions, see [Create a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) or [Create a Virtual Machine Running Windows Server](https://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/).
 
-- **From Gallery** - Create a virtual machine with additional configuration options, such as the cloud service name. For instructions, see [Create a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) or [Create a Virtual Machine Running Windows Server](https://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/).
+- **Quick Create** - Create a virtual machine by choosing an image from the Image Gallery and providing basic information. When you use this method, you will need to add the endpoint after you create the virtual machine. This method also creates a cloud service using a default name. For more information, see [How to quickly create a virtual machine] []. 
 
-## <a id="addendpoint"> </a>Step 2: Add an endpoint to the first virtual machine ##
+**Note**: After the virtual machine is created, the **Cloud Services** page of the Management Portal lists the name of the cloud service as well as other information about the service.
 
-To begin setting up load balancing for virtual machines, add an endpoint to the first virtual machine after you create the virtual machine. For instructions on creating the endpoint, see [How to set up communication with a virtual machine] [].
-
-## <a id="addmachines"> </a>Step 3: Create the additional virtual machines in the same cloud service ##
+## <a id="addmachines"> </a>Step 2: Create additional virtual machines in the same cloud service ##
 
 To add virtual machines to a cloud service so you can load balance them, add the virtual machines to the same cloud service when you create them. For more information about connecting virtual machines, see [How to connect virtual machines in a cloud service] [].
 
-## <a id="loadbalance"> </a>Step 4: Set up load balancing of the virtual machines ##
+## <a id="loadbalance"> </a>Step 3: Set up load balancing of the virtual machines ##
 
 After you create an endpoint on the first virtual machine and add the other virtual machines to the same cloud service, assign the endpoint to the new virtual machines for load balancing.
 
 **To set up a load-balanced endpoint**
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
-2. Click **Virtual Machines**, and then select one of the virtual machines that you connected to the first virtual machine.
+2. Click **Virtual Machines**, and then select one of the virtual machines in the same cloud service.
 	
 3. Click **Endpoints**.
 	
-4. Click **Add Endpoint**.
+4. Click **Add Endpoint** or select the endpoint and **Edit Endpoint**, depending on whether you added the endpoint when you created the virtual machine. Then do one of the following:
+
+- If you're adding an endpoint, click **Add Standalone endpoint** and then click the arrow.
+
+		- In **Name**, type a name for the endpoint.
+		- 		In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP.
+		- 		In **Public Port** and **Private Port**, type the port number that you want the virtual machine to use. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The public port is the same as the public port defined for the endpoint on the first virtual machine. The private port can be the same as the public port. For example, for an HTTP endpoint, you will likely want to assign port 80 to the public port and the private port for all virtual machines.
+		- 		Click **Create a load-balanced set**.
+
+- If you're editing an endpoint, click **Create a load-balanced set**.
 	
-5. Select **Load balance traffic on an existing endpoint**, choose the endpoint that you added to the first virtual machine, and then click the arrow to continue.
 
-	![Add Load-Balanced Endpoint][Add lb endpoint]
+5. On the **Configure the load-balanced set** page, specify a name for the load-balanced set and then assign the values for the load-balancing probe. 
 
-6. In **Name**, type a name for the endpoint.
+6. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the Endpoints page for both virtual machines.
 
-7. In **Private Port**, type the port number that you want the virtual machine to use. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The public port is the same as the public port defined for the endpoint on the first virtual machine. The private port can be the same as the public port. For example, for an HTTP endpoint, you will likely want to use port 80 as the public port and the private port for all virtual machines.
+## <a id="addtoset"> </a>Step 4: Add virtual machines to the load-balanced set ##
+After you create the load-balanced set, add the other virtual machines to the set.
 
-	![Define Load-Balanced Endpoint][Define endpoint]
+1. Select one of the virtual machines in the same cloud service.
+	
+2. Click **Endpoints**.
+	
+3. Click **Add Endpoint**.
 
-8. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the Load Balanced column of the Endpoints page for both virtual machines.
+4. Click **Add endpoint to an existing load-balanced set** and then click the arrow.
 
-9. Complete steps 2 through 8 for each virtual machine in the cloud service.
+5. Specify the name and protocol for the endpoint, and then click the check mark.
 
-## <a id="lbprobes"> </a>Step 5: (Optional) Define load-balancing probes ##
+6. Repeat the process for the rest of the virtual machines in the cloud service.
 
-A virtual machine must be in a healthy state to receive network traffic. To define your own method for determining the health of the virtual machine, you can add a load-balancing probe to the load-balanced endpoint. Windows Azure probes for a response from the virtual machine every 15 seconds and takes a virtual machine out of the rotation if no response is received after two probes. You use cmdlets in the Windows Azure PowerShell to define probes on the load balancer.
 
-To change the configuration of an existing virtual machine using Windows PowerShell, you'll need to get the object that represents the virtual machine, modify the configuration, and then update the object to save the changes. 
 
-The following example uses the Get-AzureVM cmdlet to retrieve the virtual machine object, pipes the object to the Set-AzureEndpoint cmdlet to change the load-balanced endpoint settings, and then pipes the changes to the Update-AzureVM cmdlet:
+[Step 1: Create the first virtual machine and an endpoint]: #firstmachine
+[Step 2: Create additional virtual machines in the same cloud service]: #addmachines
+[Step 3: Set up load balancing of the virtual machines]: #loadbalance
+[Step 4: Add virtual machines to the load-balanced set]: #addtoset
 
-	Get-AzureVM -ServiceName "MyService" -Name "MyTestVM2" | Set-AzureEndpoint -LBSetName "MyLBSet" –Name MyTestEndpoint2 –Protocol tcp –LocalPort 80 -ProbePort 80 -ProbeProtocol http -ProbePath "/" | Update-AzureVM
-
-For more information about using Windows Azure cmdlets, see [Get Started with Windows Azure PowerShell] [].
-
-To run the cmdlets that are listed in the previous example, you must know the following information:
-
-- **Service name** – The name of the cloud service in which the virtual machine is contained.
-- **Name** – The name of the virtual machine to which the endpoint is attached.
-- **Load balancing set name** – The name of the load balancing set to which the endpoint belongs. When you create a load-balanced endpoint, a load-balancing set is automatically created for you to contain the load-balanced endpoints. When you create load-balanced endpoints in the Management Portal, the load-balanced set name is the same as the first endpoint defined for the set.
-- **Endpoint name** – The name of the endpoint to which you are adding the load-balancing probe.
-- **Protocol** – The protocol that is used for communication with the endpoint. The TCP and UDP protocols are used for defining endpoints. The TCP protocol supports HTTP and HTTPS.
-- **Local port** – The number of the port that is used for load balancing network traffic.
-- **Probe port** – The port to which the load-balancing probe is associated.
-- **Probe protocol** – the protocol that the probe is expecting.
-- **Probe path** – The path that defines the action of the web server. This option is only needed if http traffic is expected on the endpoint. You can define the path to be “/”, or you can specify a page or application to run to provide the health status. If you specify “/”, the web server returns a status of 200, any other status will keep the virtual machine out of the load-balancing rotation. The URL that is configured for the load-balancing probe receives a GET request from Windows Azure without passing host headers or authentication of any kind. If the probe path you specify returns a 401 ACCESS DENIED then Windows Azure will not add the virtual machine to the rotation. It is important to configure a URL that can respond anonymously. If you specify a page or program to define health status, the resource must return 200 to enable the virtual machine to be included in the load-balancing rotation.
-
-You can get information about endpoints that have been defined for a virtual machine by using the Get-AzureVM cmdlet and the Get-AzureEndpoint cmdlet.
-
-	Get-AzureVM -ServiceName "MyTestVM1" -Name "MyTestVM2" | Get-AzureEndpoint
-
-The previous command produces the following results:
-
-![List Endpoint][List endpoint]
-
-[Step 1: Create the first virtual machine]: #firstmachine
-[Step 2: Add an endpoint to the first virtual machine]: #addendpoint
-[Step 3: Add virtual machines to the cloud service]: #addmachines
-[Step 4: Set up load balancing of the virtual machines]: #loadbalance
-[Step 5: (Optional) Define load-balancing probes]: #lbprobes
 
 [Load-balanced endpoint]:../media/loadbalancing.png
 [Select virtual machine]:../media/selectvm.png
