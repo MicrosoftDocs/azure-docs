@@ -111,7 +111,7 @@ Enabling SSL on a web site is only available for the standard mode of Windows Az
 
 <a href="bkmk_getcert"></a><h2>Configure SSL</h2>
 
-Before performing the steps in this section, you must have associated a custom DNS name with your Windows Azure Web Site. For more information, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
+Before performing the steps in this section, you must have associated a custom domain name with your Windows Azure Web Site. For more information, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
 
 1. In your browser, open the [Windows Azure Management Portal][portal].
 
@@ -139,15 +139,15 @@ Before performing the steps in this section, you must have associated a custom D
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If you selected <b>IP based SSL</b> you must perform the following additional steps:</p>
+<p>If you selected <b>IP based SSL</b> and your custom domain is configured using an A record, you must perform the following additional steps:</p>
 <ol>
-<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Adress</b>:</p>
+<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Address</b>:</p>
 <img src="../media/staticip.png" />
-<p>Note that this IP address will be different than the virtual IP address used previously to configure the A record or CNAME for your domain.</p><p>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</p>
+<p>Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain.</p><p>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</p>
 </li>
 <li><p>Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.</p>
 </li>
-<li><p>If you had created a CNAME pointing to yoursite.azurewebsites.net, you must now remove this entry.</p></li>
+<!--<li><p>If you had created a CNAME pointing to yoursite.azurewebsites.net, you must now remove this entry.</p></li>-->
 </ol>
 </div>
 
