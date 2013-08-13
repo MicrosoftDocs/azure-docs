@@ -113,7 +113,7 @@ to get the tools and set-up your development environment.
 
 5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
-    ![][4]
+    ![][33]
 
 6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
@@ -658,6 +658,7 @@ To learn how to deploy the front end to a Windows Azure Web Site, see [Deploying
   [30]: ../Media/sb-queues-09.png
   [31]: ../Media/sb-queues-06.png
   [32]: ../Media/getting-started-41.png
+  [33]: ../Media/getting-started-4-2-WebPI.png
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
