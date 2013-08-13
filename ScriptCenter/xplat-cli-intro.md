@@ -1,3 +1,5 @@
+<properties linkid="script-xplat-intro" urlDisplayName="Windows Azure Cross-Platform Command-Line Interface" pageTitle="Introducing the Windows Azure Cross-Platform Command-Line Interface" metaKeywords="windows azure cross-platform command-line interface, windows azure command-line, azure command-line, azure cli" metaDescription="Get started using the Windows Azure Cross-Platform Command-Line Interface to manage Windows Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" />
+
 #Introducing the Windows Azure Cross-Platform Command-Line Interface
 
 The Windows Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Windows Azure Platform. The xplat-cli provides much of the same functionality found in the Windows Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Windows Azure platform.
@@ -32,7 +34,7 @@ The following installer packages are available:
 
 <div class="dev-callout">
 <b>Note</b>
-<p>The installer packages also contain Node.js. This version of Node.js will be used by the xplat-cli if no other version of Node.js is available on the system. The version of Node.js installed by these packages should not conflict with any other version of Node.js installed on your system.
+<p>The installer packages also contain Node.js. This version of Node.js will be used by the xplat-cli if no other version of Node.js is available on the system. The version of Node.js installed by these packages should not conflict with any other version of Node.js installed on your system.</p>
 </div>
 
 ###Using npm
