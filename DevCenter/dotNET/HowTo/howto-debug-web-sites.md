@@ -167,3 +167,6 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 - [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Tutorial - Troubleshooting Web Sites](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
+- [Troubleshooting Windows Azure Web Sites in Visual Studio]
+
+[Troubleshooting Windows Azure Web Sites in Visual Studio]:http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/

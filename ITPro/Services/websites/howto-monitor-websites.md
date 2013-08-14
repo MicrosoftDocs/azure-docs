@@ -44,7 +44,7 @@ The following list describes the metrics that you can view in the chart on the *
 - **Http 406 errors** – Number of Http “406 Not Acceptable” messages sent.
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web site metrics
-In **Standard** web site mode, you can receive alerts based on your web site monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Windows Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Configure and receive alerts for web site monitoring metrics](http://go.microsoft.com/fwlink/?LinkId=309356).  
+In **Standard** web site mode, you can receive alerts based on your web site monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Windows Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
 ##<a name="howtoviewusage"></a>How to: View usage quotas for a web site
 

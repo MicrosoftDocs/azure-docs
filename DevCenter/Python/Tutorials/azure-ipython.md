@@ -307,7 +307,7 @@ can be used:
 
 If you go to the IPython source code repository, you will find an entire
 directory with [notebook
-examples](https://github.com/ipython/ipython/tree/master/docs/examples/notebooks)
+examples](https://github.com/ipython/ipython/tree/master/examples/notebooks)
 which you can download and then experiment with on your own Windows Azure IPython VM.
 Simply download the `.ipynb` files from the site and upload them onto the
 dashboard of your notebook Windows Azure VM (or download them directly into the VM).

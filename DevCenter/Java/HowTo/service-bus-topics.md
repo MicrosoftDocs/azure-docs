@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
+<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" manager="bjsmith" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -36,6 +36,8 @@ Add the following import statements to the top of the Java file:
     import com.microsoft.windowsazure.services.serviceBus.models.*;
     import com.microsoft.windowsazure.services.core.*;
     import javax.xml.datatype.*;
+
+Add the Windows Azure Libraries for Java to your build path and include it in your project deployment assembly.
 
 ## <a name="bkmk_HowToCreateTopic"> </a>How to Create a Topic
 
@@ -75,7 +77,8 @@ applied to messages sent to the topic). The following example shows how
 to create a topic named "TestTopic" with a maximum size of 5GB:
 
     long maxSizeInMegabytes = 5120;  
-	TopicInfo topicInfo = new TopicInfo("TestTopic");  TopicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
+	TopicInfo topicInfo = new TopicInfo("TestTopic");  
+    topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes); 
     CreateTopicResult result = service.createTopic(topicInfo);
 
 **Note:** You can use the **listTopics** method on
@@ -98,28 +101,9 @@ subscription's virtual queue. The following example creates a
 subscription named "AllMessages" and uses the default **MatchAll**
 filter.
 
-    Configuration config = 
-    	ServiceBusConfiguration.configureWithWrapAuthentication(
-          "HowToSample",
-          "your_service_bus_owner",
-          "your_service_bus_key",
-          ".servicebus.windows.net",
-          "-sb.accesscontrol.windows.net/WRAPv0.9");
-  
-	ServiceBusContract service = ServiceBusService.create(config);
-    try 
-	{
-	    TopicInfo topicInfo = new TopicInfo("TestTopic");     
-		CreateTopicResult result = service.createTopic(topicInfo);
-		SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
-	    CreateSubscriptionResult result = 
-			service.createSubscription("TestTopic", subInfo);
-	}
-	catch (ServiceException e) {
-		System.out.print("ServiceException encountered: ");
-		System.out.println(e.getMessage()); 
-		System.exit(-1);
-	}
+    SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
+    CreateSubscriptionResult result = 
+        service.createSubscription("TestTopic", subInfo);
 
 ### Create Subscriptions with Filters
 
@@ -140,10 +124,12 @@ The example below creates a subscription named "HighMessages" with a
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
     CreateSubscriptionResult result = 
 		service.createSubscription("TestTopic", subInfo);
-	RuleInfo ruleInfo = new RuleInfo();
+	RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
 	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
 	CreateRuleResult ruleResult = 
 		service.createRule("TestTopic", "HighMessages", ruleInfo);
+    // Delete the default rule, otherwise the new rule won't be invoked.
+    service.deleteRule("TestTopic", "HighMessages", "$Default");
 
 Similarly, the following example creates a subscription named
 "LowMessages" with   
@@ -152,13 +138,16 @@ property less
  than or equal to 3:
 
     // Create a "LowMessages" filtered subscription
-	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
+	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
 	CreateSubscriptionResult result = 
 		service.createSubscription("TestTopic", subInfo);
-    RuleInfo ruleInfo = new RuleInfo();
+    RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
 	ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
 	CreateRuleResult ruleResult = 
-		service.createRule("TestTopic", "HighMessages", ruleInfo);
+		service.createRule("TestTopic", "LowMessages", ruleInfo);
+    // Delete the default rule, otherwise the new rule won't be invoked.
+    service.deleteRule("TestTopic", "LowMessages", "$Default");
+
 
 When a message is now sent to the "TestTopic", it will always be
 delivered to receivers subscribed to the "AllMessages" topic
@@ -173,27 +162,8 @@ To send a message to a Service Bus Topic, your application will obtain a
 message for the "TestTopic" topic we created above within our
 "HowToSample" service namespace:
 
-    Configuration config = 
-    	ServiceBusConfiguration.configureWithWrapAuthentication(
-          "HowToSample",
-          "your_service_bus_owner",
-          "your_service_bus_key",
-          ".servicebus.windows.net",
-          "-sb.accesscontrol.windows.net/WRAPv0.9");
-
-	ServiceBusContract service = ServiceBusService.create(config);
-	TopicInfo topicInfo = new TopicInfo("TestTopic");
-	try 
-	{
-		CreateTopicResult result = service.createTopic(topicInfo);
-		BrokeredMessage message = new BrokeredMessage("sendMessageWorks");
-		service.sendTopicMessage("TestTopic", message);
-	} 
-	catch (ServiceException e) {
-		System.out.print("ServiceException encountered: ");
-		System.out.println(e.getMessage());
-		System.exit(-1);
-	}
+    BrokeredMessage message = new BrokeredMessage("MyMessage");
+    service.sendTopicMessage("TestTopic", message);
 
 Messages sent to Service Bus Topics are instances of the
 **BrokeredMessage** class. **BrokeredMessage** objects have a set of
@@ -212,10 +182,10 @@ the iteration of the loop (this will determine which subscriptions
 receive it):
 
     for (int i=0; i<5; i++)  {
-       	//Create message, passing a string message for the body
+       	// Create message, passing a string message for the body
 		BrokeredMessage message = new BrokeredMessage("Test message " + i);
 		// Set some additional custom app-specific property
-		message.setProperty("TestProperty", "TestValue" + i);
+		message.setProperty("MessageNumber", i);
 		// Send message to the topic
 		service.sendTopicMessage("TestTopic", message);
 	}
@@ -257,42 +227,57 @@ will mark the message as being consumed and remove it from the topic.
 
 The example below demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
-below does an infinite loop and processes messages as they arrive to our
-"HighMessages" subscription. Note that the path to our "HighMessages"
-subscription is supplied in the form "&lt;topic
-path&gt;/subscriptions/&lt;subscription name&gt;".
+below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
 
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;  opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-    while(true)  { 
-    	ReceiveSubscriptionMessageResult  resultQM = 
-			service.receiveSubscriptionMessage("TestTopic", opts);
-    	BrokeredMessage message = resultQM.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-	        try 
-            {
-				System.out.println("Body: " + message.toString());
-				System.out.println("MessageID: " + message.getMessageId());
-                System.out.println("Custom Property: " + 
-					message.getProperty("TestProperty"));
-                // Remove message from topic
-	            System.out.println("Deleting this message.");
-				service.deleteMessage(message);
-            }
-			catch (Exception ex)
-	        {              
-				// Indicate a problem, unlock message in topic       
-				System.out.println("Inner exception encountered!");              
-				service.unlockMessage(message);
-			}  
-		}  
-		else  
-		{        
-			System.out.println("Finishing up - no more messages.");        
-			break; 
-			// Added to handle no more messages in the topic.
-	        // Could instead wait for more messages to be added.
-		}
+	try
+	{
+		ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
+		opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+	
+		while(true)  { 
+		    ReceiveSubscriptionMessageResult  resultSubMsg = 
+		        service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
+		    BrokeredMessage message = resultSubMsg.getValue();
+		    if (message != null && message.getMessageId() != null)
+		    {
+			    System.out.println("MessageID: " + message.getMessageId());    
+			    // Display the topic message.
+			    System.out.print("From topic: ");
+			    byte[] b = new byte[200];
+			    String s = null;
+			    int numRead = message.getBody().read(b);
+			    while (-1 != numRead)
+	            {
+	                s = new String(b);
+	                s = s.trim();
+	                System.out.print(s);
+	                numRead = message.getBody().read(b);
+			    }
+	            System.out.println();
+			    System.out.println("Custom Property: " + 
+			        message.getProperty("MessageNumber"));
+			    // Delete message.
+			    System.out.println("Deleting this message.");
+			    service.deleteMessage(message);
+		    }  
+		    else  
+		    {        
+		        System.out.println("Finishing up - no more messages.");        
+		        break; 
+		        // Added to handle no more messages.
+		        // Could instead wait for more messages to be added.
+		    }
+	    }
+	}
+	catch (ServiceException e) {
+	    System.out.print("ServiceException encountered: ");
+	    System.out.println(e.getMessage());
+	    System.exit(-1);
+	}
+	catch (Exception e) {
+	    System.out.print("Generic exception encountered: ");
+	    System.out.println(e.getMessage());
+	    System.exit(-1);
 	} 
 
 ## <a name="bkmk_HowToHandleAppCrash"> </a>How to Handle Application Crashes and Unreadable Messages
@@ -326,20 +311,21 @@ constant across delivery attempts.
 ## <a name="bkmk_HowToDeleteTopics"> </a>How to Delete Topics and Subscriptions
 
 The primary way to delete topics and subscriptions is to use a
-**ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**
-
-    // Delete Topic  
-	service.deleteTopic("TestTopic");
-    // Delete subscription  service.deleteSubscription("TestTopic", "HighMessages");
-
-Deleting a topic will also delete any subscriptions that are registered
+**ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently.
+
+    // Delete subscriptions
+    service.deleteSubscription("TestTopic", "AllMessages");
+    service.deleteSubscription("TestTopic", "HighMessages");
+    service.deleteSubscription("TestTopic", "LowMessages");
+
+    // Delete a topic
+	service.deleteTopic("TestTopic");
 
 # <a name="bkmk_NextSteps"> </a>Next Steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
-topic [Queues, Topics, and Subscriptions][] for more information.
+topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
 
   [Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
@@ -360,4 +346,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Service Bus Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
