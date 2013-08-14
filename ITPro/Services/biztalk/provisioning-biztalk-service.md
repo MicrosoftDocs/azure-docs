@@ -9,22 +9,7 @@
 <p>To log into the Windows Azure Management Portal, you need a Windows Azure account and Windows Azure subscription. If you don't have an account, you can create a free trial account within a few minutes. For details, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=239738">Windows Azure Free Trial</a>.</p> 
 </div>
 
-This topic lists the steps to provision Windows Azure BizTalk Services on Windows Azure, including the required prerequisite services. Specifically: 
-
--  [Prerequisites List](#PrereqList)
-
--  [Create the SQL Database Server](#SQLDB)
-
--  [Create the Access Control Service (ACS) namespace](#ACS)
-
--  [Create a Storage Account](#Storage)
-
--  [Provision a BizTalk Service](#BizTalk)
-
-
-##<a name="PrereqList"></a>Prerequisites List
-
-To provision Windows Azure BizTalk Services, the following prerequisites are required:
+A Windows Azure BizTalk Service consists of the following components:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -45,6 +30,7 @@ The Windows Azure account can have multiple subscriptions and can be managed by 
 <td>Windows Azure Access Control Service (ACS) namespace</td>
 <td>The ACS namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this ACS namespace.</td>
 </tr>
+
 <tr>
 <td>Windows Azure Storage Account</td>
 <td>The Windows Azure Storage Account gives access to tables, blobs, and queues. These tables, blobs, and queues are used by Windows Azure BizTalk Services to do the following:<br/>
@@ -57,96 +43,38 @@ The Windows Azure account can have multiple subscriptions and can be managed by 
 
 <tr>
 <td>SSL private certificate</td>
-<td>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. <br/><br/><strong>Important</strong><br/>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.<br/><br/>When sending the certificate request to your certification authority, specify the following certificate properties:
+<td>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. <br/><br/><strong>Tip</strong><br/>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.<br/><br/>When sending the certificate request to your certification authority, specify the following certificate properties:
 <br/>
 
 <ul>
 <li><p><strong>Enhanced Key Usage</strong>: Server Authentication
 Additional key usages can be enabled on the certificate. At a minimum, Windows Azure BizTalk Services requires Server Authentication.</p></li>
 <li><p><strong>Common Name</strong>: Enter the fully qualified domain name (FQDN) of your Windows Azure BizTalk Services URL; which is created when you provision the BizTalk Service in <a HREF="#BizTalk">Provision a BizTalk Service</a>, in this topic.</p>
-<p>So, you need to know what your URL will be when you send the certificate request to your certification authority.</p></li>
-</ul>
+<p>So, you need to know what your URL will be when you send the certificate request to your certification authority. A new or different certificate can be added after the BizTalk Service is provisioned.</p></li>
+</ul><strong>Tip</strong><br/>In a test or development environment, you can use a self-signed certificate. When using self-signed certificates, import the certificate to your Personal certificate store and the Trusted Root Certification Authorities certificate store.<br/>
 </td>
 </tr>
 </table>
 
-##<a name="SQLDB"></a>Create the SQL Database Server
-
-When Windows Azure BizTalk Services is provisioned, the tables, views, and stored procedures used by your BizTalk Service are created in this Windows Azure SQL Database. An existing SQL Database can be used if it's not used by another BizTalk Service. If you are using an existing SQL Database, you can skip this section. You do need the login name and password of the existing SQL Database Server.
-
-The following steps create a new Windows Azure SQL Database Server:
-
->1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).<br/>
-
->2. At the bottom of the navigation pane, click <b>+NEW</b>:<br/>
-
->	![Click the New button][NEWButton]<br/>
-
->3. Click <b>Data Services</b>, click <b>SQL Database</b>, and then click <b>Quick Create</b>:<br/>
-
->	![Click SQL Database and click Quick Create][SQLDatabase]<br/>
-
->4. Enter the following information:
-
->	<table border="1">
-<tr>
-<td><strong>Database Name</strong></td>
-<td>Enter the SQL Database name. Some examples:<br/>
-<em>BTSService</em>SQLDev1
-<br/>
-<em>BTSService</em>SQLProd2
-<br/>
-SQLDBTest
-</td>
-</tr>
-<tr>
-<td><strong>Subscription</strong></td>
-<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your Windows Azure subscription to host your SQL Database Server.</td>
-</tr>
-<tr>
-<td><strong>Server</strong></td>
-<td>If the Subscription already has a SQL Database Server, you can select it from the drop-down list. You will need to enter the login name and password when provisioning the BizTalk Service later in this topic.<br/>
-If this is a brand new Subscription or a SQL Database Server hasn’t been created yet, select <strong>New SQL Database Server</strong>.
-</td>
-</tr>
-<tr>
-<td><strong>Login Name</strong></td>
-<td><strong>Optional</strong>. Available only when you select <strong>New SQL Database Server</strong>. Enter a System Administrator login name.</td>
-</tr>
-<tr>
-<td><strong>New Login Password/Confirmation</strong></td>
-<td><strong>Optional</strong>. Available only when you select <strong>New SQL Database Server</strong>. Enter a System Administrator login password.</td>
-</tr>
-</table>
-	
->	<div class="dev-callout"> 
->	<b>Important</b> 
->	<p>If the password does not meet the minimum requirements or if there is a mismatch, a warning is displayed.
->	</p> 
->	</div>
-
->	Note the administrator login name and password you enter. Share the login name and password with other System Administrators. You need this login information to use the SQL Database Server.
-
->5. Click <b>CREATE SQL DATABASE</b>. When complete, the progress icon displays:<br/>
-
->	![Progress icon displays when complete][ProgressComplete]
 
 
->	Click the progress icon and then click **Details** to see the server name and the values you entered. You can also click **SQL DATABASES** in the left navigation pane to see your new database.
+This topic lists the steps to provision Windows Azure BizTalk Services, including: 
 
-When complete, there is a new Windows Azure SQL Database that you can log into and create tables, views, and stored procedures. When Windows Azure BizTalk Services is provisioned, the tables, views, and stored procedures used by your BizTalk Service are created in this SQL Database.
+-  [Step 1: Create the Access Control Service (ACS) namespace](#ACS)
 
-By default, the SQL Database scale is configured with the following:
+-  [Step 2: Provision a BizTalk Service](#BizTalk)
 
-- Web Edition
-- 1GB database size
+-  [Optional: Create the SQL Database Server](#SQLDB)
 
-The default configuration is sufficient. If you want to modify the scale configuration settings, click **SQL DATABASES** in the left navigation pane, double-click your SQL Database, and click the **Configure** tab. Modifying the scale may impact pricing. [Accounts and Billing in Windows Azure SQL Database](http://go.microsoft.com/fwlink/p/?LinkID=234930) provides information on the editions and billing.
+-  [Optional: Create a Storage Account](#Storage)
 
 
-##<a name="ACS"></a>Create the Access Control Service (ACS) namespace
 
-The ACS namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this ACS namespace. An existing ACS namespace can be used. If you are using an existing ACS namespace, you can skip this section. You do need the  **ACS Management Username** and **ACS Management Symmetric Key**, which are described in this section.
+##<a name="ACS"></a>Step 1: Create the Access Control Service (ACS) namespace
+
+The ACS namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this ACS namespace. A new or existing ACS namespace can be used. 
+
+If you are using an existing ACS namespace, you need the  **ACS Management Username** and **ACS Management Password**, which are described in this section.
 
 The following steps create a new Access Control Service (ACS) namespace:
 
@@ -156,7 +84,7 @@ The following steps create a new Access Control Service (ACS) namespace:
 
 >	![Click the New button][NEWButton]<br/>
 
->3. Click <b>App Services</b>, click <b>Access Control</b>, and then click <b>Quick Create</b>:<br/>
+>3. Click <b>APP SERVICES</b>, click <b>ACCESS CONTROL</b>, and then click <b>QUICK CREATE</b>:<br/>
 
 >	![Click Access Control and click Quick Create][ACS]
 
@@ -210,11 +138,220 @@ An ACS namespace also uses a service identity, which is a set of credentials tha
 [Managing Your ACS Namespace](http://go.microsoft.com/fwlink/p/?LinkID=285670) lists some guidelines and recommendations.
 
 
-##<a name="Storage"></a>Create a Storage Account
 
-The tables, blobs, and queues provided with a Windows Azure Storage Account are used by Windows Azure BizTalk Services to store monitoring output and archived data. An existing Storage Account can be used if it's not used by another BizTalk Service. If you are using an existing Storage Account, skip this section.
+##<a name="BizTalk"></a>Step 2: Provision a BizTalk Service
 
-The following steps create a new Windows Azure Storage Account:
+Now that the ACS Namespace and SSL private certificate (.pfx) are available, you are ready to provision a BizTalk Service. This BizTalk Service hosts your Windows Azure BizTalk Service applications.
+
+The following steps provision a new Windows Azure BizTalk Service:
+
+>1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+
+>2. At the bottom of the navigation pane, click <b>+NEW</b>:
+
+>	![Click the New button][NEWButton]
+
+>3. Click <b>APP SERVICES</b>, click <b>BIZTALK SERVICE</b>, and then click <b>CUSTOM CREATE</b>:
+
+>	![Click BizTalk Service and click Custom Create][BizTalkService]
+
+>4. Enter the following BizTalk Service settings:
+
+>	<table border="1">
+>	<tr>
+>	<td><strong>BizTalk Service Name</strong></td>
+>	<td>Enter a name of your BizTalk Service. This name is the URL used to access your BizTalk Service. You can enter any name but it’s best to be specific. Some examples include:<br/><br/>
+>	<em>MyCompany</em>.biztalk.windows.net<br/>
+>	<em>MyCompanyMyApplication</em>.biztalk.windows.net<br/>
+>	<em>MyApplication</em>.biztalk.windows.net
+>	</td>
+>	</tr>
+>	<tr>
+>	<td><strong>Domain URL</strong></td>
+>	<td>By default, the domain URL is YourBizTalkServiceName.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <i>contoso</i>, you can enter: <br/><br/>
+>	<em>MyCompany</em>.contoso.com<br/>
+>	<em>MyCompanyMyApplication</em>.contoso.com<br/>
+>	<em>MyApplication</em>.contoso.com<br/>
+>	<em>YourBizTalkServiceName</em>.contoso.com
+>	</td>
+>	</tr>
+>	<tr>
+>	<td><strong>Edition</strong></td>
+>	<td>Options include:
+>	<ul>
+>	<li>Developer</li>
+>	<li>Standard</li>
+>	<li>Basic</li>
+>	<li>Premium</li>
+>	</ul>
+>	<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302281">BizTalk Services: Developer, Basic, Standard and Premium Editions Chart</a> lists the differences with the editions. If you are in the testing/development phase, choose <b>Developer</b>. If you are in the production phase, use the chart to determine if Premium, Standard, or Basic is the correct choice for your business scenario.
+>	</td>
+>	</tr>
+>	<tr>
+>	<td><strong>Region</strong></td>
+>	<td>Select the geographic region to host your BizTalk Service.</td>
+>	</tr>
+>	<tr>
+>	<td><strong>Tracking Database</strong></td>
+>	<td>Select your SQL Database to store the tables used by your BizTalk Service. Choose from the following options: <br/>
+>	<ul>
+>	<li><strong>Use an existing SQL Database instance</strong>: Click this option to use an existing SQL Database. An existing SQL Database can be used if it's not used by another BizTalk Service. You need the login name and password specified when that SQL Database Server was created.</li>
+>	<li><strong>Create a new SQL Database instance</strong>: Click this option to create a new SQL Database.</li>
+>	</ul>
+>	</td>
+>	</tr>
+>	<tr>
+>	<td><b>Subscription</b></td>
+>	<td><b>Optional</b>. Available only when there is more than one subscription. Select your subscription to host your BizTalk Service.</td>
+>	</tr>
+>	</table>
+
+>	Click the NEXT arrow.
+
+>5. Enter your Database Settings:
+
+>	<table border="1">
+<tr>
+<td><strong>Subscription</strong></td>
+<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription to host the Windows Azure SQL Database.</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>Available when <strong>Use an existing SQL Database instance</strong> is selected in the previous screen.<br/>
+Select your SQL Database to store the tables used by your BizTalk Service.
+</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.<br/>
+Enter your SQL Database name to be used by your BizTalk Service.</td>
+</tr>
+<tr>
+<td><strong>Server</strong></td>
+<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.<br/>
+Select an existing SQL Database Server. Or, click <strong>New SQL database server</strong> to create a new SQL Database server.</td>
+</tr>
+<tr>
+<td><strong>Server Login Name</strong></td>
+<td>Enter the login user name.</td>
+</tr>
+<tr>
+<td><strong>Server Login Password</strong></td>
+<td>Enter the login password.</td>
+</tr>
+<tr>
+<td><strong>Region</strong></td>
+<td>Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
+</tr>
+</table>
+
+>	Click the NEXT arrow.
+
+>6. Enter your Windows Azure Access Control and monitoring settings:<br/>
+
+>	<table border="1">
+<tr>
+<td><strong>Access Control Namespace</strong></td>
+<td>Select your Access Control Service namespace created in <a HREF="#ACS">Create the Access Control Service (ACS) namespace</a>, in this topic.</td>
+</tr>
+<tr>
+<td><strong>Access Control Management User Name</strong></td>
+<td>Enter the Access Control Service user name, as described in <a HREF="#ACS">Create the Access Control Service (ACS) namespace</a>, in this topic.</td>
+</tr>
+<tr>
+<td><strong>Access Control Management Password</strong></td>
+<td>Enter the Access Control Service password as described in <a HREF="#ACS">Create the Access Control Service (ACS) namespace</a>, in this topic.</td>
+</tr>
+<tr>
+<td><strong>Monitoring/Archiving Storage Account</strong></td>
+<td>Select an existing storage account or click <strong>Create a new storage account</strong>.</td>
+</tr><tr>
+<td><strong>Storage Account Name</strong></td>
+<td>Available when <strong>Create a new storage account</strong> is selected. Enter a name for the Storage Account used by your BizTalk Service.</td>
+</tr>
+</table>
+
+>	Click the NEXT arrow.
+
+>7. Browse to your private SSL certificate (*CertificateName*.pfx) that includes your BizTalk Service name, enter the password, and click the Complete check mark. When complete, the progress icon displays:<br/>
+
+>	![Progress icon displays when complete][ProgressComplete]
+
+
+When complete, a Windows Azure BizTalk Service is provisioned and ready for your applications.
+
+The default settings are sufficient. If you want to modify the default settings, click **BIZTALK SERVICES** in the left navigation pane, and double-click your BizTalk Service. Additional settings are displayed in the Dashboard, Monitor, and Scale tabs.
+
+
+##<a name="SQLDB"></a>Optional: Create the SQL Database Server
+
+When you provision a Windows Azure BizTalk Services, you can automatically create a new SQL Database Server. If you prefer to create a SQL Database Server independent of the BizTalk Service, you can use the following steps:
+
+>1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).<br/>
+
+>2. At the bottom of the navigation pane, click <b>+NEW</b>:<br/>
+
+>	![Click the New button][NEWButton]<br/>
+
+>3. Click <b>Data Services</b>, click <b>SQL Database</b>, and then click <b>Quick Create</b>:<br/>
+
+>	![Click SQL Database and click Quick Create][SQLDatabase]<br/>
+
+>4. Enter the following information:
+
+>	<table border="1">
+<tr>
+<td><strong>Database Name</strong></td>
+<td>Enter the SQL Database name. Some examples:<br/><br/>
+<em>BTSService</em>SQLDev1
+<br/>
+<em>BTSService</em>SQLProd2
+<br/>
+SQLDBTest
+</td>
+</tr>
+<tr>
+<td><strong>Subscription</strong></td>
+<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your Windows Azure subscription to host the SQL Database Server.</td>
+</tr>
+<tr>
+<td><strong>Server</strong></td>
+<td>If the Subscription already has a SQL Database Server, you can select it from the drop-down list. You need the login name and password to provision a BizTalk Service.<br/>
+If this is a brand new Subscription or a SQL Database Server hasn’t been created yet, select <strong>New SQL Database Server</strong>.
+</td>
+</tr>
+<tr>
+<td><strong>Login Name</strong></td>
+<td><strong>Optional</strong>. Available only when you select <strong>New SQL Database Server</strong>. Enter a System Administrator login name.</td>
+</tr>
+<tr>
+<td><strong>New Login Password/Confirmation</strong></td>
+<td><strong>Optional</strong>. Available only when you select <strong>New SQL Database Server</strong>. Enter a System Administrator login password.</td>
+</tr>
+</table>
+	
+>	Note the administrator login name and password you enter. Share the login name and password with other System Administrators. You need this login information to use the SQL Database Server.
+
+>5. Click <b>CREATE SQL DATABASE</b>. When complete, the progress icon displays:<br/>
+
+>	![Progress icon displays when complete][ProgressComplete]
+
+
+>	Click the progress icon and then click **Details** to see the server name and the values you entered. You can also click **SQL DATABASES** in the left navigation pane to see your new database.
+
+When complete, there is a new Windows Azure SQL Database that you can log into and create tables, views, and stored procedures. 
+
+By default, the SQL Database scale is configured with the following:
+
+- Web Edition
+- 1GB database size
+
+The default configuration is sufficient for a BizTalk Service. If you want to modify the scale configuration settings, click **SQL DATABASES** in the left navigation pane, double-click your SQL Database, and click the **Configure** tab. Modifying the scale may impact pricing. [Accounts and Billing in Windows Azure SQL Database](http://go.microsoft.com/fwlink/p/?LinkID=234930) provides information on the editions and billing.
+
+
+##<a name="Storage"></a>Optional: Create a Storage Account
+
+When you provision a Windows Azure BizTalk Service, you can automatically create a Windows Azure Storage Account. If you prefer to create a Windows Azure Storage Account independent of the BizTalk Service, you can use the following steps:
 
 >1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 
@@ -257,149 +394,13 @@ Clear to turn off geo-replication; which results in locally redundant storage at
 
 >	![Progress icon displays when complete][ProgressComplete]<br/>
 
-When complete, there is a new Windows Azure Storage Account that gives you access to tables, blobs, and queues. When Windows Azure BizTalk Services is provisioned, the tables, blobs, and queues used by your BizTalk Service are created in this Storage Account.
+When complete, there is a new Windows Azure Storage Account that gives you access to tables, blobs, and queues. 
 
-The default settings are sufficient. If you want to modify the default settings, click **STORAGE** in the left navigation pane, and double-click your Storage Account. The settings are displayed in the Dashboard, Monitor, Configure and Containers tabs.
+The default settings are sufficient for a BizTalk Service. If you want to modify the default settings, click **STORAGE** in the left navigation pane, and double-click your Storage Account. The settings are displayed in the Dashboard, Monitor, Configure and Containers tabs.
 
-When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key.
+When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. The BizTalk Service automatically uses the Primary Key.
 
 [Storage](http://go.microsoft.com/fwlink/p/?LinkID=285671) provides information on your Storage Account.
-
-##<a name="BizTalk"></a>Provision a BizTalk Service
-
-Now that the prerequisites are created, you are ready to provision a BizTalk Service. This BizTalk Service hosts your Windows Azure BizTalk Service application.
-
-The following steps provision a new Windows Azure BizTalk Service:
-
->1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-
->2. At the bottom of the navigation pane, click <b>+NEW</b>:
-
->	![Click the New button][NEWButton]
-
->3. Click <b>App Services</b>, click <b>BizTalk Service</b>, and then click <b>Custom Create</b>:
-
->	![Click BizTalk Service and click Custom Create][BizTalkService]
-
->4. Enter the following BizTalk Service settings:
-
->	<table border="1">
->	<tr>
->	<td><strong>Name</strong></td>
->	<td>Enter a name of your BizTalk Service. This name is the URL used to access your BizTalk Service. You can enter any name but it’s best to be specific. Some examples include:<br/><br/>
->	<em>MyCompany</em>.biztalk.windows.net<br/>
->	<em>MyCompanyMyApplication</em>.biztalk.windows.net<br/>
->	<em>MyApplication</em>.biztalk.windows.net
->	</td>
->	</tr>
->	<tr>
->	<td><strong>Domain URL</strong></td>
->	<td>By default, the domain URL is YourBizTalkServiceName.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <i>contoso</i>, you can enter: <br/><br/>
->	<em>MyCompany</em>.contoso.com<br/>
->	<em>MyCompanyMyApplication</em>.contoso.com<br/>
->	<em>MyApplication</em>.contoso.com<br/>
->	<em>YourBizTalkServiceName</em>.contoso.com
->	</td>
->	</tr>
->	<tr>
->	<td><strong>Edition</strong></td>
->	<td>Options include:
->	<ul>
->	<li>Developer</li>
->	<li>Standard</li>
->	<li>Basic</li>
->	<li>Premium</li>
->	</ul>
->	<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302281">BizTalk Services: Developer, Basic, Standard and Enterprise Editions Chart</a> lists the differences with the editions. If you are in the testing/development phase, choose <b>Developer</b>. If you are in the production phase, use the matrix to determine if Enterprise, Standard, or Basic is the correct choice for your business scenario.
->	</td>
->	</tr>
->	<tr>
->	<td><strong>Region</strong></td>
->	<td>Select the geographic region to host your BizTalk Service.</td>
->	</tr>
->	<tr>
->	<td><strong>Tracking Database</strong></td>
->	<td>Select your SQL Database to store the tables used by your BizTalk Service. Choose from the following options: <br/>
->	<ul>
->	<li><strong>Use an existing SQL Database instance</strong>: Click this option to use the SQL Database created previously in <a HREF="#SQLDB">Create the SQL Database Server</a>. You need the login name and password specified when the SQL Database Server was created.</li>
->	<li><strong>Create a new SQL Database instance</strong>: Click this option to create a new SQL Database on an existing SQL Database Server. You need the login name and password specified when the SQL Database Server was created.</li>
->	</ul>
->	</td>
->	</tr>
->	<tr>
->	<td><b>Subscription</b></td>
->	<td><b>Optional</b>. Available only when there is more than one subscription. Select your subscription to host your BizTalk Service.</td>
->	</tr>
->	</table>
-
->	Click the NEXT arrow.
-
->5. Enter your Database Settings:
-
->	<table border="1">
-<tr>
-<td><strong>Subscription</strong></td>
-<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription that hosts the Windows Azure SQL Database.</td>
-</tr>
-<tr>
-<td><strong>Database</strong></td>
-<td>Available when <strong>Use an existing SQL Database instance</strong> is selected in the previous screen.<br/>
-Select your SQL Database to store the tables used by your BizTalk Service.
-</td>
-</tr>
-<tr>
-<td><strong>Server</strong></td>
-<td>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.<br/>
-Select your SQL Database Server.
-</td>
-</tr>
-<tr>
-<td><strong>Login User Name</strong></td>
-<td>Enter the login user name.</td>
-</tr>
-<tr>
-<td><strong>Login Password</strong></td>
-<td>Enter the login password.</td>
-</tr>
-</table>
-
->	Click the NEXT arrow.
-
->6. Enter your Windows Azure Access Control and monitoring settings:<br/>
-
->	<table border="1">
-<tr>
-<td><strong>ACS Namespace</strong></td>
-<td>Select your Access Control Service namespace created in <a HREF="#ACS">Create the Access Control Service (ACS) namespace</a>, in this topic.</td>
-</tr>
-<tr>
-<td><strong>ACS Management User Name</strong></td>
-<td>Enter the Access Control Service user name, as described in <a HREF="#ACS">Create the Access Control Service (ACS) namespace</a>, in this topic.</td>
-</tr>
-<tr>
-<td><strong>ACS Management Password</strong></td>
-<td>Enter the Access Control Service password as described in <a HREF="#ACS">Create the Access Control Service (ACS) namespace</a>, in this topic.</td>
-</tr>
-<tr>
-<td><strong>Monitoring/Archiving Storage Account</strong></td>
-<td>Select your storage account.</td>
-</tr>
-</table>
-
->	Click the NEXT arrow.
-
->7. Browse to your private SSL certificate (*CertificateName*.pfx) that includes your BizTalk Service name, enter the password and click the Complete check mark. When complete, the progress icon displays:<br/>
-
->	![Progress icon displays when complete][ProgressComplete]
-
->	**Important**<br/>
->	When you create the certificate request and send to your certification authority, you specify the following certificate properties:<br/><br/>
->	**Enhanced Key Usage**: Server Authentication. Additional key usages can be enabled on the certificate. At a minimum, Windows Azure BizTalk Services requires Server Authentication.<br/><br/>
->	**Common Name**: Enter the fully qualified domain name (FQDN) of your Windows Azure BizTalk Services URL; which is created when you enter the name in step 4 in the [Provision a BizTalk Service](#BizTalk) section in this topic.
-
-When complete, a Windows Azure BizTalk Service is provisioned and ready for your applications.
-
-The default settings are sufficient. If you want to modify the default settings, click **BIZTALK SERVICES** in the left navigation pane, and double-click your BizTalk Service. Additional settings are displayed in the Dashboard, Monitor, and Scale tabs.
 
 
 

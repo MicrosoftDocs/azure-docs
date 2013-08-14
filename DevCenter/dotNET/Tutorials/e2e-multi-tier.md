@@ -22,11 +22,9 @@ You will learn:
     and worker roles.
 -   How to communicate between tiers using Service Bus Queues.
 
-You will build a front-end ASP.NET MVC web role that uses a back-end
-worker role to process long running jobs. You will learn how to create
-multi-role solutions, as well as how to use Service Bus Queues to enable
-inter-role communication. A screenshot of the completed application is
-shown below:
+In this tutorial you'll build and run the multi-tier application in a Windows Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to a Windows Azure Web Site instead of a cloud service. For instructions about what to do differently a Windows Azure Web Site front end, see the [Next steps](#nextsteps) section.
+
+A screenshot of the completed application is shown below:
 
 ![][0]
 
@@ -47,7 +45,7 @@ the web tier does not connect to the middle tier directly; instead it
 pushes units of work, as messages, into the Service Bus, which reliably
 retains them until the middle tier is ready to consume and process them.
 
-The Service Bus provides two entities to support brokered messaging,
+The Service Bus provides two entities to support brokered messaging:
 queues and topics. With queues, each message sent to the queue is
 consumed by a single receiver. Topics support the publish/subscribe
 pattern in which each published message is made available to each
@@ -64,7 +62,7 @@ messaging, namely:
 
 -   **Temporal decoupling.** With the asynchronous messaging pattern,
     producers and consumers need not be online at the same time. Service
-    Busreliably stores messages until the consuming party is ready to
+    Bus reliably stores messages until the consuming party is ready to
     receive them. This allows the components of the distributed
     application to be disconnected, either voluntarily, for example, for
     maintenance, or due to a component crash, without impacting the
@@ -121,7 +119,7 @@ to get the tools and set-up your development environment.
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
-    Visual Web Developer Express.
+    Visual Studio Express for Web.
 
 <h2><span class="short-header">Set up the namespace</span>Set up the Service Bus namespace</h2>
 
@@ -182,10 +180,10 @@ Queue and displaying status information about the queue.
 ### Create the project
 
 1.  Using administrator privileges, start either Microsoft Visual Studio
-    2012 or Microsoft Visual Web Developer Express. To start Visual
+    2012 or Microsoft Visual Studio Express for Web. To start Visual
     Studio with administrator privileges, right-click **Microsoft Visual
-    Studio 2012 (or Microsoft Visual Web Developer Express)** and
-    then click Run as administrator. The Windows Azure compute emulator,
+    Studio 2012 (or Microsoft Visual Studio Express for Web)** and
+    then click **Run as administrator**. The Windows Azure compute emulator,
     discussed later in this guide, requires that Visual Studio be
     launched with administrator privileges.
 
@@ -205,8 +203,8 @@ Queue and displaying status information about the queue.
 
     ![][10]
 
-4.  Hover over **MvcWebRole1** under **Windows Azure solution**, click
-    the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**.
+4.  Hover over **MvcWebRole1** under **Windows Azure Cloud Service solution**, click
+    the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**. (Make sure you enter "Frontend" with a lower-case "e", not "FrontEnd".)
 
     ![][11]
 
@@ -581,12 +579,10 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
     	{
         	// Process the message
         	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-
         	// Add these two lines of code
         	// View the message as an OnlineOrder
 			OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
         	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-
         	receivedMessage.Complete();
     	}
 
@@ -608,9 +604,22 @@ To learn more about Service Bus, see the following resources:
 * [Service Bus How To's][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
-To learn more about multi-tier scenarios, see:  
+To learn more about multi-tier scenarios, or to learn how to deploy an application to a cloud service, see:  
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
+
+You might want to implement the front-end of a multi-tier application in a Windows Azure Web Site instead of a Windows Azure Cloud Service. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
+
+To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
+
+1. When you create the project, choose the **ASP.NET MVC 4 Web Application** project template in the **Web** category instead of the **Cloud Service** template in the **Cloud** category. Then follow the same directions for creating the MVC application, up until you get to the **Cloud configuration manager** section.
+
+2. When you create the worker role, create it in a new solution, like the original instructions have you do for the web role, but now you're creating just the worker role in the cloud service project. Then follow the same directions for creating the worker role.
+
+3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
+
+To learn how to deploy the front end to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). To learn how to deploy the back end to a Windows Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
+
 
   [0]: ../Media/getting-started-multi-tier-01.png
   [1]: ../Media/getting-started-multi-tier-100.png
@@ -653,5 +662,4 @@ To learn more about multi-tier scenarios, see:
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  
   [mutitierstorage]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/ 
-
-
+  [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
