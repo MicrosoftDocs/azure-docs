@@ -4,7 +4,10 @@
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
-	# clicker for iOS, Android, Windows Phone
+	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
+    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a>
 </div>	
 
 
@@ -148,11 +151,11 @@ To send notifications using a .NET app:
 
 5. Press the F5 key to run the app. You should receive a toast notification. Make sure to have your Windows Phone emulator running and your app closed.
 
-   ![][214]
+You can find all the possible payloads on MSDN in the [toast catalog], and [tile catalog].
 
 ## <a name="next-steps"> </a>Next steps
 
-In this simple example you broadcast notifications to all your Windows Phone 8 devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and on the [Notification Hubs How-To for Windows Phone 8].
+In this simple example you broadcast notifications to all your Windows Phone 8 devices. In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users]. If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance].
 
 <!-- Anchors. -->
 [Create your Notification Hub]: #configure-hub
@@ -194,3 +197,9 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone 8]: tbd!!!
 [MPNS authenticated mode]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
+
+[Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
+[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
+
+[toast catalog]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662938(v=vs.105).aspx
+[tile catalog]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202948(v=vs.105).aspx

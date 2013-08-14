@@ -1,12 +1,12 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" writer="ricksal" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Use Notification Hubs to send localized breaking news to iOS devices
 
 <div class="dev-center-tutorial-selector sublanding"> 
-		<a href="/en-us/manage/services/notification-hubs/breaking-localized-news-ios" title="iOS" class="current">iOS</a>
-    	<a href="/en-us/manage/services/notification-hubs/breaking-localized-news-dotnet" title="Windows Store C#">Windows Store C#</a>
+    	<a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet" title="Windows Store C#">Windows Store C#</a>
+		<a href="/en-us/manage/services/notification-hubs/breaking-news-localized-ios" title="iOS" class="current">iOS</a>
 </div>
 
 
@@ -60,7 +60,7 @@ Then we will ensure that devices register with a template that refers to the cor
 			}
 		}
 
-Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article. A reference for the template expression language is in our TBD-link [Notification Hubs How-To for Windows Store].
+Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article. A reference for the template expression language is in our [How To: Service Bus Notification Hubs (iOS Apps)].
 
 <h2><a name="ui"></a><span class="short-header">App ui</span>The app user interface</h2>
 
@@ -69,11 +69,11 @@ We will now modify the Breaking News app that you created in the topic [Use Noti
 
 In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages we support: English, French, and Mandarin.
 
-	![][13]
+![][13]
 	
 Then make sure to add an IBOutlet in your ViewController.h as shown below:
 	
-	![][14]
+![][14]
 	
 <h2><a name="building-client"></a><span class="building app">App ui</span>Building the iOS app</h2>
 
@@ -162,13 +162,22 @@ In order to adapt your client apps to receive localized messages, you have to re
 	        }
 	    }];
 
+<h2><a name="send"></a><span class="short-header">Send localized notifications</span>Send localized notifications from your back-end</h2>
 
 <div chunk="../chunks/notification-hubs-localized-back-end.md" />
 
 
 ## Next Steps
 
-For more information on using templates, see [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services] and also see [Notification Hubs Guidance]. A reference for the template expression language is [Notification Hubs How-To for Windows Store].
+For more information on using templates, see:
+
+- [Notify users with Notification Hubs: ASP.NET] 
+- [Notify users with Notification Hubs: Mobile Services] 
+- [Notification Hubs Guidance] 
+
+A reference for the template expression language is in [Notification Hubs How-To for iOS].
+
+
 
 		
 <!-- Anchors. -->
@@ -179,7 +188,6 @@ For more information on using templates, see [Notify users with Notification Hub
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-
 [0]: mobile-services-submit-win8-app.png
 [1]: ../media/notification-hub-breakingnews-win1.png
 [2]: notification-hub-create-win8-app.png
@@ -198,7 +206,7 @@ For more information on using templates, see [Notify users with Notification Hub
 [19]: notification-hub-windows-reg.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-dotnet.md
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
 [Use Notification Hubs to send breaking news]: breaking-news-ios.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
 [Notify users with Notification Hubs: ASP.NET]: tutorial-notify-users-aspnet.md
@@ -218,4 +226,4 @@ For more information on using templates, see [Notify users with Notification Hub
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx

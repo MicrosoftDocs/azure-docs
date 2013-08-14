@@ -4,7 +4,10 @@
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
-	# clicker for iOS, Android, Windows Phone
+	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
+    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS" class="current">iOS</a>
 </div>	
 
 
@@ -300,6 +303,8 @@ To send notifications using a .NET app:
 
 5. Press the F5 key to run the app. You should receive an alert on your device. If you are using Wi-fi, make sure your connection is working.
 
+You can find all the possible payloads in the Apple [Local and Push Notification Programming Guide].
+
 To send a notification using a Mobile Service, follow [Get started with Mobile Services], then:
 
 1. Log on to the [Windows Azure Management Portal], and select your Mobile Service.
@@ -318,7 +323,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
         var azure = require('azure');
         var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
-        notificationHubService.hub.apple.send(
+        notificationHubService.apns.send(
 	        null,
 	        {
 	            alert: "Hello from Mobile Services!"
@@ -338,7 +343,9 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 In this simple example you broadcast notifications to all your iOS devices. In order to target specific users refer to the tutorial [Use Notification Hubs to push notifications to users], while if you want to segment your users by interest groups you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and on the [Notification Hubs How-To for iOS].
 
 <!-- Anchors. -->
-[Register your app for push notifications]: #register
+[Generate the certificate signing request]: #certificates
+[Register your app and enable push notifications]: #register
+[Create a provisioning profile for the app]: #profile
 [Configure your Notification Hub]: #configure-hub
 [Connecting your app to the Notification Hub]: #connecting-app
 [Send notifications from your back-end]: #send
@@ -402,12 +409,19 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [34]: ../media/notification-hub-create-ios-app4.png
 
 <!-- URLs. -->
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with Mobile Services]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started-ios.md
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+
+[Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
+[Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
+
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1

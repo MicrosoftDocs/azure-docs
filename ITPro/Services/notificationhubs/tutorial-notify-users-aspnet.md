@@ -26,7 +26,7 @@ This tutorial walks you through the following basic steps:
 	<p>The ASP.NET Web API project that you create in this tutorial runs on your local computer. You can also publish an ASP.NET Web API project to Windows Azure. For more information, see <a href="/en-us/develop/net/tutorials/rest-service-using-web-api/" target="_blank">Create a mobile-friendly REST service using ASP.NET Web API and SQL Database</a>.</p>
 </div>
 
-<a name="create-application"></a><h2><span class="short-header">Create the ASP.NET app</span>Create an ASP.NET application with authentication</h2>
+<h2><a name="create-application"></a><span class="short-header">Create the ASP.NET app</span>Create an ASP.NET application with authentication</h2>
 
 First you will create an ASP.NET Web API application. This backend service will authenticate clients, register for push notifications on behalf of an authenticated user, and send out notifications.
 
@@ -118,7 +118,7 @@ First you will create an ASP.NET Web API application. This backend service will 
 
 Now that we have created the basic application with a mock authentication scheme to provide us with a user name. 
 
-<a name="register-notification"></a><h2><span class="short-header">Register for notifications</span>Update your ASP.NET application to register for notifications</h2>
+<h2><a name="register-notification"></a><span class="short-header">Register for notifications</span>Update your ASP.NET application to register for notifications</h2>
 
 The next step is to add the registration logic for notification hubs to the ASP.NET application by creating a new **Registration** controller. 
 
@@ -276,7 +276,7 @@ The next step is to add the registration logic for notification hubs to the ASP.
 
 Next, we will update the client app that you created when you completed the tutorial **Get started with Notification Hubs**. 
 
-<a name="update-app"></a><h2><span class="short-header">Update the app</span>Update the app to log in and request registration</h2>
+<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to log in and request registration</h2>
 
 The app that you created when you completed the tutorial **Get started with Notification Hubs** requests registration directly from the notification hub. You will remove this registration code from the client app and replace it with a call to the new Register API in the ASP.NET Web API application.
 
@@ -298,7 +298,7 @@ The app that you created when you completed the tutorial **Get started with Noti
 	You will also receive a push notification.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 4. (Optional) Deploy the client app to a second device, then run the app and insert text. 
@@ -337,12 +337,13 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Get started auth iOS]: /en-us/develop/mobile/tutorials/get-started-with-users-ios/
 [Get started auth Android]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
 [Client topic Windows Store C# version]: ./howto-register-user-with-aspnet-windowsdotnet.md 
-[Client topic iOS version]: ./howto-register-user-with-mobile-service-ios.md 
+[Client topic iOS version]: ./howto-register-user-with-aspnet-ios.md 
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
+
 [Create a mobile-friendly REST service using ASP.NET Web API and SQL Database]: /en-us/develop/net/tutorials/rest-service-using-web-api/
 [Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-aspnet.md
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
-[Windows Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
+[Windows Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx

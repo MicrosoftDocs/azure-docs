@@ -31,7 +31,7 @@ This tutorial builds upon the app and notification hub that you created in **Get
 	<p>By default, the <strong>Get started with authentication in Mobile Services</strong> tutorial uses Facebook authentication. You cannot use Microsoft Account authentication in this tutorial, because two Windows Store apps cannot share a single Live Connect registration. To use Microsoft Account authentication, the mobile service and notification hub must be registered to the same app in Live Connect.</p>
 </div>
 
-<a name="register-notification"></a><h2><span class="short-header">Register for notifications</span>Update your mobile service to register for notifications</h2>
+<h2><a name="register-notification"></a><span class="short-header">Register for notifications</span>Update your mobile service to register for notifications</h2>
 
 Because notification registration must only be completed after a client has been positively authenticated by the service, the registration is performed a custom API defined in the mobile service. This custom API is called by an authenticated client to request notification registration. In this section, you will update the authenticated mobile service that you defined when you completed the **Get started with authentication in Mobile Services** tutorial. 
 
@@ -98,7 +98,7 @@ Because notification registration must only be completed after a client has been
 		    hub.listRegistrationsByTag(installationId, function(error, existingRegs) {
 		        var firstRegistration = true;
 		        if (existingRegs.length > 0) {
-		            for (var i = 0; i < existingRegs.length; i++) {
+		             for (var i = 0; i < existingRegs.length; i++) {
 		                if (firstRegistration) {
 		                    // Update an existing registration.
 		                    if (platform === 'win8') {
@@ -139,7 +139,7 @@ Because notification registration must only be completed after a client has been
 		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim allows your custom API method to create and update registrations.</p>
 	</div>
 
-<a name="update-app"></a><h2><span class="short-header">Update the app</span>Update the app to log in and request registration</h2>
+<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to log in and request registration</h2>
 
 Next, you need to update the TodoList app to request registration for notification by calling the new custom API.
 
@@ -150,7 +150,7 @@ Next, you need to update the TodoList app to request registration for notificati
 
 2. Run the updated app, login using Facebook, and then verify that the registration ID assigned to the notification is displayed.
 
-<a name="send-notifications"></a><h2><span class="short-header">Send notifications</span>Update your mobile service to send notifications</h2>
+<h2><a name="send-notifications"></a><span class="short-header">Send notifications</span>Update your mobile service to send notifications</h2>
 
 The final step is to add code that sends notifications in the mobile service. This notification code is added to the server script registered to the insert handler of the **TodoItem** table.
 
@@ -221,7 +221,7 @@ Now that the notifications are configured, it's time to test the app by insertin
 	Note that after the insert completes, the app receives a push notification from Notification Hubs.
 
 	<div class="dev-callout"><b>Note</b>
-		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-cross-platform" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
+		<p>An error is raised on the backend when there is no registration for a platform to which a notification is requested to be sent. In this case, this error can be ignored. To see how to use templates to avoid this situation, see <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/" target="_blank">Send cross-platform notifications to users with Notification Hubs</a>.</p>
 	</div>
 
 3. (Optional) Deploy the client app to a second device, then run the app and insert text. 
@@ -266,4 +266,5 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Management Portal]: https://manage.windowsazure.com/
 [Send cross-platform notifications to users with Notification Hubs]: ./tutorial-notify-users-cross-platform-mobileservice.md
 [Breaking news .NET]: ./breaking-news-dotnet.md
-[Breaking news iOS]: ./breaking-news-dotnet.md
+[Breaking news iOS]: ./breaking-news-ios.md
+[Windows Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx

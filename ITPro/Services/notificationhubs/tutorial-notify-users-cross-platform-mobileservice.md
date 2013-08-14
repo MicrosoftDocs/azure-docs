@@ -5,8 +5,8 @@
 # Send cross-platform notifications to users with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/notify-users-crossplat" title="Mobile Services" class="current">Mobile Services</a>
-    <a href="/en-us/manage/services/notification-hubs/notify-users-crossplat-aspnet" title="ASP.NET">ASP.NET</a>
+    <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/" title="Mobile Services" class="current">Mobile Services</a>
+    <a href="/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet/" title="ASP.NET">ASP.NET</a>
 </div> 
 
 In the previous tutorial [Notify users with Notification Hubs], you learned how to push notifications to all devices registered by a specific authenticated user. In that tutorial, multiple requests were required to send a notification to each supported client platform. Notification Hubs supports templates, which let you specify how a specific device wants to receive notifications. This simplifies sending cross-platform notifications. This topic demonstrates how to take advantage of templates to send, in a single request, a platform-agnostic notification that targets all platforms. For more detailed information about templates, see [Windows Azure Notification Hubs Overview][Templates].
@@ -128,6 +128,6 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 [Breaking news .NET]: ./breaking-news-dotnet.md
 [Breaking news iOS]: ./breaking-news-dotnet.md
 [Windows Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notify users with Notification Hubs]: ./tutorial-notify-users-aspnet.md 
+[Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md 
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx
