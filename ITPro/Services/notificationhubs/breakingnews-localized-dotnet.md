@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" writer="ricksal" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Use Notification Hubs to send localized breaking news
 
@@ -171,7 +171,7 @@ Notifications singleton in the *OnLaunched* method:
 
 ## Next Steps
 
-For more information on using templates, see [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services] and also see [Notification Hubs Guidance]. A reference for the template expression language is [Notification Hubs How-To for iOS].
+For more information on using templates, see [Notify users with Notification Hubs: ASP.NET], [Notify users with Notification Hubs: Mobile Services] and also see [Notification Hubs Guidance]. A reference for the template expression language is [Notification Hubs How-To for Windows Store].
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -181,7 +181,6 @@ For more information on using templates, see [Notify users with Notification Hub
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-
 [0]: mobile-services-submit-win8-app.png
 [1]: ../media/notification-hub-breakingnews-win1.png
 [2]: notification-hub-create-win8-app.png
@@ -226,3 +225,4 @@ For more information on using templates, see [Notify users with Notification Hub
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx

@@ -152,7 +152,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		String connectionString = "<your listen access connection string>";
 		hub = new NotificationHub("<your notification hub name>", connectionString, this);
 		
-		registerWithNotifiationHub();
+		registerWithNotificationHubs();
 
 10. In MainActivity.java, create the following method:
 
@@ -172,7 +172,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		   }.execute(null, null, null);
 		}
 
-11. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the <application/> element.
+11. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application/>` element.
 
 	<div class="dev-callout"><b>Note</b>
     <p>Replace the placeholder with your package name.</p>
