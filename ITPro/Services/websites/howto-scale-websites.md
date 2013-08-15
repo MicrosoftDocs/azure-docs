@@ -48,8 +48,7 @@ When you configure a web site as Standard, you can specify the size of the web s
 You also specify a value for **Instance Count** (from 1 to 10).
 A web site running in **Standard** mode benefits from high availability even with a single instance, but scaling out (that is, increasing the value for **Instance Count**) will provide even greater performance and fault tolerance. 
 
-The **Autoscale** feature, available in Standard mode only, lets you have Windows Azure automatically scale the instance count and instance size depending on load, which makes running your web site more cost effective.
-
+The Autoscale feature, available in Standard mode only, lets you have Windows Azure automatically scale the instance count and instance size depending on load (scale by metric), or time (scheduled scaling), which makes running your web site more cost effective.
 
 ##<a name="howtochangescale"></a>How to Change Scale Options for a Web Site
 By default, a web site that is configured to run in **Free** or **Shared** web site mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [Virtual Machine and Cloud Service Sizes for Windows Azure][vmsizes]. 
@@ -62,15 +61,33 @@ To change the scaling of resources for a web site, in the Management Portal, ope
 
 - **Choose Sites** (Standard mode only) - Choose which web sites in the current region and subscription to run in Standard mode. To run all web sites in the current region and subscription in **Standard** mode, leave the **Select All** checkbox selected.
 
-- **Autoscale** (Standard mode only) - Choose **CPU** to have Windows Azure automatically scale the instance count and instance size depending on load. Enabling **Autoscale** also enables the **Target CPU** option so that you can specify a target range for CPU usage, and modifies the **Instance Count** feature so that you can set the minimum and maximum number of virtual machines to be used for automatic scaling.
-
-	**Note**: When **Autoscale** is enabled, Windows Azure checks the CPU of your web site once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Windows Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your web site, be sure that you have a sufficient minimum number of instances to handle the load. For example, if you have a sudden spike of traffic during the 5 minute interval before Windows Azure checks your CPU usage, your site might not be responsive during that time. If you expect sudden, large amounts of traffic, set the minimum instance count higher to anticipate these bursts. 
-
 - **Instance Size** (Standard mode only) - Provides options for additional scale up of a web site running in **Standard** web site mode. If **Instance Size** is changed from **Small** to **Medium** or **Large**, the web site will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [Virtual Machine and Cloud Service Sizes for Windows Azure][vmsizes].
+
+- **Edit Scale Settings for Schedule** (Standard mode only) - Use this Autoscale feature to scale resources based on daytime versus nighttime, or weekday versus weekend. To start, choose **Set up schedule times** to bring up the **Set up schedule times** dialog box where you can make the following choices:
+
+ - Choose a **Time zone** for the web site. Daylight Savings Time is respected for the time zone that you select.
+
+		**Note**: To scale for a different time zone, you must create a separate web site and configure it accordingly.
+ - To scale the web site differently based on daytime or nighttime, choose **Differing scale between Day and Night**. Use the **Time** feature to specify the day start and end times in half hour increments. By default, the day starts at 8:00 AM and ends at 8:00 PM. 
+
+ - To scale the web site differently based on weekday versus weekend, choose **Differing Scale between Weekday and Weekend**.
+
+ After you have made these settings, click **OK** to close the **Schedule Times** dialog box. The **Edit Scale Settings for Schedule** box now displays up to three recurring schedules: **Week Day**, **Week Night**, and **Weekend**. You can now select one of these schedules and use the **Scale by Metric** and the **Instance Count** features to fine tune the scaling of resources for the schedule that you chose. 
+
+	**Note**: The **Instance Size** setting is global for the web site and does not change according to the schedule selected.
+
+ After you have finished making changes to all the schedules, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
+
+
+
+- **Scale by Metric** (Standard mode only) - For this Autoscale feature, choose **CPU** to have Windows Azure automatically scale the instance count and instance size depending on load. Enabling **Scale by Metric** enables the **Target CPU** option so that you can specify a target range for CPU usage, and modifies the **Instance Count** feature so that you can set the minimum and maximum number of virtual machines to be used for automatic scaling.
+
+	**Note**: When **Scale by Metric** is enabled, Windows Azure checks the CPU of your web site once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Windows Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your web site, be sure that you have a sufficient minimum number of instances to handle the load. For example, if you have a sudden spike of traffic during the 5 minute interval before Windows Azure checks your CPU usage, your site might not be responsive during that time. If you expect sudden, large amounts of traffic, set the minimum instance count higher to anticipate these bursts. 
+
 
 - **Instance Count** (Shared and Standard modes only) -  A single instance in **Shared** or **Standard** mode already benefits from high availability, but you can provide even greater throughput and fault tolerance by running additional web site instances (that is, "scaling out"). In **Shared** mode, you can choose from 1 through 6 instances. In **Standard** mode, you can choose from 1 through 10 instances, and if you enable the **Autoscale** feature, you can set the minimum and maximum number of virtual machines to be used for automatic scaling.
 	
-- **Target CPU** (Standard mode only) - This option appears only when **Autoscale** is enabled. Use the sliders to set the minimum and maximum percent CPU usage that you desire for your web site. Windows Azure will add or remove standard instances to keep CPU usage in this range.
+- **Target CPU** (Standard mode only) - This option appears only when **Scale by Metric** is enabled. Use the sliders to set the minimum and maximum percent CPU usage that you desire for your web site. Windows Azure will add or remove standard instances to keep CPU usage in this range.
 
 - **Linked Resources** - 
 If you have linked a SQL database to your web site, you can scale your database here. Choose **Web** or **Business** depending on the storage capacity that you require. The **Web** edition offers a range of smaller capacities, while the **Business** edition offers a range of larger capacities. For more information, see [Accounts and Billing in Windows Azure SQL Database][SQLaccountsbilling].
