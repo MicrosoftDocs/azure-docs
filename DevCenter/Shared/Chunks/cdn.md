@@ -20,12 +20,6 @@ The benefits of using CDN to cache Windows Azure data include:
 
 Existing CDN customers can now use the Windows Azure CDN in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you are not currently a CDN customer and you are interested in adding the CDN to your subscription, contact <a href="http://www.windowsazure.com/en-us/support/options/">Windows Azure Support</a>.
-</p>
-</div>
-
 <a id="Step1"> </a>
 <h2>Step 1: Create a storage account</h2>
 
