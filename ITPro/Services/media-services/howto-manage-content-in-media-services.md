@@ -19,12 +19,9 @@ Currently you can perform the following content operations directly from the por
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
-2. Click the **Content** view at the top of the page. Your view should look similar to the screen shot below. 
-
- ![PortalViewUploadCompleted][portaluploadcomplete]
-
-3. Click the **Upload** button at the bottom of the portal. 
-4. In the Upload Content dialog, click **Browse Your Computer** and browse to the desired asset file. Click the file and then click **Open** or press **Enter**.
+2. Select the CONTENT page. 
+3. Click the **Upload** button on the page or at the bottom of the portal. 
+4. In the **Upload content** dialog, browse to the desired asset file. Click the file and then click **Open** or press **Enter**.
 
  ![UploadContentDialog][uploadcontent]
 
@@ -36,12 +33,13 @@ Currently you can perform the following content operations directly from the por
 
  Once the upload has completed, you will see the new asset listed in the Content list. By convention the name will have "**-Source**" appended at the end to help track new content as source content for encoding tasks.
 
-	If the file size value does not get updated after the uploading process stops, press the Sync Metadata button. This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.	
+	If the file size value does not get updated after the uploading process stops, press the **Sync Metadata** button. This synchronizes the asset file size with the actual file size in storage and refreshes the value on the Content page.	
+
 
 ## How to: Encode content ##
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name. 
-2. Click the **Content** view at the top of the page.
+2. Click the CONTENT page at the top of the page.
 3. Click on the desired source video for the encoding job, and then click **Encode** at the bottom of the page.
 4. In the Windows Azure Media Encoder dialog, choose from one of the common or advanced encoding presets.
 
@@ -63,24 +61,31 @@ Currently you can perform the following content operations directly from the por
 
 5. In the Windows Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 
+ After the encoding is done, your view should look similar to the screen shot below. 
+
+ ![PortalViewUploadCompleted][portaloverview]
+
+	If the file size value does not get updated after the encoding is done, press the **Sync Metadata** button. This synchronizes the output asset file size with the actual file size in storage and refreshes the value on the Content page.	
 
 ## How to: Publish content ##
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
-2. Click the **Content** view at the top of the page.
+2. Click the CONTENT page at the top of the page.
 3. Click an asset which is not published. The click the publish button to publish to a public URL. Once the content is published to a URL, the URL can be opened by a client player capable of rendering the encoded content.
 
+ ![PublishedContent][publishedcontent]
 
 ## How to: Play content from the portal ##
 
 
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
-2. Click the **Content** view at the top of the page.
+2. Click the CONTENT page at the top of the page.
 3. Click on the desired video content and click the **Play** button at the bottom of the portal. Only content that has been published is playable from the portal. Also, the encoding must be supported by your browser.
 
 
 <!-- Images -->
-[portaloverview]: ../media/PortalView.png
+[portaloverview]: ../media/media-services-content-page.png
+[publishedcontent]: ../media/media-services-upload-content-published.png
 [uploadcontent]: ../media/UploadContent.png
 [status]: ../media/Status.png
 [statuscomplete]: ../media/StatusComplete.png
