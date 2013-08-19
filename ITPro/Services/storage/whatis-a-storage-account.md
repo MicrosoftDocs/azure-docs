@@ -6,7 +6,7 @@
 
 A storage account gives your applications access to Windows Azure Blob, Table, and Queue services located in a geographic region. You need a storage account to use Windows Azure storage. 
 
-The storage account represents the highest level of the namespace for accessing the storage services. A storage account can contain up to 100 TB of blob, queue, and table data. You can create up to five storage accounts for your Windows Azure subscription. For more information about storage accounts, see [Data Management and Business Analytics](http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/).
+The storage account represents the highest level of the namespace for accessing the storage services. A storage account can contain up to 200TB of blob, queue, and table data if it was created June 8th, 2012, or later; for storage accounts created before that date, total capacity is 100TB. You can create up to five storage accounts for your Windows Azure subscription. For more information about storage accounts, see [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx).
 
 Storage costs are based on storage utilization and the number of storage transactions required to add, update, read, and delete stored data. Storage utilization is calculated based on your average usage of storage for blobs, tables, and queues during a billing period. To learn more about storage pricing, see [Pricing Details](http://www.windowsazure.com/en-us/pricing/details/#storage).
 
