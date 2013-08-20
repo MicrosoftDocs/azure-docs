@@ -4,7 +4,7 @@
 
 <h1><a id="managemediaservicesorigins"></a>How to Manage Origins in a Media Services Account</h1>
 
-Media Services enables you to add multiple streaming origins to your account and to configure the origins. Each Media Servcies account has at least one streaming origin called **default** associated with it. 
+Media Services enables you to add multiple streaming origins to your account and to configure the origins. Each Media Services account has at least one streaming origin called **default** associated with it. 
 
 
 <h2>Adding and Deleting Origins</h2> 
