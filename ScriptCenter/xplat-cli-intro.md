@@ -75,7 +75,7 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 
 <h2><a id="Configure"></a>How to connect to your Windows Azure subscription</h2>
 
-The Windows Azure Command-Line Tools must be configured to work with your Windows Azure subscription by downloading and importing a publish settings file. This file contains your subscription ID, as well as a management certificate used to authenticate management requests to your Windows Azure subscription.
+While some commands provided by the xplat-cli will work without a Windows Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your Windows Azure subscription you must download and import a publish settings file. This file contains your subscription ID, as well as a management certificate used to authenticate management requests to your Windows Azure subscription.
 
 If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial][free-trial].
 
