@@ -1,6 +1,6 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Windows Azure Cross-Platform Command-Line Interface" pageTitle="Introducing the Windows Azure Cross-Platform Command-Line Interface" metaKeywords="windows azure cross-platform command-line interface, windows azure command-line, azure command-line, azure cli" metaDescription="Get started using the Windows Azure Cross-Platform Command-Line Interface to manage Windows Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" />
+<properties linkid="script-xplat-intro" urlDisplayName="Windows Azure Cross-Platform Command-Line Interface" pageTitle="Getting Started with the Windows Azure Cross-Platform Command-Line Interface" metaKeywords="windows azure cross-platform command-line interface, windows azure command-line, azure command-line, azure cli" metaDescription="Get started using the Windows Azure Cross-Platform Command-Line Interface to manage Windows Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" />
 
-#Introducing the Windows Azure Cross-Platform Command-Line Interface
+#Getting Started with the Windows Azure Cross-Platform Command-Line Interface
 
 The Windows Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Windows Azure Platform. The xplat-cli provides much of the same functionality found in the Windows Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Windows Azure platform.
 
@@ -102,6 +102,24 @@ Next, import the `.publishsettings` file by running the following command, repla
 </div>
 
 After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Command-Line Tools and presents a security risk as it can be used to gain access to your subscription.
+
+###Multiple subscriptions
+
+If you have multiple Windows Azure subscriptions, the `.publishsettings` file will contain information for all subscriptions, and when it is imported using the `azure account import` command, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
+
+	info:    Executing command account list
+	data:    Name              Id                                    Current
+	data:    ----------------  ------------------------------------  -------
+	data:    Azure-sub-1       ####################################  false
+	data:    Azure-sub-2       ####################################  true
+
+In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
+
+	azure account set Azure-sub-2
+
+This will change the default subscription to Azure-sub-2.
+
+If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `-s` or `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
 <h2><a id="use"></a>How use the Windows Azure Cross-Platform Command-Line Interface</h2>
 
