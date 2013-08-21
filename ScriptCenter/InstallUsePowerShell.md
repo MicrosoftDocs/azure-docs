@@ -190,16 +190,11 @@ These are some of the resources available that you can use to learn to use Windo
 
 - For information about installing, learning, using, and customizing Windows PowerShell, see [Scripting with Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320210).
 
-- For information about cmdlets for Windows Azure AD, see [Manage Windows Azure AD using Windows PowerShell](http://technet.microsoft.com/en-us/library/jj151815.aspx).
+- For information about what scripts are and how to run them in Windows PowerShell This includes basic information about creating scripts and configuring your computer to run scripts. See [Running Scripts](http://go.microsoft.com/fwlink/p/?LinkId=320627)
 
-- Link to samples repository on GitHub? [azure-sdk-tools-samples](https://github.com/WindowsAzure/azure-sdk-tools-samples  http://go.microsoft.com/fwlink/p/?LinkId=320206) Or skip because the WindowsAzure.com Script Center will have the links?
+- For information about cmdlets for Windows Azure AD, see [Manage Windows Azure AD using Windows PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320628).
 
 
-  [Using Windows PowerShell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-
-  [Windows PowerShell Getting Started Guide]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-
-  
 
   [Get-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757270(vs.103).aspx
   [Import-AzurePublishSettings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh757264(vs.103).aspx
