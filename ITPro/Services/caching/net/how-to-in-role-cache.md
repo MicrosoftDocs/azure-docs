@@ -1,4 +1,8 @@
-<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use In Role Cache - Windows Azure .NET feature guide" metaKeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" metaDescription="Learn how to use Windows Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use Caching (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#, In-Role Cache" metaDescription="Learn how to use In-Role Cache for Windows Azure Cache. The samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+
+
+
+<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use Windows Azure Caching
 
@@ -390,21 +394,21 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Session State in the Cache]: #store-session
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [Cache1]: ../../../DevCenter/dotNet/Media/cache1.png
-  [Cache2]: ../../../DevCenter/dotNet/Media/cache2.png
-  [Cache3]: ../../../DevCenter/dotNet/Media/cache3.png
-  [Cache4]: ../../../DevCenter/dotNet/Media/cache4.png
-  [Cache5]: ../../../DevCenter/dotNet/Media/cache5.png
-  [RoleCache1]: ../../../DevCenter/dotNet/Media/cache8.png
-  [RoleCache2]: ../../../DevCenter/dotNet/Media/cache9.png
-  [RoleCache3]: ../../../DevCenter/dotNet/Media/cache10.png
-  [RoleCache4]: ../../../DevCenter/dotNet/Media/cache11.png
-  [RoleCache5]: ../../../DevCenter/dotNet/Media/cache12.png
-  [RoleCache6]: ../../../DevCenter/dotNet/Media/cache13.png
-  [RoleCache7]: ../../../DevCenter/dotNet/Media/cache14.png
-  [RoleCache8]: ../../../DevCenter/dotNet/Media/cache15.png
-  [RoleCache9]: ../../../DevCenter/dotNet/Media/cache16.png
-  [RoleCache10]: ../../../DevCenter/dotNet/Media/cache17.png
+  [Cache1]: ../../Media/cache1.png
+  [Cache2]: ../../Media/cache2.png
+  [Cache3]: ../../Media/cache3.png
+  [Cache4]: ../../Media/cache4.png
+  [Cache5]: ../../Media/cache5.png
+  [RoleCache1]: ../../Media/cache8.png
+  [RoleCache2]: ../../Media/cache9.png
+  [RoleCache3]: ../../Media/cache10.png
+  [RoleCache4]: ../../Media/cache11.png
+  [RoleCache5]: ../../Media/cache12.png
+  [RoleCache6]: ../../Media/cache13.png
+  [RoleCache7]: ../../Media/cache14.png
+  [RoleCache8]: ../../Media/cache15.png
+  [RoleCache9]: ../../Media/cache16.png
+  [RoleCache10]: ../../Media/cache17.png
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
   [Cache6]: ../../../DevCenter/dotNet/Media/cache6.png
