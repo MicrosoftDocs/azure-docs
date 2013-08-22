@@ -105,7 +105,7 @@ After importing your publish settings, you should delete the `.publishsettings` 
 
 ###Multiple subscriptions
 
-If you have multiple Windows Azure subscriptions, the `.publishsettings` file will contain information for all subscriptions, and when it is imported using the `azure account import` command, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
+If you have multiple Windows Azure subscriptions, the `.publishsettings` file will contain information for all subscriptions. When the file is imported using the `azure account import` command, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -117,9 +117,14 @@ In the above list, the **Current** column indicates the current default subscrip
 
 	azure account set Azure-sub-2
 
-This will change the default subscription to Azure-sub-2.
+This will change the default subscription to Azure-sub-2. 
 
-If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `-s` or `--subscription` option and provide the name of the subscription you wish to use for the operation.
+<div class="dev-callout">
+<b>Note</b>
+<p>Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.</p>
+</div>
+
+If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
 <h2><a id="use"></a>How use the Windows Azure Cross-Platform Command-Line Interface</h2>
 
