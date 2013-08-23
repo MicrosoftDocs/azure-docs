@@ -1,18 +1,22 @@
-<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use In Role Cache - Windows Azure .NET feature guide" metaKeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" metaDescription="Learn how to use Windows Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use Caching (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure cache, In-Role Cache, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#, In-Role Cache" metaDescription="Learn how to use In-Role Cache for Windows Azure Cache. The samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-# How to Use Windows Azure Caching
+
+
+<div chunk="../chunks/article-left-menu.md" />
+
+# How to Use In-Role Cache for Windows Azure Cache
 
 This guide shows you how to get started using 
-**Windows Azure Caching**. The samples are written in C\# code and
+**In-Role Cache for Windows Azure Cache**. The samples are written in C\# code and
 use the .NET API. The scenarios covered include **configuring a cache cluster**, **configuring cache clients**, **adding and removing
 objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
-information on using Windows Azure Caching, refer to the [Next Steps][] section.
+information on using In-Role Cache, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
--   [What is Windows Azure Caching?][]
--	[Getting Started with Windows Azure Caching]
+-   [What is In-Role Cache?][]
+-	[Getting Started with In-Role Cache]
 	-	[Configure the cache cluster][]
 	-	[Configure the cache clients][]
 -	[Working with caches][]
@@ -23,11 +27,11 @@ information on using Windows Azure Caching, refer to the [Next Steps][] section.
 	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
 -   [Next Steps][]
 
-<h2><a name="what-is"></a><span class="short-header">What is Windows Azure Caching?</span>What is Windows Azure Caching?</h2>
+<h2><a name="what-is"></a><span class="short-header">What is In-Role Cache?</span>What is In-Role Cache?</h2>
 
-Windows Azure Caching provides a caching layer to your Windows Azure applications. Caching increases performance by temporarily storing information in-memory from
+In-Role Cache provides a caching layer to your Windows Azure applications. Caching increases performance by temporarily storing information in-memory from
 other backend sources, and can reduce the costs associated with database
-transactions in the cloud. Windows Azure Caching includes the following
+transactions in the cloud. In-Role Cache includes the following
 features:
 
 -   Pre-built ASP.NET providers for session state and page output
@@ -38,7 +42,7 @@ features:
 -   Consistent development model across both Windows Azure and Windows
     Server AppFabric.
 
-Windows Azure Caching introduces a new way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Windows Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache specific quota restrictions.
+In-Role Cache introduces a new way to perform caching by using a portion of the memory of the virtual machines that host the role instances in your Windows Azure cloud services (also known as hosted services). You have greater flexibility in terms of deployment options, the caches can be very large in size and have no cache specific quota restrictions.
 
 Caching on role instances has the following advantages:
 
@@ -58,11 +62,11 @@ In addition, caching on role instances offers these configurable options:
 -	Optionally configure high availability on individual caches.
 -	Use expanded caching capabilities such as regions, tagging, and notifications.
 
-This guide provides an overview of getting started with Windows Azure Caching. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Windows Azure Caching][].
+This guide provides an overview of getting started with In-Role Cache. For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of In-Role Cache][].
 
-<h2><a name="getting-started-cache-role-instance"></a><span class="short-header">Getting Started with Windows Azure Caching</span>Getting Started with Windows Azure Caching</h2>
+<h2><a name="getting-started-cache-role-instance"></a><span class="short-header">Getting Started with In-Role Cache</span>Getting Started with In-Role Cache</h2>
 
-Windows Azure Caching provides a way to enable caching using the memory that is on the virtual machines that host your role instances. The role instances that host your caches are known as a **cache cluster**. There are two deployment topologies for caching on role instances:
+In-Role Cache provides a way to enable caching using the memory that is on the virtual machines that host your role instances. The role instances that host your caches are known as a **cache cluster**. There are two deployment topologies for caching on role instances:
 
 -	**Dedicated Role** caching - The role instances are used exclusively for caching.
 -	**Co-located Role** caching - The cache shares the VM resources (bandwidth, CPU, and memory) with the application.
@@ -90,7 +94,7 @@ When a **Cache Worker Role** is added to a project, the default configuration is
 
 ![RoleCache8][]
 
-Once caching is enabled, the cache cluster storage account can be configured. Windows Azure Caching requires a Windows Azure storage account. This storage account is used to hold configuration data about the cache cluster that is accessed from all virtual machines that make up the cache cluster. This storage account is specified on the **Caching** tab of the cache cluster role property page, just above the **Named Cache Settings**.
+Once caching is enabled, the cache cluster storage account can be configured. In-Role Cache requires a Windows Azure storage account. This storage account is used to hold configuration data about the cache cluster that is accessed from all virtual machines that make up the cache cluster. This storage account is specified on the **Caching** tab of the cache cluster role property page, just above the **Named Cache Settings**.
 
 ![RoleCache10][]
 
@@ -98,7 +102,7 @@ Once caching is enabled, the cache cluster storage account can be configured. Wi
 
 The size of the cache is determined by a combination of the VM size of the role, the instance count of the role, and whether the cache cluster is configured as a dedicated role or co-located role cache cluster.
 
->This section provides a simplified overview on configuring the cache size. For more information on cache size and other capacity planning considerations, see [Windows Azure Caching Capacity Planning Considerations][].
+>This section provides a simplified overview on configuring the cache size. For more information on cache size and other capacity planning considerations, see [In-Role Cache Capacity Planning Considerations][].
 
 To configure the virtual machine size and the number of role instances, right-click the role properties in **Solution Explorer** and choose **Properties**.
 
@@ -118,19 +122,19 @@ The total memory for the VM sizes is as follows:
 
 > These memory sizes represent the total amount of memory available to the VM which is shared across the OS, cache process, cache data, and application. For more information on configuring Virtual Machine Sizes, see [How to Configure Virtual Machine Sizes][]. Note that cache is unsupported on **ExtraSmall** VM sizes.
 
-When **Co-located Role** caching is specified, the cache size is determined by taking the specified percentage of the virtual machine memory. When **Dedicated Role** caching is specified, all of the available memory of the virtual machine is used for caching. If two role instances are configured, the combined memory of the virtual machines is used. This forms a cache cluster where the available caching memory is distributed across multiple role instances but presented to the clients of the cache as a single resource. Configuring additional role instances increases the cache size in the same manner. To determine the settings needed to provision a cache of the desired size, you can use the Capacity Planning Spreadsheet which is covered in [Windows Azure Caching Capacity Planning Considerations][].
+When **Co-located Role** caching is specified, the cache size is determined by taking the specified percentage of the virtual machine memory. When **Dedicated Role** caching is specified, all of the available memory of the virtual machine is used for caching. If two role instances are configured, the combined memory of the virtual machines is used. This forms a cache cluster where the available caching memory is distributed across multiple role instances but presented to the clients of the cache as a single resource. Configuring additional role instances increases the cache size in the same manner. To determine the settings needed to provision a cache of the desired size, you can use the Capacity Planning Spreadsheet which is covered in [In-Role Cache Capacity Planning Considerations][].
 
 Once the cache cluster is configured, you can configure the cache clients to allow access to the cache.
 
 <h2><a name="NuGet"></a><span class="short-header">Configure the cache clients</span>Configure the cache clients</h2>
 
-To access a Windows Azure Caching cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
+To access a In-Role Cache cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
 ![RoleCache4][]
 
-Select **Windows Azure Caching**, click **Install**, and then click **I Accept**.
+Select **In-Role Cache**, click **Install**, and then click **I Accept**.
 
->If **Windows Azure Caching** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
+>If **In-Role Cache** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
 ![RoleCache5][]
 
@@ -181,7 +185,7 @@ The NuGet package also adds a **ClientDiagnosticLevel** setting to the **Configu
       </ConfigurationSettings>
     </Role>
 
->Windows Azure Caching provides both a cache server and a cache client diagnostic level. The diagnostic level is a single setting that configures the level of diagnostic information collected for caching. For more information, see [Troubleshooting and Diagnostics for Windows Azure Caching][]
+>In-Role Cache provides both a cache server and a cache client diagnostic level. The diagnostic level is a single setting that configures the level of diagnostic information collected for caching. For more information, see [Troubleshooting and Diagnostics for In-Role Cache][]
 
 The NuGet package also adds references to the following assemblies:
 
@@ -213,13 +217,13 @@ The steps in this section describe how to perform common tasks with caching.
 <h2><a name="create-cache-object"></a><span class="short-header">Create a DataCache Object</span>How To: Create a DataCache Object</h2>
 
 In order to programatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use
-Windows Azure Caching:
+In-Role Cache:
 
     using Microsoft.ApplicationServer.Caching;
 
 >If Visual Studio doesn't recognize the types in the using
 statement even after installing the Caching NuGet package, which adds the necessary references, ensure that the target
-profile for the project is .NET Framework 2.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
+profile for the project is .NET Framework 4.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
 
 There are two ways to create a **DataCache** object. The first way is to simply create a **DataCache**, passing in the name of the desired cache.
 
@@ -304,13 +308,13 @@ the remaining timeout interval.
 
 <h2><a name="store-session"></a><span class="short-header">Store ASP.NET Session State in the Cache</span>How To: Store ASP.NET Session State in the Cache</h2>
 
-The Session State Provider for Windows Azure Caching is an
+The Session State Provider for In-Role Cache is an
 out-of-process storage mechanism for ASP.NET applications. This provider
 enables you to store your session state in a Windows Azure cache rather
 than in-memory or in a SQL Server database. To use the caching session
-state provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package as described in [Getting Started with Windows Azure Caching][]. When the Caching NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Windows Azure Caching.
+state provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package as described in [Getting Started with In-Role Cache][]. When the Caching NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for In-Role Cache.
 
-    <!--Uncomment this section to use Windows Azure Caching for session state caching
+    <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
       <sessionState mode="Custom" customProvider="AFCacheSessionStateProvider">
         <providers>
@@ -325,19 +329,19 @@ state provider, first configure your cache cluster, and then configure your ASP.
 
 >If your web.config does not contain this commented out section after installing the Caching NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
 
-To enable the Session State Provider for Windows Azure Caching, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
+To enable the Session State Provider for In-Role Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
 For more information about using the Caching service session state
-provider, see [Session State Provider for Windows Azure Caching][].
+provider, see [Session State Provider for In-Role Cache][].
 
 <h2><a name="store-page"></a><span class="short-header">Store ASP.NET Page Output Caching in the Cache</span>How To: Store ASP.NET Page Output Caching in the Cache</h2>
 
-The Output Cache Provider for Windows Azure Caching is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
+The Output Cache Provider for In-Role Cache is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
 responses (page output caching). The provider plugs into the new output
 cache provider extensibility point that was introduced in ASP.NET 4. To
-use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package, as described in [Getting Started with Windows Azure Caching][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Windows Azure Caching.
+use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package, as described in [Getting Started with In-Role Cache][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for In-Role Cache.
 
-    <!--Uncomment this section to use Windows Azure Caching for output caching
+    <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
       <outputCache defaultProvider="AFCacheOutputCacheProvider">
         <providers>
@@ -352,7 +356,7 @@ use the output cache provider, first configure your cache cluster, and then conf
 
 >If your web.config does not contain this commented out section after installing the Caching NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
 
-To enable the Output Cache Provider for Windows Azure Caching, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
+To enable the Output Cache Provider for In-Role Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
 Add an **OutputCache** directive to each page for which you wish to cache the output.
 
@@ -360,26 +364,26 @@ Add an **OutputCache** directive to each page for which you wish to cache the ou
 
 In this example the cached page data will remain in the cache for 60 seconds, and a different version of the page will be cached for each parameter combination. For more information on the available options, see [OutputCache Directive][].
 
-For more information about using the Output Cache Provider for Windows Azure Caching, see [Output Cache Provider for Windows Azure Caching][].
+For more information about using the Output Cache Provider for In-Role Cache, see [Output Cache Provider for In-Role Cache][].
 
 <h2><a name="next-steps"></a><span class="short-header">Next Steps</span>Next Steps</h2>
 
-Now that you've learned the basics of Windows Azure Caching,
+Now that you've learned the basics of In-Role Cache,
 follow these links to learn how to do more complex caching tasks.
 
--   See the MSDN Reference:
-	-	[Windows Azure Caching][]
--   Visit the [Team Blog][]
--   Watch training videos on [Windows Azure Caching][].
+-   See the MSDN Reference: [In-Role Cache][]
+-   Learn how to migrate to In-Role Cache: [Migrate to In-Role Cache][]
+-   Check out the samples: [In-Role Cache Samples][]
+-	Watch the [Maximum Performance: Accelerate Your Cloud Services Applications with Windows Azure Caching][] session from TechEd 2013 on In-Role Cache
 
   [Next Steps]: #next-steps
-  [What is Windows Azure Caching?]: #what-is
+  [What is In-Role Cache?]: #what-is
   [Create a Windows Azure Cache]: #create-cache
   [Which type of caching is right for me?]: #choosing-cache
-  [Getting Started with the Windows Azure Caching Service]: #getting-started-cache-service
-  [Prepare Your Visual Studio Project to Use Windows Azure Caching]: #prepare-vs
+  [Getting Started with the In-Role Cache Service]: #getting-started-cache-service
+  [Prepare Your Visual Studio Project to Use In-Role Cache]: #prepare-vs
   [Configure Your Application to Use Caching]: #configure-app
-  [Getting Started with Windows Azure Caching]: #getting-started-cache-role-instance
+  [Getting Started with In-Role Cache]: #getting-started-cache-role-instance
   [Configure the cache cluster]: #enable-caching
   [Configure the desired cache size]: #cache-size
   [Configure the cache clients]: #NuGet
@@ -390,37 +394,40 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Session State in the Cache]: #store-session
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [Cache1]: ../../../DevCenter/dotNet/Media/cache1.png
-  [Cache2]: ../../../DevCenter/dotNet/Media/cache2.png
-  [Cache3]: ../../../DevCenter/dotNet/Media/cache3.png
-  [Cache4]: ../../../DevCenter/dotNet/Media/cache4.png
-  [Cache5]: ../../../DevCenter/dotNet/Media/cache5.png
-  [RoleCache1]: ../../../DevCenter/dotNet/Media/cache8.png
-  [RoleCache2]: ../../../DevCenter/dotNet/Media/cache9.png
-  [RoleCache3]: ../../../DevCenter/dotNet/Media/cache10.png
-  [RoleCache4]: ../../../DevCenter/dotNet/Media/cache11.png
-  [RoleCache5]: ../../../DevCenter/dotNet/Media/cache12.png
-  [RoleCache6]: ../../../DevCenter/dotNet/Media/cache13.png
-  [RoleCache7]: ../../../DevCenter/dotNet/Media/cache14.png
-  [RoleCache8]: ../../../DevCenter/dotNet/Media/cache15.png
-  [RoleCache9]: ../../../DevCenter/dotNet/Media/cache16.png
-  [RoleCache10]: ../../../DevCenter/dotNet/Media/cache17.png
+  [Cache1]: ../../Media/cache1.png
+  [Cache2]: ../../Media/cache2.png
+  [Cache3]: ../../Media/cache3.png
+  [Cache4]: ../../Media/cache4.png
+  [Cache5]: ../../Media/cache5.png
+  [RoleCache1]: ../../Media/cache8.png
+  [RoleCache2]: ../../Media/cache9.png
+  [RoleCache3]: ../../Media/cache10.png
+  [RoleCache4]: ../../Media/cache11.png
+  [RoleCache5]: ../../Media/cache12.png
+  [RoleCache6]: ../../Media/cache13.png
+  [RoleCache7]: ../../Media/cache14.png
+  [RoleCache8]: ../../Media/cache15.png
+  [RoleCache9]: ../../Media/cache16.png
+  [RoleCache10]: ../../Media/cache17.png
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
   [Cache6]: ../../../DevCenter/dotNet/Media/cache6.png
   [Cache7]: ../../../DevCenter/dotNet/Media/cache7.png
-  [Session State Provider for Windows Azure Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
+  [Session State Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
   [Windows Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-  [Output Cache Provider for Windows Azure Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx
+  [Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx
   [Windows Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
   [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-  [Windows Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
+  [In-Role Cache]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
   [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
-  [Windows Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
-  [Windows Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
+  [In-Role Cache Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=252651
+  [In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=252658
   [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
   [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
-  [Overview of Windows Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=254172
+  [Overview of In-Role Cache]: http://go.microsoft.com/fwlink/?LinkId=254172
   [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
-  [Troubleshooting and Diagnostics for Windows Azure Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx
+  [Troubleshooting and Diagnostics for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx
   [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+  [Migrate to In-Role Cache]: http://msdn.microsoft.com/en-us/library/hh914163.aspx
+  [In-Role Cache Samples]: http://msdn.microsoft.com/en-us/library/jj189876.aspx
+  [Maximum Performance: Accelerate Your Cloud Services Applications with Windows Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
