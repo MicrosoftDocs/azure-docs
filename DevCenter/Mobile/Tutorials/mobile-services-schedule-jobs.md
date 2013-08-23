@@ -33,7 +33,7 @@ The new Twitter v1.1 APIs requires you to authenicate before accessing resources
 
 2. Navigate to the [Twitter Developers] web site, sign-in with your Twitter account credentials, navigate to My Applications, and select your Twitter app.
 
-    ![1][]
+    ![0][]
 
 3. In the **Details** tab for the app, make a note of the following values:
 
@@ -41,6 +41,8 @@ The new Twitter v1.1 APIs requires you to authenicate before accessing resources
 	+ **Consumer secret**
 	+ **Access token**
 	+ **Access token secret**
+
+	![1][]
 
 	You will supply these values to request access to the Twitter v1.1 API.
 
@@ -75,7 +77,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
    ![][4]
 
     <div class="dev-callout"><b>Note</b>
-    <p>When you run your mobile service in <i>free</i> mode, you are only able to run one scheduled job at a time. In <i>reserved</i> mode, you can run up to ten scheduled jobs at a time.</p>
+    <p>When you run your mobile service in <i>Free</i> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.</p>
     </div>
 
 3. In the scheduler dialog, enter <i>getUpdates</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
@@ -90,26 +92,42 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
 5. Replace the placeholder function **getUpdates** with the following code:
 
-        var updatesTable = tables.getTable('Updates');
+		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
-		 
+		var twitterUrl = "https://api.twitter.com/1.1/search/tweets.json?q=%23mobileservices&result_type=recent";
+
+		// Set your Twitter v1.1 access credentials
+		var consumerKey = '<CONSUMER_KEY>',
+			consumerSecret = '<CONSUMER_SECRET>',
+			accessToken= '<ACCESS_TOKEN>',
+			accessTokenSecret = '<ACCESS_TOKEN_SECRET>';
+
 		function getUpdates() {   
 			// Check what is the last tweet we stored when the job last ran
 			// and ask Twitter to only give us more recent tweets
 			appendLastTweetId(
-				'http://search.twitter.com/search.json?q=%23mobileservices&result_type=recent', 
-				function twitterUrlReady(url){
-					request(url, function tweetsLoaded (error, response, body) {
+				twitterUrl, 
+				function twitterUrlReady(url){            
+					// Create a new request with OAuth credentials.
+					request.get({
+						url: url,                
+						oauth: {
+							consumer_key: consumerKey,
+							consumer_secret: consumerSecret,
+							token: accessToken,
+							token_secret: accessTokenSecret
+						}},
+						function (error, response, body) {
 						if (!error && response.statusCode == 200) {
-							var results = JSON.parse(body).results;
+							var results = JSON.parse(body).statuses;
 							if(results){
-								console.log('Fetched new results from Twitter');
-								results.forEach(function visitResult(tweet){
+								console.log('Fetched ' + results.length + ' new results from Twitter');                       
+								results.forEach(function (tweet){
 									if(!filterOutTweet(tweet)){
 										var update = {
 											twitterId: tweet.id,
 											text: tweet.text,
-											author: tweet.from_user,
+											author: tweet.user.screen_name,
 											date: tweet.created_at
 										};
 										updatesTable.insert(update);
@@ -120,10 +138,9 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 							console.error('Could not contact Twitter');
 						}
 					});
-					 
+
 				});
 		 }
-		 
 		// Find the largest (most recent) tweet ID we have already stored
 		// (if we have stored any) and ask Twitter to only return more
 		// recent ones
@@ -133,25 +150,31 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 			.read({success: function readUpdates(updates){
 				if(updates.length){
 					callback(url + '&since_id=' + (updates[0].twitterId + 1));
+					console.log(url + '&since_id=' + (updates[0].twitterId + 1));
 				} else {
 					callback(url);
 				}
 			}});
 		}
- 
+
 		function filterOutTweet(tweet){
 			// Remove retweets and replies
 			return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
 		}
 
+
    This script calls the Twitter query API to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
-6. In the code, replace the following placeholders with the values that you obtained from the Twitter site:
+    <div class="dev-callout"><b>Note</b>
+    <p>This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see [How to: Perform bulk inserts].</p>
+    </div>
 
-	+ *CONSUMER_KEY*
-	+ *CONSUMER_SECRET*
-	+ *ACCESS_TOKEN*
-	+ *ACCESS_TOKEN_SECRET*
+6. In the above code, replace the following placeholders with the values that you obtained from the Twitter site:
+
+	+ *&lt;CONSUMER_KEY&gt;*
+	+ *&lt;CONSUMER_SECRET&gt;*
+	+ *&lt;ACCESS_TOKEN&gt;*
+	+ *&lt;ACCESS_TOKEN_SECRET&gt;*
 
 6. Click **Run Once** to test the script. 
 
@@ -183,7 +206,8 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[1]: ../Media/mobile-twitter-my-apps.png
+[0]: ../Media/mobile-twitter-my-apps.png
+[1]: ../Media/mobile-twitter-app-secrets.png
 [2]: ../Media/mobile-data-tab-empty-cli.png
 [3]: ../Media/mobile-create-updates-table.png
 [4]: ../Media/mobile-schedule-new-job-cli.png
@@ -199,3 +223,4 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../HowTo/mobile-services-register-twitter-auth.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[How to: Perform bulk inserts]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts
