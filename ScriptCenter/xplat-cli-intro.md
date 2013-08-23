@@ -110,8 +110,8 @@ If you have multiple Windows Azure subscriptions, the `.publishsettings` file wi
 	info:    Executing command account list
 	data:    Name              Id                                    Current
 	data:    ----------------  ------------------------------------  -------
-	data:    Azure-sub-1       ####################################  false
-	data:    Azure-sub-2       ####################################  true
+	data:    Azure-sub-1       ####################################  true
+	data:    Azure-sub-2       ####################################  false
 
 In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
 
