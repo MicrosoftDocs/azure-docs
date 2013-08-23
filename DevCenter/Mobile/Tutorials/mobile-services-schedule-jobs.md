@@ -15,9 +15,42 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-scheduler-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">5:22</span></div>
 </div>
 
-This tutorial walks you through the basic steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table. You can watch a video version of this tutorial by clicking the clip to the right.
+This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
 
-<a name="create-table"></a><h2><span class="short-header">Create new table</span>Create the new Updates table</h2>
++ [Register for Twitter access]
++ [Create the new Tweets table]
++ [Create a new scheduled job]
+
+You can watch a video version of this tutorial by clicking the clip to the right.
+
+<h2><a name="get-oauth-credentials"></a><span class="short-header">Create new table</span>Create the new Updates table</h2>
+
+The new Twitter v1.1 APIs requires you to authenicate before accessing resources. First, we need to get the credentials needed to request access by using OAuth 2.0.
+
+1. If you haven't already done so, complete the steps in the topic [Register your apps for Twitter login with Mobile Services]. 
+  
+  Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. 
+
+2. Navigate to the [Twitter Developers] web site, sign-in with your Twitter account credentials, navigate to My Applications, and select your Twitter app.
+
+    ![1][]
+
+3. In the **Details** tab for the app, make a note of the following values:
+
+	+ **Consumer key**
+	+ **Consumer secret**
+	+ **Access token**
+	+ **Access token secret**
+
+	You will supply these values to request access to the Twitter v1.1 API.
+
+    <div class="dev-callout"><b>Security Note</b>
+	<p>These are important security credentials. Do not share these with anyone or distribute them with your app.</p>
+    </div>
+
+<h2><a name="create-table"></a><span class="short-header">Create new table</span>Create the new Updates table</h2>
+
+Next, you need to create a new table in which to store tweets.
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -33,9 +66,9 @@ This tutorial walks you through the basic steps of how to use the job scheduler 
 
   This creates a new storage table **Updates**. 
 
-Now that you have somewhere to store Twitter data, you can create the scheduled job.
+<h2><a name="add-job"></a><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
 
-<a name="add-job"></a><h2><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
+Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
 2. Click the **Scheduler** tab, then click **+Create**. 
 
@@ -113,6 +146,13 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
 
    This script calls the Twitter query API to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
+6. In the code, replace the following placeholders with the values that you obtained from the Twitter site:
+
+	+ *CONSUMER_KEY*
+	+ *CONSUMER_SECRET*
+	+ *ACCESS_TOKEN*
+	+ *ACCESS_TOKEN_SECRET*
+
 6. Click **Run Once** to test the script. 
 
   ![][7]
@@ -137,12 +177,13 @@ Congratulations, you have successfully created a new scheduled job in your mobil
   <br/>Learn more about registering and using server scripts.
 
 <!-- Anchors. -->
+[Register for Twitter access]: #get-oauth-credentials
 [Create the new Tweets table]: #create-table
 [Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-selection.png
+[1]: ../Media/mobile-twitter-my-apps.png
 [2]: ../Media/mobile-data-tab-empty-cli.png
 [3]: ../Media/mobile-create-updates-table.png
 [4]: ../Media/mobile-schedule-new-job-cli.png
@@ -156,3 +197,5 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: ../HowTo/mobile-services-register-twitter-auth.md
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
