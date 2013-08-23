@@ -223,7 +223,7 @@ In-Role Cache:
 
 >If Visual Studio doesn't recognize the types in the using
 statement even after installing the Caching NuGet package, which adds the necessary references, ensure that the target
-profile for the project is .NET Framework 2.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
+profile for the project is .NET Framework 4.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
 
 There are two ways to create a **DataCache** object. The first way is to simply create a **DataCache**, passing in the name of the desired cache.
 

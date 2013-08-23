@@ -55,78 +55,99 @@ This guide provides an overview of getting started with Cache Service (Preview).
 
 Getting started with Cache Service (Preview) is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
--	[Create a cache][]
--	[Configure the cache cluster][]
+-	[Create the cache][]
+-	[Configure the cache][]
 -	[Configure the cache clients][]
 
 <h2><a name="create-cache"></a><span class="short-header">Create a cache</span>Create a cache</h2>
 
+To create a cache, first sign in to the [Management Portal][].
+
+Click **New**, **Data Services**, **Cache Preview**, **Quick Create**.
+
+![NewCacheMenu][]
+
+![QuickCreate][]
+
+In **Endpoint**, enter a subdomain name to use in the cache endpoint URL. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
+
+In **Region**, select a region for the cache. For the best performance, create the cache in the same region as the cache client application.
+
+In **Subscription**, select the Windows Azure subscription that you want to use for the cache.
+
+>If your account has only one subscription, it will be automatically selected and the Subscription drop-down will not be displayed.
+
+**Cache Offering** and **Cache Memory** work together to determine the size of the cache. Cache Service (Preview) is available in the three following tiers.
+
+-	Basic - Shared cache in sizes from 128MB to 1GB
+-	Standard - Dedicated cache in sizes from 1GB to 10GB
+-	Premium - Dedicated cache in sizes from 5GB to 150GB
+
+Choose the **Cache Offering** and **Cache Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][] and [Capacity planning][].
+
+Once the new cache options are configured, click **Create a New Cache**. It can take a few minutes for the cache to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the cache has been created, your new cache has a Running status and is ready for use with default settings. To customize the configuration of your cache, see the following [Configure the cache][] section.
 
 
+<h2><a name="enable-caching"></a><span class="short-header">Configure the cache</span>Configure the cache</h2>
 
-<h2><a name="enable-caching"></a><span class="short-header">Configure the cache cluster</span>Configure the cache cluster</h2>
+The **Configure** tab for Cache in the Management Portal is where you configure the options for your cache. Each cache has a **default** named cache, and the Standard and Premium cache offerings support up to nine additional named caches, for a total of ten. Each named cache has its own set of options which allow you to configure your cache in a highly flexible manner.
 
-To configure a **Co-located Role** cache cluster, select the role in which you wish to host the cache cluster. Right-click the role properties in **Solution Explorer** and choose **Properties**.
+![NamedCaches][]
 
-![RoleCache1][]
+To create a named cache, type the name of the new cache into the **Name** box, specify the desired options, click **Save**, and click **Yes** to confirm. To cancel any changes, click **Discard**.
 
-Switch to the **Caching** tab, check the **Enable Caching** checkbox, and specify the desired caching options. When caching is enabled in a **Worker Role** or **ASP.NET Web Role**, the default configuration is **Co-located Role** caching with 30% of the memory of the role instances allocated for caching. A default cache is automatically configured, and additional named caches can be created if desired, and these caches will share the allocated memory.
+## Expiry Policy and Time (min) ##
 
-![RoleCache2][]
+The **Expiry Policy** works in conjunction with the **Time (min)** setting to determine when cached items expire. There are three types of expiration policies: **Absolute**, **Sliding**, and **Never**. 
 
-To configure a **Dedicated Role** cache cluster, add a **Cache Worker Role** to your project.
+When **Absolute** is specified, the expiration interval specified by **Time (min)** begins when an item is added to the cache. After the interval specified by **Time (min)** elapses, the item expires. 
 
-![RoleCache7][]
+When **Sliding** is specified, the expiration interval specified by **Time (min)** is reset each time an item is accessed in the cache. The item does not expire until the interval specified by **Time (min)** elapses after the last access to the item.
 
-When a **Cache Worker Role** is added to a project, the default configuration is **Dedicated Role** caching.
+When **Never** is specified, **Time (min)** must be set to **0**, and items do not expire.
 
-![RoleCache8][]
+**Absolute** is the default expiration policy and 10 minutes is the default setting for **Time (min)**. The expiration policy is fixed for each item in a named cache, but the **Time (min)** can be customized for each item by using **Add** and **Put** overloads that take a timeout parameter.
 
-Once caching is enabled, the cache cluster storage account can be configured. Windows Azure Caching requires a Windows Azure storage account. This storage account is used to hold configuration data about the cache cluster that is accessed from all virtual machines that make up the cache cluster. This storage account is specified on the **Caching** tab of the cache cluster role property page, just above the **Named Cache Settings**.
+For more information about eviction and expiration policies, see [Expiration and Eviction][].
 
-![RoleCache10][]
+## Notifications ##
 
->If this storage account is not configured the roles will fail to start. 
+Cache notifications that allow your applications to receive asynchronous notifications when a variety of cache operations occur on the cache cluster. Cache notifications also provide automatic invalidation of locally cached objects. For more information, see [Notifications][].
 
-The size of the cache is determined by a combination of the VM size of the role, the instance count of the role, and whether the cache cluster is configured as a dedicated role or co-located role cache cluster.
+>Notifications are only available in the Standard and Premium cache offerings, and are not available in the Basic cache offering. For more information, see [Cache offerings][].
 
->This section provides a simplified overview on configuring the cache size. For more information on cache size and other capacity planning considerations, see [Windows Azure Caching Capacity Planning Considerations][].
+## High Availability ##
 
-To configure the virtual machine size and the number of role instances, right-click the role properties in **Solution Explorer** and choose **Properties**.
+When high availability is enabled, a backup copy is made of each item added to the cache. If an unexpected failure occurs to the primary copy of the item, the backup copy is still available.
 
-![RoleCache1][]
+By definition, the use of high availability multiplies the amount of required memory for each cached item by two. Consider this memory impact during capacity planning tasks. For more information, see [High Availability][].
 
-Switch to the **Configuration** tab. The default **Instance count** is 1, and the default **VM size** is **Small**.
+>High availability is only available in the Premium cache offering, and is not available in the Basic or Standard cache offerings. For more information, see [Cache offerings][].
 
-![RoleCache3][]
+## Eviction ##
 
-The total memory for the VM sizes is as follows: 
+To maintain the memory capacity available within a cache, least recently used (LRU) eviction is supported. When memory consumption exceeds the memory threshold, objects are evicted from memory, regardless of whether they have expired or not, until the memory pressure is relieved.
+Eviction is enabled by default. If eviction is disabled, items will not be evicted from the cache when the capacity is reached, and instead Put and Add operations will fail.
 
--	**Small**: 1.75 GB
--	**Medium**: 3.5 GB
--	**Large**: 7 GB
--	**ExtraLarge**: 14 GB
+For more information about eviction and expiration policies, see [Expiration and Eviction][].
 
-
-> These memory sizes represent the total amount of memory available to the VM which is shared across the OS, cache process, cache data, and application. For more information on configuring Virtual Machine Sizes, see [How to Configure Virtual Machine Sizes][]. Note that cache is unsupported on **ExtraSmall** VM sizes.
-
-When **Co-located Role** caching is specified, the cache size is determined by taking the specified percentage of the virtual machine memory. When **Dedicated Role** caching is specified, all of the available memory of the virtual machine is used for caching. If two role instances are configured, the combined memory of the virtual machines is used. This forms a cache cluster where the available caching memory is distributed across multiple role instances but presented to the clients of the cache as a single resource. Configuring additional role instances increases the cache size in the same manner. To determine the settings needed to provision a cache of the desired size, you can use the Capacity Planning Spreadsheet which is covered in [Windows Azure Caching Capacity Planning Considerations][].
-
-Once the cache cluster is configured, you can configure the cache clients to allow access to the cache.
+Once the cache is configured, you can configure the cache clients to allow access to the cache.
 
 <h2><a name="NuGet"></a><span class="short-header">Configure the cache clients</span>Configure the cache clients</h2>
 
-To access a Windows Azure Caching cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
+A cache created using the Cache Service (Preview) is accessible from Windows Azure applications running on Azure Web Sites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
 
-![RoleCache4][]
+To configure a client application using the Cache NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
-Select **Windows Azure Caching**, click **Install**, and then click **I Accept**.
+![NuGetPackageMenu][]
 
->If **Windows Azure Caching** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
+Select **Windows Azure Caching**, click **Install**, and then click I Accept.
 
-![RoleCache5][]
+>If **Windows Azure Caching** does not appear in the list type WindowsAzure.Caching into the **Search Online** text box and select it from the results.
 
-The NuGet package does several things: it adds the required configuration to the config file of the role, it adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Windows Azure application, and it adds the required assembly references.
+![NuGetPackage][]
+
+The NuGet package does several things: it adds the required configuration to the config file of the role, and it adds the required assembly references. For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.
 
 >For ASP.NET web roles, the Caching NuGet package also adds two commented out sections to web.config. The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching. For more information, see [How To: Store ASP.NET Session State in the Cache] and [How To: Store ASP.NET Page Output Caching in the Cache][].
 
@@ -134,35 +155,52 @@ The NuGet package adds the following configuration elements into your role's web
 
     <configSections>
       <!-- Existing sections omitted for clarity. -->
-
       <section name="dataCacheClients" 
-               type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" 
-               allowLocation="true" 
-               allowDefinition="Everywhere" />
-    
-      <section name="cacheDiagnostics" 
-               type="Microsoft.ApplicationServer.Caching.AzureCommon.DiagnosticsConfigurationSection, Microsoft.ApplicationServer.Caching.AzureCommon" 
-               allowLocation="true" 
-               allowDefinition="Everywhere" />
-    </configSections>
+        type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection,
+              Microsoft.ApplicationServer.Caching.Core" 
+        allowLocation="true" 
+        allowDefinition="Everywhere" />
+  
+    <section name="cacheDiagnostics" 
+        type="Microsoft.ApplicationServer.Caching.AzureCommon.DiagnosticsConfigurationSection,
+              Microsoft.ApplicationServer.Caching.AzureCommon" 
+        allowLocation="true" 
+        allowDefinition="Everywhere" />
 
-These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. These elements are also added to the **configuration** element.
+
+These new sections include references to a **dataCacheClients** element, which is also added to the **configuration** element.
 
     <dataCacheClients>
       <dataCacheClient name="default">
-        <autoDiscover isEnabled="true" identifier="[cache cluster role name]" />
+        <!--To use the in-role flavor of Windows Azure Caching, 
+            set identifier to be the cache cluster role name -->
+        <!--To use the Windows Azure Caching Service,
+            set identifier to be the endpoint of the cache cluster -->
+        <autoDiscover isEnabled="true" identifier="[Cache role name or Service Endpoint]" />
         <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
+        <!--Use this section to specify security settings for connecting to your cache. 
+            This section is not required if your cache is hosted on a role that is a part
+            of your cloud service. -->
+        <!--<securityProperties mode="Message" sslEnabled="false">
+          <messageSecurity authorizationInfo="[Authentication Key]" />
+        </securityProperties>-->
       </dataCacheClient>
     </dataCacheClients>
-    <cacheDiagnostics>
-      <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
-    </cacheDiagnostics>
 
-After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
 
->If **[cache cluster role name]** is not replaced with the name of the role that hosts the cache cluster, then a **TargetInvocationException** will be thrown when the cache is accessed with an inner **DatacacheException** with the message "No such role exists".
+After the configuration is added, replace the following two items in the newly added configuration.
 
-The NuGet package also adds a **ClientDiagnosticLevel** setting to the **ConfigurationSettings** of the cache client role in ServiceConfiguration.cscfg. The following example is the **WebRole1** section from a ServiceConfiguration.cscfg file with a **ClientDiagnosticLevel** of 1, which is the default **ClientDiagnosticLevel**.
+1. Replace **[Cache role name or Service Endpoint]** with the endpoint, which is displayed on the Dashboard in the Management Portal.
+
+	![Endpoint][]
+
+2. Uncomment the securityProperties section, and replace **[Authentication Key]** with the authentication key, which can be found in the Management Portal by clicking **Manage Keys** from the cache dashboard.
+
+	![AccessKeys][]
+
+>These settings must be configured properly or clients will not be able to access the cache.
+
+For Cloud Services projects, the NuGet package also adds a **ClientDiagnosticLevel** setting to the **ConfigurationSettings** of the cache client role in ServiceConfiguration.cscfg. The following example is the **WebRole1** section from a ServiceConfiguration.cscfg file with a **ClientDiagnosticLevel** of 1, which is the default **ClientDiagnosticLevel**.
 
     <Role name="WebRole1">
       <Instances count="1" />
@@ -173,7 +211,7 @@ The NuGet package also adds a **ClientDiagnosticLevel** setting to the **Configu
       </ConfigurationSettings>
     </Role>
 
->Windows Azure Caching provides both a cache server and a cache client diagnostic level. The diagnostic level is a single setting that configures the level of diagnostic information collected for caching. For more information, see [Troubleshooting and Diagnostics for Windows Azure Caching][]
+>The client diagnostic level configures the level of caching diagnostic information collected for cache clients. For more information, see [Troubleshooting and Diagnostics][]
 
 The NuGet package also adds references to the following assemblies:
 
@@ -184,11 +222,11 @@ The NuGet package also adds references to the following assemblies:
 -   Microsoft.ApplicationServer.Caching.AzureCommon.dll
 -   Microsoft.ApplicationServer.Caching.AzureClientHelper.dll
 
-If your role is an ASP.NET Web Role, the following assembly reference is also added:
+If your project is a web project, the following assembly reference is also added:
 
 -	Microsoft.Web.DistributedCache.dll.
 
->These assemblies are located in the C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\ folder.
+>These assemblies are located in the C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\[sdk version]\\ref\\Caching\\ folder.
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
@@ -211,7 +249,7 @@ Windows Azure Caching:
 
 >If Visual Studio doesn't recognize the types in the using
 statement even after installing the Caching NuGet package, which adds the necessary references, ensure that the target
-profile for the project is .NET Framework 2.0 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
+profile for the project is .NET Framework 4 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
 
 There are two ways to create a **DataCache** object. The first way is to simply create a **DataCache**, passing in the name of the desired cache.
 
@@ -359,10 +397,10 @@ For more information about using the Output Cache Provider for Windows Azure Cac
 Now that you've learned the basics of Windows Azure Caching,
 follow these links to learn how to do more complex caching tasks.
 
--   See the MSDN Reference:
-	-	[Windows Azure Caching][]
--   Visit the [Team Blog][]
--   Watch training videos on [Windows Azure Caching][].
+-   See the MSDN Reference: [Cache Service (Preview)][]
+-	Learn how to migrate to Cache Service (Preview): [Migrate to Cache Service (Preview)][]
+-   Check out the samples: [Cache Service (Preview) Samples][]
+
 
   [Next Steps]: #next-steps
   [What is Windows Azure Cache?]: #what-is
@@ -371,9 +409,8 @@ follow these links to learn how to do more complex caching tasks.
   [Prepare Your Visual Studio Project to Use Windows Azure Caching]: #prepare-vs
   [Configure Your Application to Use Caching]: #configure-app
   [Getting Started with Cache Service (Preview)]: #getting-started-cache-service
-  [Create a cache]: #create-cache
-  [Configure the cache cluster]: #enable-caching
-  [Configure the desired cache size]: #cache-size
+  [Create the cache]: #create-cache
+  [Configure the cache]: #enable-caching
   [Configure the cache clients]: #NuGet
   [Working with Caches]: #working-with-caches
   [How To: Create a DataCache Object]: #create-cache-object
@@ -382,28 +419,19 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Session State in the Cache]: #store-session
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [Cache1]: ../../../DevCenter/dotNet/Media/cache1.png
-  [Cache2]: ../../../DevCenter/dotNet/Media/cache2.png
-  [Cache3]: ../../../DevCenter/dotNet/Media/cache3.png
-  [Cache4]: ../../../DevCenter/dotNet/Media/cache4.png
-  [Cache5]: ../../../DevCenter/dotNet/Media/cache5.png
-  [RoleCache1]: ../../../../DevCenter/dotNet/Media/cache8.png
-  [RoleCache2]: ../../../../DevCenter/dotNet/Media/cache9.png
-  [RoleCache3]: ../../../../DevCenter/dotNet/Media/cache10.png
-  [RoleCache4]: ../../../../DevCenter/dotNet/Media/cache11.png
-  [RoleCache5]: ../../../../DevCenter/dotNet/Media/cache12.png
-  [RoleCache6]: ../../../../DevCenter/dotNet/Media/cache13.png
-  [RoleCache7]: ../../../../DevCenter/dotNet/Media/cache14.png
-  [RoleCache8]: ../../../../DevCenter/dotNet/Media/cache15.png
-  [RoleCache9]: ../../../../DevCenter/dotNet/Media/cache16.png
-  [RoleCache10]: ../../../../DevCenter/dotNet/Media/cache17.png
+  [NewCacheMenu]: ../../Media/CacheServiceNewCacheMenu.png
+  [QuickCreate]: ../../Media/CacheServiceQuickCreate.png
+  [Endpoint]: ../../Media/CacheServiceEndpoint.jpg
+  [AccessKeys]: ../../Media/CacheServiceManageAccessKeys.png
+  [NuGetPackage]: ../../Media/CacheServiceManageNuGetPackage.png
+  [NuGetPackageMenu]: ../../Media/CacheServiceManageNuGetPackagesMenu.png
+  [NamedCaches]: ../../Media/CacheServiceNamedCaches.jpg
+  
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
-  [Cache6]: ../../../DevCenter/dotNet/Media/cache6.png
-  [Cache7]: ../../../DevCenter/dotNet/Media/cache7.png
-  [Session State Provider for Windows Azure Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
+  [Session State Provider for Windows Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
   [Windows Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-  [Output Cache Provider for Windows Azure Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx
+  [Output Cache Provider for Windows Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
   [Windows Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
   [Team Blog]: http://blogs.msdn.com/b/windowsazure/
   [Windows Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
@@ -413,7 +441,17 @@ follow these links to learn how to do more complex caching tasks.
   [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
   [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
   [Overview of Windows Azure Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
+  [Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
   [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
-  [Troubleshooting and Diagnostics for Windows Azure Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx
+  [Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
   [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
   [Cache Pricing Details]: http://www.windowsazure.com/en-us/pricing/details/cache/
+  [Management Portal]: https://manage.windowsazure.com/
+  [Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
+  [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
+  [Expiration and Eviction]: http://go.microsoft.com/fwlink/?LinkId=317278
+  [High Availability]: http://go.microsoft.com/fwlink/?LinkId=317329
+  [Notifications]: http://go.microsoft.com/fwlink/?LinkId=317276
+  [Migrate to Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=317347
+  [Cache Service (Preview) Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+
