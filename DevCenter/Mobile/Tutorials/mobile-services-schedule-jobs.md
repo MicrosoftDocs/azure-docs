@@ -166,7 +166,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
    This script calls the Twitter query API to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
     <div class="dev-callout"><b>Note</b>
-    <p>This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see [How to: Perform bulk inserts].</p>
+    <p>This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see <a href="/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">How to: Perform bulk inserts</a>.</p>
     </div>
 
 6. In the above code, replace the following placeholders with the values that you obtained from the Twitter site:
@@ -223,4 +223,3 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../HowTo/mobile-services-register-twitter-auth.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[How to: Perform bulk inserts]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts
