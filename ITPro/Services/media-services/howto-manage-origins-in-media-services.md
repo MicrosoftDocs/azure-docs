@@ -30,9 +30,7 @@ The CONFIGURE tab enables you to do the following configurations:
 
  ![Configure origin] (../media/media-services-origins-configure.png)
 
-The SCALE tab enables you to set the on-demand streaming reserved units. 
-
-For detailed information about reserved units, see [Scaling Media Services](http://go.microsoft.com/fwlink/?LinkID=275847&clcid=0x409/).
+The configuration on this page will only apply to origins that have at least one reserved unit. To reserve the on-demand streaming reserved units, go to the SCALE tab. For detailed information about reserved units, see [Scaling Media Services](http://go.microsoft.com/fwlink/?LinkID=275847&clcid=0x409/).
 
 
 
