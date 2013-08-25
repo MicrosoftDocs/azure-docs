@@ -23,13 +23,13 @@ This tutorial walks you through the following steps of how to use the job schedu
 
 You can watch a video version of this tutorial by clicking the clip to the right.
 
-<h2><a name="get-oauth-credentials"></a><span class="short-header">Create new table</span>Create the new Updates table</h2>
+<h2><a name="get-oauth-credentials"></a><span class="short-header">Get Twitter Access </span>Register for access to Twitter v1.1 APIs</h2>
 
 The new Twitter v1.1 APIs requires you to authenicate before accessing resources. First, we need to get the credentials needed to request access by using OAuth 2.0.
 
 1. If you haven't already done so, complete the steps in the topic [Register your apps for Twitter login with Mobile Services]. 
   
-  Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. 
+  Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. You can get these credentials from the Twitter Developers web site. 
 
 2. Navigate to the [Twitter Developers] web site, sign-in with your Twitter account credentials, navigate to My Applications, and select your Twitter app.
 
@@ -44,7 +44,7 @@ The new Twitter v1.1 APIs requires you to authenicate before accessing resources
 
 	![1][]
 
-	You will supply these values to request access to the Twitter v1.1 API.
+	You will supply these values in the request to access Twitter v1.1 APIs.
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>These are important security credentials. Do not share these with anyone or distribute them with your app.</p>
