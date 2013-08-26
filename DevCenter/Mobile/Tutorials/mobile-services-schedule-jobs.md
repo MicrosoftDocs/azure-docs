@@ -27,11 +27,11 @@ You can watch a video version of this tutorial by clicking the clip to the right
 
 The new Twitter v1.1 APIs requires you to authenicate before accessing resources. First, we need to get the credentials needed to request access by using OAuth 2.0.
 
-1. If you haven't already done so, complete the steps in the topic [Register your apps for Twitter login with Mobile Services]. 
+1. If you haven't already done so, complete the steps in the topic <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Register your apps for Twitter login with Mobile Services</a>. 
   
   Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. You can get these credentials from the Twitter Developers web site. 
 
-2. Navigate to the [Twitter Developers] web site, sign-in with your Twitter account credentials, navigate to My Applications, and select your Twitter app.
+2. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a> web site, sign-in with your Twitter account credentials, navigate to **My Applications**, and select your Twitter app.
 
     ![0][]
 
@@ -77,7 +77,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
    ![][4]
 
     <div class="dev-callout"><b>Note</b>
-    <p>When you run your mobile service in <i>Free</i> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.</p>
+    <p>When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.</p>
     </div>
 
 3. In the scheduler dialog, enter <i>getUpdates</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
