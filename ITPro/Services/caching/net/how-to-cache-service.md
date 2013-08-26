@@ -7,7 +7,7 @@ This guide shows you how to get started using
 use the .NET API. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing
 objects from the cache, storing ASP.NET session state in the cache**,
 and **enabling ASP.NET page output caching using the cache**. For more
-information on using Windows Azure Caching, refer to the [Next Steps][] section.
+information on using Windows Azure Cache, refer to the [Next Steps][] section.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ information on using Windows Azure Caching, refer to the [Next Steps][] section.
 	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
 -   [Next Steps][]
 
-<h2><a name="what-is"></a><span class="short-header">What is Windows Azure Caching?</span>What is Windows Azure Caching?</h2>
+<h2><a name="what-is"></a><span class="short-header">What is Windows Azure Cache?</span>What is Windows Azure Cache?</h2>
 
 Windows Azure Cache Service (Preview) is a distributed, in-memory, scalable solution that enables you to build highly scalable and responsive applications by providing super-fast access to data.
 
@@ -59,7 +59,7 @@ Getting started with Cache Service (Preview) is easy. To get started, you provis
 -	[Configure the cache][]
 -	[Configure the cache clients][]
 
-<h2><a name="create-cache"></a><span class="short-header">Create a cache</span>Create a cache</h2>
+<h2><a name="create-cache"></a><span class="short-header">Create the cache</span>Create a cache</h2>
 
 To create a cache, first sign in to the [Management Portal][].
 
@@ -69,7 +69,7 @@ Click **New**, **Data Services**, **Cache Preview**, **Quick Create**.
 
 ![QuickCreate][]
 
-In **Endpoint**, enter a subdomain name to use in the cache endpoint URL. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
+In **Endpoint**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
 In **Region**, select a region for the cache. For the best performance, create the cache in the same region as the cache client application.
 
@@ -79,9 +79,11 @@ In **Subscription**, select the Windows Azure subscription that you want to use 
 
 **Cache Offering** and **Cache Memory** work together to determine the size of the cache. Cache Service (Preview) is available in the three following tiers.
 
--	Basic - Shared cache in sizes from 128MB to 1GB
--	Standard - Dedicated cache in sizes from 1GB to 10GB
--	Premium - Dedicated cache in sizes from 5GB to 150GB
+-	Basic - Shared cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
+-	Standard - Dedicated cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
+
+-	Premium - Dedicated cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
+
 
 Choose the **Cache Offering** and **Cache Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][] and [Capacity planning][].
 
@@ -143,15 +145,15 @@ To configure a client application using the Cache NuGet package, right-click the
 
 Select **Windows Azure Caching**, click **Install**, and then click I Accept.
 
->If **Windows Azure Caching** does not appear in the list type WindowsAzure.Caching into the **Search Online** text box and select it from the results.
+>If **Windows Azure Caching** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
 ![NuGetPackage][]
 
-The NuGet package does several things: it adds the required configuration to the config file of the role, and it adds the required assembly references. For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.
+The NuGet package does several things: it adds the required configuration to the config file of the application, and it adds the required assembly references. For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.
 
->For ASP.NET web roles, the Caching NuGet package also adds two commented out sections to web.config. The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching. For more information, see [How To: Store ASP.NET Session State in the Cache] and [How To: Store ASP.NET Page Output Caching in the Cache][].
+>For ASP.NET web projects, the Cache NuGet package also adds two commented out sections to web.config. The first section enables session state to be stored in the cache, and the second section enables ASP.NET page output caching. For more information, see [How To: Store ASP.NET Session State in the Cache] and [How To: Store ASP.NET Page Output Caching in the Cache][].
 
-The NuGet package adds the following configuration elements into your role's web.config or app.config. A **dataCacheClients** section and a **cacheDiagnostics** section are added under the **configSections** element. If there is no **configSections** element present, one is created as a child of the **configuration** element.
+The NuGet package adds the following configuration elements into your application's web.config or app.config. A **dataCacheClients** section and a **cacheDiagnostics** section are added under the **configSections** element. If there is no **configSections** element present, one is created as a child of the **configuration** element.
 
     <configSections>
       <!-- Existing sections omitted for clarity. -->
@@ -232,7 +234,7 @@ Once your client project is configured for caching, you can use the techniques d
 
 <h2><a name="working-with-caches"></a><span class="short-header">Working with Caches</span>Working with Caches</h2>
 
-The steps in this section describe how to perform common tasks with caching.
+The steps in this section describe how to perform common tasks with Cache.
 
 -	[How To: Create a DataCache Object][]
 -   [How To: Add and Retrieve an Object from the Cache][]
@@ -243,12 +245,12 @@ The steps in this section describe how to perform common tasks with caching.
 <h2><a name="create-cache-object"></a><span class="short-header">Create a DataCache Object</span>How To: Create a DataCache Object</h2>
 
 In order to programatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use
-Windows Azure Caching:
+Windows Azure Cache:
 
     using Microsoft.ApplicationServer.Caching;
 
 >If Visual Studio doesn't recognize the types in the using
-statement even after installing the Caching NuGet package, which adds the necessary references, ensure that the target
+statement even after installing the Cache NuGet package, which adds the necessary references, ensure that the target
 profile for the project is .NET Framework 4 or higher, and be sure to select one of the profiles that does not specify **Client Profile**. For instructions on configuring cache clients, see [Configure the cache clients][].
 
 There are two ways to create a **DataCache** object. The first way is to simply create a **DataCache**, passing in the name of the desired cache.
@@ -307,13 +309,13 @@ if it does not exist, or replaces the object if it does exist.
 
 <h2><a name="specify-expiration"></a><span class="short-header">Specify the Expiration of an Object in the Cache</span>How To: Specify the Expiration of an Object in the Cache</h2>
 
-By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time to Live (min)** setting in the role properties of the role that hosts the cache cluster.
+By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time (min)** setting on the Configure tab for Cache in the Management Portal.
 
-![RoleCache6][]
+![NamedCaches][]
 
-There are three types of **Expiration Type**: **None**, **Absolute**, and **Sliding Window**. These configure how **Time to Live (min)** is used to determine expiration. The default **Expiration Type** is **Absolute**, which means that the countdown timer for an item's expiration begins when the item is placed into the cache. Once the specified amount of time has elapsed for an item, the item expires. If **Sliding Window** is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access. If **None** is specified, then **Time to Live (min)** must be set to **0**, and items will not expire, and will remain valid as long as they are in the cache.
+There are three types of **Expiry Policy**: **Never**, **Absolute**, and **Sliding**. These configure how **Time (min)** is used to determine expiration. The default **Expiration Type** is **Absolute**, which means that the countdown timer for an item's expiration begins when the item is placed into the cache. Once the specified amount of time has elapsed for an item, the item expires. If **Sliding** is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access. If **Never** is specified, then **Time (min)** must be set to **0**, and items will not expire, and will remain valid as long as they are in the cache.
 
-If a longer or shorter timeout interval than what is configured in the role properties is desired, a specific duration can be specified when an item is added or updated in the cache by using the
+If a longer or shorter timeout interval than what is configured in the cache properties is desired, a specific duration can be specified when an item is added or updated in the cache by using the
 overload of **Add** and **Put** that take a **TimeSpan** parameter. In
 the following example, the string **value** is added to cache, keyed by
 **item**, with a timeout of 30 minutes.
@@ -334,11 +336,11 @@ the remaining timeout interval.
 
 <h2><a name="store-session"></a><span class="short-header">Store ASP.NET Session State in the Cache</span>How To: Store ASP.NET Session State in the Cache</h2>
 
-The Session State Provider for Windows Azure Caching is an
+The Session State Provider for Windows Azure Cache is an
 out-of-process storage mechanism for ASP.NET applications. This provider
 enables you to store your session state in a Windows Azure cache rather
 than in-memory or in a SQL Server database. To use the caching session
-state provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package as described in [Getting Started with Windows Azure Caching][]. When the Caching NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Windows Azure Caching.
+state provider, first configure your cache, and then configure your ASP.NET application for Cache using the Cache NuGet package as described in [Getting Started with Cache Service (Preview)][]. When the Cache NuGet package is installed, it adds a commented out section in web.config that contains the required configuration for your ASP.NET application to use the Session State Provider for Windows Azure Cache.
 
     <!--Uncomment this section to use Windows Azure Caching for session state caching
     <system.web>
@@ -353,19 +355,19 @@ state provider, first configure your cache cluster, and then configure your ASP.
       </sessionState>
     </system.web>-->
 
->If your web.config does not contain this commented out section after installing the Caching NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
+>If your web.config does not contain this commented out section after installing the Cache NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
 
-To enable the Session State Provider for Windows Azure Caching, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
+To enable the Session State Provider for Windows Azure Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
-For more information about using the Caching service session state
-provider, see [Session State Provider for Windows Azure Caching][].
+For more information about using the Cache service session state
+provider, see [Session State Provider for Windows Azure Cache][].
 
 <h2><a name="store-page"></a><span class="short-header">Store ASP.NET Page Output Caching in the Cache</span>How To: Store ASP.NET Page Output Caching in the Cache</h2>
 
-The Output Cache Provider for Windows Azure Caching is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
+The Output Cache Provider for Windows Azure Cache is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
 responses (page output caching). The provider plugs into the new output
 cache provider extensibility point that was introduced in ASP.NET 4. To
-use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Caching NuGet package, as described in [Getting Started with Windows Azure Caching][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Windows Azure Caching.
+use the output cache provider, first configure your cache cluster, and then configure your ASP.NET application for caching using the Cache NuGet package, as described in [Getting Started with Cache Service (Preview)][]. When the Caching NuGet package is installed, it adds the following commented out section in web.config that contains the required configuration for your ASP.NET application to use the Output Cache Provider for Windows Azure Caching.
 
     <!--Uncomment this section to use Windows Azure Caching for output caching
     <caching>
@@ -380,9 +382,9 @@ use the output cache provider, first configure your cache cluster, and then conf
       </outputCache>
     </caching>-->
 
->If your web.config does not contain this commented out section after installing the Caching NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
+>If your web.config does not contain this commented out section after installing the Cache NuGet package, ensure that the latest NuGet Package Manager is installed from [NuGet Package Manager Installation][], and then uninstall and reinstall the package.
 
-To enable the Output Cache Provider for Windows Azure Caching, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
+To enable the Output Cache Provider for Windows Azure Cache, uncomment the specified section. The default cache is specified in the provided snippet. To use a different cache, specify the desired cache in the **cacheName** attribute.
 
 Add an **OutputCache** directive to each page for which you wish to cache the output.
 
@@ -390,11 +392,11 @@ Add an **OutputCache** directive to each page for which you wish to cache the ou
 
 In this example the cached page data will remain in the cache for 60 seconds, and a different version of the page will be cached for each parameter combination. For more information on the available options, see [OutputCache Directive][].
 
-For more information about using the Output Cache Provider for Windows Azure Caching, see [Output Cache Provider for Windows Azure Caching][].
+For more information about using the Output Cache Provider for Windows Azure Cache, see [Output Cache Provider for Windows Azure Cache][].
 
 <h2><a name="next-steps"></a><span class="short-header">Next Steps</span>Next Steps</h2>
 
-Now that you've learned the basics of Windows Azure Caching,
+Now that you've learned the basics of Cache Service (Preview),
 follow these links to learn how to do more complex caching tasks.
 
 -   See the MSDN Reference: [Cache Service (Preview)][]
