@@ -63,6 +63,8 @@ Getting started with Cache Service (Preview) is easy. To get started, you provis
 
 To create a cache, first sign in to the [Management Portal][].
 
+>If this is your first time working with Cache Service (Preview) then you need to request access to the Cache Service preview program. To sign up for the preview program, click **New**, **Data Services**, **Cache Preview**, **Preview Program**. Follow the prompts to request access to the Cache Service preview program, and when access is granted, proceed to the next steps.
+
 Click **New**, **Data Services**, **Cache Preview**, **Quick Create**.
 
 ![NewCacheMenu][]
