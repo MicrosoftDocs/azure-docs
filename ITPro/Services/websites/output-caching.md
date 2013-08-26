@@ -2,9 +2,9 @@
 
 <div chunk="../chunks/article-left-menu.md" />
 
-# How to Use ASP.NET Output Caching with Windows Azure Web Sites
+# How to Use ASP.NET Web Forms Output Caching with Windows Azure Web Sites
 
-This topic explains how to use the Windows Azure Cache Service (Preview) to support ASP.NET page output caching. Page output caching is an optimization that directly returns a cached rendering page for a specific duration of time. This is useful in situations where a page is accessed more frequently than it typically changes.
+This topic explains how to use the Windows Azure Cache Service (Preview) to support ASP.NET page output caching for ASP.NET Web Forms. Page output caching is an optimization that directly returns a cached rendering page for a specific duration of time. This is useful in situations where a page is accessed more frequently than it typically changes. It is important to note that page output caching is not supported for ASP.NET MVC applications.
 
 The Cache Service (Preview) provides a distributed caching service that is external to the web site. This enables all instances of the web site to access the same cached rendering of a page.
 
@@ -24,7 +24,7 @@ The basic steps to use the Cache Service (Preview) for page output caching inclu
 
 	![NewCacheDialog][]
 
-3. Type unique name for the cache in the **Endpoint** text box. Then select appropriate values for the other cache properties, and click **Create a New Cache**.
+3. Type a unique name for the cache in the **Endpoint** text box. Then select appropriate values for the other cache properties, and click **Create a New Cache**.
 
 4. Select the **Cache** icon in the Management Portal to view all of your Cache Service endpoints.
 
@@ -33,7 +33,7 @@ The basic steps to use the Cache Service (Preview) for page output caching inclu
 5. You can then select one of the Cache Service endpoints to view its properties. The following sections will use settings from the **Dashboard** tab to configure Caching for an ASP.NET project.
 
 <h2><a id="configureproject"></a>Configure the ASP.NET project</h2>
-1. First, ensure that you have [installed the latest][] **Windows Azure SDK for .NET**.
+1. First, ensure that you have [installed the latest][]  **Windows Azure SDK for .NET**.
 
 2. In Visual Studio, right-click the ASP.NET project in **Solution Explorer**, and then select **Manage NuGet Packages**. (If you are using WebMatrix, click the **NuGet** button on the toolbar instead)
 
@@ -67,7 +67,7 @@ In addition to making assembly references for Cache, the NuGet package adds stub
 	![ManageKeys][]
 
 <h2><a id="useoutputcaching"></a>Use Output Caching</h2>
-The final step is to configure pages in your application to use output caching. This can be done by adding an **OutputCache** attribute to the beginning of the .ASPX source. For example:
+The final step is to configure pages in your ASP.NET Web Forms application to use output caching. This can be done by adding an **OutputCache** attribute to the beginning of the .ASPX source. For example:
 
 	<%@ OutputCache Duration="45" VaryByParam="*" %>
 

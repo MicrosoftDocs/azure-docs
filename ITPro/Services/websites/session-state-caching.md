@@ -4,13 +4,13 @@
 
 # How to Use ASP.NET Session State with Windows Azure Web Sites
 
-This topic explains how to use the Windows Azure Cache Service (Preview) to support ASP.NET session state caching. Storing information in session state can improve the performance and scalability of applications that make repeated requests for static or semi-static data in a back-end store, such as a database.
+This topic explains how to use the Windows Azure Cache Service (Preview) to support ASP.NET session state caching.
 
 Without an external provider, session state is stored in-process on the web server hosting the site. For Windows Azure Web Sites, there are two problems with in-process session state. First, for sites with multiple instances, session state stored on one instance is not accessible to other instances. Because a user request can be routed to any instance, the session information is not guaranteed to be there. Second, any changes in configuration could result in the web site running on a completely different server.
 
-The Cache Service (Preview) provides a distributed caching service that is external to the web site. This solves the problem above and allows ASP.NET session state caching to function as expected.
+The Cache Service (Preview) provides a distributed caching service that is external to the web site. This solves the problem with in-process session state. For more information about how to use session state, see [ASP.NET Session State Overview][].
 
-The basic steps to use the Cache Service (Preview) for sessions state caching include:
+The basic steps to use the Cache Service (Preview) for session state caching include:
 
 * [Create the cache.](#createcache)
 * [Configure the ASP.NET project to use Windows Azure Cache.](#configureproject)
@@ -26,7 +26,7 @@ The basic steps to use the Cache Service (Preview) for sessions state caching in
 
 	![NewCacheDialog][]
 
-3. Type unique name for the cache in the **Endpoint** text box. Then select appropriate values for the other cache properties, and click **Create a New Cache**.
+3. Type a unique name for the cache in the **Endpoint** text box. Then select appropriate values for the other cache properties, and click **Create a New Cache**.
 
 4. Select the **Cache** icon in the Management Portal to view all of your Cache Service endpoints.
 
@@ -35,7 +35,7 @@ The basic steps to use the Cache Service (Preview) for sessions state caching in
 5. You can then select one of the Cache Service endpoints to view its properties. The following sections will use settings from the **Dashboard** tab to configure Caching for an ASP.NET project.
 
 <h2><a id="configureproject"></a>Configure the ASP.NET project</h2>
-1. First, ensure that you have [installed the latest][] **Windows Azure SDK for .NET**.
+1. First, ensure that you have [installed the latest][]  **Windows Azure SDK for .NET**.
 
 2. In Visual Studio, right-click the ASP.NET project in **Solution Explorer**, and then select **Manage NuGet Packages**. (If you are using WebMatrix, click the **NuGet** button on the toolbar instead)
 
@@ -80,6 +80,8 @@ The following code retrieves this value from session state.
     if (objValue != null)
        strValue = (string)obj;	
 
+For more details about how to use ASP.NET session state, see [ASP.NET Session State Overview][].
+
   [NewIcon]: ../media/CacheScreenshot_NewButton.png
   [NewCacheDialog]: ../media/CachingScreenshot_CreateOptions.png
   [CacheIcon]: ../media/CachingScreenshot_CacheIcon.png
@@ -89,3 +91,4 @@ The following code retrieves this value from session state.
   [CacheConfig]: ../media/CachingScreenshot_CacheConfig.png
   [EndpointURL]: ../media/CachingScreenshot_EndpointURL.png
   [ManageKeys]: ../media/CachingScreenshot_ManageAccessKeys.png
+  [ASP.NET Session State Overview]: http://msdn.microsoft.com/en-us/library/ms178581.aspx
