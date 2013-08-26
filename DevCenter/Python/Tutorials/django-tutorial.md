@@ -1,12 +1,12 @@
-<properties linkid="django-ptvs-tutorial" urlDisplayName="Django with Python Tools for Visual Studio" pageTitle="Django with Python Tools for Visual Studio 2.0 Beta - Windows Azure tutorial" metaKeywords="Azure Django Web Site, Azure Django Cloud Service, PTVS" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure using Python Tools for Visual Studio 2.0 Beta." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="django-ptvs-tutorial" urlDisplayName="Django with Python Tools for Visual Studio" pageTitle="Django with Python Tools for Visual Studio 2.0 RC - Windows Azure tutorial" metaKeywords="Azure Django Web Site, Azure Django Cloud Service, PTVS" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure using Python Tools for Visual Studio 2.0 RC." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 <div chunk="../chunks/article-left-menu.md" />
 
-# Creating Django applications with Python Tools for Visual Studio 2.0 Beta
+# Creating Django applications with Python Tools for Visual Studio 2.0 RC
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>In this tutorial, we'll use Python Tools for Visual Studio 2.0 Beta to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Windows Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to a Windows Azure Web Site and a Windows Azure Cloud Service.</p>
+<p>In this tutorial, we'll use Python Tools for Visual Studio 2.0 RC to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Windows Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to a Windows Azure Web Site and a Windows Azure Cloud Service.</p>
 <p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/python/videos/django-tutorial-180x120.png') !important;" href="http://www.youtube.com/watch?v=S7A7VNnsA_8" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">24:01</span></div>
@@ -19,20 +19,20 @@ This tutorial focuses on Python Tools for Visual Studio and Windows Azure. For m
 ##Requirements
 To complete the tutorial, you'll need
 
-- [Python Tools for Visual Studio 2.0 Beta](http://pytools.codeplex.com)
+- [Python Tools for Visual Studio 2.0 RC](http://pytools.codeplex.com)
 - [Python 2.7 (32-bit)](http://www.python.org/download/)
-- [MySQL-python](http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=) (only needed for MySQL database)
 - A supported Visual Studio SKU:
   - VS 2010 Pro or higher
   - VS 2012 Pro or higher
-  - VS 2013 Pro or higher. Windows Azure Cloud Services publishing is not available (coming soon).
-  - VS 2013 Integrated Shell. Windows Azure Cloud Services and Windows Azure Web Sites publishing are not available. You will need to install [IIS Express](http://www.microsoft.com/web/gallery/install.aspx?appid=IISExpress).
-- Windows Azure SDK 2.0 or later
+  - VS 2013 Pro or higher
+  - Free VS 2013 Integrated Shell. Windows Azure Cloud Services and Windows Azure Web Sites publishing are not available.
+- Windows Azure SDK 1.8, 2.0 or 2.1
 
-You can use the Web Platform installer to install the Windows Azure SDK. In Web Platform installer, search for these, which will install the SDK (not available for VS 2013 yet):
+You can use the Web Platform installer to install the Windows Azure SDK. In Web Platform installer, search for these, which will install the SDK:
 
 - Windows Azure SDK for .NET (VS 2010 SP1)
 - Windows Azure SDK for .NET (VS 2012)
+- Windows Azure SDK for .NET (VS 2013 Preview)
 
 ##Create the project
 
@@ -56,9 +56,9 @@ Python Tools for Visual Studio supports Python Virtual Environments.  We'll crea
 
 	![](../Media/django-tutorial-004-install-django-output.png)
 
-	**Beta Note:** In rare cases, you may see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup will fail but installation will still be successful (scroll up in the output window to verify this). This is due to PTVS getting a lock on the newly created temporary files/folders, which prevents the pip cleanup step from deleting them.
+	**Note:** In rare cases, you may see a failure in the output window. If this happens, check if the error is related to cleanup. Sometimes the cleanup will fail but installation will still be successful (scroll up in the output window to verify this). This is due to PTVS getting a lock on the newly created temporary files/folders, which prevents the pip cleanup step from deleting them.
 
-1. Right-click on **env** and Install Python package: **pytz** (optional but recommended, used by django for timezone support)
+1. Right-click on **env** and Install Python package using **easy\_install**: **pytz** (optional but recommended, used by django for timezone support)
 
 **Note:** In solution explorer, under References, you'll see a node for Django 1.4. This is used for Windows Azure Cloud Service deployment, to install Python and Django on the target machine. Don't delete the reference to Django 1.4 from the references note. Since we are using a virtual environment and installing our own Django package in it, the Django package installed in our virtual environment will be used.
 
@@ -68,7 +68,7 @@ In this section we will add an application to handle voting in polls.
 
 A Django project can have multiple applications. In this tutorial, the name of our project is 'tutorial' and corresponds to the Visual Studio project. The name of the application we are adding is 'polls' and will be a folder under our project node.
 
-1. Select the **project node**, **Add->Django app**, with the name **polls**. This will create a folder for the application, with boilerplate code for commonly used application files.
+1. Select the **project node**, **Add**->**Django app**, with the name **polls**. This will create a folder for the application, with boilerplate code for commonly used application files.
 
 	![](../Media/django-tutorial-005-add-django-app.png)
 
@@ -267,7 +267,7 @@ Our web application is almost ready to use, but first we need to configure a dat
             }
         }
 
-1. Right-click on the project node and select **Django Sync DB**.  A Django management interactive window will appear.  Since the database doesn't exist yet, it will prompt you to create administrator credentials.  Enter a user name and password. Email is optional.
+1. Right-click on the project node and select **Django**->**Django Sync DB**.  A Django management interactive window will appear.  Since the database doesn't exist yet, it will prompt you to create administrator credentials.  Enter a user name and password. Email is optional.
 
 	![](../Media/django-tutorial-007-sqlite3.png)
 
@@ -412,14 +412,7 @@ In the Windows Azure Store, you can add various services to your account, includ
 
 1. In the Windows Azure Management Portal, select **NEW**->**STORE**->**APP SERVICES**->**ClearDB MySQL Database**.  Create a database with the free plan.
 
-1. Next, we'll install the packages required to access MySQL databases from Django into our virtual environment.
-
-1. Manually copy **MySQL-python** from your global CPython 2.7 installation's **lib/site-packages** into your virtual environment **lib/site-packages**:
-	1. Copy all **\_mysql*.\*** files
-    1. Copy **MySQL\_python-1.2.3-py2.7.egg-info** folder
-    1. Copy **MySQLdb** folder
-
-	TIP: You can quickly navigate to your Python install folder using the Interpreters Window.  Open the Interpreters Window using **Ctrl-K,`** and click on the **View in File Explorer** link.
+1. Next, we'll install the package required to access MySQL databases from Django into our virtual environment.  Right-click on **env** and Install Python package: **mysql-python** using **easy\_install**.
 
 1. Edit **tutorial/settings.py** and change the **DATABASES** definition to the following, replacing **NAME**, **USER**, **PASSWORD**, and **HOST** to the values listed in the ClearDB control panel:
 
@@ -438,9 +431,7 @@ In the Windows Azure Store, you can add various services to your account, includ
 
 ##Using the Django Shell
 
-1. Right-click on the project node and select **Validate Django App**.
-
-	**Beta Note:** There is a bug in PTVS 2.0 Beta that prevents the shell from working if you use the **Open Django Shell** command without first using either **Validate Django App** or **Django Sync DB**. **Validate Django App** doesn't change any state, and launches the shell, so it is a good workaround. This will be fixed after Beta.
+1. Right-click on the project node and select **Django** -> **Open Django Shell**.
 
 1. In this interactive window, we can access our database using our models.  Enter the following code to add a poll to the database:
 
@@ -511,8 +502,6 @@ Hosting Django in a Virtual Machine is out of scope for this tutorial.  It invol
 1. Right-click on the project node and **Add Windows Azure Cloud Service Project**.  This will add a new project to the solution, with the .Azure suffix. This new project is marked as the startup project in the solution.
 
 ####Run in Emulator
-
-**Beta Note:** There are issues in PTVS 2.0 Beta with Virtual Environments and the Azure Emulator. These will be fixed after Beta.
 
 1. You'll need to **restart Visual Studio as an Administrator** to be able to run in the compute emulator.
 
