@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+<p><div chunk="../../../devcenter/media-services/chunks/article-left-menu.md" /></p>
+
+<h1><a id="managemediaservicesorigins"></a>How to Manage Origins in a Media Services Account</h1>
+
+<p>Media Services enables you to add multiple streaming origins to your account and to configure the origins. Each Media Services account has at least one streaming origin called <strong>default</strong> associated with it. </p>
+
+<h2>Adding and Deleting Origins</h2> 
+
+<ol>
+<li>In the <a href="https://manage.windowsazure.com/">Management Portal</a>, click <strong>Media Services</strong>. Then, click the name of the media service.</li>
+<li>Select the ORIGINS page. </li>
+<li>Click the ADD or DELETE button at the bottom of the page. Note that the default origin cannot be deleted. </li>
+<li>Click the START button to start the origin. </li>
+<li><p>If you want to configure the origin, click the name of the origin. </p>
+
+<p><img src="../media/media-services-origins-page.png" alt="Origin page" /></p></li>
+</ol>
+
+<h2>Configuring the Origin</h2>
+
+<p>The CONFIGURE tab enables you to do the following configurations:</p>
+
+<ol>
+<li><p>Set the maximum caching period that will be specified in the cache control header of HTTP responses. This value will not override the maximum cache value that have been set explicitly on the blob content.</p></li>
+<li><p>Specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect.</p></li>
+<li><p>Specify configuration for G20 authentication requests from Akami servers.</p>
+
+<p><img src="../media/media-services-origins-configure.png" alt="Configure origin" /></p></li>
+</ol>
+
+<p>The SCALE tab enables you to set the on-demand streaming reserved units. </p>
+
+<p>For detailed information about reserved units, see <a href="http://go.microsoft.com/fwlink/?LinkID=275847&amp;clcid=0x409/">Scaling Media Services</a>.</p>
+    </body>
+</html>
