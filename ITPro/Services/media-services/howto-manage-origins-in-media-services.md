@@ -4,7 +4,7 @@
 
 <h1><a id="managemediaservicesorigins"></a>How to Manage Origins in a Media Services Account</h1>
 
-Media Services enables you to add multiple streaming origins to your account and to configure the origins. Each Media Servcies account has at least one streaming origin called **default** associated with it. 
+Media Services enables you to add multiple streaming origins to your account and to configure the origins. Each Media Services account has at least one streaming origin called **default** associated with it. 
 
 
 <h2>Adding and Deleting Origins</h2> 
@@ -30,9 +30,7 @@ The CONFIGURE tab enables you to do the following configurations:
 
  ![Configure origin] (../media/media-services-origins-configure.png)
 
-The SCALE tab enables you to set the on-demand streaming reserved units. 
-
-For detailed information about reserved units, see [Scaling Media Services](http://go.microsoft.com/fwlink/?LinkID=275847&clcid=0x409/).
+The configuration on this page will only apply to origins that have at least one reserved unit. To reserve the on-demand streaming reserved units, go to the SCALE tab. For detailed information about reserved units, see [Scaling Media Services](http://go.microsoft.com/fwlink/?LinkID=275847&clcid=0x409/).
 
 
 
