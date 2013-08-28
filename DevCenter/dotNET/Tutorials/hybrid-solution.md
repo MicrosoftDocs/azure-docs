@@ -91,7 +91,7 @@ to get the tools and set-up your development environment.
 
     ![][2]
 
-5.  In the Web Platform Installer, click **Add** and proceed with the installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][3]
 
@@ -742,7 +742,7 @@ Run the application to verify that it works.
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI2.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-2-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com

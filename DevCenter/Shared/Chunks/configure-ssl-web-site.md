@@ -1,8 +1,8 @@
 #Configuring an SSL certificate for a Windows Azure web site
 
-Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This common task discusses how to enable SSL for a Windows Azure Web Site.
+Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This article discusses how to enable SSL for a Windows Azure Web Site.
 
-The steps in this task require you to configure your web sites for standard mode, which may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
+The steps in this article require you to configure your web sites for standard mode, which may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 
 <a href="bkmk_getcert"></a><h2>Get a Certificate</h2>
@@ -27,7 +27,7 @@ To get an SSL certificate from a Certificate Authority you must generate a Certi
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>When following either series of steps, you will be prompted to enter a <strong>Common Name</strong>. If you will be obtaining a wildcard certificate for use with multiple domains (contoso.com, www.contoso.com, sales.contoso.com,) then this value should be *.domainname. For example, *.contoso.com. If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com.</p>
+<p>When following either series of steps, you will be prompted to enter a <strong>Common Name</strong>. If you will be obtaining a wildcard certificate for use with multiple domains (www.contoso.com, sales.contoso.com,) then this value should be *.domainname (for example, *.contoso.com). If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com. If you need to support both a wildcard name like *.contoso.com and a bare domain name like contoso.com, you can use a wildcard Subject Alternative Name (SAN) certificate. A SAN certificate not only supports wildcards like *.contoso.com, but also lets you add a bare domain name like contoso.com as a Subject Alternative Name to the certificate.</p>
 <p>If the Common Name specified in the certificate does not match the domain name specified in the browser, the user may receive a security alert when visiting your site.</p>
 <p>For more information on how to configure the domain name of a Windows Azure Web Site, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure Web Site</a>.</p>
 </div>
@@ -111,7 +111,7 @@ Enabling SSL on a web site is only available for the standard mode of Windows Az
 
 <a href="bkmk_getcert"></a><h2>Configure SSL</h2>
 
-Before performing the steps in this section, you must have associated a custom DNS name with your Windows Azure Web Site. For more information, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
+Before performing the steps in this section, you must have associated a custom domain name with your Windows Azure Web Site. For more information, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
 
 1. In your browser, open the [Windows Azure Management Portal][portal].
 
@@ -139,15 +139,15 @@ Before performing the steps in this section, you must have associated a custom D
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If you selected <b>IP based SSL</b> you must perform the following additional steps:</p>
+<p>If you selected <b>IP based SSL</b> and your custom domain is configured using an A record, you must perform the following additional steps:</p>
 <ol>
-<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Adress</b>:</p>
+<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Address</b>:</p>
 <img src="../media/staticip.png" />
-<p>Note that this IP address will be different than the virtual IP address used previously to configure the A record or CNAME for your domain.</p><p>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</p>
+<p>Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain.</p><p>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</p>
 </li>
 <li><p>Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.</p>
 </li>
-<li><p>If you had created a CNAME pointing to yoursite.azurewebsites.net, you must now remove this entry.</p></li>
+<!--<li><p>If you had created a CNAME pointing to yoursite.azurewebsites.net, you must now remove this entry.</p></li>-->
 </ol>
 </div>
 
