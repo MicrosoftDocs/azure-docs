@@ -107,9 +107,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   You will need these values when accessing the mobile service from your app code.
 
-5. In Visual Studio, open the file default.js, uncomment the following code that defines the **mobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
+5. In Visual Studio, open the file default.js, uncomment the following code that defines the **client** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
 
-            var mobileService = new WindowsAzure.MobileServiceClient(
+            var client = new WindowsAzure.MobileServiceClient(
                 "AppUrl",
                 "appKey"
             );
@@ -118,7 +118,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 6. Uncomment the following line of code:
 
-        var todoTable = mobileService.getTable('TodoItem');
+        var todoTable = client.getTable('TodoItem');
 
    This code creates a proxy object (**todoTable**) for the SQL Database **TodoItem**. 
 

@@ -94,11 +94,11 @@ Next, you will modify the quickstart app to start periodic notifications that up
 
 2. Make sure at least one item is displayed. If there are no items, type text in **Insert a TodoItem**, and then click **Save**.
 
-3. In Visual Studio, expand the `\js` folder in Solution Explorer, open the default.js project, then add the following lines of code after that code that defines the **mobileService** variable:
+3. In Visual Studio, expand the `\js` folder in Solution Explorer, open the default.js project, then add the following lines of code after that code that defines the **client** variable:
 
         var notifications = Windows.UI.Notifications;
         var recurrence = notifications.PeriodicUpdateRecurrence.hour;
-        var url = new Windows.Foundation.Uri(mobileService.applicationUrl, "/api/tiles");
+        var url = new Windows.Foundation.Uri(client.applicationUrl, "/api/tiles");
 
         notifications.TileUpdateManager.createTileUpdaterForApplication().startPeriodicUpdate(url, recurrence);
 
