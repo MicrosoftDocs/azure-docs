@@ -89,7 +89,7 @@ To be able to store app data in the new mobile service, you must first create a 
 
   ![][6]
 
-  This creates a new storage table **TodoItem** with the default permissions set, which means that any user of the app can access and change data in the table. 
+  This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table.
 
     <div class="dev-callout"> 
 	<b>Note</b> 

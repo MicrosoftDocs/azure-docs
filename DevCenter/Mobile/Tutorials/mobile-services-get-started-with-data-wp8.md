@@ -56,38 +56,7 @@ This tutorial is built on the [GetStartedWithData app][Developer Code Samples si
 
 <h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
 
-To be able to store app data in the new mobile service, you must first create a new table in the associated SQL Database instance.
-
-1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
-
-2. Click the **Data** tab, then click **+Create**.
-
-   ![][5]
-
-   This displays the **Create new table** dialog.
-
-3. In **Table name** type _TodoItem_, then click the check button.
-
-  ![][6]
-
-  This creates a new storage table **TodoItem** with the default permissions set, which means that any user of the app can access and change data in the table. 
-
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.</p> 
-	</div>
-
-4. Click the new **TodoItem** table and verify that there are no data rows.
-
-5. Click the **Columns** tab and verify that there is only a single **id** column, which is automatically created for you.
-
-  This is the minimum requirement for a table in Mobile Services. 
-
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
-    </div>
-
-You are now ready to use the new mobile service as data storage for the app.
+<div chunk="../chunks/mobile-services-create-new-service-data-2.md" />
 
 <h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
 
