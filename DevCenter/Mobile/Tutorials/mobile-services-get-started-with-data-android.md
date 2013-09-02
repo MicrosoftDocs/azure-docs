@@ -23,7 +23,7 @@
 
 This tutorial walks you through these basic steps:
 
-1. [Download the Android app project][GitHub] 
+1. [Download the Android app project] 
 2. [Create the mobile service]
 3. [Add a data table for storage]
 4. [Update the app to use Mobile Services]
@@ -253,8 +253,7 @@ Once you have completed the data series, try these other Android tutorials:
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
 
 <!-- Anchors. -->
-
-[Get the Windows Store app]: #download-app
+[Download the Android app project]: #download-app
 [Create the mobile service]: #create-service
 [Add a data table for storage]: #add-table
 [Update the app to use Mobile Services]: #update-app
