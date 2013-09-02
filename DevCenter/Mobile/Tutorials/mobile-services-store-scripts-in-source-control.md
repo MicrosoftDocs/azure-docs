@@ -11,7 +11,7 @@ The tutorial guides you through the following steps:
 1. [Enable source control in your mobile service].
 2. [Install Git and create the local repository].
 3. [Deploy updated script files to your mobile service].
-<li><a href="#use-npm">Use a NPM module in your server script</a>.</li>
+4. [Use a NPM module in your server script].
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
@@ -26,7 +26,7 @@ To complete this tutorial, you must have already created a mobile service by com
    ![][1]
 
     <div class="dev-callout"><b>Note</b>
-	<p>Source control a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p><p>Only a subscription owner can enable source control. Co-administrators are not provided with this option in the portal.</p>
+	<p>Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p><p>Only a subscription owner can enable source control. Co-administrators are not provided with this option in the portal.</p>
     </div>
 
 3. Supply a **User name**, **New password**, confirm the password, then click the check button. 
@@ -151,6 +151,7 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Enable source control in your mobile service]: #enable-source-control
 [Install Git and create the local repository]: #clone-repo
 [Deploy updated script files to your mobile service]: #deploy-scripts
+[Use a NPM module in your server script]: #use-npm
 
 <!-- Images. -->
 [0]: ../Media/mobile-services-selection.png
@@ -160,7 +161,6 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [4]: ../Media/mobile-source-local-repo.png
 [5]: ../Media/mobile-portal-data-tables.png
 [6]: ../Media/mobile-insert-script-source-control.png
-
 
 <!-- URLs. -->
 [Git website]: http://git-scm.com
