@@ -80,10 +80,11 @@ After you have deployed Drupal to Windows Azure Web Sites, you can continue to d
 
 For more information, see the following posts and topics:
 
-- [Windows Azure Websites, a PHP Perspective][].
+- [Windows Azure Websites, a PHP Perspective][]
 - [Windows Azure Web Sites, Cloud Services, and VMs: When to use which?][]
-- [Configuring PHP in Windows Azure Websites with .user.ini Files][].
-- [Windows Azure Integration Module][] (to store and serve your site's media files).
+- [Configuring PHP in Windows Azure Websites with .user.ini Files][]
+- [Windows Azure Integration Module](https://drupal.org/project/azure_auth)
+- [Windows Azure Blob Storage Module](https://drupal.org/project/azure_blob)
 
   [Create the Windows Azure Web Site]: #create-siteanddb
   [Copy the Database]: #copy-database

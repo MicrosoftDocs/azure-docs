@@ -25,6 +25,7 @@ You can perform the following scaling actions for a cloud service:
 - [Manually scale an application running Web Roles or Worker Roles](#manualscale)
 - [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](#autoscale)
 - [Scale linked resources](#scalelink)
+- [Schedule the scaling of your application](#schedule)
 
 
 <h2><a id="manualscale"></a>Manually scale an application running Web Roles or Worker Roles</h2>
@@ -170,6 +171,30 @@ Often when you scale a role, it's beneficial to scale the database that the appl
 4. Select the size of the database.
 5. Click **Save** to update the linked resources.
 
+<h2><a id="schedule"></a>Schedule the scaling of your application</h2>
+
+You can schedule automatic scaling of your application by configuring schedules for different times. The following options are available to you for automatic scaling:
+
+- **No schedule** - This is the default option and enables your application to be automatically scaled the same way at all times.
+
+- **Day and night** - This option enables you to specify scaling for specific times of day and night.
+
+**Note:** Schedules are currently not available for applications that use Virtual Machines.
+
+1. In the [Management Portal](https://manage.windowsazure.com/), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
+2. Click **Scale**.
+3. On the Scale page, click **set up schedule times**.
+
+	![Schedule scaling][scale_schedule]
+
+4. Select the type of scaling schedule that you want to set up.
+
+5. Specify the times that the day starts and ends and set the time zone. For day and night scheduling, the times represent the start and end of the day with the remaining time representing night.
+
+6. Click the check mark at the bottom of the page to save the schedules.
+
+7. After you save the schedules, they will appear in the list. You can select the time schedule that you want to use and then modify your scale settings. The scale settings will only apply during the schedule that you selected. You can edit the schedules by clicking **set up schedule times**.
+
 [manual_scale]: ../media/CloudServices_ManualScaleRoles.png
 [slider_role]: ../media/CloudServices_SliderRole.png
 [autoscale_on]: ../media/CloudServices_AutoscaleOn.png
@@ -185,6 +210,12 @@ Often when you scale a role, it's beneficial to scale the database that the appl
 [queue_name]: ../media/CloudServices_QueueName.png
 [message_number]: ../media/CloudServices_TargetMessageNumber.png
 [linked_resources]: ../media/CloudServices_ScaleLinkedResources.png
+[scale_schedule]: ../media/CloudServices_SetUpSchedule.png
+[action_type]: ../media/CloudServices_ActionType.png
+[set_times]: ../media/CloudServices_SetTimes.png
+[schedule_range]: ../media/CloudServices_ScheduleRange.png
+[edit_schedule]: ../media/CloudServices_EditSchedule.png
+
 
 
 

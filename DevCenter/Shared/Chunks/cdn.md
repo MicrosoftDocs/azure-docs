@@ -9,7 +9,7 @@ CDN node locations, see [Windows Azure CDN Node Locations].
 This task includes the following steps:
 
 * [Step 1: Create a storage account](#Step1)
-* [Step 2: Enable CDN on your storage account](#Step2)
+* [Step 2: Create a new CDN endpoint for your storage account](#Step2)
 * [Step 3: Access your CDN content](#Step3)
 * [Step 4: Delete your CDN content](#Step4)
 
@@ -18,8 +18,7 @@ The benefits of using CDN to cache Windows Azure data include:
 -   Better performance and user experience for end users who are far from a content source, and are using applications where many ‘internet trips’ are required to load content
 -   Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
 
-To use the Windows Azure CDN, you must have a Windows Azure subscription
-and enable the feature on the storage account or hosted service in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Existing CDN customers can now use the Windows Azure CDN in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
 
 <a id="Step1"> </a>
 <h2>Step 1: Create a storage account</h2>
@@ -67,25 +66,13 @@ Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-    **Tip:** If you prefer to allow your customers to access blobs by
-    using your own custom subdomain, you can create a custom domain for
-    the storage account. For more information, see [How to Register a
-    Custom Subdomain Name for Accessing Blobs in Windows Azure].
-
 5.  From the **Region/Affinity Group** drop-down list, select a geographic location for the storage account. Alternatively, use an affinity group. For instructions on creating an affinity group, see [How to Create an Affinity Group in Windows Azure].
 6. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
 7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
 8.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
 
 <a id="Step2"> </a>
-<h2>Step 2: Enable CDN on your storage account</h2>
-
-The CDN caches static content at strategically placed locations around
-the world to provide superior performance and availability. The benefits
-of using CDN to cache static content include:
-
-* Better performance and user experience for end users who are far from a content source, and are using applications where many ‘internet trips’ are required to load content.
-* Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch.
+<h2>Step 2: Create a new CDN endpoint for your storage account</h2>
 
 Once you enable CDN access to a storage account or hosted service, all
 publicly available objects are eligible for CDN edge caching. If you
@@ -93,70 +80,50 @@ modify an object that is currently cached in the CDN, the new content
 will not be available via the CDN until the CDN refreshes its content
 when the cached content time-to-live period expires.
 
-**To enable CDN on your subscription**
+**To create a new CDN endpoint for your storage account**
 
-1.  In the [Windows Azure Management Portal], in the ribbon, click your user name, and then select **Previous portal**. This will load the production management portal.
+1. In the [Windows Azure Management Portal], in the navigation pane, click **CDN**.
 
-2. In the production management portal, in the navigation pane,
-    click **Hosted Services, Storage Accounts & CDN**.
-3. In the upper portion of the navigation pane, click **CDN**, and then
-    on the ribbon, click **New Endpoint**.
+2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
 
-   This will open the **Create a New CDN Endpoint** dialog.
+3. In the **Origin Domain** dropdown, select the storage account you created in the previous section from the list of your available storage accounts. 
 
-    ![new cdn endpoint dialog][create-new-cdn-endpoint]
+4. Click the **Create** button to create the new endpoint.
 
-4. In the **Create a New CDN Endpoint** dialog, using the **Choose a Subscription** drop-down list, select a
-    subscription on which to enable CDN.
-5.  Select the source of the CDN content from the **Choose a hosted
-    service or storage account** drop-down list. Please note that this
-    drop-down list determines what the origin will be for your CDN
-    account. The origin is the single location that the CDN picks up
-    content from. The **Source URL for the CDN Endpoint** will
-    automatically display the URL for the origin. This is the actual URL
-    from which the CDN will retrieve content to pull it into the cache
-    network.
+5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
 
-6.  If you need to use HTTPS connections, check **HTTPS**. For more
-    information on HTTPS and Windows Azure CDN, see [Overview of the
-    Windows Azure CDN].
-7.  If you are caching content from a hosted service and you are using
-    query strings to specify the content to be retrieved, check **Query
-    String**. For more information about using Query strings to
-    differentiate objects to cache, see [Overview of the Windows Azure
-    CDN]. If you are using a blob storage account as origin you should
-    not click this option.
-8.  Click **OK**.
+	The origin domain is the location from which the CDN caches
+    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/en-us/library/gg680306.aspx) for more information. 
+
 
     <div class="dev-callout">
     <strong>Note</strong>
     <p>The configuration created for the endpoint will not
     immediately be available; it can take up to 60 minutes for the
     registration to propagate through the CDN network. Users who try to
-    use the CDN domain name immediately will receive status code 400
+    use the CDN domain name immediately may receive status code 400
     (Bad Request) until the content is available via the CDN.</p>
     </div>
 
 <a id="Step3"> </a>
-<h2>Step 3: Access your CDN content</h2> 
+<h2>Step 3: Access CDN content</h2> 
 
-To access the content on the CDN, go to:
+To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
 
 http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 
 <a id="Step4"> </a>
-<h2>Step 4: Delete your CDN content</h2>
+<h2>Step 4: Remove content from the CDN</h2>
 
 If you no longer wish to cache an object in the Windows Azure Content
-Delivery Network (CDN), you can:
+Delivery Network (CDN), you can take one of the following steps:
 
 -   For a Windows Azure blob, you can delete the blob from the public
     container.
--   Make the container private instead of public using the **Set
-    Container ACL** operation.
--   Remove the CDN endpoint from your storage account in the Management
+-   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/en-us/library/dd179354.aspx) for more information.
+-   You can disable or delete the CDN endpoint using the Management
     Portal.
--   Modify your hosted service to no longer respond to requests for the
+-   You can modify your hosted service to no longer respond to requests for the
     object.
 
 An object already cached in the CDN will remain cached until the
@@ -165,7 +132,7 @@ expires, the CDN will check to see whether the CDN endpoint is still
 valid and the object still anonymously accessible. If it is not, then
 the object will no longer be cached.
 
-No explicit “purge” tool is currently available for the Windows Azure
+No explicit "purge" tool is currently available for the Windows Azure
 CDN.
 
 ## Additional resources

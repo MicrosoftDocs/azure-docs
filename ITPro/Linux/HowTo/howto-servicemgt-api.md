@@ -6,13 +6,13 @@
 
 ##Initialization##
 
-To invoke the Windows Azure IaaS service management API from NodeJS, the iaasclient.js module is used.
+To invoke the Windows Azure IaaS service management API from NodeJS, the `azure` module is used.
 
-	var iaasCient = require('iaasclient');
+	var azure = require('azure');
 
-First create an instance of the IaasClient. All calls to the API will use this object. The subscription id, credentials, and other connection options are established at this time. To manage more than one subscription, create more than one IaasClient.
+First create an instance of the ServiceManagementService. All calls to the API will use this object. The subscription id, credentials, and other connection options are established at this time. To manage more than one subscription, create more than one ServiceManagementService.
 
-	var iaasClient = new IaasClient(subscriptionid, auth, options);
+	var iaasClient = azure.createServiceManagementService(subscriptionid, auth, options);
 
 - Subscriptionid is a required string. It should be the subscription id of the account being accessed.
 - Auth is an optional object that specifies the private key and public certificate to be used with this account.	
@@ -300,7 +300,7 @@ Deployment
 
 Here is a sample javascript code that creates a hosted service and a deployment, and then polls for the completion status of the deployment.
 
-	var IaasClient = require('../lib/iaasclient');
+	var azure = require('azure');
 	
 	// specify where certificate files are located
 	var auth = {
@@ -392,7 +392,7 @@ Here is a sample javascript code that creates a hosted service and a deployment,
 	
 	
 	// create the client object
-	var iaasCli = new IaasClient(subscriptionId, auth);
+	var iaasCli = azure.createServiceManagementService(subscriptionId, auth);
 	
 	// create a hosted service.
 	// if successful, create deployment

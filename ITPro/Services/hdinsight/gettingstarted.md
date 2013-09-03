@@ -190,6 +190,7 @@ In this tutorial, you have learned how to provision a cluster with the HDInsight
 
 - For information about running more samples, see [How to Run Samples](/en-us/manage/services/hdinsight/howto-run-samples/).
 - For other uses of HDInsight Service interactive JavaScript and Hive consoles, see the [HDInsight Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/).
+- To watch How-to videos for HDInsight Service, [visit us on Channel9](http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service).
 - For more information of MapReduce, see [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/).
 - For more information of Hive, see [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/).
 - For more information of Pig, see [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/).
