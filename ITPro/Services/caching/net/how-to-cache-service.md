@@ -43,9 +43,9 @@ Cache Service (Preview) gives you access to a secure, dedicated cache that is ma
 
 Cache Service (Preview) is available in three tiers:
 
--	Basic - Shared cache in sizes from 128MB to 1GB
--	Standard - Dedicated cache in sizes from 1GB to 10GB
--	Premium - Dedicated cache in sizes from 5GB to 150GB
+-	Basic - Cache in sizes from 128MB to 1GB
+-	Standard - Cache in sizes from 1GB to 10GB
+-	Premium - Cache in sizes from 5GB to 150GB
 
 Each tier differs in terms of features and pricing. The features are covered later in this guide, and for more information on pricing, see [Cache Pricing Details][].
 
@@ -81,10 +81,10 @@ In **Subscription**, select the Windows Azure subscription that you want to use 
 
 **Cache Offering** and **Cache Memory** work together to determine the size of the cache. Cache Service (Preview) is available in the three following tiers.
 
--	Basic - Shared cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
--	Standard - Dedicated cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
+-	Basic - Cache in sizes from 128MB to 1GB in 128MB increments, with one default named cache
+-	Standard - Cache in sizes from 1GB to 10GB in 1GB increments, with support for notifications and up to ten named caches
 
--	Premium - Dedicated cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
+-	Premium - Cache in sizes from 5GB to 150GB in 5GB increments, with support for notifications, high availability, and up to ten named caches
 
 
 Choose the **Cache Offering** and **Cache Memory** that meets the needs of your application. Note that some cache features, such as notifications and high availability, are only available with certain cache offerings. For more information on choosing the cache offering and size that's best for your application, see [Cache offerings][] and [Capacity planning][].
@@ -425,7 +425,7 @@ follow these links to learn how to do more complex caching tasks.
   [Windows Azure Management Portal]: http://windows.azure.com/
   [NewCacheMenu]: ../../Media/CacheServiceNewCacheMenu.png
   [QuickCreate]: ../../Media/CacheServiceQuickCreate.png
-  [Endpoint]: ../../Media/CacheServiceEndpoint.jpg
+  [Endpoint]: ../../Media/CacheServiceEndpoint.png
   [AccessKeys]: ../../Media/CacheServiceManageAccessKeys.png
   [NuGetPackage]: ../../Media/CacheServiceManageNuGetPackage.png
   [NuGetPackageMenu]: ../../Media/CacheServiceManageNuGetPackagesMenu.png
