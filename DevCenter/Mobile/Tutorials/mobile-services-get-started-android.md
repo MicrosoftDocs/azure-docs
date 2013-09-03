@@ -15,7 +15,7 @@
 
 ![][0]
 
-Completing this tutorial requires the [Android SDK], which includes the Eclipse integrated development environment (IDE), Android Developer Tools (ADT) plugin, and the latest Android platform. Android 4.2 or a later version is required. 
+Completing this tutorial requires the [Android Developer Tools][Android SDK], which includes the Eclipse integrated development environment (IDE), Android Developer Tools (ADT) plugin, and the latest Android platform. Android 4.2 or a later version is required. 
 
 The downloaded quickstart project contains the Mobile Services SDK for Android. While this project requires Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.
 
@@ -41,7 +41,7 @@ In this section you will create a new Android app that is connected to your mobi
 
   ![][7]
 
-3. If you haven't already done so, download and install the [Android SDK] on your local computer or virtual machine.
+3. If you haven't already done so, download and install the [Android Developer Tools][Android SDK] on your local computer or virtual machine.
 
 4. Click **Create TodoItem table** to create a table to store app data.
 

@@ -40,7 +40,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	![][3]
 
-5. Click the **Scripts** tab and replace the existing code with the following:
+5. Click the **Script** tab and replace the existing code with the following:
 
 		exports.get = function(request, response) {
 		    var wns = require('wns');
