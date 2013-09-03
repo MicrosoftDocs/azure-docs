@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0"  writer="waltpo" editor="mollybos" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -217,8 +217,8 @@ Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * Sample that demonstrates using SendGrid in a Windows Azure deployment: [How to Send Email Using SendGrid from Java in a Windows Azure Deployment](/en-us/develop/java/how-to-guides/sendgrid-sample/)
-* SendGrid Java information: <http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/>
-* SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
+* SendGrid Java information: <http://sendgrid.com/docs/Code_Examples/java.html>
+* SendGrid API documentation: <http://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid special offer for Windows Azure customers: <http://sendgrid.com/azure.html>
 
   [Next Steps]: #bkmk_NextSteps
@@ -234,11 +234,8 @@ these links to learn more.
   [http://sendgrid.com]: http://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [http://www.sendgrid.com/azure.html]: http://www.sendgrid.com/azure.html
-  [http://docs.sendgrid.com/documentation/get-started]: http://docs.sendgrid.com/documentation/get-started
   [http://sendgrid.com/features]: http://sendgrid.com/features
   [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
-  [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
-  [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
-  [http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/]:
-    http://docs.sendgrid.com/documentation/get-started/integrate/examples/java-email-example-using-smtp/
+  [Filter Settings]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+  [SendGrid API documentation]: http://sendgrid.com/docs/API_Reference/index.html
   [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html

@@ -24,7 +24,7 @@ The Windows Azure account can have multiple subscriptions and can be managed by 
 </tr>
 <tr>
 <td>Windows Azure SQL Database</td>
-<td>A SQL Database stores the tables, views and stored procedures used by Windows Azure BizTalk Services. There are no minimum requirements for the SQL Database settings.</td>
+<td>A SQL Database stores the tables, views and stored procedures used by Windows Azure BizTalk Services. Windows Azure Services must be enabled on the SQL Database. There are no minimum scale requirements for the SQL Database settings.</td>
 </tr>
 <tr>
 <td>Windows Azure Access Control Service (ACS) namespace</td>
@@ -43,7 +43,14 @@ The Windows Azure account can have multiple subscriptions and can be managed by 
 
 <tr>
 <td>SSL private certificate</td>
-<td>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. <br/><br/><strong>Tip</strong><br/>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.<br/><br/>When sending the certificate request to your certification authority, specify the following certificate properties:
+<td>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. <br/><br/><strong>Important</strong><br/>
+
+<ul>
+<li>The certificate expiration date must be less than 5 years.</li>
+<li>All private certificates require a password. Know this password and as a best practice, share this password with your administrators.</li>
+<li>Self-signed certificates can be used in a test or development environment. When using self-signed certificates, import the certificate to your Personal certificate store and the Trusted Root Certification Authorities certificate store.</li>
+</ul>
+<br/>When sending the certificate request to your certification authority, specify the following certificate properties:
 <br/>
 
 <ul>
@@ -51,7 +58,8 @@ The Windows Azure account can have multiple subscriptions and can be managed by 
 Additional key usages can be enabled on the certificate. At a minimum, Windows Azure BizTalk Services requires Server Authentication.</p></li>
 <li><p><strong>Common Name</strong>: Enter the fully qualified domain name (FQDN) of your Windows Azure BizTalk Services URL; which is created when you provision the BizTalk Service in <a HREF="#BizTalk">Provision a BizTalk Service</a>, in this topic.</p>
 <p>So, you need to know what your URL will be when you send the certificate request to your certification authority. A new or different certificate can be added after the BizTalk Service is provisioned.</p></li>
-</ul><strong>Tip</strong><br/>In a test or development environment, you can use a self-signed certificate. When using self-signed certificates, import the certificate to your Personal certificate store and the Trusted Root Certification Authorities certificate store.<br/>
+</ul>
+<br/>
 </td>
 </tr>
 </table>
@@ -184,7 +192,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 >	<li>Basic</li>
 >	<li>Premium</li>
 >	</ul>
->	<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302281">BizTalk Services: Developer, Basic, Standard and Premium Editions Chart</a> lists the differences with the editions. If you are in the testing/development phase, choose <b>Developer</b>. If you are in the production phase, use the chart to determine if Premium, Standard, or Basic is the correct choice for your business scenario.
+>	<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Developer, Basic, Standard and Premium Editions Chart</a> lists the differences with the editions. If you are in the testing/development phase, choose <b>Developer</b>. If you are in the production phase, use the chart to determine if Premium, Standard, or Basic is the correct choice for your business scenario.
 >	</td>
 >	</tr>
 >	<tr>
@@ -196,7 +204,9 @@ The following steps provision a new Windows Azure BizTalk Service:
 >	<td>Select your SQL Database to store the tables used by your BizTalk Service. Choose from the following options: <br/>
 >	<ul>
 >	<li><strong>Use an existing SQL Database instance</strong>: Click this option to use an existing SQL Database. An existing SQL Database can be used if it's not used by another BizTalk Service. You need the login name and password specified when that SQL Database Server was created.</li>
->	<li><strong>Create a new SQL Database instance</strong>: Click this option to create a new SQL Database.</li>
+>	<li><strong>Create a new SQL Database instance</strong>: Click this option to create a new SQL Database. </li><br>
+<b>Note</b> </br>
+When you create a new SQL Database, Windows Azure Services is automatically enabled on the SQL Database. Windows Azure Services is required by the BizTalk Service.
 >	</ul>
 >	</td>
 >	</tr>
@@ -337,7 +347,9 @@ If this is a brand new Subscription or a SQL Database Server hasn’t been creat
 >	![Progress icon displays when complete][ProgressComplete]
 
 
->	Click the progress icon and then click **Details** to see the server name and the values you entered. You can also click **SQL DATABASES** in the left navigation pane to see your new database.
+>	Click the progress icon and then click **Details** to see the server name and the values you entered.
+
+>6. In the left navigation pane, click **SQL DATABASES** to see your new database. Click the **Servers** tab, click the new server, and click the **Configure** tab. Confirm **Windows Azure Services** is marked with **YES**. If set to **NO**, click **YES**, and then click **Save**. 
 
 When complete, there is a new Windows Azure SQL Database that you can log into and create tables, views, and stored procedures. 
 
