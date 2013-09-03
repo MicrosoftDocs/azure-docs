@@ -15,9 +15,44 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-scheduler-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">5:22</span></div>
 </div>
 
-This tutorial walks you through the basic steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table. You can watch a video version of this tutorial by clicking the clip to the right.
+This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
 
-<a name="create-table"></a><h2><span class="short-header">Create new table</span>Create the new Updates table</h2>
++ [Register for Twitter access]
++ [Create the new Tweets table]
++ [Create a new scheduled job]
+
+You can watch a video version of this tutorial by clicking the clip to the right.
+
+<h2><a name="get-oauth-credentials"></a><span class="short-header">Get Twitter Access </span>Register for access to Twitter v1.1 APIs</h2>
+
+The new Twitter v1.1 APIs requires you to authenicate before accessing resources. First, we need to get the credentials needed to request access by using OAuth 2.0.
+
+1. If you haven't already done so, complete the steps in the topic <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Register your apps for Twitter login with Mobile Services</a>. 
+  
+  Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. You can get these credentials from the Twitter Developers web site. 
+
+2. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a> web site, sign-in with your Twitter account credentials, navigate to **My Applications**, and select your Twitter app.
+
+    ![0][]
+
+3. In the **Details** tab for the app, make a note of the following values:
+
+	+ **Consumer key**
+	+ **Consumer secret**
+	+ **Access token**
+	+ **Access token secret**
+
+	![1][]
+
+	You will supply these values in the request to access Twitter v1.1 APIs.
+
+    <div class="dev-callout"><b>Security Note</b>
+	<p>These are important security credentials. Do not share these with anyone or distribute them with your app.</p>
+    </div>
+
+<h2><a name="create-table"></a><span class="short-header">Create new table</span>Create the new Updates table</h2>
+
+Next, you need to create a new table in which to store tweets.
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
@@ -33,16 +68,16 @@ This tutorial walks you through the basic steps of how to use the job scheduler 
 
   This creates a new storage table **Updates**. 
 
-Now that you have somewhere to store Twitter data, you can create the scheduled job.
+<h2><a name="add-job"></a><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
 
-<a name="add-job"></a><h2><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
+Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
 2. Click the **Scheduler** tab, then click **+Create**. 
 
    ![][4]
 
     <div class="dev-callout"><b>Note</b>
-    <p>When you run your mobile service in <i>free</i> mode, you are only able to run one scheduled job at a time. In <i>reserved</i> mode, you can run up to ten scheduled jobs at a time.</p>
+    <p>When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.</p>
     </div>
 
 3. In the scheduler dialog, enter <i>getUpdates</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
@@ -57,26 +92,42 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
 
 5. Replace the placeholder function **getUpdates** with the following code:
 
-        var updatesTable = tables.getTable('Updates');
+		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
-		 
+		var twitterUrl = "https://api.twitter.com/1.1/search/tweets.json?q=%23mobileservices&result_type=recent";
+
+		// Set your Twitter v1.1 access credentials
+		var consumerKey = '<CONSUMER_KEY>',
+			consumerSecret = '<CONSUMER_SECRET>',
+			accessToken= '<ACCESS_TOKEN>',
+			accessTokenSecret = '<ACCESS_TOKEN_SECRET>';
+
 		function getUpdates() {   
 			// Check what is the last tweet we stored when the job last ran
 			// and ask Twitter to only give us more recent tweets
 			appendLastTweetId(
-				'http://search.twitter.com/search.json?q=%23mobileservices&result_type=recent', 
-				function twitterUrlReady(url){
-					request(url, function tweetsLoaded (error, response, body) {
+				twitterUrl, 
+				function twitterUrlReady(url){            
+					// Create a new request with OAuth credentials.
+					request.get({
+						url: url,                
+						oauth: {
+							consumer_key: consumerKey,
+							consumer_secret: consumerSecret,
+							token: accessToken,
+							token_secret: accessTokenSecret
+						}},
+						function (error, response, body) {
 						if (!error && response.statusCode == 200) {
-							var results = JSON.parse(body).results;
+							var results = JSON.parse(body).statuses;
 							if(results){
-								console.log('Fetched new results from Twitter');
-								results.forEach(function visitResult(tweet){
+								console.log('Fetched ' + results.length + ' new results from Twitter');                       
+								results.forEach(function (tweet){
 									if(!filterOutTweet(tweet)){
 										var update = {
 											twitterId: tweet.id,
 											text: tweet.text,
-											author: tweet.from_user,
+											author: tweet.user.screen_name,
 											date: tweet.created_at
 										};
 										updatesTable.insert(update);
@@ -87,10 +138,9 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
 							console.error('Could not contact Twitter');
 						}
 					});
-					 
+
 				});
 		 }
-		 
 		// Find the largest (most recent) tweet ID we have already stored
 		// (if we have stored any) and ask Twitter to only return more
 		// recent ones
@@ -100,18 +150,31 @@ Now that you have somewhere to store Twitter data, you can create the scheduled 
 			.read({success: function readUpdates(updates){
 				if(updates.length){
 					callback(url + '&since_id=' + (updates[0].twitterId + 1));
+					console.log(url + '&since_id=' + (updates[0].twitterId + 1));
 				} else {
 					callback(url);
 				}
 			}});
 		}
- 
+
 		function filterOutTweet(tweet){
 			// Remove retweets and replies
 			return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
 		}
 
+
    This script calls the Twitter query API to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
+
+    <div class="dev-callout"><b>Note</b>
+    <p>This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see <a href="/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">How to: Perform bulk inserts</a>.</p>
+    </div>
+
+6. In the above code, replace the following placeholders with the values that you obtained from the Twitter site:
+
+	+ *&lt;CONSUMER_KEY&gt;*
+	+ *&lt;CONSUMER_SECRET&gt;*
+	+ *&lt;ACCESS_TOKEN&gt;*
+	+ *&lt;ACCESS_TOKEN_SECRET&gt;*
 
 6. Click **Run Once** to test the script. 
 
@@ -137,12 +200,14 @@ Congratulations, you have successfully created a new scheduled job in your mobil
   <br/>Learn more about registering and using server scripts.
 
 <!-- Anchors. -->
+[Register for Twitter access]: #get-oauth-credentials
 [Create the new Tweets table]: #create-table
 [Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-selection.png
+[0]: ../Media/mobile-twitter-my-apps.png
+[1]: ../Media/mobile-twitter-app-secrets.png
 [2]: ../Media/mobile-data-tab-empty-cli.png
 [3]: ../Media/mobile-create-updates-table.png
 [4]: ../Media/mobile-schedule-new-job-cli.png
@@ -156,3 +221,5 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: ../HowTo/mobile-services-register-twitter-auth.md
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300

@@ -1,9 +1,10 @@
-# How to use Windows Azure PowerShell
+<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Prepare a distribution" pageTitle="use Windows Azure PowerShell to create and manage a service" metaCanonical="" disqusComments="1" umbracoNaviHide="1"  writer="mollybos" editor="mollybos" manager="jeffreyg"/>
 
-This guide describes how to use Windows PowerShell cmdlets to create,
-test, deploy, and manage Windows Azure Services. The
-scenarios covered include **importing your publishing settings**,
-**creating Windows Azure services to host applications**,
+# How to use Windows Azure PowerShell to create and manage a service
+
+This guide describes how to use Windows Azure PowerShell cmdlets to create,
+test, deploy, and a manage Windows Azure service. The
+scenarios covered include **creating Windows Azure services to host applications**,
 **running a service in the Windows Azure compute emulator**, **deploying
 and updating a cloud service**, **setting deployment options for a
 service**, and **stopping, starting, and removing a service**.
@@ -18,8 +19,6 @@ service**, and **stopping, starting, and removing a service**.
 ## Table of contents
 
  * [What is Windows Azure PowerShell](#WhatIs)   
- * [Get started using Windows Azure PowerShell](#GetStarted)  
- * [How to: Import publishing settings](#ImportPubSettings)   
  * [How to: Create a Windows Azure service](#CreateService)  
  * [How to: Test a service locally in the Windows Azure Emulators](#TestLocally)   
  * [How to: Set default deployment options for a service](#DefaultDeploymentOptions)   
@@ -34,16 +33,14 @@ service**, and **stopping, starting, and removing a service**.
 
 <h2><a id="WhatIs"></a>What is Windows Azure PowerShell</h2>
 
-Windows Azure PowerShell provides a command-line environment
-for developing and deploying applications for Windows Azure through
-a few Windows PowerShell cmdlets.
+Windows Azure PowerShell provides a set of command-line tools for using Windows PowerShell
+to develop and deploy applications for Windows Azure.
 
-The following tasks are supported:
+Tasks you can accomplish using the cmdlets include:
 
--   Import publishing settings to enable you to deploy services in
-    Windows Azure.
 -   Generate configuration files and a sample application for a
-    cloud service. Create a Windows Azure service that contains web
+    cloud service. 
+- Create a Windows Azure service that contains web
     roles and worker roles.
 -   Test your service locally using the Windows Azure compute emulator.
 -   Deploy your service to the Windows Azure staging or production
@@ -52,169 +49,7 @@ The following tasks are supported:
 -   Enable and disable remote access to service role instances.
 -   Start, stop, and remove services.
 
-<h2> <a id="GetStarted"></a>Get started using Windows Azure PowerShell</h2>
-
-The recommended way to install the Windows Azure PowerShell cmdlets is via the [Microsoft Web Platform Installer][wpi-installer]. After installing and launching the Web Platform Installer, select **Windows Azure PowerShell** and follow the prompts to install the cmdlets. The Web Platform Installer will install all dependencies for the Windows Azure PowerShell cmdlets.
-
-### Getting started with Windows PowerShell
-
-If you have not used Windows PowerShell before, the following resources
-can help you get started:
-
--   For basic instructions, see [Using Windows PowerShell][] in the
-    [Windows PowerShell Getting Started Guide][].
-
--   While you are working in Windows PowerShell, your best source of
-    help is the **Help** cmdlet. The following table summarizes some
-    common help requests. For more information, see [Getting Help:
-    Help][get-help], or, in Windows PowerShell, type: **help**.
-
-    <table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Cmdlet Format</b></td>
-		<td><b>Information Returned</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>help</td>
-		<td>Displays a help topic about using the <b>help</b> cmdlet</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>help azure</td>
-		<td>Lists all cmdlets in the Windows Azure PowerShell snap-in</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>help node-dev</td>
-		<td>Lists cmdlets for developing and managing Node.js applications</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>help php-dev</td>
-		<td>Lists cmdlets for developing and managing PHP applications</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>help &lt;<b>cmdlet</b>&gt;</td>
-		<td>Displays help about a Windows PowerShell cmdlet</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>help &lt;<b>cmdlet</b>&gt; -parameter *</td>
-		<td>Displays parameter definitions for a cmdlet</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>help &lt;<b>cmdlet</b>&gt; -examples</td>
-		<td> Displays example syntax lines for a cmdlet</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>help &lt;<b>cmdlet</b>&gt; -full</td>
-		<td>Displays technical requirements for a cmdlet</td>
-    </tr>
-    </tbody>
-    </table>
-
-### Getting started with Windows Azure PowerShell
-
-The Windows Azure PowerShell cmdlets have a few special requirements that are not common
-to all Windows PowerShell components:
-
--   To deploy your applications in Windows Azure, you must have a
-    Windows Azure subscription. Before you can deploy applications
-    by using a cmdlet, you must download your subscription
-    information (by using **Get-AzurePublishSettingsFile**) and then import
-    those settings (by using **Import-AzurePublishSettingsFile**).
-
--   You must run cmdlets that act on a cloud service from within the
-    service directory.
-
-    When you create a new cloud service, a service directory is created
-    in the current directory, and the focus of the Windows PowerShell
-    command prompt moves to the service directory. From the service
-    directory, you can add web roles and worker roles to the service.
-    All other cmdlets for the service can be run from any child
-    directory of the service directory.
-
--   After you create and configure a new cloud service, or after you
-    run any cmdlet that updates the configuration of a deployed service,
-    you must run the **Publish-AzureServiceProject** cmdlet to publish the
-    updates to the cloud service deployment. For example, after you run
-    **Set-AzureServiceProjectRole** with the **-Instances** parameter to add additional web role instances
- to a service configuration, run **Publish-AzureServiceProject** to scale out the cloud service.
-
-    If you are running the deployment locally in the Windows Azure
-    compute emulator, you must run **Start-AzureEmulator** again after
-    you update the service definition file (.csdef) or the service
-    configuration file (.cscfg). However, the compute emulator renders
-    updates to the server.js (for Node.js applications) and web.config files instantly.
-
--   Although Windows Azure PowerShell cmdlets and parameters are not
-    case-sensitive, the following values that are entered for
-    cmdlets are case-sensitive: service names, subscription names,
-    storage account names, and deployment locations.
-
-### To open Windows Azure PowerShell
-
-On the **Start** menu, click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
-
-### Example syntax lines
-
-In the example syntax lines in this guide, all services are
-created from a C:\\app folder. A C:\\app folder is not required; you
-can create your Windows Azure services from any location. Most example
-syntax lines use a service named MyService, and cmdlets performed on the
-service are entered at the following command prompt:
-
-    C:\app\MyService>
-
-<h2><a id="ImportPubSettings"></a>How to: Import publishing settings</h2>
-
-To deploy your applications in Windows Azure, you must have a
-Windows Azure subscription. If you do not have a Windows Azure
-subscription, see [purchase options][] for Windows Azure for
-information.
-
-Before you can deploy applications by using a PowerShell cmdlet, you
-must download your subscription information (by using
-**Get-AzurePublishSettingsFile**) and then import those settings (by using
-**Import-AzurePublishSettingsFile**).
-
-The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the
-[Windows Azure Management Portal] from which you can
-download the publishing profile. You will need to login to the
-portal using the credentials for your Windows Azure account.
-
-When you download the publishing profile, note the path and the name of
-your settings file. You must provide this information when you use
-**Import-AzurePublishSettingsFile** to import the settings. The default
-location and file name format is:
-
-C:\\Users\&lt;MyAccount&gt;\\Downloads\\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
-
-The following example shows how to download publishing settings for your
-Windows Azure account.
-
-    Get-AzurePublishSettingsFile
-
-In the following example, publishing settings that were downloaded to
-the default path on 11-11-2011 are imported. In this case, the user is a
-co-administrator for the Project1 subscription in addition to his own
-subscription.
-
-    Import-AzurePublishSettingsFile C:\Users\MyAccount\Downloads\MySubscription-Project1-11-11-2011-credentials.publishsettings
-
-If, after you import your publish settings, you are added to other
-subscriptions as a co-administrator, you will need to repeat this
-process to download a new .publishsettings file, and then import those
-settings. For information about adding co-administrators to help manage
-services for a subscription, see [How to Add and Remove
-Co-Administrators for Your Windows Azure Subscription][add-remove-coadmins].
-
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>You should delete the publishing profile that you
-downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
-settings. The downloaded profile contains a management certificate that
-should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://manage.windowsazure.com/">Windows Azure Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
-</div>
-
+For installation instructions, see [Install and configure Windows Azure PowerShell][].
 
 <h2><a id="CreateService"></a>How to: Create a Windows Azure service</h2>
 
@@ -808,7 +643,6 @@ The command above will require confirmation that you want to delete the specifie
 
   [What is Windows Azure PowerShell for Node.js]: #_What_Is_Windows
   [Get Started Using Windows Azure PowerShell for Node.js]: #_Get_Started_Using
-  [How to: Import Publishing Settings]: #_How_to_Import
   [How to: Create a Windows Azure Service]: #_How_to_Create
   [How to: Test a Service Locally in the Windows Azure Emulators]: #_How_to_Test
   [How to: Set Default Deployment Options for a Service]: #_How_to_Set
@@ -818,6 +652,7 @@ The command above will require confirmation that you want to delete the specifie
   [How to: Scale Out a Service]: #_How_to:_Scale
   [How to: Stop, Start, and Remove a Service]: #_How_to:_Stop,
   [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=253185
+  [Install and configure Windows Azure PowerShell]: http://go.microsoft.com/fwlink/p/?LinkId=320552
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
   [Using Windows PowerShell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
   [Windows PowerShell Getting Started Guide]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx

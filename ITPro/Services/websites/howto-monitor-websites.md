@@ -93,9 +93,11 @@ Windows Azure takes the following actions if a subscription's resource usage quo
 
 ##<a name="howtoconfigdiagnostics"></a>How to: Configure diagnostics and download logs for a web site
 
-Diagnostics are enabled on the **Configure** management page for the web site. There are two types of diagnostics, **application diagnostics** and **site diagnostics**.
+Diagnostics are enabled on the **Configure** management page for the web site. There are two types of diagnostics: **application diagnostics** and **site diagnostics**.
 
-The **application diagnostics** section of the **Configure** management page controls the logging of information produced by the application, which is useful when logging events that occur within an application. For example, when an error occurs in your application you may wish to present the user with a friendly error while writing more detailed error information to the log for later analysis.
+####Application Diagnostics####
+
+The **application diagnostics** section of the **Configure** management page controls the logging of information produced by the application, which is useful when logging events that occur within an application. For example, when an error occurs in your application, you may wish to present the user with a friendly error while writing more detailed error information to the log for later analysis.
 
 You can enable or disable the following application diagnostics:
 
@@ -103,9 +105,9 @@ You can enable or disable the following application diagnostics:
 
 	Logs produced by this setting are stored on the file system of your web site, and can be downloaded using the steps in the **Downloading log files for a web site** section below.
 
-- **Application Logging (storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However the log information is stored in the Windows Azure Storage Account specified in the **Diagnostics Storage** setting.
+- **Application Logging (storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account. To specify a Windows Azure Storage Account, choose **On**, and then choose **manage connection** next to **Diagnostics Storage**. Specify a storage account name and storage access key. You can choose **Synchronize Primary Key** or **Synchronize Secondary Key** to retrieve the most recent primary or secondary key from your Windows Azure Storage account. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/").
 
-	The log information will be stored in a table named **WAWSAppLogTable** in the specified Windows Azure Storage Account, and can be accessed using a Windows Azure Storage client.
+	The log information will be stored in a table named **WAWSAppLogTable** in the Windows Azure Storage Account that you specify, and can be accessed using a Windows Azure Storage client.
 
 Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Windows Azure Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
@@ -126,13 +128,22 @@ Since application logging to storage requires using a storage client to view the
 </ul>
 </div>
 
+####Site Diagnostics####
+
 The **site diagnostics** section of the **Configure** management page controls the logging performed by the web server, such as the logging of web requests, failure to serve pages, or how long it took to serve a page. You can enable or disable the following options:
 
-- **Detailed Error Logging** – Turn on detailed error logging to log additional information about HTTP errors (status codes greater than 400).
+- **Web Server Logging** – Turn on Web Server logging to save web site logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web site, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client. You can save the logs to a Windows Azure Storage Account or to the File System.
+
+ To save web server logs to a Windows Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and a Windows Azure Blob Container where the logs will be kept. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/").
+
+   To save web server logs to the file system, choose **File System**. This enables the **Quota** box where you can set the maximum amount of disk space for the log files. The minimum size is 25MB and the maximum is 100MB. The default size is 35MB.
+
+ By default, web server logs are never deleted. To specify a period of time after which the logs will be automatically deleted, select **Set Retention** and enter the number of days to keep the logs in the **Retention Period** box. This setting is available for both the Windows Azure Storage and File System options.
+
+- **Detailed Error Messages** – Turn on detailed error logging to log additional information about HTTP errors (status codes greater than 400).
 
 - **Failed Request Tracing** – Turn on failed request tracing to capture information for failed client requests, such as a 400 series HTTP status code.  Failed request tracing produces an XML document that contains a trace of which modules the request passed through in IIS, details returned by the module, and the time the module was invoked. This information can be used to isolate which component the failure occurred in.
 
-- **Web Server Logging** – Turn on Web Server logging to save web site logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web site, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client.
 
 After enabling diagnostics for a web site, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
 

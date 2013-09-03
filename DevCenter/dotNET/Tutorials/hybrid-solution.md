@@ -91,7 +91,7 @@ to get the tools and set-up your development environment.
 
     ![][2]
 
-5.  In the Web Platform Installer, click **Add** and proceed with the installation:
+5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
     ![][3]
 
@@ -99,7 +99,7 @@ to get the tools and set-up your development environment.
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
-    Visual Web Developer Express.
+    Visual Studio Express for Web.
 
 <h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
 
@@ -180,10 +180,9 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 ### CREATE THE PROJECT
 
 1.  Using administrator privileges, launch either Microsoft Visual
-    Studio 2012 or Microsoft Visual Web Developer Express. To
+    Studio 2012 or Microsoft Visual Studio Express for Web. To
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2012 (or Microsoft Visual Web Developer
-    Express)** and then click **Run as administrator**.
+    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express for Web)** and then click **Run as administrator**.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 
@@ -362,8 +361,7 @@ display data retrieved from your product service.
 
 1.  Ensure that Microsoft Visual Studio 2012 is runnning with administrator privileges. If not, to
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2012 (or Microsoft Visual Web Developer
-    Express)** and then click Run as administrator. The Windows
+    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express for Web)** and then click Run as administrator. The Windows
     Azure compute emulator, discussed later in this guide, requires that
     Visual Studio be launched with administrator privileges.
 
@@ -737,12 +735,22 @@ Run the application to verify that it works.
 
         ![][43]
 
+<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>  
+
+To learn more about Service Bus, see the following resources:  
+  
+* [Windows Azure Service Bus][sbmsdn]  
+* [Service Bus How To's][sbwacom]  
+* [How to Use Service Bus Queues][sbwacomqhowto]  
+
+To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
+
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ../../../DevCenter/dotNet/Media/getting-started-3.png
-  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-WebPI2.png
+  [3]: ../../../DevCenter/dotNet/Media/getting-started-4-2-WebPI.png
   [http://www.windowsazure.com]: http://www.windowsazure.com
   [4]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-32.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
@@ -786,3 +794,8 @@ Run the application to verify that it works.
   [41]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-40.png
   [42]: ../Media/getting-started-41.png
   [43]: ../../../DevCenter/dotNet/Media/getting-started-hybrid-43.png
+
+  [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
+  [sbwacom]: /en-us/manage/services/service-bus/  
+  [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [executionmodels]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
