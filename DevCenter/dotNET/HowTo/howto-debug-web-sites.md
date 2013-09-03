@@ -32,6 +32,8 @@ Application diagnostics logs information produced by the web application. ASP.NE
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
+For information on Application Diagnostics, see [Troubleshooting Windows Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+
 Windows Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging.
 
 <a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
