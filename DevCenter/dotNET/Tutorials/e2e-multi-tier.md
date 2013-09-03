@@ -113,7 +113,7 @@ to get the tools and set-up your development environment.
 
 5.  In the Web Platform Installer, click **Install** and proceed with the installation:
 
-    ![][4]
+    ![][33]
 
 6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
@@ -527,11 +527,11 @@ The code in the following section uses these configuration management APIs.
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
 
-1. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Windows Azure Service Bus** node appears within the Server Explorer hierarchy, as in the following figure.
+1. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Windows Azure** within the Server Explorer hierarchy, as in the following figure.
 
 	![][21]
 
-2. In Server Explorer, right-click **Windows Azure Service Bus**, then click **Add New Connection**.
+2. In Server Explorer, expand **Windows Azure**, then right-click **Service Bus**, then click **Add New Connection**.
 
 3. In the **Add Connection** dialog, type the name of the service namespace, the issuer name, and the issuer key. Then click **OK** to connect.
 
@@ -658,6 +658,7 @@ To learn how to deploy the front end to a Windows Azure Web Site, see [Deploying
   [30]: ../Media/sb-queues-09.png
   [31]: ../Media/sb-queues-06.png
   [32]: ../Media/getting-started-41.png
+  [33]: ../Media/getting-started-4-2-WebPI.png
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  

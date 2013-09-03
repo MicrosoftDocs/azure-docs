@@ -299,100 +299,25 @@ The next example writes auditing information to an **audit** table:
 
 <h2><a name="joins"></a><span class="short-header">Joins</span>How to: Join relational tables</h2>
 
-You can join two tables by using the **query** method of the [mssql object] to pass in the TSQL code that implements the join.
+You can join two tables by using the **query** method of the [mssql object] to pass in the TSQL code that implements the join. Let's assume we have some items in our **ToDoItem** table and each item in the table has a **priority** property, which corresponds to a column in the table. An item may look like this:
 
-We recommend that you complete the [Getting Started with Data] tutorial before you proceed so that you will have the mobile service and **ToDoItem** table that this section relies on. Here we will add a **Priority** table to the service, and add a priority number to the **ToDoItem** table. We will then join the tables to generate a list of work items that each have a priority description.
+		{ text: 'Take out the trash', complete: false, priority: 1}
 
-The join is implementeded by using a server script, which populates the **Priority** table with  rows that contain a priority number and a text description. For example, the priority number 0 might have the description of "critical, must do now!". Next the script adds rows to the **ToDoItem** table that contain a text field and a priority number. Because *dynamic schema* is enabled, the new priority number field is added to the existing schema (We recomend that you turn off *dynamic schema* when your service is in working mode, but it is handy during development, as shown in this sample.) Last, the rows in the two tables are joined, based on the priority number as the join column. 
+Let's also assume we have an additional table called **Priority** with rows that contain a priority **number** and a text **description**. For example, the priority number 1 might have the description of "Critical", with the object looking as follows:
 
-To create the **Priority** table, in your mobile service, on the Data tab, choose **New**. Enter a table name of "Priority" and then choose the check mark.
+		{ number: 1, description: 'Critical'}
 
-![3][]
+We may now choose to replace the **priority** number in our item with the text description of what the priority means. This is where we can issue a TSQL JOIN
 
-Next, to insert some items into the table, first create an on-demand scheduled job named **JoinTables**  (For details, see [How to: Define scheduled job scripts]).
-
-On the **SCRIPT** tab, use the following code to replace the function body:
-
-    	function priorities(){
-			var priorityTable = tables.getTable('Priority');
-		    //Write to my service log 
-		    console.info("Running 'insertpriorities' job."); 
-			var item = { number: 0, description: "critical and urgent" };
-			priorityTable.insert(item);
-			item.number = 1;
-			item.description = "critical";
-			priorityTable.insert(item);
-			item.number = 2;
-			item.description = "urgent";
-			priorityTable.insert(item);
-			item.number = 3;
-			item.description = "take your time";
-			priorityTable.insert(item);
-		}
-		
-Immediately following the previous block, add this code:
-
-    	function toDoItem(){
-			var ToDoItemTable = tables.getTable('ToDoItem');
-		    //Write to my service log 
-		    console.info("Running 'InsertWorkItems' job."); 
-			var item = { priority: 0, text: "fix this bug now" };
-			ToDoItemTable.insert(item);
-			item.priority = 1;
-			item.text = "we need to fix this one real soon now";
-			ToDoItemTable.insert(item);
-			item.priority = 2;
-			item.text = "this is important but not so much";
-			ToDoItemTable.insert(item);
-			item.priority = 3;
-			item.text = "good idea for the future";
-			ToDoItemTable.insert(item);
-		}
-
-Next add this function to do the actual join:
-
-	    function join(){
-		    //Write to my service log 
-		    console.info("Running 'Join' job."); 
-			mssql.query('SELECT t.text, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
-	            success: function(results) {
-	                console.log(results);
-	            }
-	        });
-		}
+		mssql.query('SELECT t.text, t.complete, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
+			success: function(results) {
+				console.log(results);
+			}
+		});
 	
-Now, at the very beginning, add the following code so that the appropriate function is executed:
+The script joins the two tables and writes the results to the log. The resulting objects could look like this:
 
-			var command = "priorities";
-		    if (command == "priorities"){    
-		        priorities();
-		    }
-		    else
-		    if (command == "toDoItem"){ 
-		        toDoItem();   
-		    }  
-		    else
-		    if (command == "Join"){    
-		        join();
-		    } 
-		
-Save the script.
-
-<div class="dev-callout"><strong>Note</strong>
-<p>
-Because certain Windows Azure subscriptions allow only one scheduler script, in this example, we combined what could be three separate scripts into one.
-</p>
-</div>
-
-
-
-To run the script, choose the "Run Once" button at the bottom of the page. The script inserts four rows into the **Priorities** table. You can verify by viewing  the **DATA** tab on the Dashboard screen.
-
-Next, change the value of the **command** variable at the top of the script to  *toDoItem* and run the script again. This time the script inserts four rows in the **ToDoItem** table.
-
-Last, change the value of the **command** variable to *Join* and run the script again. The script joins the two tables and writes the results to the log, which you can inspect by going back to your mobile services screen, and choosing **LOGS**. The line at the top represents the last execution of the script; you can highlight it and choose **DETAILS** in the page footer to examine the results of the join.	
-
-In a production scenario, you could put the logic in the **join** function into a *Read* script for the **ToDoItem** table.
+		{ text: 'Take out the trash', complete: false, description: 'Critical'}
 
 <h2><a name="bulk-inserts"></a><span class="short-header">Bulk inserts</span>How to: Perform Bulk Inserts</h2>
 
@@ -400,7 +325,7 @@ If you use a tight **for** or **while** loop to insert a large number of items (
 
 By using the following script, you can set the size of a batch of records to insert in parallel. We recomend that you keep the number of records small. The function **insertItems** calls itself recursively when an async insert batch has completed. The for loop at the end inserts one record at a time, and calls **insertComplete** on success and **errorHandler** on error. **insertComplete**  controls whether **insertItems** will be called recursively for the next batch, or whether the job is done and the script should exit.
 
-		var todoTable = tables.getTable('TodoItem'); 
+		var todoTable = tables.getTable('TodoItem');
 		var recordsToInsert = 1000;
 		var batchSize = 10; 
 		var totalCount = 0;
@@ -586,7 +511,6 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 <!-- Images. -->
 [1]: ../Media/mobile-insert-script-users.png
 [2]: ../Media/mobile-schedule-job-script.png
-[3]: ../Media/mobile-create-priority-table.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
@@ -618,7 +542,6 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 
 [Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commands to manage Windows Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
-[Getting Started with Data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Windows Store Push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone Push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
