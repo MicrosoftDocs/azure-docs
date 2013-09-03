@@ -60,9 +60,9 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 	<ul>
 	<li style="margin-left: 60px"><strong>Web Server Logging</strong> – Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
 	<ul>
-		<li>To save web server logs to a Windows Azure Storage Account, choose <b>Storage</b>, and then choose <b>manage storage</b> to specify a storage account and a Windows Azure Blob Container where the logs will be kept.</li>
-		<li>If you choose <b>File System</b>, the logs are saved to the FTP site listed under <b>FTP Diagnostic Logs</b> on the Dashboard management page. Enabling File System storage also enables the <b>Quota</b> box where you can set the maximum amount of disk space for the log files. The minimum is 25MB and the maximum is 100MB. The default is 35MB.</li>
-		<li>By default, web server logs are never deleted. To specify a period of time after which the logs will be automatically deleted, select <b>Set Retention</b> and enter the number of days to keep the logs in the <b>Retention Period</b> box. The <b>Set Retention</b> setting is available for both the Windows Azure Storage and File System options.</li></ul>
+		<li>To save web server logs to a Windows Azure Storage Account, choose <strong>Storage</strong>, and then choose <strong>manage storage</strong> to specify a storage account and a Windows Azure Blob Container where the logs will be kept.</li>
+		<li>If you choose <strong>File System</strong>, the logs are saved to the FTP site listed under <strong>FTP Diagnostic Logs</strong> on the Dashboard management page. Enabling File System storage also enables the <strong>Quota</strong> box where you can set the maximum amount of disk space for the log files. The minimum is 25MB and the maximum is 100MB. The default is 35MB.</li>
+		<li>By default, web server logs are never deleted. To specify a period of time after which the logs will be automatically deleted, select <strong>Set Retention</strong> and enter the number of days to keep the logs in the <strong>Retention Period</strong> box. The <strong>Set Retention</strong> setting is available for both the Windows Azure Storage and File System options.</li></ul>
 </li>
 
 	<li style="margin-left: 60px"><strong>Detailed Error Messages</strong> – Specify whether to log detailed error messages for the web site. 
