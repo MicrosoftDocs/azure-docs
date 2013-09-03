@@ -243,9 +243,9 @@ To learn how to expand the breaking news app by sending localized notifications,
 [19]: notification-hub-windows-reg.png
 
 <!-- URLs.-->
-[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-dotnet.md
-[Use Notification Hubs to broadcast localized Breaking News]: breakingnews-localized-dotnet.md 
-[Notify users with Notification Hubs]: tutorial-notify-users-mobileservices.md
+[Get started with Notification Hubs]: ./getting-started-windowsdotnet.md
+[Use Notification Hubs to broadcast localized Breaking News]: ./breakingnews-localized-dotnet.md 
+[Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
 
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
@@ -254,13 +254,6 @@ To learn how to expand the breaking news app by sending localized notifications,
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
-[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
-[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-push-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
