@@ -425,7 +425,7 @@ follow these links to learn how to do more complex caching tasks.
   [Windows Azure Management Portal]: http://windows.azure.com/
   [NewCacheMenu]: ../../Media/CacheServiceNewCacheMenu.png
   [QuickCreate]: ../../Media/CacheServiceQuickCreate.png
-  [Endpoint]: ../../Media/CacheServiceEndpoint.jpg
+  [Endpoint]: ../../Media/CacheServiceEndpoint.png
   [AccessKeys]: ../../Media/CacheServiceManageAccessKeys.png
   [NuGetPackage]: ../../Media/CacheServiceManageNuGetPackage.png
   [NuGetPackageMenu]: ../../Media/CacheServiceManageNuGetPackagesMenu.png
