@@ -3,8 +3,9 @@
 Windows Azure Blob storage is a service for storing large amounts of
 unstructured data that can be accessed from anywhere in the world via
 HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
-single storage account can contain up to 100TB of blobs. Common uses of
-Blob storage include:
+single storage account can contain up to 200TB of blobs if it was created on June 8th, 2012, or later; storage accounts created prior to that date can contain up to 100TB of blobs. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+
+Common uses of Blob storage include:
 
 -   Serving images or documents directly to a browser
 -   Storing files for distributed access

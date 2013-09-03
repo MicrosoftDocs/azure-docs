@@ -20,7 +20,7 @@ This tutorial walks you through these basic steps to add realtime collaboration 
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services][].
 
-<a name="sign-up"></a><h2>Create a new Pusher account</h2>
+<h2><a name="sign-up"></a>Create a new Pusher account</h2>
 
 <div chunk="../../../Shared/Chunks/pusher-sign-up.md"></div>
 
@@ -253,7 +253,7 @@ The library is now installed ready for use.
 
 The app is now able to receive events from Pusher, and to update the local Todo list accordingly.
 
-<a name="install-scripts"></a><h2>Install server scripts</h2>
+<h2><a name="install-scripts"></a>Install server scripts</h2>
 
 All that remains is setting up your server scripts. We'll insert a script for when an item is inserted or updated into the TodoList table.
 
@@ -344,7 +344,7 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 10. Click the **Save** button. You have now configured a script to publish an event to Pusher every time a new item is updated.
 
-<a name="test-app"></a><h2>Test your app</h2>
+<h2><a name="test-app"></a>Test your app</h2>
 
 To test the app you'll need to run two instances. You can run one instance on an iOS device and another in the iOS simulator.
 
@@ -390,7 +390,7 @@ To learn more about registering and using server scripts, see [Mobile Services s
 [add-linker-flag]: ../Media/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Push Notifications to Users]: /en-us/develop/mobile/tutorials/build-realtime-apps-with-pusher-ios/
+[Push Notifications to Users]: ./mobile-services-push-notifications-to-app-users-ios.md
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
