@@ -96,7 +96,7 @@ Next, you will update the app to authenticate users before requesting resources 
         }
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <i>microsoftaccount</i>, <i>facebook</i>, <i>twitter</i>, or <i>google</i>.</p>
+	<p>If you are using an identity provider other than Facebook, change the value passed to <strong>loginWithProvider</strong> above to one of the following: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, or <em>google</em>.</p>
     </div>
 		
 3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.

@@ -374,6 +374,8 @@ One advantage of sending application tracing logs to storage is that you get som
 8. Click **View all application logs**.
 
    The trace log table appears in the Windows Azure storage table viewer.
+   
+   (If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Windows Azure** node, and then right-click **Tables** and click **Refresh**.)
 
   ![Trace table in Server Explorer](../Media/tws-tracetableinse.png)
 
@@ -475,15 +477,15 @@ There are no thorough and up-to-date introductions to ASP.NET tracing available 
 * [Tracing in ASP.NET MVC Razor Views](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](http://msdn.microsoft.com/en-us/library/bb397417.aspx) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
 
-		try
-		{
-		    // Your code that might cause an exception to be thrown.
-		}
-		catch (Exception ex)
-		{
-		    Trace.TraceError("Exception: " + ex.ToString());
-		    throw;
-		} 
+        try
+        {
+           // Your code that might cause an exception to be thrown.
+        }
+        catch (Exception ex)
+        {
+            Trace.TraceError("Exception: " + ex.ToString());
+            throw;
+        } 
 
 * [Scott Guthrie: Building Real World Cloud Apps with Windows Azure - Part 2](http://vimeo.com/68215602)<br/>
   See 47:00-55:36 in this video for up-to-date recommendations for tracing in Windows Azure cloud applications.
