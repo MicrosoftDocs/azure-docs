@@ -19,7 +19,7 @@ You'll learn:
 
 The following illustration shows the completed application:
 
-![Web site home page](../Media/GS13HomePage.png)
+![Web site home page](../Media/GS13homepage.png)
 
 <div class="dev-callout"><p><strong>Note</strong> To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">Windows Azure Free Trial</a>.</p></div>
  
@@ -38,15 +38,15 @@ To start, set up your development environment by installing the Windows Azure SD
 1. To install the Windows Azure SDK for .NET, click the following link and choose the Visual Studio 2013 SDK.<br/>
 [Windows Azure SDK](http://go.microsoft.com/fwlink/?LinkId=287054)
 
-   ![.NET SDK download page](../media/GS13SDK.png)
+   ![.NET SDK download page](../Media/GS13SDK.png)
 
 2. When you're prompted to run or save the installation executable, click **Run**.
 
-   ![Download prompt](../media/gs13downloadsdk.png)
+   ![Download prompt](../Media/GS13downloadsdk.png)
 
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
 
-   ![Web Platform Installer - Windows Azure SDK for .NET](../media/GS13WebPI.png)
+   ![Web Platform Installer - Windows Azure SDK for .NET](../Media/GS13webpi.png)
 
 When the installation is complete, you have everything necessary to start developing.
 
@@ -60,15 +60,15 @@ The next step is to create the Windows Azure web site in Windows Azure. You'll e
 
 2. In **Server Explorer**, right-click **Windows Azure**, and then click **Import subscriptions**.
 
-  ![Click Import subscriptions](../media/GS13ImportSubscriptions.png)
+  ![Click Import subscriptions](../Media/GS13ImportSubscriptions.png)
 
 2. Sign in to Windows Azure.
 
-   ![Sign in](../media/GS13SignIn.png)
+   ![Sign in](../Media/GS13SignIn.png)
 
 3. In **Server Explorer**, expand the **Windows Azure** node, right-click **Web Sites**, and click **Add New Site**.
 
-   ![Add New Site](../media/GS13AddNewSite.png)
+   ![Add New Site](../Media/GS13AddNewSite.png)
 
 3. In the **Create a site on Windows Azure** dialog box, enter a string in the **Site name** box to use as the unique URL for your application.
 
@@ -84,11 +84,11 @@ The next step is to create the Windows Azure web site in Windows Azure. You'll e
 
 6. Click the **Create Web Site** arrow.<br/>
 
-   ![Create a new web site](../media/GS13CreateSite.png)
+   ![Create a new web site](../Media/GS13createsite.png)
 
    In a few seconds the web site is created and appears under the Web Sites node in Server Explorer.
 
-   ![Web site created](../media/GS13sitecreated.png)
+   ![Web site created](../Media/GS13sitecreated.png)
 
 <h2><a name="createapp"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 5 application</h2>
 
@@ -98,7 +98,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 2. From the **File** menu, click **New Project**.
 
-   ![New Project in File menu](../media/gs13newproj.png)
+   ![New Project in File menu](../Media/gs13newproj.png)
 
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET Web Application**.
 
@@ -106,17 +106,17 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 4. Name the application **MyExample** and click **OK**.
 
-   ![New Project dialog box](../media/gs13newprojdb.png)
+   ![New Project dialog box](../Media/GS13newprojdb.png)
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template and click **Create Project**.
 
-   ![New ASP.NET Project dialog box](../media/gs13newaspnetprojdb.png)
+   ![New ASP.NET Project dialog box](../Media/GS13newaspnetprojdb.png)
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.<br/>
-![Web site running locally](../media/gs13homepage.png)
+![Web site running locally](../Media/GS13homepage.png)
 
 This is all you need to do to create a simple application that you'll deploy to Windows Azure.
 
@@ -124,7 +124,7 @@ This is all you need to do to create a simple application that you'll deploy to 
 
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
-   ![Publish in project context menu](../media/gs13publish.png)
+   ![Publish in project context menu](../Media/GS13publish.png)
 
    The **Publish Web** wizard opens.
 
@@ -162,7 +162,7 @@ This is all you need to do to create a simple application that you'll deploy to 
 
    The tab displays a list of the files that will be copied to the server. 
 
-   ![StartPreview file output](../Media/gs13previewoutput.png)
+   ![StartPreview file output](../Media/GS13previewoutput.png)
 
    Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.
 
@@ -178,7 +178,7 @@ This is all you need to do to create a simple application that you'll deploy to 
 
    The application you created is now running in the cloud.
 
-   ![Web site running in Windows Azure](../media/gs13deployedsite.png)
+   ![Web site running in Windows Azure](../Media/GS13deployedsite.png)
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
