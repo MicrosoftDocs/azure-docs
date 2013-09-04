@@ -56,7 +56,7 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
-3. From the command line, change to the directory where you will store your scripts. For example, `cd scriptsources`.
+3. From the command line, change to the directory where you will store your scripts. For example, `cd SourceControl`.
 
 4. Use the following command to create a local copy of your new Git repository, replacing `<your_git_URL>` with the URL of the Git repository for your mobile service:
 
@@ -73,7 +73,11 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 	![4][]
 
-	In this case, a new directory was created with the name of the mobile service, which is the local repository for the data service. The .\service\table subfolder contains a TodoItem.json file, which contains a JSON representation of the operation permissions on the TodoItem table. For more information, see [Source control].
+	In this case, a new directory is created with the name of the mobile service, which is the local repository for the data service. 
+
+7. Open the .\service\table subfolder and notice that it contains a TodoItem.json file, which is a JSON representation of the operation permissions on the TodoItem table. 
+
+	When server scripts have been defined on this table, you will also have one or more files named <code>TodoItem._&lt;operation&gt;_.js</code> that contain the scripts for the given table operation. Scheduler and custom API scripts are maintained in separate folders with those respective names. For more information, see [Source control].
 
 Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.
 
