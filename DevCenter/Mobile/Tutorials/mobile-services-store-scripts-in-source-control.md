@@ -51,7 +51,7 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
+	<p>On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.</p>
 	</div>
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.

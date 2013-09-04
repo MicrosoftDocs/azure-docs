@@ -186,7 +186,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
 
-<a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
+<h2><a name="configure"></a><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
 
 After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
 
@@ -220,7 +220,7 @@ After you have registered your app with APNS and configured your project, you mu
 
 Both your mobile service is now configured to work with APNS.
 
-<a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
 1. In Xcode, open the QSAppDelegate.h file and add the following property below the ***window** property:
 
