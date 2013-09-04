@@ -120,7 +120,7 @@ Now that you have created your local repository, you can make changes to server 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
 <h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use an NPM module in your server script</h2>
-<p>Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).</p>
+Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).
 
 1. Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.
 
@@ -135,7 +135,7 @@ Now that you have created your local repository, you can make changes to server 
 		    console.log(item);
 		}
 
-	This code adds a uuid column to the table, populating it with unique GUID identifiers.</li>
+	This code adds a uuid column to the table, populating it with unique GUID identifiers.
 
 3. As in the previous section, type the following command in the Git command prompt: 
 
