@@ -119,27 +119,31 @@ Now that you have created your local repository, you can make changes to server 
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
-<h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use a NPM module in your server script</h2>
+<h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use an NPM module in your server script</h2>
 <p>Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).</p>
 
-<ol>
-<li>Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.<br />
-<pre class="prettyprint">npm install node-uuid</pre></li>
-<li>Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:<br/>
-<pre class="prettyprint">function insert(item, user, request) {
-    var uuid = reuire('node-uuid');
-    item.uuid = uuid.v1();
-    request.execute();
-    console.log(item);
-}</pre>
-The code adds a uuid column to the table, populating it with unique GUID identifiers.</li>
-<li>Just like in the previous section, in the Git command prompt, type the following command to commit and push your changes to your mobile service:
-<pre class="prettyprint">$ git add .
-$ git commit –m "added node-uuid module”
-$ git push origin master
-</pre>
-This will commit and push both the added node-uuid module as well as the changes to the todoitem.insert.js script.</li>
-</ol>
+1. Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.
+
+		npm install node-uuid
+
+2. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
+
+		function insert(item, user, request) {
+		    var uuid = require('node-uuid');
+		    item.uuid = uuid.v1();
+		    request.execute();
+		    console.log(item);
+		}
+
+	This code adds a uuid column to the table, populating it with unique GUID identifiers.</li>
+
+3. As in the previous section, type the following command in the Git command prompt: 
+
+		$ git add .
+		$ git commit –m "added node-uuid module”
+		$ git push origin master
+		
+	This commits your changes and pushes both the added node-uuid module and the changes to the todoitem.insert.js script to your mobile service.
 
 ## <a name="next-steps"> </a>Next steps
 
