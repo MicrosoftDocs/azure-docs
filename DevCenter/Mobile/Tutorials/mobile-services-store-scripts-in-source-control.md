@@ -140,7 +140,7 @@ Source control support also allows you to add any Node.js module you need in the
 3. As in the previous section, type the following command in the Git command prompt: 
 
 		$ git add .
-		$ git commit –m "added node-uuid module”
+		$ git commit –m "added node-uuid module"
 		$ git push origin master
 		
 	This commits your changes and pushes both the added node-uuid module and the changes to the todoitem.insert.js script to your mobile service.
