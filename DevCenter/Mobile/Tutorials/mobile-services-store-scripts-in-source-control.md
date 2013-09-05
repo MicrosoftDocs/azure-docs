@@ -11,7 +11,7 @@ The tutorial guides you through the following steps:
 1. [Enable source control in your mobile service].
 2. [Install Git and create the local repository].
 3. [Deploy updated script files to your mobile service].
-<li><a href="#use-npm">Use a NPM module in your server script</a>.</li>
+4. [Use a NPM module in your server script].
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
@@ -26,7 +26,7 @@ To complete this tutorial, you must have already created a mobile service by com
    ![][1]
 
     <div class="dev-callout"><b>Note</b>
-	<p>Source control a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p><p>Only a subscription owner can enable source control. Co-administrators are not provided with this option in the portal.</p>
+	<p>Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p><p>Only a subscription owner can enable source control. Co-administrators are not provided with this option in the portal.</p>
     </div>
 
 3. Supply a **User name**, **New password**, confirm the password, then click the check button. 
@@ -51,12 +51,12 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
+	<p>On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.</p>
 	</div>
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
-3. From the command line, change to the directory where you will store your scripts. For example, `cd scriptsources`.
+3. From the command line, change to the directory where you will store your scripts. For example, `cd SourceControl`.
 
 4. Use the following command to create a local copy of your new Git repository, replacing `<your_git_URL>` with the URL of the Git repository for your mobile service:
 
@@ -73,7 +73,11 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 	![4][]
 
-	In this case, a new directory was created with the name of the mobile service, which is the local repository for the data service. The .\service\table subfolder contains a TodoItem.json file, which contains a JSON representation of the operation permissions on the TodoItem table. For more information, see [Source control].
+	In this case, a new directory is created with the name of the mobile service, which is the local repository for the data service. 
+
+7. Open the .\service\table subfolder and notice that it contains a TodoItem.json file, which is a JSON representation of the operation permissions on the TodoItem table. 
+
+	When server scripts have been defined on this table, you will also have one or more files named <code>TodoItem._&lt;operation&gt;_.js</code> that contain the scripts for the given table operation. Scheduler and custom API scripts are maintained in separate folders with those respective names. For more information, see [Source control].
 
 Now that you have created your local repository, you can make changes to server scripts and push the changes back to the mobile service.
 
@@ -115,27 +119,31 @@ Now that you have created your local repository, you can make changes to server 
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
-<h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use a NPM module in your server script</h2>
-<p>Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).</p>
+<h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use an NPM module in your server script</h2>
+Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).
 
-<ol>
-<li>Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.<br />
-<pre class="prettyprint">npm install node-uuid</pre></li>
-<li>Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:<br/>
-<pre class="prettyprint">function insert(item, user, request) {
-    var uuid = reuire('node-uuid');
-    item.uuid = uuid.v1();
-    request.execute();
-    console.log(item);
-}</pre>
-The code adds a uuid column to the table, populating it with unique GUID identifiers.</li>
-<li>Just like in the previous section, in the Git command prompt, type the following command to commit and push your changes to your mobile service:
-<pre class="prettyprint">$ git add .
-$ git commit –m "added node-uuid module”
-$ git push origin master
-</pre>
-This will commit and push both the added node-uuid module as well as the changes to the todoitem.insert.js script.</li>
-</ol>
+1. Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.
+
+		npm install node-uuid
+
+2. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
+
+		function insert(item, user, request) {
+		    var uuid = require('node-uuid');
+		    item.uuid = uuid.v1();
+		    request.execute();
+		    console.log(item);
+		}
+
+	This code adds a uuid column to the table, populating it with unique GUID identifiers.
+
+3. As in the previous section, type the following command in the Git command prompt: 
+
+		$ git add .
+		$ git commit –m "added node-uuid module"
+		$ git push origin master
+		
+	This commits your changes and pushes both the added node-uuid module and the changes to the todoitem.insert.js script to your mobile service.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -151,6 +159,7 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Enable source control in your mobile service]: #enable-source-control
 [Install Git and create the local repository]: #clone-repo
 [Deploy updated script files to your mobile service]: #deploy-scripts
+[Use a NPM module in your server script]: #use-npm
 
 <!-- Images. -->
 [0]: ../Media/mobile-services-selection.png
@@ -160,7 +169,6 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [4]: ../Media/mobile-source-local-repo.png
 [5]: ../Media/mobile-portal-data-tables.png
 [6]: ../Media/mobile-insert-script-source-control.png
-
 
 <!-- URLs. -->
 [Git website]: http://git-scm.com
