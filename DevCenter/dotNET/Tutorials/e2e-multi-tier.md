@@ -246,7 +246,7 @@ displays.
             }
         }
 
-2.  In the **Solution Explorer**, double-click
+2.  In **Solution Explorer**, double-click
     **Controllers\HomeController.cs**. Add the following **using**
     statements at the top of the file to include the namespaces for the
     model you just created, as well as Service Bus:
@@ -342,7 +342,7 @@ displays.
 	![][28]
   
 
-12. Finally, tweak the submission page to include some information about
+12. Finally, modify the submission page to include some information about
     the queue. In the **Solution Explorer**, double-click the
     **Views\Home\Submit.cshtml** file to open it in the Visual Studio
     editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
@@ -352,7 +352,7 @@ displays.
              
 
 13. You now have implemented your UI. You can press **F5** to run your
-    application and confirm it looks as expected.
+    application and confirm that it looks as expected.
 
     ![][17]
 
@@ -441,7 +441,7 @@ Service Bus Queue.
 5.  Add the following line to the bottom of the **Application_Start**
     method:
 
-        QueueConnector.Initialize();
+        FrontendWebRole.QueueConnector.Initialize();
 
 6.  Finally, you will update your web code you created earlier, to
     submit items to the queue. In the **Solution Explorer**,
@@ -573,18 +573,13 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 		using FrontendWebRole.Models;
 
-15. In the `Run()` function, add the following code inside the `if (receivedMessage != null)` loop, below the `Trace` statement:
+15. In the `Run()` function, inside the `OnMessage` call, add the following code inside the `try` clause:
 
-		if (receivedMessage != null)
-    	{
-        	// Process the message
-        	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-        	// Add these two lines of code
-        	// View the message as an OnlineOrder
-			OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-        	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-        	receivedMessage.Complete();
-    	}
+		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+		// View the message as an OnlineOrder
+		OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+		Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+		receivedMessage.Complete();
 
 16.  You have completed the application. You can test the full
     application as you did earlier, by pressing F5. Note that the message count does not increment, because the worker role processes items from the queue and marks them as complete. You can see the trace output of your
@@ -612,9 +607,9 @@ You might want to implement the front-end of a multi-tier application in a Windo
 
 To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
 
-1. When you create the project, choose the **ASP.NET MVC 4 Web Application** project template in the **Web** category instead of the **Cloud Service** template in the **Cloud** category. Then follow the same directions for creating the MVC application, up until you get to the **Cloud configuration manager** section.
+1. When you create the project, choose the **ASP.NET MVC 4 Web Application** project template in the **Web** category instead of the **Cloud Service** template in the **Cloud** category. Then follow the same directions for creating the MVC application, until you get to the **Cloud configuration manager** section.
 
-2. When you create the worker role, create it in a new solution, like the original instructions have you do for the web role, but now you're creating just the worker role in the cloud service project. Then follow the same directions for creating the worker role.
+2. When you create the worker role, create it in a new, separate solution, similar to the original instructions for the web role. Now however, you're creating just the worker role in the cloud service project. Then follow the same directions for creating the worker role.
 
 3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
 
