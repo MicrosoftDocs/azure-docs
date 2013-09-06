@@ -134,7 +134,7 @@ The **site diagnostics** section of the **Configure** management page controls t
 
 - **Web Server Logging** – Turn on Web Server logging to save web site logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web site, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client. You can save the logs to a Windows Azure Storage Account or to the File System.
 
- To save web server logs to a Windows Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and a Windows Azure Blob Container where the logs will be kept. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/").
+ To save web server logs to a Windows Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and a Windows Azure Blob Container where the logs will be kept. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
    To save web server logs to the file system, choose **File System**. This enables the **Quota** box where you can set the maximum amount of disk space for the log files. The minimum size is 25MB and the maximum is 100MB. The default size is 35MB.
 
