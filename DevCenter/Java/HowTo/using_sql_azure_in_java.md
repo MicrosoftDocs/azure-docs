@@ -1,4 +1,4 @@
-<properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use the Windows Azure SQL Database from Java code. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use the Windows Azure SQL Database from Java code. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
 
 <div chunk="../chunks/article-left-menu.md" />
@@ -47,7 +47,7 @@ The following are prerequisites if you intend to use SQL Database with Java.
 * A Windows Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
 * If you are using Eclipse:
 
-    * Eclipse IDE for Java EE Developers, Helios SR2 or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+    * Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
 
     * The Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
 
