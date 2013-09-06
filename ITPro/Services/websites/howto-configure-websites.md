@@ -59,7 +59,7 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 	information for your web site, including:
 	<ul>
 	<li style="margin-left: 60px"><strong>Web Server Logging</strong> – Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
-<br><strong>Tip</strong>: The maximum size of log storage in the file system is 100 megabytes. If you need to retain more history than that, use Windows Azure Storage, which has a much greater storage capacity.
+<br /><strong>Tip</strong>: The maximum size of log storage in the file system is 100 megabytes. If you need to retain more history than that, use Windows Azure Storage, which has a much greater storage capacity.
 	<ul>
 		<li>To save web server logs to a Windows Azure Storage Account, choose <strong>Storage</strong>, and then choose <strong>manage storage</strong> to specify a storage account and a Windows Azure Blob Container where the logs will be kept.
 <br /><strong>Note</strong>: In order to use this feature, you must have already created a blob container. To create a container, go to the <strong>Storage</strong> section of the Windows Azure portal. If you do not yet have a storage account, click <strong>New</strong> to create one. Click the storage account to select it, and then choose the <strong>Containers</strong> tab. Click <strong>Add</strong> in the command bar, and then follow the steps to create and name a container. 
