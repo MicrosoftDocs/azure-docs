@@ -49,9 +49,13 @@ Completing this tutorial is a prerequisite for all other notification hubs tutor
 
    ![][10]
 
-7. Click **Connection Information** at the bottom. Take note of the two connection strings.
+6. Click **Connection Information** at the bottom. Take note of the two connection strings.
 
    ![][12]
+
+7. Click the **Configure** tab, and then click the **Enable unauthenticated push notifications** checkbox in the **Windows Phone notifications settings** section.
+
+   ![][15]
 
 You now have the connection strings required to register your Windows Phone 8 app and send notifications.
 
@@ -180,6 +184,7 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 
 [13]: ../media/notification-hub-create-wp-app.png
 [14]: ../media/mobile-app-enable-push-wp8.png
+[15]: ../media/notification-hub-pushauth.png
 
 [213]: ../media/notification-hub-create-console-app.png
 [214]: ../media/notification-hub-windows-toast.png
