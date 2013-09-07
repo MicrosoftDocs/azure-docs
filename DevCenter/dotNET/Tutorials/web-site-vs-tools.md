@@ -267,6 +267,10 @@ Web server logs record all HTTP activity on the site. In order to see them in th
 
    ![Web server logs in Output window](../Media/tws-wslogs.png)
 
+By default, when you first enable web server logs by using Visual Studio, Windows Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. You can retain a greater volume of logs in a storage account than is possible in the file system. You're limited to a maximum of 100 megabytes of logs when you use the file system. (Windows Azure deletes old log files to make room for new ones after the limit is reached.) For more information, see the **site diagnostics** section in [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+
+If you use the management portal to enable web server logging to a Windows Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
+
 <h2><a name="detailederrorlogs"></a><span class="short-header">Error logs</span>View detailed error message logs</h2>
 
 Detailed error logs provide some additional information about HTTP requests that result in error response codes (400 or above). In order to see them in the **Output** window, you have to enable them on the site and tell Visual Studio that you want to monitor them.
