@@ -494,11 +494,10 @@ Run the application to verify that it works.
 
     <h2><span class="short-header">DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
 
-    You can either deploy your application to Windows Azure by wrapping it in a **Windows Azure Cloud Service**  project, or you can deploy it in a Windows Azure Web Site. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels]. To learn how to deploy the application to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to Windows Azure.
+    You can deploy your application to a Windows Azure Cloud Service or to a Windows Azure Web Site. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels]. To learn how to deploy the application to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to a Windows Azure Cloud Service.
 
-	To deploy your application to Windows Azure, prepare your application to run in a Windows Azure
-    hosted service. Your application already includes a Windows Azure
-    deployment project. The deployment project contains configuration
+    To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
+    The deployment project contains configuration
     information that is needed to properly run your application in the
     cloud.
 
