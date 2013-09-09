@@ -32,15 +32,12 @@ Next, you will create a new mobile service to replace the in-memory list for dat
 	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>We recommend that you make a note of the administrator login name and password that you specify; you will need this information to reuse the SQL Database instance or the server in the future.</p> 
 	</div>
 
-
 You have now created a new mobile service that can be used by your mobile apps. Next, you will add a new table in which to store app data. This table will be used by the app in place of the in-memory collection.
 
 <!-- Anchors. -->
-
 <!-- Images. -->
 [1]: ../../Shared/Media/plus-new.png
 [2]: ../Media/mobile-create.png
 [3]: ../Media/mobile-create-page1.png
 [4]: ../Media/mobile-create-page2.png
-
 <!-- URLs. -->
