@@ -1,5 +1,3 @@
-<properties linkid="develop-mobile-tutorials-schedule-jobs" urlDisplayName="Schedule jobs" pageTitle="Schedule jobs in Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, scheduler, schedule jobs, mobile services" metaDescription="Learn how to use the job scheduler functionality in the Management Portal to define server-side scripts that are executed on a scheduleby Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
 <div chunk="../chunks/article-left-menu-windows-store.md" />
 
 # Schedule recurring jobs in Mobile Services  
@@ -80,7 +78,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
     <p>When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.</p>
     </div>
 
-3. In the scheduler dialog, enter <i>getUpdates</i> for the **Job Name**, set the schedule interval and units, then click the check button. 
+3. In the scheduler dialog, enter _getUpdates_ for the **Job Name**, set the schedule interval and units, then click the check button. 
    
    ![][5]
 

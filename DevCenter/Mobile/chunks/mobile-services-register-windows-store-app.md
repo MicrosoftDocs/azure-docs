@@ -24,7 +24,31 @@
 
    ![][3]
 
-   This adds the required Windows Store registration information to the application manifest.  
+   This adds the required Windows Store registration information to the application manifest.    
+
+7. Back in the Windows Dev Center page for your new app, click **Services**. 
+
+   ![][4] 
+
+8. In the Services page, click **Live Services site** under **Windows Azure Mobile Services**.
+
+	![][5]
+
+9. Click **Authenticating your service** and make a note of the values of **Client secret** and **Package security identifier (SID)**. 
+
+   ![][6]
+
+    <div class="dev-callout"><b>Security Note</b>
+	<p>The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.</p>
+    </div> 
+
+10. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+
+   ![][7]
+
+11. Click the **Push** tab, enter the **Client secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
+
+   ![][8]
 
 <!-- Anchors. -->
 
@@ -33,6 +57,11 @@
 [1]: ../Media/mobile-services-win8-app-name.png
 [2]: ../Media/mobile-services-store-association.png
 [3]: ../Media/mobile-services-select-app-name.png
+[4]: ../Media/mobile-services-win8-edit-app.png
+[5]: ../Media/mobile-services-win8-edit2-app.png
+[6]: ../Media/mobile-services-win8-app-push-auth.png
+[7]: ../Media/mobile-services-selection.png
+[8]: ../Media/mobile-push-tab.png
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
