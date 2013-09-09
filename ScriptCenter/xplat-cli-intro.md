@@ -2,6 +2,8 @@
 
 #Install and Configure the Windows Azure Cross-Platform Command-Line Interface
 
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+
 The Windows Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Windows Azure Platform. The xplat-cli provides much of the same functionality found in the Windows Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Windows Azure platform.
 
 The xplat-cli is written in JavaScript, and requires Node.js. It is implemented using the Windows Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).

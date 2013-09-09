@@ -24,7 +24,7 @@
 
 	![][3]
 
-5. Click the **Script** tab and replace the existing code with the following:
+5. Click the **Script** tab, replace the existing code with the following code, then click **Save**:
 
 		exports.post = function(request, response) {
 			var mssql = request.service.mssql;
