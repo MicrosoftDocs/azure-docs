@@ -56,6 +56,14 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][13]
 
+5. (Optional) Complete the steps in [Register your Windows Store app package for Microsoft authentication].
+
+    <div class="dev-callout"><b>Note</b>
+	<p>When you register your Windows Store app package information with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. If you do not do this, your users will be presented with a login prompt every time that the login method is called.</p>
+    </div>
+
+	This step is optional because this tutorial uses Facebook for authentication and not Microsoft Account. Complete this step when you plan to use the Microsoft Account identity provider. 
+
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
 <h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
@@ -111,7 +119,7 @@ Next, you will update the app to authenticate users before requesting resources 
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
 
     <div class="dev-callout"><b>Note</b>
-	<p>When you register your Windows Store app package information with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. After the package information is registered with Mobile Services, you can call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will be presented with a login prompt every time that the login method is called. For information on how to register your app package, see the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/">Get started with push notifications</a>.</p>
+	<p>If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.</p>
     </div>
 
 8. Replace the existing **OnNavigatedTo** method override with the following method that calls the new **Authenticate** method:
@@ -129,7 +137,6 @@ Next, you will update the app to authenticate users before requesting resources 
 ## <a name="next-steps"> </a>Next steps
 
 In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]
-
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -170,3 +177,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
+[Register your Windows Store app package for Microsoft authentication]: ../HowTo/mobile-services-register-windows-store-app-server-auth.md
