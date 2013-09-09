@@ -90,7 +90,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    ![][110]
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
+	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <b>MobileServices.Quickstart</b>, you must also update the bundle identifier value in your Xcode project.</p>
     </div>
 
 3. Locate the app ID that you just created, and click on its row. 
@@ -243,7 +243,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 6. In the same file, add the following method:
 
-	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
+	    (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:
 		                              @"<connection string>" notificationHubPath:@"mynh"];
 		    
@@ -321,20 +321,23 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
 
-        var azure = require('azure');
-        var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
-        notificationHubService.apns.send(
-	        null,
-	        {
-	            alert: "Hello from Mobile Services!"
-	        },
-	        function (error)
-	        {
-	            if (!error) {
-	                console.warn("Notification successful");
-	            }
-	        }
-        );
+		var azure = require('azure');
+		var notificationHubService = azure.createNotificationHubService('<Hubname>', '<SAS Full access >');
+		notificationHubService.aps.send(
+	    	null,
+    		{"aps":
+        		{
+          		"alert": "Hello from Mobile Services!"
+        		}
+    		},
+    		function (error)
+    		{
+	        	if (!error) {
+    	        	console.warn("Notification successful");
+        		}
+    		}
+		);
+
 
 6. Click **Run Once** on the bottom bar. You should receive an alert on your device.
 

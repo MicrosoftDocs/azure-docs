@@ -494,9 +494,10 @@ Run the application to verify that it works.
 
     <h2><span class="short-header">DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
 
-    Now, you will prepare your application to run in a Windows Azure
-    hosted service. Your application already includes a Windows Azure
-    deployment project. The deployment project contains configuration
+    You can deploy your application to a Windows Azure Cloud Service or to a Windows Azure Web Site. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels]. To learn how to deploy the application to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to a Windows Azure Cloud Service.
+
+    To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
+    The deployment project contains configuration
     information that is needed to properly run your application in the
     cloud.
 
@@ -702,7 +703,7 @@ Run the application to verify that it works.
         ![][36]
 
         Your Web site depends on your on-premises server, so you must
-        run the **ProductsServer**application locally for the Web site
+        run the **ProductsServer** application locally for the Web site
         to function properly. As you perform requests on the cloud Web
         site, you will see requests coming into your on-premises console
         application, as indicated by the "GetProducts called" output
@@ -710,30 +711,32 @@ Run the application to verify that it works.
 
         ![][37]
 
-    <h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
+To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
 
-    After deploying your application, you may want to disable it so you
-    can build and deploy other applications within the free 750
-    hours/month (31 days/month) of server time.
+<h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
 
-    Windows Azure bills web role instances per hour of server time
-    consumed. Server time is consumed once your application is deployed,
-    even if the instances are not running and are in the stopped state.
-    A free account includes 750 hours/month (31 days/month) of dedicated
-    virtual machine server time for hosting these web role instances.
+After deploying your application, you may want to disable it so you
+can build and deploy other applications within the free 750
+hours/month (31 days/month) of server time.
 
-    The following steps show you how to stop and delete your
-    application.
+Windows Azure bills web role instances per hour of server time
+consumed. Server time is consumed once your application is deployed,
+even if the instances are not running and are in the stopped state.
+A free account includes 750 hours/month (31 days/month) of dedicated
+virtual machine server time for hosting these web role instances.
 
-    1.  Login to the [Windows Azure Management Portal],
+The following steps show you how to stop and delete your
+application.
+
+1.  Login to the [Windows Azure Management Portal],
         click on Cloud Services, then click the name of your service.
 
-    2.  Click the **Dashboard** tab, and then click on **Stop** to temporarily suspend your application. You will
+2.  Click the **Dashboard** tab, and then click on **Stop** to temporarily suspend your application. You will
         be able to start it again just by clicking on Start. Click on
         Delete to completely remove your application from Windows Azure
         with no ability to restore it.
 
-        ![][43]
+	![][43]
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>  
 
@@ -743,7 +746,6 @@ To learn more about Service Bus, see the following resources:
 * [Service Bus How To's][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
-To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
 
   [0]: ../../../DevCenter/dotNet/Media/hybrid.png
   [1]: ../../../DevCenter/dotNet/Media/App2.png

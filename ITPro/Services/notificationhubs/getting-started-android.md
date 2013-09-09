@@ -65,7 +65,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
    ![][4] 
 
-Next, you will use this API key value to enable your notification hHub to authenticate with GCM and send push notifications on behalf of your application.
+Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
 
 <h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
 
@@ -308,24 +308,19 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. Click **Save**.
 
         var azure = require('azure');
-    
-    	var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
-
-    	notificationHubService.hub.gcm.send(
-	        null,
-	        '{
-	            "data":
-	            {
-	               "msg" : "Hello from Mobile Services!"
-	            }
-	        }',
-	        function (error)
-	        {
-	            if (!error) {
-	                console.warn("Notification successful");
-	            }
-	        }
-    	);
+		var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
+		notificationHubService.gcm.send(null,'{"data":{"msg" : "Hello from Mobile Services!"}}',
+    	  function (error)
+    	  {
+        	if (!error) {
+               console.warn("Notification successful");
+            }
+            else
+            {
+              console.warn("Notification failed" + error);
+            }
+          }
+	    );
 
 6. Click **Run Once** on the bottom bar. You should receive a toast notification.
 
@@ -388,3 +383,4 @@ In this simple example you broadcast notifications to all your Android devices. 
 
 [Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
 [Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
+
