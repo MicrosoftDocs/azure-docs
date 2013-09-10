@@ -2,9 +2,11 @@
 
 #How to Set Up Communication with a Virtual Machine
 
-All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, you need to add endpoints to a virtual machine for other resources on the Internet or other virtual networks to communicate with it. 
+All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, other resources on the Internet or other virtual networks require endpoints to handle the inbound network traffic to the virtual machine. 
 
-When you create a virtual machine in the Management Portal, you can create these endpoints, such as for Remote Desktop, Windows PowerShell Remoting, or Secure Shell (SSH). To create additional endpoints after you create the virtual machine, follow the steps in this article.
+When you create a virtual machine in the Management Portal, you can create these endpoints, such as for Remote Desktop, Windows PowerShell Remoting, or Secure Shell (SSH). After you create the virtual machine, you can create additional endpoints as needed. You also can manage incoming traffic to the public port by configuring rules for the network access control list (ACL) of the endpoint. This article shows you how to do both of those tasks.
+
+For more information about network ACLs, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
 **Note**: If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -44,6 +46,26 @@ Default values for the ports and protocol for these endpoints are provided when 
 	You will now see the endpoint listed on the **Endpoints** page.
 
 	![Endpoint creation successful] (../media/endpointwindowsnew.png)
+
+###Manage the ACL of an Endpoint###
+
+1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+
+2. Click **Virtual Machines**, and then select the virtual machine that you want to configure.
+
+3. Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
+
+    ![ACL list] (../media/EndpointsShowsDefaultEndpointsForVM.PNG)
+
+4. Select the appropriate endpoint from the list. 
+
+5. Click **Manage ACL**.
+
+    The **Specify ACL details** dialog box appears.
+
+    ![Specify ACL details] (../media/EndpointACLdetails.PNG)
+
+6. Use rows in the list to add, delete, or edit rules for an ACL. The Remote Subnet value corresponds to the IP address range that you can either allow or deny as a rule. The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be listed from least restrictive to most restrictive. For examples and more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
 
 
