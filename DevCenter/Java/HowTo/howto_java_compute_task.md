@@ -61,7 +61,7 @@ Note that **Java Platform, Standard Edition 6 for WS 2012** is available in case
 4. Click **Connect**.
 5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.
 
-Note that the Windows Azure Service Bus functionality requires the Baltimore Trust Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert] for information on adding it (as well as information on viewing the certificates in your cacerts store).
+Note that the Windows Azure Service Bus functionality requires the Baltimore CyberTrust Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert] for information on adding it (as well as information on viewing the certificates in your cacerts store).
 
 ## How to create a service bus namespace
 
