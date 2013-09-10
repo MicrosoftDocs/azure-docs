@@ -11,9 +11,8 @@ This tutorial assumes you know how to create Java console applications, import l
 
 You will learn:
 
-* How to create a virtual machine.
+* How to create a virtual machine with a JDK already installed.
 * How to remotely log in to your virtual machine.
-* How to install a JRE or JDK on your virtual machine.
 * How to create a service bus namespace.
 * How to create a Java application that performs a compute-intensive task.
 * How to create a Java application that monitors the progress of the compute-intensive task.
@@ -33,15 +32,26 @@ The following is an example of the Java application monitoring the compute-inten
 ## To create a virtual machine
 
 1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
-2. Click **New**.
-3. Click **Virtual machine**.
-4. Click **Quick create**.
-5. In the **Create a virtual machine** screen, enter a value for **DNS name**.
-6. From the **Image** dropdown list, select an image, such as **Windows Server 2008 R2 SP1**.
-7. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
-8. Enter a password in the **New password** field, and re-enter it in the **Confirm** field.
-9. From the **Location** drop down list, select the data center location for your virtual machine.
-10. Click **Create virtual machine**. Your virtual machine will be created. You can monitor the status in the **Virtual machines** section of the management portal.
+2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
+3. In the **Virtual machine image select** dialog, select **Java Platform, Standard Edition 7 for WS 2012**.
+Note that **Java Platform, Standard Edition 6 for WS 2012** is available in case you have legacy applications that are not yet ready to run in Java Standard Edition 7.
+4. Click **Next**.
+4. In the **Virtual machine configuration** dialog:
+    1. Specify a name for the virtual machine.
+    2. Specify the size to use for the virtual machine.
+    3. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
+    4. Enter a password in the **New password** field, and re-enter it in the **Confirm** field. This is the Administrator account password.
+    5. Click **Next**.
+5. In the next **Virtual machine configuration** dialog:
+    1. For **Cloud service**, use the default **Create a new cloud service**.
+    2. The value for **Cloud service DNS name** must be unique across cloudapp.net. If needed, modify this value so that Windows Azure indicates it is unique.
+    2. Specify a region, affinity group, or virtual network. For purposes of this tutorial, specify a region such as **West US**.
+    2. For **Storage Account**, select **Use an automatically generated storage account**.
+    3. For **Availability Set**, select **(None)**.
+    4. Click **Next**.
+5. In the final **Virtual machine configuration** dialog:
+    1. Accept the default endpoint entries.
+    2. Click **Complete**.
 
 ## To remotely log in to your virtual machine
 
@@ -51,20 +61,7 @@ The following is an example of the Java application monitoring the compute-inten
 4. Click **Connect**.
 5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.
 
-## To install a JRE or JDK on your virtual machine
-
-To run Java applications on your virtual machine, you need to install install a Java Runtime Environment (JRE). For purposes of this tutorial, we'll install a Java Developer Kit (JDK) to your virtual machine and use the JDK's JRE. You could however install only a JRE if you choose to do so. 
-
-For purposes of this tutorial, a JDK will be installed from Oracle's site.
-
-1. Log on to your virtual machine.
-2. Within your browser, open [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-3. Click the **Download** button for the JDK that you want to download. For purposes of this tutorial, the **Download** button for the Java SE 6 Update 32 JDK was used.
-4. Accept the license agreement.
-5. Click the download executable for **Windows x64 (64-bit)**.
-6. Follow the prompts and respond as needed to install the JDK to your virtual machine. 
-
-Note that the Service Bus functionality requires the GTE CyberTrust Global Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, it can be downloaded from <https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp>, saved as a **.cer** file, and added to the **cacerts** store via **keytool**. For more detailed instructions on adding a certificate to the **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert].
+Note that the Windows Azure Service Bus functionality requires the Baltimore Trust Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert] for information on adding it (as well as information on viewing the certificates in your cacerts store).
 
 ## How to create a service bus namespace
 
