@@ -30,13 +30,11 @@ For information about keytool, see <http://docs.oracle.com/javase/1.4.2/docs/too
 
 # Windows Azure Root Certificates
 
-Beginning April 15, 2013, Windows Azure began migrating from the GTE CyberTrust Global Root to the Baltimore CyberTrust Root. This migration will take several months to complete, so until it is complete, your applications that use Windows Azure services (such as Windows Azure Service Bus) need to trust both the GTE CyberTrust Global Root certificate and the Baltimore CyberTrust Root certificate.
+Your applications that use Windows Azure services (such as Windows Azure Service Bus) need to trust the Baltimore CyberTrust Root certificate. (Beginning April 15, 2013, Windows Azure began migrating from the GTE CyberTrust Global Root to the Baltimore CyberTrust Root. This migration took several months to complete.)
 
-These certificates might already be installed in your cacerts store, so remember to run the **keytool -list** command first to see if they already exist.
+The Baltimore certificate might already be installed in your cacerts store, so remember to run the **keytool -list** command first to see if it already exists.
 
 If you need to add the Baltimore CyberTrust Root, it has serial number ‎02:00:00:b9 and SHA1 fingerprint ‎d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. It can be downloaded from <https://cacert.omniroot.com/bc2025.crt>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above.
-
-If you need to add the GTE CyberTrust Global Root, it has serial number 01:a5 and SHA1 fingerprint 97:81:79:50:D8:1C:96:70:CC:34:D8:09:CF:79:44:31:36:7E:F4:74. It can be downloaded from <https://www.globaltrustpoint.com/x509/x509trustcenter_list.jsp>, saved to a local file with extension **.cer**, and then imported using **keytool** as shown above. 
 
 For more information about the root certificates used by Windows Azure, see [Windows Azure Root Certificate Migration](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
