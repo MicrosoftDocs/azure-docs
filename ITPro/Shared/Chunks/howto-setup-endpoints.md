@@ -1,6 +1,6 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
-#How to Set Up Communication with a Virtual Machine
+#How to Set Up Endpoints to a Virtual Machine
 
 All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, other resources on the Internet or other virtual networks require endpoints to handle the inbound network traffic to the virtual machine. 
 
@@ -48,6 +48,8 @@ Default values for the ports and protocol for these endpoints are provided when 
 	![Endpoint creation successful] (../media/endpointwindowsnew.png)
 
 ###Manage the ACL of an Endpoint###
+
+**Note**: If the endpoint is part of a load-balanced set, any changes you make to the ACL of an endpoint are applied to all endpoints in the set.
 
 1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
