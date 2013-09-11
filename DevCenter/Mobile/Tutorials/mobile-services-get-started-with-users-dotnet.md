@@ -59,10 +59,8 @@ To be able to authenticate users, you must register your app with an identity pr
 5. (Optional) Complete the steps in [Register your Windows Store app package for Microsoft authentication].
 
     <div class="dev-callout"><b>Note</b>
-	<p>When you register your Windows Store app package information with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. If you do not do this, your users will be presented with a login prompt every time that the login method is called.</p>
+	<p>This step is optional because it only applies to the Microsoft Account login provider. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. Complete this step when you plan to use the Microsoft Account identity provider.</p>
     </div>
-
-	This step is optional because this tutorial uses Facebook for authentication and not Microsoft Account. Complete this step when you plan to use the Microsoft Account identity provider. 
 
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
