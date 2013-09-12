@@ -58,7 +58,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.MobileServices.WinJS`, click **Install** on the **Windows Azure Mobile Services for WinJS** package, then accept the license agreement. 
+2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices.WinJS`, click **Install** on the **Windows Azure Mobile Services for WinJS** package, then accept the license agreement. 
 
   ![][7]
 
