@@ -90,6 +90,6 @@ For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/de
 [configure-php]: /en-us/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /en-us/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: /en-us/pricing/details/#header-1
+[websites-pricing]: http://www.windowsazure.com/en-us/pricing/details/#header-1
 [scale-websites]: /en-us/manage/services/web-sites/how-to-scale-websites/
 

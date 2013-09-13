@@ -1,9 +1,11 @@
-# Considerations for supporting multiple clients from a single mobile service #
+<properties linkid="develop-mobile-how-to-guides-multiple-clients-single-service" writer="krisragh" urldisplayname="Multiple Clients" pagetitle="Target multiple clients from a single mobile service | Mobile Services Tutorials" metakeywords="mobile services, multiple clients" metadescription="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." umbraconavihide="0" disquscomments="1"></properties>
+
+# Considerations for supporting multiple clients from a single mobile service
  
 This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services, from a Windows Store app and a Windows Phone app at the same time. This topic also describes how to send push notifications across devices.
 
 ## App Registration ##
-In order to use the same Live Connect project using Windows 8 and Windows Phone 8 (or iOS), you need only register the app on the Windows Store dashboard first. This is because once you create a Live Connect registration for Windows Phone, you may not create one for Windows Store. For more information about how to do this, please read the topic [Authenticate your Windows Store app with Live Connect single sign-on](http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/) and [Authenticate your Windows Phone 8 app with Live Connect single sign-on](http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-wp8/)
+In order to use the same Live Connect project using Windows 8 and Windows Phone 8, you need only register the app on the Windows Store dashboard first. This is because once you create a Live Connect registration for Windows Phone, you may not create one for Windows Store. For more information about how to do this, please read the topic [Authenticate your Windows Store app with Live Connect single sign-on](http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/) and [Authenticate your Windows Phone 8 app with Live Connect single sign-on](http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-wp8/)
 
 ## Push Notifications ##
 To support multiple clients for push, only a few changes are needed to the [previous push notification tutorial](http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/) on the client side. In the type definition for the channels table, add a field which indicates which platform the client is registering from:
@@ -19,9 +21,9 @@ To support multiple clients for push, only a few changes are needed to the [prev
 			public string Uri { get; set; }
 		}
 
-This way, when registering for a push channel, you know which push API to use. In a Windows Store app, the constructor could set this property to "winstore" (for example); in the Windows Phone app version, it could be set to "winphone"; and in the iOS version, it could be set to "ios." As long as dynamic schema is turned on (which it is by default although it is recommended that it be turned off before production), all you need to do is add a new property to the Channel class on the client as shown above. The new column will get automatically added by Mobile Services when the next insert occurs.
+This way, when registering for a push channel, you know which push API to use. In a Windows Store app, the constructor could set this property to "winstore" (for example) and in the Windows Phone app version, it could be set to "winphone." As long as dynamic schema is turned on (which it is by default although it is recommended that it be turned off before production), all you need to do is add a new property to the Channel class on the client as shown above. The new column will get automatically added by Mobile Services when the next insert occurs.
 
-Next, on the server-side, add a script to handle the stored platform to send notifications to the correct client. The code below relies on parts of the "send" example from the [Get started with push notifications in Mobile Services on Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/) tutorial. See also [Get started with push notifications in Mobile Services on Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-wp8/) and [Get started with push notifications in Mobile Services on iOS](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-ios/) for more.
+Next, on the server-side, add a script to handle the stored platform to send notifications to the correct client. The code below relies on parts of the "send" example from the [Push notifications to users by using Mobile Services on Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/) tutorial and the [Push notifications to users by using Mobile Services on Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8/) tutorial.
 
 		function sendNotifications() {
 			var channelTable = tables.getTable('Channel');
@@ -38,15 +40,13 @@ Next, on the server-side, add a script to handle the stored platform to send not
 			channelTable.read({
 				success: function(channels) {
 					channels.forEach(function(channel) {
+					
 						if (channel.platform === 'winstore') {
-							push.wns.sendToast( "Text to push" , pushOptoins);					
+							push.wns.sendToastText04(channel.uri, "Text to push" , pushOptions);                  
 						}
 						else if (channel.platform === 'winphone') {
-							push.mpns.sendToast( "Text to push" , pushOptoins);
-						}					
-						else if (channel.platform === 'ios') {						
-							push.apns.sendToast( "Text to push" , pushOptoins);
-						}
+							push.mpns.sendFlipTile(channel.uri, "Text to push" , pushOptions);
+						} 
 						else
 						{
 							console.error('Unknown platform.');
