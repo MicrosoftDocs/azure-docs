@@ -1,4 +1,6 @@
-# Considerations for supporting multiple clients from a single mobile service #
+<properties linkid="develop-mobile-how-to-guides-multiple-clients-single-service" writer="krisragh" urldisplayname="Multiple Clients" pagetitle="Target multiple clients from a single mobile service | Mobile Services Tutorials" metakeywords="mobile services, multiple clients" metadescription="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including iOS, Android, Windows Store, and Windows Phone." umbraconavihide="0" disquscomments="1"></properties>
+
+# Considerations for supporting multiple clients from a single mobile service
  
 This topic shows you how to use Live Connect single sign-on to authenticate users in Windows Azure Mobile Services, from a Windows Store app and a Windows Phone app at the same time. This topic also describes how to send push notifications across devices.
 
