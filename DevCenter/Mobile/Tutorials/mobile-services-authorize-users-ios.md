@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-ios" urlDisplayName="Authorize Users in Scripts (iOS)" pageTitle="Authorize users in scripts (iOS) - Windows Azure Mobile Services" metaKeywords="Windows Azure authorizing user, iOS scripts authorization, authorize mobile services" metaDescription="Learn how to authorize users with scripts in your Windows Azure Mobile Services app for iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+
 
 # Use scripts to authorize users in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

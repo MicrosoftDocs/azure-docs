@@ -1,6 +1,6 @@
 <properties linkname="dev-nodejs-how-to-twilio-voice-sms-service" urldisplayname="Twilio Voice and SMS Service" headerexpose="" pagetitle="Twilio Voice and SMS Service - How To - Node.js - Develop" metakeywords="voice sms voip" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # Using Twilio for Voice, VoIP, and SMS Messaging in Windows Azure
 

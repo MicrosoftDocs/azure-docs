@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+﻿
 
 # How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework #
 

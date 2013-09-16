@@ -1,7 +1,5 @@
 <properties linkid="manage-services-web-sites-output-caching" urlDisplayName="Page Output Caching" pageTitle="How to use the Cache service for output caching" metaKeywords="" metaDescription="Learn how to use the Windows Azure Cache service for output caching with a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="jroth" />
 
-<div chunk="../chunks/article-left-menu.md" />
-
 # How to Use ASP.NET Web Forms Output Caching with Windows Azure Web Sites
 
 This topic explains how to use the Windows Azure Cache Service (Preview) to support ASP.NET page output caching for ASP.NET Web Forms. Page output caching is an optimization that directly returns a cached rendering page for a specific duration of time. This is useful in situations where a page is accessed more frequently than it typically changes. It is important to note that page output caching is not supported for ASP.NET MVC applications.

@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-get-started-with-data-wp8" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8 app," writer="glenga" footerexpose="" metadescription="More in-depth review of how to access and change in your Windows Phone 8-based app using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk="../chunks/article-left-menu-wp8.md" />
+
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

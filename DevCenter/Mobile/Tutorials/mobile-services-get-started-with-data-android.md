@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Android) - Windows Azure Mobile Services" writer="glenga"  metaKeywords="Windows Azure Android data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-android.md" />
+
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding">    

@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-get-started" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with Mobile Services in Windows Azure" writer="glenga" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8, Windows Phone" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Phone 8 apps." umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk="../chunks/article-left-menu-wp8.md" />
+
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

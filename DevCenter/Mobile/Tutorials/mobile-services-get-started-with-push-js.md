@@ -1,6 +1,7 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" writer="glenga" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" metaDescription="Learn how to use push notifications in your Windows Store app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
+
 
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

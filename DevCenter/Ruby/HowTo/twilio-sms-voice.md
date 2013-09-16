@@ -1,6 +1,6 @@
-<properties linkid="develop-ruby-how-to-twilio-sms-voice-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Ruby) - Windows Azure" metaKeywords="Windows Azure Ruby Twilio, Windows Azure phone calls, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+﻿<properties linkid="develop-ruby-how-to-twilio-sms-voice-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Ruby) - Windows Azure" metaKeywords="Windows Azure Ruby Twilio, Windows Azure phone calls, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # How to Use Twilio for Voice and SMS Capabilities in PHP
 This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next Steps](#NextSteps) section.

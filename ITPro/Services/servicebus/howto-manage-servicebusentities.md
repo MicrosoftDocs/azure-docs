@@ -1,6 +1,6 @@
-<properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Windows Azure" metaKeywords="" metaDescription="Learn how to create and manage your Service Bus entities using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Windows Azure" metaKeywords="" metaDescription="Learn how to create and manage your Service Bus entities using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/service-bus-left-nav.md" />
+
 
 # How to Manage Service Bus Messaging Entities
 

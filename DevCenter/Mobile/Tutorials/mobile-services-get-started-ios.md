@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-ios" urlDisplayName="Get Started (iOS)" pageTitle="Get Started with Windows Azure Mobile Services for iOS" writer="glenga" metaKeywords="Windows Azure iOS application, mobile service iOS, getting started Azure iOS" metaDescription="Learn how to use Windows Azure Mobile Services with your iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a></div>

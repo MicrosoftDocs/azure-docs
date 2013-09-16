@@ -1,7 +1,6 @@
-<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Windows Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" metaDescription="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to a Windows Azure web site by using Visual Studio." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" />
+﻿<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Windows Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" metaDescription="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to a Windows Azure web site by using Visual Studio." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="riande" />
 
 
-<div chunk="../chunks/article-left-menu.md" />
 # REST service using ASP.NET Web API and SQL Database 
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 26 June 2013.***
