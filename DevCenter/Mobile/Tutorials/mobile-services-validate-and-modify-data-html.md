@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-html" writer="glenga" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data in an HTML app" metaKeywords="" metaDescription="Learn how to use server scripts to validate, modify, and augment data with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-html.md" />
+
 
 # Validate and modify data in Mobile Services by using server scripts 
 <div class="dev-center-tutorial-selector sublanding"> 

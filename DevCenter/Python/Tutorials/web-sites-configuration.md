@@ -1,6 +1,5 @@
-<properties linkid="develop-python-web-sites-configuration" urlDisplayName="Web Sites Python Configuration" pageTitle="Web Sites Python Configuration - Windows Azure Tutorial" metaKeywords="Windows Azure Python   web site" metaDescription="A tutorial that introduces you to configuring a Python web site on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+﻿<properties linkid="develop-python-web-sites-configuration" urlDisplayName="Web Sites Python Configuration" pageTitle="Web Sites Python Configuration - Windows Azure Tutorial" metaKeywords="Windows Azure Python   web site" metaDescription="A tutorial that introduces you to configuring a Python web site on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../chunks/article-left-menu.md" />
 
 # Configuring Python with Windows Azure Web Sites #
 

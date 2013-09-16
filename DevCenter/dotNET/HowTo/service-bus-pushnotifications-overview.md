@@ -1,6 +1,5 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Windows Azure Notification Hubs" pageTitle="Windows Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" metaDescription="Learn how to use push notifications in Windows Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../chunks/article-left-menu.md" />
 
 #Windows Azure Notification Hubs
 

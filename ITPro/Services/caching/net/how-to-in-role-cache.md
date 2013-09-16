@@ -2,7 +2,6 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
 
 # How to Use In-Role Cache for Windows Azure Cache
 

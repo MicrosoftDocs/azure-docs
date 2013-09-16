@@ -1,6 +1,5 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-ios" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+﻿<properties linkid="develop-notificationhubs-tutorials-get-started-ios" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-<div chunk="../chunks/notification-hubs-left-nav.md" />
 
 # Get started with Notification Hubs
 <div class="dev-center-tutorial-selector sublanding"> 
