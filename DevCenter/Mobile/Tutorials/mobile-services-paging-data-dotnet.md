@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-dotnet" writer="glenga" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to your data - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
 
 # Refine Mobile Services queries with paging
 

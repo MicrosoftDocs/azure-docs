@@ -1,6 +1,6 @@
 <properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for  Media Services - Windows Azure" metaKeywords="" metaDescription="Learn how to use the Windows Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 <h1><a name="encode-asset"/><span class="short header">How to: Encode an Asset</span></h1>
 This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).

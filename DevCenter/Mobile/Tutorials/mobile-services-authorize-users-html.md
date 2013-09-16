@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-html" writer="glenga" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (HTML) - Mobile Services" metaKeywords="" metaDescription="Learn how to authorize users in scripts in your HTML app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-html.md" />
+
 
 # Use scripts to authorize users in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

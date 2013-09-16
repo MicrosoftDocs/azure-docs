@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+
 
 <div>
 <h1>PHP Reference Content</h1>

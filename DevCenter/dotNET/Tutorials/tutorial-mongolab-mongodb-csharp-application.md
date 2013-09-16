@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # Create a C# ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On
 

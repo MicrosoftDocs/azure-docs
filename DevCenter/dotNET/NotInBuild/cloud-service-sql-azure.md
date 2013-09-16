@@ -1,7 +1,7 @@
-<properties linkid="develop-dotnet-cloud-service-with-sql-database" urlDisplayName="Cloud Service with SQL Database" pageTitle=".NET cloud service with SQL Database - Windows Azure tutorial" metaKeywords="Azure ASP.NET web site, ASP.NET SQL database, SQL database cloud services" metaDescription="Create an ASP.NET web site with a SQL database and deploy it to Windows Azure for hosting using Windows Azure Cloud Services. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-dotnet-cloud-service-with-sql-database" urlDisplayName="Cloud Service with SQL Database" pageTitle=".NET cloud service with SQL Database - Windows Azure tutorial" metaKeywords="Azure ASP.NET web site, ASP.NET SQL database, SQL database cloud services" metaDescription="Create an ASP.NET web site with a SQL database and deploy it to Windows Azure for hosting using Windows Azure Cloud Services. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 # Deploying an ASP.NET Web Application to a Windows Azure Cloud Service and SQL Database
 
 This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Cloud Service by using the Windows Azure SDK for .NET in Visual Studio 2012 or Visual Web 2012 for Web Express. You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.

@@ -1,6 +1,6 @@
-<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ghogen" />
+﻿<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ghogen" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 # Continuous delivery to Windows Azure by using Team Foundation Service
 
 Microsoft Team Foundation Service is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).

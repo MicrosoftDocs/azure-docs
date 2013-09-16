@@ -1,6 +1,6 @@
 <properties linkid="" urlDisplayName="Notify Users" pageTitle="Notify cross-platform users of your ASP.NET service with Notification Hubs" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to register to receive notifications from your ASP.NET service by using Notification Hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/notification-hubs-left-nav.md" />
+
 
 # Send cross-platform notifications to users with Notification Hubs
 

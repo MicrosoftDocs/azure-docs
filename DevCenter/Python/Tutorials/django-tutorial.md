@@ -1,6 +1,6 @@
 <properties linkid="django-ptvs-tutorial" urlDisplayName="Django with Python Tools for Visual Studio" pageTitle="Django with Python Tools for Visual Studio 2.0 - Windows Azure tutorial" metaKeywords="Azure Django Web Site, Azure Django Cloud Service, PTVS" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure using Python Tools for Visual Studio 2.0." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # Creating Django applications with Python Tools for Visual Studio 2.0
 

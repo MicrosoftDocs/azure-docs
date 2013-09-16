@@ -1,6 +1,6 @@
-<properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) - Windows Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="guayan" />
+﻿<properties linkid="dev-ruby-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Ruby) - Windows Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Ruby" metaDescription="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="guayan" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 #How to Use the Blob Service from Ruby
 
