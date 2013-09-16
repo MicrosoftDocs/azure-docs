@@ -2,7 +2,7 @@
 
 
 
-<div chunk="../chunks/article-left-menu-XXXXX.md" />
+
 
 # How to use the XXXXX client library for Mobile Services
 

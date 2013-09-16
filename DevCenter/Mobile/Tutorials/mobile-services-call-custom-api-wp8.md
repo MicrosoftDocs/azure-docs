@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-call-custom-api-wp8" writer="glenga" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from the client - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to define a custom API and then call it from a Windows Phone app that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
 
 # Call a custom API from the client
 

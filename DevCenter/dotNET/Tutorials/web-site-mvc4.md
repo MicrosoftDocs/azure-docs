@@ -2,7 +2,7 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # Deploying an ASP.NET Web Application to a Windows Azure Web Site
 

@@ -1,6 +1,6 @@
 <properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Windows Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to a Windows Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" metaDescription="Learn how to deploy a Ruby on Rails application to a Windows Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="larryfr" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 #Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano
 

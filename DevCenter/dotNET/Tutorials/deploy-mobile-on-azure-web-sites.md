@@ -1,8 +1,7 @@
-<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile web site" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,  ASP.NET MVC" metaDescription="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra"/>
+﻿<properties linkid="develop-dotnet-aspnet-mvc-4-mobile-website" urlDisplayName="ASP.NET MVC 4 mobile web site" pageTitle=".NET ASP.NET MVC 4 mobile web site - Windows Azure tutorials" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 4,  ASP.NET MVC" metaDescription="A tutorial that teaches you how to deploy a web application to a Windows Azure web site using mobile features in ASP.NET MVC 4 web application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra"/>
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
 
 # Deploy an ASP.NET MVC Mobile Web Application on Windows Azure Web Sites
 

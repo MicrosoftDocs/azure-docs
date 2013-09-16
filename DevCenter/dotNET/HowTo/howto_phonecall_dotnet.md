@@ -1,8 +1,8 @@
-<properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Windows Azure" metaKeywords="Windows Azure .NET Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, ASP.NET twilio Azure" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-net-how-to-twilio-phone-call" urlDisplayName="Twilio Phone Call" pageTitle="How to make a phone call from Twilio (.NET) - Windows Azure" metaKeywords="Windows Azure .NET Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, ASP.NET twilio Azure" metaDescription="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 <h1>How to make a phone call using Twilio in a web role on Windows Azure</h1>
 
 This guide demonstrates how to use Twilio to make a call from a web page hosted in Windows Azure. The resulting application prompts the user for phone call values, as shown in the following screenshot.

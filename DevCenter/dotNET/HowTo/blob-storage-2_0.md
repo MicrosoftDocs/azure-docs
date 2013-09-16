@@ -2,7 +2,7 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # How to use the Windows Azure Blob Storage Service in .NET
 

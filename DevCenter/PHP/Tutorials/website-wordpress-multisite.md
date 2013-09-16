@@ -1,6 +1,6 @@
 <properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" metaDescription="Learn how to take an existing WordPress web site created through the gallery in Windows Azure and convert it to WordPress Multisite" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # Convert a WordPress Site to a Multisite
 

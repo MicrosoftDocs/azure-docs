@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+﻿
 
 #How to use the Windows Azure Media Services iOS Media Player Framework
 
