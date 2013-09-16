@@ -44,7 +44,7 @@ In this section you will create a new iOS app that is connected to your mobile s
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
-5. Under **Download and run app**, click **Download**. 
+5. Under **Download and run your app**, click **Download**. 
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service, along with the Mobile Services iOS SDK. Save the compressed project file to your local computer, and make a note of where you saved it.
 

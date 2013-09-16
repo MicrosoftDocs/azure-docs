@@ -49,7 +49,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
-5. Under **Download and run application**, select a language for your app, then click **Download**. 
+5. Under **Download and run your app**, select a language for your app, then click **Download**. 
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 

@@ -45,7 +45,7 @@ In this section you will create a new Android app that is connected to your mobi
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
-5. Under **Download and run app**, click **Download**. 
+5. Under **Download and run your app**, click **Download**. 
 
   This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
