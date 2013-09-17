@@ -88,11 +88,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 5. Notice that the code above refers to a new method `completeAll` that has not yet been defined in **QSTodoService**. Edit **QSTodoService.h** and add the following line before the `@end` line:
 
-		- (void) completeAll:(QSCompletionBlock)completion;
+		- (void) completeAll:(MSAPIBlock)completion;
 
-6. Add the corresponding implementation of `completeAll` in **QSTodoService.m** before the `@end` line. iOS is similar to JavaScript in that it doesn’t support JSON serialization of arbitrary types. As such, it has quite a simple API for invoking custom APIs as well, consisting of the `invokeAPI` method. The `invokeAPI` method passes the body parameter to be serialized to the request body, and passes the response through the same class to be deserialized and returned to the caller on the completion block.
+6. Add the corresponding implementation of `completeAll` in **QSTodoService.m** before the `@end` line. iOS is similar to JavaScript in that it doesn’t support JSON serialization of arbitrary types. As such, it has quite a simple API for invoking custom APIs as well, consisting of the `invokeAPI` method. 
 
-		- (void) completeAll:(QSCompletionBlock)completion
+		- (void) completeAll:(MSAPIBlock)completion
 		{
 		    [self.client
 		     invokeAPI:@"completeall"
