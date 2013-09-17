@@ -34,14 +34,14 @@ The following list describes the metrics that you can view in the chart on the *
 - **Requests** – A count of client requests to the web site.
 - **Data Out** – A measure of data sent by the web site to clients.
 - **Data In** – A measure of data received by the web site from clients.
-- **Http Client Errors** – Number of Http “4xx Client Error” messages sent.
-- **Http Server Errors** – Number of Http “5xx Server Error” messages sent.
-- **Http Successes** – Number of Http “2xx Success” messages sent.
-- **Http Redirects** – Number of Http “3xx Redirection” messages sent.
-- **Http 401 errors** – Number of Http “401 Unauthorized” messages sent.
-- **Http 403 errors** – Number of Http “403 Forbidden” messages sent.
-- **Http 404 errors** – Number of Http “404 Not Found” messages sent.
-- **Http 406 errors** – Number of Http “406 Not Acceptable” messages sent.
+- **Http Client Errors** – Number of Http "4xx Client Error" messages sent.
+- **Http Server Errors** – Number of Http "5xx Server Error" messages sent.
+- **Http Successes** – Number of Http "2xx Success" messages sent.
+- **Http Redirects** – Number of Http "3xx Redirection" messages sent.
+- **Http 401 errors** – Number of Http "401 Unauthorized" messages sent.
+- **Http 403 errors** – Number of Http "403 Forbidden" messages sent.
+- **Http 404 errors** – Number of Http "404 Not Found" messages sent.
+- **Http 406 errors** – Number of Http "406 Not Acceptable" messages sent.
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web site metrics
 In **Standard** web site mode, you can receive alerts based on your web site monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Windows Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
@@ -105,7 +105,7 @@ You can enable or disable the following application diagnostics:
 
 	Logs produced by this setting are stored on the file system of your web site, and can be downloaded using the steps in the **Downloading log files for a web site** section below.
 
-- **Application Logging (storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account. To specify a Windows Azure Storage Account, choose **On**, and then choose **manage connection** next to **Diagnostics Storage**. Specify a storage account name and storage access key. You can choose **Synchronize Primary Key** or **Synchronize Secondary Key** to retrieve the most recent primary or secondary key from your Windows Azure Storage account. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/").
+- **Application Logging (storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account. To specify a Windows Azure Storage Account, choose **On**, and then choose **manage connection** next to **Diagnostics Storage**. Specify a storage account name and storage access key. You can choose **Synchronize Primary Key** or **Synchronize Secondary Key** to retrieve the most recent primary or secondary key from your Windows Azure Storage account. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
 	The log information will be stored in a table named **WAWSAppLogTable** in the Windows Azure Storage Account that you specify, and can be accessed using a Windows Azure Storage client.
 
@@ -134,7 +134,7 @@ The **site diagnostics** section of the **Configure** management page controls t
 
 - **Web Server Logging** – Turn on Web Server logging to save web site logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web site, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client. You can save the logs to a Windows Azure Storage Account or to the File System.
 
- To save web server logs to a Windows Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and a Windows Azure Blob Container where the logs will be kept. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/").
+ To save web server logs to a Windows Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and a Windows Azure Blob Container where the logs will be kept. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
    To save web server logs to the file system, choose **File System**. This enables the **Quota** box where you can set the maximum amount of disk space for the log files. The minimum size is 25MB and the maximum is 100MB. The default size is 35MB.
 
