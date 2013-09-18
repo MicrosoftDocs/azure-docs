@@ -33,7 +33,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][4]
 
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
+2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
    ![][5]
 
