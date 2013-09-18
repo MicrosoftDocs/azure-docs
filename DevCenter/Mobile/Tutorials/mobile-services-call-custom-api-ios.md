@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-call-custom-api-ios" writer="krisragh" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from an iOS client app | Mobile Services Tutorials" metaKeywords="" metaDescription="Learn how to define a custom API and then call it from an iOS app that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
-
 # Call a custom API from the client
 
 <div class="dev-center-tutorial-selector sublanding"> 
