@@ -26,24 +26,21 @@ This tutorial requires the following:
 
 + Microsoft Visual Studio 2012 Express for Windows 8, or a later version
 + [Windows Azure Storage account][How To Create a Storage Account]
-+ [Windows Azure Storage Client library for Windows Store apps] (CTP)
 + A camera or other image capture device attached to your computer.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
 <h2><a name="install-storage-client"></a><span class="short-header">Install Storage client</span>Install the Storage client for Windows Store apps</h2>
 
-To be able to use an SAS to upload images to Blob storage, you must first install the Storage client library for Windows Store apps and add a reference to your project.
+To be able to use an SAS to upload images to Blob storage, you must first add the NuGet package that installs Storage client library for Windows Store apps.
 
-1. Download the [Storage client library for Windows Store apps][Windows Azure Storage Client library for Windows Store apps] and extract the files to your local computer.
+1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the **Project** menu in Visual Studio, click **Add Reference**, and then click **Browse**. 
+2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.Storage-Preview`, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
 
   ![][2]
 
-3. Browse to the location of the extracted library files, click the `Microsoft.WindowsAzure.Storage.winmd` file, click **Add**, then click **OK**. 
-
-  This adds a reference to the Storage client library to the project.
+  This adds the client library for Windows Azure storage services to the project.
 
 Next, you will update the quickstart app to capture and upload images.
 
@@ -173,17 +170,17 @@ Next, you will update the quickstart app to add image upload functionality by us
     
 4. In the TodoItem class, add the following properties:
 
-		[DataMember(Name = "containerName")]
-		public string ContainerName { get; set; }
+        [JsonProperty(PropertyName = "containerName")]
+        public string ContainerName { get; set; }
 
-		[DataMember(Name = "resourceName")]
-		public string ResourceName { get; set; }
+        [JsonProperty(PropertyName = "resourceName")]
+        public string ResourceName { get; set; }
 
-		[DataMember(Name = "sasQueryString")]
-		public string SasQueryString { get; set; }
+        [JsonProperty(PropertyName = "sasQueryString")]
+        public string SasQueryString { get; set; }
 
-        [DataMember(Name = "imageUri")]
-        public string ImageUri{ get; set; } 
+        [JsonProperty(PropertyName = "imageUri")]
+        public string ImageUri { get; set; } 
 
    	<div class="dev-callout"><b>Note</b>
    		<p>To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.</p>
@@ -309,7 +306,7 @@ Now that you have been able to securely upload images by integrating your mobile
 <!-- Images. -->
 [0]: ../Media/mobile-blob-storage-account.png
 [1]: ../Media/mobile-blob-storage-account-keys.png
-[2]: ../Media/mobile-add-storage-reference-dotnet.png
+[2]: ../Media/mobile-add-storage-nuget-package-dotnet.png
 [3]: ../Media/mobile-portal-data-tables.png
 [4]: ../Media/mobile-insert-script-blob.png
 [5]: ../Media/mobile-app-manifest-camera.png

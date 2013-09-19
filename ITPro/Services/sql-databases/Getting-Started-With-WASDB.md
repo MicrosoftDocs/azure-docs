@@ -1,6 +1,6 @@
 <properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="Get started tutorial" pageTitle="Getting started with SQL Database - Windows Azure" metaKeywords="" metaDescription="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div chunk="../chunks/sql-databases-left-nav.md" />
+
 
 #Getting Started with Windows Azure SQL Database
 

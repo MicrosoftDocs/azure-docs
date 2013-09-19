@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-socketio-web-site" urlDisplayName="Socket.IO Web Site" pageTitle="Build a Node.js web site with Socket.IO - Windows Azure tutorial" metaKeywords="node.js, socket.io, windows azure, web sites" metaDescription="Learn how to use the Socket.IO module in a Node.js application hosted in a Windows Azure Web Site" metaCanonical="http://www.windowsazure.com/en-us/develop/net/web-site-with-socketio" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 #Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site
 

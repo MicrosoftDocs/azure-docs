@@ -1,6 +1,6 @@
 <properties linkid="dev-php-how-to-php-web site" urlDisplayName="PHP Web Site" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" metaDescription="Learn how to create a PHP web site in Windows Azure Web Sites" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="waltpo" editor="mollybos" manager="bjsmith" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 #How to create a PHP web site in Windows Azure Web Sites
 
@@ -90,6 +90,6 @@ For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/de
 [configure-php]: /en-us/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /en-us/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: /en-us/pricing/details/#header-1
+[websites-pricing]: http://www.windowsazure.com/en-us/pricing/details/#header-1
 [scale-websites]: /en-us/manage/services/web-sites/how-to-scale-websites/
 

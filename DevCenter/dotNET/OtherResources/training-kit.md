@@ -2,6 +2,5 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
 
 <div chunk="../../Shared/Chunks/training-kit.md" />

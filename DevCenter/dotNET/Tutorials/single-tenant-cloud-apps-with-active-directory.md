@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+﻿
 
 # Developing Single Tenant Applications with Windows Azure Active Directory
 

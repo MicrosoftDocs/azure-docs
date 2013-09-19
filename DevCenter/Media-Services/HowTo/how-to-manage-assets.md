@@ -1,6 +1,5 @@
 <properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Windows Azure" metaKeywords="" metaDescription="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
-<div chunk="../chunks/article-left-menu.md" />
 
 <h1>How to: Manage Assets in storage</h1>
 

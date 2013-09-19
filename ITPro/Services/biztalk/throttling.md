@@ -1,6 +1,6 @@
 <properties linkid="throttling" urlDisplayName="BizTalk Services: Throttling" pageTitle="BizTalk Services: Throttling" metaKeywords="Get started Azure biztalk services, throttling, Azure unstructured data" metaDescription="Describes BizTalk Services: Throttling, including when a role instance throttles." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/throttling" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
 
-<div chunk="../chunks/biztalk-services-left-nav.md"/> 
+
 
 # BizTalk Services: Throttling
 

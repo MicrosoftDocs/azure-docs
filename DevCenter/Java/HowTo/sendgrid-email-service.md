@@ -1,7 +1,6 @@
-<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0"  writer="waltpo" editor="mollybos" />
+﻿<properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" metaDescription="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in Java." metaCanonical="" disqusComments="1" umbracoNaviHide="0"  writer="waltpo" editor="mollybos" />
 
 
-<div chunk="../chunks/article-left-menu.md" />
 
 # How to Send Email Using SendGrid from Java
 

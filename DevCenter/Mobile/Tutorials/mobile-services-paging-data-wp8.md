@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-wp8" writer="glenga" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to data (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in a Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-wp8.md" />
+
 
 # Refine Mobile Services queries with paging
 <div class="dev-center-tutorial-selector sublanding"> 

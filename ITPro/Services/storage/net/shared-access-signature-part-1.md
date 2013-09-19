@@ -1,6 +1,4 @@
-<properties linkid="manage-services-storage-net-shared-access-signatures-part-1" urlDisplayName="Shared Access Signatures Blob Service" pageTitle="Shared Access Signatures, Part 1: Understanding the SAS Model" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#  shared access signature" metaDescription="Create shared access signatures to delegate access to storage account resources, and consume them from a separate client application. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
-<div chunk="../chunks/article-left-menu.md" />
+﻿<properties linkid="manage-services-storage-net-shared-access-signatures-part-1" urlDisplayName="Shared Access Signatures Blob Service" pageTitle="Shared Access Signatures, Part 1: Understanding the SAS Model" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#  shared access signature" metaDescription="Create shared access signatures to delegate access to storage account resources, and consume them from a separate client application. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 # Shared Access Signatures, Part 1: Understanding the SAS Model
 

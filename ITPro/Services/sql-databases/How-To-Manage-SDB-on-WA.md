@@ -1,5 +1,4 @@
-
-<div chunk="../chunks/sql-databases-left-nav.md" />
+﻿
 
 # How to Manage SQL Databases on Windows Azure
 

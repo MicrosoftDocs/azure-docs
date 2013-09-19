@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-notify-users-mobileservices" urlDisplayName="Notify Users" pageTitle="Notify Users of your mobile service with Notification Hubs" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to register to receive notifications from your mobile service by using Notification Hubs" metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/notification-hubs-left-nav.md" />
+
 
 # <a name="getting-started"> </a>Notify users with Notification Hubs
 

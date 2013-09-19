@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+﻿
 <h1>How to use Twilio for voice and SMS capabilities from Mobile Services</h1>
 
 This topic shows you how to perform common tasks using the Twilio API with Windows Azure Mobile Services. In this tutorial you will learn how to create Custom API scripts that use the Twilio API to initiate a phone call and to send a Short Message Service (SMS) message. 
