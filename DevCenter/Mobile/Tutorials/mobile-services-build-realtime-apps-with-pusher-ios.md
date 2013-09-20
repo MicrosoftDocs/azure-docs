@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu-ios.md"></div>
+﻿
 
 # Build Real-time Apps with Mobile Services and Pusher
 <div class="dev-center-tutorial-selector sublanding"> 

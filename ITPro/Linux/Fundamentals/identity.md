@@ -2,6 +2,6 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 <div chunk="../../../DevCenter/Shared/Chunks/identity.md" />

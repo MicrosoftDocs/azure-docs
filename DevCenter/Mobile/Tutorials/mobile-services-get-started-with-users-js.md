@@ -1,6 +1,7 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-js" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to use authentication in your Windows Store app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
+
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector"> 
@@ -30,7 +31,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][4]
 
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
+2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
    ![][5]
 
@@ -56,10 +57,8 @@ To be able to authenticate users, you must register your app with an identity pr
 5. (Optional) Complete the steps in [Register your Windows Store app package for Microsoft authentication].
 
     <div class="dev-callout"><b>Note</b>
-	<p>When you register your Windows Store app package information with Mobile Services, the client is able to re-use login credentials for a single sign-on experience. If you do not do this, your users will be presented with a login prompt every time that the login method is called.</p>
+	<p>This step is optional because it only applies to the Microsoft Account login provider. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. Complete this step when you plan to use the Microsoft Account identity provider.</p>
     </div>
-
-	This step is optional because this tutorial uses Facebook for authentication and not Microsoft Account. Complete this step when you plan to use the Microsoft Account identity provider.
 
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
@@ -120,7 +119,7 @@ Next, you will update the app to authenticate users before requesting resources 
     This creates a member variable for storing the current user and a method to handle the authentication process. The user is authenticated by using a Facebook login. If you are using an identity provider other than Facebook, change the value passed to the <strong>login</strong> method above to one of the following: _microsoftaccount_, _twitter_, or _google_.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.</p>
+	<p>If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.</p>
     </div>
 
 9. Press the F5 key to run the app and sign into the app with your chosen identity provider. 

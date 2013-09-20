@@ -2,7 +2,8 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
+
 
 # How to use the Table Storage Service
 

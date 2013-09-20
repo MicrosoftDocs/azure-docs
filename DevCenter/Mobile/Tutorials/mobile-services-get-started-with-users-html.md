@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-html" writer="glenga" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to use authentication in your HTML app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-html.md" />
+
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -26,7 +26,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][4]
 
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
+2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
    ![][5]
 

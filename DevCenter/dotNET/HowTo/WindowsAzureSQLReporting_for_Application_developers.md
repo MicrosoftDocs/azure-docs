@@ -1,6 +1,6 @@
-<properties linkid="develop-dotnet-sql-reporting" urlDisplayName="SQL Reporting" pageTitle="How to use SQL Reporting (.NET) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use SQL Reporting programmatically in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+﻿<properties linkid="develop-dotnet-sql-reporting" urlDisplayName="SQL Reporting" pageTitle="How to use SQL Reporting (.NET) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use SQL Reporting programmatically in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
    
 # Windows Azure SQL Reporting for Application developers
 
