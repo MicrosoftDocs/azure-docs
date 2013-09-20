@@ -815,7 +815,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Handling Transient Communication Errors]: http://msdn.microsoft.com/en-us/library/hh851746(VS.103).aspx
 [Messaging Exceptions]: http://msdn.microsoft.com/en-us/library/hh418082.aspx
 [Handling Transient Communication Errors]: http://msdn.microsoft.com/en-us/library/hh851746(VS.103).aspx
-[Best Practices for Leveraging Windows Azure Service Bus Brokered Messaging API]: http://windowsazurecat.com/2011/09/best-practices-leveraging-windows-azure-service-bus-brokered-messaging-api/
+[Best Practices for Leveraging Windows Azure Service Bus Brokered Messaging API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh545245.aspx
 [Troubleshooting the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee706702.aspx
 [Azure Health Status]: http://go.microsoft.com/fwlink/p/?LinkId=168847
 [SQL Database Connectivity Troubleshooting Guide]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-connectivity-troubleshooting-guide.aspx
