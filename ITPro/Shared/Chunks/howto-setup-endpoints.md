@@ -1,10 +1,10 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
 
-#How to Set Up Communication with a Virtual Machine
+#How to Set Up Endpoints to a Virtual Machine
 
-All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, you need to add endpoints to a virtual machine for other resources on the Internet or other virtual networks to communicate with it. 
+All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, other resources on the Internet or other virtual networks require endpoints to handle the inbound network traffic to the virtual machine. 
 
-When you create a virtual machine in the Management Portal, you can create these endpoints, such as for Remote Desktop, Windows PowerShell Remoting, or Secure Shell (SSH). To create additional endpoints after you create the virtual machine, follow the steps in this article.
+When you create a virtual machine in the Management Portal, you can create these endpoints, such as for Remote Desktop, Windows PowerShell Remoting, or Secure Shell (SSH). After you create the virtual machine, you can create additional endpoints as needed. 
 
 **Note**: If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
@@ -12,7 +12,7 @@ Each endpoint has a public port and a private port:
 
 - The private port is used internally by the virtual machine to listen for traffic on that endpoint.
 
-- The public port is used by the Windows Azure load balancer to communicate with the virtual machine from external resources. After you create an endpoint, you can use the network access control list (ACL) to define rules that help isolate and control the incoming traffic on the public port. For more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
+- The public port is used by the Windows Azure load balancer to communicate with the virtual machine from external resources. After you create an endpoint, you can use a network access control list (ACL) to define rules that help isolate and control the incoming traffic on the public port. For more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
 Default values for the ports and protocol for these endpoints are provided when the endpoints are created through the Management Portal. For all other endpoints, you specify the ports and protocol when you create the endpoint. Resources can connect to an endpoint by using either the TCP or UDP protocol. The TCP protocol includes HTTP and HTTPS communication.  
 
@@ -44,6 +44,8 @@ Default values for the ports and protocol for these endpoints are provided when 
 	You will now see the endpoint listed on the **Endpoints** page.
 
 	![Endpoint creation successful] (../media/endpointwindowsnew.png)
+
+
 
 
 
