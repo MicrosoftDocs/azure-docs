@@ -5,17 +5,17 @@ Next, you will create a new mobile service to replace the in-memory list for dat
 1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/). 
 2.	At the bottom of the navigation pane, click **+NEW**.
 
-	<img src="/media/devcenter/Shared/Media/plus-new.png" />
+	<img src="../../Shared/Media/plus-new.png" />
 
 3.	Expand **Compute** and **Mobile Service**, then click **Create**.
 
-	<img src="/media/devcenter/mobile/mobile-create.png" />
+	<img src="../Media/mobile-create.png" />
 
     This displays the **New Mobile Service** dialog.
 
 4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
 
-	<img src="/media/devcenter/mobile/mobile-create-page1.png" />
+	<img src="../Media/mobile-create-page1.png" />
 
     This displays the **Specify database settings** page.
 
@@ -25,7 +25,7 @@ Next, you will create a new mobile service to replace the in-memory list for dat
 
 5.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
-	<img src="/media/devcenter/mobile/mobile-create-page2.png" />
+	<img src="../Media/mobile-create-page2.png" />
 
     <div class="dev-callout"> 
 	<b>Note</b> 
