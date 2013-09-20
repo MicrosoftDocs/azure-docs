@@ -116,7 +116,7 @@ Now that you have created a custom API and called it from your Windows Store app
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-js.md
+[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-js.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-js.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-js.md
