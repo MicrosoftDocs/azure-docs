@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+
 
 #New Relic Application Performance Management on Windows Azure
 

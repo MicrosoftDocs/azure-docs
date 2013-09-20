@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-set-up-computer" urlDisplayName="Set up computer for Media Services" pageTitle="Set up computer for Media Services - Windows Azure" metaKeywords="" metaDescription="Learn about the prerequisites for Media Services using the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+﻿<properties linkid="develop-media-services-how-to-guides-set-up-computer" urlDisplayName="Set up computer for Media Services" pageTitle="Set up computer for Media Services - Windows Azure" metaKeywords="" metaDescription="Learn about the prerequisites for Media Services using the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 <h1><a name="setup-dev"> </a><span class="short header">Setting up your computer for Media Services development</span></h1> 
 

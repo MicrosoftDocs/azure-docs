@@ -1,7 +1,7 @@
 <properties linkid="dev-net-commons-tasks-profiling" urlDisplayName="Performance Profiling" pageTitle="Use Performance Counters in Windows Azure (.NET)" metaKeywords="Azure performance counters, Azure performance profiling, Azure performance counters C#, Azure performance profiling C#" metaDescription="Learn how to enable and collect data from performance counters in Windows Azure applications. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="ryanwi"/>
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 # Using performance counters in Windows Azure
 
 You can use performance counters in a Windows Azure application to
