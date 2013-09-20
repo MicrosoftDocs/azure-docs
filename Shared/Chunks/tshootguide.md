@@ -443,30 +443,6 @@ many instances. Here are a few ways to minimize the financial impact:
     all information is available, then utilize the post-deploy Diagnostics
     config to selectively gather data.
 
-[Windows Azure PowerShell Cmdlets]
-
-You can remotely manager diagnostics by using Windows Azure
-PowerShell Cmdlets. The cmdlets are based on the Windows Azure
-Management and Diagnostics APIs and the full source code is available
-through the [CodePlex] project so you can better understand the underlying
-APIs.
-
-The Windows Azure PowerShell Cmdlets are designed to be usable tools for
-browsing, configuring, and managing several Windows Azure services.
-However, they are also provided in source code form to enable you to
-better understand how to use the services. Some of the key features
-demonstrated include:
-
--   Windows Azure Service Management API
--   Windows Azure SDK
--   Windows Azure Storage Analytics
--   Windows Azure Diagnostics
--   SQL Database REST API
--   Windows Azure Traffic Manager REST API
--   Windows PowerShell
-
-Documentation for the cmdlets can be found here: [http://wappowershell.codeplex.com/documentation]. Michael Washam's [blog] gives some good example scripts.
-
 <h2><a id="Vms"></a>Windows Azure Virtual Machines</h2>
 
 Troubleshooting applications running on Windows Azure Virtual Machines
@@ -772,7 +748,6 @@ For more information on quota-related errors, see [Understanding Quotas].
 [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx
 [https://help.ubuntu.com/]: https://help.ubuntu.com/
 [http://centos.org/]: http://centos.org/
-[http://wappowershell.codeplex.com/documentation]: 	http://wappowershell.codeplex.com/documentation
 [http://www.cerebrata.com]: http://www.cerebrata.com
 
 [Monitoring Pack]: http://www.microsoft.com/download/en/details.aspx?id=11324
@@ -801,8 +776,6 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Log Parser Plus]: http://logparserplus.com/Examples
 [TechNet Log Parser Examples]: http://technet.microsoft.com/en-us/library/ee692659.aspx
 [Office 2003 Web Components]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
-[CodePlex]: http://wappowershell.codeplex.com/
-[blog]: http://michaelwasham.com/2012/01/16/windows-azure-powershell-cmdlets-2-2-released/
 [How to: Debug Windows Service Applications]: http://msdn.microsoft.com/en-us/library/7a50syb3%28v=vs.90%29.aspx
 [Daniel Pearson's presentation Windows Debugging and Troubleshooting]: http://technet.microsoft.com/en-us/edge/Video/hh867800
 [Suse Linux documentation]: https://www.suse.com/documentation/
@@ -835,4 +808,3 @@ For more information on quota-related errors, see [Understanding Quotas].
 [diagnostics-diagram]: ../Media/diagnosticsdiagram.png
 [Understanding Quotas]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
 [Troubleshooting Cache]: http://go.microsoft.com/fwlink/?LinkId=252730 
-[Windows Azure PowerShell Cmdlets]: http://wappowershell.codeplex.com/documentation
