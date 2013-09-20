@@ -2,7 +2,7 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # How to use Windows Azure SQL Database in .NET applications
 

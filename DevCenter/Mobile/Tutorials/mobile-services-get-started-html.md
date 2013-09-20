@@ -55,7 +55,7 @@ In this section you will create a new HTML app that is connected to your mobile 
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
-4. Under **Download and run application**, click **Download**. 
+4. Under **Download and run your app**, click **Download**. 
 
   This downloads the web site files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
 

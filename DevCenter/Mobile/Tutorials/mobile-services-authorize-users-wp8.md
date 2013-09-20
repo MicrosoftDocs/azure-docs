@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-authorize-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authorize users with Mobile Services" metakeywords="Authorize users with Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app, authorization" footerexpose="" metadescription="Authorize users with Windows Azure Mobile Services in your Windows Phone 8 apps." umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk="../chunks/article-left-menu-wp8.md" />
+
 
 # Use scripts to authorize users in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -69,7 +69,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
    This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service.
 
-5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item how has an associated userId value.
+5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item now has an associated userId value.
 
 ## Next steps
 

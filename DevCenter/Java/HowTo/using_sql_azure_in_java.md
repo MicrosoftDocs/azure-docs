@@ -1,8 +1,5 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use the Windows Azure SQL Database from Java code. " metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
-
-<div chunk="../chunks/article-left-menu.md" />
-
 # How to Use Windows Azure SQL Database in Java
 
 The following steps show you how to use Windows Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Windows Azure, or in other environments. This guide covered creating a server and creating a database from the [Windows Azure Management Portal](https://windows.azure.com). For information about performing these tasks from the production portal, see [Using SQL Database with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx).

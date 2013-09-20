@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (iOS) - Windows Azure Mobile Services" writer="glenga" metaKeywords="Windows Azure iOS data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

@@ -1,7 +1,7 @@
 ﻿<properties linkid="dev-nodejs-basic-web-app-with-express" urlDisplayName="Web App with Express" pageTitle="Web App with Express (Node.js) - Windows Azure Tutorial" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" metaDescription="An tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # Build a Node.js web application using Express on a Windows Azure Cloud Service
 

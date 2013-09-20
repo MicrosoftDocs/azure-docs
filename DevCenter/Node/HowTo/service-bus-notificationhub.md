@@ -1,7 +1,7 @@
-<properties linkid="dev-nodejs-how-to-service-bus-notification-hub" urlDisplayName="Service Bus Notification Hubs" pageTitle="How to use Service Bus Notification Hubs (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus Notification Hubs, Get Started Service Bus Notification Hubs, Azure notification, Azure messaging notifications, Service Bus notification Node.js" metaDescription="Learn how to use Service Bus Hubs in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr" />
+﻿<properties linkid="dev-nodejs-how-to-service-bus-notification-hub" urlDisplayName="Service Bus Notification Hubs" pageTitle="How to use Service Bus Notification Hubs (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus Notification Hubs, Get Started Service Bus Notification Hubs, Azure notification, Azure messaging notifications, Service Bus notification Node.js" metaDescription="Learn how to use Service Bus Hubs in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr" />
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # How to Use Service Bus Notification Hubs
 

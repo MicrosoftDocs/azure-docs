@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu.md" />
+﻿
 
 #How to Build a Smooth Streaming Windows Store Application
 

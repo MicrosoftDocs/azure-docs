@@ -1,6 +1,6 @@
 <properties linkid="develop-media-services-how-to-guides-create-media-processor" urlDisplayName="Create a Media Processor" pageTitle="How to Create a Media Processor - Windows Azure" metaKeywords="" metaDescription="Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Windows Azure Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 <h1>How to: Get a Media Processor Instance</h1>
 This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Create an Encrypted Asset and Upload into Storage](http://go.microsoft.com/fwlink/?LinkID=301733&clcid=0x409).

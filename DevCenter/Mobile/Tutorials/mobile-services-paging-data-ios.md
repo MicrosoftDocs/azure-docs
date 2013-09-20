@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to data in your iOS application using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+
 
 # Refine Mobile Services queries with paging
 

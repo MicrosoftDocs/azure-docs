@@ -1,6 +1,6 @@
-<properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="OS Functionality" pageTitle="Operating System functionality available to applications running on Web Sites" metaKeywords="web sites OS functionality" metaDescription="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="timamm" />
+﻿<properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="OS Functionality" pageTitle="Operating System functionality available to applications running on Web Sites" metaKeywords="web sites OS functionality" metaDescription="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="timamm" />
 
-<div chunk="../chunks/web-sites-left-nav.md" />
+
 
 # Operating System Functionality Available to Applications on Windows Azure Web Sites #
 

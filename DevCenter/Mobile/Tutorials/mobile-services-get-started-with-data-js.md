@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-js" urlDisplayName="Get Started with Data" pageTitle="Get started with data (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to get started using data with Windows Azure Mobile Services." writer="glenga" metaCanonical="https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -58,7 +58,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.MobileServices.WinJS`, click **Install** on the **Windows Azure Mobile Services for WinJS** package, then accept the license agreement. 
+2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices.WinJS`, click **Install** on the **Windows Azure Mobile Services for WinJS** package, then accept the license agreement. 
 
   ![][7]
 
