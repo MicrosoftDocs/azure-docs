@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) – Windows Azure" metaKeywords="" metaDescription="How to Deliver Apple HTTP Live Streaming (HLS) – Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+﻿<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) – Windows Azure" metaKeywords="" metaDescription="How to Deliver Apple HTTP Live Streaming (HLS) – Windows Azure" metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 <h1>How to: Deliver Apple HLS streaming content</h1>
 

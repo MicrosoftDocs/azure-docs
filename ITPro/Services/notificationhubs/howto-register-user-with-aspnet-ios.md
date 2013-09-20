@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-how-to-guides-howto-register-user-with-aspnet-webapi-ios" urlDisplayName="Notify iOS app users by using Web API" pageTitle="Register the current user for push notifications by using Web API - Notification Hubs" metaKeywords="Windows Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" metaDescription="Learn how to request push notification registration in an iOS app with Windows Azure Notification Hubs when registeration is performed by ASP.NET Web API." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-<div chunk="../chunks/notification-hubs-left-nav.md" />
+
 
 # Register the current user for push notifications by using ASP.NET
 

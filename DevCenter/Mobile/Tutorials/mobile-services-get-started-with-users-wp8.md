@@ -1,6 +1,7 @@
 <properties linkid="mobile-get-started-with-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with authentication in Mobile Services" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app" footerexpose="" metadescription="Get started using Windows Azure Mobile Services in your Windows Phone apps." umbraconavihide="0" disquscomments="1"></properties>
 
-<div chunk="../chunks/article-left-menu-wp8.md" />
+
+
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -32,7 +33,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][1]
 
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
+2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
    ![][2]
 

@@ -1,6 +1,6 @@
-<properties linkid="develop-java-how-to-hudson-ci" urlDisplayName="Hudson Continuous Integration" pageTitle="How to use Hudson with the Windows Azure Blob service" metaKeywords="Hudson, Windows Azure storage, Windows Azure Blob service, windows azure storage, azure hudson" metaDescription="Describes how to use Hudson with Windows Azure Blob storage as a repository for build artifacts." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
+﻿<properties linkid="develop-java-how-to-hudson-ci" urlDisplayName="Hudson Continuous Integration" pageTitle="How to use Hudson with the Windows Azure Blob service" metaKeywords="Hudson, Windows Azure storage, Windows Azure Blob service, windows azure storage, azure hudson" metaDescription="Describes how to use Hudson with Windows Azure Blob storage as a repository for build artifacts." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 #Using Windows Azure Storage with a Hudson Continuous Integration solution
 
@@ -151,3 +151,4 @@ The following provides an overview of the Blob service components.
   [How to Create a Storage Account]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Meet Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
   [ms-open-tech]: http://msopentech.com
+

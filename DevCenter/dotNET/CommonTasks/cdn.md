@@ -2,6 +2,4 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
-
 <div chunk="../../Shared/Chunks/cdn.md" />

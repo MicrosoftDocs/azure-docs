@@ -1,4 +1,4 @@
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
 
 # Schedule recurring jobs in Mobile Services  
 <div class="dev-onpage-video-clear clearfix">

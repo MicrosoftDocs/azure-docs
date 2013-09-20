@@ -2,7 +2,7 @@
 
 # How to install and configure Windows Azure PowerShell#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell class="current"">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
 You can use Windows PowerShell to perform a variety of tasks in Windows Azure, either interactively at a command prompt or automatically through scripts. Windows Azure PowerShell is a module that provides cmdlets to manage Windows Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Windows Azure platform. In most cases, you can using the cmdlets to perform the same tasks that you can perform through the Windows Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and websites. 
 

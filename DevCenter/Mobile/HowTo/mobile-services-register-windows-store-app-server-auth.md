@@ -16,7 +16,7 @@ Registering your app also enables you to send push notifications to your app. If
 
 <div chunk="../chunks/mobile-services-register-windows-store-app.md" />
 
-Now that you have registered your app package, you can return to complete the **Get started with authentication** ([C#][Get started with users C#]/[JavaScript][Get started with users JavaScript]) tutorial, using the Microsoft Account identity provider. Remember to supply a value of <strong>true</strong> for the <em>useSingleSignOn</em> when you call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method. This provides your users with the improved login experience when using a Microsoft Account.
+After you have registered your app package, remember to supply a value of <strong>true</strong> for the <em>useSingleSignOn</em> when you call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method. This provides your users with the improved login experience when using a Microsoft Account.
 
 <!-- Anchors. -->
 <!-- Images. -->

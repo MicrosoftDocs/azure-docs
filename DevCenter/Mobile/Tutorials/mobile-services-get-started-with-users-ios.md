@@ -1,6 +1,7 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-ios" urlDisplayName="Get Started with Authentication (iOS)" pageTitle="Get started with authentication (iOS) - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services iOS" metaDescription="Learn how to use authentication in your Windows Azure Mobile Services app for iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-ios.md" />
+
+
 
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -31,7 +32,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
    ![][4]
 
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
+2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
    ![][5]
 

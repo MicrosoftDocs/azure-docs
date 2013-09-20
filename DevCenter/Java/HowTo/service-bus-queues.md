@@ -3,7 +3,7 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
+
 
 # How to Use Service Bus Queues
 

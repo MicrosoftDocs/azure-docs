@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-push-notifications-to-users-js" urlDisplayName="Push Notifications to Users (JS)" pageTitle="Push notifications to users (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to  users in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-windows-store.md" />
+
 
 # Push notifications to users by using Mobile Services
 
