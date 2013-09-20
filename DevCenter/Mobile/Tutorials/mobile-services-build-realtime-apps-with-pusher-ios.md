@@ -1,8 +1,8 @@
-﻿
+
 
 # Build Real-time Apps with Mobile Services and Pusher
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="en-us/develop/mobile/tutorials/build-realtime-apps-with-pusher-ios" title="iOS" class="current">iOS</a> 
+	<a href="/en-us/develop/mobile/tutorials/build-realtime-apps-with-pusher-ios/" title="iOS" class="current">iOS</a> 
 </div>
 
 This topic shows you how can add real-time functionality to your Windows Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
