@@ -208,24 +208,22 @@ In this section you will extend the basic application created by the **express**
 
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
 
-        var azure = require('azure')
-  		  , uuid = require('node-uuid');
+        var azure = require('azure');
+  		var uuid = require('node-uuid');
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
 
-  	module.exports = Task;
+  		module.exports = Task;
 
 		function Task(storageClient, tableName, partitionKey) {
-  		  this.storageClient = storageClient;
-  		  this.tableName = tableName;
-  		  this.partitionKey = partitionKey;
-  
-  		  this.storageClient.createTableIfNotExists(tableName, 
-    		function tableCreated(err) {
-      		  if(err) {
-   		        throw error;
-      		  }
-    		});
+		  this.storageClient = storageClient;
+		  this.tableName = tableName;
+		  this.partitionKey = partitionKey;
+		  this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+		    if(error) {
+		      throw error;
+		    }
+		  });
 		};
 
 5. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:
@@ -233,14 +231,13 @@ In this section you will extend the basic application created by the **express**
 		Task.prototype = {
 		  find: function(query, callback) {
 		    self = this;
-		    self.storageClient.queryEntities(query, 
-		      function entitiesQueried(err, entities){
-		        if(err) {
-		          callback(err);
-		        } else {
-		          callback(null, entities);
-		        }
-		      });
+		    self.storageClient.queryEntities(query, function entitiesQueried(error, entities) {
+		      if(error) {
+		        callback(error);
+		      } else {
+		        callback(null, entities);
+		      }
+		    });
 		  },
 
 		  addItem: function(item, callback) {
@@ -248,31 +245,28 @@ In this section you will extend the basic application created by the **express**
 		    item.RowKey = uuid();
 		    item.PartitionKey = self.partitionKey;
 		    item.completed = false;
-		    self.storageClient.insertEntity(self.tableName, item, 
-		      function entityInserted(error) {
-		        if(error){  
-		          callback(err);
-		        }
-		        callback(null);
-		      });
+		    self.storageClient.insertEntity(self.tableName, item, function entityInserted(error) {
+		      if(error){  
+		        callback(error);
+		      }
+		      callback(null);
+		    });
 		  },
 
 		  updateItem: function(item, callback) {
 		    self = this;
-		    self.storageClient.queryEntity(self.tableName, self.partitionKey, item,
-		      function entityQueried(err, entity) {
- 		       if(err) {
-		          callback(err);
+		    self.storageClient.queryEntity(self.tableName, self.partitionKey, item, function entityQueried(error, entity) {
+		      if(error) {
+		        callback(error);
+		      }
+		      entity.completed = true;
+		      self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+		        if(error) {
+		          callback(error);
 		        }
-		        entity.completed = true;
-		        self.storageClient.updateEntity(self.tableName, entity,
-		          function entityUpdated(err) {
-		            if(err) {
-		              callback(err);
-		            }
-		            callback(null);
-		          });
+		        callback(null);
 		      });
+		    });
 		  }
 		}
 
@@ -284,8 +278,8 @@ In this section you will extend the basic application created by the **express**
 
 2. Add the folowing code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
 
-		var azure = require('azure')
-		  , async = require('async');
+		var azure = require('azure');
+		var async = require('async');
 
 		module.exports = TaskList;
 
@@ -301,39 +295,39 @@ In this section you will extend the basic application created by the **express**
 		    var query = azure.TableQuery
 		      .select()
 		      .from(self.task.tableName)
-		      .where('completed eq ?', 'false');
-		    self.task.find(query, function itemsFound(err, items) {
+		      .where('completed eq ?', false);
+		    self.task.find(query, function itemsFound(error, items) {
 		      res.render('index',{title: 'My ToDo List ', tasks: items});
 		    });
 		  },
 
 		  addTask: function(req,res) {
 		    var self = this      
- 		    var item = req.body.item;
-		    self.task.addItem(item, function itemAdded(err) {
-		      if(err) {
-		        throw err;
+		    var item = req.body.item;
+		    self.task.addItem(item, function itemAdded(error) {
+		      if(error) {
+		        throw error;
 		      }
 		      res.redirect('/');
 		    });
 		  },
-  
+
 		  completeTask: function(req,res) {
 		    var self = this;
 		    var completedTasks = Object.keys(req.body);
-		    async.forEach(completedTasks, function taskIterator(completedTask, callback){
-		      self.task.updateItem(completedTask, function itemsUpdated(err){
-		        if(err){
-		          callback(err);
+		    async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+		      self.task.updateItem(completedTask, function itemsUpdated(error) {
+		        if(error){
+		          callback(error);
 		        } else {
 		          callback(null);
 		        }
-		      })
-		    }, function(err){
-		      if(err) {
-		        throw err;
+		      });
+		    }, function goHome(error){
+		      if(error) {
+		        throw error;
 		      } else {
- 		       res.redirect('/');
+		       res.redirect('/');
 		      }
 		    });
 		  }
@@ -347,14 +341,14 @@ In this section you will extend the basic application created by the **express**
 
 2. At the beginning of the file, add the following to load the azure module, set the table name, partitionKey, and set the storage credentials used by this example:
 
-		var azure = require('azure')
-		  , nconf = require('nconf');
+		var azure = require('azure');
+		var nconf = require('nconf');
 		nconf.env()
 		     .file({ file: 'config.json'});
 		var tableName = nconf.get("TABLE_NAME")
-		  , partitionKey = nconf.get("PARTITION_KEY")
-		  , accountName = nconf.get("STORAGE_NAME")
-		  , accountKey = nconf.get("STORAGE_KEY");
+		var partitionKey = nconf.get("PARTITION_KEY")
+		var accountName = nconf.get("STORAGE_NAME")
+		var accountKey = nconf.get("STORAGE_KEY");
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -364,23 +358,19 @@ In this section you will extend the basic application created by the **express**
 3. In the app.js file, scroll down to where you see the following line:
 
 		app.get('/', routes.index);
+		app.get('/users', user.list);
 
-
-Replace the above line with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is the password to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
-		var task = new Task(
-				azure.createTableService(accountName, accountKey)
-			, tableName
-			, partitionKey);
+		var task = new Task(azure.createTableService(accountName, accountKey), tableName, partitionKey);
 		var taskList = new TaskList(task);
 
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
-
-		
+	
 4. Save the **app.js** file.
 
 ###Modify the index view
@@ -428,7 +418,7 @@ Replace the above line with the code shown below. This will initialize an instan
 
 The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap], which is a toolkit that makes it easy to design a nice looking web site.
 
-1. Download and extract the files for [Twitter Bootstrap]. Copy the **bootstrap.min.css** file from the **bootstrap\\css** folder to the **public\\stylesheets** directory of your tasklist application.
+1. Download and extract the files for [Twitter Bootstrap 3]. Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 
 2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
 
@@ -439,10 +429,9 @@ The **layout.jade** file in the **views** directory is used as a global template
 		    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
 		    link(rel='stylesheet', href='/stylesheets/style.css')
 		  body.app
-		    div.navbar.navbar-fixed-top
-		      .navbar-inner
-		        .container
-		          a.brand(href='/') My Tasks
+		    nav.navbar.navbar-default
+		      div.navbar-header
+		        a.navbar-brand(href='/') My Tasks
 		    block content
 
 3. Save the **layout.jade** file.
@@ -684,7 +673,7 @@ While the steps in this article describe using the Table Service to store inform
 [Windows Azure Portal]: http://windowsazure.com
 [nconf]: https://github.com/flatiron/nconf
 [preview-portal]: https://manage.windowsazure.com/
-[Twitter Bootstrap]: http://twitter.github.com/bootstrap/
+[Twitter Bootstrap 3]: http://getbootstrap.com/
 
 [node-table-finished]: ../media/table_todo_empty.png
 [node-table-list-items]: ../media/table_todo_list.png
