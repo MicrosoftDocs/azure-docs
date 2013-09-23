@@ -2,30 +2,30 @@
 
 Next, you will create a new mobile service to replace the in-memory list for data storage. Follow these steps to create a new mobile service.
 
-1.	Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/). 
+1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/). 
 2.	At the bottom of the navigation pane, click **+NEW**.
 
-	![][1]
+	<img src="../../Shared/Media/plus-new.png" />
 
 3.	Expand **Compute** and **Mobile Service**, then click **Create**.
 
-	![][2]
+	<img src="../Media/mobile-create.png" />
 
     This displays the **New Mobile Service** dialog.
 
 4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
 
-	![][3]
+	<img src="../Media/mobile-create-page1.png" />
 
     This displays the **Specify database settings** page.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <b>Use existing Database</b> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
+	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <strong>Use existing Database</strong> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
 
 5.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
-	![][4]
+	<img src="../Media/mobile-create-page2.png" />
 
     <div class="dev-callout"> 
 	<b>Note</b> 
@@ -34,10 +34,3 @@ Next, you will create a new mobile service to replace the in-memory list for dat
 
 You have now created a new mobile service that can be used by your mobile apps. Next, you will add a new table in which to store app data. This table will be used by the app in place of the in-memory collection.
 
-<!-- Anchors. -->
-<!-- Images. -->
-[1]: ../../Shared/Media/plus-new.png
-[2]: ../Media/mobile-create.png
-[3]: ../Media/mobile-create-page1.png
-[4]: ../Media/mobile-create-page2.png
-<!-- URLs. -->

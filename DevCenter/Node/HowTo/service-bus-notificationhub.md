@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-service-bus-notification-hub" urlDisplayName="Service Bus Notification Hubs" pageTitle="How to use Service Bus Notification Hubs (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus Notification Hubs, Get Started Service Bus Notification Hubs, Azure notification, Azure messaging notifications, Service Bus notification Node.js" metaDescription="Learn how to use Service Bus Hubs in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr" />
+<properties linkid="dev-nodejs-how-to-service-bus-notification-hub" urlDisplayName="Service Bus Notification Hubs" pageTitle="How to use Service Bus Notification Hubs (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus Notification Hubs, Get Started Service Bus Notification Hubs, Azure notification, Azure messaging notifications, Service Bus notification Node.js" metaDescription="Learn how to use Service Bus Hubs in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr" />
 
 
 
@@ -6,7 +6,7 @@
 # How to Use Service Bus Notification Hubs
 
 This guide will show you how to use Service Bus Notification Hubs
-from Node.js applications. The scenarios covered include **sending notifications to iOS and Windows Store applications**. For more information on notification hubs, see the [Next Steps](#next) section.
+from Node.js applications. The scenarios covered include **sending notifications to Android, iOS, Windows Phone and Windows Store applications**. For more information on notification hubs, see the [Next Steps](#next) section.
 
 ## Table of Contents
 
@@ -86,13 +86,41 @@ The connection **connectionstring** value can be obtained from the Windows Azure
 
 ##<a id="send"></a> How to send notifications
 
-The **NotificationHubService** object exposes an instance of the **ApnsService** (notificationHubService.apns) and **WnsService** (notificationHubService.wns) objects. The **ApnsService** object is used to send notification to iOS applications. The **WnsService** object is used to send notifications to Windows Store applications.
+The **NotificationHubService** object exposes the following object instances for sending notifications to specific devices and applications:
+
+* **Android** - use the **GcmService** object, which is available at **notificationHubService.gcm**
+* **iOS** - use the **ApnsService** object, which is accessible at **notificationHubService.apns**
+* **Windows Phone** - use the **MpnsService** object, which is available at **notificationHubService.mpns**
+* **Windows Store applications** - use the **WnsService** object, which is available at **notificationHubService.wns**
+
+### How to send Android application notifications
+
+The **GcmService** object provides a **send** method that can be used to send notifications to Android applications. The **send** method accepts the following parameters:
+
+* Tags - the tag identifier. If no tag is provided, the notification will be sent to al clients
+* Payload - the message's JSON or string payload
+* Callback - the callback function
+
+For more information on the payload format, see the Payload section of [Implementing GCM Server](http://developer.android.com/google/gcm/server.html#payload).
+
+The following code uses the **GcmService** instance exposed by the **NotificationHubService** to send a message to all clients.
+
+	var payload = {
+	  data: {
+	    msg: 'Hello!'
+	  }
+	};
+	notificationHubService.gcm.send(null, payload, function(error){
+	  if(!error){
+	    //notification sent
+	  }
+	});
 
 ### How to send iOS application notifications
 
 The **ApnsService** object provides a **send** method that can be used to send notifications to iOS applications. The **send** method accepts the following parameters:
 
-* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients.
+* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients
 * Payload - the message's JSON or string payload
 * Callback - the callback function
 
@@ -103,20 +131,41 @@ The following code uses the **ApnsService** instance exposed by the **Notificati
 	var payload={ 
 	    alert: 'Hello!'
 	  };
-	notificationHubService.apns.send(null, payload, 
-	  function(error){
-	    if(!error){
- 	      // notification sent
-	    }
-	  });
+	notificationHubService.apns.send(null, payload, function(error){
+	  if(!error){
+ 	    // notification sent
+      }
+	});
+
+### How to send Windows Phone notifications
+
+The **MpnsService** object provides a **send** method that can be used to send notifications to Windows Phone applications. The **send** method accepts the following parameters:
+
+* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients
+* Payload - the message's XML payload
+* TargetName - 'toast' for toast notifications. 'token' for tile notifications.
+* NotificationClass - The priority of the notification. See the HTTP Header Elements section of [Push notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx) for valid values.
+* Options - optional request headers
+* Callback - the callback function
+
+For a list of valid TargetName, NotificationClass, and header options, see [Push notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+
+The following code uses the **MpnsService** instance exposed by the **NotificationHubService** to send a toast alert:
+
+	var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+	notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+	  if(!error){
+	    //notification sent
+	  }
+	});
 
 ### How to send Windows Store application notifications
 
 The **WnsService** object provides a **send** method that can be used to send notifications to Windows Store applications.  The **send** method accepts the following parameters:
 
-* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients.
+* Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients
 * Payload - the XML message payload
-* Type - the notification type; 
+* Type - the notification type
 * Options - optional request headers
 * Callback - the callback function
 
@@ -125,12 +174,11 @@ For a list of valid Types and request headers, see [Push notification service re
 The following code uses the **WnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
 	var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-	notificationHubService.wns.send(null, payload , 'wns/toast', 
-	  function(error){
-	    if(!error){
- 	      // notification sent
-	    }
-	  });
+	notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+	  if(!error){
+ 	    // notification sent
+	  }
+	});
 
 ##<a id="next"></a> Next Steps
 
