@@ -7,11 +7,11 @@ Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard,
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <td>-</td>
-        <td><strong>Developer</strong></td>
-        <td><strong>Basic</strong></td>
-        <td><strong>Standard</strong></td>
-        <td><strong>Premium</strong></td>
+		<th></th>
+        <th>Developer</th>
+        <th>Basic</th>
+        <th>Standard</th>
+        <th>Premium</th>
 </tr>
 <tr>
 <td><strong>Starting price</strong></td>
