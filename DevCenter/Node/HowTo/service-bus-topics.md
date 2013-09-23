@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" metaDescription="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -200,7 +200,7 @@ The example below creates a subscription named 'HighMessages' with a
     });
     var rule={
         deleteDefault: function(){
-            serviceBusClient.deleteRule('MyTopic',
+            serviceBusService.deleteRule('MyTopic',
                 'HighMessages', 
                 azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
                 rule.handleError);
@@ -210,7 +210,7 @@ The example below creates a subscription named 'HighMessages' with a
                 sqlExpressionFilter: 'messagenumber > 3'
             };
             rule.deleteDefault();
-            serviceBusClient.createRule('MyTopic', 
+            serviceBusService.createRule('MyTopic', 
                 'HighMessages', 
                 'HighMessageFilter', 
                 ruleOptions, 
@@ -235,7 +235,7 @@ a **messagenumber** property less than or equal to 3:
     });
     var rule={
         deleteDefault: function(){
-            serviceBusClient.deleteRule('MyTopic',
+            serviceBusService.deleteRule('MyTopic',
                 'LowMessages', 
                 azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
                 rule.handleError);
@@ -245,7 +245,7 @@ a **messagenumber** property less than or equal to 3:
                 sqlExpressionFilter: 'messagenumber <= 3'
             };
             rule.deleteDefault();
-            serviceBusClient.createRule('MyTopic', 
+            serviceBusService.createRule('MyTopic', 
                 'LowMessages', 
                 'LowMessageFilter', 
                 ruleOptions, 
@@ -290,7 +290,7 @@ subscriptions receive it):
     for (i = 0;i < 5;i++) {
         message.customProperties.messagenumber=i;
         message.body='This is Message #'+i;
-        serviceBusClient.sendTopicMessage(topic, message, function(error) {
+        serviceBusService.sendTopicMessage(topic, message, function(error) {
           if (error) {
             console.log(error);
           }

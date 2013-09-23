@@ -4,16 +4,14 @@
 
 Blitline is a cloud-based image processing service that provides enterprise level image processing at a fraction of the price that it would cost to build it yourself. This guide explains how to access Blitline services and how to submit jobs to Blitline.
 
-[Next steps][] section.
-
 <h2><a name="toc"></a>Table of contents</h2>
 
-[What is Blitline?][]   
-[What Blitline is NOT][]   
-[Create a Blitline account][]    
-[How to create a Blitline job][]  
-[How to save an image to your Windows Azure Storage][]  
-[Next steps][]
+- [What is Blitline?][]   
+- [What Blitline is NOT][]   
+- [Create a Blitline account][]    
+- [How to create a Blitline job][]  
+- [How to save an image to your Windows Azure Storage][]  
+- [Next steps][]
 
 <h2><a name="whatis"></a><span  class="short-header">What is Blitline?</span>What is Blitline?</h2>
 
@@ -97,11 +95,11 @@ The Application ID is something you can find in your **CONNECTION INFO** or **MA
 
 The "save" parameter identifies information about where you want to put the image once we have processed it. In this trivial case, we haven't defined one. If no location is defined Blitline will store it locally (and temporarily) at a unique cloud location. You will be able to get that location from the JSON returned by Blitline when you make the Blitline. The "image" identifier is required and is returned to you when to identify this particular saved image.
 
-You can find more information about the *functions* we support here: <http://www.blitline.com/docs/functions>
+You can find more information about the *functions* we support here: <http://www.blitline.com/docs/functions>.
 
-You can also find documentation about the job options here: <http://www.blitline.com/docs/api>
+You can also find documentation about the job options here: <http://www.blitline.com/docs/api>.
 
-Once you have your JSON all you need to do is **POST** it to <http://api.blitline.com/jobs>
+Once you have your JSON all you need to do is **POST** it to <code>http://api.blitline.com/jobs</code>
 
 You will get JSON back that looks something like this:
 

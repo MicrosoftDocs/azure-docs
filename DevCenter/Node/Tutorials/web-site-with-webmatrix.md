@@ -87,7 +87,11 @@ You can easily modify and republish your application. Here, you will make a simp
 
 	![Windows Azure node Web site][webmatrix-node-completed]
 
+##Next steps
 
+To learn more about the versions of Node.js that are provided with Windows Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in a Windows Azure application](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/).
+
+If you encounter problems with your application after it has been deployed to Windows Azure, see [How to debug a Node.js application in Windows Azure Web Sites](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/) for information on diagnosing the problem.
 
 
 [Windows Azure Management Portal]: http://manage.windowsazure.com
