@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" metaDescription="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 
@@ -85,11 +85,27 @@ In this section you will create a new Node application and use npm to add module
 
     The output of this command should appear similar to the following:
 
-		express@2.5.9 /usr/local/lib/node_modules/express
-		├── mime@1.2.4
-		├── mkdirp@0.3.0
-		├── qs@0.4.2
-		└── connect@1.8.7
+		express@3.4.0 node_modules\express
+		├── methods@0.0.1
+		├── range-parser@0.0.4
+		├── cookie-signature@1.0.1
+		├── fresh@0.2.0
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.4 (mime@1.2.11)
+		└── connect@2.9.0 (uid2@0.0.2, pause@0.0.1, bytes@0.2.0, qs@0.6.5, multiparty@2.1.8)
+
+		jade@0.35.0 node_modules\jade
+		├── character-parser@1.2.0
+		├── commander@2.0.0
+		├── mkdirp@0.3.5
+		├── monocle@1.1.50 (readdirp@0.2.5)
+		├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		├── with@1.1.1 (uglify-js@2.4.0)
+		└── constantinople@1.0.2 (uglify-js@2.4.0)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
