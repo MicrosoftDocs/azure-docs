@@ -145,6 +145,13 @@ In this section, you will create a **server.js** file containing the 'hello worl
 
 While the steps in this article use the Windows Azure Portal to create a web site, you can also use the [Windows Azure Command-Line Tools for Mac and Linux] to perform the same operations.
 
+Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Windows Azure Web Sites work with modules, see [Using Node.js Modules with Windows Azure Applications](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/).
+
+To learn more about the versions of Node.js that are provided with Windows Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in a Windows Azure application](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/).
+
+If you encounter problems with your application after it has been deployed to Windows Azure, see [How to debug a Node.js application in Windows Azure Web Sites](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/) for information on diagnosing the problem.
+
+
 ##Additional Resources
 
 * [Windows Azure PowerShell]
