@@ -1,6 +1,6 @@
 # Introducing Windows Azure
 
-Windows Azure is Microsoft's application platform for the public cloud. You can use this platform in many different ways. For instance, you can use Windows Azure to build a web application that runs and stores its data in Microsoft datacenters. You can use Windows Azure just to store data, with the applications that use this data running on-premises (that is, outside the public cloud). You can use Windows Azure to create virtual machines for development and test or to run SharePoint and other applications. You can use Windows Azure to build massively scalable applications with lots and lots of users. Because the platform offers a wide range of services, all of these things-and more-are possible.
+Windows Azure is Microsoft's application platform for the public cloud. You can use this platform in many different ways. For instance, you can use Windows Azure to build a web application that runs and stores its data in Windows Azure datacenters. You can use Windows Azure just to store data, with the applications that use this data running on-premises (that is, outside the public cloud). You can use Windows Azure to create virtual machines for development and test or to run SharePoint and other applications. You can use Windows Azure to build massively scalable applications with lots and lots of users. Because the platform offers a wide range of services, all of these things-and more-are possible.
 
 To do any of them, though, you need to understand the basics. Even if you don't know anything about cloud computing, this article will walk you through the fundamentals of Windows Azure. The goal is to give you a foundation for understanding and using this cloud platform.
 
@@ -8,7 +8,7 @@ To do any of them, though, you need to understand the basics. Even if you don't 
 ## Table of Contents
 
 -   [The Components of Windows Azure](#components)
--   [Execution Models](#models)
+-   [Execution Models/Compute](#models)
 -   [Data Management](#data)
 -   [Networking](#networking)
 -   [Business Analytics](#analytics)
@@ -30,7 +30,7 @@ To understand what Windows Azure offers, it's useful to group its
 services into distinct categories. Figure 1 shows one way to do this.
 
 ![Windows Azure components](../Media/IntroAzure1.png)   
- **Figure 1: Windows Azure provides Internet-accessible application services running in Microsoft datacenters.**
+ **Figure 1: Windows Azure provides Internet-accessible application services running in Windows Azure datacenters.**
 
 To get started with Windows Azure, you need to know at least the basics about each of its components.You can also use the [What Is Windows Azure Poster](http://www.microsoft.com/en-us/download/details.aspx?id=35473) for a quick, visual way to get an overview. The colors of the boxes in Figure 1 correspond to their grouping on the poster. 
 
@@ -38,15 +38,20 @@ The rest of this article walks through the technologies shown in the figure, des
 
 
 
-<h2><a id="models"></a>Execution Models</h2>
+<h2><a id="models"></a>Execution Models / Compute</h2>
 
-One of the most basic things a cloud platform does is execute applications. Windows Azure provides four options for doing this. Each of these four approaches--Virtual Machines, Web Sites, Cloud Services, and Mobile Services--can be used separately. You can also combine them to create an application that uses two or more of these options together.
+One of the most basic things a cloud platform does is execute applications. Windows Azure provides four options for doing this: Virtual Machines, Cloud Services, Web Sites, and Mobile Services.  Each of the Windows Azure execution models has its own role to play. 
+
+Windows Azure Virtual Machines provides a general-purpose on-demand computing environment. Cloud Services is a great choice for creating scalable, reliable applications with low administration costs. Windows Azure Web Sites offers a range of applications, frameworks, and templates for you to build large, scalable web applications and presence web sites quickly, and then efficiently manage development, test, and operations. Similarly, Windows Azure Mobile Services accelerates the development of apps for mobile devices, providing turnkey ways to store data in the cloud, authenticate users, and send push notifications.
+
+You can use these technologies separately or combine them as needed to create the right foundation for your application. The approach you choose depends on what problems you're trying to solve.
+
 
 ###Virtual Machines###
 
-The ability to create a virtual machine on demand, whether from a standard image or from one you supply, can be very useful. Add the ability to pay for this VM by the hour, and it's even more useful. This approach, commonly known as Infrastructure as a Service (IaaS), is what Windows Azure Virtual Machines provides. 
+The ability to create a virtual machine on demand, whether from a standard image or from one you supply, can be very useful. Add the ability to pay for this VM by the minute and only while it's running, and it's even more useful. This approach, commonly known as Infrastructure as a Service (IaaS), is what Windows Azure Virtual Machines provides. 
 
-To create a VM, you specify which VHD to use and the VM's size. You then pay for each hour the VM is running. Windows Azure Virtual Machines offers a gallery of standard VHDs. These include Microsoft-provided options, such as Windows Server 2008 R2, Windows Server 2012, and Windows Server 2008 R2 with SQL Server, along with Linux images provided by Microsoft partners. You're free to upload and create VMs from your own VHDs as well.
+To create a VM, you specify which VHD to use and the VM's size. You then pay for the time that the VM is running. Windows Azure Virtual Machines offers a gallery of stock VHDs. These include Microsoft-provided options, such as Windows Server 2008 R2, Windows Server 2012, and Windows Server 2008 R2 with SQL Server, along with Linux images provided by Microsoft partners. You're free to create VMs from your own VHDs and add them to the gallery as well.
  
 Wherever the image comes from, you can persistently store any changes made while a VM is running. The next time you create a VM from that VHD, things pick up where you left off. It's also possible to copy the changed VHD out of Windows Azure, then run it locally.
 
@@ -56,9 +61,9 @@ Windows Azure VMs can be used in many different ways. You might use them to crea
 
 One of the most common things that people do in the cloud is run web sites and web applications. Windows Azure Virtual Machines allows this, but it still leaves you with the responsibility of administering one or more VMs. What if you just want a web site where somebody else takes care of the administrative work for you?
 
-This is exactly what Windows Azure Web Sites provides. This  execution model offers a managed web environment using the Windows Azure Management portal. You can move an existing web site into Windows Azure Web Sites unchanged, or you can create a new one directly in the cloud. Once a web site is running, you can add or remove instances dynamically, relying on Windows Azure Web Sites to load balance requests across them. Windows Azure Web Sites offers both a shared option, where your web site runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
+This is exactly what Windows Azure Web Sites provides. This execution model offers a managed web environment using the Windows Azure Management portal as well as APIs. You can move an existing web site into Windows Azure Web Sites unchanged, or you can create a new one directly in the cloud. Once a web site is running, you can add or remove instances dynamically, relying on Windows Azure Web Sites to load balance requests across them. Windows Azure Web Sites offers both a shared option, where your web site runs in a virtual machine with other sites, and a standard option that allows a site to run in its own VM. The standard option also lets you increase the size (computing power) of your instances if needed.
 
-Windows Azure Web Sites is intended to be useful for both developers and web design agencies. For development, it supports .NET, PHP, and Node.js, along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating web sites and web applications in the public cloud.
+Windows Azure Web Sites is intended to be useful for corporations, developers, and web design agencies. For corporations, it’s an easy-to-manage, scalable, highly secure, and highly available solution for running presence web sites. For development, it supports .NET, PHP, Node.js, and Python along with SQL Database and MySQL (from ClearDB, a Microsoft partner) for relational storage. It also provides built-in support for several popular applications, including WordPress, Joomla, and Drupal. The goal is to provide a low-cost, scalable, and broadly useful platform for creating web sites and web applications in the public cloud.
 
 ###Cloud Services###
 
@@ -70,9 +75,8 @@ This is exactly what's provided by Windows Azure Cloud Services. This technology
 
 But these VMs are distinct from the ones you create with Windows Azure Virtual Machines. For one thing, Windows Azure itself manages them, doing things like installing operating system patches and automatically rolling out new patched images. (This implies that your application shouldn't maintain state in web or worker role instances; it should instead be kept in one of the Windows Azure data management options described in the next section.) Windows Azure also monitors the VMs, restarting any that fail. 
 
-You have two roles to choose from when you create an instance, both based on Windows Server. The main difference between the two is that an instance of a web role runs IIS, while an instance of a worker role does not. Both are managed in the same way, however, and it's common for an application to use both. For example, a web role instance might accept requests from users, then pass them to a worker role instance for processing. To scale your application up or down, you can request that Windows Azure create more instances of either role or shut down existing instances. And just like Windows Azure Virtual Machines, you're charged by the hour for each web or worker role instance. 
+You have two roles to choose from when you create an instance, both based on Windows Server. The main difference between the two is that an instance of a web role runs IIS, while an instance of a worker role does not. Both are managed in the same way, however, and it's common for an application to use both. For example, a web role instance might accept requests from users, then pass them to a worker role instance for processing. To scale your application up or down, you can request that Windows Azure create more instances of either role or shut down existing instances. And similar to Windows Azure Virtual Machines, you're charged only for the time that each web or worker role instance is running. 
 
-Each of the four Windows Azure execution models has its own role to play. Windows Azure Virtual Machines provides a general-purpose computing environment, Windows Azure Web Sites offers low-cost web hosting, and Windows Azure Cloud Services is the best choice for creating scalable, reliable applications with low administration costs. And as mentioned earlier, you can use these technologies separately or combine them as needed to create the right foundation for your application. The approach you choose depends on what problems you're trying to solve.
 
 ###Mobile Services###
 

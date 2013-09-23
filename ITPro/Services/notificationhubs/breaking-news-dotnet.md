@@ -243,7 +243,7 @@ To learn how to expand the breaking news app by sending localized notifications,
 [19]: notification-hub-windows-reg.png
 
 <!-- URLs.-->
-[Get started with Notification Hubs]: ./getting-started-windowsdotnet.md
+[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Use Notification Hubs to broadcast localized Breaking News]: ./breakingnews-localized-dotnet.md 
 [Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md
 [Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md

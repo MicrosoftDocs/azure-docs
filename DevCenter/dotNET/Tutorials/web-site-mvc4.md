@@ -92,7 +92,7 @@ This is all you need to do to create a simple application that you'll deploy to 
 ![Publish in project context menu][PublishVSSolution]<br/>
 The **Publish Web** wizard opens.
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
-![Import publish settings][ImportPublishSettings]
+![Import publish settings][ImportPublishSettings]<br/>
 The **Import Publish Profile** dialog box appears.
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
