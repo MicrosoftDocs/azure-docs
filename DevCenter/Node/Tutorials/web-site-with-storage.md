@@ -85,6 +85,63 @@ In this section you will create a new Node application and use npm to add module
 
     The output of this command should appear similar to the following:
 
+		express@3.4.0 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
+		├── methods@0.0.1
+		├── fresh@0.2.0
+		├── cookie-signature@1.0.1
+		├── range-parser@0.0.4
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.4 (mime@1.2.11)
+		└── connect@2.9.0 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, multiparty@2.1.8)
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
+	</div>
+
+4. To create the scaffolding which will be used for this application, use the **express** command:
+
+        express
+
+The output of this command should appear similar to the following:
+
+		create : .
+		create : ./package.json
+		create : ./app.js
+		create : ./public/javascripts
+		create : ./public
+		create : ./public/stylesheets
+		create : ./public/stylesheets/style.css
+		create : ./views
+		create : ./views/layout.jade
+		create : ./views/index.jade
+		create : ./routes
+		create : ./routes/index.js
+		create : ./routes/user.js
+		create : ./public/images
+
+		install dependencies:
+		  $ cd . && npm install
+
+		run the app:
+		  $ node app
+
+	After this command completes, you should have several new directories and files in the **tasklist** directory.
+
+###Install additional modules
+
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
+
+1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
+
+        npm install
+
+    The output of this command should appear similar to the following:
+
 		express@3.4.0 node_modules\express
 		├── methods@0.0.1
 		├── range-parser@0.0.4
@@ -107,55 +164,6 @@ In this section you will create a new Node application and use npm to add module
 		├── with@1.1.1 (uglify-js@2.4.0)
 		└── constantinople@1.0.2 (uglify-js@2.4.0)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The '-g' parameter used when installing the express module installs it globally. This is done so that we can access the <strong>express</strong> command to generate web site scaffolding without having to type in additional path information.</p>
-	</div>
-
-4. To create the scaffolding which will be used for this application, use the **express** command:
-
-        express
-
-The output of this command should appear similar to the following:
-
-		create : .
-   		create : ./package.json
-   		create : ./app.js
-   		create : ./public
-   		create : ./public/javascripts
-   		create : ./public/images
-   		create : ./public/stylesheets
-   		create : ./public/stylesheets/style.css
-   		create : ./routes
-   		create : ./routes/index.js
-   		create : ./views
-   		create : ./views/layout.jade
-   		create : ./views/index.jade
-		
-   		dont forget to install dependencies:
-   		$ cd . && npm install
-
-	After this command completes, you should have several new directories and files in the **tasklist** directory.
-
-###Install additional modules
-
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
-
-1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
-
-        npm install
-
-    The output of this command should appear similar to the following:
-
-		express@2.5.8 ./node_modules/express
-		├── mime@1.2.4
-		├── qs@0.4.2
-		├── mkdirp@0.3.0
-		└── connect@1.8.7
-		jade@0.26.0 ./node_modules/jade
-		├── commander@0.5.2
-		└── mkdirp@0.3.0
-
 	This installs all of the default modules that Express needs.
 
 2. Next, enter the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
@@ -164,23 +172,29 @@ The **package.json** file is one of the files created by the **express** command
 
 	The output of this command should appear similar to the following:
 
-		async@0.1.22 ./node_modules/async
-		node-uuid@1.3.3 ./node_modules/node-uuid
-		nconf@0.6.0 ./node_modules/nconf
-		├── ini@1.0.2
+		async@0.2.9 node_modules\async
+
+		node-uuid@1.4.1 node_modules\node-uuid
+
+		nconf@0.6.7 node_modules\nconf
+		├── ini@1.1.0
+		├── async@0.1.22
 		├── pkginfo@0.2.3
-		└── optimist@0.3.4 (wordwrap@0.0.2)
-		azure@0.5.3 ./node_modules/azure
+		└── optimist@0.3.7 (wordwrap@0.0.2)
+
+		azure@0.7.15 node_modules\azure
 		├── dateformat@1.0.2-1.2.3
-		├── xmlbuilder@0.3.1
+		├── xmlbuilder@0.4.2
+		├── envconf@0.0.4
 		├── node-uuid@1.2.0
-		├── log@1.3.0
-		├── mime@1.2.5
-		├── xml2js@0.1.14
-		├── underscore@1.3.3
-		├── qs@0.5.0
-		├── sax@0.4.0
-		└── underscore.string@2.2.0rc
+		├── mpns@2.0.1
+		├── underscore@1.5.2
+		├── mime@1.2.11
+		├── validator@1.5.1
+		├── tunnel@0.0.2
+		├── wns@0.5.3
+		├── xml2js@0.2.8 (sax@0.5.5)
+		└── request@2.25.0 (json-stringify-safe@5.0.0, aws-sign@0.3.0, forever-agent@0.5.0, tunnel-agent@0.3.0, qs@0.6.5, oauth-sign@0.3.0, cookie-jar@0.3.0, node-uuid@1.4.1, http-signature@0.10.0, form-data@0.1.1, hawk@1.0.0)
 
 ##Using the Table service in a node application
 
