@@ -75,7 +75,7 @@ The **New Web Site - Custom Create** wizard opens.
 ![Create with Database link in Management Portal][rxCreateWSwithDB_2]<br/>
 1. In the **Database** drop-down list, choose **Create a new SQL database**.
 1. In the **Region** drop-down list, choose the same region you selected for the Web site.<br/>
-This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.
+This setting specifies which data center your VM will run in. In the **DB CONNECTION STRING NAME**, enter *connectionString1*.<br/>
 ![Create a New Web Site step of New Web Site - Create with Database wizard][rxCreateWSwithDB_2]<br/>
 1. Click the arrow that points to the right at the bottom of the box.
 The wizard advances to the **Database Settings** step.

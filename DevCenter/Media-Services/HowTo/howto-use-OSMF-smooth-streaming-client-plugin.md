@@ -1,4 +1,4 @@
-﻿
+
 
 # How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework #
 
@@ -11,7 +11,7 @@ SS for OSMF includes two versions of plugin:
 
 - Dynamic Smooth Streaming plugin for OSMF (.swf)
 
-This document assumes that the reader has a general working knowledge of OSMF and OSMF plug-ins. For more information about OSMF, please see the documentation on the [official OSMF site](http://www.osmf.org/).
+This document assumes that the reader has a general working knowledge of OSMF and OSMF plug-ins. For more information about OSMF, please see the documentation on the [official OSMF site](http://osmf.org/).
 
 ###Smooth Streaming plugin for OSMF 2.0
 
