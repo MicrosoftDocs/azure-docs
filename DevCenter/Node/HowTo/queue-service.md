@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Node.js" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Node.js" metaDescription="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
