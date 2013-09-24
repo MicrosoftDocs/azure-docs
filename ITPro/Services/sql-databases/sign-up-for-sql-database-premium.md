@@ -57,7 +57,8 @@ Once your subscription is activated for the preview, you need to request Premium
 4.	Navigate to the **Quick Start** for the selected server by clicking the lightning bolt icon in the top navigation bar.
 5.	Click **Request Premium Database Quota** in the **Premium Database** section.
 
-![Image6] []
+	![Image6] []
+	
 6.	Confirm your request on the subsequent dialog.
 
 You may wait up to 5 days before being granted Premium database quota. Longer wait times may indicate high demand or fulfilled preview capacity.
