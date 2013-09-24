@@ -2,8 +2,6 @@
 
 
 
-<div chunk="../chunks/article-left-menu.md" />
-
 # Deploying an ASP.NET Web Application to a Windows Azure Web Site
 
 This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. (If you prefer to use Visual Studio 2012, see [the previous version of this tutorial](/en-us/develop/net/tutorials/get-started-vs2012/).)
@@ -26,69 +24,12 @@ The following illustration shows the completed application:
 ### Tutorial segments
 
 1. [Set up the development environment](#setupdevenv)
-2. [Create a web site in Windows Azure](#setupwindowsazure)
 3. [Create an ASP.NET MVC 5 application](#createapp)
 4. [Deploy the application to Windows Azure](#deploytowindowsazure)
 5. [Next steps](#nextsteps)
 
-<h2><a name="setupdevenv"></a><span class="short-header">Set up environment</span>Set up the development environment</h2>
+<div chunk="../chunks/install-sdk-2013-only.md" />
 
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework.
-
-1. To install the Windows Azure SDK for .NET, click the following link and choose the Visual Studio 2013 SDK.<br/>
-[Windows Azure SDK](http://go.microsoft.com/fwlink/?LinkId=287054)
-
-   ![.NET SDK download page](../Media/GS13SDK.png)
-
-2. When you're prompted to run or save the installation executable, click **Run**.
-
-   ![Download prompt](../Media/GS13downloadsdk.png)
-
-3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
-
-   ![Web Platform Installer - Windows Azure SDK for .NET](../Media/GS13webpi.png)
-
-When the installation is complete, you have everything necessary to start developing.
-
-<h2><a name="setupwindowsazure"></a><span class="short-header">Create site</span>Create a web site</h2>
-
-The next step is to create the Windows Azure web site in Windows Azure. You'll enable **Server Explorer** in Visual Studio to do that, by importing your Windows Azure subscription.
-
-1. Start Visual Studio 2013 or Visual Studio 2013 for Web Express.
-
-1. Click **Server Explorer** in the **View** menu. 
-
-2. In **Server Explorer**, right-click **Windows Azure**, and then click **Import subscriptions**.
-
-  ![Click Import subscriptions](../Media/GS13ImportSubscriptions.png)
-
-2. Sign in to Windows Azure.
-
-   ![Sign in](../Media/GS13SignIn.png)
-
-3. In **Server Explorer**, expand the **Windows Azure** node, right-click **Web Sites**, and click **Add New Site**.
-
-   ![Add New Site](../Media/GS13AddNewSite.png)
-
-3. In the **Create a site on Windows Azure** dialog box, enter a string in the **Site name** box to use as the unique URL for your application.
-
-   The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
-
-4. In the **Location** drop-down list, choose the location that is closest to you.
-
-   This setting specifies which data center your web site will run in. 
-
-5. Leave the database fields unchanged.
-
-   For this tutorial you aren't using a database. The [Next Steps](#nextsteps) section at the end of the tutorial links to a tutorial that shows you how to use a database.
-
-6. Click the **Create Web Site** arrow.<br/>
-
-   ![Create a new web site](../Media/GS13createsite.png)
-
-   In a few seconds the web site is created and appears under the Web Sites node in Server Explorer.
-
-   ![Web site created](../Media/GS13sitecreated.png)
 
 <h2><a name="createapp"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 5 application</h2>
 
@@ -108,7 +49,17 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
    ![New Project dialog box](../Media/GS13newprojdb.png)
 
-5. In the **New ASP.NET Project** dialog box, select the **MVC** template and click **Create Project**.
+5. In the **New ASP.NET Project** dialog box, select the **MVC** template, and then click **Change Authentication**.
+
+   ![New ASP.NET Project dialog box](../Media/GS13changeauth.png)
+
+6. In the **Change Authentication** dialog box, click **No Authentication**.
+
+   ![No Authentication](../Media/GS13noauth.png)
+
+   The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+
+5. In the **New ASP.NET Project** dialog box, click **OK**.
 
    ![New ASP.NET Project dialog box](../Media/GS13newaspnetprojdb.png)
 
@@ -120,9 +71,12 @@ The application home page appears in the default browser.<br/>
 
 This is all you need to do to create a simple application that you'll deploy to Windows Azure.
 
+
+
+
 <h2><a name="deploytowindowsazure"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
 
-5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
+5. In Visual Studio **Solution Explorer**, right-click the project, and then select **Publish** from the context menu.
 
    ![Publish in project context menu](../Media/GS13publish.png)
 
@@ -134,39 +88,63 @@ This is all you need to do to create a simple application that you'll deploy to 
 
    The **Import Publish Profile** dialog box appears.
 
-7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.
+2. In the **Import Publish Settings** dialog box, select the **Import from a Windows Azure Web Site** radio button, and then click **Sign In**.
 
-   ![Import Publish Profile](../Media/ImportPublishProfile.png)
+  ![Click Sign In](../Media/GS13SignIn.png)
 
-8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
+2. In the **Sign in to Windows Azure** dialog box, enter the credentials you used to open your Windows Azure account, and then click **Continue**.
 
-   ![Validate connection](../Media/ValidateConnection.png)
+3. Click **New**.
+
+   ![Add New Site](../Media/GS13NewSite.png)
+
+3. In the **Create a site on Windows Azure** dialog box, enter a string in the **Site name** box to use as the unique URL for your application.
+
+   The complete URL will consist of what you enter here plus the suffix that you see next to the text box. If someone else has already used the URL you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different value.
+
+4. In the **Location** drop-down list, choose the location that is closest to you.
+
+   This setting specifies which data center your web site will run in. 
+
+5. Leave the database fields unchanged.
+
+   For this tutorial you aren't using a database. The [Next Steps](#nextsteps) section at the end of the tutorial links to a tutorial that shows you how to use a database.
+
+6. Click **Create**.<br/>
+
+   ![Create a new web site](../Media/GS13createsite.png)
+
+   In a few seconds the web site is created. When you return to the **Import Publish Settings** dialog box, the new site is selected in the drop-down list.
+
+6. Click **OK**.
+
+   ![Web site created](../Media/GS13sitecreated.png)
+
+8. In the **Connection** tab of the **Publish Web** wizard, click **Validate Connection** to make sure that the settings are correct.
+
+   ![Validate connection](../Media/GS13ValidateConnection.png)
 
    When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. 
 
 9. Click **Next**.
 
-   ![Successfully validated connection](../Media/ValidateConnectionSuccess.png)
+   ![Successfully validated connection](../Media/GS13ValidateConnectionSuccess.png)
 
-10. In the **Settings** tab, uncheck the **Use this connection string at runtime** option, since this application is not using a database.
+10. In the **Settings** tab, click **Next**.
 
-   You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.
+   ![Settings tab](../Media/GS13SettingsTab.png)
 
-10. Click **Next**.
-
-   ![Settings tab](../Media/PublishWebSettingsTab.png)
+   You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.
 
 11. In the **Preview** tab, click **Start Preview**.
 
-   ![StartPreview button in the Preview tab](../Media/PublishWebStartPreview.png)
+   ![StartPreview button in the Preview tab](../Media/GS13Preview.png)
 
-   The tab displays a list of the files that will be copied to the server. 
-
-   ![StartPreview file output](../Media/GS13previewoutput.png)
-
-   Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.
+   The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of.
 
 12. Click **Publish**.
+
+   ![StartPreview file output](../Media/GS13previewoutput.png)
 
    Visual Studio begins the process of copying the files to the Windows Azure server.
 
