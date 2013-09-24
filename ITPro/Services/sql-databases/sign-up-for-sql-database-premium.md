@@ -72,17 +72,18 @@ A few additional notes about Premium database quota requests:
 - Requesting database quota is free, however, upgrading a Web or Business edition database to Premium will significantly increase the cost of the database.
 7.	You can see the status of your quota request on the server’s **Quick Start** page.
 
-![Image7] []
+	![Image7] []
+	
 8.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
 9.	Once granted, you can see a server’s remaining Premium database quota on the server’s **Quick Start** tab.
 
-![Image8] []
+	![Image8] []
 
 <h2><a id="Upgrade"></a>Step 3: Upgrade a database to Premium</h2>
 
 Once you have been granted quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
-![Image9] []
+	![Image9] []
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium databases, see:
