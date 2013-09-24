@@ -4,7 +4,10 @@
 # Call a custom API from the client
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/call-custom-api-android" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android" class="current">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-android" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-android" title="Android" class="current">Android</a>
 </div>
 
 This topic shows you how to call a custom API from an Android app. A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
@@ -19,15 +22,13 @@ You will add this functionality to the app that you created when you completed e
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services] or [Get started with data]. 
 
-This tutorial requires the [Mobile Services Android SDK]; the <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
-
 ## <a name="define-custom-api"></a>Define the custom API
 
 <div chunk="../chunks/mobile-services-create-custom-api.md" />
 
 <h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to call the custom API</h2>
 
-1. We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line. In Eclipse, open the *res\layout\activity_to_do.xml* file in your quickstart project, locate the **LinearLayout** element that contains the **Button** element named `buttonAddToDo`. Make a second copy of the **LinearLayout** and paste it immediately following the original one. Delete the **Button** element from the first **LinearLayout**.
+1. We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line. In Eclipse, open the *res\layout\activity_to_do.xml* file in your quickstart project, locate the **LinearLayout** element that contains the **Button** element named `buttonAddToDo`. Copy the **LinearLayout** and paste it immediately following the original one. Delete the **Button** element from the first **LinearLayout**.
 
 2. In the second **LinearLayout**, delete the **EditText** element, and add the following  code immediately following the existing **Button** element: 
 
@@ -68,7 +69,7 @@ This tutorial requires the [Mobile Services Android SDK]; the <a href="https://g
 
 
 
-5. In Package Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose *New* then *Class*. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
+5. In Package Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose **New** then **Class**. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
 
 		import com.google.gson.annotations.SerializedName;
 		
