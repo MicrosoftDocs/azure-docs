@@ -95,7 +95,7 @@ For additional information about Premium databases, see:
 
 [Image1]: ../media/AccountSignup-Figure1.png
 [Image2]: ../media/AccountSignupButton-Figure2.png
-[Image3]: ../media/Subscription-Figure3.PNG
+[Image3]: ../media/Subscription-Figure3.png
 [Image4]: ../media/Status-Figure4.png
 [Image5]: ../media/QuickStart-Figure5.PNG
 [Image6]: ../media/RequestQuota-Figure6.png
