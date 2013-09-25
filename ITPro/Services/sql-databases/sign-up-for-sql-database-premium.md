@@ -84,7 +84,7 @@ A few additional notes about Premium database quota requests:
 Once you have been granted quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
 	![Image9] []
-
+	
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium databases, see:
 
