@@ -93,7 +93,7 @@ The Management Portal returns to the Web Sites page and the Status column shows 
 
 4.	Right-click the MvcMobile.zip file and select Extract All to unzip the file.
 
-5. 	In Visual Web Developer or Visual Studio 2010, open the MvcMobile.sln file.
+5. 	In Visual Studio, open the MvcMobile.sln file.
 
 <h3>To run the starter project</h3>
 
