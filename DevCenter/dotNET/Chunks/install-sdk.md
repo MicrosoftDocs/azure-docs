@@ -6,6 +6,8 @@ To start, set up your development environment by installing the Windows Azure SD
 - [Windows Azure SDK for Visual Studio 2013][]
 - [Windows Azure SDK for Visual Studio 2012][]
 
+   **Note:** Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
+
 2. When you are prompted to run or save the installation executable, click **Run**.<br/>
 3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
 
