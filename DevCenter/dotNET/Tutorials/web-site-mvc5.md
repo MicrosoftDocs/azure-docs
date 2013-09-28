@@ -88,13 +88,9 @@ This is all you need to do to create a simple application that you'll deploy to 
 
    The **Import Publish Profile** dialog box appears.
 
-2. In the **Import Publish Settings** dialog box, select the **Import from a Windows Azure Web Site** radio button, and then click **Sign In**.
+<div chunk="../../shared/chunks/vs-connect-ws-publish.md" />
 
-  ![Click Sign In](../Media/GS13SignIn.png)
-
-2. In the **Sign in to Windows Azure** dialog box, enter the credentials you used to open your Windows Azure account, and then click **Continue**.
-
-3. Click **New**.
+2. In the **Import Publish Settings** dialog box, select the **Import from a Windows Azure Web Site** radio button, and then click **New**.
 
    ![Add New Site](../Media/GS13NewSite.png)
 
