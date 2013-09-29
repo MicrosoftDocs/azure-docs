@@ -1,6 +1,4 @@
-﻿<properties linkid="develop-net-tutorials-troubleshooting-web-sites-in-visual-studio" urlDisplayName="Troubleshooting Windows Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Windows Azure Web Sites in Visual Studio" metaKeywords="" metaDescription="This tutorial shows how to use Visual Studio tools for managing and debugging Windows Azure Web Sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
-
-
+<properties linkid="develop-net-tutorials-troubleshooting-web-sites-in-visual-studio" urlDisplayName="Troubleshooting Windows Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Windows Azure Web Sites in Visual Studio" metaKeywords="" metaDescription="This tutorial shows how to use Visual Studio tools for managing and debugging Windows Azure Web Sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
 # Troubleshooting Windows Azure Web Sites in Visual Studio
 
@@ -31,7 +29,7 @@ This tutorial's purpose is to show how to view tracing information by using Visu
 
 <h2><a name="prerequisites"></a><span class="short-header">Prerequisites</span></h2>
 
-This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Deploying an ASP.NET Web Application to a Windows Azure Web Site][GetStarted]. In that tutorial, you import credentials for your Windows Azure subscription into Visual Studio. When you do that, Visual Studio adds Windows Azure nodes to **Server Explorer**, and you'll be using those nodes in this tutorial.
+This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Deploying an ASP.NET Web Application to a Windows Azure Web Site][GetStarted]. 
 
 <div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
 
@@ -39,7 +37,9 @@ This tutorial works with the development environment, web project, and Windows A
 
 Visual Studio provides access to a subset of the site management functions and configuration settings available in the management portal. In this section you'll see what's available.
 
-1. In **Server Explorer**, expand **Windows Azure Web Sites**.
+<div chunk="../../shared/chunks/vs-connect.md" />
+
+1. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
 
 2. Right-click the node for your web site, and then click **View Settings**.
 
