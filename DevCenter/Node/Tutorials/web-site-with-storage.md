@@ -107,7 +107,7 @@ In this section you will create a new Node application and use npm to add module
 
         express
 
-The output of this command should appear similar to the following:
+	The output of this command should appear similar to the following:
 
 		create : .
 		create : ./package.json
@@ -360,7 +360,7 @@ In this section you will extend the basic application created by the **express**
 		app.get('/', routes.index);
 		app.get('/users', user.list);
 
-Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
+	Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
