@@ -1,8 +1,10 @@
-﻿<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="Windows Azure hello world tutorial, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop an ASP.NET MVC 4 web application with ASP.NET Membership and a SQL Database back-end and deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="Windows Azure hello world tutorial, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop an ASP.NET MVC 4 web application with ASP.NET Membership and a SQL Database back-end and deploy it to Windows Azure." metaCanonical="http://content-ppe.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
 
 
 
 # Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site
+
+<a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012" class="current">Visual Studio 2012</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013">Visual Studio 2013</a>
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 April 2013.***
 <br/><br/>
