@@ -17,7 +17,7 @@ Just as you can quickly create and deploy a web application created from the gal
 
 ##<a name="tools"></a>Development Tools for Creating a Web Site
 
-Some development tools available from Microsoft include [Microsoft Visual Studio 2010][VS2010], [Microsoft Expression Studio 4][msexpressionstudio] and [Microsoft WebMatrix][mswebmatrix], a free web development tool from Microsoft which provides essential functionality for web site development. 
+Some development tools available from Microsoft include [Microsoft Visual Studio][VisualStudio], [Microsoft Expression Studio 4][msexpressionstudio] and [Microsoft WebMatrix][mswebmatrix], a free web development tool from Microsoft which provides essential functionality for web site development. 
 
 
 
@@ -92,7 +92,7 @@ For more information about web sites, see the following:
 
 
 
-[vs2010]:http://go.microsoft.com/fwlink/?LinkId=225683
+[VisualStudio]:http://go.microsoft.com/fwlink/?LinkId=225683
 [msexpressionstudio]:http://go.microsoft.com/fwlink/?LinkID=205116
 [mswebmatrix]:http://go.microsoft.com/fwlink/?LinkID=226244
 [getgit]:http://go.microsoft.com/fwlink/?LinkId=252533
