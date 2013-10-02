@@ -114,7 +114,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 7. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API.
 
-8. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
+8. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
 9. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
 
@@ -144,7 +144,7 @@ You mobile service is now configured to work with GCM to send push notifications
 		private String mRegistationId;
 		public static final String SENDER_ID = "<PROJECT_ID>";
 
-12. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
+12. Open the file ToDoActivity,java, and in the **onCreate** method, add this code before the MobileServiceClient is instantiated:
 
 		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
@@ -155,7 +155,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 	This code get the registration ID for the device.
 
-13. Add the following line of code to the **addItem** method:
+13. Add the following line of code to the **addItem** method, before the item is inserted to the table:
 
 		item.setRegistrationId(mRegistationId);
 
@@ -205,6 +205,8 @@ You mobile service is now configured to work with GCM to send push notifications
 			
 		}
 
+	Hover the mouse over the red-underlined `PendingIntent` and in the displayed error dialog, select "import PendingIntent".
+	
     <div class="dev-callout"><b>Note</b>
 	<p>In this tutorial, only the <strong>onMessage</strong> override is implemented. In a real-world app you should consider implementing all four method overrides.</p>
     </div>
