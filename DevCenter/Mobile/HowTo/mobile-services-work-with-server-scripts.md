@@ -1,45 +1,50 @@
-﻿<properties linkid="register-for-facebook-auth" writer="ricksal" urldisplayname="Mobile Services" headerexpose="" pagetitle="Work with server scripts in Mobile Services" metakeywords="server scripts, mobile devices, Windows Azure, scheduler" footerexpose="" metadescription="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
-
-
+<properties linkid="register-for-facebook-auth" writer="ricksal" urldisplayname="Mobile Services" headerexpose="" pagetitle="Work with server scripts in Mobile Services" metakeywords="server scripts, mobile devices, Windows Azure, scheduler" footerexpose="" metadescription="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
 
 # Work with server scripts in Mobile Services
  
-In Windows Azure Mobile Services, you can define custom business logic as JavaScript code that's stored and executed on the server. This code, which is referred to as a *server script*, is either registered to an insert, read, update, or delete operation on a given table or is assigned to a scheduled job. Server scripts are optional: if the default operations are sufficient, then you do not have to include them.
+In Windows Azure Mobile Services, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functionalities:
 
-Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. The signature of the main function depends on whether the script is registered to a table operation or is run as a scheduled job. 
++ Insert, read, update, or delete operations on a given table.
++ Scheduled jobs.
++ HTTP methods defined in a custom API. 
+
+The signature of the main function in the server script depends on the context of where the script is used. You can also define common script code as nodes.js modules that are shared across scripts. For more information, see [Source control and shared code].
+
+<div class="dev-callout"><strong>Note</strong>
+<p>Because REST APIs are stateless, Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see <a href="#access-tables">How to: Access tables from scripts</a>.</p>
+</div>
+
+For descriptions of individual server script objects and functions, see [Mobile Services server script reference]. 
 
 This article includes these sections:
 
-+ [Table operation scripts]
-	+ [How to: Register table scripts]
-	+ [How to: Define table scripts]
++ [Table operations]
+	+ [How to: Register for table operations]
 	+ [How to: Override the default response]
 	+ [How to: Override execute success]
 	+ [How to: Override default error handling]
 	+ [How to: Add custom parameters]
 	+ [How to: Work with users]
-+ [How to: Define scheduled job scripts]
-+ [How to: Access tables from scripts]
-+ [Using raw TSQL to access tables]
-	+ [How to: Run a static query]
-	+ [How to: Run a dynamic query]
-	+ [How to: Join relational tables]
-	+ [How to: Run a query that returns *raw* results]
-	+ [How to: Get access to a database connection]
-+ [How to: Perform Bulk Inserts]
-+ [How to: Map JSON types to database types]
-+ [How to: Leverage modules and helper functions]
-+ [How to: Write output to the mobile service logs]
++ [Custom API]
+	+ [How to: Define custom API methods]
++ [Job Scheduler]
+	+ [How to: Define scheduled job scripts]
++ [Source control, shared code, and helper functions]
+	+ [How to: Load Node.js modules]
+	+ [How to: Use helper functions]
+	+ [How to: Share code by using source control]
++ [Using the command line tool]
++ [Working with tables]
+	+ [How to: Access tables from scripts]
+	+ [How to: Perform Bulk Inserts]
+	+ [How to: Map JSON types to database types]
+	+ [Using Transact-SQL to access tables]
++ [Debugging and troubleshooting]
+	+ [How to: Write output to the mobile service logs]
 
-For descriptions of individual objects and functions, see [Mobile Services server script reference].
+<h2><a name="table-scripts"></a><span class="short-header">Table operations</span>Table operations</h2>
 
-<div class="dev-callout"><strong>Note</strong>
-<p>Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see <a href="#access-tables">How to: Access tables from scripts</a>.</p>
-</div> 
-
-<h2><a name="table-scripts"></a><span class="short-header">Table scripts</span>Table operation scripts</h2>
-
-A table operation script is a server script that is registered to an operation on a table--insert, read, update, or delete. The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request--for example, when a POST request is received to insert an item into the table.
+A table operation script is a server script that is registered to an operation on a table--insert, read, update, or delete (*del*). The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request--for example, when a POST request is received to insert an item into the table.
 
 You write table operation scripts if you need to enforce customized business logic when the operation is executed. For example, the following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
 
@@ -53,16 +58,15 @@ You write table operation scripts if you need to enforce customized business log
 
 A table script function always takes three arguments.
 
-The first argument varies depending on the table operation. 
+- The first argument varies depending on the table operation. 
 
+	- For inserts and updates, it is an **item** object, which is a JSON representation of the row being affected by the operation. This allows you to access column values by name, for example, *item.Owner*, where *Owner* is one of the names in the JSON representation.
+	- For a delete, it is the ID of the record to delete. 
+	- And for a read, it is a [query object] that specifies the rowset to return.
 
-- For inserts and updates, it is an **item** object, which is a JSON representation of the row being affected by the operation. This allows you to access column values by name, for example, *item.Owner*, where *Owner* is one of the names in the JSON representation.
-- For a delete, it is the ID of the record to delete. 
-- And for a read, it is a [query object] that specifies the rowset to return.
+- The second argument is always a [user object][User object] that represents the user that submitted the request. 
 
-The second argument is always a [user object][User object] that represents the user that submitted the request. 
-
-The third argument is always a [request object][Request object], by which you can control execution of the requested operation and the response that's sent to the client.
+- The third argument is always a [request object][Request object], by which you can control execution of the requested operation and the response that's sent to the client.
 
 Here are the canonical main-function signatures for the table operations: 
 
@@ -76,25 +80,22 @@ Here are the canonical main-function signatures for the table operations:
 <p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
 </div> 
 
+Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code].
+
 ###<a name="register-table-scripts"></a>How to: Register table scripts
 
-There are two ways to register server scripts against table operations. 
+You can define server scripts that are registered to a table operation in one of the following ways:
 
-+ In the [Windows Azure Management Portal][Management Portal] in the **Scripts** tab for a given table in the **Data** tab. This illustration shows the default code for an insert script for the `TodoItem` table. You can override this code with your own custom business logic.
++ In the [Windows Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
 	![1][]
 	
-	For more information about how to do this, see [Validate and modify data in Mobile Services by using server scripts]. 
+	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
 
-+ In the Windows Azure command-prompt tool. The following command uploads a script named `todoitem.insert.js` from the `table` subfolder:
++ By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code].
 
-		~$azure mobile script upload todolist table/todoitem.insert.js
-		info:    Executing command mobile script upload
-		info:    mobile script upload command OK
++ From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
 
-	For more information, see [Commands to manage Windows Azure Mobile Services]. 
-
-###<a name="execute-operation"></a>How to: Define table scripts
 
 A table operation script must call at least one of the following functions of the [request object] to make sure that the client receives a response. 
  
@@ -180,7 +181,6 @@ When you provide a **success** handler to the **execute** function, you must als
  
 ###<a name="override-error"></a>How to: Override default error handling
 
-
 The **execute** function can fail if there is a loss of connectivity to the database, an invalid object, or an incorrect query. By default when an error occurs, server scripts log the error and write an error result to the response. Because Mobile Services provides default error handling, you don't have to handle errors that may occur in the service. 
 
 You can override the default error handling by implementing explicit error handling if you want a particular compensating action or when you want to use the global console object to write more detailed information to the log. Do this by supplying an **error** handler to the **execute** function:
@@ -206,7 +206,6 @@ When you send a request to your mobile service, you can include custom parameter
 For example, the following URI for a POST request tells the service to not permit the insertion of a new *TodoItem* that has the same text value:
 
 		https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
-
 
 These custom query parameters are accessed as JSON values from the **parameters** property of the [request object]. The **request** object is supplied by Mobile Services to any function registered to a table operation. The following server script for the insert operation checks the value of the `duplicateText` parameter before the insert operation is run:
 
@@ -272,28 +271,127 @@ The next example adds an additional filter to the query based on the **userId** 
 	    request.execute();
 	}
 
+##<a name="custom-api"></a>Custom API
 
-<h2><a name="scheduler-scripts"></a><span class="short-header">Scheduler scripts</span>How to: Define scheduled job scripts</h2>
+A custom API is an endpoint in your mobile service that is accessed by one or more of the standard HTTP methods: GET, POST, PUT, PATCH, DELETE. A separate function export can be defined for each HTTP method supported by the custom API, all in a single script file. The registered script is invoked when a request to the custom API using the given method is received. For more information, see [Custom API].
+
+###<a name="define-custom-api"></a>How to: Define custom API methods
+
+You can define server scripts that are registered to HTTP methods in a custom API endpoint in one of the following ways:
+
++ In the [Windows Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
+
+	![1][]
+	
+	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
+
++ By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code].
+
++ From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
+
+##<a name="scheduler-scripts"></a>Job Scheduler
+
+Mobile Services enables you to define server scripts that are executed either as jobs on a fixed schedule or on-demand from the Management Portal. Scheduled jobs are useful for performing periodic tasks such as cleaning-up table data and batch processing. For more information, see [Schedule jobs].
+
+Scripts that are registered to scheduled jobs have a main function with the same name as the scheduled job. Because a scheduled script is not invoked by an HTTP request, there is no context that can be passed by the server runtime and the function takes no parameters. Like other kinds of scripts, you can have subroutine functions and require shared modules. For more information, see [How to: Leverage modules and helper functions].
+
+###<a name="scheduler-scripts"></a>How to: Define scheduled job scripts
 
 A server script can be assigned to a job that's defined in the Mobile Services Scheduler. These scripts belong to the job and are executed according to the job schedule. (You can also use the [Management Portal] to run jobs on demand.) A script that defines a scheduled job has no parameters because Mobile Services doesn't pass it any data; it's executed as a regular JavaScript function and doesn't interact with Mobile Services directly. 
 
-You define scheduled jobs  in the [Windows Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
+You define scheduled jobs in one of the following ways: 
 
-![2][]
++ In the [Windows Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
 
-For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
+	![2][]
 
-<!--There are two ways to create scheduled jobs. 
+	For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
 
-+ In the [Windows Azure Management Portal][Management Portal] in the **Scheduler** tab. For an example of how to do this, see the tutorial [Schedule backend jobs in Mobile Services]. 
++ From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
 
-+ From the command prompt using the Windows Azure command line tool. For more information, see [Commands to manage Windows Azure Mobile Services].  -->
+<div class="dev-callout"><strong>Note</strong>
+<p>When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [Source control and shared code].</p>
+</div>
 
-<h2><a name="access-tables"></a><span class="short-header">Access tables</span>How to: Access tables from scripts</h2>
+##<a name="shared-code"></a>Source control, shared code, and helper functions
 
-Your table operation scripts have default access only to the table the script is defined on, and scheduled scripts have no default access to a table. But in many scenarios, you need data from other tables: for example, you might want to examine entries in a permissions table or store audit data. You might also want to use tables to preserve state between script executions. 
+Because Mobile Services uses Node.js on the server, your scripts already have access to the built-in Node.js modules. You can also use source control to define your own modules or add other Node.js modules to your service.
 
-You can get access to other tables from your script by using the [tables object]. The **getTable** function returns a [table object] instance that's a proxy for accessing the requested table. You can then call functions on the proxy to access and change data. This line of code gets a proxy for the *TodoItems* table:
+The following are just some of the more useful modules that can be leveraged in your scripts by using the global **require** function:
+
++ **azure**: Exposes the functionality of the Windows Azure SDK for Node.js. For more information, see the [Windows Azure SDK for Node.js]. 
++ **crypto**: Provides crypto functionality of OpenSSL. For more information, see the [Node.js documentation][crypto API].
++ **path**: Contains utilities for working with file paths. For more information, see the [Node.js documentation][path API].
++ **querystring**: Contains utilities for working with query strings. For more information, see the [Node.js documentation][querystring API].
++ **request**: Sends HTTP requests to external REST services, such as Twitter and Facebook. For more information, see [Send HTTP request].
++ **sendgrid**: Sends email by using the Sendgrid email service in Windows Azure. For more information, see [Send email from Mobile Services with SendGrid].
++ **url**: Contains utilities to parse and resolve URLs. For more information, see the [Node.js documentation][url API].
++ **util**: Contains various utilities, such as string formatting and object type checking. For more information, see the [Node.js documentation][util API]. 
++ **zlib**: Exposes compression functionality, such as gzip and deflate. For more information, see the [Node.js documentation][zlib API]. 
+
+####<a name="modules-helper-functions"></a>How to: Leverage modules
+
+Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
+
+	function update(item, user, request) { 
+	    var httpRequest = require('request'); 
+	    httpRequest('http://www.google.com', function(err, response, body) { 
+	    	... 
+	    }); 
+	} 
+
+###<a name="helper-functions"></a>How to: Use helper functions
+
+In addition to requiring modules, individual server scripts can optionally include helper functions. These are functions that are separate from the main function, which can be used to factor code in the script. Help functions cannot be shared between scripts. 
+
+In the following example, a table script is registered to the insert operation, which includes the helper function **handleUnapprovedItem**:
+
+
+	function insert(item, user, request) {
+	    if (!item.approved) {
+	        handleUnapprovedItem(item, request);
+	    } else {
+	        request.execute();
+	    }
+	}
+	
+	function handleUnapprovedItem(item, request) {
+	    // Implementation 
+	}
+ 
+In a script, table functions must be declared after the main function. 
+
+###<a name="shared-code-source-control"></a>How to: Share code by using source control
+
+
+
+
+<div class="dev-callout"><strong>Note</strong>
+<p>You must declare all variables in your script. Undeclared variables cause an error.</p></div>
+
+
+
+<h2><a name="command-prompt"></a>Using the command line tool</h2>
+
+In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool.
+
+The following command uploads a script named `todoitem.insert.js` from the `table` subfolder:
+
+		~$azure mobile script upload todolist table/todoitem.insert.js
+		info:    Executing command mobile script upload
+		info:    mobile script upload command OK
+
+	For more information, see [Commands to manage Windows Azure Mobile Services]. 
+
+##<a name="working-with-tables"></a>Working with tables
+
+Most scenarios in Mobile Services require server scripts to access tables in the database. For example. because Mobile Services does not preserve state between script executions, any data that needs to be persisted between script executions must be stored in tables. You might also want to examine entries in a permissions table or store audit data instead of just writing to the log, where data has a limited duration and cannot be accessed programmatically. 
+
+Mobile Services has two ways of accessing tables, either by using a [table object] proxy or by composing Transact-SQL queries by using the [mssql object]. The [table object] makes it easy to access table data from your sever script code, but the [mssql object] supports more complex data operations and provides the most flexibility. 
+
+###<a name="working-with-tables"></a>How to: Access tables from scripts
+
+The easiest way to access tables from your script is by using the [tables object]. The **getTable** function returns a [table object] instance that's a proxy for accessing the requested table. You can then call functions on the proxy to access and change data. This line of code gets a proxy for the *TodoItems* table:
 
 		var todoItemsTable = tables.getTable('TodoItems');
 
@@ -342,138 +440,8 @@ The next example writes auditing information to an **audit** table:
 
 A final example is in the code sample here: [How to: Access custom parameters].
 
-<h2><a name="TSQL"></a><span class="short-header">Raw TSQL</span>Using raw TSQL to access tables</h2>
-You may need direct access to raw TSQL in order to carry out certain relational database operations (such as joins, invoking stored procedures, etc.) that the Mobile Services server script API does not directly support.
 
-To do this, the [mssql object] enables you to define the operations you wish to carry out in raw TSQL. The object has three methods defined on it:
-
-- **query**: executes a query, specified by a TSQL string; the results are returned to the **success** callback on the **options** object. The query can include parameters if the *params* parameter is present.
-- **queryRaw**: like *query* except that the result set returned from the query is in a "raw" format (see example below).
-- **open**: used to get a connection to your Mobile Services database, and you can then use the connection object to invoke database operations such as transactions.
-
-These methods give you increasingly more low-level control over the query processing.
-
-
-###<a name="static-query"></a>How to: Run a static query
-
-The following query has no parameters and returns three records from the `statusupdate` table. The rowset is in standard JSON format.
-
-		mssql.query('select top 3 * from statusupdates', {
-		    success: function(results) {
-		        console.log(results);
-		    },
-            error: function(err) {
-                console.log("error is: " + err);
-			}
-		});
-
-
-###<a name="dynamic-query"></a>How to: Run a dynamic parameterized query
-
-The following example implements custom authorization by reading permissions for each user from the permissions table. The placeholder (?) is replaced with the supplied parameter when the query is executed.
-
-		    var sql = "SELECT _id FROM permissions WHERE userId = ? AND permission = 'submit order'";
-		    mssql.query(sql, [user.userId], {
-		        success: function(results) {
-		            if (results.length > 0) {
-		                // Permission record was found. Continue normal execution. 
-		                request.execute();
-		            } else {
-		                console.log('User %s attempted to submit an order without permissions.', user.userId);
-		                request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
-		            }
-		        },
-            	error: function(err) {
-                	console.log("error is: " + err);
-				}	
-		    });
-
-
-
-###<a name="joins"></a>How to: Join relational tables
-
-You can join two tables by using the **query** method of the [mssql object] to pass in the TSQL code that implements the join. Let's assume we have some items in our **ToDoItem** table and each item in the table has a **priority** property, which corresponds to a column in the table. An item may look like this:
-
-		{ text: 'Take out the trash', complete: false, priority: 1}
-
-Let's also assume we have an additional table called **Priority** with rows that contain a priority **number** and a text **description**. For example, the priority number 1 might have the description of "Critical", with the object looking as follows:
-
-		{ number: 1, description: 'Critical'}
-
-We can now replace the **priority** number in our item with the text description of the priority number. We do this with a relational join of the two tables.
-
-		mssql.query('SELECT t.text, t.complete, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
-			success: function(results) {
-				console.log(results);
-			},
-            error: function(err) {
-                console.log("error is: " + err);
-		});
-	
-The script joins the two tables and writes the results to the log. The resulting objects could look like this:
-
-		{ text: 'Take out the trash', complete: false, description: 'Critical'}
-
-
-###<a name="raw"></a>How to: Run a query that returns *raw* results
-
-This example executes the query, as before, but returns the resultset in "raw" format which requires you to parse it, row by row, and column by column. A possible scenario for this is if you need access to data types that Mobile Services does not support. This code simply writes the output to the console log so you can inspect the raw format.
-
-		mssql.queryRaw('SELECT * FROM ToDoItem', {
-		    success: function(results) {
-		        console.log(results);
-		    },
-            error: function(err) {
-                console.log("error is: " + err);
-			}
-		});
-
-Here is the output from running this query. It contains metadata about each column in the table, followed by a representation of the rows and columns.
-
-		{ meta: 
-		   [ { name: 'id',
-		       size: 19,
-		       nullable: false,
-		       type: 'number',
-		       sqlType: 'bigint identity' },
-		     { name: 'text',
-		       size: 0,
-		       nullable: true,
-		       type: 'text',
-		       sqlType: 'nvarchar' },
-		     { name: 'complete',
-		       size: 1,
-		       nullable: true,
-		       type: 'boolean',
-		       sqlType: 'bit' },
-		     { name: 'priority',
-		       size: 53,
-		       nullable: true,
-		       type: 'number',
-		       sqlType: 'float' } ],
-		  rows: 
-		   [ [ 1, 'good idea for the future', null, 3 ],
-		     [ 2, 'this is important but not so much', null, 2 ],
-		     [ 3, 'fix this bug now', null, 0 ],
-		     [ 4, 'we need to fix this one real soon now', null, 1 ],
-		   ] }
-
-###<a name="connection"></a>How to: Get access to a database connection
-
-You can use the **open** method to get access to the database connection. One reason to do this might be if you need to use database transactions.
-
-Successful execution of the **open** causes the database connection to be passed into the **success** function as a parameter. You can invoke any of the following functions on the **connection** object: *close*, *queryRaw*, *query*, *beginTransaction*, *commit*, and *rollback*.
-
-		    mssql.open({
-		        success: function(connection) {
-		            connection.query(//query to execute);
-		        },
-	            error: function(err) {
-	                console.log("error is: " + err);
-				}
-		    });
-
-<h2><a name="bulk-inserts"></a><span class="short-header">Bulk inserts</span>How to: Perform Bulk Inserts</h2>
+###<a name="bulk-inserts"></a>How to: Perform Bulk Inserts
 
 If you use a **for** or **while** loop to directly insert a large number of items (1000, for example) into a  table , you may encounter a SQL connection limit that causes some of the inserts to fail. Your request may never complete or it may return a HTTP 500 Internal Server Error.  To avoid this problem, you can insert the items in batches of 10 or so. After the first batch is inserted, submit the next batch, and so on.
 
@@ -523,9 +491,7 @@ By using the following script, you can set the size of a batch of records to ins
 
 The entire code sample, and accompanying discussion, can be found in this [blog posting](http://blogs.msdn.com/b/jpsanders/archive/2013/03/20/server-script-to-insert-table-items-in-windows-azure-mobile-services.aspx). If you use this code, you can adapt it to your specific situation, and thoroughly test it.
 
-
-
-<h2><a name="JSON-types"></a><span class="short-header">Map JSON types</span>How to: Map JSON types to database types</h2>
+###<a name="JSON-types"></a>How to: Map JSON types to database types
 
 The collections of data types on the client and in a Mobile Services database table are different. Sometimes they map easily to one another, and other times they don't. Mobile Services performs a number of type transformations in the mapping:
 
@@ -572,65 +538,148 @@ When you use the [tables object] or the [mssql object], or just let your table s
 </tr>
 </table> 
 
+###<a name="TSQL"></a>Using Transact-SQL to access tables
+
+The easiest way to work table data from server scripts is by using a [table object] proxy. However, there are more advanced scenarios that are not supported by the [table object], such as as join queries and other complex queries and invoking stored procedures. In these cases, you must execute Transact-SQL statements directly against the relational table by using the [mssql object]. This object provides the following functions:
+
+- **query**: executes a query, specified by a TSQL string; the results are returned to the **success** callback on the **options** object. The query can include parameters if the *params* parameter is present.
+- **queryRaw**: like *query* except that the result set returned from the query is in a "raw" format (see example below).
+- **open**: used to get a connection to your Mobile Services database, and you can then use the connection object to invoke database operations such as transactions.
+
+These methods give you increasingly more low-level control over the query processing.
+
++ [How to: Run a static query]
++ [How to: Run a dynamic query]
++ [How to: Join relational tables]
++ [How to: Run a query that returns *raw* results]
++ [How to: Get access to a database connection]	
+
+####<a name="static-query"></a>How to: Run a static query
+
+The following query has no parameters and returns three records from the `statusupdate` table. The rowset is in standard JSON format.
+
+		mssql.query('select top 3 * from statusupdates', {
+		    success: function(results) {
+		        console.log(results);
+		    },
+            error: function(err) {
+                console.log("error is: " + err);
+			}
+		});
 
 
-<h2><a name="modules-helper-functions"></a><span class="short-header">Modules and helpers</span>How to: Leverage modules and helper functions</h2>
+####<a name="dynamic-query"></a>How to: Run a dynamic parameterized query
 
-Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
+The following example implements custom authorization by reading permissions for each user from the permissions table. The placeholder (?) is replaced with the supplied parameter when the query is executed.
 
-	function update(item, user, request) { 
-	    var httpRequest = require('request'); 
-	    httpRequest('http://www.google.com', function(err, response, body) { 
-	    	... 
-	    }); 
-	} 
-
-Some of these modules are provided by Mobile Services, but others are built-in Node.js modules. The following useful modules are available to your scripts when they are loaded by using the global **require** function:
-
-+ **azure**: Exposes the functionality of the Windows Azure SDK for Node.js. For more information, see the [Windows Azure SDK for Node.js]. 
-
-+ **crypto**: Provides crypto functionality of OpenSSL. For more information, see the [Node.js documentation][crypto API].
-
-+ **path**: Contains utilities for working with file paths. For more information, see the [Node.js documentation][path API].
-
-+ **querystring**: Contains utilities for working with query strings. For more information, see the [Node.js documentation][querystring API].
- 
-+ **request**: Sends HTTP requests to external REST services, such as Twitter and Facebook. For more information, see [Send HTTP request].
- 
-+ **sendgrid**: Sends email by using the Sendgrid email service in Windows Azure. For more information, see [Send email from Mobile Services with SendGrid].
- 
-+ **url**: Contains utilities to parse and resolve URLs. For more information, see the [Node.js documentation][url API].
-
-+ **util**: Contains various utilities, such as string formatting and object type checking. For more information, see the [Node.js documentation][util API]. 
-
-+ **zlib**: Exposes compression functionality, such as gzip and deflate. For more information, see the [Node.js documentation][zlib API]. 
-
-<div class="dev-callout"><strong>Note</strong>
-<p>Some Node.js modules might be disallowed. When you try to require a disallowed module, a runtime error occurs.</p></div>
-
-In addition to requiring modules, server scripts can also include optional helper functions. In the following example, a table script is registered to the insert operation, which includes the helper function **handleUnapprovedItem**:
+		    var sql = "SELECT _id FROM permissions WHERE userId = ? AND permission = 'submit order'";
+		    mssql.query(sql, [user.userId], {
+		        success: function(results) {
+		            if (results.length > 0) {
+		                // Permission record was found. Continue normal execution. 
+		                request.execute();
+		            } else {
+		                console.log('User %s attempted to submit an order without permissions.', user.userId);
+		                request.respond(statusCodes.FORBIDDEN, 'You do not have permission to submit orders.');
+		            }
+		        },
+            	error: function(err) {
+                	console.log("error is: " + err);
+				}	
+		    });
 
 
-	function insert(item, user, request) {
-	    if (!item.approved) {
-	        handleUnapprovedItem(item, request);
-	    } else {
-	        request.execute();
-	    }
-	}
+
+####<a name="joins"></a>How to: Join relational tables
+
+You can join two tables by using the **query** method of the [mssql object] to pass in the TSQL code that implements the join. Let's assume we have some items in our **ToDoItem** table and each item in the table has a **priority** property, which corresponds to a column in the table. An item may look like this:
+
+		{ text: 'Take out the trash', complete: false, priority: 1}
+
+Let's also assume we have an additional table called **Priority** with rows that contain a priority **number** and a text **description**. For example, the priority number 1 might have the description of "Critical", with the object looking as follows:
+
+		{ number: 1, description: 'Critical'}
+
+We can now replace the **priority** number in our item with the text description of the priority number. We do this with a relational join of the two tables.
+
+		mssql.query('SELECT t.text, t.complete, p.description FROM ToDoItem as t INNER JOIN Priority as p ON t.priority = p.number', {
+			success: function(results) {
+				console.log(results);
+			},
+            error: function(err) {
+                console.log("error is: " + err);
+		});
 	
-	function handleUnapprovedItem(item, request) {
-	    // Implementation 
-	}
- 
-In a script, table functions must be declared after the main function. 
+The script joins the two tables and writes the results to the log. The resulting objects could look like this:
 
-<div class="dev-callout"><strong>Note</strong>
-<p>You must declare all variables in your script. Undeclared variables cause an error.</p></div>
+		{ text: 'Take out the trash', complete: false, description: 'Critical'}
 
-<h2><a name="write-to-logs"></a><span class="short-header">Writing to logs</span>How to: Write output to the mobile service logs</h2>
 
-By default, Mobile Services writes errors that occur during service script execution to the service logs. Your scripts can also write to the logs. Writing to logs is great way to debug your scripts and validate that they are behaving as desired. To write to the logs, use the global [console object]. Use the **log** or **info** function to log information-level warnings. The **warning** and **error** functions log their respective levels, which are called-out in the logs. 
+####<a name="raw"></a>How to: Run a query that returns *raw* results
+
+This example executes the query, as before, but returns the resultset in "raw" format which requires you to parse it, row by row, and column by column. A possible scenario for this is if you need access to data types that Mobile Services does not support. This code simply writes the output to the console log so you can inspect the raw format.
+
+		mssql.queryRaw('SELECT * FROM ToDoItem', {
+		    success: function(results) {
+		        console.log(results);
+		    },
+            error: function(err) {
+                console.log("error is: " + err);
+			}
+		});
+
+Here is the output from running this query. It contains metadata about each column in the table, followed by a representation of the rows and columns.
+
+		{ meta: 
+		   [ { name: 'id',
+		       size: 19,
+		       nullable: false,
+		       type: 'number',
+		       sqlType: 'bigint identity' },
+		     { name: 'text',
+		       size: 0,
+		       nullable: true,
+		       type: 'text',
+		       sqlType: 'nvarchar' },
+		     { name: 'complete',
+		       size: 1,
+		       nullable: true,
+		       type: 'boolean',
+		       sqlType: 'bit' },
+		     { name: 'priority',
+		       size: 53,
+		       nullable: true,
+		       type: 'number',
+		       sqlType: 'float' } ],
+		  rows: 
+		   [ [ 1, 'good idea for the future', null, 3 ],
+		     [ 2, 'this is important but not so much', null, 2 ],
+		     [ 3, 'fix this bug now', null, 0 ],
+		     [ 4, 'we need to fix this one real soon now', null, 1 ],
+		   ] }
+
+####<a name="connection"></a>How to: Get access to a database connection
+
+You can use the **open** method to get access to the database connection. One reason to do this might be if you need to use database transactions.
+
+Successful execution of the **open** causes the database connection to be passed into the **success** function as a parameter. You can invoke any of the following functions on the **connection** object: *close*, *queryRaw*, *query*, *beginTransaction*, *commit*, and *rollback*.
+
+		    mssql.open({
+		        success: function(connection) {
+		            connection.query(//query to execute);
+		        },
+	            error: function(err) {
+	                console.log("error is: " + err);
+				}
+		    });
+
+##<a name="debugging"></a>Debugging and troubleshooting
+
+The primary way to debug and troubleshoot your server scripts is by writing to the service log. By default, Mobile Services writes errors that occur during service script execution to the service logs. Your scripts can also write to the logs. Writing to logs is great way to debug your scripts and validate that they are behaving as desired.
+
+###<a name="write-to-logs"></a>How to: Write output to the mobile service logs
+
+To write to the logs, use the global [console object]. Use the **log** or **info** function to log information-level warnings. The **warning** and **error** functions log their respective levels, which are called-out in the logs. 
 
 <div class="dev-callout"><strong>Note</strong>
 <p>To view the logs for your mobile service, log on to the <a href="https://manage.windowsazure.com/">Management Portal</a>, select your mobile service, and then choose the <strong>Logs</strong> tab.</p></div>
@@ -644,9 +693,11 @@ You can also use the logging functions of the [console object] to format your me
 
 Notice that the string `%j` is used as the placeholder for a JSON object and that parameters are supplied in sequential order. 
 
+To avoid overloading your log, you should remove or disable calls to console.log() that aren't needed for production use.
+
 <!-- Anchors. -->
-[Table operation scripts]: #table-scripts
-[How to: Register table scripts]: #register-table-scripts
+[Table operations]: #table-scripts
+[How to: Register for table operations]: #register-table-scripts
 [How to: Define table scripts]: #execute-operation
 [How to: override the default response]: #override-response
 [How to: Modify an operation]: #modify-operation
@@ -658,7 +709,7 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 [How to: Work with users]: #work-with-users
 [How to: Define scheduled job scripts]: #scheduler-scripts
 [How to: Refine access to tables]: #authorize-tables
-[Using raw TSQL to access tables]: #TSQL
+[Using Transact-SQL to access tables]: #TSQL
 [How to: Run a static query]: #static-query
 [How to: Run a dynamic query]: #dynamic-query
 [How to: Run a query that returns *raw* results]: #raw
@@ -666,8 +717,16 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 [How to: Join relational tables]: #joins
 [How to: Perform Bulk Inserts]: #bulk-inserts
 [How to: Map JSON types to database types]: #JSON-types
-[How to: Leverage modules and helper functions]: #modules-helper-functions
+[How to: Load Node.js modules]: #modules-helper-functions
 [How to: Write output to the mobile service logs]: #write-to-logs
+[Source control, shared code, and helper functions]: #shared-code
+[Using the command line tool]: #command-prompt
+[Working with tables]: #working-with-tables
+[Custom API]: #custom-api
+[How to: Define custom API methods]: #define-custom-api
+[How to: Share code by using source control]: #shared-code-source-control
+[How to: Use helper functions]: #helper-functions
+[Debugging and troubleshooting]: #debugging
 
 <!-- Images. -->
 [1]: ../Media/mobile-insert-script-users.png
@@ -689,7 +748,6 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 [update]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx
 [delete]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx
 [read]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx
-[item object]: 
 [query object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx
 [apns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj839711.aspx
 [mpns object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj871025.aspx
@@ -703,6 +761,7 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 [Modify the request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx
 [Modify the response]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
 [Management Portal]: https://manage.windowsazure.com/
+[Schedule jobs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
 
 [Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commands to manage Windows Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
@@ -721,3 +780,4 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 [url API]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
+[Custom API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
