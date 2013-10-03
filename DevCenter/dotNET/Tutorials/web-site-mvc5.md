@@ -19,7 +19,7 @@ The following illustration shows the completed application:
 
 ![Web site home page](../Media/GS13homepage.png)
 
-<div class="dev-callout"><p><strong>Note</strong> To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><p><strong>Note</strong> To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.</p></div>
  
 ### Tutorial segments
 
@@ -33,9 +33,11 @@ The following illustration shows the completed application:
 
 <h2><a name="createapp"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 5 application</h2>
 
-You have created a Windows Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Windows Azure.
+Your first step is to create a Visual Studio web application project that you'll publish to Windows Azure.
 
 ### Create the project
+
+1. Open Visual Studio 2013 or Visual Studio 2013 Express for Web.
 
 2. From the **File** menu, click **New Project**.
 
@@ -43,7 +45,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET Web Application**.
 
-3. Ensure that **.NET Framework 4.5** is selected as the target framework.
+3. Make sure that **.NET Framework 4.5** is selected as the target framework.
 
 4. Name the application **MyExample** and click **OK**.
 
@@ -53,7 +55,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
    ![New ASP.NET Project dialog box](../Media/GS13changeauth.png)
 
-6. In the **Change Authentication** dialog box, click **No Authentication**.
+6. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**.
 
    ![No Authentication](../Media/GS13noauth.png)
 
@@ -66,15 +68,21 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
-The application home page appears in the default browser.<br/>
-![Web site running locally](../Media/GS13homepage.png)
 
-This is all you need to do to create a simple application that you'll deploy to Windows Azure.
+   The application home page appears in the default browser.
+
+   ![Web site running locally](../Media/GS13homepage.png)
+
+   The `http://localhost` URL shows that it's running on your local computer. By default it's running in IIS Express, which is a lightweight version of IIS designed for use during web application development.
+
+This is all you need to do to create a simple application that you can deploy to Windows Azure.
 
 
 
 
 <h2><a name="deploytowindowsazure"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
+
+1. Close the browser.
 
 5. In Visual Studio **Solution Explorer**, right-click the project, and then select **Publish** from the context menu.
 
@@ -88,7 +96,9 @@ This is all you need to do to create a simple application that you'll deploy to 
 
    The **Import Publish Profile** dialog box appears.
 
-<div chunk="../../shared/chunks/vs-connect-ws-publish.md" />
+5. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
+
+   <div chunk="../../shared/chunks/vs-connect-ws-publish.md" />
 
 2. In the **Import Publish Settings** dialog box, select the **Import from a Windows Azure Web Site** radio button, and then click **New**.
 
@@ -159,13 +169,14 @@ This is all you need to do to create a simple application that you'll deploy to 
 In this tutorial, you've seen how to deploy a simple web application to a Windows Azure Web Site. Other resources are available to show you how to manage, scale, and troubleshoot the site, how to add database, authentication, and authorization functionality, and  how to decide if your application should run in a Windows Azure Cloud Service instead of a Windows Azure Web Site.
 
 <h3>How to manage a web site</h3>
-When you're done with the site, you can delete it, and at times you might want to take it offline temporarily or change site settings. You can do some of these functions right from **Server Explorer** in Visual Studio. For information about what you can do in **Server Explorer**, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
-
-To delete your web site when you're done with it, you can use the [Windows Azure Management Portal][Portal]. The following screen shot shows **Stop**, **Restart**, and **Delete** buttons in the **Dashboard** tab of the management portal.
+The [Windows Azure Management Portal][Portal] is a web interface that you can use to manage and monitor all of your Windows Azure services. For example, the following screen shot shows **Stop**, **Restart**, and **Delete** buttons in the **Dashboard** tab of the management portal.
 
 ![Management Portal Dashboard Tab](../Media/MPStopStartDelete.png)
 
 You can change site settings on the **Configure** tab. For more information, see [How to Manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/).
+
+You can also do some web site management functions right from **Server Explorer** in Visual Studio. For information about what you can do in **Server Explorer**, see [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+
 
 <h3>How to scale a web site</h3>
 When your site is public and it starts to get more traffic, response times might slow down. To remedy that, you can easily add server resources in the **Scale** tab of the management portal. For more information, see [How to Scale a Web Site](/en-us/manage/services/web-sites/how-to-scale-websites/). (Adding server resources to scale a web site is not free.)
