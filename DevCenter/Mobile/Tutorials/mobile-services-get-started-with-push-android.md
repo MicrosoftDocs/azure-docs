@@ -79,10 +79,13 @@ You mobile service is now configured to work with GCM to send push notifications
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. In Eclipse, click **Window**, then click **Android SDK Manager**. 
+1. In Eclipse, click **Window**, then click **Android SDK Manager**. Make a note of the API level of the highest SDK Platform that is installed. You will need to verify that the manifest file references this number.
 
 2. In the Android SDK Manager, expand **Extras**, check **Google Cloud Messaging for Android Library**, make a note of the **SDK Path**, click **Install Package**, select **Accept** to accept the license, then click **Install**.
 
+    <div class="dev-callout"><b>Note</b>
+	<p>Google Cloud Messaging has been deprecated, but the code referencing it still works.</p>
+    </div>
 	![][5]
 
 3. In the Android SDK Manager, under the **Android n.m (API x)** node, check **Google APIs**, then click **Install**. 
@@ -112,7 +115,12 @@ You mobile service is now configured to work with GCM to send push notifications
         </receiver>
         <service android:name=".GCMIntentService" />
 
-7. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API.
+7. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API. It must also match the number of an SDK platform that has been installed (see step 1). For the same reason the **minSdkVersion** must be 16 or greater. So the **uses-sdk** tag might look like this:
+
+	    <uses-sdk
+	        android:minSdkVersion="16"
+	        android:targetSdkVersion="18" />
+	
 
 8. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
@@ -144,7 +152,7 @@ You mobile service is now configured to work with GCM to send push notifications
 		private String mRegistationId;
 		public static final String SENDER_ID = "<PROJECT_ID>";
 
-12. Open the file ToDoActivity,java, and in the **onCreate** method, add this code before the MobileServiceClient is instantiated:
+12. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
 
 		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
@@ -155,7 +163,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 	This code get the registration ID for the device.
 
-13. Add the following line of code to the **addItem** method, before the item is inserted to the table:
+13. Add the following line of code to the **addItem** method, before the item is inserted into the table:
 
 		item.setRegistrationId(mRegistationId);
 
@@ -205,7 +213,7 @@ You mobile service is now configured to work with GCM to send push notifications
 			
 		}
 
-	Hover the mouse over the red-underlined `PendingIntent` and in the displayed error dialog, select "import PendingIntent".
+	In the inserted code, hover the mouse over the red-underlined `PendingIntent` and in the displayed error dialog, select "import PendingIntent".
 	
     <div class="dev-callout"><b>Note</b>
 	<p>In this tutorial, only the <strong>onMessage</strong> override is implemented. In a real-world app you should consider implementing all four method overrides.</p>
