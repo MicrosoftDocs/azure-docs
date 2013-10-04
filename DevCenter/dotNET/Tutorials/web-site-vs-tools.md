@@ -29,7 +29,9 @@ You'll learn:
 
 <h2><a name="prerequisites"></a><span class="short-header">Prerequisites</span></h2>
 
-This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted]. 
+This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted].
+
+All of the features shown in the tutorial work in Visual Studio 2012 as well as Visual Studio 2013, except for remote debugging. Remote debugging works only in Visual Studio 2013. 
 
 <div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
 
