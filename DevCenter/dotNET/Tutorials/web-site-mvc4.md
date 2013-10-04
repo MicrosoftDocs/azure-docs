@@ -1,10 +1,10 @@
-<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure" pageTitle="Get started with Windows Azure for .NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
+<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure and ASP.NET" pageTitle="Get started with Windows Azure and ASP.NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
 
 
 
 
-# Deploying an ASP.NET Web Application to a Windows Azure Web Site
+# Get started with Windows Azure and ASP.NET
 
 <div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/get-started-vs2012/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but it does not show all of the latest Windows Azure SDK features.</p></div>
 
