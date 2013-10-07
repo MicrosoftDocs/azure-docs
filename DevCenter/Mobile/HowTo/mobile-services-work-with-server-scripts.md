@@ -8,7 +8,7 @@ In Windows Azure Mobile Services, you can define custom business logic as JavaSc
 + Scheduled jobs.
 + HTTP methods defined in a custom API. 
 
-The signature of the main function in the server script depends on the context of where the script is used. You can also define common script code as nodes.js modules that are shared across scripts. For more information, see [Source control and shared code].
+The signature of the main function in the server script depends on the context of where the script is used. You can also define common script code as nodes.js modules that are shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 <div class="dev-callout"><strong>Note</strong>
 <p>Because REST APIs are stateless, Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see <a href="#access-tables">How to: Access tables from scripts</a>.</p>
@@ -24,9 +24,13 @@ This article includes these sections:
 	+ [How to: Override execute success]
 	+ [How to: Override default error handling]
 	+ [How to: Add custom parameters]
-	+ [How to: Work with users]
+	+ [How to: Work with table users][How to: Work with users]
 + [Custom API]
-	+ [How to: Define custom API methods]
+	+ [How to: Define a custom API]
+	+ [How to: Implement HTTP methods]
+	+ [How to: Send and receive data as XML]
+	+ [How to: Work with users and headers in a custom API]
+	+ [How to: Define multiple routes in a custom API]
 + [Job Scheduler]
 	+ [How to: Define scheduled job scripts]
 + [Source control, shared code, and helper functions]
@@ -34,6 +38,7 @@ This article includes these sections:
 	+ [How to: Use helper functions]
 	+ [How to: Share code by using source control]
 + [Using the command line tool]
+
 + [Working with tables]
 	+ [How to: Access tables from scripts]
 	+ [How to: Perform Bulk Inserts]
@@ -80,7 +85,7 @@ Here are the canonical main-function signatures for the table operations:
 <p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
 </div> 
 
-Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code].
+Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 ###<a name="register-table-scripts"></a>How to: Register table scripts
 
@@ -92,7 +97,7 @@ You can define server scripts that are registered to a table operation in one of
 	
 	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
 
-+ By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code].
++ By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 + From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
 
@@ -275,19 +280,119 @@ The next example adds an additional filter to the query based on the **userId** 
 
 A custom API is an endpoint in your mobile service that is accessed by one or more of the standard HTTP methods: GET, POST, PUT, PATCH, DELETE. A separate function export can be defined for each HTTP method supported by the custom API, all in a single script file. The registered script is invoked when a request to the custom API using the given method is received. For more information, see [Custom API].
 
-###<a name="define-custom-api"></a>How to: Define custom API methods
+When custom API functions are called by the Mobile Services runtime, both a [request][request object] and [response][response object] object are supplied. These objects expose the functionality of the [express.js library], which can be leveraged by your scripts. The following custom API named **hello** is a very simple example that returns _Hello, world!_ in response to a POST request:
+
+		exports.post = function(request, response) {
+		    response.send(200, "{ message: 'Hello, world!' }");
+		} 
+
+This code is invoked by sending a POST request to the following URL:
+
+		https://todolist.azure-mobile.net/api/hello  
+
+###<a name="define-custom-api"></a>How to: Define a custom API
 
 You can define server scripts that are registered to HTTP methods in a custom API endpoint in one of the following ways:
 
-+ In the [Windows Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
++ In the [Windows Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
-	![1][]
+	![3][]
 	
-	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
+	Access permissions to custom API methods are assigned in the Permissions tab. To see how this custom API was created, see [Call a custom API from the client].  
 
-+ By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code].
++ By using source control. When you have source control enabled, simply create a file named <em>`<custom_api>`</em>.js in the .\service\api subfolder in your git repository, where <em>`<custom_api>`</em> is the name of the custom API being registered. This script file contains an _exported_ function for each HTTP method exposed by the custom API. Permissions are defined in a companion .json file. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 + From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
+
+###<a name="handle-methods"></a>How to: Implement HTTP methods
+
+A custom API can handle one or more of the HTTP methods, GET, POST, PUT, PATCH, and DELETE. An exported function is defined for each HTTP method handled by the custom API. A single custom API code file can export one or all of the following functions:
+
+		exports.get = function(request, response) { ... };
+		exports.post = function(request, response) { ... };
+		exports.patch = function(request, response) { ... };
+		exports.put = function(request, response) { ... };
+		exports.delete = function(request, response) { ... };
+
+The custom API endpoint cannot be called using an HTTP method that has not been implemented in the server script, and a 405 (Method Not Allowed) error response is returned. Separate permission levels can be assigned to each support HTTP method.
+
+###<a name="api-return-xml"></a>How to: Send and receive data as XML
+
+When clients store and retrieve data, Mobile Services uses JavaScript Object Notation (JSON) to represent data in the message body. However, there are scenarios where you instead want to use an XML payload. For example, Windows Store apps have a built-in periodic notifications functionality that requires the service to emit XML. For more information, see [Define a custom API that supports periodic notifications].
+
+The following **OrderPizza** custom API function returns a simple XML document as the response payload:
+
+		exports.get = function(request, response) {
+		  response.set('content-type', 'application/xml');
+		  var xml = '<?xml version="1.0"?><PizzaOrderForm><PizzaOrderForm/>';
+		  response.send(200, xml);
+		};
+
+This custom API function is invoked by an HTTP GET request to the following endpoint:
+
+		https://todolist.azure-mobile.net/api/orderpizza
+
+###<a name="get-api-user"></a>How to: Work with users and headers in a custom API
+
+In Windows Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user requests a custom API, Mobile Services uses the [user object] to provide information about the user to custom API code. The [user object] is accessed from the user property of the [request object]. The **userId** property can be used to store and retrieve user-specific information. 
+
+The following **OrderPizza** custom API function sets the owner property of an item based on the userId of an authenticated user:
+
+		exports.post = function(request, response) {
+			var userTable = request.service.tables.getTable('user');
+			userTable.lookup(request.user.userId, {
+				success: function(userRecord) {
+					callPizzaAPI(userRecord, request.body, function(orderResult) {
+						response.send(201, orderResult);
+					});
+				}
+			});
+		
+		};
+
+This custom API function is invoked by an HTTP POST request to the following endpoint:
+
+		https://<service>.azure-mobile.net/api/orderpizza
+
+###<a name="get-api-headers"></a>How to: Access custom API request headers
+
+
+
+###<a name="api-routes"></a>How to: Define multiple routes in a custom API
+
+Mobile Services enables you to define multiple paths, or routes, in a custom API. For example, HTTP GET requests to the following URLs in a **calculator** custom API will invoke an **add** or **subtract** function, respectively: 
+
++ https://<service>.azure-mobile.net/api/calculator/add
++ https://<service>.azure-mobile.net/api/calculator/sub
+
+Multiple routes are defined by exporting a **register** function, which is passed an object that is similar to the [express object in express.js]. This object is then used to register routes under the custom API endpoint. The following example implements the **add** and **sub** methods in the **calculator** custom API: 
+
+		exports.register = function (api) {
+		    api.get('add', add);
+		    api.get('sub', subtract);
+		}
+		
+		function add(req, res) {
+		    var result = parseInt(req.query.a) + parseInt(req.query.b);
+		    res.send(200, { result: result });
+		}
+		
+		function subtract(req, res) {
+		    var result = parseInt(req.query.a) - parseInt(req.query.b);
+		    res.send(200, { result: result });
+		}
+
+The **api** object passed to the **register** function exposes a function for each HTTP method (**get**, **post**, **put**, **patch**, **delete**). These functions register a route to a defined function for a specific HTTP method. Each function takes two parameters, the first is the route name and the second is the function registered to the route. 
+
+The two routes in the above custom API example are called as follows (shown with the response):
+
++ GET https://<service>.azure-mobile.net/api/calculator/add?a=1&b=2
+
+		{"result":3}
+
++ GET https://<service>.azure-mobile.net/api/calculator/sub?a=3&b=5
+
+		{"result":-2}
 
 ##<a name="scheduler-scripts"></a>Job Scheduler
 
@@ -340,9 +445,15 @@ Mobile Services exposes a set of modules that scripts can load by using the glob
 	    }); 
 	} 
 
+
+
+###<a name="shared-code-source-control"></a>How to: Share code by using source control
+
+You can use source control with the Node.js package manager (NPM) to upload modules that are not included in the core modules, including your own modules. To do this, you must use NPM to install the module into the `.\service\node_modules` directory. Then, after you push the modules up to your mobile service, you can use **require** to reference the uploaded Node.js module by name. For more information, see [Leverage shared code and Node.js modules in your server scripts]. 
+
 ###<a name="helper-functions"></a>How to: Use helper functions
 
-In addition to requiring modules, individual server scripts can optionally include helper functions. These are functions that are separate from the main function, which can be used to factor code in the script. Help functions cannot be shared between scripts. 
+In addition to requiring modules, individual server scripts can include helper functions. These are functions that are separate from the main function, which can be used to factor code in the script. 
 
 In the following example, a table script is registered to the insert operation, which includes the helper function **handleUnapprovedItem**:
 
@@ -359,41 +470,95 @@ In the following example, a table script is registered to the insert operation, 
 	    // Implementation 
 	}
  
-In a script, table functions must be declared after the main function. 
+In a script, helper functions must be declared after the main function. You must declare all variables in your script. Undeclared variables cause an error.
 
-###<a name="shared-code-source-control"></a>How to: Share code by using source control
+Helper functions can also be defined once and shared between server scripts. To share a function between scripts, functions must be exported and the script file must exist in the `.\service\shared\` directory. The following is a template for how to export a shared function in a file `.\services\shared\helpers.js`:
 
+		exports.sharedFunction = function (tables, user, callback) {
+		    
+		    // Do something with the supplied tables or user objects and 
+			// return a value to the callback function.
+		};
+ 
+You can then use a function like this in a table operation script:
 
+		function insert(item, user, request) {
+		    var helper = require('../shared/helper');
+		    helper.sharedFunction(tables, user, function(result) {
+		        	
+					// Do something based on the result.
+		            request.execute();
+		        }
+		    }
+		}
 
+In this example, you must pass both a [tables object] and a [user object] to the shared function. This is because shared scripts cannot access the global [tables object], and the [user object] only exists in the context of a request.
 
-<div class="dev-callout"><strong>Note</strong>
-<p>You must declare all variables in your script. Undeclared variables cause an error.</p></div>
-
-
+Script files are uploaded to the shared directory either by using [source control][How to: Share code by using source control] or by using the [command line tool][Using the command line tool].
 
 <h2><a name="command-prompt"></a>Using the command line tool</h2>
 
-In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool.
+In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
 
-The following command uploads a script named `todoitem.insert.js` from the `table` subfolder:
+![4][]
+
+Note that this directory structure is the same as the git repository when using source control. 
+
+When uploading script files from the command line tool, you must first navigate to the `.\services\ directory`. The following command uploads a script named `todoitem.insert.js` from the `table` subdirectory:
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload
 		info:    mobile script upload command OK
 
-	For more information, see [Commands to manage Windows Azure Mobile Services]. 
+The following command returns information about every script file maintained in your mobile service:
+
+		~$ azure mobile script list todolist
+		info:    Executing command mobile script list
+		+ Retrieving script information
+		info:    Table scripts
+		data:    Name                       Size
+		data:    -------------------------  ----
+		data:    table/channels.insert      1980
+		data:    table/TodoItem.insert      5504
+		data:    table/TodoItem.read        64
+		info:    Shared scripts
+		data:    Name              Size
+		data:    ----------------  ----
+		data:    shared/helper.js  62
+		data:    shared/uuid.js    7452
+		info:    Scheduled job scripts
+		data:    Job name    Script name           Status    Interval     Last run  Next run
+		data:    ----------  --------------------  --------  -----------  --------  --------
+		data:    getUpdates  scheduler/getUpdates  disabled  15 [minute]  N/A       N/A
+		info:    Custom API scripts
+		data:    Name                    Get          Put          Post         Patch        Delete
+		data:    ----------------------  -----------  -----------  -----------  -----------  -----------
+		data:    completeall             application  application  application  application  application
+		data:    register_notifications  application  application  user         application  application
+		info:    mobile script list command OK
+
+For more information, see [Commands to manage Windows Azure Mobile Services]. 
 
 ##<a name="working-with-tables"></a>Working with tables
 
-Most scenarios in Mobile Services require server scripts to access tables in the database. For example. because Mobile Services does not preserve state between script executions, any data that needs to be persisted between script executions must be stored in tables. You might also want to examine entries in a permissions table or store audit data instead of just writing to the log, where data has a limited duration and cannot be accessed programmatically. 
+Many scenarios in Mobile Services require server scripts to access tables in the database. For example. because Mobile Services does not preserve state between script executions, any data that needs to be persisted between script executions must be stored in tables. You might also want to examine entries in a permissions table or store audit data instead of just writing to the log, where data has a limited duration and cannot be accessed programmatically. 
 
-Mobile Services has two ways of accessing tables, either by using a [table object] proxy or by composing Transact-SQL queries by using the [mssql object]. The [table object] makes it easy to access table data from your sever script code, but the [mssql object] supports more complex data operations and provides the most flexibility. 
+Mobile Services has two ways of accessing tables, either by using a [table object] proxy or by composing Transact-SQL queries using the [mssql object]. The [table object] makes it easy to access table data from your sever script code, but the [mssql object] supports more complex data operations and provides the most flexibility. 
 
 ###<a name="working-with-tables"></a>How to: Access tables from scripts
 
-The easiest way to access tables from your script is by using the [tables object]. The **getTable** function returns a [table object] instance that's a proxy for accessing the requested table. You can then call functions on the proxy to access and change data. This line of code gets a proxy for the *TodoItems* table:
+The easiest way to access tables from your script is by using the [tables object]. The **getTable** function returns a [table object] instance that's a proxy for accessing the requested table. You can then call functions on the proxy to access and change data. 
+
+Scripts registered to both table operations and scheduled jobs can access the [tables object] as a global object. This line of code gets a proxy for the *TodoItems* table from the global [tables object]: 
 
 		var todoItemsTable = tables.getTable('TodoItems');
+
+Custom API scripts can access the [tables object] from the <strong>service</strong> property of the supplied [request object]. This line of code gets [tables object] from the request:
+
+		var todoItemsTable = request.service.tables.getTable('TodoItem');
+
+<div class="dev-callout"><strong>Note</strong>
+<p>Shared functions cannot access the <strong>tables</strong> object directly. In a shared function, you must pass the tables object to the function.</p></div>
 
 Once you have a [table object], you can call one or more table operation functions: insert, update, delete or read. This example reads user permissions from a permissions table:
 
@@ -414,7 +579,6 @@ Once you have a [table object], you can call one or more table operation functio
 			}
 		}
 	}
-
 
 The next example writes auditing information to an **audit** table:
 
@@ -439,7 +603,6 @@ The next example writes auditing information to an **audit** table:
 	}
 
 A final example is in the code sample here: [How to: Access custom parameters].
-
 
 ###<a name="bulk-inserts"></a>How to: Perform Bulk Inserts
 
@@ -589,7 +752,6 @@ The following example implements custom authorization by reading permissions for
 		    });
 
 
-
 ####<a name="joins"></a>How to: Join relational tables
 
 You can join two tables by using the **query** method of the [mssql object] to pass in the TSQL code that implements the join. Let's assume we have some items in our **ToDoItem** table and each item in the table has a **priority** property, which corresponds to a column in the table. An item may look like this:
@@ -723,14 +885,22 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Using the command line tool]: #command-prompt
 [Working with tables]: #working-with-tables
 [Custom API]: #custom-api
-[How to: Define custom API methods]: #define-custom-api
+[How to: Define a custom API]: #define-custom-api
 [How to: Share code by using source control]: #shared-code-source-control
 [How to: Use helper functions]: #helper-functions
 [Debugging and troubleshooting]: #debugging
+[How to: Implement HTTP methods]: #handle-methods
+[How to: Work with users and headers in a custom API]: #get-api-user
+[How to: Access custom API request headers]: #get-api-headers
+[Job Scheduler]: #scheduler-scripts
+[How to: Define multiple routes in a custom API]: #api-routes
+[How to: Send and receive data as XML]: #api-return-xml
 
 <!-- Images. -->
 [1]: ../Media/mobile-insert-script-users.png
 [2]: ../Media/mobile-schedule-job-script.png
+[3]: ../Media/mobile-custom-api-script.png
+[4]: ../Media/mobile-source-local-repo.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
@@ -738,6 +908,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 
 
 [request object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
+[response object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
 [User object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
 [push object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
 [insert function]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx
@@ -781,3 +952,9 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [util API]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [zlib API]: http://go.microsoft.com/fwlink/p/?LinkId=288807
 [Custom API]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
+[Call a custom API from the client]: /en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
+[express.js library]: http://go.microsoft.com/fwlink/p/?LinkId=309046
+[Define a custom API that supports periodic notifications]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/
+[express object in express.js]: http://expressjs.com/api.html#express
+[Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
+[Leverage shared code and Node.js modules in your server scripts]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
