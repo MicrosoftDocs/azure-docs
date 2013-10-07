@@ -26,8 +26,8 @@ email, see the [Next Steps][] section.
 
 ## <a name="whatis"> </a>What is the SendGrid Email Service?
 
-SendGrid is a cloud-based email service that provides reliable email
-delivery, scalability, and real-time analytics, along with flexible APIs
+SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
 that make custom integration easy. Common SendGrid usage scenarios
 include:
 
@@ -281,3 +281,5 @@ these links to learn more.
   [fs.readFile]: http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile
   [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
   [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
+  [cloud-based email service]: http://sendgrid.com/solutions
+  [transactional email delivery]: http://sendgrid.com/transactional-email

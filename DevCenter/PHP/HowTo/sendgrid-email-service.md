@@ -23,8 +23,8 @@ email, see the [Next Steps][] section.
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>What is the SendGrid Email Service?
 
-SendGrid is a cloud-based email service that provides reliable email
-delivery, scalability, and real-time analytics, along with flexible APIs
+SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
 that make custom integration easy. Common SendGrid usage scenarios
 include:
 
@@ -523,3 +523,5 @@ these links to learn more.
   [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
   [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
   [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
+  [cloud-based email service]: http://sendgrid.com/solutions
+  [transactional email delivery]: http://sendgrid.com/transactional-email
