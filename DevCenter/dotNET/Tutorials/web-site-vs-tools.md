@@ -2,7 +2,7 @@
 
 # Troubleshooting Windows Azure Web Sites in Visual Studio
 
-During development and testing of a web application, you can troubleshoot by [running in debug mode](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) or by using [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). You can run in debug mode locally in IIS Express or remotely in a Windows Azure Web Site. But for errors that occur only in production, the best way to debug might be by reviewing logs that application code or the web server creates. This tutorial shows how to use Visual Studio tools that help debug an application while it runs in a Windows Azure Web Site, by running remotely in debug mode or by viewing application and web server logs.
+During development and testing of a web application, you can troubleshoot by [running in debug mode](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) or by using [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). You can run in debug mode locally in IIS Express or remotely in a Windows Azure Web Site. But for errors that occur only in production, the best way to debug might be by reviewing logs that application code or the web server creates. This tutorial shows how to use Visual Studio tools that help debug an application while it runs in a Windows Azure Web Site, by running in debug mode remotely or by viewing application and web server logs.
 
 You'll learn:
 
@@ -29,7 +29,9 @@ You'll learn:
 
 <h2><a name="prerequisites"></a><span class="short-header">Prerequisites</span></h2>
 
-This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted]. 
+This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted].
+
+All of the features shown in the tutorial work in Visual Studio 2012 as well as Visual Studio 2013, except for remote debugging. Remote debugging works only in Visual Studio 2013. 
 
 <div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
 
@@ -69,13 +71,10 @@ Sometimes you might find that your application runs correctly when you run it lo
 
 2. Delete the `About()` method and insert the following code in its place.
 
-
         public ActionResult About()
         {
             string currentTime = DateTime.Now.ToLongTimeString();
-
             ViewBag.Message = "The current time is " + currentTime;
-
             return View();
         }
 
