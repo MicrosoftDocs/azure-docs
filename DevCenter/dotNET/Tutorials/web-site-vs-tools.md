@@ -41,7 +41,7 @@ Visual Studio provides access to a subset of the site management functions and c
 
 1. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
-   <div chunk="../../shared/chunks/vs-connect-ws-publish.md" />
+   <div chunk="../../shared/chunks/vs-connect.md" />
 
 1. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
 
