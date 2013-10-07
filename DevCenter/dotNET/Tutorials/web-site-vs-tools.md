@@ -41,7 +41,7 @@ Visual Studio provides access to a subset of the site management functions and c
 
 1. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
-   <div chunk="../../shared/chunks/vs-connect-ws-publish.md" />
+   <div chunk="../../shared/chunks/vs-connect.md" />
 
 1. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
 
@@ -62,6 +62,8 @@ Visual Studio provides access to a subset of the site management functions and c
 <h2><a name="remotedebug"></a><span class="short-header">Remote debugging</span>Remote Debugging</h2>
 
 Sometimes you might find that your application runs correctly when you run it locally under IIS Express but it has a problem when you deploy it to a Windows Azure Web Site. In this scenario one way to troubleshoot is to run in debug mode remotely.
+
+In this section, you'll debug locally first, and then you'll see how to debug remotely. 
 
 ### Debug locally
 
@@ -145,6 +147,8 @@ Sometimes you might find that your application runs correctly when you run it lo
 ### Notes
 
 * Avoid long stops at breakpoints when remote debugging. Windows Azure treats a process that is stopped for longer than a few minutes as an unresponsive process, and shuts it down.
+
+* While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Windows Azure Pricing](/en-us/pricing/calculator/).
 
 * Make sure that the `debug` attribute of the `compilation` element in the *Web.config* file is set to true. It is set to true by default when you publish a debug build configuration.
 
