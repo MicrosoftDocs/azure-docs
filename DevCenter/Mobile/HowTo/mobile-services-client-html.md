@@ -1,4 +1,4 @@
-﻿<properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" metaDescription="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
+<properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" metaDescription="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
 
 
 
@@ -342,10 +342,13 @@ In a Windows Store app, the results of a query can be used to create a [WinJS.Bi
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
-Two authentication flows are supported: a "server" flow and a "client" flow. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
-To login with Facebook, use the following code. If you are using an identity provider other than Facebook, change the value passed to the `login` method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, or `google`.
+To have Mobile Services manage the authentication process in your Windows Store or HTML5 app, 
+you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Windows Store][Get started with authentication Windows Store]/[HTML][Get started with authentication]).
+
+Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, to login with Facebook use the following code. 
 
 		client.login("facebook").done(function (results) {
 		     alert("You are now logged in as: " + results.userId);
@@ -353,15 +356,18 @@ To login with Facebook, use the following code. If you are using an identity pro
 		     alert("Error: " + err);
 		});
 
-Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more details, see the [Get started with authentication] tutorial.
+If you are using an identity provider other than Facebook, change the value passed to the `login` method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, or `google`.
 
-<div class="dev-callout"><b>Note</b>
+In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [login] function, when complete, returns a JSON object (**user**) that exposes both the user ID and Mobile Services authentication token in the **userId** and **authenticationToken** fields, respectively. This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
+
+<div class="dev-callout"><b>Windows Store app</b>
 <p>When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see <a href="/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Register your Windows Store app package for Microsoft authentication</a>. After the package information is registered with Mobile Services, call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter to re-use the credentials.</p>
 </div>
 
 <h3>Client flow</h3>
+Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. 
 
-In this example we use the Live SDK, which supports single-sign-on for Windows Store apps. [You can see a full example of how to set up this scenario here]. In the most simplified form, we can use the client flow as shown in this snippet:
+The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
 
 		WL.login({ scope: "wl.basic"}).then(function (result) {
 		      client.login(
@@ -375,7 +381,9 @@ In this example we use the Live SDK, which supports single-sign-on for Windows S
 		      });
 		});
 
-In case you are using any of the other authentication providers (Facebook or Google, Twitter is not supported at this point), the example changes slightly. Let’s assume the token provided by the respective auth provider SDK is stored in the variable `token`.
+This simplified example gets a token from Live Connect, which is supplied to Mobile Services by calling the [login] function. For a more complete example of how to use Microsoft Account to provide a single sign-in experience, see [Authenticate your app with single sign-in].
+
+When you are using the Facebook or Google APIs for client authentication, the example changes slightly. 
 
 		client.login(
 		     "facebook", 
@@ -385,6 +393,9 @@ In case you are using any of the other authentication providers (Facebook or Goo
 		}, function (err) {
 		     alert("Error: " + err);
 		});
+
+This example assumes that the token provided by the respective provider SDK is stored in the `token` variable.
+Twitter cannot be used for client authentication at this time. 
 
 <h3>Caching the authentication token</h3>
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process. 
@@ -550,6 +561,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-html.md
+[Get started with authentication Windows Store]: ../tutorials/mobile-services-get-started-with-users-js.md
 [then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
 [Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
@@ -569,3 +581,5 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-html.md
 [Refine queries with paging]: ../Tutorials/mobile-services-paging-data-html.md
 [Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-html.md
+[login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
+[Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
