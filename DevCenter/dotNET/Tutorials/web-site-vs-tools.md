@@ -31,7 +31,7 @@ You'll learn:
 
 This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted].
 
-All of the features shown in the tutorial work in Visual Studio 2012 as well as Visual Studio 2013, except for remote debugging. Remote debugging works only in Visual Studio 2013. 
+Remote debugging requires Visual Studio 2013. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, Visual Studio 2012, and Visual Studio 2012 Express for Web. 
 
 <div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
 
