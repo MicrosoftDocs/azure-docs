@@ -55,7 +55,8 @@ You write table operation scripts if you need to enforce customized business log
 
 	function insert(item, user, request) {
 	    if (item.text.length > 10) {
-	        request.respond(statusCodes.BAD_REQUEST, 'Text length must be less than 10 characters');
+	        request.respond(statusCodes.BAD_REQUEST, 
+				'Text length must be less than 10 characters');
 	    } else {
 	        request.execute();
 	    }
@@ -354,9 +355,14 @@ This custom API function is invoked by an HTTP POST request to the following end
 
 		https://<service>.azure-mobile.net/api/orderpizza
 
-###<a name="get-api-headers"></a>How to: Access custom API request headers
+You can also access a specific HTTP header from the [request object], as shown in the following code:
 
+		exports.get = function(request, response) {    
+    		var header = request.header('my-custom-header');
+    		response.send(200, "You sent: " + header);
+		};
 
+This simple example reads a custom header named `my-custom-header`, then returns the value in the response.
 
 ###<a name="api-routes"></a>How to: Define multiple routes in a custom API
 
@@ -504,7 +510,7 @@ In Mobile Services, you can create, modify, and delete server scripts by using t
 
 Note that this directory structure is the same as the git repository when using source control. 
 
-When uploading script files from the command line tool, you must first navigate to the `.\services\ directory`. The following command uploads a script named `todoitem.insert.js` from the `table` subdirectory:
+When uploading script files from the command line tool, you must first navigate to the `.\services\` directory. The following command uploads a script named `todoitem.insert.js` from the `table` subdirectory:
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload
