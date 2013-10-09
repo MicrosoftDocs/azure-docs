@@ -4,9 +4,9 @@
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 18 October 2013.***
 <br/><br/>
-This tutorial shows you how to build a secure ASP.NET MVC 5 web application that enables users to log in with credentials from Facebook and Google. You will also deploy the application to Windows Azure.
+This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Windows Azure.
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Windows Azure for free.
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Windows Azure for free. If you want to use Visual Studio 2012, see the [previous tutorial](http://windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/). This version of the tutorial is far simpler than the previous version.
 
 This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database.
 
@@ -14,6 +14,7 @@ You'll learn:
 
 * How to create a secure ASP.NET MVC 5 project and publish it to a Windows Azure Web Site.
 * How to use [OAuth](http://oauth.net/ "http://oauth.net/"), [OpenID](http://openid.net/) and the ASP.NET membership database to secure your application.
+* How to use the new membership API to add users and roles.
 * How to use a SQL database to store data in Windows Azure.
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 5 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
@@ -108,7 +109,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 1. In **Solution Explorer** open the *Layout.cshtml* file in the *Views\Shared* folder.<br/>
 	![_Layout.cshtml in Solution Explorer][newapp004]
-1. Replace each occurrence of "My ASP.NET MVC Application" with "Contact Manager".
+1. Replace the two occurrences of "My ASP.NET MVC Application" with "Contact Manager".
 1. Replace "Application name" with "CM Demo". 
 2. Update the first Action link and replace *Home* with *Cm* to use the *Cm* Controller.
 <br/><br/>
@@ -134,7 +135,6 @@ This is all you need to do for now to create the application that you'll deploy 
 3. Click **Download publish profile**.<br/>
 
 	This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
-<div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
 
 4. Save the .*publishsettings* file in a folder that you can access from Visual Studio. The default downloads directory is a good place to save this file.
 
@@ -209,7 +209,7 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
 5. In the **Add Scaffold** dialog box, select **MVC 5 Controller with views, using EF** and then click **Add**.
 ![Add Scaffold dlg](../Media/rr6.png)
-5. In the **Add Controller** dialog box, enter "CmController" for the controller name. 
+5. In the **Add Controller** dialog box, enter "CmController" for the controller name. (See the image below.)
 1. In the **Model class** dropdown box, select **Contact (ContactManager.Models)**.
 1. Click the **New data context** button and accept the default **ContactManager.Models.ContactManagerContext** new data context type and click **Add**.
 ![New data ctx dlg](../Media/rr7.png)
@@ -228,7 +228,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 		enable-migrations -ContextTypeName ContactManagerContext
 <br/>![enable-migrations][rxE] <br/>
 	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derived classes, the **ContactManagerContext** we just added and the **ApplicationDbContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizard.<br/>
-  The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. <br/>
+  The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure Migrations. <br/>
 
 2. In the **Package Manager Console** window, enter the following command:<br/>
 
@@ -297,7 +297,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
                 );
         }
 
-	This code above will initialize the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	This code above will initialize (seed) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
 6. In the **Package Manager Console** enter the command:
@@ -320,10 +320,10 @@ The application shows the seed data and provides edit, details and delete links.
 
 In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the *canEdit* role will be able to change data (that is, create, edit, or delete contacts).
 
-Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method
+Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method.
 
 1. Run the application and click  the **Log In** link. 
-1. At the bottom of the log in page, under **Use another service to log in.**, click the **Google** button. 
+1. At the bottom of the log in page, under **Use another service to log in**, click the **Google** button. 
 1. Enter your  credentials.
 1. Click **Accept** to allow the application to access your email and basic information.
 1. You are redirected to the Register page. You can change the **User name** if you like. Click **Register**.
@@ -383,15 +383,15 @@ An image of the code change is shown below:
 
 Later in the tutorial we will deploy the application to Windows Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. You will need to immediately stop your web site so other users will not be added to this role. You'll be able to verify who is in the *canEdit* role by examining the database.
 
-In the **Package Manager Console** enter the command:
+In the **Package Manager Console** hit the up arrow key to bring up the following command:
 
 		Update-Database
 
-The  **Update-Database** command will run the seed method, which will run the **AddUserAndRole** you just added. The **AddUserAndRole** will add *user1* to the *canEdit* role.
+Run the  **Update-Database** command which will run the **Seed** method, and that will run the **AddUserAndRole** you just added. The **AddUserAndRole** will create the user *user1* and add her to the *canEdit* role.
 
 ## Protect the Application with SSL and the Authorize Attribute ##
 
-In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the **Index**  home page only. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the about and the contact pages. Only users in the *canEdit* role will be able to access action methods that change data.
+In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the **Index** action method of the home controller only. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the about and the contact pages. Only users in the *canEdit* role will be able to access action methods that change data.
 
 1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) filter to the application. An alternative approach is to add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add will automatically be protected, you won't need to remember to apply them. For more information see [Securing your ASP.NET MVC  App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following (which adds the two filters):
 
@@ -417,8 +417,8 @@ The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorize
                   return View();
                }
 
-2. Do a global search for *AllowAnonymous*, you can see it is used in the log in methods of the Account controller.
-1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete) in the Cm controller. A portion of the completed code is shown below:
+2. Do a global search for *AllowAnonymous*, you can see it is used in the log in and registration methods of the Account controller.
+1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete) in the *Cm* controller. A portion of the completed code is shown below: 
 
 ![img of code](..\Media\rr11.png)
 
@@ -442,7 +442,7 @@ The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorize
 1. Click the **Register** link and add a local user named *Joe*. Verify *Joe* can view the Home, About and Contact pages. 
 1. Click the *CM Demo* link and verify you see the data. 
 1. Click an edit link on the page, you will be redirected to the log in page (because a new local user is not added to the *canEdit* role).
-1. Log in as *user1* with password of *Passw0rd1*. You will be redirected to the edit page you previously selected.
+1. Log in as *user1* with password of ***Passw0rd1***. You will be redirected to the edit page you previously selected. If you can't log in with that account, run the *Update-Database* command from the PMC. If you still can't log in, check the **AspNetUsers** table to verify *user1* was added. Later on in the tutorial I show how to check the **AspNetUsers** table.
 1. Verify you can make data changes.
 
 <h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
@@ -458,7 +458,9 @@ The **Publish Web** wizard opens.
 <br/><br/>
 ![settings](..\Media\rrr14.png)
 1. Click **Publish**.
-2. Log into the application using Google or Facebook. The will add the Google or Facebook account to the **canEdit** role.
+1. Log in as *user1* and verify you can edit data.
+1. Log out.
+2. Log in using Google or Facebook. The will add the Google or Facebook account to the **canEdit** role.
 3. Stop the web app to prevent other users from registering.  In **Server Explorer**, navigate to **Web Sites**.
 4. Right click on each Web Site instance and select **Stop Web Site**. 
 <br/><br/>
@@ -480,7 +482,7 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 2. Under **ContactManagerContext**, uncheck **Execute Code First Migrations**. It doesn't hurt to run code first migrations, but it's not necessary for this deployment. You'll need to check this box when you make migration changes.
 3. Click the **Next** button.
 4. Click the **Start Preview** button. Only the files that need to be updated are deployed.
-5. Start the Web Site. The easiest way to do this is from the Portal. You won't be able to publish while the web site is stopped.
+5. Start the Web Site. The easiest way to do this is from the Portal. **You won't be able to publish while the web site is stopped**.
 5. Go back to Visual Studio and click **Publish**.
 3. Your Windows Azure App opens up in your default browser. You are viewing the home page as an anonymous user.  
 4. Click the **About** link. You'll be redirected to the Log in page.
@@ -540,23 +542,24 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 1. In the Windows Azure Portal, Click **SQL Databases**.
 1. Click the **Server** hosting your Database.
  <br/>![db server][rx8]<br/><br/>
-1. Click **Configure** on the top of the page.
+1. Click the **Configure** link on the top of the page.
 1. Add a rule name, starting and ending IP addresses.
 <br/>![ip range][rx9]<br/><br/>
 1. At the bottom of the page, click **Save**.
-1. You can now edit the membership database using the steps previously shown.
+1. Please leave feedback and let me know if you needed to add a range of IP address to connect.
 
 ## Connecting to a SQL Azure Database from SSOX ##
 
 1. From the View menu, click **SQL Server Object Explorer**.
 1. Right click **SQL Server** and select **Add SQL Server**.
+1. In the **Connect to Server** dialog box, set the **Authentication** to **SQL Server Authentication**. You will get the **Server name** and **Login** from the Windows Azure Portal.
 1. In your browser, navigate to the portal and select **SQL Databases**.
 1. Select the **ContactDB**, and then click **View SQL Database connection strings**.
 1. From the **Connection Strings** page, copy the **Server**  and **User ID**. 
-1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. Enter the password you used to create the SQL DB.
+1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
 ![Connect to Server DLG](..\Media\rss1.png)
 
-You will now be able to navigate to the Contact DB.
+You will now be able to navigate to the Contact DB using the instruction above.
 
 
 ## To Add a User to the canEdit Role ##
@@ -586,13 +589,16 @@ We hope to soon have a tool to manage users and roles.
 
 Follow my tutorial [Create an ASP.NET MVC 5 App with Facebook and Google OAuth2 and OpenID Sign-on](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on ) for instructions on how to add profile data to the user registration DB and for detailed instructions on using Facebook as an authentication provider.
 
+<br/>
+A good place to learn more about ASP.NET MVC is my [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) tutorial. Tom Dykstra's excellent [Getting Started with EF and MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) will show you more advanced EF programming.
+
 This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. 
 
+<!--
 To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 5](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/). 
-To learn more about the Entity Framework and Code First Migrations, see [Getting Started with Entity Framework using MVC].
-
+ -->
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
 [Using the Membership API]:#mbrDB
