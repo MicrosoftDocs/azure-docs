@@ -267,7 +267,7 @@ The final step is to test the app and validate that uploads succeed.
 
 	![][8]
 
-5. The new item, along with teh uploaded image, is displayed in the list view.
+5. The new item, along with the uploaded image, is displayed in the list view.
 
 	![][9]
 
