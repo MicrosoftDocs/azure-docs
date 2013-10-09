@@ -65,6 +65,8 @@ Sometimes you might find that your application runs correctly when you run it lo
 
 In this section, you'll debug locally first, and then you'll see how to debug remotely. 
 
+<div class="dev-callout"><strong>Note</strong><p>The remote debugging feature is offered as a Community Technology Preview (CTP) and is still under development. Currently the feature does not work with site names or user names that are longer than 20 characters.</p></div>
+
 ### Debug locally
 
 1. Open the web project that you created in [Getting started with Windows Azure and ASP.NET][GetStarted].
@@ -162,7 +164,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 ### Debugging in production
 
-Running in debug mode in production is often not practical for several reasons. You typically don't deploy a debug build to production, and compiler optimizations for release builds might make it impossible to show what is happening line by line in your source code. Also, in production you might scale out to multiple web server instances. In that case, when you attach to the debugger you'll get a random web server instance, and you have no way to ensure that your browser requests will go to that server. For troubleshooting production problems, your best resource is application tracing and web server logs.
+Running in debug mode in production is not recommended. If your production site is not scaled out to multiple server instances, debugging will tie up traffic to your only web server instance. If you do have multiple web server instances, when you attach to the debugger you'll get a random instance, and you have no way to ensure that your browser requests will go to that instance. Also, you typically don't deploy a debug build to production, and compiler optimizations for release builds might make it impossible to show what is happening line by line in your source code. For troubleshooting production problems, your best resource is application tracing and web server logs.
 
 <h2><a name="logsoverview"></a><span class="short-header">Logs overview</span>Diagnostic logs overview</h2>
 
