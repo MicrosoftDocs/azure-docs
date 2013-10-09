@@ -4,8 +4,8 @@
 
 # Upload images to Windows Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone 8</a>
+	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8"  class="current">Windows Phone 8</a>
 <!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-ios" title="iOS">iOS</a> 
 -->
