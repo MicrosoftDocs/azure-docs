@@ -5,8 +5,8 @@
 # Upload images to Windows Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-<!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone 8</a>
+<!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-ios" title="iOS">iOS</a> 
 -->
 </div>	
@@ -25,8 +25,10 @@ In this tutorial you add functionality to the Mobile Services quickstart app to 
 This tutorial requires the following:
 
 + Microsoft Visual Studio 2012 Express for Windows 8, or a later version
++ [Windows Phone SDK 8.0] or higher
++ Nuget Package Manager installed for Microsoft Visual Studio.
 + [Windows Azure Storage account][How To Create a Storage Account]
-+ A camera or other image capture device attached to your computer.
+
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
@@ -36,7 +38,7 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.Storage-Preview`, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
+2. In the left pane, select the **Online** category, select **Include Prerelease**, search for **WindowsAzure.Storage-Preview**, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
 
   ![][2]
 
@@ -132,43 +134,53 @@ Next, you will update the quickstart app to add image upload functionality by us
 
 <h2><a name="add-select-images"></a><span class="short-header">Update the app</span>Update the quickstart client app to capture and upload images</h2>
 
-1. In Visual Studio 2012, open the Package.appxmanifest file and in the **Capabilities** tab enable the **Webcam** and **Microphone** capabilities.
+In this section you will update the project from the [Get started with Mobile Services] tutorial to take photos and upload them to Windows Azure Blob Storage. To capture the image, this tutorial uses the [CameraCaptureTask] from the `Microsoft.Phone.Tasks` namespace. This class launches the camera UI on the Windows Phone device to capture the photo and automatically saves the image to the Camera Roll on the Windows Phone device. If you do not want the images saved to the Camera Roll, use the [PhotoCamera] class in the `Microsoft.Devices` namespace instead.
 
-   	![][5]
+1. Open the MainPage.xaml file and replace the **Grid** element named **ContentPanel** with the following code:
 
-   This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Enter some text below, click Capture Image to add a captured image. Then click Save to insert a new TodoItem item into your database" TextWrapping="Wrap" Margin="12"/>
+            <TextBox Grid.Row="1" Grid.ColumnSpan="2" Name="TodoInput" Text="" />
+            <Button Name="ButtonCaptureImage" Grid.Row="2" Click="ButtonCaptureImage_Click">Capture Image</Button>
+            <Button Grid.Row ="2" Grid.Column="1" Name="ButtonSave" Click="ButtonSave_Click">Save</Button>
+            <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Text="Click refresh below to load the unfinished TodoItems from your database. Use the checkbox to complete and update your TodoItems" TextWrapping="Wrap" Margin="12" />
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Name="ButtonRefresh" Click="ButtonRefresh_Click">Refresh</Button>
+            <phone:LongListSelector Grid.Row="5" Grid.ColumnSpan="2" Name="ListItems">
+                <phone:LongListSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>
+                            <Image Name="ImageUpload" Source="{Binding ImageUri, Mode=OneWay}" MaxHeight="150"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+            </phone:LongListSelector>
+        </Grid>
 
-1. Open the MainPage.xaml file and replace the **StackPanel** element directly after the first **Task** element with the following code:
 
-        <StackPanel Orientation="Horizontal" Margin="72,0,0,0">
-            <TextBox Name="TextInput" Margin="5" MaxHeight="40" MinWidth="300"></TextBox>
-            <Button Name="btnTakePhoto" Style="{StaticResource PhotoAppBarButtonStyle}"
-                    Click="OnTakePhotoClick" />
-            <Button Name="ButtonSave" Style="{StaticResource UploadAppBarButtonStyle}" 
-                    Click="ButtonSave_Click"/>
-        </StackPanel>
+   This adds a new button to launch the [CameraCaptureTask] and adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
 
-2. Replace the **StackPanel** element in the **DataTemplate** with the following code:
-
-        <StackPanel Orientation="Vertical">
-            <CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" 
-                        Checked="CheckBoxComplete_Checked" Content="{Binding Text}" 
-                        Margin="10,5" VerticalAlignment="Center"/>
-            <Image Name="ImageUpload" Source="{Binding ImageUri, Mode=OneWay}"
-                    MaxHeight="250"/>
-        </StackPanel> 
-
-   This adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
-
-3. Open the MainPage.xaml.cs project file and add the following **using** statements:
+2. Open the MainPage.xaml.cs project file and add the following **using** statements:
 	
-		using Windows.Media.Capture;
-		using Windows.Storage;
-		using Windows.UI.Popups;
+		using Microsoft.Phone.Tasks;
+		using System.IO;
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;
     
-4. In the TodoItem class, add the following properties:
+3. In the MainPage.xaml.cs project file, update the TodoItem class by adding the following properties:
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
@@ -186,64 +198,83 @@ Next, you will update the quickstart app to add image upload functionality by us
    		<p>To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.</p>
    	</div>
 
-5. In the MainPage class, add the following code:
+4. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to declare the [CameraCaptureTask] and a stream object that will reference the captured image:
 
-        // Use a StorageFile to hold the captured image for upload.
-        StorageFile media = null;
+        // Using the CameraCaptureTask to allow the user to capture a todo item image //
+        CameraCaptureTask cameraCaptureTask;
 
-		private async void OnTakePhotoClick(object sender, RoutedEventArgs e)
-		{
-			// Capture a new photo or video from the device.
-			CameraCaptureUI cameraCapture = new CameraCaptureUI();
-			media = await cameraCapture
-				.CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
+        // Using a stream reference to upload the image to blob storage.
+        Stream imageStream = null;
+
+5. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to update the constructor to create the CameraCaptureTask and add an event handler for the Completed event:
+
+        // Constructor
+        public MainPage()
+        {
+            InitializeComponent();
+
+            cameraCaptureTask = new CameraCaptureTask();
+            cameraCaptureTask.Completed += cameraCaptureTask_Completed;
         }
 
-  This code displays the camera UI to capture an image, and saves the image to a storage file.
+        void cameraCaptureTask_Completed(object sender, PhotoResult e)
+        {
+            imageStream = e.ChosenPhoto;
+        }
 
-6. Replace the existing `InsertTodoItem` method with the following code:
+6. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code that displays the camera UI to allow the user to capture an image when the **Capture Image** button is clicked:
+
+        private void ButtonCaptureImage_Click(object sender, RoutedEventArgs e)
+        {
+            cameraCaptureTask.Show();
+        }
+
+
+7. In the MainPage.xaml.cs project file, update the MainPage class. Replace the existing `InsertTodoItem` method with the following code:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
-            string errorString = string.Empty;
+            string errorString = string.Empty;            
 
-            if (media != null)
+            if (imageStream != null)
             {
                 // Set blob properties of TodoItem.
                 todoItem.ContainerName = "todoitemimages";
-                todoItem.ResourceName = media.Name;
-            }
+                todoItem.ResourceName = Guid.NewGuid().ToString() + ".jpg";
+            }                       
 
             // Send the item to be inserted. When blob properties are set this
             // generates an SAS in the response.
-            await todoTable.InsertAsync(todoItem);
+            await todoTable.InsertAsync(todoItem);  
 
             // If we have a returned SAS, then upload the blob.
             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
             {
-                // Get the new image as a stream.
-                using (var fileStream = await media.OpenStreamForReadAsync())
-                {                   
-                    // Get the URI generated that contains the SAS 
-                    // and extract the storage credentials.
-                    StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
-                    var imageUri = new Uri(todoItem.ImageUri);
+                // Get the URI generated that contains the SAS 
+                // and extract the storage credentials.
+                StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
+                var imageUri = new Uri(todoItem.ImageUri);
 
-                    // Instantiate a Blob store container based on the info in the returned item.
-                    CloudBlobContainer container = new CloudBlobContainer(
-                        new Uri(string.Format("https://{0}/{1}",
-                            imageUri.Host, todoItem.ContainerName)), cred);
 
-                    // Upload the new image as a BLOB from the stream.
-                    CloudBlockBlob blobFromSASCredential =
-                        container.GetBlockBlobReference(todoItem.ResourceName);
-                    await blobFromSASCredential.UploadFromStreamAsync(fileStream.AsInputStream());
-                }
-            }
+                // Instantiate a Blob store container based on the info in the returned item.
+                CloudBlobContainer container = new CloudBlobContainer(
+                    new Uri(string.Format("https://{0}/{1}",
+                        imageUri.Host, todoItem.ContainerName)), cred);
+
+
+                // Upload the new image as a BLOB from the stream.
+                CloudBlockBlob blobFromSASCredential =
+                    container.GetBlockBlobReference(todoItem.ResourceName);
+                await blobFromSASCredential.UploadFromStreamAsync(imageStream);
+
+                imageStream = null;
+            }              
 
             // Add the new item to the collection.
             items.Add(todoItem);
+            TodoInput.Text = "";
         }
+
 
 	This code sends a request to the mobile service to insert a new TodoItem, including the image file name. The response contains the SAS, which is then used to insert the image in the Blob store, and the URI of the image for data binding.
 
@@ -251,23 +282,27 @@ The final step is to test the app and validate that uploads succeed.
 		
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
-1. In Visual Studio, press the F5 key to run the app.
+1. In Visual Studio, you can press the F5 key to test the app in the emulator or with an actual device targeted.
 
-2. Enter text in the textbox under **Insert a TodoItem**, then click **Photo**.
+2. Enter some text in the textbox, then click **Capture Image**.
 
    ![][6]
 
   This displays the camera capture UI. 
 
-3. Click the image to take a picture, then click **OK**.
+3. Click the image or the snapshot button on the phone to take a picture.
   
    ![][7]
 
-4. Click **Upload** to insert the new item and upload the image.
+4. Click **accept** to accept the image and exit the camera UI.
+
+    ![][11]
+
+5. Click **Save** to insert the new item and upload the image.
 
 	![][8]
 
-5. The new item, along with teh uploaded image, is displayed in the list view.
+6. The new item, along with the uploaded image, is displayed in the list view.
 
 	![][9]
 
@@ -309,12 +344,13 @@ Now that you have been able to securely upload images by integrating your mobile
 [2]: ../Media/mobile-add-storage-nuget-package-dotnet.png
 [3]: ../Media/mobile-portal-data-tables.png
 [4]: ../Media/mobile-insert-script-blob.png
-[5]: ../Media/mobile-app-manifest-camera.png
-[6]: ../Media/mobile-quickstart-blob-appbar.png
-[7]: ../Media/mobile-quickstart-blob-camera.png
-[8]: ../Media/mobile-quickstart-blob-appbar2.png
-[9]: ../Media/mobile-quickstart-blob-ie.png
+[5]: ../Media/mobile-wm-app-manifest-camera.png
+[6]: ../Media/mobile-upload-blob-app-view-wp8.png
+[7]: ../Media/mobile-upload-blob-app-view-camera-wp8.png
+[8]: ../Media/mobile-upload-blob-app-view-save-wp8.png
+[9]: ../Media/mobile-upload-blob-app-view-final-wp8.png
 [10]: ../Media/mobile-insert-script-blob2.png
+[11]: ../Media/mobile-upload-blob-app-view-camera-accept-wp8.png
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
@@ -328,3 +364,7 @@ Now that you have been able to securely upload images by integrating your mobile
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
 [Windows Azure Storage Client library for Windows Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
+[Windows Phone SDK 8.0]: http://www.microsoft.com/en-us/download/details.aspx?id=35471
+[CameraCaptureTask]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
+[PhotoCamera]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+
