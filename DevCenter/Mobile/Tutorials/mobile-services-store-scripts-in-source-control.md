@@ -194,4 +194,4 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Define a custom API that supports pull notifications]: ../tutorials/mobile-services-create-pull-notifications-dotnet.md
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
-[node-uuid]: href="https://npmjs.org/package/node-uuid
+[node-uuid]: https://npmjs.org/package/node-uuid
