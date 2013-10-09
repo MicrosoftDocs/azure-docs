@@ -40,7 +40,7 @@ The method you use to open either console depends on the version of Windows you'
 
 - On a computer running at least Windows 8 or Windows Server 2012, you can use the built-in Search. From the Start screen, begin typing **power**. This produces a scoped list of apps that includes Windows PowerShell and Windows Azure PowerShell. Click either app to open the console window. (To pin the app to the Start screen, right-click the icon.)
 
-- On a computer running a version earlier than Windows 8 or Windows Server 2012, you can use the Start menu. From the **Start** menu, click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
+- On a computer running a version earlier than Windows 8 or Windows Server 2012, you can use the Start menu. From the Start menu, click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
 
 
 <h2><a id="Connect"></a>How to: Connect to your subscription</h2>
@@ -74,7 +74,7 @@ For more information about authentication and subscription management in Windows
 The Windows Azure PowerShell module includes cmdlets that help you download and import the certificate.
 
 - The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the
-[Windows Azure Management Portal]( from which you can
+Windows Azure Management Portal, from which you can
 download the subscription information. The information is contained in a .publishsettings file.
 
 - The **Import-AzurePublishSettingsFile** imports the .publishsettings file for use by the module. This file includes a management certificate that has security credentials. 
@@ -101,7 +101,7 @@ the .publishsettings file. This information is required when you run the
 **Import-AzurePublishSettingsFile** cmdlet to import the settings. The default
 location and file name format is:
 
-	C:\\Users\&lt;UserProfile&gt;\\Desktop\\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
+	C:\\Users\&lt;UserProfile&gt;\\Download\\[*MySubscription*-…]-*downloadDate*-credentials.publishsettings
 
 5. Type a command similar to the following, substituting your Windows account name and the path and file name for the placholders:
 
