@@ -55,7 +55,8 @@ You write table operation scripts if you need to enforce customized business log
 
 	function insert(item, user, request) {
 	    if (item.text.length > 10) {
-	        request.respond(statusCodes.BAD_REQUEST, 'Text length must be less than 10 characters');
+	        request.respond(statusCodes.BAD_REQUEST, 
+				'Text length must be less than 10 characters');
 	    } else {
 	        request.execute();
 	    }
@@ -354,16 +355,21 @@ This custom API function is invoked by an HTTP POST request to the following end
 
 		https://<service>.azure-mobile.net/api/orderpizza
 
-###<a name="get-api-headers"></a>How to: Access custom API request headers
+You can also access a specific HTTP header from the [request object], as shown in the following code:
 
+		exports.get = function(request, response) {    
+    		var header = request.header('my-custom-header');
+    		response.send(200, "You sent: " + header);
+		};
 
+This simple example reads a custom header named `my-custom-header`, then returns the value in the response.
 
 ###<a name="api-routes"></a>How to: Define multiple routes in a custom API
 
 Mobile Services enables you to define multiple paths, or routes, in a custom API. For example, HTTP GET requests to the following URLs in a **calculator** custom API will invoke an **add** or **subtract** function, respectively: 
 
-+ https://<service>.azure-mobile.net/api/calculator/add
-+ https://<service>.azure-mobile.net/api/calculator/sub
++ https://&lt;service&gt;.azure-mobile.net/api/calculator/add
++ https://&lt;service&gt;.azure-mobile.net/api/calculator/sub
 
 Multiple routes are defined by exporting a **register** function, which is passed an object that is similar to the [express object in express.js]. This object is then used to register routes under the custom API endpoint. The following example implements the **add** and **sub** methods in the **calculator** custom API: 
 
@@ -386,11 +392,11 @@ The **api** object passed to the **register** function exposes a function for ea
 
 The two routes in the above custom API example are called as follows (shown with the response):
 
-+ GET https://<service>.azure-mobile.net/api/calculator/add?a=1&b=2
++ GET https://&lt;service&gt;.azure-mobile.net/api/calculator/add?a=1&b=2
 
 		{"result":3}
 
-+ GET https://<service>.azure-mobile.net/api/calculator/sub?a=3&b=5
++ GET https://&lt;service&gt;.azure-mobile.net/api/calculator/sub?a=3&b=5
 
 		{"result":-2}
 
@@ -504,7 +510,7 @@ In Mobile Services, you can create, modify, and delete server scripts by using t
 
 Note that this directory structure is the same as the git repository when using source control. 
 
-When uploading script files from the command line tool, you must first navigate to the `.\services\ directory`. The following command uploads a script named `todoitem.insert.js` from the `table` subdirectory:
+When uploading script files from the command line tool, you must first navigate to the `.\services\` directory. The following command uploads a script named `todoitem.insert.js` from the `table` subdirectory:
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload
@@ -545,7 +551,7 @@ Many scenarios in Mobile Services require server scripts to access tables in the
 
 Mobile Services has two ways of accessing tables, either by using a [table object] proxy or by composing Transact-SQL queries using the [mssql object]. The [table object] makes it easy to access table data from your sever script code, but the [mssql object] supports more complex data operations and provides the most flexibility. 
 
-###<a name="working-with-tables"></a>How to: Access tables from scripts
+###<a name="access-tables"></a>How to: Access tables from scripts
 
 The easiest way to access tables from your script is by using the [tables object]. The **getTable** function returns a [table object] instance that's a proxy for accessing the requested table. You can then call functions on the proxy to access and change data. 
 
