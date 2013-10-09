@@ -47,7 +47,31 @@ The method you use to open either console depends on the version of Windows you'
 
 Use of Windows Azure requires a subscription. If you don't have a subscription, see [Get Started with Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-The cmdlets require your subscription information so that it can be used to manage your services. This information is provided by downloading and then importing it for use by the cmdlets. The Windows Azure PowerShell module includes two cmdlets that help you perform these tasks:
+The cmdlets require your subscription information so that it can be used to manage your services. As of the .0.7 release of the module, there are two ways of providing this information. You can use download and use a certificate that contains the information, or you can log in to Windows Azure using your Microsoft account (either a personal ID or an organizational ID). When you use a Microsoft account, authentication is performed using Windows Azure Active Directory (Windows Azure AD). 
+
+To help you choose the authentication method that's appropriate for your needs, consider the following:
+
+- When you use the log-in method, you don't need to download or import the subscription information expires after 8 hours. After that time, you'll need to log in again. This method makes it easier to manage access to a subscription, but may disrupt automation. 
+- When you use the certificate method, the subscription information is available as long as the subscription is valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account.    
+
+For more information about authentication and subscription management in Windows Azure, see [this article](http://go.microsoft.com/fwlink/?LinkId=324796).
+
+<h3>Use the log-in method</h3>
+
+1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using the credentials for your Windows Azure account.
+
+2. Open the Windows Azure PowerShell console, as instructed in [How to: Install Windows Azure PowerShell](#Install).
+
+3. Type the following command:
+
+    `Add-AzureAccount`
+4. A sign-in window opens. Type the email address associated with your Microsoft account.
+
+5. A second sign-in window opens. Type the password. Windows Azure authenticates and saves the credential information, and then closes the window.
+
+<h3>Use the certificate method</h3>
+
+The Windows Azure PowerShell module includes cmdlets that help you download and import the certificate.
 
 - The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the
 [Windows Azure Management Portal]( from which you can
@@ -61,7 +85,7 @@ download the subscription information. The information is contained in a .publis
 downloaded using <b>Get-AzurePublishSettingsFile</b> after you import those
 settings. Because the management certificate includes security credentials, it
 should not be accessed by unauthorized users. If you need information
-about your subscriptions, you can get it from the <a href="http://manage.windowsazure.com/">Windows Azure Management Portal</a> or the <a href="https://mocp.microsoftonline.com/site/default.aspx">Microsoft Online Services Customer Portal</a>.</p> 
+about your subscriptions, you can get it from the <a href="http://manage.windowsazure.com/">Windows Azure Management Portal</a> or the <a href="http://go.microsoft.com/fwlink/p/?LinkId=324875">Microsoft Online Services Customer Portal</a>.</p> 
 </div>
 
 1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using the credentials for your Windows Azure account.
@@ -83,15 +107,16 @@ location and file name format is:
 
     Import-AzurePublishSettingsFile C:\Users\&lt;UserProfile&gt;\Downloads\&lt;SubscriptionName&gt;-credentials.publishsettings
 
-6. To view the subscription information, type:
-
-	`Get-AzureSubscription`
-
 **Note**:
 If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
 process to download a new .publishsettings file, and then import those
 settings. For information about adding co-administrators to help manage
 services for a subscription, see [Add and Remove Co-Administrators for Your Windows Azure Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx).
+
+<h3> View subscription details</h3>
+To view the subscription information, type:
+
+	`Get-AzureSubscription`
 
 ## <a id="Ex"></a>How to use the cmdlets: An example ##
 
