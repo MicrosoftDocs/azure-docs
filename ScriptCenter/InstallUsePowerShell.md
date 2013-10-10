@@ -47,27 +47,26 @@ The method you use to open either console depends on the version of Windows you'
 
 Use of Windows Azure requires a subscription. If you don't have a subscription, see [Get Started with Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
-The cmdlets require your subscription information so that it can be used to manage your services. As of the .0.7 release of the module, there are two ways of providing this information. You can use download and use a certificate that contains the information, or you can log in to Windows Azure using your Microsoft account (either a personal ID or an organizational ID). When you use a Microsoft account, authentication is performed using Windows Azure Active Directory (Windows Azure AD). 
+The cmdlets require your subscription information so that it can be used to manage your services. As of the .0.7 release of the module, there are two ways of providing this information. You can download and use a management certificate that contains the information, or you can log in to Windows Azure using your Microsoft account or an organizational ID. When you log in, Windows Azure Active Directory (Windows Azure AD) authenticates the credentials. 
 
 To help you choose the authentication method that's appropriate for your needs, consider the following:
 
-- When you use the log-in method, you don't need to download or import the subscription information expires after 8 hours. After that time, you'll need to log in again. This method makes it easier to manage access to a subscription, but may disrupt automation. 
-- When you use the certificate method, the subscription information is available as long as the subscription is valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account.    
+- The Windows Azure AD method can make it easier to manage access to a subscription, but may disrupt automation. The credentials are available to Windows Azure PowerShell for 12 hours. After they expire, you'll need to log in again.  
+- When you use the certificate method, the subscription information is available as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account.    
 
 For more information about authentication and subscription management in Windows Azure, see [this article](http://go.microsoft.com/fwlink/?LinkId=324796).
 
-<h3>Use the log-in method</h3>
+<h3>Use the Windows Azure AD method</h3>
 
-1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using the credentials for your Windows Azure account.
+1. Open the Windows Azure PowerShell console, as instructed in [How to: Install Windows Azure PowerShell](#Install).
 
-2. Open the Windows Azure PowerShell console, as instructed in [How to: Install Windows Azure PowerShell](#Install).
-
-3. Type the following command:
+2. Type the following command:
 
     `Add-AzureAccount`
-4. A sign-in window opens. Type the email address associated with your Microsoft account.
 
-5. A second sign-in window opens. Type the password. Windows Azure authenticates and saves the credential information, and then closes the window.
+3. In the window, type the email address and password associated with your account.
+
+4. Windows Azure authenticates and saves the credential information, and then closes the window.
 
 <h3>Use the certificate method</h3>
 
@@ -113,8 +112,14 @@ process to download a new .publishsettings file, and then import those
 settings. For information about adding co-administrators to help manage
 services for a subscription, see [Add and Remove Co-Administrators for Your Windows Azure Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx).
 
-<h3> View subscription details</h3>
-To view the subscription information, type:
+<h3> View account and subscription details</h3>
+You can have multiple accounts and subscriptions available for use by Windows Azure PowerShell. You can add multiple accounts by running Add-AzureAccount more than once. 
+
+To see the available accounts, type:
+
+	`Get-AzureAccount`
+
+To see subscription information, type:
 
 	`Get-AzureSubscription`
 
