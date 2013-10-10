@@ -74,55 +74,59 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 
 		var azure = require('azure');
 		var qs = require('querystring');
-
+		
 		function insert(item, user, request) {
 			var accountName = '<storage-account-name>';
 			var accountKey = '<storage-account-key>';
 			var host = accountName + '.blob.core.windows.net';
 			var canonicalizedResource = '/' + item.containerName + '/' + item.resourceName;
-
-	    if ((typeof item.containerName !== "undefined") && (
-	    item.containerName !== null)) {
-	        // Set the BLOB store container name on the item, which must be lowercase.
-	        item.containerName = item.containerName.toLowerCase();
-	
-	        // If it does not already exist, create the container 
-	        // with public read access for blobs.        
-	        var blobService = azure.createBlobService(accountName, accountKey, host);
-	        blobService.createContainerIfNotExists(item.containerName, {
-	            publicAccessLevel: 'blob'
-	        }, function(error) {
-	            if (!error) {
-	
-	                // Provide write access to the container for the next 5 mins.        
-	                var sharedAccessPolicy = {
-	                    AccessPolicy: {
-	                        Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
-	                        Expiry: new Date(new Date().getTime() + 5 * 60 * 1000)
-	                    }
-	                };
-	
-	                // Generate the upload URL with SAS for the new image.
-	                var sasQueryUrl = 
-	                    blobService.generateSharedAccessSignature(item.containerName, 
-	                    item.resourceName, sharedAccessPolicy);
-	                             
-	               // Set the query string.
-	               item.sasQueryString = qs.stringify(sasQueryUrl.queryString);
-	               
-	                // Set the full path on the new new item, 
-	                // which is used for data binding on the client. 
-	                item.imageUri = sasQueryUrl.baseUrl + sasQueryUrl.path;
-	
-	            } else {
-	                console.error(error);
-	            }
-	            request.execute();
-	        });
-	    } else {
-	        request.execute();
-	    }
-	}
+			
+			if ((typeof item.containerName !== "undefined") && (
+				item.containerName !== null)) 
+			{
+				
+				// Set the BLOB store container name on the item, which must be lowercase.
+				item.containerName = item.containerName.toLowerCase();
+				
+				// If it does not already exist, create the container 
+				// with public read access for blobs.        
+				var blobService = azure.createBlobService(accountName, accountKey, host);
+				blobService.createContainerIfNotExists(item.containerName, 
+					{publicAccessLevel: 'blob'}, 
+					function(error) {
+						if (!error) 
+						{
+							// Provide write access to the container for the next 5 mins.        
+							var sharedAccessPolicy = {
+								AccessPolicy: {
+								Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
+								Expiry: new Date(new Date().getTime() + 5 * 60 * 1000)
+								}};
+							
+							// Generate the upload URL with SAS for the new image.
+							var sasQueryUrl = 
+								blobService.generateSharedAccessSignature(item.containerName, 
+								item.resourceName, sharedAccessPolicy);
+								
+							// Set the query string.
+							item.sasQueryString = qs.stringify(sasQueryUrl.queryString);
+							
+							// Set the full path on the new new item, 
+							// which is used for data binding on the client. 
+							item.imageUri = sasQueryUrl.baseUrl + sasQueryUrl.path;
+						} 
+						else 
+						{
+							console.error(error);
+						}
+						
+						request.execute();});
+			} 
+			else 
+			{
+				request.execute();
+			}	
+		}
 
    This script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
 
@@ -184,13 +188,13 @@ In this section you will update the project from the [Get started with Mobile Se
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
-        
+		
         [JsonProperty(PropertyName = "resourceName")]
         public string ResourceName { get; set; }
-        
+		
         [JsonProperty(PropertyName = "sasQueryString")]
         public string SasQueryString { get; set; }
-        
+		
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
@@ -202,7 +206,7 @@ In this section you will update the project from the [Get started with Mobile Se
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
-        
+		
         // Using a stream reference to upload the image to blob storage.
         Stream imageStream = null;
 
@@ -212,11 +216,11 @@ In this section you will update the project from the [Get started with Mobile Se
         public MainPage()
         {
             InitializeComponent();
-            
+			
             cameraCaptureTask = new CameraCaptureTask();
             cameraCaptureTask.Completed += cameraCaptureTask_Completed;
         }
-        
+		
         void cameraCaptureTask_Completed(object sender, PhotoResult e)
         {
             imageStream = e.ChosenPhoto;
@@ -235,18 +239,18 @@ In this section you will update the project from the [Get started with Mobile Se
         private async void InsertTodoItem(TodoItem todoItem)
         {
             string errorString = string.Empty;            
-            
+			
             if (imageStream != null)
             {
                 // Set blob properties of TodoItem.
                 todoItem.ContainerName = "todoitemimages";
                 todoItem.ResourceName = Guid.NewGuid().ToString() + ".jpg";
             }                       
-            
+			
             // Send the item to be inserted. When blob properties are set this
             // generates an SAS in the response.
             await todoTable.InsertAsync(todoItem);  
-            
+			
             // If we have a returned SAS, then upload the blob.
             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
             {
@@ -254,21 +258,20 @@ In this section you will update the project from the [Get started with Mobile Se
                 // and extract the storage credentials.
                 StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
                 var imageUri = new Uri(todoItem.ImageUri);
-                
-                
+				
                 // Instantiate a Blob store container based on the info in the returned item.
                 CloudBlobContainer container = new CloudBlobContainer(
                     new Uri(string.Format("https://{0}/{1}",
                         imageUri.Host, todoItem.ContainerName)), cred);                
-                
+				
                 // Upload the new image as a BLOB from the stream.
                 CloudBlockBlob blobFromSASCredential =
                     container.GetBlockBlobReference(todoItem.ResourceName);
                 await blobFromSASCredential.UploadFromStreamAsync(imageStream);
-                
+				
                 imageStream = null;
             }              
-            
+			
             // Add the new item to the collection.
             items.Add(todoItem);
             TodoInput.Text = "";
