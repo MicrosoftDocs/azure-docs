@@ -2,7 +2,7 @@
 
 # Troubleshooting Windows Azure Web Sites in Visual Studio
 
-During development and testing of a web application, you can troubleshoot by [running in debug mode](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) or by using [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). You can run in debug mode locally in IIS Express or remotely in a Windows Azure Web Site. But for errors that occur only in production, the best way to debug might be by reviewing logs that application code or the web server creates. This tutorial shows how to use Visual Studio tools that help debug an application while it runs in a Windows Azure Web Site, by running in debug mode remotely or by viewing application and web server logs.
+During development and testing of a web application, you can troubleshoot by [running in debug mode](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) or by using [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). For errors that occur only in production, the best way to debug might be by reviewing logs that application code or the web server creates. This tutorial shows how to use Visual Studio tools that help debug an application while it runs in a Windows Azure Web Site, by viewing application and web server logs.
 
 You'll learn:
 
@@ -29,7 +29,7 @@ You'll learn:
 
 This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted].
 
-Remote debugging requires Visual Studio 2013. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, Visual Studio 2012, and Visual Studio 2012 Express for Web. 
+The features shown in the tutorial work in Visual Studio 2013, Visual Studio 2013 Express for Web, Visual Studio 2012, and Visual Studio 2012 Express for Web. 
 
 <div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
 
