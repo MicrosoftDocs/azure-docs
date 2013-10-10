@@ -140,7 +140,13 @@ Next, you will update the quickstart app to add image upload functionality by us
 
 In this section you will update the project from the [Get started with Mobile Services] tutorial to take photos and upload them to Windows Azure Blob Storage. To capture the image, this tutorial uses the [CameraCaptureTask] from the `Microsoft.Phone.Tasks` namespace. This class launches the camera UI on the Windows Phone device to capture the photo and automatically saves the image to the Camera Roll on the Windows Phone device. If you do not want the images saved to the Camera Roll, use the [PhotoCamera] class in the `Microsoft.Devices` namespace instead.
 
-1. Open the MainPage.xaml file and replace the **Grid** element named **ContentPanel** with the following code:
+1. In the Solution Explorer for Visual Studio, under the project, expand **Properties**. Then open the WMAppManifest.xml file and on the **Capabilities** tab enable the camera by clicking **ID\_CAP\_ISV\_CAMERA**. Close the file to save your change.
+
+   	![][5]
+
+   This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+
+2. Open the MainPage.xaml file and replace the **Grid** element named **ContentPanel** with the following code:
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -177,14 +183,14 @@ In this section you will update the project from the [Get started with Mobile Se
 
    This adds a new button to launch the [CameraCaptureTask] and adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
 
-2. Open the MainPage.xaml.cs project file and add the following **using** statements:
+3. Open the MainPage.xaml.cs project file and add the following **using** statements:
 	
 		using Microsoft.Phone.Tasks;
 		using System.IO;
 		using Microsoft.WindowsAzure.Storage.Auth;
 		using Microsoft.WindowsAzure.Storage.Blob;
     
-3. In the MainPage.xaml.cs project file, update the TodoItem class by adding the following properties:
+4. In the MainPage.xaml.cs project file, update the TodoItem class by adding the following properties:
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
@@ -202,7 +208,7 @@ In this section you will update the project from the [Get started with Mobile Se
    		<p>To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.</p>
    	</div>
 
-4. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to declare the [CameraCaptureTask] and a stream object that will reference the captured image:
+5. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to declare the [CameraCaptureTask] and a stream object that will reference the captured image:
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
@@ -210,7 +216,7 @@ In this section you will update the project from the [Get started with Mobile Se
         // Using a stream reference to upload the image to blob storage.
         Stream imageStream = null;
 
-5. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to update the constructor to create the CameraCaptureTask and add an event handler for the Completed event:
+6. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code to update the constructor to create the CameraCaptureTask and add an event handler for the Completed event:
 
         // Constructor
         public MainPage()
@@ -226,7 +232,7 @@ In this section you will update the project from the [Get started with Mobile Se
             imageStream = e.ChosenPhoto;
         }
 
-6. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code that displays the camera UI to allow the user to capture an image when the **Capture Image** button is clicked:
+7. In the MainPage.xaml.cs project file, update the MainPage class. Add the following code that displays the camera UI to allow the user to capture an image when the **Capture Image** button is clicked:
 
         private void ButtonCaptureImage_Click(object sender, RoutedEventArgs e)
         {
@@ -234,7 +240,7 @@ In this section you will update the project from the [Get started with Mobile Se
         }
 
 
-7. In the MainPage.xaml.cs project file, update the MainPage class. Replace the existing `InsertTodoItem` method with the following code:
+8. In the MainPage.xaml.cs project file, update the MainPage class. Replace the existing `InsertTodoItem` method with the following code:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -346,7 +352,7 @@ Now that you have been able to securely upload images by integrating your mobile
 [2]: ../Media/mobile-add-storage-nuget-package-dotnet.png
 [3]: ../Media/mobile-portal-data-tables.png
 [4]: ../Media/mobile-insert-script-blob.png
-[5]: ../Media/mobile-wm-app-manifest-camera.png
+[5]: ../Media/mobile-upload-blob-app-WMAppmanifest-wp8.png
 [6]: ../Media/mobile-upload-blob-app-view-wp8.png
 [7]: ../Media/mobile-upload-blob-app-view-camera-wp8.png
 [8]: ../Media/mobile-upload-blob-app-view-save-wp8.png
