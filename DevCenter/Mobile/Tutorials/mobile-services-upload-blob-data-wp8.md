@@ -184,13 +184,13 @@ In this section you will update the project from the [Get started with Mobile Se
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
-
+        
         [JsonProperty(PropertyName = "resourceName")]
         public string ResourceName { get; set; }
-
+        
         [JsonProperty(PropertyName = "sasQueryString")]
         public string SasQueryString { get; set; }
-
+        
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
@@ -202,7 +202,7 @@ In this section you will update the project from the [Get started with Mobile Se
 
         // Using the CameraCaptureTask to allow the user to capture a todo item image //
         CameraCaptureTask cameraCaptureTask;
-
+        
         // Using a stream reference to upload the image to blob storage.
         Stream imageStream = null;
 
@@ -212,11 +212,11 @@ In this section you will update the project from the [Get started with Mobile Se
         public MainPage()
         {
             InitializeComponent();
-
+            
             cameraCaptureTask = new CameraCaptureTask();
             cameraCaptureTask.Completed += cameraCaptureTask_Completed;
         }
-
+        
         void cameraCaptureTask_Completed(object sender, PhotoResult e)
         {
             imageStream = e.ChosenPhoto;
@@ -235,18 +235,18 @@ In this section you will update the project from the [Get started with Mobile Se
         private async void InsertTodoItem(TodoItem todoItem)
         {
             string errorString = string.Empty;            
-
+            
             if (imageStream != null)
             {
                 // Set blob properties of TodoItem.
                 todoItem.ContainerName = "todoitemimages";
                 todoItem.ResourceName = Guid.NewGuid().ToString() + ".jpg";
             }                       
-
+            
             // Send the item to be inserted. When blob properties are set this
             // generates an SAS in the response.
             await todoTable.InsertAsync(todoItem);  
-
+            
             // If we have a returned SAS, then upload the blob.
             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
             {
@@ -254,22 +254,21 @@ In this section you will update the project from the [Get started with Mobile Se
                 // and extract the storage credentials.
                 StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
                 var imageUri = new Uri(todoItem.ImageUri);
-
-
+                
+                
                 // Instantiate a Blob store container based on the info in the returned item.
                 CloudBlobContainer container = new CloudBlobContainer(
                     new Uri(string.Format("https://{0}/{1}",
-                        imageUri.Host, todoItem.ContainerName)), cred);
-
-
+                        imageUri.Host, todoItem.ContainerName)), cred);                
+                
                 // Upload the new image as a BLOB from the stream.
                 CloudBlockBlob blobFromSASCredential =
                     container.GetBlockBlobReference(todoItem.ResourceName);
                 await blobFromSASCredential.UploadFromStreamAsync(imageStream);
-
+                
                 imageStream = null;
             }              
-
+            
             // Add the new item to the collection.
             items.Add(todoItem);
             TodoInput.Text = "";
