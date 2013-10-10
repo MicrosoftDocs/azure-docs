@@ -89,8 +89,8 @@ This will open your default browser and prompt you to sign in to the Windows Azu
 
 <div class="dev-callout">
 <b>Note</b>
-<p>If your account is associated with multiple Windows Azure Subscriptions, you may be prompted to select which subscription you wish to download a publish settings file for.</p>
-<p>Once selected using the download page, or by visiting the Windows Azure Management portal, the selected subscription becomes the default used by the portal and download page. Once a default has been established, you will see the text '<b>If you would like to select a different subscription file, click here to return to the selection page</b>' at the top of the download page. Use the provided link to return to the selection page.</p>
+<p>If your account is associated with multiple Windows Azure Active Directory (AD) tenants, you may be prompted to select which AD you wish to download a publish settings file for.</p>
+<p>Once selected using the download page, or by visiting the Windows Azure Management portal, the selected AD becomes the default used by the portal and download page. Once a default has been established, you will see the text '<b>click here to return to the selection page</b>' at the top of the download page. Use the provided link to return to the selection page.</p>
 </div>
 
 Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
