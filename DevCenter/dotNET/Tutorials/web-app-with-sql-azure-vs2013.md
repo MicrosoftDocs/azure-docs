@@ -6,7 +6,7 @@
 <br/><br/>
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Windows Azure.
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Windows Azure for free. If you want to use Visual Studio 2012, see the [previous tutorial](http://windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/). This version of the tutorial is far simpler than the previous version.
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Windows Azure for free. If you want to use Visual Studio 2012, see the [previous tutorial](/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/). This version of the tutorial is far simpler than the previous version.
 
 This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database.
 
@@ -26,6 +26,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 In this tutorial:
 
+- [Set up the development environment](#setupdevenv)
 - [Set up the Windows Azure environment][setupwindowsazureenv]
 - [Create an ASP.NET MVC 5 application][createapplication]
 - [Deploy the application to Windows Azure][deployapp1]
@@ -53,22 +54,22 @@ Windows Azure SQL Database is a cloud-based relational database service that is 
 <br/><br/>
 ![New button in Management Portal][rxWSnew]<br/>
 
-1. Click **CUSTOM CREATE**.<br/>
+1. Click **Web Site**, and then click **Custom Create**.<br/>
 ![Create with Database link in Management Portal][rxCreateWSwithDB]<br/> <br/>
 The **New Web Site - Custom Create** wizard opens. <br/>
 
-1. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL is that probably taken so you will have to choose a different one.<br/><br/>
+1. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL is that probably taken so you will have to choose a different one.<br/><br/>
 ![Create with Database link in Management Portal][rr1]<br/><br/>
 1. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
 1. In the **Region** drop-down list, choose the same region you selected for the Web site.
 This setting specifies which data center your VM will run in. 
-1. In the **DB CONNECTION STRING NAME**, leave the default value of *DefaultConnection*.
+1. In the **DB Connection String Name** box, leave the default value of *DefaultConnection*.
 1. Click the arrow that points to the right at the bottom of the box.
 The wizard advances to the **Specify database settings** step.
 1. In the **Name** box, enter *ContactDB*. (see the image below). 
-1. Set the **Region** to the same are you created the Web Site.
 1. In the **Server** box, select **New SQL Database server**. (see the image below). Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.<br/>
-1. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced** box.  For a free DB, you can only set the collation.
+1. Set the **Region** to the same area you created the Web Site.
+1. Enter an administrator **Login Name** and **Password**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced** box.  For a free DB, you can only set the collation.
 1. Click the check mark at the bottom right of the box to indicate you're finished.
 ![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
 <br/> The following image shows using an existing SQL Server and Login.
@@ -91,13 +92,18 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 4. Name the application **ContactManager** and click **OK**.
 
    ![New Project dialog box](../Media/GS13newprojdb.png)
+ 
+   **Note:** The image shows "MyExample" as the name, but make sure you enter "ContactManager". Code blocks that you'll be copying later assume that the project name is ContactManager. 
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template, and then click **Change Authentication**.
 
    ![New ASP.NET Project dialog box](../Media/GS13changeauth.png)
 
-6. Keep the default **Individual User Accounts** in the **Change Authentication** dialog box.
+6. Keep the default **Individual User Accounts** in the **Change Authentication** dialog box. 
 
+   The dialog explains that **Individual User Accounts** is for apps that store user profiles in a SQL database where users can register using their existing Facebook, Twitter and Google accounts. For information about the other authentication options, see [Creating ASP.NET Web Projects in Visual Studio 2013 - Authentication methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#auth).
+
+7. Click **OK**.
 
 5. In the **New ASP.NET Project** dialog box, click **OK**.
 
@@ -126,36 +132,21 @@ This is all you need to do for now to create the application that you'll deploy 
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-1. In your browser, open the [Windows Azure Management Portal](http://manage.windowsazure.com "portal").
-
-2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
-
-	![Contact manager application in Management Portal Web Sites tab][setup009]
-
-3. Click **Download publish profile**.<br/>
-
-	This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
-
-4. Save the .*publishsettings* file in a folder that you can access from Visual Studio. The default downloads directory is a good place to save this file.
-
-	![saving the .publishsettings file][firsdeploy002]
-
-	<div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
-
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 
-	   ![Publish in project context menu](../Media/GS13publish.png)
+   ![Publish in project context menu](../Media/GS13publish.png)
 	
-	The **Publish Web** wizard opens.
+   The **Publish Web** wizard opens.
 
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 
-![Import publish settings][ImportPublishSettings]
+   ![Import publish settings][ImportPublishSettings]
 
-The **Import Publish Profile** dialog box appears.
+   The **Import Publish Profile** dialog box appears.
 
-<div chunk="../../shared/chunks/vs-connect-ws-publish.md" />   
-	
+5. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
+
+   <div chunk="../../shared/chunks/vs-connect-ws-publish.md" />   
 
 7. In the **Import Publish Profile** dialog box, select your web site from the drop-down list, and then click **OK**.<br/>
 ![Import Publish Profile](..\Media\rs4.png)
@@ -163,6 +154,7 @@ The **Import Publish Profile** dialog box appears.
 1. In the **Publish Web** dialog box, click **Publish**.
 
 	![Publish](../Media/rr3.png)
+
 	The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
@@ -204,18 +196,18 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 
 <h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
 
-1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
+1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using the scaffolding mechanism.) <br/>
 1. In **Solution Explorer**, right-click the Controllers folder and click **Add**, and then click **Controller**.<br/>
 ![Add Controller in Controllers folder context menu][addcode001]<br/>
 5. In the **Add Scaffold** dialog box, select **MVC 5 Controller with views, using EF** and then click **Add**.
 ![Add Scaffold dlg](../Media/rr6.png)
 5. In the **Add Controller** dialog box, enter "CmController" for the controller name. (See the image below.)
 1. In the **Model class** dropdown box, select **Contact (ContactManager.Models)**.
-1. Click the **New data context** button and accept the default **ContactManager.Models.ContactManagerContext** new data context type and click **Add**.
-![New data ctx dlg](../Media/rr7.png)
+1. In the **Data context class**, select **ApplicationDbContext (ContactManager.Models)**. The **ApplicationDbContext** will be used for both the membership DB and our contact data.<br/><br/>
+![New data ctx dlg](../Media/rrCtx.png)
 1. Click **Add**.
 
-Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
+   Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
@@ -225,10 +217,8 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 	<br/>![Package Manager Console in Tools menu][addcode008]
 2. In the **Package Manager Console** window, enter the following command:<br/>
 
-		enable-migrations -ContextTypeName ContactManagerContext
-<br/>![enable-migrations][rxE] <br/>
-	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derived classes, the **ContactManagerContext** we just added and the **ApplicationDbContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizard.<br/>
-  The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure Migrations. <br/>
+		enable-migrations
+  The **enable-migrations** command creates a *Migrations* folder, and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure Migrations. <br/>
 
 2. In the **Package Manager Console** window, enter the following command:<br/>
 
@@ -238,7 +228,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 	The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder that creates the database. The first parameter ( **Initial** ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
 	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
 3. Open the *Migrations\Configuration.cs* file. 
-4. Add the following namespaces. 
+4. Add the following namespace. 
 
     	 using ContactManager.Models;
 
@@ -246,7 +236,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 5. Replace the *Seed* method with the following code:
 
-        protected override void Seed(ContactManager.Models.ContactManagerContext context)
+        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
             context.Contacts.AddOrUpdate(p => p.Name,
                new Contact
@@ -297,7 +287,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
                 );
         }
 
-	This code above will initialize (seed) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
+	This code initializes (seeds) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
 6. In the **Package Manager Console** enter the command:
@@ -308,7 +298,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. 
 
-7. Press CTRL+F5 to run the application and click the **CM Demo** link, or navigate to http://localhost:(port#)/Cm. 
+7. Press CTRL+F5 to run the application, and then click the **CM Demo** link; or navigate to http://localhost:(port#)/Cm. 
 
 The application shows the seed data and provides edit, details and delete links. You can create, edit, delete and view data.
 
@@ -320,10 +310,10 @@ The application shows the seed data and provides edit, details and delete links.
 
 In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the *canEdit* role will be able to change data (that is, create, edit, or delete contacts).
 
-Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method.
+1. Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method.
 
 1. Run the application and click  the **Log In** link. 
-1. At the bottom of the log in page, under **Use another service to log in**, click the **Google** button. 
+1. Under **Use another service to log in**, click the **Google** button. 
 1. Enter your  credentials.
 1. Click **Accept** to allow the application to access your email and basic information.
 1. You are redirected to the Register page. You can change the **User name** if you like. Click **Register**.
@@ -332,12 +322,12 @@ Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from th
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Using the Membership API</h2>
 In this section you will add a local user and the *canEdit* role to the membership database. Only those users in the *canEdit* role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than the less descriptive *superAdmin*.
 
-1. Open the *migrations\configuration.cs* file and add the following includes:
+1. Open the *migrations\configuration.cs* file and add the following `using` statements:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
-1. Add the **AddUserAndRole** call to the **Seed** method:
+1. Add the following **AddUserAndRole** method to the class:
 
         bool AddUserAndRole()
         {
@@ -360,28 +350,31 @@ In this section you will add a local user and the *canEdit* role to the membersh
             ir = um.AddToRole(user.Id, "canEdit");
             return ir.Succeeded;
         }
-        protected override void Seed(ContactManager.Models.ContactManagerContext context)
+
+2. Call the new method from the **Seed** method:
+
+        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
             AddUserAndRole();
             context.Contacts.AddOrUpdate(p => p.Name,
                 // Code removed for brevity
         }
 
-The code above creates a new role called *canEdit*, creates a new local user *user1*, and adds *user1* to the *canEdit* role. 
+   This code creates a new role called *canEdit*, creates a new local user *user1*, and adds *user1* to the *canEdit* role. 
 
 ## Use Temporary Code to Add New Social Login Users to the canEdit Role  ##
-In this section will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth or OpenID provider to the *canEdit* role. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053(v=vs.90).aspx) in the future. Later in the tutorial I'll show how you can use **Server Explorer** to add users to roles.  
+In this section you will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth or OpenID provider to the *canEdit* role. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053(v=vs.90).aspx) in the future. Later in the tutorial I'll show how you can use **Server Explorer** to add users to roles.  
 
 1. Open the **Controllers\AccountController.cs** file and navigate to the **ExternalLoginConfirmation** method.
 1. Add the following call to **AddToRoleAsync** just before the **SignInAsync** call.
 
                 await UserManager.AddToRoleAsync(user.Id, "CanEdit");
 
-An image of the code change is shown below:
+   An image of the code change is shown below:
 
-![code](..\Media\rr9.png)
+   ![code](..\Media\rr9.png)
 
-Later in the tutorial we will deploy the application to Windows Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. You will need to immediately stop your web site so other users will not be added to this role. You'll be able to verify who is in the *canEdit* role by examining the database.
+Later in the tutorial you will deploy the application to Windows Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. Anyone who finds your site's URL and has a Google ID can then register and update your database. To prevent other people from doing that, you can stop the site. You'll be able to verify who is in the *canEdit* role by examining the database.
 
 In the **Package Manager Console** hit the up arrow key to bring up the following command:
 
@@ -391,7 +384,7 @@ Run the  **Update-Database** command which will run the **Seed** method, and tha
 
 ## Protect the Application with SSL and the Authorize Attribute ##
 
-In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the **Index** action method of the home controller only. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the about and the contact pages. Only users in the *canEdit* role will be able to access action methods that change data.
+In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous users will be able to view the **Index** action method of the home controller only. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the About, and the Contact pages. Only users in the *canEdit* role will be able to access action methods that change data.
 
 1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) filter to the application. An alternative approach is to add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add will automatically be protected, you won't need to remember to apply them. For more information see [Securing your ASP.NET MVC  App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following (which adds the two filters):
 
@@ -403,7 +396,7 @@ In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/li
             filters.Add(new RequireHttpsAttribute());
         }
 
-The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. We will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) will require all access to the web app be through HTTPS.
+   The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. You will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) will require all access to the web app be through HTTPS.
 
 1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method of the Home controller. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to white-list the methods you want to opt out of authorization. A portion of the HomeController is shown below:	
 
@@ -418,9 +411,9 @@ The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorize
                }
 
 2. Do a global search for *AllowAnonymous*, you can see it is used in the log in and registration methods of the Account controller.
-1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete) in the *Cm* controller. A portion of the completed code is shown below: 
+1. In *CmController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
 
-![img of code](..\Media\rr11.png)
+   ![img of code](..\Media\rr11.png)
 
 ## Enable SSL for the Project ##
 
@@ -437,31 +430,36 @@ The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorize
 <br/>
 <br/> <br/>![cert Warn][rxNOT2]
 <br/> <br/>
-1. Hit Control F5 to run the app. The default browser shows the **Index** page of the home controller. 
+   The default browser shows the **Index** page of the home controller. 
+1. If you are still logged in from a previous session, hit the **Log out** link.
 1. Click on the **About** or **Contact** links. You will be redirected to the log in page because anonymous users cannot view those pages. 
 1. Click the **Register** link and add a local user named *Joe*. Verify *Joe* can view the Home, About and Contact pages. 
 1. Click the *CM Demo* link and verify you see the data. 
 1. Click an edit link on the page, you will be redirected to the log in page (because a new local user is not added to the *canEdit* role).
-1. Log in as *user1* with password of ***Passw0rd1***. You will be redirected to the edit page you previously selected. If you can't log in with that account, run the *Update-Database* command from the PMC. If you still can't log in, check the **AspNetUsers** table to verify *user1* was added. Later on in the tutorial I show how to check the **AspNetUsers** table.
+1. Log in as *user1* with password of "Passw0rd1" (the "0" in "word" is a zero). You will be redirected to the edit page you previously selected. 
+
+   If you can't log in with that account and password, try copying the password from the source code and pasting it. If you still can't log in, check the **AspNetUsers** table to verify *user1* was added. Later on in the tutorial I show how to check the **AspNetUsers** table.
 1. Verify you can make data changes.
 
 <h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
 
 1. Build the application.
-1. **Optional for Facebook**: Navigate to the [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 ![Publish in project context menu][firsdeploy003]<br/>
 The **Publish Web** wizard opens.
-1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and  **ContactManagerContext**. The two Databases  will  use the same connection string. The **ContactManagerContext** database stores the contacts, the **ApplicationDbContext** is the membership database.
-<br/><br/>![settings](..\Media\rrr13.png)
-1. Under **ContactManagerContext**, check **Execute Code First Migrations**.
+1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select **ContactDB**.
+<br/><br/>![settings](..\Media\rrc2.png)
+1. Under **ContactManagerContext**, select **Execute Code First Migrations**.
 <br/><br/>
-![settings](..\Media\rrr14.png)
+![settings](..\Media\rrc3.png)
 1. Click **Publish**.
 1. Log in as *user1* and verify you can edit data.
 1. Log out.
-2. Log in using Google or Facebook. The will add the Google or Facebook account to the **canEdit** role.
-3. Stop the web app to prevent other users from registering.  In **Server Explorer**, navigate to **Web Sites**.
+2. Log in using Google or Facebook. That will add the Google or Facebook account to the **canEdit** role.
+
+### Stop the web site to prevent other people from registering  
+
+1. In **Server Explorer**, navigate to **Web Sites**.
 4. Right click on each Web Site instance and select **Stop Web Site**. 
 <br/><br/>
 ![stop web site](..\Media\rrr2.png) <br/><br/>
@@ -469,24 +467,24 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 <br/><br/>
 ![stop web site](..\Media\rrr3.png)
 
-## Remove AddToRoleAsync, Publish and Test  ##
+### Remove AddToRoleAsync, Publish, and Test
 
 1. Remove the following code from the **ExternalLoginConfirmation** method in the Account controller: <br/>
-                await UserManager.AddToRoleAsync(user.Id, "CanEdit");
+                `await UserManager.AddToRoleAsync(user.Id, "CanEdit");`
 1. Build the project (which saves the file changes and verify you don't have any compile errors).
 5. Right-click the project in **Solution Explorer** and select **Publish**.<br/>
 
 	   ![Publish in project context menu](../Media/GS13publish.png)
 	
-1. In the left pane of the **Publish Web** dialog, select the **Settings** tab.
-2. Under **ContactManagerContext**, uncheck **Execute Code First Migrations**. It doesn't hurt to run code first migrations, but it's not necessary for this deployment. You'll need to check this box when you make migration changes.
-3. Click the **Next** button.
 4. Click the **Start Preview** button. Only the files that need to be updated are deployed.
 5. Start the Web Site. The easiest way to do this is from the Portal. **You won't be able to publish while the web site is stopped**.
 5. Go back to Visual Studio and click **Publish**.
 3. Your Windows Azure App opens up in your default browser. You are viewing the home page as an anonymous user.  
 4. Click the **About** link. You'll be redirected to the Log in page.
-5. Click the **Register** link on the Log in page and create local account. We will use this local account to verify you can access the read only pages but you cannot access pages that change data (which are protected by the *canEdit* role). Later on in the tutorial we will remove local account access. While testing it helps to add *local* to the name of the local account. Alternatively, register another account using a different Google account. If you are using one browser, you will have to navigate to Google and log out, you won't be able to log out of Google from your ASP.NET MVC app. You can log on with another account from the same third party authenticator (such as Google) by using a different browser.
+5. Click the **Register** link on the Log in page and create local account. We will use this local account to verify you can access the read only pages but you cannot access pages that change data (which are protected by the *canEdit* role). Later on in the tutorial we will remove local account access. 
+<!--
+1. Log out of the local user account and log in with the Google account you previously registered with. Verify you can edit data. 
+-->
 <br/><br/>
 ![Log off](..\Media\rrr6.png)
 <br/><br/>
@@ -500,6 +498,7 @@ Alternatively, from the Windows Azure management portal, you can select the web 
  <br/><br/>
 1. Click an Edit link. You will be redirected to the log in page. Under **Use another service to log in**, Click Google or Facebook and log in with the account you previously registered.
 2. Verify you can edit data while logged into that account.
+<br/> **Note:** You cannot log out of Google from this app and log into a different google account with the same browser. If you are using one browser, you will have to navigate to Google and log out. You can log on with another account from the same third party authenticator (such as Google) by using a different browser.
 
 
 ## Examine the SQL Azure DB ##
@@ -515,7 +514,7 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 <br/><br/>
 ![CM page](..\Media\rrr8.png)
  <br/><br/>
-1. Copy the Id from the Google account you registered with to be in the **canEdit** role, and the Id of *user1*. These should be the only users in the **canEdit** role.
+1. Note the Id from the Google account you registered with to be in the **canEdit** role, and the Id of *user1*. These should be the only users in the **canEdit** role. (You'll verify that in the next step.)
 <br/><br/>
 ![CM page](..\Media\rrr9.png)
  <br/><br/>
@@ -527,8 +526,11 @@ Verify the **UserId**s are from *user1* and the Google account you registered.
 
 
 ## Cannot open server login error ##
-If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
+
+Follow the steps in this section only if you get an error dialog stating "Cannot open server".
  <br/>![firewall error][rx5]<br/><br/>
+
+You will need to add your IP address to the allowed IPs.
 
 1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
  <br/><br/>![Select SQL][rx6]<br/><br/>
@@ -537,7 +539,7 @@ If you get an error dialog stating "Cannot open server" you will need to add you
  <br/><br/>![firewall rules][rx7]<br/><br/>
 1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough behind some corporate firewalls, you will need to add a range of IP addresses.
 
-## Adding a Range of Allowed IP Addresses ##
+The next step is to add a range of allowed IP addresses.
 
 1. In the Windows Azure Portal, Click **SQL Databases**.
 1. Click the **Server** hosting your Database.
@@ -548,7 +550,7 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 1. At the bottom of the page, click **Save**.
 1. Please leave feedback and let me know if you needed to add a range of IP address to connect.
 
-## Connecting to a SQL Azure Database from SSOX ##
+Finally, you can connect to the SQL Database instance from SSOX
 
 1. From the View menu, click **SQL Server Object Explorer**.
 1. Right click **SQL Server** and select **Add SQL Server**.
@@ -559,24 +561,27 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
 ![Connect to Server DLG](..\Media\rss1.png)
 
-You will now be able to navigate to the Contact DB using the instruction above.
+You can now navigate to the Contact DB using the instructions given earlier.
 
 
-## To Add a User to the canEdit Role ##
+## To Add a User to the canEdit Role by editing database tables
+
+Earlier in the tutorial you used code to add users to the canEdit role. An alternative method is to directly manipulate the data in the membership tables. The following steps show how to use this alternate method to add a user to a role.
 
 2. In **SQL Server Object Explorer**, right click on **AspNetUserRoles** and select **View Data**.
 <br/><br/>
 ![CM page](..\Media\rs1.png)
 <br/><br/>
-1. Copy the *RoleId* and paste it into the empty row.
+1. Copy the *RoleId* and paste it into the empty (new) row.
 ![CM page](..\Media\rs2.png)
 <br/><br/>
-2. Copy the  *Id* from the **AspNetUsers** table and paste it into the **UserId** column.
-We hope to soon have a tool to manage users and roles.
+2. In the **AspNetUsers** table find the user you want to put in the role, and copy the  user's *Id*, and then paste it into the **UserId** column of the **AspNetUserRoles** table.
+
+We are working on a tool that will make managing users and roles much easier.
 
 ## Remove Local Registration ##
 
- The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. The following steps will disable local registration.
+The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. The following steps will disable local registration.
 <br/>
 
 1. In the AccountController, remove the *[AllowAnonymous]* attribute from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
