@@ -287,7 +287,7 @@ When custom API functions are called by the Mobile Services runtime, both a [req
 		    response.send(200, "{ message: 'Hello, world!' }");
 		} 
 
-This code is invoked by sending a POST request to the following URL:
+The **send** function on the [response object] returns your desired response to the client. This code is invoked by sending a POST request to the following URL:
 
 		https://todolist.azure-mobile.net/api/hello  
 
@@ -368,10 +368,10 @@ This simple example reads a custom header named `my-custom-header`, then returns
 
 Mobile Services enables you to define multiple paths, or routes, in a custom API. For example, HTTP GET requests to the following URLs in a **calculator** custom API will invoke an **add** or **subtract** function, respectively: 
 
-+ https://&lt;service&gt;.azure-mobile.net/api/calculator/add
-+ https://&lt;service&gt;.azure-mobile.net/api/calculator/sub
++ `https://<service>.azure-mobile.net/api/calculator/add`
++ `https://<service>.azure-mobile.net/api/calculator/sub`
 
-Multiple routes are defined by exporting a **register** function, which is passed an object that is similar to the [express object in express.js]. This object is then used to register routes under the custom API endpoint. The following example implements the **add** and **sub** methods in the **calculator** custom API: 
+Multiple routes are defined by exporting a **register** function, which is passed an **api** object (similar to the [express object in express.js]) that is used to register routes under the custom API endpoint. The following example implements the **add** and **sub** methods in the **calculator** custom API: 
 
 		exports.register = function (api) {
 		    api.get('add', add);
@@ -390,13 +390,13 @@ Multiple routes are defined by exporting a **register** function, which is passe
 
 The **api** object passed to the **register** function exposes a function for each HTTP method (**get**, **post**, **put**, **patch**, **delete**). These functions register a route to a defined function for a specific HTTP method. Each function takes two parameters, the first is the route name and the second is the function registered to the route. 
 
-The two routes in the above custom API example are called as follows (shown with the response):
+The two routes in the above custom API example can be invoked by HTTP GET requests as follows (shown with the response):
 
-+ GET https://&lt;service&gt;.azure-mobile.net/api/calculator/add?a=1&b=2
++ `https://<service>.azure-mobile.net/api/calculator/add?a=1&b=2`
 
 		{"result":3}
 
-+ GET https://&lt;service&gt;.azure-mobile.net/api/calculator/sub?a=3&b=5
++ `https://<service>.azure-mobile.net/api/calculator/sub?a=3&b=5`
 
 		{"result":-2}
 
@@ -440,7 +440,7 @@ The following are just some of the more useful modules that can be leveraged in 
 + **util**: Contains various utilities, such as string formatting and object type checking. For more information, see the [Node.js documentation][util API]. 
 + **zlib**: Exposes compression functionality, such as gzip and deflate. For more information, see the [Node.js documentation][zlib API]. 
 
-####<a name="modules-helper-functions"></a>How to: Leverage modules
+###<a name="modules-helper-functions"></a>How to: Leverage modules
 
 Mobile Services exposes a set of modules that scripts can load by using the global **require** function. For example, a script can require **request** to make HTTP requests: 
 
@@ -456,6 +456,11 @@ Mobile Services exposes a set of modules that scripts can load by using the glob
 ###<a name="shared-code-source-control"></a>How to: Share code by using source control
 
 You can use source control with the Node.js package manager (NPM) to upload modules that are not included in the core modules, including your own modules. To do this, you must use NPM to install the module into the `.\service\node_modules` directory. Then, after you push the modules up to your mobile service, you can use **require** to reference the uploaded Node.js module by name. For more information, see [Leverage shared code and Node.js modules in your server scripts]. 
+
+<div class="dev-callout">
+<strong>Note</strong>
+<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
+</div>
 
 ###<a name="helper-functions"></a>How to: Use helper functions
 
