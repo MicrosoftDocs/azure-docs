@@ -2,22 +2,9 @@
 
 # Work with server scripts in Mobile Services
  
-In Windows Azure Mobile Services, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functionalities:
+This article provides detailed information about and examples of how to work with server scripts in Windows Azure Mobile Services. This topic is divided into these sections:
 
-+ Insert, read, update, or delete operations on a given table.
-+ Scheduled jobs.
-+ HTTP methods defined in a custom API. 
-
-The signature of the main function in the server script depends on the context of where the script is used. You can also define common script code as nodes.js modules that are shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
-
-<div class="dev-callout"><strong>Note</strong>
-<p>Because REST APIs are stateless, Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see <a href="#access-tables">How to: Access tables from scripts</a>.</p>
-</div>
-
-For descriptions of individual server script objects and functions, see [Mobile Services server script reference]. 
-
-This article includes these sections:
-
++ [Introduction]
 + [Table operations]
 	+ [How to: Register for table operations]
 	+ [How to: Override the default response]
@@ -46,6 +33,20 @@ This article includes these sections:
 	+ [Using Transact-SQL to access tables]
 + [Debugging and troubleshooting]
 	+ [How to: Write output to the mobile service logs]
+
+##<a name="intro"></a>Introduction
+
+In Mobile Services, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functionalities:
+
++ Insert, read, update, or delete operations on a given table.
++ Scheduled jobs.
++ HTTP methods defined in a custom API. 
+
+The signature of the main function in the server script depends on the context of where the script is used. You can also define common script code as nodes.js modules that are shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
+
+For descriptions of individual server script objects and functions, see [Mobile Services server script reference]. 
+
+Because REST APIs are stateless, Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see How to: Access tables from scripts.
 
 <h2><a name="table-scripts"></a><span class="short-header">Table operations</span>Table operations</h2>
 
@@ -471,21 +472,21 @@ In the following example, a table script is registered to the insert operation, 
 
 	function insert(item, user, request) {
 	    if (!item.approved) {
-	        handleUnapprovedItem(item, request);
+	        handleUnapprovedItem(item, user, request);
 	    } else {
 	        request.execute();
 	    }
 	}
 	
-	function handleUnapprovedItem(item, request) {
-	    // Implementation 
+	function handleUnapprovedItem(item, user, request) {
+	    // Do something with the supplied item, user, or request objects.
 	}
  
 In a script, helper functions must be declared after the main function. You must declare all variables in your script. Undeclared variables cause an error.
 
 Helper functions can also be defined once and shared between server scripts. To share a function between scripts, functions must be exported and the script file must exist in the `.\service\shared\` directory. The following is a template for how to export a shared function in a file `.\services\shared\helpers.js`:
 
-		exports.sharedFunction = function (tables, user, callback) {
+		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
 		    // Do something with the supplied tables or user objects and 
 			// return a value to the callback function.
@@ -495,7 +496,7 @@ You can then use a function like this in a table operation script:
 
 		function insert(item, user, request) {
 		    var helper = require('../shared/helper');
-		    helper.sharedFunction(tables, user, function(result) {
+		    helper.handleUnapprovedItem(tables, user, function(result) {
 		        	
 					// Do something based on the result.
 		            request.execute();
@@ -869,6 +870,7 @@ Notice that the string `%j` is used as the placeholder for a JSON object and tha
 To avoid overloading your log, you should remove or disable calls to console.log() that aren't needed for production use.
 
 <!-- Anchors. -->
+[Introduction]: #intro
 [Table operations]: #table-scripts
 [How to: Register for table operations]: #register-table-scripts
 [How to: Define table scripts]: #execute-operation
@@ -911,7 +913,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [1]: ../Media/mobile-insert-script-users.png
 [2]: ../Media/mobile-schedule-job-script.png
 [3]: ../Media/mobile-custom-api-script.png
-[4]: ../Media/mobile-source-local-repo.png
+[4]: ../Media/mobile-source-local-cli.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
