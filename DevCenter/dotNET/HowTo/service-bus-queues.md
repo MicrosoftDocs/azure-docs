@@ -9,7 +9,7 @@ samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps] section. </span>
 
-<div chunk="../../shared/chunks/howto-service-bus-queues" />
+<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
