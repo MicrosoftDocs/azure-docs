@@ -7,6 +7,7 @@
 	<a href="/en-us/develop/mobile/tutorials/call-custom-api-android" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/call-custom-api-ios" title="iOS">iOS</a>
 	<a href="/en-us/develop/mobile/tutorials/call-custom-api-android" title="Android" class="current">Android</a>
 </div>
 

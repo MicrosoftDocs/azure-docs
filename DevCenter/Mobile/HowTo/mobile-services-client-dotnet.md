@@ -1,4 +1,4 @@
-﻿<properties linkid="mobile-services-how-to-dotnet-client" urlDisplayName=".NET Client" pageTitle="How to use an .NET client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" metaDescription="Learn how to use a .NET client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
+<properties linkid="mobile-services-how-to-dotnet-client" urlDisplayName=".NET Client" pageTitle="How to use an .NET client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" metaDescription="Learn how to use a .NET client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
  
 
 
@@ -292,14 +292,17 @@ When you use the collection created by calling `ToCollectionAsync` or `ToCollect
 
 Finally, imagine that your table has many fields, but you only want to display some of them in your control. You may use the guidance in the section <a href="#selecting">"Select specific columns"</a> above to select specific columns to display in the UI.
 
-<h2><a name="caching"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
-Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Windows Store authentication]/[Windows Phone authentication])
+Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication])
 
-Two authentication flows are supported: a "server" flow and a "client" flow. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
-To login with Facebook, use the following code. If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) above to the value for your provider.
+To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app, 
+you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication]).
+
+Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a server flow login by using Facebook. 
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -325,18 +328,23 @@ To login with Facebook, use the following code. If you are using an identity pro
 		}
 	}
 
-Inside your mobile service, you need to configure the application ID and secret provided by your authentication provider. For more information, see the "Get started with authentication" tutorial ([Windows Store authentication]/[Windows Phone authentication])
+If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.
 
-<div class="dev-callout"><b>Note</b>
+In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
+
+<div class="dev-callout"><b>Windows Store app</b>
 <p>When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see <a href="/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/" target="_blank">Register your Windows Store app package for Microsoft authentication</a>. After the package information is registered with Mobile Services, call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter to re-use the credentials.</p>
 </div>
 
 <h3>Client flow</h3>
 
-In the most simplified form, we can use the client flow as shown in this snippet for Facebook or Google. 
+Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. 
+
+In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google. 
 
 	var token = new JObject();
-	// Replace access_token_value with actual value of your access token obtained using the Facebook or Google SDK
+	// Replace access_token_value with actual value of your access token obtained 
+	// using the Facebook or Google SDK.
 	token.Add("access_token", "access_token_value");
 			
 	private MobileServiceUser user;
@@ -347,7 +355,8 @@ In the most simplified form, we can use the client flow as shown in this snippet
 			string message;
 			try
 			{
-				// Change MobileServiceAuthenticationProvider.Facebook to MobileServiceAuthenticationProvider.Google if using Google
+				// Change MobileServiceAuthenticationProvider.Facebook 
+				// to MobileServiceAuthenticationProvider.Google if using Google auth.
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 				message = 
@@ -370,9 +379,10 @@ If using a Microsoft account, login like so:
 	user = await client
 		.LoginWithMicrosoftAccountAsync(authentication_token_value);
 
+For an example of how to use Microsoft Account to provide a single sign-in experience, see "Authenticate your app with single sign-in" tutorial ([Windows Store](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/en-us/develop/mobile/tutorials/single-sign-on-wp8/)).
 
-<h3>Caching the authentication token</h3>
-In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty, we still need to go through the login process. 
+<h3><a name="caching"></a>Caching the authentication token</h3>
+In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process. 
 
 	// After logging in
 	PasswordVault vault = new PasswordVault();
@@ -529,7 +539,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Design unit tests]: #unit-testing 
 [How to: Query data from a mobile service]: #querying
@@ -538,6 +548,11 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Customize request headers]: #headers
 [Customize serialization]: #serialization
 [Next steps]: #nextsteps
+[Caching the authentication token]: #caching
+
+<!-- Images. -->
+[7]: ../Media/mobile-add-nuget-package-dotnet.png
+[8]: ../Media/mobile-dashboard-tab.png
 
 <!-- URLs. -->
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
@@ -549,8 +564,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Windows Store authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Windows Phone authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/
 [PasswordVault]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx
-[7]: ../Media/mobile-add-nuget-package-dotnet.png
-[8]: ../Media/mobile-dashboard-tab.png
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
@@ -559,3 +572,8 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-dotnet.md
 [Refine queries with paging]: ../Tutorials/mobile-services-paging-data-dotnet.md
 [Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-dotnet.md
+[LoginAsync method]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
