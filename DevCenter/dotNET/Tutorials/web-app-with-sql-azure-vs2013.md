@@ -448,6 +448,8 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 ![Publish in project context menu][firsdeploy003]<br/>
 The **Publish Web** wizard opens.
 1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select **ContactDB**.
+
+   (If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)
 <br/><br/>![settings](..\Media\rrc2.png)
 1. Under **ContactManagerContext**, select **Execute Code First Migrations**.
 <br/><br/>
