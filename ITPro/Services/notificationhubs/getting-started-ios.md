@@ -322,7 +322,7 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 		var azure = require('azure');
 		var notificationHubService = azure.createNotificationHubService('<Hubname>', '<SAS Full access >');
-		notificationHubService.aps.send(
+		notificationHubService.apns.send(
 	    	null,
     		{"aps":
         		{
