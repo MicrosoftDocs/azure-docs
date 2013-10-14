@@ -350,7 +350,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
 - Tutorial: Log Shipping for Disaster Recovery in Hybrid IT 
 
-[Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294728)
+[Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294728)
 
 [SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
