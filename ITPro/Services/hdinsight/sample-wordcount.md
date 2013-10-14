@@ -1,87 +1,183 @@
-# NET Multi-Tier Application Using Service Bus Queues
+<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" metaDescription="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+
+# The HDInsight WordCount Sample
  
-Developing for Windows Azure is easy using Visual Studio 2010 and the free Windows Azure SDK for .NET. If you do not already have Visual Studio 2010, the SDK will automatically install Visual Web Developer 2010 Express, so you can start developing for Windows Azure entirely for free. This guide assumes you have no prior experience using Windows Azure. On completing this guide, you will have an application that uses multiple Windows Azure resources running in your local environment and demonstrating how a multi-tier application works.
+This sample topic shows how to run a MapREduce program that counts word occurences in a text with the Windows Azure HDinsight service using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by the HDinsight service. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
+
+The Hadoop MapReduce program reads the text file and counts how often each word occurs. The output is a new text file that consists of lines, each of which contains a word and the count (a key/value tab-separated pair) of how often that word occurred in the document. This process is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
+
+The JAR file that contains the files needed by the Windows Azure HDInsight service to deploy the application to its Hadoop cluster is a .zip file and is available for download.
+
  
-You will learn:
+**You will learn:**
+		
+* How to use Windows Azure PowerShell to run a MapReduce program on the Windows Azure HDInsight service that analyzes data contained in a file.
+* How MapReduce programs are written in Java.
 
-* How to enable your computer for Windows Azure development with a single download and install.
-* How to use Visual Studio to develop for Windows Azure.
-* How to create a multi-tier application in Windows Azure using web and worker roles.
-* How to communicate between tiers using Service Bus Queues.
+
+**Prerequisites**:	
+You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+
+**Outline**		
+This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
+	
+1. [Run the Sample with Windows Azure PowerShell](#run-sample)	
+2. [The Java Code for the WordCount MapReduce Program](#java-code)
+3. [Summary](#summary)	
+4. [Next Steps](#next-steps)	
+
+<h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
+
+**The command for running the Wordcount job**	
+Hadoop jar hadoop-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///DaVinciAllTopWords
+
+**The parameters for the Wordcount job**	
+Parameter0 is just the name of the program, *wordcount*. Parameter1 specifies, respectively, the path/name of the input file (*/example/data/gutenberg/davinci.txt*) and the output directory where the results are saved *(DaVinciAllTopWords*). Note the output directory assumes a default path relative to the /user/ folder. 
+
+1. Open Notepad.
+2. Copy and paste the following code into Notepad. (TBD: edit to apply to wordcount)
+
+		Import-Module "C:\Program Files (x86)\PowerShell tools for Windows Azure HDInsight\Microsoft.WindowsAzure.Management.HDInsight.Cmdlet" 
+		
+		### Provide the Windows Azure subscription name and the HDInsight cluster name.
+		$subscriptionName = "myAzureSubscriptionName"   
+		$clusterName = "myClusterName"                 
+		
+		### Provide the HDInsight user credentials that will be used to run the script.
+		$creds = Get-Credential 
+		
+		### Create a MapReduce job definition. The jar file contains several examples.
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
  
-You will build a front-end ASP.NET MVC web role that uses a back-end worker role to process long running jobs. You will learn how to create multi-role solutions, as well as how to use Service Bus Queues to enable inter-role communication. A screenshot of the completed application is shown below:
+		### There is one argument that specifies two numbers. 
+		### The first number indicates how many maps to create (default is 16). 
+		### The second number indicates how many samples are generated per map (10 million by default). 
+		### So this program uses 160 million random points to make its estimate of Pi.
+		$wordCountJobDefinition.Arguments.Add("pi 16 10000000") 
 
-![screenshot of website] [Image1]
+		### Run the MapReduce job.
+		$wordCountJob = $wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clusterName  
+		
+		### Wait for the job to complete.  
+		$wordCountJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600  
+		
+		### Print the standard error file of the MapReduce job
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountjob.JobId -StandardError
+		
+3. Set the values for the two variable at the begining of the script: $subscriptionname, $clustername.
+4. Open Windows Azure PowerShell.
+5. Copy and paste the modified code into the Windows Azure PowerShell window, and then press **ENTER**. The following screenshot shows the end of the output:
 
-## Scenario Overview: Inter-Role Communication
+	![HDI.Sample.PiEstimator.RunMRJob][image-hdi-sample-piestimator-runmrjob]
  
-To submit an order for processing, the front end UI component, running in the web role, needs to interact with the middle tier logic running in the worker role. This example uses Service Bus brokered messaging for the communication between the tiers.
+TBD: Debug script, add the above screenshot, and add instructions on how to get the result.
+
+<h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
+
+<code>
  
-Using brokered messaging between the web and middle tiers decouples the two components. In contrast to direct messaging (that is, TCP or HTTP), the web tier does not connect to the middle tier directly; instead it pushes units of work, as messages, into the Service Bus, which reliably retains them until the middle tier is ready to consume and process them.
+package org.apache.hadoop.examples;
+
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
+
+public class WordCount {
+
+  public static class TokenizerMapper 
+       extends Mapper<Object, Text, Text, IntWritable>{
+    
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
+      
+    public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException {
+      StringTokenizer itr = new StringTokenizer(value.toString());
+      while (itr.hasMoreTokens()) {
+        word.set(itr.nextToken());
+        context.write(word, one);
+      }
+    }
+  }
+  
+  public static class IntSumReducer 
+       extends Reducer<Text,IntWritable,Text,IntWritable> {
+    private IntWritable result = new IntWritable();
+
+    public void reduce(Text key, Iterable<IntWritable> values, 
+                       Context context
+                       ) throws IOException, InterruptedException {
+      int sum = 0;
+      for (IntWritable val : values) {
+        sum += val.get();
+      }
+      result.set(sum);
+      context.write(key, result);
+    }
+  }
+
+  public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+    if (otherArgs.length != 2) {
+      System.err.println("Usage: wordcount <in> <out>");
+      System.exit(2);
+    }
+    Job job = new Job(conf, "word count");
+    job.setJarByClass(WordCount.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+  }
+}
+
+</code>  
+
+<h2><a id="summary"></a>Summary</h2>
+
+In this tutorial, you saw how to deploy a MapReduce job on an Hadoop cluster hosted on the Windows Azure HDinsight Service and how to use Monte Carlo methods that require and generare large datasets that can be managed by this service.
+
+<h2><a id="next-steps"></a>Next Steps</h2>
+
+For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+
+* [Sample: 10GB GraySort][10gb-graysort]
+
+* [Sample: Pi Estimator][pi-estimator]
+
+* [Sample: C# Steaming][cs-streaming]
+
+* [Sample: Scoop Import/Export][scoop]
+
+* [Tutorial: Using Pig][pig]
+
+* [Tutorial: Using Hive][hive]
+
+* [Tutorial: Using MapReduce][mapreduce]
+
+
+[getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[10gb-graysort]: /en-us/manage/services/hdinsight/sample-10gb-graysort/
+[pi-estimator]: /en-us/manage/services/hdinsight/sample-pi-estimator/
+[cs-streaming]: /en-us/manage/services/hdinsight/sample-csharp-streaming/
+[scoop]: /en-us/manage/services/hdinsight/sample-sqoop-import-export/
+[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+[hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
+[pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
  
-The Service Bus provides two entities to support brokered messaging, queues and topics. With queues, each message sent to the queue is consumed by a single receiver. Topics support the publish/subscribe pattern in which each published message is made available to each subscription registered with the topic. Each subscription logically maintains its own queue of messages. Subscriptions can also be configured with filter rules that restrict the set of messages passed to the subscription queue to those that match the filter. This example uses Service Bus queues.
 
-![Interrole communication diagram] [Image2]
-
-This communication mechanism has several advantages over direct messaging, namely:
-
-* **Temporal decoupling.** With the asynchronous messaging pattern, producers and consumers need not be online at the same time. Service Busreliably stores messages until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily, for example, for maintenance, or due to a component crash, without impacting the system as a whole. Furthermore, the consuming application may only need to come online during certain times of the day.
-
-* **Load leveling.** In many applications, system load varies over time whereas the processing time required for each unit of work is typically constant. Intermediating message producers and consumers with a queue means that the consuming application (the worker) only needs to be provisioned to accommodate average load rather than peak load. The depth of the queue will grow and contract as the incoming load varies. This directly saves money in terms of the amount of infrastructure required to service the application load.
-
-* **Load balancing.** As load increases, more worker processes can be added to read from the queue. Each message is processed by only one of the worker processes. Furthermore, this pull-based load balancing allows for optimum utilization of the worker machines even if the worker machines differ in terms of processing power as they will pull messages at their own maximum rate. This pattern is often termed the competing consumer pattern.
-
-![Inter-role communication diagram 2][Image3]
-
-The following sections discuss the code that implements this architecture.
- 
-## Set Up the Development Environment
- 
-Before you can begin developing your Windows Azure application, you need to get the tools and set-up your development environment.
-
-1. To install the Windows Azure SDK for .NET, click the button below:
-<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409">![Get Tools and SDK link button][Image4]</a><br />
-When prompted to run or save WindowsAzureSDKForNet.exe, click **Run**:
-![Installer UI][Image5]
-2. Click **Install** in the installer window and proceed with the installation:
-![Installer UI after beginning install][Image6]
-3. Once the installation is complete, you will have everything necessary to start developing. The SDK includes tools that let you easily develop Windows Azure applications in Visual Studio. If you do not have Visual Studio installed, it also installs the free Visual Web Developer Express.
-
-## Create a Windows Azure Account
-
-1. Open a web browser, and browse to [http://www.windowsazure.com][].
-To get started with a free account, click free trial in the upper right corner and follow the steps.
-![Free trial screenshot][Image7]
-2. Your account is now created. You are ready to deploy your application to Windows Azure!
- 
-## Set up the Service Bus Namespace
- 
-The next step is to create a service namespace, and to obtain a shared secret key. A service namespace provides an application boundary for each application exposed through Service Bus. A shared secret key is automatically generated by the system when a service namespace is created. The combination of service namespace and shared secret key provides a credential for Service Bus to authenticate access to an application.
-
-1. Log into the Windows Azure Management Portal.
-2. In the lower left navigation pane of the Management Portal, click **Service Bus, Access Control & Caching**.
-3. In the upper left pane of the Management Portal, click the **Service Bus** node, then click **New**.
-![Management Portal New Service Bus][Image8]
-4. In the **Create a new Service Namespace** dialog, enter a namespace, and then to make sure that it is unique, click **Check Availability**. 
-![Management Portal Service Bus Check Availability][Image9]
-5. After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click **Create Namespace**. Also, choose a country/region from the dropdown, a connection pack size, and the name of the subscription you want to use.<br /><br />
-**IMPORTANT:** Pick the same region that you intend to choose for deploying your application. This will give you the best performance.
-
-6. Click Create Namespace. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-7. In the main window, click the name of your service namespace.
-8. In the **Properties** pane on the right-hand side, find the **Default Key** entry.
-9. In **Default Key**, click **View**. Make a note of the key, or copy it to the clipboard.
-
-
-[http://www.windowsazure.com]: http://www.windowsazure.com
-
-
-[Image1]: media/net/dev-net-getting-started-multi-tier-01.png
-[Image2]: media/net/dev-net-getting-started-multi-tier-100.png
-[Image3]: media/net/dev-net-getting-started-multi-tier-101.png
-[Image4]: media/net/installbutton.png
-[Image5]: media/net/dev-net-getting-started-3.png
-[Image6]: media/net/dev-net-getting-started-4.png
-[Image7]: media/net/dev-net-getting-started-12.png
-[Image8]: media/net/dev-net-how-to-sb-queues-03.png
-[Image9]: media/net/dev-net-how-to-sb-queues-04.png
