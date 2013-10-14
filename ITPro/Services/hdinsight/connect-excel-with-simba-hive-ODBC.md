@@ -1,8 +1,8 @@
-﻿<properties linkid="manage-services-hdinsight-excel-hiveodbc" urlDisplayName="HDInsight and Excel" pageTitle="How to Connect Excel to Windows Azure HDInsight with HiveODBC" metaKeywords="hdinsight, excel, hiveodbc, hive excel, hdinsight excel" metaDescription="How to use Excel to access data stored in Windows Azure HDInsight using HiveODBC" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-excel-hiveodbc" urlDisplayName="HDInsight and Excel" pageTitle="How to Connect Excel to Windows Azure HDInsight with HiveODBC" metaKeywords="hdinsight, excel, hiveodbc, hive excel, hdinsight excel" metaDescription="How to use Excel to access data stored in Windows Azure HDInsight using HiveODBC" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
 
 
 
-#How to Connect Excel to Windows Azure HDInsight via HiveODBC
+#Connect Excel to Windows Azure HDInsight with the Simba Hive ODBC Driver
 
 One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight Service. An example of this integration is the ability to connect Excel to the Hive data warehouse framework of an HDInsight Hadoop cluster via the Hive Open Database Connectivity (ODBC) driver. 
 
@@ -10,7 +10,7 @@ It is also possible to connect the data associcated with an HDInsight cluster an
 
 This topic walks you through how to set up and use the Hive ODBC driver from Excel to query data in an HDInsight cluster. There are three parts to this procedure:
 
-1. [Install the Hive ODBC Driver](#InstallHiveODBCDriver)
+1. [Install the Simba Hive ODBC Driver](#InstallHiveODBCDriver)
 2. [Create a Hive ODBC Data Source](#CreateHiveODBCDataSource)
 3. [Import data into Excel](#ImportData)
 
