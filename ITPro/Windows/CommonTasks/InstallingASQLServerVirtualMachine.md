@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-windows-commontask-install-sql-server" urlDisplayName="Install SQL Server" pageTitle="Create a virtual machine with SQL Server in Windows Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" metaDescription="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="selcint" editor="tyson" manager="clairt"/>
+<properties linkid="manage-windows-commontask-install-sql-server" urlDisplayName="Install SQL Server" pageTitle="Create a virtual machine with SQL Server in Windows Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" metaDescription="A tutorial that teaches you how to create and configure a SQL Server virtual machine on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="selcint" editor="tyson" manager="clairt"/>
 
 
 
@@ -15,20 +15,16 @@ In this tutorial, you will:
 
 <h2 id="Provision">Connect to the Windows Azure management portal and provision a virtual machine from the gallery</h2>
 
-1. Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using your account. If you do not have a Windows Azure account, visit [Windows Azure 3 Month free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
-
-	![Connect to Portal] [Image1]
+1. Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com) using your account. If you do not have a Windows Azure account, visit [Windows Azure free trial](http://www.windowsazure.com/en-us/pricing/free-trial/).
 
 2. On the Windows Azure Management Portal, at the bottom left of the web page, click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 
-	![Open the gallery] [Image2]
-
-3. On the **Create a Virtual Machine** page, select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Windows Azure, see [Getting Started with SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294720) topic in the [SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294719) documentation set. 
+3. On the **Create a Virtual Machine** page, select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Windows Azure, see [Getting Started with SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set. 
 
     <div class="dev-callout"> 
     <b>Important note:</b> 
     <p>If you have a virtual machine created by using the platform image SQL Server 2012 Evaluation edition that was available during the Preview period, you cannot upgrade it to a per-hour paid edition image in the gallery. You can choose one of the following two options: </p> 
-- You can create a new virtual machine by using the per-hour paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Windows Azure using data disks](http://go.microsoft.com/fwlink/?LinkId=294738). **Or**,
+- You can create a new virtual machine by using the per-hour paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Windows Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
 - You can upgrade an existing instance of SQL Server 2012 Evaluation edition to a different edition of SQL Server 2012 under the [License Mobility through Software Assurance on Windows Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2012](http://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
 
     </div>
@@ -46,7 +42,9 @@ In this tutorial, you will:
     - Medium is the smallest size recommended for production workloads. 
     - The minimum recommended size for a virtual machine is Large when using SQL Server Enterprise Edition.
     - Select Large or higher when using SQL Server Enterprise Edition. 
-    - The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/fwlink/?LinkId=294819).
+    - Select A6 when using SQL Server 2012 Enterprise for data warehousing image. 
+    - Select A7 when using SQL Server 2014 Evaluation for data warehousing image. 
+    - The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294819).
 
     </p> 
     </div>
@@ -309,17 +307,17 @@ If you can connect to an instance of SQL Server running on a Windows Azure virtu
 For more information, see [How to Troubleshoot Connecting to the SQL Server Database Engine](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 <h2 id="Optional">Next Steps</h2>
-You've seen how to create and configure a SQL Server on a Windows Azure virtual machine using the platform image. When using SQL Server in Windows Azure Virtual Machines, we recommend that you follow the detailed guidance given in the [SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294719) documentation in the library. This documentation set includes a series of articles and tutorials that provide detailed guidance. The series includes the following sections:
+You've seen how to create and configure a SQL Server on a Windows Azure virtual machine using the platform image. When using SQL Server in Windows Azure Virtual Machines, we recommend that you follow the detailed guidance given in the [SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation in the library. This documentation set includes a series of articles and tutorials that provide detailed guidance. The series includes the following sections:
 
-[SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294719)
+[SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
-[Getting Started with SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294720)
+[Getting Started with SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720)
 
-[Getting Ready to Migrate to SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294721)
+[Getting Ready to Migrate to SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294721)
 
 - How to migrate SQL Server database files and schema between virtual machines in Windows Azure using data disks
 
-[SQL Server Deployment in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294722)
+[SQL Server Deployment in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294722)
 
 - How to copy SQL Server data and setup files in a data disk from on-premises to Windows Azure using CSUpload
 - How to create a base virtual machine on-premises using Hyper-V
@@ -328,21 +326,21 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 - How to use PowerShell to set up a SQL Server virtual machine in Windows Azure 
 - How to Use Attached Data Disk to Store Database Files
 
-[Connectivity Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294723)
+[Connectivity Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
 - Tutorial: Connect to SQL Server in the same cloud service 
 - Tutorial: Connect to SQL Server in a different cloud service 
 - Tutorial: Connect ASP.NET application to SQL Server in Windows Azure via Virtual Network 
 
-[New white paper: Performance Guidance for SQL Server in Windows Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
+[White paper: Performance Guidance for SQL Server in Windows Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
 
 [Performance Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294724)
 
-[Security Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294725)
+[Security Considerations for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294725)
 
-[Troubleshooting and Monitoring for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294726)
+[Troubleshooting and Monitoring for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294726)
 
-[High Availability and Disaster Recovery for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294727)
+[High Availability and Disaster Recovery for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294727)
 
 - Tutorial: AlwaysOn Availability Groups in Windows Azure (GUI)
 - Tutorial: AlwaysOn Availability Groups in Windows Azure (PowerShell)
@@ -352,11 +350,18 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
 - Tutorial: Log Shipping for Disaster Recovery in Hybrid IT 
 
-[Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294728)
+[Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294728)
 
-[SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294729)
+[SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- Use PowerShell to Create a Windows Azure Virtual Machine Running SQL Server Business Intelligence
+- Use PowerShell to Create a Windows Azure VM With SQL Server BI and SharePoint 2010
+- Use PowerShell to Create a Windows Azure VM With SQL Server BI and SharePoint 2013
+- Use PowerShell to Create a Windows Azure VM With a Native Mode Report Server
+- [White paper: Deploy SQL Server Business Intelligence in Windows Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
+
+[SQL Server Data Warehousing in Windows Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+
+
 
 ###See Also###
 
