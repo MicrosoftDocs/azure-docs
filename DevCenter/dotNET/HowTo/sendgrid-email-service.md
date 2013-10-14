@@ -93,7 +93,7 @@ the SendGrid APIs.
 
 <h2><a name="createemail"></a><span  class="short-header">How to: Create an email</span>How to: Create an email</h2>
 
-Use the static **SendGrid.GenerateInstance** method to create an email
+Use the static **SendGrid.GetInstance** method to create an email
 message that is of type **SendGrid**. Once the message is created, you
 can use **SendGrid** properties and methods to set values including the
 email sender, the email recipient, and the subject and body of the
@@ -113,12 +113,12 @@ object:
     var transport = SendGridMail.TransportType.SMTP;
 
     // Create an email, passing in the the eight properties as arguments.
-    SendGrid myMessage = SendGrid.GenerateInstance(from, to, cc, bcc, subject, html, text, transport);
+    SendGrid myMessage = SendGrid.GetInstance(from, to, cc, bcc, subject, html, text, transport);
 
 The following example demonstrates how to create an empty email object:
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GenerateInstance();
+    SendGrid myMessage = SendGrid.GetInstance();
      
     // Add the message properties.
     MailAddress sender = new MailAddress(@"John Smith <john@contoso.com>");
@@ -172,7 +172,7 @@ to send a message using both SMTP and the Web API.
 ### SMTP
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GenerateInstance();
+    SendGrid myMessage = SendGrid.GetInstance();
     myMessage.AddTo("anna@contoso.com");
     myMessage.From = new MailAddress("john@contoso.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
@@ -182,7 +182,7 @@ to send a message using both SMTP and the Web API.
     var credentials = new NetworkCredential("username", "password");
 
     // Create an SMTP transport for sending email.
-    var transportSMTP = SMTP.GenerateInstance(credentials);
+    var transportSMTP = SMTP.GetInstance(credentials);
 
     // Send the email.
     transportSMTP.Deliver(myMessage);
@@ -190,7 +190,7 @@ to send a message using both SMTP and the Web API.
 ### Web API
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GenerateInstance();
+    SendGrid myMessage = SendGrid.GetInstance();
     myMessage.AddTo("anna@contoso.com");
     myMessage.From = new MailAddress("john@contoso.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
@@ -199,8 +199,8 @@ to send a message using both SMTP and the Web API.
     // Create credentials, specifying your user name and password.
     var credentials = new NetworkCredential("username", "password");
 
-    // Create an REST transport for sending email.
-    var transportREST = REST.GetInstance(credentials);
+    // Create a REST transport for sending email.
+    var transportREST = Web.GetInstance(credentials);
 
     // Send the email.
     transportREST.Deliver(myMessage);
@@ -213,7 +213,7 @@ You can include multiple attachments by calling this method once for
 each file you wish to attach. The following example demonstrates adding
 an attachment to a message:
 
-    SendGrid myMessage = SendGrid.GenerateInstance();
+    SendGrid myMessage = SendGrid.GetInstance();
     myMessage.AddTo("anna@contoso.com");
     myMessage.From = new MailAddress("john@contoso.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
@@ -240,7 +240,7 @@ filters:
 ### Footer
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GenerateInstance();
+    SendGrid myMessage = SendGrid.GetInstance();
     myMessage.AddTo("anna@contoso.com");
     myMessage.From = new MailAddress("john@contoso.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";
@@ -253,7 +253,7 @@ filters:
 ### Click tracking
 
     // Create the email object first, then add the properties.
-    SendGrid myMessage = SendGrid.GenerateInstance();
+    SendGrid myMessage = SendGrid.GetInstance();
     myMessage.AddTo("anna@contoso.com");
     myMessage.From = new MailAddress("john@contoso.com", "John Smith");
     myMessage.Subject = "Testing the SendGrid Library";

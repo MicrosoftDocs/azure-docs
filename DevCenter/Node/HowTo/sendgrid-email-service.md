@@ -51,12 +51,12 @@ For more information, see [http://sendgrid.com][].
 The SendGrid module for Node.js can be installed through the node
 package manager (npm) by using the following command:
 
-    npm install sendgrid-nodejs
+    npm install sendgrid
 
 After installation, you can require the module in your application by
 using the following code:
 
-    var SendGrid = require('sendgrid-nodejs')
+    var SendGrid = require('sendgrid')
 
 The SendGrid module exports the **SendGrid** and **Email** functions.
 **SendGrid** is responsible for sending email through either SMTP or Web
@@ -111,14 +111,14 @@ message using both SMTP and the Web API.
     sender.smtp(mail, function(success, err){
         if(success) console.log('Email sent');
         else console.log(err);
-    )});
+    });
 
 ### Web API
 
     sender.send(mail, function(success, err){
         if(success) console.log('Email sent');
         else console.log(err);
-    )});
+    });
 
 <div class="dev-callout">
 <strong>Note</strong>
