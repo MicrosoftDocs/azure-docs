@@ -121,7 +121,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
         using Microsoft.WindowsAzure.Messaging;
 		using Windows.UI.Popups;
 
-3. Add the following code to App.xaml.cs, in the `App` class:
+3. Add the following code to App.xaml.cs, in the `App` class. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example):
 	
 	    private async void InitNotificationsAsync()
         {
@@ -181,7 +181,7 @@ To send notifications using a .NET app:
 
         using Microsoft.ServiceBus.Notifications;
 
-6. In the `Program` class, add the following method:
+6. In the `Program` class, add the following method. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab:
 
         private static async void SendNotificationAsync()
         {
