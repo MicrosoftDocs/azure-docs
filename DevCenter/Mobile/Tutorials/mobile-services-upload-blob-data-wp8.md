@@ -288,7 +288,7 @@ In this section you will update the project from the [Get started with Mobile Se
 
 The final step is to test the app and validate that uploads succeed.
 		
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+<h2><a name="test"></a><span class="short-header">Test the app</span>Test uploading the images in your app</h2>
 
 1. In Visual Studio, you can press the F5 key to test the app in the emulator or with an actual device targeted.
 
