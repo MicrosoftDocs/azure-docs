@@ -42,8 +42,8 @@ In this tutorial, you will:
     - Medium is the smallest size recommended for production workloads. 
     - The minimum recommended size for a virtual machine is Large when using SQL Server Enterprise Edition.
     - Select Large or higher when using SQL Server Enterprise Edition. 
-    - Select A6 when using SQL Server 2012 Enterprise for data warehousing image. 
-    - Select A7 when using SQL Server 2014 Evaluation for data warehousing image. 
+    - Select A6 when using SQL Server 2012 Enterprise for Data Warehousing image. 
+    - Select A7 when using SQL Server 2014 Evaluation for Data Warehousing image. 
     - The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294819).
 
     </p> 
@@ -350,7 +350,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 - Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
 - Tutorial: Log Shipping for Disaster Recovery in Hybrid IT 
 
-[Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/?LinkId=294728)
+[Backup and Restore for SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294728)
 
 [SQL Server Business Intelligence in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
