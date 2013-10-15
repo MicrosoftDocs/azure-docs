@@ -1,13 +1,13 @@
-++++-<properties linkid="develop-mobile-tutorials-push-notifications-to-users-# android #" writer="ricksal" urlDisplayName="Push Notifications to Users" pageTitle="Push Notifications to app users - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to app users in Android apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-push-notifications-to-users-# android #" writer="ricksal" urlDisplayName="Push Notifications to Users" pageTitle="Push Notifications to app users - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to app users in Android apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 # Push notifications to users by using Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
 	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a>
 	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a>
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-onpage-left-content">
@@ -56,16 +56,17 @@ Next, you will modify the push notifications app to store registration data in t
 
 3. Open the file ToDoItem.java, and delete the following code:
 
-		@com.google.gson.annotations.SerializedName("registration")
-		private String mRegistrationId;
+		@com.google.gson.annotations.SerializedName("handle")
+		private String mHandle;
 	
-		public String getRegistrationId() {
-		    return mRegistrationId;
+		public String getHandle() {
+			return mHandle;
 		}
 	
-		public final void setRegistrationId(String registrationId) {
-		    mRegistrationId = registrationId;
+		public final void setHandle(String handle) {
+			mHandle = handle;
 		}
+	
 
 4. Insert the following code into the body of the **Registration** class you previously created:
 
@@ -104,21 +105,39 @@ Next, you will modify the push notifications app to store registration data in t
 		}
 
 
-6.  Open the file ToDoItemActivity.java, and in the addItem method, delete the following lines:
+6.  Open the **ToDoItemActivity.java** file, and in the `addItem` method, delete the following lines:
 
-		item.setRegistrationId(mRegistationId);
+		item.setHandle(mHandle);
 
-7.  Add the following private variable to the class:
+7. Find the `mClient` property, replace it with the following code:
+
+		/**
+		 * Mobile Service Client reference
+		 */
+		private static MobileServiceClient mClient;
+	
+		/**
+		 * Returns the client reference
+		 */
+		public static MobileServiceClient getClient() {
+			return mClient;
+		}
+	
+
+
+<!--7.  Add the following private variable to the class:
 
 		/**
 		 * Mobile Service Table used to store user data
 		 */
 		private MobileServiceTable<Registration> mRegistrationTable;
+
 	
 8. In the **onCreate** method, add this code after the MobileServiceClient is instantiated:
 
 			// Get the Mobile Service  Registration Table instance to use
 			mRegistrationTable = mClient.getTable(Registration.class);
+
 
 9. Add this `addRegistration` method code after the `addItem` method:
 
@@ -146,10 +165,46 @@ Next, you will modify the push notifications app to store registration data in t
 				}
 			});
 		}
+-->
 
-10. In the `addItem` method, add the following code immediately before creating a new `ToDoItem`:
+10. In the **GCMIntentService** file, add the following import statements:
 
-			addRegistration();
+		import android.util.Log;
+		
+		import com.google.android.gcm.GCMRegistrar;
+		
+		import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
+		import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
+		import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
+		import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
+		
+
+11. Replace the `onRegistered` method with the following code:
+
+	@Override
+	protected void onRegistered(final Context context, String registrationID) {
+
+		MobileServiceClient client = ToDoActivity.getClient();
+		MobileServiceTable<Registration> registrations = client.getTable(Registration.class);
+
+		// Create a new Registration
+		Registration registration = new Registration();
+		registration.setHandle(registrationID);
+		
+		// Insert the new Registration
+		registrations.insert(registration, new TableOperationCallback<Registration>() {
+
+			public void onCompleted(Registration entity, Exception exception, ServiceFilterResponse response) {
+				
+				if (exception != null) {
+					Log.e("GCMIntentService", exception.getMessage());
+				} else {
+					GCMRegistrar.setRegisteredOnServer(context, true);
+
+				}
+			}
+		});
+	}
 	
 
 Your app is now updated to support push notifications to users.
@@ -171,7 +226,7 @@ Your app is now updated to support push notifications to users.
 		function insert(item, user, request) {
 			var registrationTable = tables.getTable('Registration');
 			registrationTable
-				.where({ uri: item.uri })
+				.where({ handle: item.handle })
 				.read({ success: insertRegistrationIfNotFound });
 	        function insertRegistrationIfNotFound(existingRegistrations) {
         	    if (existingRegistrations.length > 0) {
@@ -250,7 +305,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
-* [Mobile Services .NET How-to Conceptual Reference]
+* [How to use the Android client library for Mobile Services]
   <br/>Learn more about how to use Mobile Services with .NET.
   
 <!-- Anchors. -->
@@ -283,4 +338,4 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-android.md
+[How to use the Android client library for Mobile Services]: ../HowTo/mobile-services-client-android.md
