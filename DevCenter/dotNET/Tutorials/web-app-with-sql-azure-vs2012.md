@@ -7,7 +7,7 @@
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 October 2013.***
 <br/><br/>
 
-<div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2013/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but the newer version is significantly easier to follow.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but the newer version is significantly easier to follow.</p></div>
 
 This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo, and Google. You will also deploy the application to Windows Azure.
 
