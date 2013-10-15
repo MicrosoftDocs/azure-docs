@@ -6,7 +6,7 @@
 
 # Get started with Windows Azure and ASP.NET
 
-<div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/get-started-vs2012/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but it does not show all of the latest Windows Azure SDK features.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/get-started-vs2013/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but it does not show all of the latest Windows Azure SDK features.</p></div>
 
 This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
 
