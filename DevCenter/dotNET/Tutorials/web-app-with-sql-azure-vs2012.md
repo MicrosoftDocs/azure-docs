@@ -351,7 +351,7 @@ To authenticate users with credentials from some external providers, you must re
 This tutorial does not show all of the steps you must perform to register with these providers. The steps are typically not difficult. To successfully register your site, follow the instructions provided on those sites. To get started with registering your site, see the developer site for:
 
 - [Facebook](http://developers.facebook.com/)
-- [Microsoft](http://manage.dev.live.com/)
+- [Microsoft](http://go.microsoft.com/fwlink/?LinkID=144070)
 - [Twitter](http://dev.twitter.com/)
 
 Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and log in if necessary. Click the **Register as a Developer** button and complete the registration process. Once you complete registration, click **Create New App**. Enter a name for the app. You don't need to enter an app namespace.
