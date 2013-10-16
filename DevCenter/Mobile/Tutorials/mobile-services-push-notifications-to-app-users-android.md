@@ -54,7 +54,7 @@ Next, you will modify the push notifications app to store registration data in t
 
 	This creates the new Registration class.
 
-3. Open the file ToDoItem.java, and delete the following code:
+3. Open the file ToDoItem.java, and cut the following code:
 
 		@com.google.gson.annotations.SerializedName("handle")
 		private String mHandle;
@@ -68,19 +68,8 @@ Next, you will modify the push notifications app to store registration data in t
 		}
 	
 
-4. Insert the following code into the body of the **Registration** class you previously created:
+4. Insert the cut code into the body of the **Registration** class you previously created.
 
-		@com.google.gson.annotations.SerializedName("handle")
-		private String mHandle;
-	
-		public String getHandle() {
-		    return mHandle;
-		}
-	
-		public final void setHandle(String handle) {
-			mHandle = handle;
-		}
-	
 
 
 5. Add the following code to the **Registration** class:
@@ -125,49 +114,9 @@ Next, you will modify the push notifications app to store registration data in t
 	
 
 
-<!--7.  Add the following private variable to the class:
-
-		/**
-		 * Mobile Service Table used to store user data
-		 */
-		private MobileServiceTable<Registration> mRegistrationTable;
-
-	
-8. In the **onCreate** method, add this code after the MobileServiceClient is instantiated:
-
-			// Get the Mobile Service  Registration Table instance to use
-			mRegistrationTable = mClient.getTable(Registration.class);
 
 
-9. Add this `addRegistration` method code after the `addItem` method:
-
-		/**
-		 * Add a new registration
-		 */
-		public void addRegistration() {
-			if (mClient == null) {
-				return;
-			}
-			// Create a new registration
-			Registration registration = new Registration();
-			registration.setHandle(mRegistationId);
-			
-			// Insert the new registration
-			mRegistrationTable.insert(registration, new TableOperationCallback<Registration>() {
-	
-				public void onCompleted(Registration entity, Exception exception, ServiceFilterResponse response) {
-					
-					if (exception == null) {
-						createAndShowDialog("Registration successfully inserted", "Success!" );
-					} else {
-						createAndShowDialog(exception, "Error");
-					}
-				}
-			});
-		}
--->
-
-10. In the **GCMIntentService** file, add the following import statements:
+8. In the **GCMIntentService** file, add the following import statements:
 
 		import android.util.Log;
 		
@@ -179,33 +128,33 @@ Next, you will modify the push notifications app to store registration data in t
 		import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 		
 
-11. Replace the `onRegistered` method with the following code:
+9. Replace the `onRegistered` method with the following code:
 
-	@Override
-	protected void onRegistered(final Context context, String registrationID) {
-
-		MobileServiceClient client = ToDoActivity.getClient();
-		MobileServiceTable<Registration> registrations = client.getTable(Registration.class);
-
-		// Create a new Registration
-		Registration registration = new Registration();
-		registration.setHandle(registrationID);
-		
-		// Insert the new Registration
-		registrations.insert(registration, new TableOperationCallback<Registration>() {
-
-			public void onCompleted(Registration entity, Exception exception, ServiceFilterResponse response) {
-				
-				if (exception != null) {
-					Log.e("GCMIntentService", exception.getMessage());
-				} else {
-					GCMRegistrar.setRegisteredOnServer(context, true);
-
-				}
-			}
-		});
-	}
+		@Override
+		protected void onRegistered(final Context context, String registrationID) {
 	
+			MobileServiceClient client = ToDoActivity.getClient();
+			MobileServiceTable<Registration> registrations = client.getTable(Registration.class);
+	
+			// Create a new Registration
+			Registration registration = new Registration();
+			registration.setHandle(registrationID);
+			
+			// Insert the new Registration
+			registrations.insert(registration, new TableOperationCallback<Registration>() {
+	
+				public void onCompleted(Registration entity, Exception exception, ServiceFilterResponse response) {
+					
+					if (exception != null) {
+						Log.e("GCMIntentService", exception.getMessage());
+					} else {
+						GCMRegistrar.setRegisteredOnServer(context, true);
+	
+					}
+				}
+			});
+		}
+		
 
 Your app is now updated to support push notifications to users.
 
