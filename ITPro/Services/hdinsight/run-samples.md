@@ -5,33 +5,35 @@
 
 A set of sample are provided to help you get started using the Windows Azure HDInsight service that can be run using Windows Azure PowerShell. These samples are made available on each of the Hadoop clusters that you create and manage with the Windows Azure HDInsight Service. Running these samples will familiarize you with the PowerShell scripts used to run MapReduce programs on clusters managed by the HDInsight Service.
 
-MapReduce programs can also be run programatically from an application using the Microsoft .NET API for Windows Azure HDInsight Service. For more information on using the HDInsight APIs for job submission, see [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically].
+MapReduce programs can also be run programmatically from an application using the Microsoft .NET API for Windows Azure HDInsight Service. For more information on using the HDInsight APIs for job submission, see [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically].
 
-<p><strong>What These Samples Are</strong></p>
+Much additional documentation exists on the web for Hadoop-related technologies such as Java-based MapReduce programming and streaming, as well as documentation on the cmdlets using in PowerShell scripting. For more information on these resources, see the final **Resources for the HDInsight Service** section of the [Introduction to Windows Azure HDInsight Service][hdinsight-resources] topic.
 
-<p>These samples are intended to get you up to speed quickly on how to deploy MapReduce jobs and to provide you an extensible testing bed to work with the concepts and scripting procedures used by the service. They provide you with examples of common tasks such as creating and importing data sets of various sizes, running jobs and commposing jobs sequentially, and examinining the results of your jobs. The data sets used can be varied in size, allowing you to observe the effects that data sets of various size has on job performance.</p>
+**What These Samples Are**
 
-**What These Samples Are Not**
+<p>These samples are intended to get you up to speed quickly on how to deploy Hadoop jobs and to provide you an extensible testing bed to work with the concepts and scripting procedures used by the service. They provide you with examples of common tasks such as creating and importing data sets of various sizes, running jobs and composing jobs sequentially, and examining the results of your jobs. The data sets used can be varied in size, allowing you to observe the effects that data sets of various size has on job performance.</p>
 
-These samples are not an exhaustive study of each of the technologies being deployed. Extensive documentation exists on the web for Hadoop-related technologies such as Java-based MapReduce programming and streaming, as well as documentation on the cmdlets using in PowerShell scripting. For more information on these resources, see the final **Resources for the HDInsight Service** section of the [Introduction to Windows Azure HDInsight Service][hdinsight-resources] topic.
 
-<p><strong>Prerequisites</strong></p>
+**Prerequisites**:	
 
-You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service][getting-started]
+- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/)
 
 ## The Samples ##
 
-HDInsight ships with five samples.
+HDInsight ships with the following samples.
 
 - [**The Hadoop on Azure Pi Estimator Sample**][pi-estimator]: This tutorial shows how to deploy a MapReduce program with Hadoop on Windows Azure that uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi.
 
-- [**The Hadoop on Azure WordCount Sample**][wordcount]: This tutorial shows how to use Hadoop on Windows Azure to run a MapReduce program that counts word occurences in an uploaded text file.
+- [**The Hadoop on Azure WordCount Sample**][wordcount]: This tutorial shows how to use Hadoop on Windows Azure to run a MapReduce program that counts word occurrences in an uploaded text file.
 
 - [**The Hadoop on Azure 10-GB Graysort Sample**][10gb-graysort]: This tutorial shows how to run a general purpose GraySort on a 10 GB file using Hadoop on Windows Azure. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm the data has been properly sorted.
 
 - [**The Hadoop on Azure C# Streaming Sample**][cs-streaming]:This tutorial shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface. 
 
-- [**The Hadoop on Azure Sqoop Import/Export Sample**][scoop]: This tutorial shows how to use Sqoop to import and export data from a SQL database on Windows Azure to and from an HDFS cluster managed by HDInsight.
 
 ## How to run the Samples ##
 

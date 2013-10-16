@@ -20,18 +20,23 @@ The source code for these three MapReduce programs is provided in the org.apache
 
  
 **You will learn:**		
-* How to use Windows Azure PowerShell to run a series of MapReduce programs on Windows Azure HDInsight.
+* How to use Windows Azure PowerShell to run a series of MapReduce programs on Windows Azure HDInsight.		
 * What a MapReduce program written in Java looks like.
 
 
 **Prerequisites**:	
-You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+
+- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/)
 
 **Outline**		
 This topic shows you how to run the series of MapReduce programs that make up the Sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
 	
 1. [Run the Sample with Windows Azure PowerShell](#run-sample)	
-2. [The Java Code for the Pi Estimator MapReduce Program](#java-code)
+2. [The Java Code for the TeraSort MapReduce Program](#java-code)
 3. [Summary](#summary)	
 4. [Next Steps](#next-steps)	
 
@@ -43,66 +48,87 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 2. Sort the data by running the **TeraSort** MapReduce job.		
 3. Confirm that the data has been correctly sorted by running the **TeraValidate** MapReduce job.	
 
-TBD: Information on runing the three progams (from the portal: update for PS)
 
-**The command for running the Teragen program**		
- hadoop jar hadoop-examples.jar teragen "-Dmapred.map.tasks=50" 100000000 /example/data/10GB-sort-input
+**The command for running the TeraGen program**	
 
-**The parameters for the TeraGen job.**		
-The first parameter (Parameter 0) value is *teragen*, the name of the job. The second parameter (Parameter 1) value is *"-Dmapred.map.tasks=50"*, which specifies that 50 maps will be created to execute the job. The third parameter (Parameter 2) value, *100000000*, specifies the amount of data to generate. The forth parameter (Parameter 3) value, */example/data/10GB-sort-input*, specifies the output directory to which it is saved (which contains the input for the following sort stage).
-
-**The command for running the TeraSort program**			
-Hadoop jar hadoop-examples-1.1.0-SNAPSHOT.jar terasort "-Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25" /example/data/10GB-sort-input /example/data/10GB-sort-output 
-
-**The parameters for the TeraSort job**		
-The first parameter (Parameter 0) value should be *terasort*, the name of this job. The second parameter (Parameter 1) value is *"-Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25"*, which specifies that 50 maps and 25 reduces will be created to execute the job. Set the third parameter (Parameter 2) value to */example/data/10GB-sort-input /example/data/10GB-sort-output* to specify the input directory from which data will be read and the output directory to which the results will be saved. The Final Command is automatically constructed for you from the specified parameters and jar file:
-
-**The command for running the TeraValidate program**		 		
-Hadoop jar hadoop-examples-1.1.0-SNAPSHOT.jar teravalidate "-Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25" /example/data/10GB-sort-output /example/data/10GB-sort-validate. 
-
-**The parameters for the TeraValidate job**		
-The first parameter (Parameter 0) value should be *teravalidate*, the name of this job. The second parameter (Parameter 1) value should be* "-Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25"*, which specifies that 50 maps and 25 reduces will be created to execute the job. Set the third parameter (Parameter 2) value to */example/data/10GB-sort-output /example/data/10GB-sort-validate* to specify the input directory from which data will be read and the output directory to which the results will be saved.
-
-
-TBD The following Instructions need editing for this sample.
-
-1. Open Notepad.
+1. Open Windows Azure PowerShell and Notepad.
 2. Copy and paste the following code into Notepad.
-
-		Import-Module "C:\Program Files (x86)\PowerShell tools for Windows Azure HDInsight\Microsoft.WindowsAzure.Management.HDInsight.Cmdlet" 
-		
+	
 		### Provide the Windows Azure subscription name and the HDInsight cluster name.
 		$subscriptionName = "myAzureSubscriptionName"   
-		$clusterName = "myClusterName"                 
-		
-		### Provide the HDInsight user credentials that will be used to run the script.
-		$creds = Get-Credential 
-		
-		### Create a MapReduce job definition. The jar file contains several examples.
-		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
- 
-		### There is one argument that specifies two numbers. 
-		### The first number indicates how many maps to create (default is 16). 
-		### The second number indicates how many samples are generated per map (10 million by default). 
-		### So this program uses 160 million random points to make its estimate of Pi.
-		$piEstimatorJobDefinition.Arguments.Add("pi 16 10000000") 
+		$clusterName = "myClusterName"
+                 
+3. Set the values for the two variable: $subscriptionname, $clustername to the subscripion and cluster you are using. Copy and paste this modified code into PowerShell and then press **Enter** to run.
 
-		### Run the MapReduce job.
-		$wordCountJob = $wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clusterName  
-		
-		### Wait for the job to complete.  
-		$wordCountJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600  
-		
-		### Print the standard error file of the MapReduce job
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountjob.JobId -StandardError
-		
-3. Set the values for the two variable at the begining of the script: $subscriptionname, $clustername.
-4. Open Windows Azure PowerShell.
-5. Copy and paste the modified code into the Windows Azure PowerShell window, and then press **ENTER**. The following screenshot shows the end of the output:
+4. The TeraGen MapReduce job is defined using the `New-AzureHDInsightMapReduceJobDefinition` cmdlet. The parameters specify the JarFile and the ClassName. The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final argument,  */example/data/10GB-sort-input*, specifies the output directory to which the results are saved (which contains the input for the following sort stage). Copy and paste the following code into PowerShell and press **Enter**.	 
 
-	![HDI.Sample.PiEstimator.RunMRJob][image-hdi-sample-piestimator-runmrjob]
+		###	Create a MapReduce job definition for the TeraGen MapReduce program
+		### Parameters specify the JarFile and the ClassName.
+		### Arguments specify the number of maps, the amount of data to generate, and the output directory
+		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile “/example/jars/hadoop-examples.jar” -ClassName "teragen" –Arguments “-Dmapred.map.tasks=50”, “100000000”, “/example/data/10GB-sort-input” 
+
+5. The Teragen MapReduce job is run by piping the job definition with the `Start-AzureHDInsightJob`, which requires the cluster and subscription names with the `Wait-AzureHDInsightJob` to get status on the run, and the `Get-AzureHDInsightJobOutput` to display the results in PowerShell. Copy and paste the following code into PowerShell and press **Enter** to see the run the job and get the result.
+
+		### Run the TeraGen MapReduce job.
+		### Wait for the job to complete.
+		### Print output and standard error file of the MapReduce job         
+		$teragen | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+
+
+**The command for running the TeraSort program**			
+
+1. Open Windows Azure PowerShell and Notepad.
+2. Copy and paste the following code into Notepad.
+	
+		### Provide the Windows Azure subscription name and the HDInsight cluster name.
+		$subscriptionName = "myAzureSubscriptionName"   
+		$clusterName = "myClusterName"
+                 
+3. Set the values for the two variable: $subscriptionname, $clustername to the subscripion and cluster you are using. Copy and paste this modified code into PowerShell and then press **Enter** to run.
+
+4. The TeraSort MapReduce job is defined using the `New-AzureHDInsightMapReduceJobDefinition` cmdlet. The parameters specify the JarFile and the ClassName. The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final two arguments specify the input and output directories. Copy and paste the following code into PowerShell and press **Enter**.	 
+
+		###	Create a MapReduce job definition for the TeraSort MapReduce program
+		### Parameters specify the JarFile and the ClassName.
+		### Arguments specify the number of maps, the amount of data to generate, and the input and output directories
+		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile “/example/jars/hadoop-examples.jar” -ClassName "terasort" –Arguments "-Dmapred.map.tasks=50", “-Dmapred.reduce.tasks=25”, “/example/data/10GB-sort-input”, “/example/data/10GB-sort-output” 
  
-TBD: Debug script, add the above screenshot, and add instructuibs on how to get the result.
+
+5. The TeraSort MapReduce job is run by piping the job definition with the `Start-AzureHDInsightJob`, which requires the cluster and subscription names with the `Wait-AzureHDInsightJob` to get status on the run, and the `Get-AzureHDInsightJobOutput` to display the results in PowerShell. Copy and paste the following code into PowerShell and press **Enter** to see the run the job and get the result.
+
+		### Run the TeraSort MapReduce job.
+		### Wait for the job to complete.
+		### Print output and standard error file of the MapReduce job         
+		$terasort | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+
+
+**The command for running the TeraValidate program**
+		 		
+1. Open Windows Azure PowerShell and Notepad.
+2. Copy and paste the following code into Notepad.
+	
+		### Provide the Windows Azure subscription name and the HDInsight cluster name.
+		$subscriptionName = "myAzureSubscriptionName"   
+		$clusterName = "myClusterName"
+                 
+3. Set the values for the two variable: $subscriptionname, $clustername to the subscripion and cluster you are using. Copy and paste this modified code into PowerShell and then press **Enter** to run.
+
+4. The TeraValidate MapReduce job is defined using the `New-AzureHDInsightMapReduceJobDefinition` cmdlet. The parameters specify the JarFile and the ClassName. The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. he *"-Dmapred.reduce.tasks=25"* argument specifies that 25 reduce tasks will be created to execute the job. The final two arguments specify the input and output directories. Copy and paste the following code into PowerShell and press **Enter**.	 
+
+		###	Create a MapReduce job definition for the TeraValidate MapReduce program
+		### Parameters specify the JarFile and the ClassName.
+		### Arguments specify the number of maps, the number of reduce tasks, and the input and output directories
+		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile “/example/jars/hadoop-examples.jar” -ClassName "teravalidate" –Arguments "-Dmapred.map.tasks=50", “-Dmapred.reduce.tasks=25”, “/example/data/10GB-sort-output”, “/example/data/10GB-sort-validate” 
+
+
+ 
+
+5. The TeraValidate MapReduce job is run by piping the job definition with the `Start-AzureHDInsightJob`, which requires the cluster and subscription names with the `Wait-AzureHDInsightJob` to get status on the run, and the `Get-AzureHDInsightJobOutput` to display the results in PowerShell. Copy and paste the following code into PowerShell and press **Enter** to see the run the job and get the result.
+
+		### Run the TeraSort MapReduce job.
+		### Wait for the job to complete.
+		### Print output and standard error file of the MapReduce job         
+		$teravalidate | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
 
 
 <h2><a id="java-code"></a>The Java Code for the TerraSort MapReduce Program</h2>
@@ -383,7 +409,7 @@ This sample has demonstrated how to run a series of MapReduce jobs using Windows
 
 <h2><a id="next-steps"></a>Next Steps</h2>
 
-For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
 
 * [Sample: Pi Estimator][pi-estimator]
 

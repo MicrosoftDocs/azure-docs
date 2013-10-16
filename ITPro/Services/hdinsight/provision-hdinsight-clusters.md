@@ -40,7 +40,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 	<table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
 		<tr><td>CLUSTER NAME</td>
-			<td><p>Name the cluster. <p>
+			<td><p>Name the cluster. </p>
 				<ul>
 				<li>DNS name must start and end with alpha numeric, may contain dashes.</li>
 				<li>The field must be a string between 3 to 63 characters.</li>
@@ -231,7 +231,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 		# Create a new HDInsight cluster
 		$creds = Get-Credential
-		New-AzureHDInsightCluster -Subscription $subscriptionname -Credentials $creds -Name $clustername -Location $location -DefaultStorageAccountName "$storageaccountname.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containername  -ClusterSizeInNodes $clusternodes
+		New-AzureHDInsightCluster -Subscription $subscriptionname -Credential $creds -Name $clustername -Location $location -DefaultStorageAccountName "$storageaccountname.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containername  -ClusterSizeInNodes $clusternodes
 
 	It can take several minutes before the cluster provision completes.
 

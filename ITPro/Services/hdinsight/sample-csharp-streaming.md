@@ -18,7 +18,13 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 
 **Prerequisites**:	
-You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your subscription account and cluster. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+
+- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/)
+
 
 **Outline**		
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
@@ -30,50 +36,31 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 <h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
 
-**The command for running the C# Streaming Wordcount job**	
-Hadoop jar hadoop-streaming.jar -files "wasb:///example/apps/wc.exe,wasb:///example/apps/cat.exe" -input "wasb:///example/data/gutenberg/davinci.txt" -output "wasb:///example/data/StreamingOutput/wc.txt" -mapper "cat.exe" -reducer "wc.exe"
+1. Open Windows Azure PowerShell and Notepad.
 
+2. Define the streaming job using the `New-AzureHDInsightStreamingMapReduceJobDefinition` cmdlet. The parameters specify the mapper and reducer functions and the input file and output files. Copy and paste the following code into PowerShell.
+ 
+		### Create a MapReduce job definition for the streaming job.
+		### Parameter 0 is the path and the file name of the mapper and reducer.
+		### Parameter 1 is the input file and output file path and name.
+		### Parameter 2 designates mapper and reducer executables.
+		$streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
 
-**The parameters for the C# Streaming Wordcount job**	
-Parameter 0 is the path and the file name of the mapper and reducer; parameter 1 is the input file and output file path and name; and parameter 2 designates mapper and reducer executables. 
-
-1. Open Notepad.
-2. Copy and paste the following code into Notepad. (TBD: edit to apply to wordcount)
-
-		Import-Module "C:\Program Files (x86)\PowerShell tools for Windows Azure HDInsight\Microsoft.WindowsAzure.Management.HDInsight.Cmdlet" 
-		
+3. Copy and paste the following code into Notepad.
+	
 		### Provide the Windows Azure subscription name and the HDInsight cluster name.
 		$subscriptionName = "myAzureSubscriptionName"   
-		$clusterName = "myClusterName"                 
-		
-		### Provide the HDInsight user credentials that will be used to run the script.
-		$creds = Get-Credential 
-		
-		### Create a MapReduce job definition. The jar file contains several examples.
-		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
- 
-		### There is one argument that specifies two numbers. 
-		### The first number indicates how many maps to create (default is 16). 
-		### The second number indicates how many samples are generated per map (10 million by default). 
-		### So this program uses 160 million random points to make its estimate of Pi.
-		$piEstimatorJobDefinition.Arguments.Add("pi 16 10000000") 
+		$clusterName = "myClusterName"
+                 
+4. Set the values for the two variables: $subscriptionname, $clustername to the subscription and cluster you are using. Copy and paste this modified code into PowerShell and then press **Enter** to run.                 
 
-		### Run the MapReduce job.
-		$wordCountJob = $wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clusterName  
-		
-		### Wait for the job to complete.  
-		$wordCountJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600  
-		
-		### Print the standard error file of the MapReduce job
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountjob.JobId -StandardError
-		
-3. Set the values for the two variable at the begining of the script: $subscriptionname, $clustername.
-4. Open Windows Azure PowerShell.
-5. Copy and paste the modified code into the Windows Azure PowerShell window, and then press **ENTER**. The following screenshot shows the end of the output:
+5. The C# Streaming MapReduce job is run by piping the job definition with the `Start-AzureHDInsightJob`, which requires the cluster and subscription names with the `Wait-AzureHDInsightJob` to get status on the run, and the `Get-AzureHDInsightJobOutput` to display the results in PowerShell. Copy and paste the following code into PowerShell and press **Enter** to see the run the job and get the result.
 
-	![HDI.Sample.PiEstimator.RunMRJob][image-hdi-sample-piestimator-runmrjob]
- 
-TBD: Debug script, add the above screenshot, and add instructions on how to get the result.
+		### Run the C# Streaming MapReduce job.
+		### Wait for the job to complete.
+		### Print output and standard error file of the MapReduce job
+		$streamingWC | Start-AzureHDInsightJob -Subscription $subid -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subid -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+
 
 <h2><a id="java-code"></a>The C# Code for Hadoop Streaming</h2>
 
@@ -144,11 +131,11 @@ The reducer code in the wc.cs file uses a [StreamReader][streamreader]   object 
 
 <h2><a id="summary"></a>Summary</h2>
 
-In this tutorial, you saw how to deploy a MapReduce job on an Hadoop cluster hosted on the Windows Azure HDinsight Service using C# Streaming.
+In this tutorial, you saw how to deploy a MapReduce job on an Hadoop cluster hosted on the Windows Azure HDInsight Service using C# Streaming.
 
 <h2><a id="next-steps"></a>Next Steps</h2>
 
-For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
 
 
 * [Sample: Pi Estimator][pi-estimator]

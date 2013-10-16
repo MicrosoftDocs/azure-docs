@@ -42,7 +42,7 @@ After you have imported the publishsettings file, you can use the following comm
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:<p>
+<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
 <li>West US</li>
@@ -79,23 +79,20 @@ PowerShell can not create a Blob container during the HDInsight provision proces
 
 Once you have the storage account and the blob container prepared, you are ready to create a cluster. In this version you need to explicitly specify subscription information and certificate for cmdlets.   
 		
-	# Set the variables
-	$subscriptionname = "<SubscriptionName>"
-	$clustername = "<ClusterName>"
+	$subscriptionName = "<SubscriptionName>"
+	$clusterName = "<ClusterName>"
 	$location = "<MicrosoftDataCenter>"
-	$storageaccountname = "<StorageAccountName>"
-	$containername = "<ContainerName>"
-	$clusternodes = <ClusterSizeInNodes>
-
-	# Select the current subscription
-	Select-AzureSubscription $subscriptionname
+	$storageAccountName = "<StorageAccountName>"
+	$containerName = "<ContainerName>"
+	$clusterNodes = <ClusterSizeInNodes>
 
 	# Get the storage account key
+	Select-AzureSubscription $subscriptionname
 	$storageaccountkey = Get-AzureStorageKey $storageaccountname | %{ $_.Primary }
 
 	# Create a new HDInsight cluster
-	$creds = Get-Credential
-	New-AzureHDInsightCluster -Subscription $subscriptionname -Credentials $creds -Name $clustername -Location $location -DefaultStorageAccountName "$storageaccountname.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containername  -ClusterSizeInNodes $clusternodes
+	New-AzureHDInsightCluster -Subscription $subscriptionName -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+
 
 The following screenshot shows the script execution:
 
@@ -109,33 +106,16 @@ Use the following commands to list and show cluster details:
 
 **To list all clusters in the current subscription**
 
-	$subscriptionname = Get-AzureSubscription -Current | %{ $_.SubscriptionName }
-	$cert = Get-AzureSubscription -Current | %{ $_.Certificate }	
-
-	Get-AzureHDInsightCluster -Subscription $subscriptionname -Certificate $cert
+	Get-AzureHDInsightCluster -Subscription $subscriptionName
 
 **To show details of the specific cluster in the current subscription**
 
-	$clustername = "<HDInsightClusterName>"
-
-	$subscriptionname = Get-AzureSubscription -Current | %{ $_.SubscriptionName }
-	$cert = Get-AzureSubscription -Current | %{ $_.Certificate }
-
-	Get-AzureHDInsightCluster -Name $clustername -Subscription $subscriptionname -Certificate $cert
-
-
-![HDI.PS.ListClusters][image-hdi-ps-displaycluster]
-
+	Get-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName
 
 ##<a id="delete"></a> Delete a cluster
 Use the following command to delete a cluster:
 
-	$clustername = "<HDInsightClusterName>"
-
-	$subscriptionname = Get-AzureSubscription -Current | %{ $_.SubscriptionName }
-	$cert = Get-AzureSubscription -Current | %{ $_.Certificate }
-
-	Remove-AzureHDInsightCluster -Name $clustername -Subscription $subscriptionname -Certificate $cert
+	Remove-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName
 
 
 ##<a id="mapreduce"></a> Submit MapReduce jobs
@@ -145,20 +125,14 @@ The HDInsight cluster distribution comes with some MapReduce samples. One of the
 
 The following PowerShell script submits the word count sample job: 
 	
-	# Set the variables
 	$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
 	$clusterName = "<ClusterName>"             ### HDInsight cluster name
 	
-	# Get credential
-	$creds = Get-Credential 
-	
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
-	$wordCountJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt") 
-	$wordCountJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput") 
+	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clustername  | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionname -JobId $_.JobId -StandardError}
+	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clustername -Subscription $subscriptionName | %{ Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionname -JobId $_.JobId -StandardError}
 	
 For information about the WASB prefix, see [Using Windows Azure Blob storage for HDInsight][hdinsight-storage].
 
@@ -166,7 +140,6 @@ For information about the WASB prefix, see [Using Windows Azure Blob storage for
 
 The following PowerShell script retrieves the MapReduce job output from the last procedure:
 
-	# Set the variables
 	$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
 	$storageAccountName = "<StorageAccountName>"   ### Windows Azure storage account name
 	$containerName = "<ContainerName>"             ### Blob storage container name
@@ -232,25 +205,17 @@ The following script submit a hive job to list the Hive tables:
 	
 	# Set the variables
 	$subscriptionname = "<SubscriptionName>"     #Windows Azure subscription name
-	$storageaccountname = "<StorageAccountName>" #Windows Azure storage account name
-	$containername = "<ContainerName>"           #Windows Azure Blob storage container name
 	$clustername = "<ClusterName>"               #Windows Azure HDInsight Service cluster name
 	
 	# HiveQL query
-	$querystring = "show tables;"
-	
-	# Provide HDInsight user name and password for running the Hive job.
-	$creds = Get-Credential 
-	
-	# Create a Hive job definition 
-	$HiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $querystring
-	
-	# Submit the job, wait for the job to complete, and then display the output
-	$HiveJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clustername  | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionname -JobId $_.JobId -StandardOutput}
+	$querystring = "show tables;SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
-The following screenshot shows the output:
+	Select-AzureSubscription -SubscriptionName $subscriptionName
+	Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+	
+	Invoke-Hive $querystring
 
-![HDI.PS.SubmitHiveJob.ShowTables][image-ps-submithivejob-showtables]
+The Hive job will first show the Hive tables created on the cluster, and the data returned from the hivesampletable.
 
 For more information on using Hive, see [Using Hive with HDInsight][hdinsight-hive].
 
