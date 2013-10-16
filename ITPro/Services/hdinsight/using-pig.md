@@ -18,6 +18,7 @@ For more information on Pig Latin, see [Pig Latin Reference Manual 1][piglatin-m
 Note the following requirements before you begin this article:
 
 * A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 

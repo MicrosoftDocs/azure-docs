@@ -231,7 +231,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 		# Create a new HDInsight cluster
 		$creds = Get-Credential
-		New-AzureHDInsightCluster -Subscription $subscriptionname -Credentials $creds -Name $clustername -Location $location -DefaultStorageAccountName "$storageaccountname.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containername  -ClusterSizeInNodes $clusternodes
+		New-AzureHDInsightCluster -Subscription $subscriptionname -Credential $creds -Name $clustername -Location $location -DefaultStorageAccountName "$storageaccountname.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containername  -ClusterSizeInNodes $clusternodes
 
 	It can take several minutes before the cluster provision completes.
 

@@ -181,7 +181,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 8. Enter your credentials, and then click **OK**.
 9. Click **Yes**.
 10. From the desktop, click **Hadoop Command Line**.
-12. The following sample demonstrates how to copy the davinci.txt file from the C:\temp\ directory to the /example/data directory.
+12. The following sample demonstrates how to copy the davinci.txt file from the local file system on the HDInsight head node to the /example/data directory.
 
 		hadoop dfs -copyFromLocal C:\temp\davinci.txt /example/data/davinci.txt
 

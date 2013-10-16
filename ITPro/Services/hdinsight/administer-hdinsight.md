@@ -12,48 +12,21 @@ Before you begin this article, you must have the following:
 
 ##In this article
 
-* [Create a HDInsight cluster](#create)
+* [Create an HDInsight cluster](#create)
 * [Enable remote desktop access](#enablerdp)
 * [Open Hadoop command console](#hadoopcmd)
 * [Next steps](#nextsteps)
 
-##<a id="create"></a> Create a HDInsight cluster
+##<a id="create"></a> Create an HDInsight cluster
 
-A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+A Windows Azure storage account located on the same data center is required before you can create an HDInsight cluster. HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
-**To create a HDInsight cluster**
+**To create an HDInsight cluster**
 
 1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
 
-	When choosing **CUSTOM CREATE**, you need to specify the following properties:
-
-	<table border='1'>
-		<tr><th>Page</th><th>Fields</th></tr>
-		<tr><td>Cluster Details</td>
-			<td><p>**Cluster Name:**<p>
-				<ul>
-				<li>DNS name must start and end with alpha numeric, may contain dashes.</li>
-				<li>The field must be a string between 3 to 63 characters.</li>
-				</ul>
-  				<p>**Subscription Name: ** specify which Windows Azure subscription.</p>
-				<p>**Data Nodes:** specify the number of notes in the cluster.</p>
-				<p>**Region:** specify the data center where the cluster is installed. Currently you can only choose *East US* or *North Europe*.<p>
-			</td>
-		</tr>
-		<tr><td>Configure Cluster User</td>
-			<td><p>**User Name:** specify the HDInsight cluster user name.</p>
-				<p>**Password:** specify the HDInsight cluster user password.</p>
-				<p>**Supply Hive/Oozie Metastore:** specify a SQL database on the same data center to be used as the Hive/Oozie metastore.</p>
-			</td>
-		</tr>
-		<tr><td>Storage Account</td>
-			<td>Storage Account<br />
-				Storage Container</td>
-		</tr>
-	
-	</table>
 3. Provide **Cluster Name**, **Cluster Size**, **Cluster Admin Password**, and a Windows Azure **Storage Account**, and then click **Create HDInsight Cluster**. Once the cluster is created and running, the status shows *Running*.
 
 	![HDI.QuickCreate][image-cluster-quickcreate]
@@ -64,7 +37,7 @@ A Windows Azure storage account located on the same data center is required befo
 
 	<div class="dev-callout"> 
 	<b>Important</b> 
-	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p> 
+	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete and create another cluster.</p> 
 	</div>
 
 4. Click the newly created cluster.  It shows the landing page:
@@ -96,7 +69,7 @@ The credentials provided at cluster creation now give access only to the service
 
 ##<a id="hadoopcmd"></a> Open Hadoop command line
 
-To use Hadoop command line, you must first connect to the cluster using remote desktop. 
+To use Hadoop command line, you must first enable remote desktop on the cluster and then connect to the cluster using remote desktop. 
 
 **To open Hadoop command line**
 
@@ -117,7 +90,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 
 ##<a id="nextsteps"></a> Next steps
-In this article, you have learned how to create a HDInsight cluster using the Windows Azure Management Portal, and how to open the Hadoop command line tool. To learn more, see the following articles:
+In this article, you have learned how to create an HDInsight cluster using the Windows Azure Management Portal, and how to open the Hadoop command line tool. To learn more, see the following articles:
 
 * [Administer HDInsight Using PowerShell][hdinsight-admin-powershell]
 * [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]
