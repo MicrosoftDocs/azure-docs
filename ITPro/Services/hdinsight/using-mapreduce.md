@@ -1,19 +1,26 @@
-﻿<properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Using MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
-
+<properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Using MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 
 # Using MapReduce with HDInsight#
 
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault. Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage.  
+Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Windows Azure Blob storage. Windows Azure Blob storage provides a full featured HDFS file system over Windows Azure Blob storage.  
+
+**Prerequisites:**
+
+Note the following requirements before you begin this article:
+
+* A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 
 ## In this Article
 * [Big Data and Hadoop MapReduce](#mapreduce)
-* [Upload a sample log4j file to the blob storage](#uploaddata)
-* [Connect to an HDInsight Cluster](#connect)
+* [Upload data files to the blob storage](#uploaddata)
+* [Connect to an HDInsight cluster](#connect)
 * [Create a MapReduce job](#createjob)
-* [Run the MapReduce job](#runjob)
+* [Run the MapReduce job using PowerShell](#runjobpowershell)
+* [Run the MapReduce job using Hadoop command line](#runjob)
 * [Tutorial clean up](#cleanup)
 * [Next steps](#nextsteps)
 
@@ -39,128 +46,70 @@ The following figure is the visual representation of what you will accomplish in
 
 In the figure, the Map program performs filtering and sorting; and the Reduce program performs a summary operation. 
  
-##<a id="uploaddata"></a>Upload a Sample Log4j File to the Blob Storage
+##<a id="uploaddata"></a>Upload data files to the Blob storage
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). Windows Azure Blob Storage is recommended. For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this tutorial you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [How to Upload Data to HDInsight][hdinsight-upload-data].
 
-*Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+To access files, use the following syntax: 
 
-Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+		wasb[s]://[[<containername>@]<storageaccountname>.blob.core.windows.net]/<path>/<filename>
 
-1. Download [sample.log][sample-log], a sample log4j log file, to your local computer.
+For example:
 
-2. Run **Azure Storage Explorer**.
+		wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log
 
-	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png "Azure Storage Explorer")
+replace *mycontainer* with the container name, and *mystorage* with the Blob storage account name. 
 
-3. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
+Because the file is stored in the default file system, you can also access the file using the following:
 
-	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png "Add Account")
+		wasb:///example/data/sample.log
+		/example/data/sample.log
 
-4. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. 
-5. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
 
-	![HDI.ASEBlob](../media/HDI.ASEUploadFile.png "Azure Storage Explorer")
 
-6. From **Container**, click the container that is designated as the default file system.  The default name is the HDInsight cluster name. You shall see the folder structure of the container.
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see <a href="en-us/manage/services/hdinsight/howto-blob-store/">Using Windows Azure Blob Storage with HDInsight</a>.</p> 
-	</div>
-
-7. From **Blob**, click **Upload**.
-8. Browse to the sample.log file you just downloaded, and the click **Open**. You shall see the sample.log file listed there.
-9. Double-click the sample.log file to open it.
-11. Click **Text** to switch to the tab, so you can view the content of the file.  Notice that the following screen output shows a snippet of sample.log where the data follows a particular structure (except the row that starts with “java.lang.Exception…”). 
-
- ![Sample.log](../media/HDI.SampleLog.png)
-
-	Starting from left to right, the structured data rows have a *date* in column 1, *timestamp* in column 2, *class name* in column 3, *log level* in column 4, and so on. 
-
- The row starting with “java.lang.Exception” does not follow this “well-formed” data structure and is therefore, considered unstructured. The following table shows the key differences between the structured rows and unstructured rows. 
-
- 
-	<table border="1">
-	<tr>
-	<td> 
-	Data Type
-	</td>
-	<td> 
-	Date Column
-	</td>
-	<td> 
-	Severity Column
-	</td>
-	</tr>
-	<tr>
-	<td> 
-	Structured
-	</td>
-	<td> 
-	1
-	</td>
-	<td> 
-	4
-	</td>
-	</tr>
-	<tr>
-	<td> 
-	Unstructured
-	</td>
-	<td> 
-	2
-	</td>
-	<td> 
-	5
-	</td>
-	</tr>
-	</table>
-12. Click **Close**. 
-13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
-
-For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
-
-##<a id="connect"></a>Connect to an HDInsight Cluster
-You must have an HDInsight cluster provisioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on provision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
+##<a id="connect"></a>Connect to an HDInsight cluster
+You must have an HDInsight cluster provisioned before you can work on this tutorial. For information on provision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **HDINSIGHT** on the left. You shall see a list of deployed Hadoop clusters.
-3. Click the Hadoop cluster where you want to upload data to and run the MapReduce job.
+3. Click the name of the HDInsight cluster where you want to run the MapReduce job.
+4. Click **CONFIGURATION** on the top.
+5. Click **ENABLE REMOTE** if remote desktop hasn't been enabled. Otherwise skip to step 7.
+6. Enter **USER NAME**, **PASSWORD**, and **EXPIRES ON**, and then click **Complete** (the check sign).
 4. Click **Connect** on the bottom to connect to the remote desktop.
 5. Click **Open**.
 6. Click **Connect**.
 7. Click **Yes**.
 8. Enter your credentials, and then press **ENTER**.
-9. From Desktop, click **Hadoop Command Line**. You will use Hadoop command prompt to execute all of the commands in this tutorial. Most of the commands can be run from the [Interactive JavaScript Console](/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/).
-10. Run the following command to list and verify the sample.log file you uploaded to Azure Storage Vault (ASV): 
+9. From Desktop, click **Hadoop Command Line**. You will use Hadoop command line to execute all of the commands in this tutorial. 
+10. Run the following command to list and verify the sample.log file you uploaded to Windows Azure Blob storage: 
 
-		hadoop fs -ls asv:///sample.log
+		hadoop fs -ls wasb:///example/data/sample.log
 
-	The asv syntax is for listing the files in the default file system.  To access files in other containers, use the following syntax: 
+	The wasb syntax is for listing the files in the default file system.  To access files in other containers, use the following syntax: 
 
-		hadoop fs -ls asv[s]://[[<containername>@]<storagename>.blob.core.windows.net]/<path>
+		hadoop fs -ls wasb[s]://[[<containername>@]<storageaccountname>.blob.core.windows.net]/<path>
 
 	For example, you can list the same file using the following command:
 
-		hadoop fs -ls asv://<containername>@<storagename>.blob.core.windows.net/sample.log
+		hadoop fs -ls wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/data/sample.log
 
-	Replace *&lt;containername&gt;* with the container name, and *&lt;storagename&gt;* with the Blob Storage account name. 
+	Replace *&lt;containername&gt;* with the container name, and *&lt;storageaccountname&gt;* with the Blob Storage account name. 
 
 	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
 
-		hadoop fs -ls /sample.log
+		hadoop fs -ls /example/data/sample.log
 	 
-	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
+	To use wabs, you must provide the FQDN. For example to access sample.log on the default file system: 
 
-		#ls asvs://<containername>@<storagename>.blob.core.windows.net/sample.log
+		hadoop fs -ls wasbs://<containername>@<storageaccountname>.blob.core.windows.net/example/data/sample.log
 
 	
 
-##<a id="createjob"></a> Create the MapReduce Job ##
+##<a id="createjob"></a> Create the MapReduce job 
 The Java programming language is used in this sample. Hadoop Streaming allows developers to use virtually any programming language to create MapReduces jobs.
 
-1. From Hadoop command prompt, run the following commands to make a directory and change directory to the folder:
+1. From Hadoop command line, run the following commands to make a directory and change directory to the folder:
 
 		c:
 		mkdir \Tutorials
@@ -283,9 +232,13 @@ The Java programming language is used in this sample. Hadoop Streaming allows de
 
 8. Compile the java file using the following command:
 
-		C:\apps\dist\java\bin\javac -classpath C:\apps\dist\hadoop-1.1.0-SNAPSHOT\hadoop-core-*.jar log4jMapReduce.java
- 
-	Make sure there is no compilation errors.
+		C:\apps\dist\java\bin\javac -classpath %HADOOP_HOME%\hadoop-core-1.2.0.1.3.0.1-0302.jar log4jMapReduce.java
+	
+	You must to hadoop-core-&lt;YourVersion>.jar, and the version must match yours. To find out the version, you can run the following command from Hadoop command line:
+
+		hadoop version
+
+	
 
 9. Create a log4jMapReduce.jar file containing the Hadoop class files:
 
@@ -299,21 +252,43 @@ The Java programming language is used in this sample. Hadoop Streaming allows de
 		log4jMapReduce.jar
 		log4jMapReduce.java
 
-##<a id="runjob"></a> Run the MapReduce Job
-Until now, you have uploaded a log4j log files to the Blob storage, and compiled the MapReduce job.  The next step is to run the job.
+10. Copy the file to HDFS so you can use PowerShell to submit a MapReduce job with the jar file:
 
-1. From Hadoop command prompt, execute the following command to run the Hadoop MapReduce job:
+		hadoop fs -copyFromLocal log4jMapReduce.jar \example\jars\
 
-		hadoop jar C:\Tutorials\log4jMapReduce.jar log4jMapReduce asv:///sample.log asv:///Tutorials/output
+11. Verify the jar file has copied to the folder:
 
- 
+		hadoop fs -ls \example\jars\log4jMapReduce.jar
+
+	You shall see the file listed there.
+
+##<a id="runjobpowershell"></a> Run the MapReduce job using PowerShell
+You can submit a MapReduce job using either HDinsight PowerShell cmdlets or Hadoop command line. This section covers using the PowerShell method, the next section cover using Hadoop command line.
+
+1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+2. Set the variables in the following script and run it:
+
+
+
+
+##<a id="runjob"></a> Run the MapReduce job using Hadoop command line
+You can submit a MapReduce job using Hadoop command line or using the HDInsight PowerShell.
+
+1. From Hadoop command line, execute the following command to run the Hadoop MapReduce job:
+
+		hadoop jar C:\Tutorials\log4jMapReduce.jar log4jMapReduce wasb:///sample.log wasb:///Tutorials/output
+
+		hadoop jar wabs:///example/jars/log4jMapReduce.jar log4jMapReduce wasb:///example/data/sample.log wasb:///example/data/log4jMapReduceOutput 
+
+		hadoop jar C:\Tutorials\log4jMapReduce.jar log4jMapReduce wasb:///example/data/sample.log wasb:///example/data/log4jMapReduceOutput 
+
 
 	This command does a number of things: 
 	
 	- Calling the Hadoop program
 	- Specifying the jar file (C:\Tutorials\log4jMapReduce.jar)
 	- Indicating the class file (log4jMapReduce)
-	- Specifying the input file (asv:///sample.log), and output directory (asv:///Tutorials/output). The command creates the output folder if the folder doesn't exist.
+	- Specifying the input file (wasb:///sample.log), and output directory (wasb:///Tutorials/output). The command creates the output folder if the folder doesn't exist.
 	- Running the MapReduce job 	
 
 	![HDI.MapReduceResults](../media/HDI.MapReduceResults.png "MapReduce job results")
@@ -324,7 +299,7 @@ Until now, you have uploaded a log4j log files to the Blob storage, and compiled
 
 2. View the output of the MapReduce job in HDFS:
 
-		hadoop fs -cat asv:///Tutorials/output/part-00000
+		hadoop fs -cat wasb:///Tutorials/output/part-00000
 
 	By default, Hadoop creates files begin with the following naming convention: “part-00000”. Additional files created by the same job will have the number increased.The output look like:
 
@@ -332,28 +307,38 @@ Until now, you have uploaded a log4j log files to the Blob storage, and compiled
  
 	Notice that after running MapReduce that the data types are now totaled and in a structured format.  
 
-##<a id="cleanup"></a> Tutorial Clean Up ##
+##<a id="cleanup"></a> Tutorial clean up ##
 
 The clean up task applies to this tutorial only; it is not performed in the actual deployment. In this task, you will delete input and output directories so that if you like, you can run the tutorial again.  
 
 1. Delete the sample.log file:
 
-		hadoop fs -rm asv:///sample.log
+		hadoop fs -rm wasb:///sample.log
  
 2. Delete the output directory and recursively delete files within the directory:
 
-		hadoop fs –rmr asv:///Tutorials/output/
+		hadoop fs –rmr wasb:///Tutorials/output/
  
 Congratulations! You have successfully completed this tutorial.
 
-##<a id="nextsteps"></a>Next Steps
+##<a id="nextsteps"></a>Next steps
 
 While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in your HDInsight Service. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
 * [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
 * [How to Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
 
 
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+
+[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
+
 [sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
+

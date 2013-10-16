@@ -13,7 +13,7 @@ Before you begin this article, you must have the following:
 ##In this article
 
 - [Install Windows Azure PowerShell](#azure-cmdlets)
-- [Install PowerShell Tools for Windows Azure HDInsight](#hdinsight-cmdlets)
+- [Install Windows Azure HDInsight PowerShell Tools](#hdinsight-cmdlets)
 - [Connect to your Windows Azure subscription](#connect)
 - [Select Azure subscription](#selectsubscription)
 - [Run PowerShell scripts](#runscripts)
@@ -29,7 +29,7 @@ Before you begin this article, you must have the following:
 **To install Windows Azure PowerShell**
 
 1. Open Internet Explorer, and browse to the [Windows Azure Downloads][powershell-download] page.
-2. Under **Windows downloads** in the **Command line tools** section, click **Windows Azure PowerShell**, and then follow the instructions.
+2. Click **Run** from the bottom of the page to run the installation package.
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -52,12 +52,12 @@ Installing the module also installs a customized console for Windows Azure Power
 1. Click the **Start** menu. 
 2. Click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
 
-##<a id="hdinsight-cmdlets"></a>Install PowerShell Tools for Windows Azure HDInsight
+##<a id="hdinsight-cmdlets"></a>Install Windows Azure HDInsight PowerShell Tools
 
-*PowerShell Tools for Windows Azure HDInsight* is a PowerShell module that provides additional cmdlets to manage HDInsight clusters. You can use HDInsight PowerShell cmdlets to provision clusters, manage clusters, and submit Hadoop jobs. 
+*Windows Azure HDInsight PowerShell Tools* is a PowerShell module that provides additional cmdlets to manage HDInsight clusters. You can use HDInsight PowerShell cmdlets to provision clusters, manage clusters, and submit Hadoop jobs. 
 
 
-**To install and import the HDInsight cmdlets**
+**To install Windows Azure HDInsight PowerShell Tools**
 
 1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
 2. Click **Run** from the bottom of the page to run the installation package.
@@ -156,7 +156,7 @@ The following is a sample script for selectting Azure subscription:
 There are two ways to run the PowerShell scripts.  
 
 - Copy and paste the modified script directly into the Windows Azure PowerShell console window. Each line of the script requires a carridge return to excute. You may need to press ENTER to execute the last line of the script.
-- Save the modified script as a file with the .ps1 extension, and run the script file from the Windows Azure PowerShell windows. Before you can run a script, you must run the following command to set the execution policy to *RemoteSigned*:
+- Save the modified script as a file with the .ps1 extension, and run the script file from the Windows Azure PowerShell windows. Before you can run a script, you must run the following command from an elevated command prompt to set the execution policy to *RemoteSigned*:
 
 		Set-ExecutionPolicy RemoteSigned
 
@@ -229,7 +229,7 @@ These are some of the resources available that you can use to learn to use Windo
 [azure-cmdlet-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
 [azure-msdn-forum]: http://go.microsoft.com/fwlink/p/?linkid=320212&clcid=0x409
 
-[powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
+[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376 
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-how-to-install]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
 [powershell-repository]: https://github.com/WindowsAzure/azure-sdk-tools
