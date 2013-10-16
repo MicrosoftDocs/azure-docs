@@ -1,89 +1,239 @@
 <properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure PowerShell for HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure PowerShell to use with the HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# NET Multi-Tier Application Using Service Bus Queues
- 
-Developing for Windows Azure is easy using Visual Studio 2010 and the free Windows Azure SDK for .NET. If you do not already have Visual Studio 2010, the SDK will automatically install Visual Web Developer 2010 Express, so you can start developing for Windows Azure entirely for free. This guide assumes you have no prior experience using Windows Azure. On completing this guide, you will have an application that uses multiple Windows Azure resources running in your local environment and demonstrating how a multi-tier application works.
- 
-You will learn:
+#Install and configure PowerShell for HDInsight
 
-* How to enable your computer for Windows Azure development with a single download and install.
-* How to use Visual Studio to develop for Windows Azure.
-* How to create a multi-tier application in Windows Azure using web and worker roles.
-* How to communicate between tiers using Service Bus Queues.
- 
-You will build a front-end ASP.NET MVC web role that uses a back-end worker role to process long running jobs. You will learn how to create multi-role solutions, as well as how to use Service Bus Queues to enable inter-role communication. A screenshot of the completed application is shown below:
+ This article provides basic information about installing and configuring workstations to manage HDInsight clusters using PowerShell.
 
-![screenshot of website] [Image1]
+**Prerequisites:**
 
-## Scenario Overview: Inter-Role Communication
- 
-To submit an order for processing, the front end UI component, running in the web role, needs to interact with the middle tier logic running in the worker role. This example uses Service Bus brokered messaging for the communication between the tiers.
- 
-Using brokered messaging between the web and middle tiers decouples the two components. In contrast to direct messaging (that is, TCP or HTTP), the web tier does not connect to the middle tier directly; instead it pushes units of work, as messages, into the Service Bus, which reliably retains them until the middle tier is ready to consume and process them.
- 
-The Service Bus provides two entities to support brokered messaging, queues and topics. With queues, each message sent to the queue is consumed by a single receiver. Topics support the publish/subscribe pattern in which each published message is made available to each subscription registered with the topic. Each subscription logically maintains its own queue of messages. Subscriptions can also be configured with filter rules that restrict the set of messages passed to the subscription queue to those that match the filter. This example uses Service Bus queues.
+Before you begin this article, you must have the following:
 
-![Interrole communication diagram] [Image2]
+- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-This communication mechanism has several advantages over direct messaging, namely:
+##In this article
 
-* **Temporal decoupling.** With the asynchronous messaging pattern, producers and consumers need not be online at the same time. Service Busreliably stores messages until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily, for example, for maintenance, or due to a component crash, without impacting the system as a whole. Furthermore, the consuming application may only need to come online during certain times of the day.
+- [Install Windows Azure PowerShell](#azure-cmdlets)
+- [Install PowerShell Tools for Windows Azure HDInsight](#hdinsight-cmdlets)
+- [Connect to your Windows Azure subscription](#connect)
+- [Select Azure subscription](#selectsubscription)
+- [Run PowerShell scripts](#runscripts)
+- [Getting help](#help)
+- [Additional resource](#resource)
+- [See also](#seealso)
 
-* **Load leveling.** In many applications, system load varies over time whereas the processing time required for each unit of work is typically constant. Intermediating message producers and consumers with a queue means that the consuming application (the worker) only needs to be provisioned to accommodate average load rather than peak load. The depth of the queue will grow and contract as the incoming load varies. This directly saves money in terms of the amount of infrastructure required to service the application load.
-
-* **Load balancing.** As load increases, more worker processes can be added to read from the queue. Each message is processed by only one of the worker processes. Furthermore, this pull-based load balancing allows for optimum utilization of the worker machines even if the worker machines differ in terms of processing power as they will pull messages at their own maximum rate. This pattern is often termed the competing consumer pattern.
-
-![Inter-role communication diagram 2][Image3]
-
-The following sections discuss the code that implements this architecture.
- 
-## Set Up the Development Environment
- 
-Before you can begin developing your Windows Azure application, you need to get the tools and set-up your development environment.
-
-1. To install the Windows Azure SDK for .NET, click the button below:
-<a href="http://go.microsoft.com/fwlink/?LinkID=234939&clcid=0x409">![Get Tools and SDK link button][Image4]</a><br />
-When prompted to run or save WindowsAzureSDKForNet.exe, click **Run**:
-![Installer UI][Image5]
-2. Click **Install** in the installer window and proceed with the installation:
-![Installer UI after beginning install][Image6]
-3. Once the installation is complete, you will have everything necessary to start developing. The SDK includes tools that let you easily develop Windows Azure applications in Visual Studio. If you do not have Visual Studio installed, it also installs the free Visual Web Developer Express.
-
-## Create a Windows Azure Account
-
-1. Open a web browser, and browse to [http://www.windowsazure.com][].
-To get started with a free account, click free trial in the upper right corner and follow the steps.
-![Free trial screenshot][Image7]
-2. Your account is now created. You are ready to deploy your application to Windows Azure!
- 
-## Set up the Service Bus Namespace
- 
-The next step is to create a service namespace, and to obtain a shared secret key. A service namespace provides an application boundary for each application exposed through Service Bus. A shared secret key is automatically generated by the system when a service namespace is created. The combination of service namespace and shared secret key provides a credential for Service Bus to authenticate access to an application.
-
-1. Log into the Windows Azure Management Portal.
-2. In the lower left navigation pane of the Management Portal, click **Service Bus, Access Control & Caching**.
-3. In the upper left pane of the Management Portal, click the **Service Bus** node, then click **New**.
-![Management Portal New Service Bus][Image8]
-4. In the **Create a new Service Namespace** dialog, enter a namespace, and then to make sure that it is unique, click **Check Availability**. 
-![Management Portal Service Bus Check Availability][Image9]
-5. After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources), and then click **Create Namespace**. Also, choose a country/region from the dropdown, a connection pack size, and the name of the subscription you want to use.<br /><br />
-**IMPORTANT:** Pick the same region that you intend to choose for deploying your application. This will give you the best performance.
-
-6. Click Create Namespace. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-7. In the main window, click the name of your service namespace.
-8. In the **Properties** pane on the right-hand side, find the **Default Key** entry.
-9. In **Default Key**, click **View**. Make a note of the key, or copy it to the clipboard.
+## <a id="azure-cmdlet"></a>Install Windows Azure PowerShell
+*Windows PowerShell* can be used to perform a variety of tasks in Windows Azure, either interactively at a command prompt or automatically through scripts. *Windows Azure PowerShell* is a module that provides cmdlets to manage Windows Azure through Windows PowerShell. 
 
 
-[http://www.windowsazure.com]: http://www.windowsazure.com
+
+**To install Windows Azure PowerShell**
+
+1. Open Internet Explorer, and browse to the [Windows Azure Downloads][powershell-download] page.
+2. Under **Windows downloads** in the **Command line tools** section, click **Windows Azure PowerShell**, and then follow the instructions.
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+	<p>When you install the module, the installer checks your system for the required software and installs all dependencies, such as the correct version of Windows PowerShell and .NET Framework.</p> 
+	</div>
+
+Installing the module also installs a customized console for Windows Azure PowerShell. You can run the cmdlets from either the standard Windows PowerShell console or the Windows Azure PowerShell console.
 
 
-[Image1]: media/net/dev-net-getting-started-multi-tier-01.png
-[Image2]: media/net/dev-net-getting-started-multi-tier-100.png
-[Image3]: media/net/dev-net-getting-started-multi-tier-101.png
-[Image4]: media/net/installbutton.png
-[Image5]: media/net/dev-net-getting-started-3.png
-[Image6]: media/net/dev-net-getting-started-4.png
-[Image7]: media/net/dev-net-getting-started-12.png
-[Image8]: media/net/dev-net-how-to-sb-queues-03.png
-[Image9]: media/net/dev-net-how-to-sb-queues-04.png
+
+
+**To open Windows Azure PowerShell console from a computer running at least Windows 8 or Windows Server 2012**
+
+1. From the Start screen, begin typing **power**. This produces a scoped list of apps that includes Windows PowerShell and Windows Azure PowerShell. 
+2. Click either app to open the console window. 
+3. To pin the app to the Start screen, right-click the icon.
+
+**To open Windows Azure PowerShell console from a computer running a version earlier than Windows 8 or Windows Server 2012**
+
+1. Click the **Start** menu. 
+2. Click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
+
+##<a id="hdinsight-cmdlets"></a>Install PowerShell Tools for Windows Azure HDInsight
+
+*PowerShell Tools for Windows Azure HDInsight* is a PowerShell module that provides additional cmdlets to manage HDInsight clusters. You can use HDInsight PowerShell cmdlets to provision clusters, manage clusters, and submit Hadoop jobs. 
+
+
+**To install and import the HDInsight cmdlets**
+
+1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
+2. Click **Run** from the bottom of the page to run the installation package.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##<a id="connect"></a>Connect to your subscription
+
+The cmdlets require your Windows Azure subscription information so that it can be used to manage your services. This information is provided by downloading and then importing it for use by the cmdlets:
+
+- The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the [Windows Azure Management Portal][azure-management-portal] from which you can download the subscription information. The information is contained in a .publishsettings file.
+
+- The **Import-AzurePublishSettingsFile** cmdlet imports the .publishsettings file for use by the module. This file includes a management certificate that has security credentials.
+
+
+<div class="dev-callout"> 
+<b>Important</b> 
+<p>The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p> 
+</div>
+
+
+**To download and import publishsettings**
+
+1. Sign in to the [Windows Azure Management Portal][azure-management-portal] using the credentials for your Windows Azure account.
+2. Open the Windows Azure PowerShell console, as instructed in [Install Windows Azure PowerShell](#azure-cmdlets).
+3. Run the following command to download the publishsettings file:
+
+		Get-AzurePublishSettingsFile
+
+4. When prompted, download and save the publishing profile and note the path and name of the .publishsettings file. This information is required when you run the Import-AzurePublishSettingsFile cmdlet to import the settings. The default location and file name format is:
+	
+		C:\Users\<UserProfile>\Desktop\[MySubscription-…]-downloadDate-credentials.publishsettings
+	
+5. Run a command similar to the following, substituting your Windows account name and the path and file name for the placeholders:
+
+		Import-AzurePublishSettingsFile C:\Users\<UserProfile>\Downloads\<SubscriptionName>-credentials.publishsettings
+		
+6. To view the subscription information, type:
+
+		Get-AzureSubscription
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this process to download a new .publishsettings file, and then import those settings. For information about adding co-administrators to help manage services for a subscription, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx">Add and Remove Co-Administrators for Your Windows Azure Subscriptions</a>.</p> 
+</div>
+
+
+
+##<a id="selectsubscription"></a> Select Azure subscription
+
+When managing your cluster and you have multiple subscriptions, it is advisable to select the default subscription.
+
+The following is a sample script for selectting Azure subscription:
+
+		# Select Azure subscription
+		$subscriptionname = "<SubscriptionName>"
+		Select-AzureSubscription $subscriptionname
+
+		# Show the current subscription name
+		Get-AzureSubscription -Current | %{$_.SubscriptionName}
+
+
+
+##<a id="runscripts"></a> Run PowerShell scripts
+
+There are two ways to run the PowerShell scripts.  
+
+- Copy and paste the modified script directly into the Windows Azure PowerShell console window. Each line of the script requires a carridge return to excute. You may need to press ENTER to execute the last line of the script.
+- Save the modified script as a file with the .ps1 extension, and run the script file from the Windows Azure PowerShell windows. Before you can run a script, you must run the following command to set the execution policy to *RemoteSigned*:
+
+		Set-ExecutionPolicy RemoteSigned
+
+	For more information see [Running Windows PowerShell Scripts][powershell-run-script].
+
+	The Windows PowerShell execution policy determines the conditions under which configuration files and scripts are run. The Windows Azure PowerShell cmdlets need the execution policy set to a value of *RemoteSigned*, *Unrestricted*, or *Bypass*. For more information on the execution policies, see [About_Execution_Policies](http://technet.microsoft.com/en-us/library/dd347641).
+	
+
+
+
+
+
+##<a id="help"></a>Getting help
+
+These resources provide help for specific cmdlets:
+
+- From within the console, you can use the built-in Help system. The **Get-Help** cmdlet provides access to this system. The following table provides some examples of commands you can use to get Help. You can get more information from within the console by typing **help**.
+
+	<table border="1">
+	<tr><td>Command</td><td>Result</td></tr>
+	<tr><td>help</td><td>Describes how to use the Help system.<br/>
+	Note: The description includes some information about Help files that does not apply to the Windows Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.</td></tr>
+	<tr><td>help azure</td><td>Lists all cmdlets in the Windows Azure PowerShell module.</td></tr>
+	<tr><td>help &lt;language>-dev</td><td>	Lists cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.</td></tr>
+	<tr><td>help &lt;cmdlet></td><td>Displays help about a Windows PowerShell cmdlet.</td></tr>
+	<tr><td>help &lt;cmdlet> -parameter *</td><td>Displays parameter definitions for a cmdlet. <br/>For example, help get-azuresubscription -parameter *</td></tr>
+	<tr><td>help &lt;cmdlet> -examples</td><td>Displays the syntax and description of example commands for a cmdlet.</td></tr>
+	<tr><td>help &lt;cmdlet> -full</td><td>Displays technical requirements for a cmdlet.</td></tr>
+	</table>
+	
+- Reference information about the cmdlets in the Windows Azure PowerShell module is also available in the Windows Azure library. For information, see [Windows Azure Cmdlet Reference][azure-cmdlet-reference].
+
+For help from the community, try these popular forums:
+
+- [Windows Azure forum on MSDN][azure-msdn-forum]
+- [StackOverflow][stockoverflow]
+
+##<a id="resource"></a>Additional resources
+
+These are some of the resources available that you can use to learn to use Windows Azure and Windows PowerShell.
+
+- To provide feedback about the cmdlets, report issues, or access the source code, see [Windows Azure PowerShell code repository][powershell-repository].
+
+- To learn about the Windows PowerShell command line and scripting environment, see the [TechNet Script Center][powershell-technet-script-center].
+
+- For information about installing, learning, using, and customizing Windows PowerShell, see [Scripting with Windows PowerShell][powershell-scripting].
+
+- For information about what scripts are and how to run them in Windows PowerShell, see [Running Scripts][powershell-running-scripts]. This article includes basic information about creating scripts and configuring your computer to run scripts.
+
+##<a id="seealso"></a>See also
+
+- [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+- [Provision HDInsight clusters][hdinsight-provision]
+- [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
+- [How to install and configure Windows Azure PowerShell][powershell-how-to-install]
+
+[stockoverflow]: http://go.microsoft.com/fwlink/?linkid=320213&clcid=0x409
+[microsoft-web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+
+[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+
+[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+[azure-management-portal]: https://manage.windowsazure.com/
+
+[azure-cmdlet-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
+[azure-msdn-forum]: http://go.microsoft.com/fwlink/p/?linkid=320212&clcid=0x409
+
+[powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
+[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-how-to-install]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
+[powershell-repository]: https://github.com/WindowsAzure/azure-sdk-tools
+[powershell-technet-script-center]: http://go.microsoft.com/fwlink/p/?linkid=320211&clcid=0x409
+[powershell-scripting]: http://go.microsoft.com/fwlink/p/?linkid=320210&clcid=0x409
+[powershell-running-scripts]: http://go.microsoft.com/fwlink/p/?linkid=320627&clcid=0x409
+[powershell-run-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx

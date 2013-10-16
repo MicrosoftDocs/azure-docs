@@ -13,9 +13,9 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>Apache Sqoop</td><td>1.4.3</td></tr>
 <tr><td>Apache Oozie</td><td>3.2.2</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
-<tr><td>Apache Templeton</td><td>?0.1.4?</td></tr>
-<tr><td>SQL Server JDBC Driver</td><td>?3.0?</td></tr>
-<tr><td>Apache Ambari</td><td>1.2.3</td></tr>
+<tr><td>Apache Templeton</td><td>0.1.4</td></tr>
+<tr><td>SQL Server JDBC Driver</td><td>3.0</td></tr>
+<tr><td>Ambari</td><td>API v1.0</td></tr>
 </table><br/>
 
 [Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
