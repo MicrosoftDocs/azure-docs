@@ -68,7 +68,7 @@ Next, you will modify the push notifications app to store registration data in t
 		}
 	
 
-4. Insert the cut code into the body of the **Registration** class you previously created.
+4. Paste the code you cut in the preceding step into the body of the **Registration** class you previously created.
 
 
 
