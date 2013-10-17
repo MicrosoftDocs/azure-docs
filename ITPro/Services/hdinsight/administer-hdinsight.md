@@ -37,7 +37,9 @@ A Windows Azure storage account located on the same data center is required befo
 
 	<div class="dev-callout"> 
 	<b>Important</b> 
-	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete and create another cluster.</p> 
+
+	<p>Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete and create another cluster.</p> 
+
 	</div>
 
 4. Click the newly created cluster.  It shows the landing page:
