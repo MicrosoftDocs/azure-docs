@@ -63,7 +63,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><th>Property</th><th>Value</th></tr>
 		<tr><td>USER NAME</td>
 			<td>Specify the HDInsight cluster user name.</td></tr>
-		<tr><td><p>PASSWORD</p><p>CONFIRM PASSWORD</P></td>
+		<tr><td><p>PASSWORD</p><p>CONFIRM PASSWORD</p></td>
 			<td>Specify the HDInsight cluster user password.</td></tr>
 		<tr><td>Enter Hive/Oozie Metastore</td>
 			<td>Specify a SQL database on the same data center to be used as the Hive/Oozie metastore.</td></tr>
@@ -580,8 +580,9 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 8. Add the following using statements to the top of the file:
 
 		using System.Security.Cryptography.X509Certificates;
+		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning.Data;
+
 	
 9. In the Main() function, copy and paste the following code:
 		
@@ -605,23 +606,30 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
         // Create the container if it doesn't exist.
 
-        ClusterProvisioningClient client = new ClusterProvisioningClient(new Guid(subscriptionid), cert);
+		// Create an HDInsightClient object
+        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
+        var client = HDInsightClient.Connect(creds);
 
-        HDInsightClusterCreationDetails clusterInfo = new HDInsightClusterCreationDetails();
-        clusterInfo.Name = clustername;
-        clusterInfo.Location = location;
-        clusterInfo.DefaultStorageAccountName = storageaccountname;
-        clusterInfo.DefaultStorageAccountKey = storageaccountkey;
-        clusterInfo.DefaultStorageContainer = containername;
-        clusterInfo.UserName = username;
-        clusterInfo.Password = password;
-        clusterInfo.ClusterSizeInNodes = clustersize;
+		// Supply th cluster information
+        ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
+        {
+            Name = clustername,
+            Location = location,
+            DefaultStorageAccountName = storageaccountname,
+            DefaultStorageAccountKey = storageaccountkey,
+            DefaultStorageContainer = containername,
+            UserName = username,
+            Password = password,
+            ClusterSizeInNodes = clustersize
+        };
 
+		// Create the cluster
         Console.WriteLine("Creating the HDInsight cluster ...");
 
-        HDInsightCluster cluster = client.CreateCluster(clusterInfo);
+        ClusterDetails cluster = client.CreateCluster(clusterInfo);
 
-        Console.WriteLine("Created cluster: {0}. Press any key to continue.", cluster.ConnectionUrl);
+        Console.WriteLine("Created cluster: {0}.", cluster.ConnectionUrl);
+        Console.WriteLine("Press ENTER to continue.");
         Console.ReadKey();
 
 10. Replace the variables at the beginning of the main() function. 
