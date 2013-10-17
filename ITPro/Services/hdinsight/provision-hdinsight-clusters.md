@@ -40,7 +40,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 	<table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
 		<tr><td>CLUSTER NAME</td>
-			<td><p>Name the cluster. <p>
+			<td><p>Name the cluster. </p>
 				<ul>
 				<li>DNS name must start and end with alpha numeric, may contain dashes.</li>
 				<li>The field must be a string between 3 to 63 characters.</li>
