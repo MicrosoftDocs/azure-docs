@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-java-how-to-use-sendgrid-azure-deployment" urldisplayname="SendGrid on Windows Azure" headerexpose="" pagetitle="How to Send Email Using SendGrid from Java in a Windows Azure Deployment" metakeywords="SendGrid Java Azure Deployment" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1" writer="waltpo" editor="mollybos"></properties>
+<properties linkid="dev-java-how-to-use-sendgrid-azure-deployment" urldisplayname="SendGrid on Windows Azure" headerexpose="" pagetitle="How to Send Email Using SendGrid from Java in a Windows Azure Deployment" metakeywords="SendGrid Java Azure Deployment" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1" writer="waltpo" editor="mollybos"></properties>
 
 
 
@@ -19,7 +19,7 @@ You’ll need to do the following to use the code in this topic:
 3. If you are using Eclipse to create this Java application, you can include the SendGrid libraries in your application deployment file (WAR) using Eclipse’s deployment assembly feature. If you are not using Eclipse to create this Java application, ensure the libraries are included within the same Azure role as your Java application, and added to the class path of your application.
 
 
-You must also have your own SendGrid username and password, to be able to send the email. To get started with SendGrid, evaluate pricing and sign up at <http://sendgrid.com/pricing.html>. Windows Azure customers receive a special offer of 25,000 free emails per month from SendGrid. To sign-up for this offer, or get more information, please visit <http://www.sendgrid.com/azure.html>. For information about additional services provided by SendGrid, see <http://sendgrid.com/solutions>.
+You must also have your own SendGrid username and password, to be able to send the email. To get started with SendGrid, see [How to send email using SendGrid from Java](/en-us/develop/java/how-to-guides/sendgrid-email-service/).
 
 Additionally, familiarity with the information at [Creating a Hello World Application for Windows Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944), or with other techniques for hosting Java applications in Windows Azure if you are not using Eclipse, is highly recommended.
 
