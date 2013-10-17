@@ -102,27 +102,25 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
-<code>
- 
-package org.apache.hadoop.examples;
 
-import java.io.IOException;
-import java.util.StringTokenizer;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
+	package org.apache.hadoop.examples;
+	import java.io.IOException;
+	import java.util.StringTokenizer;
+	import org.apache.hadoop.conf.Configuration;
+	import org.apache.hadoop.fs.Path;
+	import org.apache.hadoop.io.IntWritable;
+	import org.apache.hadoop.io.Text;
+	import org.apache.hadoop.mapreduce.Job;
+	import org.apache.hadoop.mapreduce.Mapper;
+	import org.apache.hadoop.mapreduce.Reducer;
+	import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+	import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+	import org.apache.hadoop.util.GenericOptionsParser;
 
-public class WordCount {
+	public class WordCount {
 
-  public static class TokenizerMapper 
+  	public static class TokenizerMapper 
        extends Mapper<Object, Text, Text, IntWritable>{
     
     private final static IntWritable one = new IntWritable(1);
@@ -134,11 +132,11 @@ public class WordCount {
       while (itr.hasMoreTokens()) {
         word.set(itr.nextToken());
         context.write(word, one);
+      	}
       }
-    }
-  }
+  	}
   
-  public static class IntSumReducer 
+  	public static class IntSumReducer 
        extends Reducer<Text,IntWritable,Text,IntWritable> {
     private IntWritable result = new IntWritable();
 
@@ -151,16 +149,16 @@ public class WordCount {
       }
       result.set(sum);
       context.write(key, result);
-    }
-  }
+      }
+  	}
 
-  public static void main(String[] args) throws Exception {
+  	public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
     String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
     if (otherArgs.length != 2) {
       System.err.println("Usage: wordcount <in> <out>");
       System.exit(2);
-    }
+    	}
     Job job = new Job(conf, "word count");
     job.setJarByClass(WordCount.class);
     job.setMapperClass(TokenizerMapper.class);
@@ -171,10 +169,10 @@ public class WordCount {
     FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
     FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
     System.exit(job.waitForCompletion(true) ? 0 : 1);
-  }
-}
+  	}
+  	}
 
-</code>  
+
 
 <h2><a id="summary"></a>Summary</h2>
 

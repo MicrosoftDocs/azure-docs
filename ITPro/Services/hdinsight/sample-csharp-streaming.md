@@ -67,65 +67,64 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and wc.exe application as the reduce interface to count the number of words that are streamed from a document. Both the mapper and reducer read characters, line by line, from the standard input stream (stdin) and write to the standard output stream (stdout). 
 
 
-<code>
-// The source code for the cat.exe (Mapper). 
+
+	// The source code for the cat.exe (Mapper). 
+	 
+	using System;
+	using System.IO;
+	
+	namespace cat
+	{
+	    class cat
+	    {
+	        static void Main(string[] args)
+	        {
+	            if (args.Length > 0)
+	            {
+	                Console.SetIn(new StreamReader(args[0])); 
+	            }
+	
+	            string line;
+	            while ((line = Console.ReadLine()) != null) 
+	            {
+	                Console.WriteLine(line);
+	            }
+	        }
+	    }
+	}
+
  
-using System;
-using System.IO;
-
-namespace cat
-{
-    class cat
-    {
-        static void Main(string[] args)
-        {
-            if (args.Length > 0)
-            {
-                Console.SetIn(new StreamReader(args[0])); 
-            }
-
-            string line;
-            while ((line = Console.ReadLine()) != null) 
-            {
-                Console.WriteLine(line);
-            }
-        }
-    }
-}
-
-</code>  
 
 The mapper code in the cat.cs file uses a StreamReader object to read the characters of the incoming stream into the console, which in turn writes the stream to the standard output stream with the static Console.Writeline method.
 
-<code>
-// The source code for wc.exe (Reducer) is:
 
-using System;
-using System.IO;
-using System.Linq;
+	// The source code for wc.exe (Reducer) is:
+	
+	using System;
+	using System.IO;
+	using System.Linq;
+	
+	namespace wc
+	{
+	    class wc
+	    {
+	        static void Main(string[] args)
+	        {
+	            string line;
+	            var count = 0;
+	
+	            if (args.Length > 0){
+	                Console.SetIn(new StreamReader(args[0]));
+	            }
+	
+	            while ((line = Console.ReadLine()) != null) {
+	                count += line.Count(cr => (cr == ' ' || cr == '\n'));
+	            }
+	            Console.WriteLine(count);
+	        }
+	    }
+	}
 
-namespace wc
-{
-    class wc
-    {
-        static void Main(string[] args)
-        {
-            string line;
-            var count = 0;
-
-            if (args.Length > 0){
-                Console.SetIn(new StreamReader(args[0]));
-            }
-
-            while ((line = Console.ReadLine()) != null) {
-                count += line.Count(cr => (cr == ' ' || cr == '\n'));
-            }
-            Console.WriteLine(count);
-        }
-    }
-}
-
-</code>
 
 The reducer code in the wc.cs file uses a [StreamReader][streamreader]   object to read characters from the standard input stream that have been output by the cat.exe mapper. As it reads the characters with the [Console.Writeline][console-writeline] method, it counts the words by counting space and end-of-line characters at the end of each word, and then it writes the total to the standard output stream with the [Console.Writeline][console-writeline] method. 
 
