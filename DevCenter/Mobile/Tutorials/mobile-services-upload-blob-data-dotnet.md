@@ -254,7 +254,7 @@ Next, you will update the quickstart app to add image upload functionality by us
 
 The final step is to test the app and validate that uploads succeed.
 		
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+<h2><a name="test"></a><span class="short-header">Test the app</span>Test uploading the images in your app</h2>
 
 1. In Visual Studio, press the F5 key to run the app.
 
