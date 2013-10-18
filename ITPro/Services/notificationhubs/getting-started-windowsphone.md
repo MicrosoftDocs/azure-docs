@@ -80,7 +80,7 @@ You now have the connection strings required to register your Windows Phone 8 ap
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-3. At the following code at the top of **Application_Launching** method in App.xaml.cs:
+3. At the following code at the top of **Application_Launching** method in App.xaml.cs. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example):
 	
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -131,7 +131,7 @@ To send notifications using a .NET app:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In your `Program` class add the following method:
+3. In your `Program` class add the following method. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example):
 
         private static async void SendNotificationAsync()
         {
