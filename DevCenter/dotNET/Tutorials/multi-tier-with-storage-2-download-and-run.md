@@ -75,24 +75,7 @@ In this tutorial you'll learn:
 
 
 
-<h2><a name="setupdevenv"></a><span class="short-header">Set up environment</span>Set up the development environment</h2>
-
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
-
-1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
-[Windows Azure SDK for Visual Studio 2010][]<br/>
-[Windows Azure SDK for Visual Studio 2012][]<br/>
-If you don't have Visual Studio installed yet, it will be installed by the link.
-
-   **Warning:** Depending on how many of the SDK dependencies you already have on your machine, installing the SDK could take a long time, from several minutes to a half hour or more.
-
-2. When you are prompted to run or save vwdorvs11azurepack.exe, click **Run**.
-
-3. In the Web Platform Installer window, click **Install** and proceed with the installation.
-
-   ![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSDKNETVS12Oct2012]<br/>
-
-When the installation is complete, you have everything necessary to start developing.
+<div chunk="../chunks/install-sdk-2012-only.md" />
 
 
 
@@ -674,8 +657,6 @@ For links to additional resources for working with Windows Azure Storage tables,
 [tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 [tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
 [tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
-[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
-[Windows Azure SDK for Visual Studio 2012]:  http://go.microsoft.com/fwlink/?LinkId=254364
 [NewPortal]: http://manage.windowsazure.com
 [managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
 [autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
