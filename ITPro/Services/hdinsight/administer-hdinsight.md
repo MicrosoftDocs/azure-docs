@@ -33,13 +33,15 @@ A Windows Azure storage account located on the same data center is required befo
 
 	The default name for the administrator's account is *admin*. To give the account a different name, you can use the *custom create* option instead of *quick create*.
 
-	When using the quick create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name, you can use the custom create option.
+	When using the quick create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name, you can use the custom create option. Currently, you can only provision HDInsight clusters in the following data centers:
+
+	- East US
+	- West US
+	- North Europe
 
 	<div class="dev-callout"> 
 	<b>Important</b> 
-
-	<p>Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete and create another cluster.</p> 
-
+	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete and create another cluster.</p> 
 	</div>
 
 4. Click the newly created cluster.  It shows the landing page:

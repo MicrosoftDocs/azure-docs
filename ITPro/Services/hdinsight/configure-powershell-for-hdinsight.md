@@ -142,9 +142,10 @@ When managing your cluster and you have multiple subscriptions, it is advisable 
 
 The following is a sample script for selectting Azure subscription:
 
+		$subscriptionName = "<SubscriptionName>"
+
 		# Select Azure subscription
-		$subscriptionname = "<SubscriptionName>"
-		Select-AzureSubscription $subscriptionname
+		Select-AzureSubscription $subscriptionName
 
 		# Show the current subscription name
 		Get-AzureSubscription -Current | %{$_.SubscriptionName}
