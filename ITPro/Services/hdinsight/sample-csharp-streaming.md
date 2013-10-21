@@ -59,7 +59,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 		### Run the C# Streaming MapReduce job.
 		### Wait for the job to complete.
 		### Print output and standard error file of the MapReduce job
-		$streamingWC | Start-AzureHDInsightJob -Subscription $subid -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subid -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+		$streamingWC | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionName -StandardError 
 
 
 <h2><a id="java-code"></a>The C# Code for Hadoop Streaming</h2>
