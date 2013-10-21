@@ -72,7 +72,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 		### Run the TeraGen MapReduce job.
 		### Wait for the job to complete.
 		### Print output and standard error file of the MapReduce job         
-		$teragen | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+		$teragen | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionName -StandardError 
 
 
 **The command for running the TeraSort program**			
@@ -99,7 +99,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 		### Run the TeraSort MapReduce job.
 		### Wait for the job to complete.
 		### Print output and standard error file of the MapReduce job         
-		$terasort | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+		$terasort | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionName -StandardError 
 
 
 **The command for running the TeraValidate program**
@@ -128,7 +128,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 		### Run the TeraSort MapReduce job.
 		### Wait for the job to complete.
 		### Print output and standard error file of the MapReduce job         
-		$teravalidate | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subid -StandardError 
+		$teravalidate | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionName -StandardError 
 
 
 <h2><a id="java-code"></a>The Java Code for the TerraSort MapReduce Program</h2>
