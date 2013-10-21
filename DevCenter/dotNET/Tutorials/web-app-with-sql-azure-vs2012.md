@@ -1,11 +1,14 @@
-﻿<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="Windows Azure hello world tutorial, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop an ASP.NET MVC 4 web application with ASP.NET Membership and a SQL Database back-end and deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaCanonical="http://content-ppe.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
 
 
 
 # Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 April 2013.***
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 15 October 2013.***
 <br/><br/>
+
+<div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/web-site-with-sql-database/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but the newer version is significantly easier to follow.</p></div>
+
 This tutorial shows you how to build a secure ASP.NET MVC 4 web application that enables users to log in with credentials from Facebook, Yahoo, and Google. You will also deploy the application to Windows Azure.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. You can start developing for Windows Azure for free.
@@ -348,7 +351,7 @@ To authenticate users with credentials from some external providers, you must re
 This tutorial does not show all of the steps you must perform to register with these providers. The steps are typically not difficult. To successfully register your site, follow the instructions provided on those sites. To get started with registering your site, see the developer site for:
 
 - [Facebook](http://developers.facebook.com/)
-- [Microsoft](http://manage.dev.live.com/)
+- [Microsoft](http://go.microsoft.com/fwlink/?LinkID=144070)
 - [Twitter](http://dev.twitter.com/)
 
 Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and log in if necessary. Click the **Register as a Developer** button and complete the registration process. Once you complete registration, click **Create New App**. Enter a name for the app. You don't need to enter an app namespace.
