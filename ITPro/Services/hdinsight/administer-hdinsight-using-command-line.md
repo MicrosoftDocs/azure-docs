@@ -103,7 +103,14 @@ After you have imported the publishsettings file, you can use the following comm
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be collocated in the same data center.</p> 
+<p>The storage account must be collocated in the same data center.Currently, you can only provision HDInsight clusters in the following data centers:<p>
+
+<ul>
+<li>East US</li>
+<li>West US</li>
+<li>North Europe</li>
+</ul>
+
 </div>
 
 For information on creating a Windows Azure storage account using Windows Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].

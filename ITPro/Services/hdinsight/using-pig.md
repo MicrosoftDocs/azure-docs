@@ -203,12 +203,13 @@ This article provides the instructions for using PowerShell cmdlets. Before you 
 1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 2. Set the variable in the following script, and run it:
 
-		### Provide the HDInsight cluster name
+		# Provide the HDInsight cluster name
+		$subscriptionName = "<SubscriptionName>"
 		$clusterName = "<HDInsightClusterName>" 
 
 3. Run the following script to define the Pig Latin query string:
 
-		### Create the Pig job definition
+		# Create the Pig job definition
 		$0 = '$0';
 		$QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
 		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
@@ -218,22 +219,21 @@ This article provides the instructions for using PowerShell cmdlets. Before you 
 		                "RESULT = order FREQUENCIES by COUNT desc;" +
 		                "DUMP RESULT;" 
 		
-		$pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $QueryString -JobName "PigJob-log4j"
+		$pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $QueryString 
 
 4. Run the folloing script to submit the Pig job:
 		
-		### Submit the Pig job
-		$creds = Get-Credential 
-		$pigJob = Start-AzureHDInsightJob -Credentials $creds -Cluster $clusterName -JobDefinition $pigJobDefinition 
+		# Submit the Pig job
+		$pigJob = Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName -JobDefinition $pigJobDefinition 
 
 5. Run the following script to wait for the Pig job to complete:		
 
-		### Wait for the Pig job to complete
-		$pigJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600
+		# Wait for the Pig job to complete
+		$Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $pigJob -WaitTimeoutInSeconds 3600
 
 6. Run the following script to print the Pig job output:
 		
-		### Print the standard error and the standard output of the Pig job.
+		# Print the standard error and the standard output of the Pig job.
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionname -JobId $pigJob.JobId -StandardOutput
 
 	![HDI.Pig.PowerShell][image-hdi-pig-powershell]

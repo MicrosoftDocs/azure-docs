@@ -31,8 +31,8 @@ Hadoop MapReduce is a software framework for writing applications which process 
 
 3. Set these two variables by running the following PowerShell commands:
 		
-		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
-		$clusterName = "<ClusterName>"             ### HDInsight cluster name
+		$subscriptionName = "<SubscriptionName>"   
+		$clusterName = "<HDInsightClusterName>"    
 
 	The subscription is the one you used to create the HDInsight cluster. And the HDInsight cluster is the one you want to use to run the MapReduce job.
 	
@@ -50,9 +50,15 @@ Hadoop MapReduce is a software framework for writing applications which process 
 
 	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job. 
 
+7. Run the following command to check the completion of the MapReduce job:
+
+		# Wait for the job to complete
+		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $wordCountJob -WaitTimeoutInSeconds 3600 
+		
+
 8. Run the following command to check any errors with running the MapReduce job:	
 
-		# Get the job output
+		# Get the job standard error output
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError 
 					
 	The following screenshot shows the output of a successful run. Otherwise, you will see some error messages.
@@ -65,19 +71,16 @@ Hadoop MapReduce is a software framework for writing applications which process 
 1. Open **Windows Azure PowerShell**.
 2. Set these three variables by running teh following PowerShell commands:
 
-		$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
-		
-		$storageAccountName = "<StorageAccountName>"   ### Windows Azure storage account name
-		$containerName = "<ContainerName>"			   ### Blob storage container name
+		$subscriptionName = "<SubscriptionName>"       
+		$storageAccountName = "<StorageAccountName>"
+		$containerName = "<ContainerName>"			
 
 		The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
 3. Run the following commands to create a Windows Azure storage context object:
-		
-		# Select the current subscription
-		Select-AzureSubscription $subscriptionName
 
 		# Create the storage account context object
+		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
 
@@ -86,9 +89,9 @@ Hadoop MapReduce is a software framework for writing applications which process 
 4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
 
 		# Get the blob content
-		Get-AzureStorageBlobContent -Container $ContainerName -Blob /example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be download to the same folder structure on the local folder. For example, in the following sreenshoot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder.
+	The *example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be download to the same folder structure on the local folder. For example, in the following sreenshoot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder.
 
 5. Run the following command to print the MapReduce job output file:
 
@@ -251,9 +254,8 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 2. Set the first two variables in the following commands, and then run the commands:
 		
-		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
-		$clusterName = "<ClusterName>"             ### HDInsight cluster name
-
+		$subscriptionName = "<SubscriptionName>"   
+		$clusterName = "<HDInsightClusterName>"             
 		$querystring = "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
 	The $querystring is the HiveQL query.
