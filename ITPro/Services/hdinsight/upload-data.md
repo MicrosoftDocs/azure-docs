@@ -37,7 +37,6 @@ Windows Azure PowerShell is a powerful scripting environment that you can use to
 1. Run Windows Azure PowerShell console window as instructed in [How to install and configure Windows Azure PowerShell][powershell-install-configure].
 2. Set the values of the first five variables in the following script:
 
-		# Set the variables.
 		$subscriptionName = "<WindowsAzureSubscriptionName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
@@ -181,7 +180,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 8. Enter your credentials, and then click **OK**.
 9. Click **Yes**.
 10. From the desktop, click **Hadoop Command Line**.
-12. The following sample demonstrates how to copy the davinci.txt file from the C:\temp\ directory to the /example/data directory.
+12. The following sample demonstrates how to copy the davinci.txt file from the local file system on the HDInsight head node to the /example/data directory.
 
 		hadoop dfs -copyFromLocal C:\temp\davinci.txt /example/data/davinci.txt
 
@@ -244,13 +243,14 @@ Data stored in Windows Azure Blob Storage can be accessed directly by prefixing 
 
 The following is a sample PowerShell script for submitting a MapReduce job:
 
+	$subscriptionName = "<SubscriptionName>"   
+	$clusterName = "<HDInsightClusterName>" 
+
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
-	$wordCountJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt") 
-	$wordCountJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput") 
+	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clustername  | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionname -JobId $_.JobId -StandardError}
+	$wordCountJobDefinition | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName  | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $_.JobId -StandardError}
 
 For more information on accessing the files stored in Windows Azure Blob storage, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 

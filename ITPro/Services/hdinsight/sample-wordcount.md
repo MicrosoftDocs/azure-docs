@@ -37,32 +37,26 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 		
 		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
 		$clusterName = "<ClusterName>"             ### HDInsight cluster name
-
-4. Run the following command.  It will prompt you to enter the HDInsight user credentials:
-
-		$creds = Get-Credential 
 		
 5. Run the following commands to create a MapReduce job definition:
 
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
-		$wordCountJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt") 
-		$wordCountJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput") 
+		### Define the MapReduce job
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
 	The hadoop-examples.jar file comes with the HDInsight cluster distribution. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster distribution, and the output file path will be created at the run-time.
 
-6. Run the following command to run the MapReduce job:
+6. Run the following command to submit the MapReduce job:
 
-		$wordCountJob = $wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clusterName  
+		### Submit the job
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName  -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
 
 	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job, and the credentials. The Start-AzureHDInsightJob is an asynchronized call.
 
-7. Run the following command to check the completion of the MapReduce job:
-
-		$wordCountJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600  
 
 8. Run the following command to check any errors with running the MapReduce job:	
 	
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountjob.JobId -StandardError
+		# Get the job output
+		#Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError 
 		
 **To retrieve the results of the MapReduce job**
 
@@ -89,9 +83,10 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
 
+		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob /example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be downloaded to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder.
+	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be downloaded to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder. 
 
 5. Run the following command to print the MapReduce job output file:
 
@@ -102,27 +97,25 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
-<code>
- 
-package org.apache.hadoop.examples;
 
-import java.io.IOException;
-import java.util.StringTokenizer;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
+	package org.apache.hadoop.examples;
+	import java.io.IOException;
+	import java.util.StringTokenizer;
+	import org.apache.hadoop.conf.Configuration;
+	import org.apache.hadoop.fs.Path;
+	import org.apache.hadoop.io.IntWritable;
+	import org.apache.hadoop.io.Text;
+	import org.apache.hadoop.mapreduce.Job;
+	import org.apache.hadoop.mapreduce.Mapper;
+	import org.apache.hadoop.mapreduce.Reducer;
+	import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+	import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+	import org.apache.hadoop.util.GenericOptionsParser;
 
-public class WordCount {
+	public class WordCount {
 
-  public static class TokenizerMapper 
+  	public static class TokenizerMapper 
        extends Mapper<Object, Text, Text, IntWritable>{
     
     private final static IntWritable one = new IntWritable(1);
@@ -134,11 +127,11 @@ public class WordCount {
       while (itr.hasMoreTokens()) {
         word.set(itr.nextToken());
         context.write(word, one);
+      	}
       }
-    }
-  }
+  	}
   
-  public static class IntSumReducer 
+  	public static class IntSumReducer 
        extends Reducer<Text,IntWritable,Text,IntWritable> {
     private IntWritable result = new IntWritable();
 
@@ -151,16 +144,16 @@ public class WordCount {
       }
       result.set(sum);
       context.write(key, result);
-    }
-  }
+      }
+  	}
 
-  public static void main(String[] args) throws Exception {
+  	public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
     String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
     if (otherArgs.length != 2) {
       System.err.println("Usage: wordcount <in> <out>");
       System.exit(2);
-    }
+    	}
     Job job = new Job(conf, "word count");
     job.setJarByClass(WordCount.class);
     job.setMapperClass(TokenizerMapper.class);
@@ -171,10 +164,10 @@ public class WordCount {
     FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
     FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
     System.exit(job.waitForCompletion(true) ? 0 : 1);
-  }
-}
+  	}
+  	}
 
-</code>  
+
 
 <h2><a id="summary"></a>Summary</h2>
 
@@ -200,10 +193,10 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 
 
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[10gb-graysort]: /en-us/manage/services/hdinsight/sample-10gb-graysort/
-[pi-estimator]: /en-us/manage/services/hdinsight/sample-pi-estimator/
-[cs-streaming]: /en-us/manage/services/hdinsight/sample-csharp-streaming/
-[scoop]: /en-us/manage/services/hdinsight/sample-sqoop-import-export/
+[10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
+[pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
+[cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
+[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
 [mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
