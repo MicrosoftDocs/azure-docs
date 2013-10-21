@@ -1,10 +1,12 @@
-<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure" pageTitle="Get started with Windows Azure for .NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
+<properties linkid="develop-net-tutorials-get-started" urlDisplayName="Get started with Windows Azure and ASP.NET" pageTitle="Get started with Windows Azure and ASP.NET" metaKeywords="" metaDescription="This tutorial shows you how to deploy an ASP.NET web site to Windows Azure. In less than 15 minutes you'll have an app up-and-running in the cloud." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
 
 
 
 
-# Deploying an ASP.NET Web Application to a Windows Azure Web Site
+# Get started with Windows Azure and ASP.NET
+
+<div class="dev-callout"><strong>Note</strong><p>A <a href="/en-us/develop/net/tutorials/get-started/">newer version of this tutorial</a> is available. You can still follow this version if you want to use Visual Studio 2012, but it does not show all of the latest Windows Azure SDK features.</p></div>
 
 This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express. If you prefer, you can follow the tutorial steps by using Visual Studio 2010 or Visual Web Developer Express 2010.
 
@@ -21,7 +23,7 @@ The following illustration shows the completed application:
 
 ![Web site example][DeployedWebSite]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><p><strong>Note</strong> To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.</p></div>
  
 ### Tutorial segments
 
@@ -31,20 +33,7 @@ The following illustration shows the completed application:
 4. [Deploy the application to Windows Azure][]
 5. [Next steps][]
 
-<h2><a name="setupdevenv"></a><span class="short-header">Set up environment</span>Set up the development environment</h2>
-
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework.
-
-1. To install the Windows Azure SDK for .NET, click the link that corresponds to the version of Visual Studio you are using. If you don't have Visual Studio installed yet, use the Visual Studio 2012 link.<br/>
-[Windows Azure SDK for Visual Studio 2012][]<br/>
-[Windows Azure SDK for Visual Studio 2010][]
-
-2. When you are prompted to run or save the installation executable, click **Run**.<br/>
-3. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
-![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
-4. If you are using Visual Studio 2010 or Visual Web Developer 2010 Express, install [MVC 4][MVC4Install].
-
-When the installation is complete, you have everything necessary to start developing.
+<div chunk="../chunks/install-sdk-2012-only.md" />
 
 <h2><a name="setupwindowsazure"></a><span class="short-header">Create site</span>Create a web site</h2>
 
@@ -180,8 +169,6 @@ In some scenarios you might want to run your application in a Windows Azure Clou
 [Create an ASP.NET MVC 4 application]: #createmvc4app
 [Deploy the application to Windows Azure]: #deploytowindowsazure
 [Next steps]: #nextsteps
-[Windows Azure SDK for Visual Studio 2012]:  http://go.microsoft.com/fwlink/?LinkId=254364
-[Windows Azure SDK for Visual Studio 2010]: http://go.microsoft.com/fwlink/?LinkID=254269
 [PreviewPortal]: http://manage.windowsazure.com
 [MVC4Install]: http://www.asp.net/mvc/mvc4
 [windowsazure.com]: http://www.windowsazure.com
