@@ -57,10 +57,10 @@ From this article and the articles on each of the samples, you learned how to ru
 [mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[pi-estimator]: /en-us/manage/services/hdinsight/sample-pi-estimator/
-[10gb-graysort]: /en-us/manage/services/hdinsight/sample-10gb-graysort/
-[wordcount]: /en-us/manage/services/hdinsight/sample-wordcount/
-[cs-streaming]: /en-us/manage/services/hdinsight/sample-csharp-streaming/
-[scoop]: /en-us/manage/services/hdinsight/sample-sqoop-import-export/
+[pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
+[10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
+[wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
+[cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
+[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
 [submit-jobs-programmatically]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-resources]: /en-us/manage/services/hdinsight/introduction-hdinsight/

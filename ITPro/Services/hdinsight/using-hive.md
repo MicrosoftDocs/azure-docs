@@ -11,6 +11,7 @@
 Note the following requirements before you begin this article:
 
 * A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 
@@ -111,26 +112,26 @@ There are two options to run Hive queries:
 1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 2. Set the variables in the following script and run it:
 
-		### Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
-		$subscriptionname = "<SubscriptionName>"
-		$storageaccountname = "<AzureStorageAccountName>"
-		$containername = "<AzureStorageContainerName>"
+		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
+		$subscriptionName = "<SubscriptionName>"
+		$storageAccountName = "<AzureStorageAccountName>"
+		$containerName = "<AzureStorageContainerName>"
 		
-		### Provide HDInsight cluster name Where you want to run the Hive job
-		$clustername = "<HDInsightClusterName>"
+		# Provide HDInsight cluster name Where you want to run the Hive job
+		$clusterName = "<HDInsightClusterName>"
 
 3. Run the following script to define the HiveQL queries:
 
-		### HiveQL queries
-		### Use the internal table option. 
-		$querystring = "DROP TABLE log4jLogs;" +
+		# HiveQL queries
+		# Use the internal table option. 
+		$queryString = "DROP TABLE log4jLogs;" +
 		               "CREATE TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ';" +
-		               "LOAD DATA INPATH 'wasb://$containername@$storageaccountname.blob.core.windows.net/example/data/log4j/sample.log' OVERWRITE INTO TABLE log4jLogs;" +
+		               "LOAD DATA INPATH 'wasb://$containerName@$storageAccountName.blob.core.windows.net/example/data/sample.log' OVERWRITE INTO TABLE log4jLogs;" +
 		               "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
 		
-		### Use the external table option. 
-		$querystring = "DROP TABLE log4jLogs;" +
-		                "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb://$containername@$storageaccountname.blob.core.windows.net/example/data/log4j/';" +
+		# Use the external table option. 
+		$queryString = "DROP TABLE log4jLogs;" +
+		                "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb://$containerName@$storageAccountName.blob.core.windows.net/example/data/';" +
 				        "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
 
 	The LOAD DATA HiveQL command will result in moving the data file to the \hive\warehouse\ folder.  The DROP TABLE command will delete the table and the data file.  If you use the internal table option and want to run the script again, you must upload the sample.log file again. If you want to keep the data file, you must use the CREATE EXTERNAL TABLE command as shown in the script.
@@ -140,26 +141,23 @@ There are two options to run Hive queries:
 	Use the DROP TABLE first in case you run the script again and the log4jlogs table already exists.
 
 4. Run the following script to create an Hive job definition:
-
-		### Provide HDInsight user name and password for running the Hive job.
-		$creds = Get-Credential 
 		
-		### Create a Hive job definition 
-		$HiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $querystring -JobName "HiveJob-log4j"
+		# Create a Hive job definition 
+		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
 		
 5. Run the following script to submit the Hive job:
 
-		### Submit the job to the cluster 
-		$HiveJob = Start-AzureHDInsightJob -Credentials $creds -Cluster $clustername -JobDefinition $HiveJobDefinition
+		# Submit the job to the cluster 
+		$hiveJob = Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName -JobDefinition $hiveJobDefinition
 		
 6. Run the following script to wait for the Hive job to complete:
 
-		### Wait for the Hive job to complete
-		$HiveJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600
+		# Wait for the Hive job to complete
+		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $hiveJob -WaitTimeoutInSeconds 3600
 		
 7. Run the following script to print the standard output:
-		### Print the standard error and the standard output of the Hive job.
-		Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionname -JobId $HiveJob.JobId -StandardOutput
+		# Print the standard error and the standard output of the Hive job.
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $hiveJob.JobId -StandardOutput
 
 
  	![HDI.HIVE.PowerShell][image-hdi-hive-powershell]
@@ -175,7 +173,7 @@ There are two options to run Hive queries:
 
 		$subscriptionName = "<SubscriptionName>"
 		$clusterName = "<HDInsightClusterName>"
-		$queryString = "show tables;"  ### This query lists the existing Hive tables
+		$queryString = "show tables;"  # This query lists the existing Hive tables
 
 3. Run the following script to invoke HiveQL queries:
 

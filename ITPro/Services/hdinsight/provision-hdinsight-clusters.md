@@ -40,7 +40,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 	<table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
 		<tr><td>CLUSTER NAME</td>
-			<td><p>Name the cluster. </p>
+			<td><p>Name the cluster. <p>
 				<ul>
 				<li>DNS name must start and end with alpha numeric, may contain dashes.</li>
 				<li>The field must be a string between 3 to 63 characters.</li>
@@ -63,7 +63,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><th>Property</th><th>Value</th></tr>
 		<tr><td>USER NAME</td>
 			<td>Specify the HDInsight cluster user name.</td></tr>
-		<tr><td><p>PASSWORD</p><p>CONFIRM PASSWORD</P></td>
+		<tr><td><p>PASSWORD</p><p>CONFIRM PASSWORD</p></td>
 			<td>Specify the HDInsight cluster user password.</td></tr>
 		<tr><td>Enter Hive/Oozie Metastore</td>
 			<td>Specify a SQL database on the same data center to be used as the Hive/Oozie metastore.</td></tr>
@@ -114,10 +114,10 @@ This session describes the procedure for creating an HDInsight cluster using the
 
 It can take several minutes to provision a cluster.  When the provision process is completed successfully, the status column for the cluster will show **Running**.
 
-	<div class="dev-callout"> 
-	<b>Important</b> 
-	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p> 
-	</div>
+<div class="dev-callout"> 
+<b>Important</b> 
+<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p> 
+</div>
 
 
 
@@ -180,12 +180,11 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 
 - Run the following commands from a Windows Azure PowerShell console window:
 
-		# Set the variables
-		$storageaccountname = "<StorageAcccountName>"
+		$storageAccountName = "<StorageAcccountName>"
 		$location = "<MicrosoftDataCenter>"		# For example, "West US"
 
 		# Create a Azure storage account
-		New-AzureStorageAccount -StorageAccountName $storageaccountname -Location $location
+		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 	
 	If you have already had a storage account but do not know the account name and account key, you can use the following PowerShell commands to retrieve the information:
 	
@@ -199,17 +198,16 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 
 - Run the following commands from a Windows Azure PowerShell window:
 
-		# Set the variables.		
-		$storageaccountname = "<StorageAccountName>"
-		$storageaccountkey = "<StorageAccountKey>"
-		$containername="<ContainerName>"
+		$storageAccountName = "<StorageAccountName>"
+		$storageAccountKey = "<StorageAccountKey>"
+		$containerName="<ContainerName>"
 
 		# Create a storage context object
-		$destContext = New-AzureStorageContext –StorageAccountName $storageaccountname 
-		                                       –StorageAccountKey $storageaccountkey  
+		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName 
+		                                       –StorageAccountKey $storageAccountKey  
 		 
 		# Create a Blob storage container
-		New-AzureStorageContainer -Name $containername -Context $destContext
+		New-AzureStorageContainer -Name $containerName -Context $destContext
 
 Once you have the storage account and the blob container prepared, you are ready to create a cluster. 
 
@@ -217,21 +215,20 @@ Once you have the storage account and the blob container prepared, you are ready
 
 - Run the following commands from a Windows Azure PowerShell window:		
 
-		# Set the variables.
-		$subscriptionname = "<SubscriptionName>"		# The name of the Windows Azure subscription
-		$clustername = "<ClusterName>"					# The name you will name your HDInsight cluster
+		$subscriptionName = "<SubscriptionName>"		# The name of the Windows Azure subscription
+		$storageAccountName = "<StorageAccountName>"	# The Windows Azure storage account that hosts the default container. The default container will be used as the default file system.
+		$containerName = "<ContainerName>"				# The Windows Azure Blob storage container that will be used as the default file system for the HDInsight cluster.
+
+		$clusterName = "<HDInsightClusterName>"					# The name you will name your HDInsight cluster
 		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account
-		$storageaccountname = "<StorageAccountName>"	# The Windows Azure storage account that hosts the default container. The default container will be used as the default file system.
-		$containername = "<ContainerName>"				# The Windows Azure Blob storage container that will be used as the default file system for the HDInsight cluster.
-		$clusternodes = <ClusterSizeInNodes>			# The number of node in the HDInsight cluster.
+		$clusterNodes = <ClusterSizeInNodes>			# The number of node in the HDInsight cluster.
 
 		# Get the storage primary key based on the account name
-		Select-AzureSubscription $subscriptionname
-		$storageaccountkey = Get-AzureStorageKey $storageaccountname | %{ $_.Primary }
+		Select-AzureSubscription $subscriptionName
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
 		# Create a new HDInsight cluster
-		$creds = Get-Credential
-		New-AzureHDInsightCluster -Subscription $subscriptionname -Credential $creds -Name $clustername -Location $location -DefaultStorageAccountName "$storageaccountname.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containername  -ClusterSizeInNodes $clusternodes
+		New-AzureHDInsightCluster -Subscription $subscriptionName -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
 	It can take several minutes before the cluster provision completes.
 
@@ -580,8 +577,9 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 8. Add the following using statements to the top of the file:
 
 		using System.Security.Cryptography.X509Certificates;
+		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning.Data;
+
 	
 9. In the Main() function, copy and paste the following code:
 		
@@ -605,23 +603,30 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
         // Create the container if it doesn't exist.
 
-        ClusterProvisioningClient client = new ClusterProvisioningClient(new Guid(subscriptionid), cert);
+		// Create an HDInsightClient object
+        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
+        var client = HDInsightClient.Connect(creds);
 
-        HDInsightClusterCreationDetails clusterInfo = new HDInsightClusterCreationDetails();
-        clusterInfo.Name = clustername;
-        clusterInfo.Location = location;
-        clusterInfo.DefaultStorageAccountName = storageaccountname;
-        clusterInfo.DefaultStorageAccountKey = storageaccountkey;
-        clusterInfo.DefaultStorageContainer = containername;
-        clusterInfo.UserName = username;
-        clusterInfo.Password = password;
-        clusterInfo.ClusterSizeInNodes = clustersize;
+		// Supply th cluster information
+        ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
+        {
+            Name = clustername,
+            Location = location,
+            DefaultStorageAccountName = storageaccountname,
+            DefaultStorageAccountKey = storageaccountkey,
+            DefaultStorageContainer = containername,
+            UserName = username,
+            Password = password,
+            ClusterSizeInNodes = clustersize
+        };
 
+		// Create the cluster
         Console.WriteLine("Creating the HDInsight cluster ...");
 
-        HDInsightCluster cluster = client.CreateCluster(clusterInfo);
+        ClusterDetails cluster = client.CreateCluster(clusterInfo);
 
-        Console.WriteLine("Created cluster: {0}. Press any key to continue.", cluster.ConnectionUrl);
+        Console.WriteLine("Created cluster: {0}.", cluster.ConnectionUrl);
+        Console.WriteLine("Press ENTER to continue.");
         Console.ReadKey();
 
 10. Replace the variables at the beginning of the main() function. 
