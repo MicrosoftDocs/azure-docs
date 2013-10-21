@@ -176,7 +176,7 @@ refers to the file log1.txt in the directory input on the Blob storage container
 	
 	wasbs://myaccount.blob.core.windows.net/result.txt
 	
-refers to the file result.txt on the read-only ASV file system in the root container at the location myaccount.blob.core.windows.net that gets accessed through SSL. Note that asv://myaccount.blob.core.windows.net/output/result.txt will result in an exception, because Blob storage does not allow / inside path names in the root container to avoid ambiguities between paths and folder names. 
+refers to the file result.txt on the read-only WASB file system in the root container at the location myaccount.blob.core.windows.net that gets accessed through SSL. Note that wasb://myaccount.blob.core.windows.net/output/result.txt will result in an exception, because Blob storage does not allow / inside path names in the root container to avoid ambiguities between paths and folder names. 
 	
 	wasb:///output/result.txt 
 	
@@ -222,12 +222,13 @@ In this article, you learned how to use Blob storage with HDInsight and that Blo
 
 Now you understand how to use Windows Azure Blob storage. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Using MapReduce with HDInsight][hdinsight-mapreduce]
 * [Using Hive with HDInsight][hdinsight-hive]
 * [Using Pig with HDInsight][hdinsight-pig]
 
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/

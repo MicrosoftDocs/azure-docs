@@ -35,16 +35,17 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 After you have imported the publishsettings file, you can use the following command to create a storage account:
 
 	# Create a Azure storage account
-	$storageaccountname = "<StorageAcccountName>"
+	$storageAccountName = "<StorageAcccountName>"
 	$location = "<Microsoft data center>"           # For example, "West US"
 
-	New-AzureStorageAccount -StorageAccountName $storageaccountname -Location $location
+	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
+<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:<p>
 
 <ul>
+<li>East US</li>
 <li>West US</li>
 <li>North Europe</li>
 </ul>
@@ -65,33 +66,35 @@ For details on getting the information using the management portal, see the *How
 
 PowerShell can not create a Blob container during the HDInsight provision process. You can create one using the following script:
 
-	# Create a Blob storage container
-	$storageaccountname = "<StorageAccountName>"
-	$storageaccountkey = "<StorageAccountKey>"
-	$containername="<ContainerName>"
+	$storageAccountName = "<StorageAccountName>"
+	$storageAccountKey = "<StorageAccountKey>"
+	$containerName="<ContainerName>"
 
-	$destContext = New-AzureStorageContext –StorageAccountName $storageaccountname 
-	                                       –StorageAccountKey $storageaccountkey  
-	 
-	New-AzureStorageContainer -Name $containername -Context $destContext
+	# Create a storage context object
+	$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName 
+	                                       –StorageAccountKey $storageAccountKey  
+	
+	# Create a Blob storage container
+	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 **To provision a cluster**
 
 Once you have the storage account and the blob container prepared, you are ready to create a cluster. In this version you need to explicitly specify subscription information and certificate for cmdlets.   
 		
 	$subscriptionName = "<SubscriptionName>"
-	$clusterName = "<ClusterName>"
-	$location = "<MicrosoftDataCenter>"
 	$storageAccountName = "<StorageAccountName>"
 	$containerName = "<ContainerName>"
+
+	$clusterName = "<HDInsightClusterName>"
+	$location = "<MicrosoftDataCenter>"
 	$clusterNodes = <ClusterSizeInNodes>
 
 	# Get the storage account key
-	Select-AzureSubscription $subscriptionname
-	$storageaccountkey = Get-AzureStorageKey $storageaccountname | %{ $_.Primary }
+	Select-AzureSubscription $subscriptionName
+	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
 	# Create a new HDInsight cluster
-	New-AzureHDInsightCluster -Subscription $subscriptionName -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageaccountkey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+	New-AzureHDInsightCluster -Subscription $subscriptionName -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
 
 The following screenshot shows the script execution:
@@ -125,14 +128,14 @@ The HDInsight cluster distribution comes with some MapReduce samples. One of the
 
 The following PowerShell script submits the word count sample job: 
 	
-	$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
-	$clusterName = "<ClusterName>"             ### HDInsight cluster name
+	$subscriptionName = "<SubscriptionName>"   
+	$clusterName = "<HDInsightClusterName>"            
 	
 	# Define the MapReduce job
 	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clustername -Subscription $subscriptionName | %{ Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionname -JobId $_.JobId -StandardError}
+	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $_.JobId -StandardError}
 	
 For information about the WASB prefix, see [Using Windows Azure Blob storage for HDInsight][hdinsight-storage].
 
@@ -140,19 +143,17 @@ For information about the WASB prefix, see [Using Windows Azure Blob storage for
 
 The following PowerShell script retrieves the MapReduce job output from the last procedure:
 
-	$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
-	$storageAccountName = "<StorageAccountName>"   ### Windows Azure storage account name
-	$containerName = "<ContainerName>"             ### Blob storage container name
-	
-	# Select the current subscription
-	Select-AzureSubscription $subscriptionName
-	
+	$subscriptionName = "<SubscriptionName>"       
+	$storageAccountName = "<StorageAccountName>"   
+	$containerName = "<ContainerName>"             
+		
 	# Create the storage account context object
+	Select-AzureSubscription $subscriptionName
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 	$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
 	
 	# Download the output to local computer
-	Get-AzureStorageBlobContent -Container $ContainerName -Blob /example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+	Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 	
 	# Display the output
 	cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
@@ -203,9 +204,8 @@ The HDInsight cluster distribution comes with a sample Hive table called *hivesa
 
 The following script submit a hive job to list the Hive tables:
 	
-	# Set the variables
-	$subscriptionname = "<SubscriptionName>"     #Windows Azure subscription name
-	$clustername = "<ClusterName>"               #Windows Azure HDInsight Service cluster name
+	$subscriptionName = "<SubscriptionName>"     
+	$clusterName = "<HDInsightClusterName>"               
 	
 	# HiveQL query
 	$querystring = "show tables;SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
