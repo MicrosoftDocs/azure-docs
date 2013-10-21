@@ -434,10 +434,10 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 
 [run-samples]: /en-us/manage/services/hdinsight/get-started-hdinsight/run-samples
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[10gb-graysort]: /en-us/manage/services/hdinsight/sample-10gb-graysort/
-[wordcount]: /en-us/manage/services/hdinsight/sample-wordcount/
-[cs-streaming]: /en-us/manage/services/hdinsight/sample-csharp-streaming/
-[scoop]: /en-us/manage/services/hdinsight/sample-sqoop-import-export/
+[10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
+[wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
+[cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
+[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
 [mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
