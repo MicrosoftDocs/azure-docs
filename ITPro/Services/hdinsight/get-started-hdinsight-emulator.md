@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Getting Started" pageTitle="Getting Started with HDInsight - Windows Azure tutorial" metaKeywords="hdinsight, hdinsight service, hdinsight azure, getting started hdinsight" metaDescription="Learn how to use the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Getting Started" pageTitle="Getting Started with HDInsight - Windows Azure tutorial" metaKeywords="hdinsight, hdinsight service, hdinsight azure, getting started hdinsight" metaDescription="Learn how to use the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
 
 
 
@@ -29,23 +29,25 @@ In this tutorial you will learn how to:
 
 ##<a name="launch"></a>Launch the Microsoft Web Installer 4.5
 
-1. Go to the Microsoft Web Platform Installer 4.5 [download page](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Open Internet Explorer, and then browse to [Microsoft Web Platform Installer 4.6](http://www.microsoft.com/web/downloads/platform.aspx).
 
 	![WebPlatformInstaller](../media/HDI.OneBox.MWPInstaller45.PNG "Web Platform Installer")
 
-2. Click the **Free Download** button on this page. Click the **Run** button when prompted for the installation of wpilauncher.exe at the bottom of the page. 
+2. Click **Free Download**. 
+3. Click **Run** when prompted for the installation of wpilauncher.exe at the bottom of the page. 
 
 3. Click the **Yes** button in the **User Account Control** window that pops up to complete the installation. This installation will update any earlier version you might have used previously with the latest version of the installer, if that is necessary, automatically. The Web Platform Installer 4.5 will also open automatically.
 
 ##<a name="install"></a>Install the HDInsight Server Developer Preview
 
-1. Type *HDInsight* in the upper right hand search box and hit enter to find the Microsoft HDInsight for Developer Preview item to install.
+1. In the Search box, type *HDInsight*, and then press **ENTER** to find the Microsoft HDInsight for Developer Preview item to install.
 
 	![WebPlatformInstallerSearch](../media/HDI.OneBox.WPISearch.PNG "Web Platform Installer Search")
 
-2. Click the **Add** button to select the *Microsoft HDInsight Developer Preview* to install and then click the **Install** button.
+2. Select Microsoft HDInsight Developer Preview, and then click **Add**.
+3. Click **Install** on the bottom of the page.
 
-3. Click the **I Accept** button to agree to the licensing terms for Microsoft and Hortonworks and the installation will begin. Note that the Web Platform Installer will also install any dependencies that are required by HDInsight. 
+3. Click **I Accept** to agree to the licensing terms for Microsoft and Hortonworks and the installation will begin. Note that the Web Platform Installer will also install any dependencies that are required by HDInsight. 
 
 	![OneBoxLicense](../media/HDI.OneBox.InstallLicense.PNG "OneBox License")
 

@@ -1,8 +1,6 @@
 <properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Use MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-
 # Use MapReduce with HDInsight#
-
  
 This sample topic shows how to run a MapReduce program that counts word occurences in a text with the Windows Azure HDinsight service using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by the HDinsight service. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
@@ -15,7 +13,6 @@ The JAR file that contains the files needed by the Windows Azure HDInsight servi
 		
 * How to use Windows Azure PowerShell to run a MapReduce program on the Windows Azure HDInsight service that analyzes data contained in a file.
 * How MapReduce programs are written in Java.
-
 
 **Prerequisites**	
 You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
@@ -66,89 +63,89 @@ Parameter0 is just the name of the program, *wordcount*. Parameter1 specifies, r
 		### Print the standard error file of the MapReduce job
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountjob.JobId -StandardError
 		
+
 3. Set the values for the two variable at the begining of the script: $subscriptionname, $clustername.
 4. Open Windows Azure PowerShell.
 5. Copy and paste the modified code into the Windows Azure PowerShell window, and then press **ENTER**. The following screenshot shows the end of the output:
 
 	![HDI.Sample.PiEstimator.RunMRJob][image-hdi-sample-piestimator-runmrjob]
  
+
 TBD: Debug script, add the above screenshot, and add instructions on how to get the result.
 
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
-<code>
  
-package org.apache.hadoop.examples;
-
-import java.io.IOException;
-import java.util.StringTokenizer;
-
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
-
-public class WordCount {
-
-  public static class TokenizerMapper 
-       extends Mapper<Object, Text, Text, IntWritable>{
-    
-    private final static IntWritable one = new IntWritable(1);
-    private Text word = new Text();
-      
-    public void map(Object key, Text value, Context context
-                    ) throws IOException, InterruptedException {
-      StringTokenizer itr = new StringTokenizer(value.toString());
-      while (itr.hasMoreTokens()) {
-        word.set(itr.nextToken());
-        context.write(word, one);
-      }
-    }
-  }
-  
-  public static class IntSumReducer 
-       extends Reducer<Text,IntWritable,Text,IntWritable> {
-    private IntWritable result = new IntWritable();
-
-    public void reduce(Text key, Iterable<IntWritable> values, 
-                       Context context
-                       ) throws IOException, InterruptedException {
-      int sum = 0;
-      for (IntWritable val : values) {
-        sum += val.get();
-      }
-      result.set(sum);
-      context.write(key, result);
-    }
-  }
-
-  public static void main(String[] args) throws Exception {
-    Configuration conf = new Configuration();
-    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-    if (otherArgs.length != 2) {
-      System.err.println("Usage: wordcount <in> <out>");
-      System.exit(2);
-    }
-    Job job = new Job(conf, "word count");
-    job.setJarByClass(WordCount.class);
-    job.setMapperClass(TokenizerMapper.class);
-    job.setCombinerClass(IntSumReducer.class);
-    job.setReducerClass(IntSumReducer.class);
-    job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(IntWritable.class);
-    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-    System.exit(job.waitForCompletion(true) ? 0 : 1);
-  }
-}
-
-</code>  
+	package org.apache.hadoop.examples;
+	
+	import java.io.IOException;
+	import java.util.StringTokenizer;
+	
+	import org.apache.hadoop.conf.Configuration;
+	import org.apache.hadoop.fs.Path;
+	import org.apache.hadoop.io.IntWritable;
+	import org.apache.hadoop.io.Text;
+	import org.apache.hadoop.mapreduce.Job;
+	import org.apache.hadoop.mapreduce.Mapper;
+	import org.apache.hadoop.mapreduce.Reducer;
+	import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+	import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+	import org.apache.hadoop.util.GenericOptionsParser;
+	
+	public class WordCount {
+	
+	  public static class TokenizerMapper 
+	       extends Mapper<Object, Text, Text, IntWritable>{
+	    
+	    private final static IntWritable one = new IntWritable(1);
+	    private Text word = new Text();
+	      
+	    public void map(Object key, Text value, Context context
+	                    ) throws IOException, InterruptedException {
+	      StringTokenizer itr = new StringTokenizer(value.toString());
+	      while (itr.hasMoreTokens()) {
+	        word.set(itr.nextToken());
+	        context.write(word, one);
+	      }
+	    }
+	  }
+	  
+	  public static class IntSumReducer 
+	       extends Reducer<Text,IntWritable,Text,IntWritable> {
+	    private IntWritable result = new IntWritable();
+	
+	    public void reduce(Text key, Iterable<IntWritable> values, 
+	                       Context context
+	                       ) throws IOException, InterruptedException {
+	      int sum = 0;
+	      for (IntWritable val : values) {
+	        sum += val.get();
+	      }
+	      result.set(sum);
+	      context.write(key, result);
+	    }
+	  }
+	
+	  public static void main(String[] args) throws Exception {
+	    Configuration conf = new Configuration();
+	    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+	    if (otherArgs.length != 2) {
+	      System.err.println("Usage: wordcount <in> <out>");
+	      System.exit(2);
+	    }
+	    Job job = new Job(conf, "word count");
+	    job.setJarByClass(WordCount.class);
+	    job.setMapperClass(TokenizerMapper.class);
+	    job.setCombinerClass(IntSumReducer.class);
+	    job.setReducerClass(IntSumReducer.class);
+	    job.setOutputKeyClass(Text.class);
+	    job.setOutputValueClass(IntWritable.class);
+	    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+	    System.exit(job.waitForCompletion(true) ? 0 : 1);
+	  }
+	}
+ 
 
 <h2><a id="summary"></a>Summary</h2>
 
@@ -165,6 +162,17 @@ While MapReduce provides powerful diagnostic abilities, it can be a bit challeng
 * [Use Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
 * [Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
 
+
+
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+
+
+[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/

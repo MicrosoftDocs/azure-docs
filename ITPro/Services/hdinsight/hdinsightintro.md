@@ -1,7 +1,5 @@
 <properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="Introducing HDInsight" pageTitle="Introducing Windows Azure HDInsight Service" metaKeywords="hdinsight, hdinsight service, hdinsight azure, what is hdinsight" metaDescription="Learn about the HDInsight Service for Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
 
-<div chunk="../chunks/hdinsight-left-nav.md" />
-
 # Introduction to Windows Azure HDInsight Service
 
 ##Overview
@@ -71,7 +69,7 @@ Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server 
 
  * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379).
 
- * Simba Hive ODBC driver can be downloaded from the [TBD-this links to the MS Driver site until new Simba site is available](http://go.microsoft.com/fwlink/?LinkId=327839&clcid=0x409).
+ * Simba Hive ODBC driver can be downloaded from this [Download Site](http://go.microsoft.com/fwlink/?LinkId=327839&clcid=0x409).
 
  * For information Analysis Services, see [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx).	
 

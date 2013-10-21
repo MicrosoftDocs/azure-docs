@@ -32,10 +32,10 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>SQL Server JDBC Driver</td><td>3.0</td></tr>
 </table><br/>
 
-<b>Note</b> 	
+**Note**	
 The SQL Server JDBC Driver is used internally by HDInsight and is not used for external operations. If you wish to connect to HDInsight using ODBC, please use HiveODBC.
 
-For more information on using HiveODBC, [Connect Excel to HDInsight with the Simba Hive ODBC driver][connect-excel-with-simba-hive-ODBC]</a>.
+For more information on using HiveODBC, [Connect Excel to HDInsight with the Simba Hive ODBC driver][connect-excel-with-simba-hive-ODBC].
 
 The default Hadoop distribution in Windows Azure HDInsight version 2.1 is based on the [Hortonworks Data Platform 1.3.0][hdp-1-3-0]. 
 
