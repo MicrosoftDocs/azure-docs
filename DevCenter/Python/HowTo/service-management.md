@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" metaDescription="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" metaDescription="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 # How to use Service Management from Python
@@ -37,9 +37,32 @@ To use the Service Management API, you will need to [create a Windows Azure acco
 The Windows Azure SDK for Python wraps the [Windows Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Windows Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 ## <a name="Connect"> </a>How to: Connect to service management
-To connect to the Service Management endpoint, you need your Windows Azure subscription ID and the path to a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal], and you can create management certificates in a number of ways. In this guide [OpenSSL](http://www.openssl.org/) is used, which you can [download for Windows](http://www.openssl.org/related/binaries.html) and run in a console.
+To connect to the Service Management endpoint, you need your Windows Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [management portal][management-portal].
 
-You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
+### Management certificates on Windows
+
+You can create a self-signed management certificate on your machine using `makecert.exe`.  Open a **Visual Studio command prompt** as an **administrator** and use the following command, replacing *AzureCertificate* with the certificate name you would like to use.
+
+    makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
+
+The command will create the `.cer` file, and install it in the **Personal** certificate store. For more details, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+
+After you have created the certificate, you will need to upload the `.cer` file to Windows Azure via the "Upload" action of the "Settings" tab of the [management portal][management-portal].
+
+After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Windows Azure, you can connect to the Windows Azure management endpoint by passing the subscription id and the location of the certificate in your **Personal** certificate store to **ServiceManagementService** (again, replace *AzureCertificate* with the name of your certificate):
+
+	from azure import *
+	from azure.servicemanagement import *
+
+	subscription_id = '<your_subscription_id>'
+	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+
+	sms = ServiceManagementService(subscription_id, certificate_path)
+
+In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Windows Azure services. 
+
+### Management certificates on Mac/Linux
+You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
 
 	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -51,7 +74,7 @@ For more information about Windows Azure certificates, see [Managing Certificate
 
 After you have created these files, you will need to upload the `.cer` file to Windows Azure via the "Upload" action of the "Settings" tab of the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
-After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Windows Azure, you can connect to the Windows Azure managent endpoint by passing the subscription id and the path to the `.pem` file to **ServiceManagementService**:
+After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Windows Azure, you can connect to the Windows Azure management endpoint by passing the subscription id and the path to the `.pem` file to **ServiceManagementService**:
 
 	from azure import *
 	from azure.servicemanagement import *

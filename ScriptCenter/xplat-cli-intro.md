@@ -72,7 +72,7 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Node.js can be installed from <a href="http://node.js.org/">http://node.js.org/</a>.</p>
+<p>Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.</p>
 </div>
 
 <h2><a id="Configure"></a>How to connect to your Windows Azure subscription</h2>

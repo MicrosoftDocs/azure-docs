@@ -1,58 +1,48 @@
 <properties linkid="manage-services-hdinsight-run-samples" urlDisplayName="How to run Samples" pageTitle="How to Run the HDInsight Samples - Windows Azure Services" metaKeywords="hdinsight samples, hdinsight samples azure" metaDescription="Learn how to run the samples included with the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
 
 
-# How to Run the HDInsight Samples#
+# Running the HDInsight Samples#
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>Installed with each cluster are a set of sample jobs that you can run to quickly and easily get started with HDInsight.</p>
-<p><strong>What These Samples Are</strong></p>
-<p>These samples are intended to get you started quickly learning and to give you an extensible testing bed to work through concepts. They provide you an easy way to create data sets of various sizes and allow running samples over the various sizes so you may observe the effects of data size on jobs as you get to learn your cluster.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Creating-your-first-HDInsight-cluster-and-run-samples" class="label">watch the tutorial</a> <a style="background-image: url('/media/itpro/services/videos/hdinsight-hero-180x120.png') !important;" href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Creating-your-first-HDInsight-cluster-and-run-samples" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">7:51</span></div>
-</div>
+A set of sample are provided to help you get started using the Windows Azure HDInsight service that can be run using Windows Azure PowerShell. These samples are made available on each of the Hadoop clusters that you create and manage with the Windows Azure HDInsight Service. Running these samples will familiarize you with the PowerShell scripts used to run MapReduce programs on clusters managed by the HDInsight Service.
 
-**What These Samples Are Not**
+MapReduce programs can also be run programmatically from an application using the Microsoft .NET API for Windows Azure HDInsight Service. For more information on using the HDInsight APIs for job submission, see [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically].
 
-These samples are not an exhaustive study of each of the disciplines implemented. Extensive documentation exists on the web for Java MR, Pig and Hive.
+Much additional documentation exists on the web for Hadoop-related technologies such as Java-based MapReduce programming and streaming, as well as documentation on the cmdlets using in PowerShell scripting. For more information on these resources, see the final **Resources for the HDInsight Service** section of the [Introduction to Windows Azure HDInsight Service][hdinsight-resources] topic.
 
-## Using the Samples Gallery ##
+**What These Samples Are**
 
-The dashboard running on your HDInsight cluster contains a **Hadoop Sample Gallery** page that contains a tile for each of samples that can be run directly on your cluster.
+<p>These samples are intended to get you up to speed quickly on how to deploy Hadoop jobs and to provide you an extensible testing bed to work with the concepts and scripting procedures used by the service. They provide you with examples of common tasks such as creating and importing data sets of various sizes, running jobs and composing jobs sequentially, and examining the results of your jobs. The data sets used can be varied in size, allowing you to observe the effects that data sets of various size has on job performance.</p>
 
-Note the procedure in this section assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run samples. If you have not done this already, consult the [Getting Started with the Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
-3. Click the Hadoop cluster where you want to run the samples.
-4. Click **Manage Cluster** on the bottom of the page.
-5. Enter **User name** and **Password** for the cluster, and then click **Log On**.
-6. Click **Samples**.
+**Prerequisites**:	
 
-	![HDI.TileSamples](../media/HDI.TileSamples.PNG "Samples")
+- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
 
-7. The **Sample Gallery** screen will be shown.
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-	![HDI.SampleGallery](../media/HDI.SampleGallery.PNG "Samples")
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/)
 
-To run a sample, simply click on one of the tiles and select **Deploy to your cluster**.
+## The Samples ##
 
-## Summary
-HDInsight ships with five samples, which, with one exception (the Sqoop sample) can be run directly from the dashboard.
+HDInsight ships with the following samples.
 
-- **The Hadoop on Azure 10-GB Graysort Sample**: This tutorial shows how to run a general purpose GraySort on a 10 GB file using Hadoop on Windows Azure. 
+- [**The Hadoop on Azure Pi Estimator Sample**][pi-estimator]: This tutorial shows how to deploy a MapReduce program with Hadoop on Windows Azure that uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi.
 
-- **The Hadoop on Azure Pi Estimator Sample**: This tutorial shows how to deploy a MapReduce program with Hadoop on Windows Azure that uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi.
+- [**The Hadoop on Azure WordCount Sample**][wordcount]: This tutorial shows how to use Hadoop on Windows Azure to run a MapReduce program that counts word occurrences in an uploaded text file.
 
-- **The Hadoop on Azure Wordcount Sample**: This tutorial shows two ways to use Hadoop on Windows Azure to run a MapReduce program that counts word occurences in a text.
+- [**The Hadoop on Azure 10-GB Graysort Sample**][10gb-graysort]: This tutorial shows how to run a general purpose GraySort on a 10 GB file using Hadoop on Windows Azure. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm the data has been properly sorted.
 
-- **The Hadoop on Azure C# Streaming Sample**:This tutorial shows how to use C# programs with the Hadoop streaming interface. 
+- [**The Hadoop on Azure C# Streaming Sample**][cs-streaming]:This tutorial shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface. 
 
-- **The Hadoop on Azure Sqoop Import/Export Sample**: This tutorial shows how to use Sqoop to import and export data from a SQL database on Windows Azure to an Hadoop on Windows Azure HDFS cluster.
 
-##Next Steps
+## How to run the Samples ##
 
-In this article, you learned how to run the samples included with the HDInsight Service. For additional tutorials on using Pig, Hive, and MapReduce, or for examples of using the HDInsight Service for sentiment analysis or as a recommendation engine, see the following topics:
+The samples can be run using Windows Azure PowerShell. Instructions on how to do this are provided for each of the samples on the pages linked above.
+
+##Next Steps ##
+
+From this article and the articles on each of the samples, you learned how to run the samples included with the HDInsight Service using Windows Azure PowerShell. For tutorials on using Pig, Hive, and MapReduce from the Windows Azure HDInsight Service, see the following topics:
+
 
 * [Tutorial: Using Pig][pig]
 
@@ -60,16 +50,17 @@ In this article, you learned how to run the samples included with the HDInsight 
 
 * [Tutorial: Using MapReduce][mapreduce]
 
-* [Tutorial: Analyzing Twitter Data with Hive][twitter-hdi]
-
-* [Tutorial: Simple recommendation engine using Apache Mahout][mahout-hdi]
-
-* [How-to Videos][ch9vids]
+* [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically]
 
 
+[getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[mahout-hdi]: /en-us/manage/services/hdinsight/recommendation-engine-using-mahout/
-[twitter-hdi]: /en-us/manage/services/hdinsight/analyzing-twitter-data-with-hive/
-[ch9vids]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service
+[pi-estimator]: /en-us/manage/services/hdinsight/sample-pi-estimator/
+[10gb-graysort]: /en-us/manage/services/hdinsight/sample-10gb-graysort/
+[wordcount]: /en-us/manage/services/hdinsight/sample-wordcount/
+[cs-streaming]: /en-us/manage/services/hdinsight/sample-csharp-streaming/
+[scoop]: /en-us/manage/services/hdinsight/sample-sqoop-import-export/
+[submit-jobs-programmatically]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[hdinsight-resources]: /en-us/manage/services/hdinsight/introduction-hdinsight/
