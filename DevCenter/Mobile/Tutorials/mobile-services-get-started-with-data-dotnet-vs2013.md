@@ -14,9 +14,8 @@
 This tutorial walks you through these basic steps:
 
 1. [Download the Windows Store app project][Get the Windows Store app] 
-2. [Create the mobile service]
-3. [Add a data table for storage]
-4. [Update the app to use Mobile Services]
+2. [Create the mobile service from Visual Studio]
+3. [Add a data table for storage and update the app]
 5. [Test the app against Mobile Services]
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Windows Azure Free Trial</a>.</p></div> 
@@ -43,33 +42,9 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 <h2><a name="create-service"></a><span class="short-header">Create the mobile service</span>Create a new mobile service from Visual Studio</h2>
 
-The following steps create a new mobile service in Windows Azure and add code to your project that enables access to this new service. Before you can create the mobile service, you must import the publishsettings file from your Windows Azure subscription into Visual Studio. This enables Visual Studio to connect to Windows Azure on your behalf. When you create a new mobile service, you must specify a Windows Azure SQL Database that is used by the mobile service to store app data. 
+<div chunk="../chunks/mobile-services-create-new-service-vs2013.md" />
 
-1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
-
-	![][1]
-
-2. In the Services Manager dialog, click **Import subscription...**, click **Download subscription file**, login to your Windows Azure account (if required), click **Save** when your browser requests to save the file.
-
-	![][2]
-
-	<div class="dev-callout"><strong>Note</strong> <p>The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Windows Azure subscription.</p></div> 
-
-3. Click **Browse**, navigate to the location where you saved the .publishsettings file, select the file, then click **Open** and then **Import**. 
-
-	![][3]
-
-	Visual Studio imports the data needed to connect to your Windows Azure subscription. When your subscription already has one or more existing mobile services, the service names are displayed. 
-
-	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account. Secure the file if you plan to keep it for use in other connected app projects.</p></div>
-
-4. Click **Create service...**, then in the **Create Mobile Service** dialog, select your **Subscription** and the desired **Region** for your mobile service. Type a **Name** for your mobile service and make sure that name is available. A red X is displayed when the name is not available. In Database, select <Create New>, supply the Server user name and Server password, then click Create.
-
- 	Note  As part of this Quickstart, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose the existing database. When you choose an existing database, make sure that you supply correct login credentials. If you supply incorrect login credentials, the mobile service is created in an unhealthy state.
-
-   After the mobile service is created, a reference to the Mobile Services client library is added to the project and your project source code is updated.
-
-5. In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the App class, which looks like the following example: 
+5. In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the **App** class, which looks like the following example: 
 
 		public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
 		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
@@ -78,87 +53,58 @@ The following steps create a new mobile service in Windows Azure and add code to
 
 	This code provides access to your new mobile service in your app by using an instance of the [MobileServiceClient class]. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.
 
+<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+<div chunk="../chunks/mobile-services-create-new-table-vs2013.md" />
 
-<div chunk="../chunks/mobile-services-create-new-service-data-2.md" />
+3. In the file MainPage.xaml.cs, add or uncomment the following using statements: 
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
-
-Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
-
-1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
-
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.MobileServices`, click **Install** on the **Windows Azure Mobile Services** package, then accept the license agreement. 
-
-  ![][7]
-
-  This adds the Mobile Services client library to the project.
-
-3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
-
-4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
-
-   ![][8]
-
-  You will need these values when accessing the mobile service from your app code.
-
-5. In Visual Studio, open the file App.xaml.cs and add or uncomment the following `using` statement:
-
-       	using Microsoft.WindowsAzure.MobileServices;
-
-6. In this same file, uncomment the code that defines the **MobileService** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
-
-		//public static MobileServiceClient MobileService = new MobileServiceClient( 
-        //    "AppUrl", 
-        //    "AppKey" 
-        //); 
-
-  This creates a new instance of **MobileServiceClient** that is used to access your mobile service.
-
-6. In the file MainPage.xaml.cs, add or uncomment the following `using` statements:
-
-       	using Microsoft.WindowsAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. In this same file, replace the **TodoItem** class definition with the following code:
+4. In this same file, replace the TodoItem class definition with the following code: 
 
-        public class TodoItem
-        {
-            public int Id { get; set; }
+		public class TodoItem
+		{
+		    public int Id { get; set; }
+		
+		    [JsonProperty(PropertyName = "text")]
+		    public string Text { get; set; }
+		
+		    [JsonProperty(PropertyName = "complete")] 
+		    public bool Complete { get; set; }
+		}
 
-            [JsonProperty(PropertyName = "text")]
-            public string Text { get; set; }
+	The **JsonPropertyAttribute** is used to define the mapping between property names in the client type to column names in the underlying data table.
 
-            [JsonProperty(PropertyName = "complete")]
-            public bool Complete { get; set; }
-        }
+5. Comment the line that defines the existing items collection, then uncomment or add the following lines and replace _&lt;yourClient&gt;_ with the `MobileServiceClient` field added to the App.xaml.cs file when you connected your project to the mobile service: 
 
-7. Comment the line that defines the existing **items** collection, then uncomment the following lines:
+		private MobileServiceCollection<TodoItem, TodoItem> items;
+		private IMobileServiceTable<TodoItem> todoTable = 
+		    App.<yourClient>.GetTable<TodoItem>();
+		  
+	This code creates a mobile services-aware binding collection (items) and a proxy class for the database table (todoTable). 
 
-        private MobileServiceCollection<TodoItem, TodoItem> items;
-        private IMobileServiceTable<TodoItem> todoTable = 
-			App.MobileService.GetTable<TodoItem>();
+6. In the **InsertTodoItem** method, remove the line of code that sets the **TodoItem.Id** property, add the **async** modifier to the method, and uncomment the following line of code: 
 
-   This code creates a mobile services-aware binding collection (**items**) and a proxy class for the SQL Database table **TodoItem** (**todoTable**). 
+		await todoTable.InsertAsync(todoItem);
 
-7. In the **InsertTodoItem** method, remove the line of code that sets the **TodoItem**.**Id** property, add the **async** modifier to the method, and uncomment the following line of code:
 
-        await todoTable.InsertAsync(todoItem);
+	This code inserts a new item into the table. 
 
-  This code inserts a new item into the table.
+	<div class="dev-callout"><strong>Note</strong><p>New tables are created with only an Id column. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
 
-8. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code:
+7. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code: 
 
-        items = await todoTable.ToCollectionAsync();
+		items = await todoTable.ToCollectionAsync();
 
-   This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service. 
+	This sets the binding to the collection of items in `todoTable`, which contains all of the **TodoItem** objects returned from the mobile service. 
 
-9. In the **UpdateCheckedTodoItem** method, add the **async** modifier to the method, and uncomment the following line of code:
+8. In the **UpdateCheckedTodoItem** method, add the **async** modifier to the method, and uncomment the following line of code: 
 
-         await todoTable.UpdateAsync(item);
+		await todoTable.UpdateAsync(item);
 
-   This sends an item update to the mobile service.
+	This sends an item update to the mobile service. 
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
@@ -224,19 +170,21 @@ Once you have completed the data series, try one of these other tutorials:
 <!-- Anchors. -->
 
 [Get the Windows Store app]: #download-app
-[Create the mobile service]: #create-service
-[Add a data table for storage]: #add-table
+[Create the mobile service from Visual Studio]: #create-service
+[Add a data table for storage and update the app]: #add-table
 [Update the app to use Mobile Services]: #update-app
 [Test the app against Mobile Services]: #test-app
 [Next Steps]:#next-steps
 
 <!-- Images. -->
 [0]: ../Media/mobile-quickstart-startup.png
-[1]: ../Media/mobile-add-connected-service-dotnet.png
-[2]: ../Media/mobile-import-azure-subscription.png
-[3]: ../Media/mobile-import-azure-subscription-2.png
-[4]: ../Media/mobile-create-page2.png
-[7]: ../Media/mobile-add-nuget-package-dotnet.png
+[1]: ../Media/mobile-add-connected-service.png
+[2]: ../Media/mobile-create-service-from-vs2013.png
+[3]: ../Media/mobile-import-azure-subscription.png
+[4]: ../Media/mobile-import-azure-subscription-2.png
+[5]: ../Media/mobile-create-service-from-vs2013-2.png
+[6]: ../Media/mobile-create-table-vs2013.png
+[7]: ../Media/mobile-create-table-vs2013-2.png
 [8]: ../Media/mobile-dashboard-tab.png
 [9]: ../Media/mobile-todoitem-data-browse.png
 [10]: ../Media/mobile-data-sample-download-dotnet-vs12.png
