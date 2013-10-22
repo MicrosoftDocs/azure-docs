@@ -75,7 +75,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"			
 
-		The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+	The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
 3. Run the following commands to create a Windows Azure storage context object:
 
