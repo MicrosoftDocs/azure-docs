@@ -1,6 +1,9 @@
+<properties linkid="manage-services-import-export" urlDisplayName="Windows Azure Import/Export Service" pageTitle="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" metaKeywords="" metaDescription="Learn how to create import and export jobs in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tamram" />
+
+
 # Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage
 
-You can use the Windows Azure Import/Export service to transfer large amounts of file data to Windows Azure Blob storage in situations where uploading over the network is prohibitively expensive or infeasible. You can also use the Import/Export service to transfer large quantities of data resident in Blob storage to your on-premises installations in a timely and cost-effective manner.
+You can use the Windows Azure Import/Export service to transfer large amounts of file data to Windows Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. You can also use the Import/Export service to transfer large quantities of data resident in Blob storage to your on-premises installations in a timely and cost-effective manner.
 
 To transfer a large set of file data into Blob storage, you can send one or more hard drives containing that data to a Microsoft data center, where your data will be uploaded to your storage account. Similarly, to export data from Blob storage, you can send empty hard drives to a Microsoft data center, where the Blob data from your storage account will be copied to your hard drives and then returned to you. Before you send in a drive that contains data, you'll encrypt the data on the drive; when Microsoft exports your data to send to you, the data will also be encrypted before shipping.
 
@@ -125,7 +128,7 @@ Create an export job to notify Microsoft that you'll be shipping one or more emp
 			<tr>
 				<td>Starts With</td>
 				<td>/music/love</td>
-				<td>Exports all blobs in container <strong>music</strong> that begin with prefix <strong>love<strong></td>
+				<td>Exports all blobs in container <strong>music</strong> that begin with prefix <strong>love</strong></td>
 			</tr>
 			<tr>
 				<td>Equal To</td>
