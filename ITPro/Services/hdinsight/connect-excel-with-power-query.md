@@ -1,9 +1,9 @@
-<properties linkid="manage-services-hdinsight-excel-dataexplorer" urlDisplayName="HDInsight and Excel" pageTitle="How to Connect Excel to Windows Azure HDInsight with Power Query" metaKeywords="hdinsight, excel, power query, hive excel, hdinsight excel" metaDescription="How to use Excel to access data stored in Windows Azure HDInsight using Power Query" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-excel-dataexplorer" urlDisplayName="HDInsight and Excel" pageTitle="Connect Excel to Windows Azure HDInsight with Power Query" metaKeywords="hdinsight, excel, power query, hive excel, hdinsight excel" metaDescription="How to use Excel to access data stored in Windows Azure HDInsight using Power Query" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
 
 
-#How to Connect Excel to Windows Azure HDInsight with Power Query
+#Connect Excel to Windows Azure HDInsight with Power Query
 
-One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with HDInsight Hadoop clusters. A primary example of this integration is the ability to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using *Microsoft Power Query for Excel*. This article walks you through how to set up and use Power Query from Excel to query data associated with an HDInsight cluster. 
+One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with HDInsight Hadoop clusters. A primary example of this integration is the ability to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. This article walks you through how to set up and use Power Query from Excel to query data associated with an HDInsight cluster. 
 
 **Prerequisites**:
 
