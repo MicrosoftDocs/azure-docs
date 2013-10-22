@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede"/>
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" metaDescription="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 
@@ -6,7 +6,7 @@
 
 Developing for Windows Azure is easy using Visual Studio 2012 and the
 free Windows Azure SDK for .NET. If you do not already have Visual
-Studio 2012, the SDK will automatically install Visual Web Developer Express, so you can start developing for Windows Azure entirely for
+Studio 2012, the SDK will automatically install Visual Studio Express 2012 for Web, so you can start developing for Windows Azure entirely for
 free. This guide assumes you have no prior experience using Windows
 Azure. On completing this guide, you will have an application that uses
 multiple Windows Azure resources running in your local environment and
