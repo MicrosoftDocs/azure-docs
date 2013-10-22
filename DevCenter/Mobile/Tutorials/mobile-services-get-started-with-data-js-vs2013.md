@@ -41,13 +41,21 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
    Notice that the saved text is displayed in the second column under **Query and update data**.
 
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
+<h2><a name="create-service"></a><span class="short-header">Create the mobile service</span>Create a new mobile service from Visual Studio</h2>
 
-<div chunk="../chunks/mobile-services-create-new-service-data.md" />
+<div chunk="../chunks/mobile-services-create-new-service-vs2013.md" />
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+5. In Solution Explorer, expand the **services**, **mobile services**, **&lt;your_service&gt;** folders, open the service.js script file, and notice the new global variable, which looks like the following example: 
 
-<div chunk="../chunks/mobile-services-create-new-service-data-2.md" />
+		var todolistClient = new WindowsAzure.MobileServiceClient(
+                "https://todolist.azure-mobile.net/",
+		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+
+	This code provides access to your new mobile service in your app by using a global variable. The client is created by supplying the URI and the application key of the new mobile service. Because a reference to this script was was added to the default.html file, this variable is available to all script files that are also referenced from this page.
+
+<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
+
+<div chunk="../chunks/mobile-services-create-new-table-vs2013.md" />
 
 <h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
 
@@ -193,13 +201,13 @@ Once you have completed the data series, try one of these other tutorials:
 
 <!-- Images. -->
 [0]: ../Media/mobile-quickstart-startup.png
-[1]: ../../Shared/Media/plus-new.png
-[2]: ../Media/mobile-create.png
-[3]: ../Media/mobile-create-page1.png
-[4]: ../Media/mobile-create-page2.png
-[5]: ../Media/mobile-data-tab-empty.png
-[6]: ../Media/mobile-create-todoitem-table.png
-[7]: ../Media/mobile-add-nuget-package-js.png
+[1]: ../Media/mobile-add-connected-service.png
+[2]: ../Media/mobile-create-service-from-vs2013.png
+[3]: ../Media/mobile-import-azure-subscription.png
+[4]: ../Media/mobile-import-azure-subscription-2.png
+[5]: ../Media/mobile-create-service-from-vs2013-2.png
+[6]: ../Media/mobile-create-table-vs2013.png
+[7]: ../Media/mobile-create-table-vs2013-2.png
 [8]: ../Media/mobile-dashboard-tab.png
 [9]: ../Media/mobile-todoitem-data-browse.png
 [10]: ../Media/mobile-data-sample-download-js-vs12.png
