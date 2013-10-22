@@ -107,7 +107,7 @@ In this article, you have learned how to create an HDInsight cluster using the W
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-monitor]: /en-us/manage/services/hdinsight/howto-monitor-hdinsight/
-[hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-cli/
+[hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line-interface/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/

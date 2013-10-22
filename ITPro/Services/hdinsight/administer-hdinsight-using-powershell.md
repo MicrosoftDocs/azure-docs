@@ -42,7 +42,7 @@ After you have imported the publishsettings file, you can use the following comm
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:<p>
+<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
 <li>East US</li>

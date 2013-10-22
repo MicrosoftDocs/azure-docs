@@ -200,7 +200,7 @@ Running a MapReduce job requires the following elements:
 
 The URI scheme for accessing files in Blob storage is:
 
-		WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
+	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
 The URI scheme provides both unencrypted access with the WASB: prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
@@ -208,9 +208,9 @@ Because HDInsight uses a Blob Storage container as the default file system, you 
 
 For example, to access the hadoop-examples.jar, you can use one of the following options:
 
-		wasb://<conaintername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
-		wasb:///example/jars/hadoop-examples.jar
-		/example/jars/hadoop-examples.jar
+	wasb://<conaintername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
+	wasb:///example/jars/hadoop-examples.jar
+	/example/jars/hadoop-examples.jar
 				
 The use of the wasb:// prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. The output directory assumes a default path relative to the wasb:///user/&lt;username&gt; folder. 
 
@@ -386,15 +386,15 @@ The Power Query add-in for Excel can be used to export output from HDInsight int
 In this tutorial, you have learned how to provision a cluster with the HDInsight Service, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
 - [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]
-- [How to Administering HDInsight using PowerShell][hdinsight-admin-powershell]
-- [How to Upload Data to HDInsight][hdinsight-upload-data]
+- [Administering HDInsight using PowerShell][hdinsight-admin-powershell]
+- [Upload Data to HDInsight][hdinsight-upload-data]
 - [Using MapReduce with HDInsight][hdinsight-mapreduce].
 - [Using Hive with HDInsight][hdinsight-hive].
 - [Using Pig with HDInsight][hdinsight-pig].
 
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/

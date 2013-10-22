@@ -279,7 +279,7 @@ While Pig allows you to perform data analysis, other languages included with the
 
 
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/upload-data/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-powershell/
 [hdinsight-using-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
