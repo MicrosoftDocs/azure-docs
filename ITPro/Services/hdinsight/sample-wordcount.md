@@ -84,7 +84,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
 
 		# Download the job output to the workstation
-		Get-AzureStorageBlobContent -Container $ContainerName -Blob /example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
 	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be downloaded to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder. 
 
@@ -94,6 +94,25 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains *"there"*.
+
+Here is example of the entire script with just the commands using specific values for the subscription, cluster and storage account names. To use this, you would have to replace the values for you own configuration. But once you have done this, you can paste the script in and run the sample.
+
+		$subscriptionName = "Azure-Irregulars_563702"   
+		$clusterName = "tutorial-cluster-21" 
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName  -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600
+		$subscriptionName = "Azure-Irregulars_563702"
+		$storageAccountName = "storetutorialcluster21"
+		$containerName = "storetc21default"
+		Select-AzureSubscription $subscriptionName
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName StorageAccountKey $storageAccountKey
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
+
+The output from the WordCount should appear in the cmd window:
+
+![HDI.Sample.WordCount.Output][image-hdi-sample-wordcount-output]
 
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
@@ -201,4 +220,4 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
  
-
+[image-hdi-sample-wordcount-output]: ../media/HDI.Sample.WordCount.Output.png
