@@ -87,7 +87,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
         var todoTable = client.getTable('TodoItem');
 
-   This code creates a proxy object (**todoTable**) for the SQL Database **TodoItem**. 
+   This code creates a proxy object (**todoTable**) for the new database table. 
 
 7. Replace the **InsertTodoItem** function with the following code:
 

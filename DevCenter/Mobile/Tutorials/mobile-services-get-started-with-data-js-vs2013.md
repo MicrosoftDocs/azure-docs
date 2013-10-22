@@ -57,68 +57,37 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 <div chunk="../chunks/mobile-services-create-new-table-vs2013.md" />
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
+6. In the default.js script file, comment the line that defines the existing items collection, then uncomment or add the following line of code and replace `<yourClient>;` with the variable added to the service.js file when you connected your project to the mobile service:
+        var todoTable = <yourClient>.getTable('T
+odoItem');
 
-Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
-
-1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
-
-2. In the left pane, select the **Online** category, search for `WindowsAzure.MobileServices.WinJS`, click **Install** on the **Windows Azure Mobile Services for WinJS** package, then accept the license agreement. 
-
-  ![][7]
-
-  This adds the Mobile Services client library to the project.
-
-2. In the default.html project file, add the following script reference in the page header:
-
-        <script type="text/javascript" src="/js/MobileServices.js"></script>
-
-3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
-
-4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
-
-   ![][8]
-
-  You will need these values when accessing the mobile service from your app code.
-
-5. In Visual Studio, open the file default.js, uncomment the following code that defines the **client** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order.
-
-            var client = new WindowsAzure.MobileServiceClient(
-                "AppUrl",
-                "appKey"
-            );
-
-  This creates a new instance of MobileServiceClient that is used to access your mobile service.
-
-6. Uncomment the following line of code:
-
-        var todoTable = client.getTable('TodoItem');
-
-   This code creates a proxy object (**todoTable**) for the SQL Database **TodoItem**. 
+   This code creates a proxy object (**todoTable**) for the new database table. 
 
 7. Replace the **InsertTodoItem** function with the following code:
 
-        var insertTodoItem = function (todoItem) {
-            // Inserts a new row into the database. When the operation completes
-            // and Mobile Services has assigned an id, the item is added to the binding list.
-            todoTable.insert(todoItem).done(function (item) {
-                todoItems.push(item);
-            });
-        };
+		var insertTodoItem = function (todoItem) {
+		    // Inserts a new row into the database. When the operation completes
+		    // and Mobile Services has assigned an id, the item is added to the binding list.
+		    todoTable.insert(todoItem).done(function (item) {
+		        todoItems.push(item);
+		    });
+		};
 
-  This code inserts a new item into the table.
+	This code inserts a new item into the table.
+
+	<div class="dev-callout"><strong>Note</strong><p>New tables are created with only an Id column. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
 
 8. Replace the **RefreshTodoItems** function with the following code:
 
-        var refreshTodoItems = function () {
-            // This code refreshes the entries in the list by querying the TodoItems table. 
-            todoTable.read().done(function (results) {
-                todoItems = new WinJS.Binding.List(results);
-                listItems.winControl.itemDataSource = todoItems.dataSource;
-            });
-        };      
+		var refreshTodoItems = function () {
+		    // This code refreshes the entries in the list by querying the table. 
+		    todoTable.read().done(function (results) {
+		        todoItems = new WinJS.Binding.List(results);
+		        listItems.winControl.itemDataSource = todoItems.dataSource;
+		    });
+		};
 
-   This sets the binding to the collection of items in the todoTable, which contains all completed items returned from the mobile service. 
+   This sets the binding to the collection of items in the todoTable, which contains all of the **TodoItem** objects returned from the mobile service. 
 
 9. Replace the **UpdateCheckedTodoItem** function with the following code:
         
