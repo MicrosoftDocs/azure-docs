@@ -5,10 +5,10 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a> 
 </div>	
 
-<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app. You can view a video version of this tutorial by clicking the clip to the right.</p>
+<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
 
 <div class="dev-callout"><b>Note</b>
-<p>This tutorial requires Visual Studio 2013, which makes it easier to connect your Windows Store app to Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs11/">Get started with data in Mobile Services using Visual Studio 2012</a>.</p>
+<p>This tutorial requires Visual Studio 2013, which makes it easier to connect your Windows Store app to Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012/">Get started with data in Mobile Services using Visual Studio 2012</a>.</p>
 </div>
 
 This tutorial walks you through these basic steps:
@@ -58,8 +58,8 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 <div chunk="../chunks/mobile-services-create-new-table-vs2013.md" />
 
 6. In the default.js script file, comment the line that defines the existing items collection, then uncomment or add the following line of code and replace `<yourClient>;` with the variable added to the service.js file when you connected your project to the mobile service:
-        var todoTable = <yourClient>.getTable('T
-odoItem');
+        
+		var todoTable = <yourClient>.getTable('TodoItem');
 
    This code creates a proxy object (**todoTable**) for the new database table. 
 
