@@ -94,7 +94,7 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 
 2. Wait a few minutes for the data to be processed, then navigate to the New Relic dashboard.
 
-	When your New Relic subscription was purchased as an add-on, select it in the [Management Portal], and click **Manage**.
+	When your New Relic subscription was purchased as an add-on, select it in the [Management Portal][Windows Azure Management Portal], and click **Manage**.
 
 3. In New Relic, click **Applications**, then click your mobile service.
 
