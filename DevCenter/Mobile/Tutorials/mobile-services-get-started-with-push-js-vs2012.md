@@ -170,9 +170,6 @@ This tutorial demonstrates the basic push notification functionality provided by
 + [Get started with Notification Hubs]
   <br/>Learn how to leverage Notification Hubs in your Windows Store app.
 
-+ [What are Notification Hubs?]
-	<br/>Learn how to create and push notifications to users on multiple platforms.
-
 + [Send notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
@@ -194,7 +191,7 @@ Consider finding out more about the following Mobile Services topics:
   <br/>Learn more about registering and using server scripts.
 
 * [Mobile Services HTML/JavaScript How-to Conceptual Reference]
-  <br/>Learn more about how to use Mobile Services with .NET.  
+  <br/>Learn more about how to use Mobile Services with HTML and JavaScript.  
 
 <!-- Anchors. -->
 [Register your app for push notifications and configure Mobile Services]: #register
