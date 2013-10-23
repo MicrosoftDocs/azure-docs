@@ -21,3 +21,7 @@ First, you use the Add Push Notification wizard in Visual Studio 2013 to registe
 	<img src="../Media/mobile-add-push-notifications-vs2013-3.png" />
 
 	The mobile service is updated to register your app package SID and client secret and a new **channels** table is created. Mobile Services is now configured to work with Windows Push Notification Services (WNS) to be able to send notifications to your app.   
+
+	<div class="dev-callout"><b>Note</b>
+		<p>When your app isn't already configured to connect to the mobile service, the wizard also completes the same configuration tasks demonstrated in <strong>Get started with data</strong>.</p>
+	</div>
