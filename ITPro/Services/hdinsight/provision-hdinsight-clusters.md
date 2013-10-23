@@ -182,7 +182,7 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 
 		$storageAccountName = "<StorageAcccountName>"
 		$location = "<MicrosoftDataCenter>"		# For example, "West US"
-
+		
 		# Create a Azure storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 	
@@ -215,13 +215,13 @@ Once you have the storage account and the blob container prepared, you are ready
 
 - Run the following commands from a Windows Azure PowerShell window:		
 
-		$subscriptionName = "<SubscriptionName>"		# The name of the Windows Azure subscription
+		$subscriptionName = "<SubscriptionName>"		# The name of the Azure subscription.
 		$storageAccountName = "<StorageAccountName>"	# The Windows Azure storage account that hosts the default container. The default container will be used as the default file system.
 		$containerName = "<ContainerName>"				# The Windows Azure Blob storage container that will be used as the default file system for the HDInsight cluster.
 
-		$clusterName = "<HDInsightClusterName>"					# The name you will name your HDInsight cluster
-		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account
-		$clusterNodes = <ClusterSizeInNodes>			# The number of node in the HDInsight cluster.
+		$clusterName = "<HDInsightClusterName>"			# The name you will name your HDInsight cluster.
+		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account.
+		$clusterNodes = <ClusterSizeInNodes>			# The number of nodes in the HDInsight cluster.
 
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
@@ -440,18 +440,18 @@ For information on creating a Windows Azure storage account using Windows Azure 
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
-		-- lists storage accounts
-		azure account storage list
-		-- Shows a storage account
-		azure account storage show <StorageAccountName>
-		-- Lists the keys for a storage account
-		azure account storage keys list <StorageAccountName>
+	-- lists storage accounts
+	azure account storage list
+	-- Shows a storage account
+	azure account storage show <StorageAccountName>
+	-- Lists the keys for a storage account
+	azure account storage keys list <StorageAccountName>
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
 
 The *azure hdinsight cluster create* command creates the container if it doesn’t exist. If you choose to create the container beforehand, you can use the following command:
 
-		azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+	azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
 		
 Once you have the storage account and the blob container prepared, you are ready to create a cluster.
 
@@ -648,9 +648,9 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/ 
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/

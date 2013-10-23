@@ -388,9 +388,8 @@ In this tutorial, you have learned how to provision a cluster with the HDInsight
 - [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]
 - [Administering HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload Data to HDInsight][hdinsight-upload-data]
-- [Using MapReduce with HDInsight][hdinsight-mapreduce].
-- [Using Hive with HDInsight][hdinsight-hive].
-- [Using Pig with HDInsight][hdinsight-pig].
+- [Using Hive with HDInsight][hdinsight-hive]
+- [Using Pig with HDInsight][hdinsight-pig]
 
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
