@@ -6,7 +6,7 @@ Windows Azure HDInsight Service provides a full featured HDFS file system over W
 
 Windows Azure HDInsight clusters are typically deployed to execute MapReduce jobs and are dropped once these jobs have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Windows Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a Blob enables the HDInsight clusters used for computation to be safely released without losing data. 
 
-Windows Azure Blob storage can either be accessed through [Windows Azure PowerShell][azure-powershell], [Windows Azure Storage Client Library for .NET][azure-storage-client-library] or through explorer tools. Here are some of the tools available:
+Windows Azure Blob storage can either be accessed through [AzCopy][azure-azcopy], [Windows Azure PowerShell][azure-powershell], [Windows Azure Storage Client Library for .NET][azure-storage-client-library] or through explorer tools. Here are some of the tools available:
 
 * [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
 * [cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
@@ -22,11 +22,22 @@ Note the following requirements before you begin this article:
 
 ##In this article
 
+* [Upload data to Windows Azure Blob storage using AzCopy](#azcopy)
 * [Upload data to Windows Azure Blob storage using Windows Azure PowerShell](#powershell)
 * [Upload data to Windows Azure Blob storage using Azure Storage Explorer](#storageexplorer)
 * [Upload data to Windows Azure Blob storage using Hadoop command line](#commandline)
 * [Import data from Windows Azure SQL Database to Windows Azure Blob storage using Sqoop](#sqoop)
 * [Access data stored in Windows Azure Blob storage](#blob)
+
+##<a id="azcopy"></a>Upload data to Windows Azure Blob storage using AzCopy##
+
+AzCopy is a command line utility which is designed to simplify the task of transferring data in to and out of a Windows Azure Storage account. You can use this as a standalone tool or incorporate this utility in an existing application. The tool can be downloaded from [here][azure-azcopy-download].
+
+The AzCopy syntax is:
+
+	AzCopy <Source> <Destination> [filePattern [filePattern…]] [Options]
+
+For more information, see [AzCopy – Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
 
 ##<a id="powershell"></a>Upload data to Windows Azure Blob storage using Windows Azure PowerShell##
 
@@ -269,6 +280,8 @@ Now that you understand how to get data into HDInsight Service, use the followin
 [azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
 [azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
 [azure-storage-account]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+[azure-azcopy-download]: https://github.com/downloads/WindowsAzure/azure-sdk-downloads/AzCopy.zip
+[azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
 
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
