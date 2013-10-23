@@ -7,116 +7,45 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a>
 </div>	
 
-
-This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
-In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows how Visual Studio 2013 lets you use Windows Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
 
 <div class="dev-callout"><b>Note</b>
-	<p><em>Visual Studio 2013 Preview</em> includes new features that make it easy to setup push notifications in your Windows Store app using Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309101">Quickstart: Adding push notifications for a mobile service</a> in the Windows Dev Center.</p>
+<p>This tutorial requires Visual Studio 2013, which makes it easier to send push notifications to your Windows Store app using Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/">Get started with push notifications in Mobile Services using Visual Studio 2012</a>.</p>
 </div>
 
 This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app for push notifications and configure Mobile Services]
-2. [Add push notifications to the app]
-3. [Update scripts to send push notifications]
-4. [Insert data to receive notifications]
+2. [Update the generated push notification code]
+3. [Insert data to receive notifications]
 
-This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification channel to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps. This tutorial requires the following:
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
 
-+ Microsoft Visual Studio 2012 Express for Windows 8
-+ Active Windows Store account
+<h2><a name="register"></a><span class="short-header">Register your app</span>Add and configure push notifications in the app</h2>
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+<div chunk="../chunks/mobile-services-create-new-push-vs2013.md" />
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for the Windows Store</h2>
+7. Expand **services**, **mobile services**, your service name, open the generated code file, and then inspect the **UploadChannel** method that obtains the installation ID and channel for the device and inserts this data into the new channels table. 
 
-To be able to send push notifications to Windows Store apps from Mobile Services, you must submit your app to the Windows Store. You must then configure your mobile service to integrate with WNS.
+	 A call to this method was also added by the wizard to the **OnLaunched** event handler in the App.xaml.cs code file. This ensures that registration of the device is attempted whenever the app is launched. 
 
-<div chunk="../chunks/mobile-services-register-windows-store-app.md" />
+8. In Server Explorer, expand **Windows Azure**, **Mobile Services**, your service name, and **channels**, then open the insert.js file. 
 
-Both your mobile service and your app are now configured to work with WNS.
+	This file, which is stored in your mobile service, contains JavaScript code that is executed when a client sends a request to register a device by inserting data into the channels table. 
 
-<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+	<div class="dev-callout"><b>Note</b>
+		<p>The initial version of this file contains code that checks for an existing registration for the device. It also contains code that sends a push notification when a new registration is added to the channels table. The code that sends a push notification can be included in any registered script file. The location of this script depends on how the notification is triggered. Scripts can be registered against an insert, update, delete or read operation against a table; as a scheduled job; or as a custom API. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=287178">Work with server scripts in Mobile Services</a>.</p>
+	</div> 
 
-1. Open the file App.xaml.cs and add the following using statement:
-
-        using Windows.Networking.PushNotifications;
-
-2. Add the following to App.xaml.cs:
+9. Press the F5 key to run the app and verify that a notification is immediately received from the mobile service. 
 	
-        public static PushNotificationChannel CurrentChannel { get; private set; }
+	This notification was generated by inserting a row into the new channels table, which is the device registration.
 
-	    private async void AcquirePushChannel()
-	    {
-	            CurrentChannel =  
-	                await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        }
+While the generated code makes it easy to demonstrate a notification when the app is run, this is not generally a meaningful scenario. Next, you will remove the notification code from the channels table and replace it, with some changes, in the TodoItem table. 
 
-   This code acquires and stores a push notification channel.
-    
-3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+<h2><a name="update-scripts"></a><span class="short-header">Update the code</span>Update the generated push notification code</h2>
 
-        AcquirePushChannel();
-
-   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
-		
-4. Open the project file MainPage.xaml.cs and add the following new attributed property to the **TodoItem** class:
-
-        [JsonProperty(PropertyName = "channel")]
-        public string Channel { get; set; }
-
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
-    </div>
-
-5. Replace the **ButtonSave_Click** event handler method with the following code:
-
-	        private void ButtonSave_Click(object sender, RoutedEventArgs e)
-	        {
-	            var todoItem = new TodoItem { Text = TextInput.Text, Channel = App.CurrentChannel.Uri };
-	            InsertTodoItem(todoItem);
-            }
-
-   This sets the client's current channel value on the item before it is sent to the mobile service.
-
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
-
-   ![][15]
-
-   This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
-
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
-
-1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
-
-   ![][11]
-
-2. In **todoitem**, click the **Script** tab and select **Insert**.
-   
-  ![][12]
-
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-        function insert(item, user, request) {
-            request.execute({
-                success: function() {
-                    // Write to the response and then send the notification in the background
-                    request.respond();
-                    push.wns.sendToastText04(item.channel, {
-                        text1: item.text
-                    }, {
-                        success: function(pushResponse) {
-                            console.log("Sent push:", pushResponse);
-                        }
-                    });
-                }
-            });
-        }
-
-   This registers a new insert script, which uses the [wns object] to send a push notification (the inserted text) to the channel provided in the insert request.
+<div chunk="../chunks/mobile-services-create-new-push-vs2013-2.md" />
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
@@ -132,16 +61,45 @@ Both your mobile service and your app are now configured to work with WNS.
 
 ## <a name="next-steps"> </a>Next steps
 
-In this simple example a user receives a push notification with the data that was just inserted. The channel used by WNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Channel table in which to store channel URIs and send a push notification out to all stored channels when an insert occurs. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference].
+This tutorial demonstrated the basics of enabling a Windows Store app to work with data in Mobile Services. Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
+
++ [Get started with Notification Hubs]
+  <br/>Learn how to leverage Notification Hubs in your Windows Store app.
+
++ [Send notifications to subscribers]
+	<br/>Learn how users can register and receive push notifications for categories they're interested in.
+
++ [Send notifications to users]
+	<br/>Learn how to send push notifications from a Mobile Service to specific users on any device.
+
++ [Send cross-platform notifications to users]
+	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.
+
+Consider finding out more about the following Mobile Services topics:
+
+* [Get started with data]
+  <br/>Learn more about storing and querying data using Mobile Services.
+
+* [Get started with authentication]
+  <br/>Learn how to authenticate users of your app with Windows Account.
+
+* [Mobile Services server script reference]
+  <br/>Learn more about registering and using server scripts.
+
+* [Mobile Services .NET How-to Conceptual Reference]
+  <br/>Learn more about how to use Mobile Services with .NET.
 
 <!-- Anchors. -->
 [Register your app for push notifications and configure Mobile Services]: #register
-[Update scripts to send push notifications]: #update-scripts
-[Add push notifications to the app]: #add-push
+[Update the generated push notification code]: #update-scripts
 [Insert data to receive notifications]: #test
 [Next Steps]:#next-steps
 
 <!-- Images. -->
+[0]: ../Media/mobile-add-push-notifications-vs2013.png
+[1]: ../Media/mobile-add-push-notifications-vs2013-2.png
+[2]: ../Media/mobile-add-push-notifications-vs2013-3.png
+[3]: ../Media/mobile-add-push-notifications-vs2013-4.png
 [6]: ../Media/mobile-services-win8-app-advanced.png
 [7]: ../Media/mobile-services-win8-app-push-connect.png
 [8]: ../Media/mobile-services-win8-app-push-auth.png
@@ -160,7 +118,7 @@ In this simple example a user receives a push notification with the data that wa
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
 [Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
@@ -171,3 +129,11 @@ In this simple example a user receives a push notification with the data that wa
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
+[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet.md
+[Refine queries with paging]: ./mobile-services-paging-data-dotnet.md
+[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
+[What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
+[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
+[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
+[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
