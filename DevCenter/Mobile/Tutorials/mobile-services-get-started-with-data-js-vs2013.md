@@ -58,8 +58,8 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 <div chunk="../chunks/mobile-services-create-new-table-vs2013.md" />
 
 6. In the default.js script file, comment the line that defines the existing items collection, then uncomment or add the following line of code and replace `<yourClient>;` with the variable added to the service.js file when you connected your project to the mobile service:
-        var todoTable = <yourClient>.getTable('T
-odoItem');
+
+		var todoTable = <yourClient>.getTable('TodoItem');
 
    This code creates a proxy object (**todoTable**) for the new database table. 
 
