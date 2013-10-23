@@ -89,7 +89,7 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 
 * [Getting Started with the Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) - A tutorial that provides a quickstart for using the HDInsight Service.
 
-* [How to Run the HDInsight Service Samples](/en-us/manage/services/hdinsight/howto-run-samples/) - A tutorial on how the run the samples that ship with the HDInsight Service.
+* [Running the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/) - A tutorial on how the run the samples that ship with the HDInsight Service.
 
 * [Big Data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/) - Big Data scenarios that explore what you can build with Windows Azure.	
 
