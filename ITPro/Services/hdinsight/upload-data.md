@@ -259,7 +259,6 @@ Now that you understand how to get data into HDInsight Service, use the followin
 
 * [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
 * [Using Hive with HDInsight][hdinsight-hive]
 * [Using Pig with HDInsight][hdinsight-pig]
 

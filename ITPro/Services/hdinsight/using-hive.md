@@ -103,7 +103,7 @@ Because the file is stored in the default file system, you can also access the f
 ##<a id="runhivequeries"></a> Run Hive queries using PowerShell
 In the last section, you have uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create hive table, load data to the hive table, and then query the data to find out how many error logs.
 
-This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-get-started] and [How to Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
+This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [How to Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
 
 There are two options to run Hive queries:
 
@@ -198,21 +198,18 @@ While Hive makes it easy to query data using a SQL-like query language, other la
 * [Getting started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
 
 [sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 
-[hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/upload-data/
-[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/ 
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/
