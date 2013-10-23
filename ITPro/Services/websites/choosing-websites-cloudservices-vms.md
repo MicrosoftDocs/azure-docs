@@ -1,4 +1,4 @@
-﻿<properties linkid="choosing-azure-websites-cloudservices-vms" urlDisplayName="Web Options for Windows Azure" pageTitle="Windows Azure Web Sites, Cloud Services, and VMs: When to use which?" metaKeywords="Cloud Services,Virtual Machines,Web Sites" metaDescription="Understand when to use Windows Azure Web Sites, Cloud Services, and Virtual Machines for web workloads." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" /> 
+<properties linkid="choosing-azure-websites-cloudservices-vms" urlDisplayName="Web Options for Windows Azure" pageTitle="Windows Azure Web Sites, Cloud Services, and VMs: When to use which?" metaKeywords="Cloud Services,Virtual Machines,Web Sites" metaDescription="Understand when to use Windows Azure Web Sites, Cloud Services, and Virtual Machines for web workloads." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" /> 
 
 
 
@@ -146,16 +146,8 @@ When you consider the options, virtual machines can be used for almost any appli
 <div class="dev-callout">
     <strong>Note</strong>
     <p>Web or worker roles can integrate MySQL-as-a-service through <a href="http://www.cleardb.com/">ClearDB</a>'s offerings, but not as part of the Management Portal workflow.</p>
-    </div>
-
-<div class="dev-callout">
-    <strong>Note</strong>
-    <p>For Web Sites, SSL is only supported for standard mode. For more information on using SSL with Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure Web Site</a>.</p>
-    </div>
-
-<div class="dev-callout">
-    <strong>Note</strong>
-    <p>Web Deploy is supported for cloud services when deploying to single-instance roles. However, production roles require multiple instances to meet the Windows Azure SLA. Therefore, Web Deploy is not a suitable deployment mechanism for cloud services in production.</p>
+<p>For Web Sites, SSL is only supported for standard mode. For more information on using SSL with Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure Web Site</a>.</p>
+<p>Web Deploy is supported for cloud services when deploying to single-instance roles. However, production roles require multiple instances to meet the Windows Azure SLA. Therefore, Web Deploy is not a suitable deployment mechanism for cloud services in production.</p>
     </div>
 
   [ChoicesDiagram]: ../media/Websites_CloudServices_VMs.png
