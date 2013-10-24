@@ -50,7 +50,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><td>HDINSIGHT VERSION</td>
 			<td>Choose the HDInsight version to use for this cluster. The default is 2.0.</td></tr>
 		<tr><td>REGION</td>
-			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *West US* or *North Europe*.</td>
+			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *US West* or *Europe North*.</td>
 		</tr>
 	</table>
 
