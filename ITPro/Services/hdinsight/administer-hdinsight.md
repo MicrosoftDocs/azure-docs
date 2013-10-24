@@ -35,9 +35,9 @@ A Windows Azure storage account located on the same data center is required befo
 
 	When using the quick create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name, you can use the custom create option. Currently, you can only provision HDInsight clusters in the following data centers:
 
-	- East US
-	- West US
-	- North Europe
+	- US East
+	- US West
+	- Europe North
 
 	<div class="dev-callout"> 
 	<b>Important</b> 
