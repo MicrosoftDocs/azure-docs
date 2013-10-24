@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-get-started" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Mobile Services" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to get started using Windows Azure Mobile Services for Windows Store development in C#, VB, or JavaScript. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-
-
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a></div>
@@ -45,7 +43,7 @@ In this section you will create a new Windows Store app that is connected to you
 
   ![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows 8] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2013 Express for Windows 8.1] on your local computer or virtual machine.
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
@@ -57,7 +55,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 The final stage of this tutorial is to build and run your new app.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2012 Express for Windows 8.
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows 8.1.
 
    ![][8]
 
@@ -95,7 +93,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
   <br/>Learn how to send a very basic push notification to your app.
 
 <div class="dev-callout"><b>Note</b>
-<p>Visual Studio 2013 Preview includes new features that make it easy to connect your Windows Store app to Mobile Services. For more information, see <a href="http://go.microsoft.com/fwlink/p/?LinkId=309095">Quickstart: Adding a mobile service</a> in the Windows Dev Center.</p>
+<p>Visual Studio 2013 includes new features that make it easy to connect an existing Windows Store app to your mobile service. For more information, see <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/">Get started with data in Mobile Services</a>.</p>
 </div>
 
 <!-- Anchors. -->
@@ -127,7 +125,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data JS]: ./mobile-services-get-started-with-data-js.md
 [Get started with authentication JS]: ./mobile-services-get-started-with-users-js.md
 [Get started with push notifications JS]: ./mobile-services-get-started-with-push-js.md
-[Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2013 Express for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
