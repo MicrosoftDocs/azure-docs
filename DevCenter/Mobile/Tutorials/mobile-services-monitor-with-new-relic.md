@@ -44,7 +44,7 @@ The first step is to purchase the New Relic service. This tutorial shows you how
 
 After you have signed-up for the New Relic service, you need to install the New Relic Node.js module in your mobile service. You must have source control enabled for your mobile service to be able to upload this module.
 
-1. If you haven't already done so, follow the steps in the tutorial [Store server scripts in source control] to enable source control for your mobile service and install the <a href="http://nodejs.org/" target="_blank">Node Package Manager (NPM)</a>.
+1. If you haven't already done so, follow the steps in the tutorial [Store server scripts in source control] to enable source control for your mobile service, clone the repository, and install the <a href="http://nodejs.org/" target="_blank">Node Package Manager (NPM)</a>.
 
 2. Navigate to the `.\service` folder of your local Git repository, then from the command prompt run the following command:
 
@@ -94,7 +94,7 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 
 2. Wait a few minutes for the data to be processed, then navigate to the New Relic dashboard.
 
-	When your New Relic subscription was purchased as an add-on, select it in the [Management Portal], and click **Manage**.
+	When your New Relic subscription was purchased as an add-on, select it in the [Management Portal][Windows Azure Management Portal], and click **Manage**.
 
 3. In New Relic, click **Applications**, then click your mobile service.
 
