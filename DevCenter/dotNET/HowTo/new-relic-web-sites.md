@@ -115,7 +115,7 @@ The New Relic package added to your application in the previous step is configur
 
 1. Sign in to the [Windows Azure management portal](https://manage.windowsazure.com) and navigate to your Web Site.
 
-2. From your Web Site, select **Configure**. In the **Developer Analytics** section, select either **Add-on** or **Custom**. Either method produces the same output, but requires slightly different input&mdash;**Add-on** lists your current New-Relic licenses, while **Custom** requires you to manually specify the license key.
+2. From your Web Site, select **Configure**. In the **Developer Analytics** section, select either **Add-on** or **Custom**. Either method produces the same output, but requires slightly different input. **Add-on** lists your current New-Relic licenses and allows you to select one, while **Custom** requires you to manually specify the license key.
 
 	If you selected **Add-on**, use the **choose add-on** field to select your your New-Relic license.
 
