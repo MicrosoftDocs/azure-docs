@@ -93,9 +93,9 @@ Your Windows Azure subscription information is used by the cmdlets to connect to
 
 The HDInsight provision process requires a Windows Azure Storage account to be used as the default file system. The storage account must be located in the same data center as the HDInsight Service compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
 
-- East US
-- West US
-- North Europe
+- US East 
+- US West
+- Europe North
 
 You must choose one of the two data centers for your Windows Azure Storage account.
 
