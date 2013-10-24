@@ -99,7 +99,8 @@ The output from the WordCount script should appear in the cmd window:
 
 ![HDI.Sample.WordCount.Output][image-hdi-sample-wordcount-output]
 
-Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file
+Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
+
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
 
