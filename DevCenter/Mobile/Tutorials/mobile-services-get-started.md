@@ -111,7 +111,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [5]: ../Media/mobile-services-selection.png
 [6]: ../Media/mobile-portal-quickstart.png
 [7]: ../Media/mobile-quickstart-steps.png
-[8]: ../Media/mobile-vs-project.png
+[8]: ../Media/mobile-vs2013-project.png
 [9]: ../Media/mobile-quickstart-download-app.png
 [10]: ../Media/mobile-quickstart-startup.png
 [11]: ../Media/mobile-data-tab.png
