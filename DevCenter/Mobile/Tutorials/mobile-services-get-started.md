@@ -19,7 +19,8 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p>
+<p>This tutorial requires Visual Studio 2013. To connect a Windows Store app using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/">Get started with data in Mobile Services using Visual Studio 2012</a>.</p></div>
 
 
 ## <a name="create-new-service"> </a>Create a new mobile service
