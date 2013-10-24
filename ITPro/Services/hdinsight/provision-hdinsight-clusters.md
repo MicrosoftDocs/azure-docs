@@ -25,7 +25,7 @@ HDInsight cluster uses a Windows Azure Blob Storage container as the default fil
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Currently, only the North Europe and the West US data center can host HDInsight clusters.</p> 
+<p>Currently, only the Europe North and the US West data center can host HDInsight clusters.</p> 
 </div>
 
 This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started].
