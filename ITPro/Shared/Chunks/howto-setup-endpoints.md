@@ -2,13 +2,11 @@
 
 #How to Set Up Endpoints to a Virtual Machine
 
+**Note**: If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+
 All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, other resources on the Internet or other virtual networks require endpoints to handle the inbound network traffic to the virtual machine. 
 
 When you create a virtual machine in the Management Portal, you can create these endpoints, such as for Remote Desktop, Windows PowerShell Remoting, or Secure Shell (SSH). After you create the virtual machine, you can create additional endpoints as needed. You also can manage incoming traffic to the public port by configuring rules for the network access control list (ACL) of the endpoint. This article shows you how to do both of those tasks.
-
-For more information about network ACLs, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
-
-**Note**: If you want to connect to your virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 Each endpoint has a public port and a private port:
 
@@ -18,8 +16,9 @@ Each endpoint has a public port and a private port:
 
 Default values for the ports and protocol for these endpoints are provided when the endpoints are created through the Management Portal. For all other endpoints, you specify the ports and protocol when you create the endpoint. Resources can connect to an endpoint by using either the TCP or UDP protocol. The TCP protocol includes HTTP and HTTPS communication.  
 
-###Create an Endpoint###
+**Important**: Firewall configuration is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall in the guest operating system. When you create an endpoint, you'll need to configure the appropriate ports in the firewall to allow the traffic you intend to route through the endpoint.
 
+###Create an Endpoint###
 
 1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
 
