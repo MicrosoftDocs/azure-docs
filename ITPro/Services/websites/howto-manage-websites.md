@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal web site management" metaDescription="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
+<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal web site management" metaDescription="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
 
 
 
@@ -62,14 +62,15 @@ The **Monitor** management page provides a chart that displays usage information
 ##Configure##
 The **Configure** management page is used to set application specific settings including:
 
-- **General** – Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, there is an option to choose a 64-bit platform.
+- **General** – Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, there is an option to choose a 64-bit platform. Set **Managed Pipeline Mode**  to **Classic** only if you have legacy web sites that run exclusively on older versions of IIS (**Integrated** is the default.) To enable your web site to use real time request pattern applications such as chat, you can set **Web Sockets** to **On**.
 - **Certificates** - Upload an SSL certificate for a custom domain. SSL certificates can be uploaded only in Standard mode. The certificates you upload are listed here and can be assigned to any web site in your subscription and region. Wildcard certificates (certificates with an asterisk) are supported.
 - **Domain Names** - View or add additional custom domain names for a web site. Custom domain names can only be used in Shared or Standard mode.
 - **SSL Bindings** - SSL bindings to custom domains can only be used in standard mode. Choose an SSL mode (**SNI**, **IP**, or **No SSL**) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded.  
 - **Deployments** - This section appears only if you have enabled deployment from source control. Use these settings to configure deployments.
 - **Application Diagnostics** - Set options for gathering diagnostic information for a web application that supports logging. You can choose to log to the file system or to a Windows Azure Storage account, and choose a logging level to specify the amount of information gathered.
-- **Site Diagnostics** – Set logging options for gathering diagnostic information for your web site. 
+- **Site Diagnostics** – Set logging options for gathering diagnostic information for your web site, or enable Visual Studio 2012 or Visual Studio 2013 to debug your web site remotely for a maximum of 48 hours.
 - **Monitoring** - For web sites in Standard mode, test the availability of HTTP or HTTPS endpoints from geo-distributed locations.
+- **Developer Analytics** - Analytics monitor the performance of your web application. Choose an analytics add-on from the Windows Azure store, or choose a custom analytics provider such as New Relic.
 - **App Settings** – Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be injected into the web site’s .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node web sites, these settings will be available as environment variables at runtime.
 - **Connection Strings** – View connection strings to linked resources. For .NET sites, these connection strings will be injected into the web site’s .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node web sites, these settings will be available as environment variables at runtime.
 - **Default Documents** – Add your web site’s default document to this list if it is not already in the list. If your web site contains more than one of the files in the list then make sure your web site’s default document appears at the top of the list by changing the order of the files in the list.

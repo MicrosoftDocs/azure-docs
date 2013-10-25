@@ -15,7 +15,11 @@ The JAR file that contains the files needed by the Windows Azure HDInsight servi
 * How MapReduce programs are written in Java.
 
 **Prerequisites**	
-You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 **Outline**		
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
@@ -27,51 +31,72 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 <h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
 
-**The command for running the Wordcount job**	
-Hadoop jar hadoop-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///DaVinciAllTopWords
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
-**The parameters for the Wordcount job**	
-Parameter0 is just the name of the program, *wordcount*. Parameter1 specifies, respectively, the path/name of the input file (*/example/data/gutenberg/davinci.txt*) and the output directory where the results are saved *(DaVinciAllTopWords*). Note the output directory assumes a default path relative to the /user/ folder. 
-
-1. Open Notepad.
-2. Copy and paste the following code into Notepad. (TBD: edit to apply to wordcount)
-
-		Import-Module "C:\Program Files (x86)\PowerShell tools for Windows Azure HDInsight\Microsoft.WindowsAzure.Management.HDInsight.Cmdlet" 
+3. Set the two variables in the following commands, and then run them:
 		
-		### Provide the Windows Azure subscription name and the HDInsight cluster name.
-		$subscriptionName = "myAzureSubscriptionName"   
-		$clusterName = "myClusterName"                 
+		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
+		$clusterName = "<ClusterName>"             ### HDInsight cluster name
 		
-		### Provide the HDInsight user credentials that will be used to run the script.
-		$creds = Get-Credential 
-		
-		### Create a MapReduce job definition. The jar file contains several examples.
-		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" 
- 
-		### There is one argument that specifies two numbers. 
-		### The first number indicates how many maps to create (default is 16). 
-		### The second number indicates how many samples are generated per map (10 million by default). 
-		### So this program uses 160 million random points to make its estimate of Pi.
-		$wordCountJobDefinition.Arguments.Add("pi 16 10000000") 
+5. Run the following commands to create a MapReduce job definition:
 
-		### Run the MapReduce job.
-		$wordCountJob = $wordCountJobDefinition | Start-AzureHDInsightJob -Credentials $creds -Cluster $clusterName  
-		
-		### Wait for the job to complete.  
-		$wordCountJob | Wait-AzureHDInsightJob -Credentials $creds -WaitTimeoutInSeconds 3600  
-		
-		### Print the standard error file of the MapReduce job
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountjob.JobId -StandardError
-		
+		### Define the MapReduce job
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
-3. Set the values for the two variable at the begining of the script: $subscriptionname, $clustername.
-4. Open Windows Azure PowerShell.
-5. Copy and paste the modified code into the Windows Azure PowerShell window, and then press **ENTER**. The following screenshot shows the end of the output:
+	The hadoop-examples.jar file comes with the HDInsight cluster distribution. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster distribution, and the output file path will be created at the run-time.
 
-	![HDI.Sample.PiEstimator.RunMRJob][image-hdi-sample-piestimator-runmrjob]
- 
+6. Run the following command to submit the MapReduce job:
 
-TBD: Debug script, add the above screenshot, and add instructions on how to get the result.
+		### Submit the job
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName  -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
+
+	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job, and the credentials. The Start-AzureHDInsightJob is an asynchronized call.
+
+
+8. Run the following command to check any errors with running the MapReduce job:	
+	
+		# Get the job output
+		#Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError 
+		
+**To retrieve the results of the MapReduce job**
+
+1. Open **Windows Azure PowerShell**.
+2. Set the three variables in the following commands, and then run them:
+
+		$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
+		
+		$storageAccountName = "<StorageAccountName>"   ### Windows Azure storage account name
+		$containerName = "<ContainerName>"			   ### Blob storage container name
+
+		The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+
+3. Run the following commands to create a Windows Azure storage context object:
+		
+		### Select the current subscription
+		Select-AzureSubscription $subscriptionName
+
+		### Create the storage account context object
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+
+	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
+
+4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
+
+		# Download the job output to the workstation
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+
+	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be downloaded to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder. 
+
+5. Run the following command to print the MapReduce job output file:
+
+		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
+
+
+	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains *"there"*.
+
+
+Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
 
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
