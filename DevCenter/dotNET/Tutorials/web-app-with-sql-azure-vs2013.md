@@ -329,33 +329,31 @@ In this section you will add a local user and the *canEdit* role to the membersh
 
 1. Add the following **AddUserAndRole** method to the class:
 
-        bool AddUserAndRole()
-        {
+    
+         bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+         {
             IdentityResult ir;
             var rm = new RoleManager<IdentityRole>
-                (new RoleStore<IdentityRole>(new ApplicationDbContext()));
+                (new RoleStore<IdentityRole>(context));
             ir = rm.Create(new IdentityRole("canEdit"));
-
             var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(new ApplicationDbContext()));
+                new UserStore<ApplicationUser>(context));
             var user = new ApplicationUser()
             {
-                UserName = "user1",
+               UserName = "user1",
             };
-
             ir = um.Create(user, "Passw0rd1");
             if (ir.Succeeded == false)
-                return ir.Succeeded;
-
+               return ir.Succeeded;
             ir = um.AddToRole(user.Id, "canEdit");
             return ir.Succeeded;
-        }
+         }
 
 2. Call the new method from the **Seed** method:
 
         protected override void Seed(ContactManager.Models.ApplicationDbContext context)
         {
-            AddUserAndRole();
+            AddUserAndRole(context);
             context.Contacts.AddOrUpdate(p => p.Name,
                 // Code removed for brevity
         }
@@ -363,14 +361,14 @@ In this section you will add a local user and the *canEdit* role to the membersh
    This code creates a new role called *canEdit*, creates a new local user *user1*, and adds *user1* to the *canEdit* role. 
 
 ## Use Temporary Code to Add New Social Login Users to the canEdit Role  ##
-In this section you will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth or OpenID provider to the *canEdit* role. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053(v=vs.90).aspx) in the future. Later in the tutorial I'll show how you can use **Server Explorer** to add users to roles.  
+In this section you will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth or OpenID provider to the *canEdit* role. We will temporarily modify the **ExternalLoginConfirmation** method to automatically add new users to an administrative role. Until we provide a tool to add and manage roles, we'll use the temporary automatic registration code below. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053(v=vs.90).aspx) in the future which allow you to create and edit user accounts and roles. Later in the tutorial I'll show how you can use **Server Explorer** to add users to roles.  
 
 1. Open the **Controllers\AccountController.cs** file and navigate to the **ExternalLoginConfirmation** method.
 1. Add the following call to **AddToRoleAsync** just before the **SignInAsync** call.
 
                 await UserManager.AddToRoleAsync(user.Id, "CanEdit");
 
-   An image of the code change is shown below:
+   The code above adds the newly registered user to the "CanEdit" role, which gives them access to action methods that change (edit) data. An image of the code change is shown below:
 
    ![code](..\Media\rr9.png)
 
@@ -581,9 +579,9 @@ Earlier in the tutorial you used code to add users to the canEdit role. An alter
 
 We are working on a tool that will make managing users and roles much easier.
 
-## Remove Local Registration ##
+## Local Registration Considerations ##
 
-The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. The following steps will disable local registration.
+The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. If you choose to disable local registration, follow these steps:
 <br/>
 
 1. In the AccountController, remove the *[AllowAnonymous]* attribute from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
@@ -794,4 +792,5 @@ To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post
 [rzDownLoad]: ../Media/rzDownLoad.png
 [rzDown2]: ../Media/rzDown2.png
 [rzImp]: ../Media/rzImp.png
+
 
