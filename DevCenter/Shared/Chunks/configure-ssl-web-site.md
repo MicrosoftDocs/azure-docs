@@ -52,12 +52,12 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 	<div class="dev-callout"> 
 	<b>Note</b>
-	<p>During the export process, be sure to select the option <b>Yes, export the private key</b>. This will include the private key in the exported certificate.</p>
+	<p>During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.</p>
 	</div>
 
 	<div class="dev-callout"> 
 	<b>Note</b>
-	<p>During the export process, be sure to select the option <b>include all certs in the certification path</b>. This will include any intermediate certificates in the exported certificate.</p>
+	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong>. This will include any intermediate certificates in the exported certificate.</p>
 	</div>
 
 ###Get a certificate using OpenSSL
