@@ -429,7 +429,7 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 
 * [Tutorial: Using Hive][hive]
 
-[run-samples]: /en-us/manage/services/hdinsight/get-started-hdinsight/run-samples
+[run-samples]: /en-us/manage/services/hdinsight/howto-run-samples
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
 [wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
