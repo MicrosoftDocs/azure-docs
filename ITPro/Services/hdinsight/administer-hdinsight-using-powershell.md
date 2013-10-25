@@ -42,12 +42,12 @@ After you have imported the publishsettings file, you can use the following comm
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:<p>
+<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
-<li>East US</li>
-<li>West US</li>
-<li>North Europe</li>
+<li>US East</li>
+<li>US West</li>
+<li>Europe North</li>
 </ul>
 </div>
 
@@ -241,8 +241,8 @@ See the [Submit MapReduce jobs](#mapreduce) session in this article.
 
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-admin-cli]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+[hdinsight-admin-cli]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line-interface/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/

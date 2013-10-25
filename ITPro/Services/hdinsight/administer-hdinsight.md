@@ -35,9 +35,9 @@ A Windows Azure storage account located on the same data center is required befo
 
 	When using the quick create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name, you can use the custom create option. Currently, you can only provision HDInsight clusters in the following data centers:
 
-	- East US
-	- West US
-	- North Europe
+	- US East
+	- US West
+	- Europe North
 
 	<div class="dev-callout"> 
 	<b>Important</b> 
@@ -98,19 +98,17 @@ In this article, you have learned how to create an HDInsight cluster using the W
 
 * [Administer HDInsight Using PowerShell][hdinsight-admin-powershell]
 * [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]
-* [Monitor HDInsight][hdinsight-monitor]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
 
 
+[hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line-interface/
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-monitor]: /en-us/manage/services/hdinsight/howto-monitor-hdinsight/
-[hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-cli/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/
