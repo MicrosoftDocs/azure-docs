@@ -26,15 +26,14 @@ One of the key efficiencies introduced by the HDInsight Service is in how it man
  
 HDInsight Service clusters are deployed in Azure on compute nodes to execute MapReduce tasks and can be dropped by users once these tasks have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. WASB is a robust, general purpose Azure storage solution. So storing data in blob storage enables the clusters used for computation to be safely deleted without losing user data. But blob storage is not just a low cost solution. WASB provides a full featured HDFS file system interface for blob btorage that provides a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data that it manages. 
 
-To simplify the configuring, running, and post-processing of Hadoop jobs, the HDInsight Service ...
-HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
+The HDinsight Service uses Windows Azure PowerShell to configure, run, and post-process Hadoop jobs. HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
   
-Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, a Simba Hive Open Database Connectivity (ODBC) driver is available to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
+Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, the Microsoft Hive ODBC Driver is available to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
 
 ###Outline
 This topic describes the Hadoop ecosystem supported by the HDInsight Service, the main use scenarios for HDInsight Services, and a guide to further resources. It contains the following sections:
 
- * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with WASB/HDFS and the MapReduce framework using either the Power Query or the Simba Hive ODBC driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
+ * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with WASB/HDFS and the MapReduce framework using either the Power Query or the Microsoft Hive ODBC Driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
 
  * <a href="#Scenarios">Big Data Scenarios for the HDInsight Service</a> - This section addresses the question: for what types of jobs is the HDInsight Service an appropriate technology?
 
@@ -65,11 +64,11 @@ Sqoop is tool that transfers bulk data between Hadoop and relational databases s
 
 ###Business Intelligence Tools and Connectors
 
-Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Power Query add-in or the Hive ODBC Hive driver. The Simba Hive ODBC driver is available for download from the HDInsight Service portal.
+Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 
- * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379).
+ * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=286689).
 
- * Simba Hive ODBC driver can be downloaded from this [Download Site](http://go.microsoft.com/fwlink/?LinkId=327839&clcid=0x409).
+ * Microsoft Hive ODBC Driver can be downloaded from this [Download Site](http://go.microsoft.com/fwlink/?LinkID=286698).
 
  * For information Analysis Services, see [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx).	
 
@@ -90,7 +89,7 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 
 * [Getting Started with the Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/) - A tutorial that provides a quickstart for using the HDInsight Service.
 
-* [How to Run the HDInsight Service Samples](/en-us/manage/services/hdinsight/howto-run-samples/) - A tutorial on how the run the samples that ship with the HDInsight Service.
+* [Running the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/) - A tutorial on how the run the samples that ship with the HDInsight Service.
 
 * [Big Data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/) - Big Data scenarios that explore what you can build with Windows Azure.	
 
@@ -106,9 +105,11 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 
 **Microsoft: Business Intelligence**		
 
-* [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx) - A powerful data mashup and data exploration tool. 
+* [Connect Excel to Windows Azure HDInsight with Power Query][connect-excel-with-power-query] - Connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
-* [Microsoft Power Query](http://www.microsoft.com/en-us/download/details.aspx?id=39379) - Import data from Windows Azure HDInsight or any HDFS. This add on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources.	
+* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC] - Import data from Windows Azure HDInsight or any HDFS. This add on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources.
+
+* [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx) - A powerful data mashup and data exploration tool.
 			
 * [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx) - Build comprehensive, enterprise-scale analytic solutions that deliver actionable insights.	
 
@@ -121,3 +122,7 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 * [HDFS](http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html) - Hadoop Distributed File System (HDFS) is the primary storage system used by Hadoop applications.		
 
 * [Map Reduce](http://mapreduce.org/) - A programming model and software framework for writing applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.	
+
+[connect-excel-with-hive-ODBC]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
+
+[connect-excel-with-power-query]: /en-us/manage/services/hdinsight/connect-excel-with-power-query/

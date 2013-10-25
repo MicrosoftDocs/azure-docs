@@ -98,17 +98,17 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 
 After you have imported the publishsettings file, you can use the following command to create a storage account:
 
-		azure account storage create [options] <StorageAccountName>
+	azure account storage create [options] <StorageAccountName>
 
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be collocated in the same data center.Currently, you can only provision HDInsight clusters in the following data centers:<p>
+<p>The storage account must be collocated in the same data center.Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
-<li>East US</li>
-<li>West US</li>
-<li>North Europe</li>
+<li>US East</li>
+<li>US West</li>
+<li>Europe North</li>
 </ul>
 
 </div>
@@ -117,12 +117,12 @@ For information on creating a Windows Azure storage account using Windows Azure 
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
-		-- lists storage accounts
-		azure account storage list
-		-- Shows a storage account
-		azure account storage show <StorageAccountName>
-		-- Lists the keys for a storage account
-		azure account storage keys list <StorageAccountName>
+	-- lists storage accounts
+	azure account storage list
+	-- Shows a storage account
+	azure account storage show <StorageAccountName>
+	-- Lists the keys for a storage account
+	azure account storage keys list <StorageAccountName>
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
 
@@ -133,11 +133,11 @@ For details on getting the information using the management portal, see the *How
 
 The *azure hdinsight cluster create* command creates the container if it doesn’t exist. If you choose to create the container beforehand, you can use the following command:
 
-		azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+	azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
 		
 Once you have the storage account and the blob container prepared, you are ready to create a cluster: 
 
-		azure hdinsight cluster create –-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+	azure hdinsight cluster create –-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
 ![HDI.CLIClusterCreation][image-cli-clustercreation]
 
@@ -160,20 +160,20 @@ Once you have the storage account and the blob container prepared, you are ready
 ##<a id="provisionconfigfile"></a> Provision an HDInsight cluster using a configuration file
 Typically, you provision an HDInsight cluster, run their jobs, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
  
-		azure hdinsight cluster config create <file>
-		 
-		azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
-		 
-		azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
-		       --storageAccountKey "<StorageAccountKey>"
-		 
-		azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
-		       --database "<HiveDatabaseName>" --user "<Username>" --metastorePassword "<UserPassword>"
-		 
-		azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
-		       --database "<OozieDatabaseName>" --user "<SQLUsername>" --metastorePassword "<SQLPassword>"
-		 
-		azure hdinsight cluster create --config <file>
+	azure hdinsight cluster config create <file>
+	 
+	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
+	 
+	azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
+	       --storageAccountKey "<StorageAccountKey>"
+	 
+	azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
+	       --database "<HiveDatabaseName>" --user "<Username>" --metastorePassword "<UserPassword>"
+	 
+	azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
+	       --database "<OozieDatabaseName>" --user "<SQLUsername>" --metastorePassword "<SQLPassword>"
+	 
+	azure hdinsight cluster create --config <file>
 		 
 
 
@@ -182,9 +182,9 @@ Typically, you provision an HDInsight cluster, run their jobs, and then delete t
 
 ##<a id="listshow"></a> List and show cluster details
 Use the following commands to list and show cluster details:
-
-		azure hdinsight cluster list
-		azure hdinsight cluster show <ClusterName>
+	
+	azure hdinsight cluster list
+	azure hdinsight cluster show <ClusterName>
 	
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
@@ -192,7 +192,7 @@ Use the following commands to list and show cluster details:
 ##<a id="delete"></a> Delete a cluster
 Use the following command to delete a cluster:
 
-		azure hdinsight cluster delete <ClusterName>
+	azure hdinsight cluster delete <ClusterName>
 
 
 
@@ -202,7 +202,6 @@ In this article, you have learned how to perform different HDInsight cluster adm
 
 * [Administer HDInsight using management portal][hdinsight-admin]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
-* [Monitor HDInsight][hdinsight-monitor]
 * [Getting started with Windows Azure HDInsight Service][hdinsight-getting-started]
 * [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]
 * [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]
@@ -219,7 +218,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 
 [hdinsight-admin]: /en-us/manage/services/hdinsight/howto-administer-hdinsight/
 [hdinsight-monitor]: /en-us/manage/services/hdinsight/howto-monitor-hdinsight/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
 [image-cli-account-download-import]: ../media/HDI.CLIAccountDownloadImport.png 

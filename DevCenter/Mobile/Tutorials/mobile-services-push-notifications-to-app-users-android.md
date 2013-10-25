@@ -3,11 +3,7 @@
 # Push notifications to users by using Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a>
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-onpage-left-content">
