@@ -12,8 +12,7 @@ Each one provides a different set of services, and so which one you choose depen
 - [Cloud Services](#CloudServices)
 - [What Should I Use? Making a Choice](#WhatShouldIUse)
 
-<a name="VMachine"></a>
-##Virtual Machines
+<h2><a id="VMachine"></a>Virtual Machines</h2>
 Windows Azure Virtual Machines lets developers, IT operations people, and others create and use virtual machines in the cloud. Providing what’s known as *Infrastructure as a Service (IaaS)*, this technology can be used in variety of ways. [Figure 1](#Fig1) shows its basic components.
 
 <a name="Fig1"></a>![01_CreatingVMs][]
@@ -117,8 +116,8 @@ Although it’s not shown in the figure, this SharePoint farm is probably connec
 As these examples show, you can use Windows Azure Virtual Machines to create and run new applications in the cloud, to run existing applications, or in other ways. Whatever option you choose, the technology’s goal is the same: providing a general-purpose foundation for public cloud computing.
 
 
-<a name="WebSites"></a>
-##Web Sites
+
+<h2><a id="WebSites"></a>Web Sites</h2>
 
 People use web technologies in many different ways. A corporation may need to migrate or setup a presence web site that can handle millions of hits a week and be deployed in several data centers across the globe. A web design agency might work with a team of developers to build a custom web application capable of handling thousands of users. A corporate developer may need to setup an application to track expense reports in the Cloud for authenticated users from his corporate Active Directory. An IT consultant might use a popular open source application to set up a content management system for a small business.
 All of these things could be accomplished using Windows Azure Virtual Machines. But creating and managing raw VMs requires some skill and takes effort. If you need to implement a web site or web application, there’s an easier (and cheaper) solution: the approach commonly known as Platform as a Service (PaaS). As Figure 5 shows, Windows Azure provides this with Web Sites.
@@ -133,8 +132,8 @@ Getting started is easy. With Windows Azure Web Sites, users can select from a r
 Developers can create large, scalable web applications with Web Sites. The technology supports creating applications using ASP.NET, PHP, Node.js and Python. Applications can use sticky sessions, for example, and existing web applications can be moved to this cloud platform with no changes. Applications built on Web Sites are free to use other aspects of Windows Azure, such as Service Bus, SQL Database, and Blob Storage. You can also run multiple copies of an application in different VMs, with Web Sites automatically load balancing requests across them. And because new Web Sites instances are created in VMs that already exist, starting a new application instance happens very quickly; it’s significantly faster than waiting for a new VM to be created.
 As [Figure 5](#Fig5) shows, you can publish code and other web content into Web Sites in several ways. You can use FTP, FTPS, or Microsoft’s WebDeploy technology. Web Sites also supports publishing code from source control systems, including Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server, and the cloud-based Team Foundation Service.
 
-<a name="CloudServices"></a>
-##Cloud Services
+
+<h2><a id="CloudServices"></a>Cloud Services</h2>
 
 Windows Azure Virtual Machines provides IaaS, while Windows Azure Web Sites provides web hosting. The third compute option, Cloud Services, provides *Platform as a Service (PaaS)*. This technology is designed to support applications that are scalable, reliable, and cheap to operate. It’s also meant to free developers from worrying about managing the platform they’re using, letting them focus entirely on their applications. [Figure 6](#Fig6) illustrates the idea.
 
@@ -159,9 +158,7 @@ Cloud Services also provides monitoring. Like Windows Azure Virtual Machines, it
 The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn’t maintain state in the file system of its own VMs. Unlike VMs created with Windows Azure Virtual Machines, writes made to Cloud Services VMs aren’t persistent; there’s nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
 
 
-<a name="WhatShouldIUse"></a>
->
-##What Should I Use? Making a Choice
+<h2><a id="WhatShouldIUse"></a>What Should I Use? Making a Choice</h2>
 
 All three Windows Azure execution models let you build scalable, reliable applications in the cloud. Given this essential similarity, which one should you use? The answer depends on what you’re trying to do.
 
