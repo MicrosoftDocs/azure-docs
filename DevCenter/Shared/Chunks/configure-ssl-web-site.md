@@ -1,13 +1,17 @@
 #Configuring an SSL certificate for a Windows Azure web site
 
-Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This article discusses how to enable SSL for a Windows Azure Web Site.
+Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This article discusses how to enable SSL for a Windows Azure Web Site that uses a custom domain name, such as contoso.com. 
 
-The steps in this article require you to configure your web sites for standard mode, which may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
+<div class="dev-callout">
+<strong>Note</strong>
+<p>If you are not using a custom domain name, SSL is already provided for your web site using a wildcard certificate for *.azurewebsites.net. You can verify this by using the HTTPS protocol to access your web site. For example, https://mywebsite.azurewebsites.net.</p>
+</div>
 
+In order to enable SSL for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 <a href="bkmk_getcert"></a><h2>Get a Certificate</h2>
 
-To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
+To configure SSL for an custom domain, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
 
 The certificate must meet the following requirements for SSL certificates in Windows Azure:
 
@@ -42,7 +46,19 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 3. Complete the CSR with the certificate provided by the Certificate Authority vendor. For more information on completing the CSR, see [Install an Internet Server Certificate (IIS 7)][installcertiis].
 
+4. If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA.
+
 4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Windows Azure for use with your Windows Azure Web Site.
+
+	<div class="dev-callout"> 
+	<b>Note</b>
+	<p>During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.</p>
+	</div>
+
+	<div class="dev-callout"> 
+	<b>Note</b>
+	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong>. This will include any intermediate certificates in the exported certificate.</p>
+	</div>
 
 ###Get a certificate using OpenSSL
 
@@ -81,6 +97,15 @@ This section describes the steps to obtain a certificate from a trusted Certific
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	When prompted, enter a password to secure the .pfx file.
+
+	<div class="dev-callout"> 
+	<b>Note</b>
+	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a seperate download from your CA.</p>
+	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
+	<pre><code>
+	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	</code></pre>
+	</div>
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
 
@@ -233,6 +258,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 	When prompted, enter a password to secure the .pfx file.
 
 	The **myserver.pfx** produced by this command can be used to secure your Windows Azure Web Site for testing purposes.
+
 
 [customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
 [iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
