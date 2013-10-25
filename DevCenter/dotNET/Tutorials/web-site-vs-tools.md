@@ -1,522 +1,791 @@
-<properties linkid="develop-net-tutorials-troubleshooting-web-sites-in-visual-studio" urlDisplayName="Troubleshooting Windows Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Windows Azure Web Sites in Visual Studio" metaKeywords="" metaDescription="This tutorial shows how to use Visual Studio tools for managing and debugging Windows Azure Web Sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Secure MVC Windows Azure with SQL" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="OAuth, Membership, Windows Azure hello world tutorial, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop a secure ASP.NET MVC 5 web application with ASP.NET Membership and a SQL Database back-end and deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
 
-# Troubleshooting Windows Azure Web Sites in Visual Studio
+# Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to a Windows Azure Web Site
 
-During development and testing of a web application, you can troubleshoot by [running in debug mode](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) or by using [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). For errors that occur only in production, the best way to debug might be by reviewing logs that application code or the web server creates. This tutorial shows how to use Visual Studio tools that help debug an application while it runs in a Windows Azure Web Site, by viewing application and web server logs.
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 18 October 2013.***
+<br/><br/>
+This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Windows Azure.
+
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Windows Azure for free. If you want to use Visual Studio 2012, see the [previous tutorial](http://windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/). This version of the tutorial is far simpler than the previous version.
+
+This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database.
 
 You'll learn:
 
-* Which Windows Azure site management functions are available in Visual Studio.
-* How to create application trace logs and view them while the application is creating them.
-* How to view web server logs, including detailed error messages and failed request tracing.
-* How to send diagnostic logs to a Windows Azure Storage account and view them there.
+* How to create a secure ASP.NET MVC 5 project and publish it to a Windows Azure Web Site.
+* How to use [OAuth](http://oauth.net/ "http://oauth.net/"), [OpenID](http://openid.net/) and the ASP.NET membership database to secure your application.
+* How to use the new membership API to add users and roles.
+* How to use a SQL database to store data in Windows Azure.
 
+You'll build a simple contact list web application that is built on ASP.NET MVC 5 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
+<br/><br/>
+![login page][rxb]<br/>
 
-### Tutorial segments
+<div class="dev-callout"><p><strong>Note</strong> To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
-1. [Prerequisites](#prerequisites)
-2. [Site configuration and management](#sitemanagement)
-3. [Diagnostic logs overview](#logsoverview)
-4. [Create and view application trace logs](#apptracelogs)
-5. [View web server logs](#webserverlogs)
-5. [View detailed error message logs](#detailederrorlogs)
-5. [Download file system logs](#downloadlogs)
-5. [View storage logs](#storagelogs)
-5. [View failed request logs](#failedrequestlogs)
-5. [Next steps](#nextsteps)
-
-<h2><a name="prerequisites"></a><span class="short-header">Prerequisites</span></h2>
-
-This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted].
-
-The features shown in the tutorial work in Visual Studio 2013, Visual Studio 2013 Express for Web, Visual Studio 2012, and Visual Studio 2012 Express for Web. 
-
-<div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
-
-<h2><a name="sitemanagement"></a><span class="short-header">Site management</span>Site configuration and management</h2>
 
-Visual Studio provides access to a subset of the site management functions and configuration settings available in the management portal. In this section you'll see what's available.
+In this tutorial:
 
-1. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
+- [Set up the Windows Azure environment][setupwindowsazureenv]
+- [Create an ASP.NET MVC 5 application][createapplication]
+- [Deploy the application to Windows Azure][deployapp1]
+- [Add a database to the application][adddb]
+- [Add an OAuth Provider][]
+- [Using the Membership API][]
+- [Deploy the app to Windows Azure][deployapp11]
+- [Next steps][]
 
-   <div chunk="../../shared/chunks/vs-connect.md" />
 
-1. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
+<div chunk="../chunks/install-sdk-2013-only.md" />
 
-2. Right-click the node for the web site that you created in [Getting started with Windows Azure and ASP.NET][GetStarted], and then click **View Settings**.
-
-   ![View Settings in Server Explorer](../Media/tws-viewsettings.png)
-
-   The **Azure Web Site** tab appears, and you can see there the site management and configuration tasks that are available in Visual Studio.
-
-   ![Azure Web Site window](../Media/tws-configtab.png)
-
-   In this tutorial you'll be using the logging and tracing drop-downs. 
-   
-   For information about the App Settings and Connection Strings boxes in this window, see [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
-
-   If you want to perform a site management task that can't be done this window, you can click **Full Web Site Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
-
-<h2><a name="logsoverview"></a><span class="short-header">Logs overview</span>Diagnostic logs overview</h2>
 
-An ASP.NET application that runs in a Windows Azure Web Site can create the following kinds of logs:
+<h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
-* **Application tracing logs**<br/>
-  The application creates these logs by calling methods of the [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/system.diagnostics.trace.aspx) class.
-* **Web server logs**<br/>
-  The web server creates a log entry for every HTTP request to the site.
-* **Detailed error message logs**<br/>
-  The web server creates an HTML page with some additional information for failed HTTP requests (those that result in status code 400 or greater). 
-* **Failed request tracing logs**<br/>
-  The web server creates an XML file with detailed tracing information for failed HTTP requests. The web server also provides an XSL file to format the XML in a browser.
-  
-Logging affects site performance, so Windows Azure gives you the ability to enable or disable each type of log as needed. For application logs, you can specify that only logs above a certain severity level should be written. When you create a new web site, by default all logging is disabled.
+Next, set up the Windows Azure environment by creating a Windows Azure Web Site and a SQL database.
 
-Logs are written to files in a *LogFiles* folder in the file system of your web site. Web server logs and application logs can also be written to a Windows Azure Storage account. You can retain a greater volume of logs in a storage account than is possible in the file system. You're limited to a maximum of 100 megabytes of logs when you use the file system. (Windows Azure deletes old log files to make room for new ones after the limit is reached.) 
+### Create a web site and a SQL database in Windows Azure
 
-<h2><a name="apptracelogs"></a><span class="short-header">Application logs</span>Create and view application trace logs</h2>
+Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
-In this section you'll do the following tasks:
+Windows Azure SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-* Add tracing statements to the web project that you created in [the earlier tutorial][GetStarted].
-* View the logs when you run the project locally.
-* View the logs as they are generated by the application running in Windows Azure. 
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
+<br/><br/>
+![New button in Management Portal][rxWSnew]<br/>
 
-### Add tracing statements to the application
+1. Click **CUSTOM CREATE**.<br/>
+![Create with Database link in Management Portal][rxCreateWSwithDB]<br/> <br/>
+The **New Web Site - Custom Create** wizard opens. <br/>
 
-1. Open *Controllers\HomeController.cs*, and replace the file contents with the following code in order to add `Trace` statements and a `using` statement for `System.Diagnostics`:
+1. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows a URL is that probably taken so you will have to choose a different one.<br/><br/>
+![Create with Database link in Management Portal][rr1]<br/><br/>
+1. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
+1. In the **Region** drop-down list, choose the same region you selected for the Web site.
+This setting specifies which data center your VM will run in. 
+1. In the **DB CONNECTION STRING NAME**, leave the default value of *DefaultConnection*.
+1. Click the arrow that points to the right at the bottom of the box.
+The wizard advances to the **Specify database settings** step.
+1. In the **Name** box, enter *ContactDB*. (see the image below). 
+1. Set the **Region** to the same are you created the Web Site.
+1. In the **Server** box, select **New SQL Database server**. (see the image below). Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.<br/>
+1. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you’ve created previously, you’ll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced** box.  For a free DB, you can only set the collation.
+1. Click the check mark at the bottom right of the box to indicate you're finished.
+![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
+<br/> The following image shows using an existing SQL Server and Login.
+![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]<br/>
+The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
 
-		using System;
-		using System.Collections.Generic;
-		using System.Configuration;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Web;
-		using System.Web.Configuration;
-		using System.Web.Mvc;
-		namespace MyExample.Controllers
-		{
-		    public class HomeController : Controller
-		    {
-		        public ActionResult Index()
-		        {
-		            Trace.WriteLine("Entering Index method");
-		            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-		            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Index method");
-		            return View();
-		        }
-		        public ActionResult About()
-		        {
-		            Trace.WriteLine("Entering About method");
-		            ViewBag.Message = "Your app description page.";
-		            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-		            Trace.WriteLine("Leaving About method");
-		            return View();
-		        }
-		        public ActionResult Contact()
-		        {
-		            Trace.WriteLine("Entering Contact method");
-		            ViewBag.Message = "Your contact page.";
-		            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-		            Trace.WriteLine("Leaving Contact method");
-		            return View();
-		        }
-		    }
-		}
-		
-				
-### View the tracing output locally
+<h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
 
-3. Press F5 to run the application in debug mode.
+You have created a Windows Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web app that you'll publish to Windows Azure.
 
-   The default trace listener writes all trace output to the **Output** window, along with other Debug output. The following illustration shows the output from the trace statements that you added to the `Index` method.
+### Create the project
 
-   ![Tracing in Debug window](../Media/tws-debugtracing.png)
+2. From the **File** menu, click **New Project**.
 
-   The following steps show how to view trace output in a web page, without compiling in debug mode.
+   ![New Project in File menu](../Media/gs13newproj.png)
 
-2. Open the application Web.config file (the one located in the project folder) and add a `<system.diagnostics>` element at the end of the file just before the closing `</configuration>` element:
+3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET Web Application**.
 
-  		<system.diagnostics>
-		    <trace>
-		      <listeners>
-		        <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener, 
-                    System.Web, 
-                    Version=4.0.0.0, 
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-		      </listeners>
-		    </trace>
-		  </system.diagnostics>
 
-   The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
+4. Name the application **ContactManager** and click **OK**.
 
-3. Add a [trace element](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) under `<system.web>` in the Web.config file, such as the following example:
+   ![New Project dialog box](../Media/GS13newprojdb.png)
 
-		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+5. In the **New ASP.NET Project** dialog box, select the **MVC** template, and then click **Change Authentication**.
 
-3. Press CTRL+F5 to run the application.
+   ![New ASP.NET Project dialog box](../Media/GS13changeauth.png)
 
-4. In the address bar of the browser window, add *trace.axd* to the URL, and then press Enter (the URL will be similar to http://localhost:53370/trace.axd).
+6. Keep the default **Individual User Accounts** in the **Change Authentication** dialog box.
 
-5. On the **Application Trace** page, click **View Details**.
 
-   ![trace.axd](../Media/tws-traceaxd1.png)
+5. In the **New ASP.NET Project** dialog box, click **OK**.
 
-   The **Request Details** page appears, and in the **Trace Information** section you see the output from the trace statements that you added to the `Index` method.
+     ![New ASP.NET Project dialog box](../Media/GS13changeauth.png)
 
-   ![trace.axd](../Media/tws-traceaxd2.png)
 
-By default, `trace.axd` is only available locally. If you wanted to make it available from a remote site, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
+### Set the page header and footer
 
-		<trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-However, enabling `trace.axd` in a production site is generally not recommended for security reasons, and in the following sections you'll see an easier way to read tracing logs in a Windows Azure Web Site.
+1. In **Solution Explorer** open the *Layout.cshtml* file in the *Views\Shared* folder.<br/>
+	![_Layout.cshtml in Solution Explorer][newapp004]
+1. Replace the two occurrences of "My ASP.NET MVC Application" with "Contact Manager".
+1. Replace "Application name" with "CM Demo". 
+2. Update the first Action link and replace *Home* with *Cm* to use the *Cm* Controller.
+<br/><br/>
+![code changes](..\Media\rs3.png)
 
-### View the tracing output in Windows Azure
 
-1. In **Solution Explorer**, right-click the web project and click **Publish**.
+### Run the application locally
 
-2. In the **Publish Web** dialog box, click **Publish**.
+1. Press CTRL+F5 to run the application.
+The application home page appears in the default browser.<br/>
+![Web site running locally](../Media/rr2.png)
 
-   After Visual Studio publishes your update, it opens a browser window to your home page (assuming you didn't clear **Destination URL** on the **Connection** tab).
+This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
-3. In **Server Explorer**, right-click your web site and select **View Streaming Logs in Output Window**. 
+<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-   ![View Streaming Logs in context menu](../Media/tws-viewlogsmenu.png)
+1. In your browser, open the [Windows Azure Management Portal](http://manage.windowsazure.com "portal").
 
-   The **Output** window shows that you are connected to the log-streaming service, and adds a notification line each minute that goes by without a log to display.
+2. In the **Web Sites** tab, click the name of the site you created earlier.<br/>
 
-   ![View Streaming Logs in context menu](../Media/tws-nologsyet.png)
+	![Contact manager application in Management Portal Web Sites tab][setup009]
 
-4. In the browser window that shows your application home page, click **Contact**.
+3. Click **Download publish profile**.<br/>
 
-   Within a few seconds the output from the error-level trace you added to the `Contact` method appears in the **Output** window.
+	This step downloads a file that contains all of the settings that you need in order to deploy an application to your Web Site. You'll import this file into Visual Studio so you don't have to enter this information manually.
 
-   ![Error trace in Output window](../Media/tws-errortrace.png)
+4. Save the .*publishsettings* file in a folder that you can access from Visual Studio. The default downloads directory is a good place to save this file.
 
-Visual Studio is only showing error-level traces because that is the default setting when you enable the log monitoring service. When you create a new Windows Azure Web Site, all logging is disabled by default, as you saw when you opened the site settings page earlier:
+	![saving the .publishsettings file][firsdeploy002]
 
-![Application Logging off](../Media/tws-apploggingoff.png)
+	<div chunk="../../shared/chunks/publishsettingsfilewarningchunk.md" />
 
-However, when you selected **View Streaming Logs in Output Window**, Visual Studio automatically changed **Application Logging(File System)** to **Error**, which means error-level logs get reported. In order to see all of your tracing logs, you can change this setting to **Verbose**. When you select a severity level lower than error, all logs for higher severity levels are also reported. So when you select verbose, you also see information, warning, and error logs. 
+5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 
-4. In **Server Explorer**, right-click the web site, and then click **View Settings** as you did earlier.
+	   ![Publish in project context menu](../Media/GS13publish.png)
+	
+	The **Publish Web** wizard opens.
 
-5. Change **Application Logging (File System)** to **Verbose**, and then click **Save**.
- 
-   ![Setting trace level to Verbose](../Media/tws-applogverbose.png)
+6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 
-6. In the browser window that is now showing your **Contact** page, click **Home**, then click **About**, and then click **Contact**.
+![Import publish settings][ImportPublishSettings]
 
-   Within a few seconds, the **Output** window shows all of your tracing output.
+The **Import Publish Profile** dialog box appears.
 
-   ![Verbose trace output](../Media/tws-verbosetraces.png)
+<div chunk="../../shared/chunks/vs-connect-ws-publish.md" />   
+	
 
-In this section you enabled and disabled logging by using Windows Azure Web Site settings. You can also enable and disable trace listeners by modifying the Web.config file. However, modifying the Web.config file causes the app domain to recycle, while enabling logging via the web site doesn't do that. If the problem takes a long time to reproduce, or is intermittent, recycling the app domain might "fix" it and force you to wait until it happens again. Enabling diagnostics in Windows Azure doesn’t do this, so you can start capturing error information immediately.
+7. In the **Import Publish Profile** dialog box, select your web site from the drop-down list, and then click **OK**.<br/>
+![Import Publish Profile](..\Media\rs4.png)
 
-### Output window features
+1. In the **Publish Web** dialog box, click **Publish**.
 
-The **Windows Azure Logs** tab of the **Output** Window has several buttons and a text box:
+	![Publish](../Media/rr3.png)
+	The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
 
-   ![Logs tab buttons](../Media/tws-icons.png)
+<h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
-These perform the following functions:
+Next, you'll update the MVC application to add the ability to display and update contacts and store the data in a database. The application will use the Entity Framework to create the database and to read and update data in the database.
 
-* Clear the **Output** window.
-* Enable or disable word wrap.
-* Start or stop monitoring logs.
-* Specify which logs to monitor.
-* Download logs.
-* Filter logs based on a search string or a regular expression.
-* Close the **Output** window.
+### Add data model classes for the contacts
 
-If you enter a search string or regular expression, Visual Studio filters logging information at the client. That means you can enter the criteria after the logs are displayed in the **Output** window and you can change filtering criteria without having to regenerate the logs.
+You begin by creating a simple data model in code.
 
-<h2><a name="webserverlogs"></a><span class="short-header">Web server logs</span>View web server logs</h2>
+1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.<br/>
+![Add Class in Models folder context menu](../Media/rr5.png)
 
-Web server logs record all HTTP activity on the site. In order to see them in the **Output** window you have to enable them on the site and tell Visual Studio that you want to monitor them. 
+2. In the **Add New Item** dialog box, name the new class file *Contact.cs*, and then click **Add**.<br/>
+![Add New Item dialog box][adddb002]
+3. Replace the contents of the Contacts.cs file with the following code.
 
-1. In the **Azure Web Site Configuration** tab that you opened from **Server Explorer**, change Web Server Logging to **On**, and then click **Save**.
-
-   ![Enable web server logging](../Media/tws-webserverloggingon.png)
-
-2. In the **Output** Window, click the **Specify which Windows Azure logs to monitor** button.
-
-   ![Specify which Windows Azure logs to monitor](../Media/tws-specifylogs.png)
-
-3. In the **Windows Azure Logging Options** dialog box, select **Web server logs**, and then click **OK**.
-
-   ![Monitor web server logs](../Media/tws-monitorwslogson.png)
-
-4. In the browser window that shows the web site, click **Home**, then click **About**, and then click **Contact**.
-
-   The application logs generally appear first, followed by the web server logs. You might have to wait a while for the logs to appear.
-
-   ![Web server logs in Output window](../Media/tws-wslogs.png)
-
-By default, when you first enable web server logs by using Visual Studio, Windows Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
-
-If you use the management portal to enable web server logging to a Windows Azure storage account, and then disable logging in Visual Studio, when you re-enable logging in Visual Studio your storage account settings are restored. 
-
-<h2><a name="detailederrorlogs"></a><span class="short-header">Error logs</span>View detailed error message logs</h2>
-
-Detailed error logs provide some additional information about HTTP requests that result in error response codes (400 or above). In order to see them in the **Output** window, you have to enable them on the site and tell Visual Studio that you want to monitor them.
-
-1. In the **Azure Web Site Configuration** tab that you opened from **Server Explorer**, change **Detailed Error Messages** to **On**, and then click **Save**.
-
-   ![Enable detailed error messages](../Media/tws-detailedlogson.png)
-
-2. In the **Output** Window, click the **Specify which Windows Azure logs to monitor** button.
-
-3. In the **Windows Azure Logging Options** dialog box, click **All logs**, and then click **OK**.
-
-   ![Monitor all logs](../Media/tws-monitorall.png)
-
-4. In the address bar of the browser window, add an extra character to the URL to cause a 404 error (for example, `http://localhost:53370/Home/Contactx`), and press Enter.
-
-   After several seconds the detailed error log appears in the Visual Studio **Output** window. The log output is long, and the following image only shows part of it.
-
-   ![Detailed error log in Output window](../Media/tws-detailederrorlog.png)
-
-   If you copy the HTML of the log output and open it in a browser, you see the following page:
-
-   ![Detailed error log in browser window](../Media/tws-detailederrorloginbrowser.png)
-
-<h2><a name="downloadlogs"></a><span class="short-header">Download logs</span>Download file system logs</h2>
-
-Any logs that you can monitor in the **Output** window can also be downloaded as a *.zip* file. 
-
-1. In the **Output** window, click **Download Streaming Logs**.
-
-   ![Logs tab buttons](../Media/tws-downloadicon.png)
-
-   File Explorer opens to your *Downloads* folder with the downloaded file selected.
-
-   ![Downloaded file](../Media/tws-downloadedfile.png)
-
-2. Extract the *.zip* file, and you see the following folder structure:
-
-   ![Downloaded file](../Media/tws-logfilefolders.png)
-
-   * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
-   * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
-   * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
-
-   (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
-
-<h2><a name="storagelogs"></a><span class="short-header">Storage logs</span>View storage logs</h2>
-
-Application tracing logs can also be sent to a Windows Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the management portal, and view them in the **Logs** tab of the **Azure Web Site** window.
-
-You can send logs to both the file system and a storage account, and you can specify a different severity level for each. You currently have file system logs set to verbose level; you'll set storage logs to information level. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
-
-One advantage of sending application tracing logs to storage is that you get some additional information with each log that you don't get from file system logs.
-
-1. In **Server Explorer**, right-click the web site, and then click **Open in Management Portal**.
-
-2. In the management portal, click the **Storage** tab, and then click **Create a Storage Account**.
-
-  ![Create a storage account](../Media/tws-createstorage.png)
-
-2. Enter a unique URL to use for the storage account, and then click **Create Storage Account**.
-
-  ![Enter a URL](../Media/tws-storageurl.png)
-
-1. In the Visual Studio **Azure Web Site** window, click the **Logs** tab, and then click **Configure Logging**.
-
-  ![Downloaded file](../Media/tws-configlogging.png)
-
-  This opens the **Configure** tab in the management portal for your web site. Another way to get here is to click the **Web Sites** tab, click your web site, and then click the **Configure** tab.
-
-2. In the management portal **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Storage)** to **On**.
-
-3. Change **Logging Level** to **Information**.
-
-4. Click **Manage Connection**.
-
-  ![Click Manage Connection](../Media/tws-stgsettingsmgmtportal.png)
-
-  In the **Manage diagnostic storage** box, you can choose your storage account if you have more than one. The **Storage Account Key** field defaults to the primary key value of the selected storage account.
-
-  ![Click Manage Connection](../Media/tws-choosestorageacct.png)
-
-6. In the **Manage diagnostic storage** box click the check mark to close the box.
-
-6. In the management portal **Configure** tab, click **Save**.
-
-7. In the browser window that displays the application web site, click **Home**, then click **About**, and then click **Contact**.
-
-  The logging information produced by browsing these web pages will be written to the storage account.
-
-8. In the **Logs** tab of the **Azure Web Site** window in Visual Studio, click **Refresh** under **Diagnostic Summary**.
-
-  ![Click Refresh](../Media/tws-refreshstorage.png)
-
-  The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. 
-
-  (If you get a "table not found" error for the WAWSAppLogTable, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
-
-  ![Storage logs](../Media/tws-storagelogs.png)
-
-  Notice that in this view you see **Process ID** and **Thread ID** for each log, which you don't get in the file system logs. You can see additional fields by viewing the Windows Azure storage table directly.
-
-8. Click **View all application logs**.
-
-   The trace log table appears in the Windows Azure storage table viewer.
-   
-   (If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Windows Azure** node, and then right-click **Tables** and click **Refresh**.)
-
-  ![Trace table in Server Explorer](../Media/tws-tracetableinse.png)
-
-  ![Storage logs in table view](../Media/tws-tracelogtableview.png)
-
-  This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
-
-7. To look at the details for a single row, right-click one of the rows, and then click **Edit**.
-
-  ![Trace table in Server Explorer](../Media/tws-tracetablerow.png)
-
-<h2><a name="failedrequestlogs"></a><span class="short-header">Failed request logs</span>View failed request tracing logs</h2>
-
-Failed request tracing logs are useful when you need to understand the details of how IIS is handling an HTTP request, in scenarios such as URL rewriting or authentication problems. 
-
-Windows Azure Web Sites use the same failed request tracing functionality that has been available with IIS 7.0 and later. You don't have access to the IIS settings that configure which errors get logged, however. When you enable failed request tracing, all errors are captured. 
-
-You can enable failed request tracing by using Visual Studio, but you can't view them in Visual Studio. These logs are XML files. The streaming log service only monitors files that are deemed readable in plain text mode:  *.txt*, *.html*, and *.log* files.
-
-You can view failed request tracing logs in a browser directly via FTP or locally after using an FTP tool to download them to your local computer. In this section you'll view them in a browser directly.
-
-1. In the **Configuration** tab of the **Azure Web Site** window that you opened from **Server Explorer**, change **Failed Request Tracing** to **On**, and then click **Save**.
-
-   ![Enable failed request tracing](../Media/tws-failedrequeston.png)
-
-4. In the address bar of the browser window that shows the web site, add an extra character to the URL and click Enter to cause a 404 error.
-
-   This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
-
-2. In Visual Studio, in the **Configuration** tab of the **Azure Web Site** window, click **Open in Management Portal**.
-
-3. In the management portal, click **Dashboard**, and then click **Reset your deployment credentials** in the **Quick Glance** section.
-
-   ![Reset FTP credentials link in Dashboard](../Media/tws-resetftpcredentials.png)
-
-4. Enter a new user name and password.
-
-   ![New FTP user name and password](../Media/tws-enterftpcredentials.png)
-
-5. In the management portal **Dashboard** tab press F5 to refresh the page, and then scroll down to where you see **Deployment / FTP User**. Notice that the user name has the site name prefixed to it. **When you log in, you have to use this full user name with the site name prefixed to it as shown here.**
-
-5. In a new browser window, go to the URL that is shown under **FTP Host Name** in the **Dashboard** tab of the management portal page for your web site. **FTP Host Name** is located near **Deployment / FTP User** in the **Quick Glance** section.
-
-6. Log in using the FTP credentials that you created earlier (including the site name prefix for the user name).
-
-   The browser shows the root folder of the site.
-
-6. Open the *LogFiles* folder.
-
-   ![Open LogFiles folder](../Media/tws-logfilesfolder.png)
-
-7. Open the folder that is named W3SVC plus a numeric value.
-
-   ![Open W3SVC folder](../Media/tws-w3svcfolder.png)
-
-   The folder contains XML files for any errors that have been logged after you enabled failed request tracing, and an XSL file that a browser can use to format the XML.
-
-   ![W3SVC folder](../Media/tws-w3svcfoldercontents.png)
-
-8. Click the XML file for the failed request that you want to see tracing information for.
-
-   The following illustration shows part of the tracing information for a sample error.
-
-   ![Failed request tracing in browser](../Media/tws-failedrequestinbrowser.png)
-
-
-<h2><a name="nextsteps"></a><span class="short-header">Next Steps</span>Next Steps</h2>
-
-You've seen how Visual Studio makes it easy to view logs created by a Windows Azure Web Site. You might want to learn more about troubleshooting Windows Azure Web Sites, tracing in ASP.NET applications, and analyzing web server logs.
-
-### Windows Azure Web Site troubleshooting
-
-For more information about troubleshooting Windows Azure Web Sites (WAWS), see the following resources:
-
-* [Troubleshooting in Windows Azure](/en-us/develop/net/best-practices/troubleshooting/)<br/>
-  A basic introductory white paper that includes a short section on WAWS.
-* [Troubleshooting a Web Site](/en-us/develop/net/best-practices/troubleshooting-web-sites/)<br/>
-  An introduction that focuses on WAWS.
-* [Enable diagnostic logging for Windows Azure Web Sites](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)<br/>
-  Covers much of the same information provided by this tutorial but focuses on how to get diagnostic logs without using Visual Studio. 
-* [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)<br/>
-  The [configure diagnostics and download logs](/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics) section has valuable information not included in the troubleshooting documents.
-
-For help with a specific troubleshooting question, start a thread in one of the following forums:
-
-* [The Windows Azure forum on the ASP.NET site](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [The Windows Azure forum on MSDN](http://social.msdn.microsoft.com/Forums/windowsazure/).
-* [StackOverflow.com](http://www.stackoverflow.com).
-
-### Debugging in Visual Studio 
-
-For information about how to use debug mode in Visual Studio, see the [Debugging in Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx) MSDN topic.
-
-### Tracing in ASP.NET applications
-
-There are no thorough and up-to-date introductions to ASP.NET tracing available on the Internet. The best you can do is get started with old introductory materials written for Web Forms because MVC didn't exist yet, and supplement that with newer blog posts that focus on specific issues. Some good places to start are the following resources:
-
-* [ASP.NET Tracing](http://msdn.microsoft.com/en-us/library/ms972204.aspx)<br/>
-  Old but still a good resource for a basic introduction to the subject.
-* [Trace Listeners](http://msdn.microsoft.com/en-us/library/4y5y10s7.aspx)<br/>
-  Information about trace listeners but doesn't mention the [WebPageTraceListener](http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx).
-* [Walkthrough: Integrating ASP.NET Tracing with System.Diagnostics Tracing](http://msdn.microsoft.com/en-us/library/b0ectfxd.aspx)<br/>
-  This too is old, but includes some additional information that the introductory article doesn't cover.
-* [Tracing in ASP.NET MVC Razor Views](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Besides tracing in Razor views, the post also explains how to create an error filter in order to log all unhandled exceptions in an MVC application. For information about how to log all unhandled exceptions in a Web Forms application, see the Global.asax example in [Complete Example for Error Handlers](http://msdn.microsoft.com/en-us/library/bb397417.aspx) on MSDN. In either MVC or Web Forms, if you want to log certain exceptions but let the default framework handling take effect for them, you can catch and rethrow as in the following example:
-
-        try
+        using System.ComponentModel.DataAnnotations;
+        using System.Globalization;
+        namespace ContactManager.Models
         {
-           // Your code that might cause an exception to be thrown.
+            public class Contact
+            {
+                public int ContactId { get; set; }
+                public string Name { get; set; }
+                public string Address { get; set; }
+                public string City { get; set; }
+                public string State { get; set; }
+                public string Zip { get; set; }
+                [DataType(DataType.EmailAddress)]
+                public string Email { get; set; }
+            }
         }
-        catch (Exception ex)
+The **Contacts** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
+
+### Create web pages that enable app users to work with the contacts
+
+The ASP.NET MVC scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
+
+<h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
+
+1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
+1. In **Solution Explorer**, right-click the Controllers folder and click **Add**, and then click **Controller**.<br/>
+![Add Controller in Controllers folder context menu][addcode001]<br/>
+5. In the **Add Scaffold** dialog box, select **MVC 5 Controller with views, using EF** and then click **Add**.
+![Add Scaffold dlg](../Media/rr6.png)
+5. In the **Add Controller** dialog box, enter "CmController" for the controller name. (See the image below.)
+1. In the **Model class** dropdown box, select **Contact (ContactManager.Models)**.
+1. Click the **New data context** button and accept the default **ContactManager.Models.ContactManagerContext** new data context type and click **Add**.
+![New data ctx dlg](../Media/rr7.png)
+1. Click **Add**.
+
+Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
+
+## Enable Migrations, create the database, add sample data and a data initializer ##
+
+The next task is to enable the [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) feature in order to create the database based on the data model you created.
+
+1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
+	<br/>![Package Manager Console in Tools menu][addcode008]
+2. In the **Package Manager Console** window, enter the following command:<br/>
+
+		enable-migrations -ContextTypeName ContactManagerContext
+<br/>![enable-migrations][rxE] <br/>
+	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext](http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=VS.103).aspx) derived classes, the **ContactManagerContext** we just added and the **ApplicationDbContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizard.<br/>
+  The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure Migrations. <br/>
+
+2. In the **Package Manager Console** window, enter the following command:<br/>
+
+		add-migration Initial
+
+
+	The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder that creates the database. The first parameter ( **Initial** ) is arbitrary and is used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
+	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
+3. Open the *Migrations\Configuration.cs* file. 
+4. Add the following namespaces. 
+
+    	 using ContactManager.Models;
+
+
+
+5. Replace the *Seed* method with the following code:
+
+        protected override void Seed(ContactManager.Models.ContactManagerContext context)
         {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        } 
+            context.Contacts.AddOrUpdate(p => p.Name,
+               new Contact
+               {
+                   Name = "Debra Garcia",
+                   Address = "1234 Main St",
+                   City = "Redmond",
+                   State = "WA",
+                   Zip = "10999",
+                   Email = "debra@example.com",
+               },
+                new Contact
+                {
+                    Name = "Thorsten Weinrich",
+                    Address = "5678 1st Ave W",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "thorsten@example.com",
+                },
+                new Contact
+                {
+                    Name = "Yuhong Li",
+                    Address = "9012 State st",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "yuhong@example.com",
+                },
+                new Contact
+                {
+                    Name = "Jon Orton",
+                    Address = "3456 Maple St",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "jon@example.com",
+                },
+                new Contact
+                {
+                    Name = "Diliana Alexieva-Bosseva",
+                    Address = "7890 2nd Ave E",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "diliana@example.com",
+                }
+                );
+        }
 
-* [Scott Guthrie: Building Real World Cloud Apps with Windows Azure - Part 2](http://vimeo.com/68215602)<br/>
-  See 47:00-55:36 in this video for up-to-date recommendations for tracing in Windows Azure cloud applications.
-* [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  How to use the command line to do what this tutorial shows how to do in Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is a tool for debugging ASP.NET applications. 
-
-For error logging, an alternative to writing your own tracing code is to use an open-source logging framework such as [ELMAH](http://nuget.org/packages/elmah/). For more information, see [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
-
-Also, note that you don't have to use ASP.NET or System.Diagnostics tracing if you want to get streaming logs from Windows Azure. The Windows Azure Web Site streaming log service will stream any *.txt*, *.html*, or *.log* file that it finds in the *LogFiles* folder. Therefore, you could create your own logging system that writes to the file system of the web site, and your file will be automatically streamed and downloaded. All you have to do is write application code that creates files in the *d:\home\logfiles* folder. 
-
-### Analyzing web server logs
-
-For more information about analyzing web server logs, see the following resources:
-
-* [LogParser](http://www.microsoft.com/en-us/download/details.aspx?id=24659)<br/>
-  A tool for viewing data in web server logs (*.log* files).
-* [Troubleshooting IIS Performance Issues or Application Errors using LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-  An introduction to the Log Parser tool that you can use to analyze web server logs.
-* [Blog posts by Robert McMurray on using LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [The HTTP status code in IIS 7.0, IIS 7.5, and IIS 8.0](http://support.microsoft.com/kb/943891)
-
-### Analyzing failed request tracing logs
-
-The Microsoft TechNet web site includes a [Using Failed Request Tracing](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) section which may be helpful for understanding how to use these logs. However, this documentation focuses mainly on configuring failed request tracing in IIS, which you can't do in Windows Azure Web Sites.
+	This code above will initialize (seed) the database with the contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
+6. In the **Package Manager Console** enter the command:
+
+		update-database
+
+	![Package Manager Console commands][addcode009]
+
+	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. 
+
+7. Press CTRL+F5 to run the application and click the **CM Demo** link, or navigate to http://localhost:(port#)/Cm. 
+
+The application shows the seed data and provides edit, details and delete links. You can create, edit, delete and view data.
+
+<br/>![MVC view of data][rx2]
+
+<h2><a name="addOauth"></a><span class="short-header">OAuth</span>Add an OAuth2 And OpenID Provider</h2>
+
+[OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile, and desktop applications. The ASP.NET MVC internet template uses OAuth and [OpenID](http://openid.net/) to expose Facebook, Twitter, Google and Microsoft as authentication providers. Although this tutorial uses only Google as the authentication provider, you can easily modify the code to use any of the providers. The steps to implement other providers are very similar to the steps you will see in this tutorial. To use Facebook as an authentication provider, see my tutorial [Create an ASP.NET MVC 5 App with Facebook and Google OAuth2 and OpenID Sign-on](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
+
+In addition to authentication, the tutorial will also use roles to implement authorization. Only those users you add to the *canEdit* role will be able to change data (that is, create, edit, or delete contacts).
+
+Open the *App_Start\Startup.Auth.cs* file. Remove the comment characters from the *app.UseGoogleAuthentication()* method.
+
+1. Run the application and click  the **Log In** link. 
+1. At the bottom of the log in page, under **Use another service to log in**, click the **Google** button. 
+1. Enter your  credentials.
+1. Click **Accept** to allow the application to access your email and basic information.
+1. You are redirected to the Register page. You can change the **User name** if you like. Click **Register**.
+![register](..\Media\rr8.png)
+
+<h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Using the Membership API</h2>
+In this section you will add a local user and the *canEdit* role to the membership database. Only those users in the *canEdit* role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than the less descriptive *superAdmin*.
+
+1. Open the *migrations\configuration.cs* file and add the following includes:
+
+        using Microsoft.AspNet.Identity;
+        using Microsoft.AspNet.Identity.EntityFramework;
+
+1. Add the **AddUserAndRole** call to the **Seed** method:
+
+        bool AddUserAndRole()
+        {
+            IdentityResult ir;
+            var rm = new RoleManager<IdentityRole>
+                (new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            ir = rm.Create(new IdentityRole("canEdit"));
+
+            var um = new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = new ApplicationUser()
+            {
+                UserName = "user1",
+            };
+
+            ir = um.Create(user, "Passw0rd1");
+            if (ir.Succeeded == false)
+                return ir.Succeeded;
+
+            ir = um.AddToRole(user.Id, "canEdit");
+            return ir.Succeeded;
+        }
+        protected override void Seed(ContactManager.Models.ContactManagerContext context)
+        {
+            AddUserAndRole();
+            context.Contacts.AddOrUpdate(p => p.Name,
+                // Code removed for brevity
+        }
+
+The code above creates a new role called *canEdit*, creates a new local user *user1*, and adds *user1* to the *canEdit* role. 
+
+## Use Temporary Code to Add New Social Login Users to the canEdit Role  ##
+In this section will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth or OpenID provider to the *canEdit* role. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053(v=vs.90).aspx) in the future. Later in the tutorial I'll show how you can use **Server Explorer** to add users to roles.  
+
+1. Open the **Controllers\AccountController.cs** file and navigate to the **ExternalLoginConfirmation** method.
+1. Add the following call to **AddToRoleAsync** just before the **SignInAsync** call.
+
+                await UserManager.AddToRoleAsync(user.Id, "CanEdit");
+
+An image of the code change is shown below:
+
+![code](..\Media\rr9.png)
+
+Later in the tutorial we will deploy the application to Windows Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. You will need to immediately stop your web site so other users will not be added to this role. You'll be able to verify who is in the *canEdit* role by examining the database.
+
+In the **Package Manager Console** hit the up arrow key to bring up the following command:
+
+		Update-Database
+
+Run the  **Update-Database** command which will run the **Seed** method, and that will run the **AddUserAndRole** you just added. The **AddUserAndRole** will create the user *user1* and add her to the *canEdit* role.
+
+## Protect the Application with SSL and the Authorize Attribute ##
+
+In this section we will apply the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute to restrict access to the action methods. Anonymous user will be able to view the **Index** action method of the home controller only. Registered users will be able to see contact data (The **Index** and **Details** pages of the Cm controller), the about and the contact pages. Only users in the *canEdit* role will be able to access action methods that change data.
+
+1. Add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) filter to the application. An alternative approach is to add the [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add will automatically be protected, you won't need to remember to apply them. For more information see [Securing your ASP.NET MVC  App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following (which adds the two filters):
+
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());
+        }
+
+The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. We will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) will require all access to the web app be through HTTPS.
+
+1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method of the Home controller. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to white-list the methods you want to opt out of authorization. A portion of the HomeController is shown below:	
+
+         namespace ContactManager.Controllers
+         {
+            public class HomeController : Controller
+            {
+               [AllowAnonymous]
+               public ActionResult Index()
+               {
+                  return View();
+               }
+
+2. Do a global search for *AllowAnonymous*, you can see it is used in the log in and registration methods of the Account controller.
+1. Add   [Authorize(Roles = "canEdit")] to the Get and Post methods that change data (Create, Edit, Delete) in the *Cm* controller. A portion of the completed code is shown below: 
+
+![img of code](..\Media\rr11.png)
+
+## Enable SSL for the Project ##
+
+1. Enable SSL. In Solution Explorer, click the **ContactManager** project, then click F4 to bring up the properties dialog. Change **SSL Enabled** to true. Copy the **SSL URL**. The SSL URL will be https://localhost:44300/ unless you've previously created SSL Web Sites.
+<br/> <br/>![enable SSL][rxSSL]
+<br/> <br/>
+1. In Solution Explorer, right click the **Contact Manager** project and click **Properties**.
+1. In the left tab, click **Web**.
+1. Change the **Project Url** to use the **SSL URL** and save the page (Control S).
+<br/> <br/>![enable SSL](..\Media\rrr1.png)
+<br/> <br/>
+1. Press CTRL+F5 to run the application. The browser will display a certificate warning. For our application you can safely click on the link **Continue to this website**. 
+<br/> <br/>![cert Warn][rxNOT]
+<br/>
+<br/> <br/>![cert Warn][rxNOT2]
+<br/> <br/>
+1. Hit Control F5 to run the app. The default browser shows the **Index** page of the home controller. 
+1. Click on the **About** or **Contact** links. You will be redirected to the log in page because anonymous users cannot view those pages. 
+1. Click the **Register** link and add a local user named *Joe*. Verify *Joe* can view the Home, About and Contact pages. 
+1. Click the *CM Demo* link and verify you see the data. 
+1. Click an edit link on the page, you will be redirected to the log in page (because a new local user is not added to the *canEdit* role).
+1. Log in as *user1* with password of ***Passw0rd1***. You will be redirected to the edit page you previously selected. If you can't log in with that account, run the *Update-Database* command from the PMC. If you still can't log in, check the **AspNetUsers** table to verify *user1* was added. Later on in the tutorial I show how to check the **AspNetUsers** table.
+1. Verify you can make data changes.
+
+<h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
+
+1. Build the application.
+1. **Optional for Facebook**: Navigate to the [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and change the **App Domains** and **Site URL** settings to the Windows Azure URL.
+1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+![Publish in project context menu][firsdeploy003]<br/>
+The **Publish Web** wizard opens.
+1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and  **ContactManagerContext**. The two Databases  will  use the same connection string. The **ContactManagerContext** database stores the contacts, the **ApplicationDbContext** is the membership database.
+<br/><br/>![settings](..\Media\rrr13.png)
+1. Under **ContactManagerContext**, check **Execute Code First Migrations**.
+<br/><br/>
+![settings](..\Media\rrr14.png)
+1. Click **Publish**.
+1. Log in as *user1* and verify you can edit data.
+1. Log out.
+2. Log in using Google or Facebook. The will add the Google or Facebook account to the **canEdit** role.
+3. Stop the web app to prevent other users from registering.  In **Server Explorer**, navigate to **Web Sites**.
+4. Right click on each Web Site instance and select **Stop Web Site**. 
+<br/><br/>
+![stop web site](..\Media\rrr2.png) <br/><br/>
+Alternatively, from the Windows Azure management portal, you can select the web site, then click the **stop** icon at the bottom of the page.
+<br/><br/>
+![stop web site](..\Media\rrr3.png)
+
+## Remove AddToRoleAsync, Publish and Test  ##
+
+1. Remove the following code from the **ExternalLoginConfirmation** method in the Account controller: <br/>
+                await UserManager.AddToRoleAsync(user.Id, "CanEdit");
+1. Build the project (which saves the file changes and verify you don't have any compile errors).
+5. Right-click the project in **Solution Explorer** and select **Publish**.<br/>
+
+	   ![Publish in project context menu](../Media/GS13publish.png)
+	
+1. In the left pane of the **Publish Web** dialog, select the **Settings** tab.
+2. Under **ContactManagerContext**, uncheck **Execute Code First Migrations**. It doesn't hurt to run code first migrations, but it's not necessary for this deployment. You'll need to check this box when you make migration changes.
+3. Click the **Next** button.
+4. Click the **Start Preview** button. Only the files that need to be updated are deployed.
+5. Start the Web Site. The easiest way to do this is from the Portal. **You won't be able to publish while the web site is stopped**.
+5. Go back to Visual Studio and click **Publish**.
+3. Your Windows Azure App opens up in your default browser. You are viewing the home page as an anonymous user.  
+4. Click the **About** link. You'll be redirected to the Log in page.
+5. Click the **Register** link on the Log in page and create local account. We will use this local account to verify you can access the read only pages but you cannot access pages that change data (which are protected by the *canEdit* role). Later on in the tutorial we will remove local account access. While testing it helps to add *local* to the name of the local account. Alternatively, register another account using a different Google account. If you are using one browser, you will have to navigate to Google and log out, you won't be able to log out of Google from your ASP.NET MVC app. You can log on with another account from the same third party authenticator (such as Google) by using a different browser.
+<br/><br/>
+![Log off](..\Media\rrr6.png)
+<br/><br/>
+1. Verify you can navigate to the *About* and *Contact* pages.
+<br/><br/>
+![Log off](..\Media\rrr7.png)
+<br/><br/>
+1. Click the **CM Demo** link to navigate to the **Cm** controller. Alternatively, you can append *Cm* to the URL. 
+<br/><br/>
+![CM page](..\Media\rrr4.png)
+ <br/><br/>
+1. Click an Edit link. You will be redirected to the log in page. Under **Use another service to log in**, Click Google or Facebook and log in with the account you previously registered.
+2. Verify you can edit data while logged into that account.
 
 
+## Examine the SQL Azure DB ##
+
+1. In **Server Explorer**, navigate to the **ContactDB**
+2. Right click on **ContactDB** and select **Open in SQL Server Object Explorer**.
+ <br/><br/>
+![open in SSOX](..\Media\rrr12.png)
+ <br/><br/>
+**Note:** If you can't expand **SQL Databases** and *can't* see the **ContactDB** from Visual Studio, you will have to follow the instructions below to open a firewall port or a range of ports. Follow the instructions under **Adding a Range of Allowed IP Addresses** and **Connecting to a SQL Azure Database from SSOX**. You may have to wait for a few minutes to access the database after adding the firewall rule.
+ <br/>
+1. Right click on the **AspNetUsers** table and select **View Data**.
+<br/><br/>
+![CM page](..\Media\rrr8.png)
+ <br/><br/>
+1. Copy the Id from the Google account you registered with to be in the **canEdit** role, and the Id of *user1*. These should be the only users in the **canEdit** role.
+<br/><br/>
+![CM page](..\Media\rrr9.png)
+ <br/><br/>
+2. In **SQL Server Object Explorer**, right click on **AspNetUserRoles** and select **View Data**.
+<br/><br/>
+![CM page](..\Media\rs1.png)
+ <br/><br/>
+Verify the **UserId**s are from *user1* and the Google account you registered. 
 
 
+## Cannot open server login error ##
+If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
+ <br/>![firewall error][rx5]<br/><br/>
+
+1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
+ <br/><br/>![Select SQL][rx6]<br/><br/>
+1. Select the database you wish to open.
+1. Click the **Set up Windows Azure firewall rules for this IP address** link.
+ <br/><br/>![firewall rules][rx7]<br/><br/>
+1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough behind some corporate firewalls, you will need to add a range of IP addresses.
+
+## Adding a Range of Allowed IP Addresses ##
+
+1. In the Windows Azure Portal, Click **SQL Databases**.
+1. Click the **Server** hosting your Database.
+ <br/>![db server][rx8]<br/><br/>
+1. Click the **Configure** link on the top of the page.
+1. Add a rule name, starting and ending IP addresses.
+<br/>![ip range][rx9]<br/><br/>
+1. At the bottom of the page, click **Save**.
+1. Please leave feedback and let me know if you needed to add a range of IP address to connect.
+
+## Connecting to a SQL Azure Database from SSOX ##
+
+1. From the View menu, click **SQL Server Object Explorer**.
+1. Right click **SQL Server** and select **Add SQL Server**.
+1. In the **Connect to Server** dialog box, set the **Authentication** to **SQL Server Authentication**. You will get the **Server name** and **Login** from the Windows Azure Portal.
+1. In your browser, navigate to the portal and select **SQL Databases**.
+1. Select the **ContactDB**, and then click **View SQL Database connection strings**.
+1. From the **Connection Strings** page, copy the **Server**  and **User ID**. 
+1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
+![Connect to Server DLG](..\Media\rss1.png)
+
+You will now be able to navigate to the Contact DB using the instruction above.
 
 
+## To Add a User to the canEdit Role ##
+
+2. In **SQL Server Object Explorer**, right click on **AspNetUserRoles** and select **View Data**.
+<br/><br/>
+![CM page](..\Media\rs1.png)
+<br/><br/>
+1. Copy the *RoleId* and paste it into the empty row.
+![CM page](..\Media\rs2.png)
+<br/><br/>
+2. Copy the  *Id* from the **AspNetUsers** table and paste it into the **UserId** column.
+We hope to soon have a tool to manage users and roles.
+
+## Remove Local Registration ##
+
+ The current  ASP.NET membership registration in the project does not provide support for password resets and it does not verify that a human is registering (for example with a [CAPTCHA](http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership)). Once a user is authenticated using one of the third party providers, they can register. The following steps will disable local registration.
+<br/>
+
+1. In the AccountController, remove the *[AllowAnonymous]* attribute from the GET and POST *Register* methods. This will prevent bots and anonymous users from registering.
+1. In the *Views\Shared* folder, *_LoginPartial.cshtml* file, remove the Register action link.
+2. In the *Views\Account\Login.cshtml* file, remove the Register action link.
+2. Deploy the app.
+
+
+<h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
+
+Follow my tutorial [Create an ASP.NET MVC 5 App with Facebook and Google OAuth2 and OpenID Sign-on](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on ) for instructions on how to add profile data to the user registration DB and for detailed instructions on using Facebook as an authentication provider.
+
+<br/>
+A good place to learn more about ASP.NET MVC is my [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) tutorial. Tom Dykstra's excellent [Getting Started with EF and MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) will show you more advanced EF programming.
+
+This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+
+Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. 
+
+<!--
+To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 5](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/). 
+ -->
+<!-- bookmarks -->
+[Add an OAuth Provider]: #addOauth
+[Using the Membership API]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
+[setupdbenv]: #bkmk_setupdevenv
+[setupwindowsazureenv]: #bkmk_setupwindowsazure
+[createapplication]: #bkmk_createmvc4app
+[deployapp1]: #bkmk_deploytowindowsazure1
+[deployapp11]: #bkmk_deploytowindowsazure11
+[adddb]: #bkmk_addadatabase
+[addcontroller]: #bkmk_addcontroller
+[addwebapi]: #bkmk_addwebapi
+[deploy2]: #bkmk_deploydatabaseupdate
+
+<!-- links -->
+[WTEInstall]: http://go.microsoft.com/fwlink/?LinkID=208120
+[MVC4Install_20012]: http://go.microsoft.com/fwlink/?LinkID=275131
+[VS2012ExpressForWebInstall]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD11_BETA&prerelease=true
 [windowsazure.com]: http://www.windowsazure.com
-[WebSitesManagement]: /en-us/manage/services/web-sites/
-[WebWithSQL]: /en-us/develop/net/tutorials/web-site-with-sql-database/
-[GetStarted]: /en-us/develop/net/tutorials/get-started/
+[WindowsAzureDataStorageOfferings]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
+[GoodFitForAzure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh694036(v=vs.103).aspx
+[NetAppWithSQLAzure]: http://www.windowsazure.com/en-us/develop/net/net-app-with-sql-azure
+[MultiTierApp]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/
+[HybridApp]: http://www.windowsazure.com/en-us/develop/net/tutorials/hybrid-solution/
+[SQLAzureHowTo]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[SQLAzureDataMigration]: http://msdn.microsoft.com/en-us/library/windowsazure/hh694043(v=vs.103).aspx
+[ASP.NETFormsAuth]: http://msdn.microsoft.com/en-us/library/windowsazure/hh508993.aspx
+[CommonTasks]: http://windowsazure.com/develop/net/common-tasks/
+[TSQLReference]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
+[SQLAzureGuidelines]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336245.aspx
+[SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
+[SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
+[UniversalProviders]: http://nuget.org/packages/System.Web.Providers
+[EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
+[EFCFMigrations]: http://msdn.microsoft.com/en-us/library/hh770484
+
+
+<!-- links from Tom's hopefully no collisions -->
+[windowsazure.com]: http://www.windowsazure.com
+[WindowsAzureDataStorageOfferings]: http://social.technet.microsoft.com/wiki/contents/articles/data-storage-offerings-on-the-windows-azure-platform.aspx
+[GoodFitForAzure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh694036(v=vs.103).aspx
+[NetAppWithSQLAzure]: http://www.windowsazure.com/en-us/develop/net/tutorials/cloud-service-with-sql-database/
+[MultiTierApp]: http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-application/
+[HybridApp]: http://www.windowsazure.com/en-us/develop/net/tutorials/hybrid-solution/
+[SQLAzureHowTo]: https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[SQLAzureDataMigration]: http://msdn.microsoft.com/en-us/library/windowsazure/hh694043(v=vs.103).aspx
+[ASP.NETFormsAuth]: http://msdn.microsoft.com/en-us/library/windowsazure/hh508993.aspx
+[CommonTasks]: http://www.windowsazure.com/en-us/develop/net/common-tasks/
+[TSQLReference]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336281.aspx
+[SQLAzureGuidelines]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336245.aspx
+[MigratingDataCentricApps]: http://msdn.microsoft.com/en-us/library/jj156154.aspx
+[SQLAzureDataMigrationBlog]: http://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx
+[SQLAzureConnPoolErrors]: http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx
+[UniversalProviders]: http://nuget.org/packages/Microsoft.AspNet.Providers
+[UniversalProvidersLocalDB]: http://nuget.org/packages/Microsoft.AspNet.Providers.LocalDB
+[EFCodeFirstMVCTutorial]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
+[EFCFMigrations]: http://msdn.microsoft.com/en-us/library/hh770484
+[DevelopingWebAppsWithWindowsAzure]: http://msdn.microsoft.com/en-us/library/Hh674484
+
+<!-- images-->
+[rxE]: ../Media/rxE.png
+[rx2]: ../Media/rx2.png
+[rxP]: ../Media/rxP.png
+[rx22]: ../Media/rx22.png
+[rxFBapp]: ../Media/rxFBapp.png
+[rxFB]: ../Media/rxFB.png
+[rxFBt]: ../Media/rxFBt.png
+[rxSTD]: ../Media/rxSTD.png
+[rxUid]: ../Media/rxUid.png
+[rxRoleID]: ../Media/rxRoleID.png
+[rxUR]: ../Media/rxUR.png
+[rxC2S]: ../Media/rxC2S.png
+[rxGenScripts]: ../Media/rxGenScripts.png
+[rx11]: ../Media/rx11.png
+[rxAdv]: ../Media/rxAdv.png
+[rx1]: ../Media/rx1.png
+[rxd]: ../Media/rxd.png
+[rxSettings]: ../Media/rxSettings.png
+[rxD2]: ../Media/rxD2.png
+[rxAddSQL2]: ../Media/rxAddSQL2.png
+[rxc]: ../Media/rxc.png
+[rx3]: ../Media/rx3.png
+[rx4]: ../Media/rx4.png
+[rx5]: ../Media/rx5.png
+[rx6]: ../Media/rx6.png
+[rx7]: ../Media/rx7.png
+[rx8]: ../Media/rx8.png
+[rx9]: ../Media/rx9.png
+[rxa]: ../Media/rxa.png
+[rxb]: ../Media/rxb.png
+[rxSS]: ../Media/rxSS.png
+[rxp2]: ../Media/rxp2.png
+[rxp3]: ../Media/rxp3.png
+[rxSSL]: ../Media/rxSSL.png
+[rxS2]: ../Media/rxS2.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT2]: ../Media/rxNOT2.png
+[rxb2]: ../Media/rxb2.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT]: ../Media/rxNOT.png
+[rxNOT]: ../Media/rxNOT.png
+[rr1]: ../Media/rr1.png
+[rxNewCtx]: ../Media/rxNewCtx.png
+[rxCreateWSwithDB_2]: ../Media/rxCreateWSwithDB_2.png 
+[rxPrevDB]: ../Media/rxPrevDB.png
+[rxOverwrite]: ../Media/rxOverwrite.png
+[rxWebConfig]: ../Media/rxWebConfig.png
+[rxPWS]: ../Media/rxPWS.png
+[rxNewCtx]: ../Media/rxNewCtx.png
+[rxAddApiController]: ../Media/rxAddApiController.png
+[rxFFchrome]: ../Media/rxFFchrome.png
+[rxSettings]: ../Media/rxSettings.png
+[intro001]: ../Media/dntutmobil-intro-finished-web-app.png
+[setup001]: ../Media/dntutmobile-setup-run-sdk-setup-exe.png
+[setup002]: ../Media/dntutmobile-setup-web-pi.png
+[setup003]: ../Media/dntutmobile-setup-azure-account-1.png
+[rxWSnew]: ../Media/rxWSnew2.png
+[rxCreateWSwithDB]: ../Media/rxCreateWSwithDB.png
+[setup006]: ../Media/dntutmobile-setup-azure-site-003.png
+[setup007]: ../Media/dntutmobile-setup-azure-site-004.png
+[setup008]: ../Media/dntutmobile-setup-azure-site-005.png
+[setup009]: ../Media/dntutmobile-setup-azure-site-006.png
+[newapp001]: ../Media/dntutmobile-createapp-001.png
+[newapp002]: ../Media/dntutmobile-createapp-002.png
+[newapp003]: ../Media/dntutmobile-createapp-003.png
+[newapp004]: ../Media/dntutmobile-createapp-004.png
+[newapp004.1]: ../Media/dntutmobile-createapp-004.1.png
+[newapp004.2]: ../Media/dntutmobile-createapp-004.2.png
+[newapp005]: ../Media/newapp005.png
+[firsdeploy001]: ../Media/dntutmobile-deploy1-download-profile.png
+[firsdeploy002]: ../Media/dntutmobile-deploy1-save-profile.png
+[firsdeploy003]: ../Media/dntutmobile-deploy1-publish-001.png
+[firsdeploy004]: ../Media/dntutmobile-deploy1-publish-002.png
+[firsdeploy005]: ../Media/dntutmobile-deploy1-publish-003.png
+[firsdeploy006]: ../Media/dntutmobile-deploy1-publish-004.png
+[firsdeploy007]: ../Media/dntutmobile-deploy1-publish-005.png
+[firsdeploy008]: ../Media/dntutmobile-deploy1-publish-006.png
+[firsdeploy009]: ../Media/dntutmobile-deploy1-publish-007.png
+[adddb001]: ../Media/dntutmobile-adddatabase-001.png
+[adddb002]: ../Media/dntutmobile-adddatabase-002.png
+[addcode001]: ../Media/dntutmobile-controller-add-context-menu.png
+[addcode002]: ../Media/dntutmobile-controller-add-controller-dialog.png
+[addcode002.1]: ../Media/dntutmobile-controller-002.1.png
+[addcode003]: ../Media/dntutmobile-controller-add-controller-override-dialog.png
+[addcode003.1]: ../Media/dntutmobile-controller-explorer-globalasas-file.png
+[addcode004]: ../Media/dntutmobile-controller-modify-index-context.png
+[addcode005]: ../Media/dntutmobile-controller-add-contents-context-menu.png
+[addcode006]: ../Media/dntutmobile-controller-add-new-item-style-sheet.png
+[addcode007]: ../Media/dntutmobile-controller-modify-bundleconfig-context.png
+[addcode008]: ../Media/dntutmobile-migrations-package-manager-menu.png
+[addcode009]: ../Media/dntutmobile-migrations-package-manager-console.png
+[addwebapi001]: ../Media/dntutmobile-webapi-add-folder-context-menu.png
+[addwebapi002]: ../Media/dntutmobile-webapi-add-controller-context-menu.png
+[addwebapi003]: ../Media/dntutmobile-webapi-add-controller-dialog.png
+[addwebapi004]: ../Media/dntutmobile-webapi-added-contact.png
+[addwebapi005]: ../Media/dntutmobile-webapi-new-browser.png
+[addwebapi006]: ../Media/dntutmobile-webapi-save-returned-contacts.png
+[addwebapi007]: ../Media/dntutmobile-webapi-contacts-in-notepad.png
+[lastdeploy001]: ../Media/dntutmobile-web-publish-settings.png
+[rxf]: ../Media/rxf.png
+[Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
+[Next steps]: #nextsteps
+
+[DeployedWebSite]: ../Media/DeployedWebSite.png
+[DownloadPublishProfile]: ../Media/DownloadPublishProfile.png
+[ImportPublishSettings]: ../Media/ImportPublishSettings.png
+[ImportPublishProfile]: ../Media/ImportPublishProfile.png
+[InternetAppTemplate]: ../Media/InternetAppTemplate.png
+[NewMVC4WebApp]: ../Media/NewMVC4WebApp.png
+[NewVSProject]: ../Media/NewVSProject.png
+[PublishOutput]: ../Media/PublishOutput.png
+[PublishVSSolution]: ../Media/PublishVSSolution.png
+[PublishWebSettingsTab]: ../Media/PublishWebSettingsTab.png
+[PublishWebStartPreview]: ../Media/PublishWebStartPreview.png
+[PublishWebStartPreviewOutput]: ../Media/PublishWebStartPreviewOutput.png
+[SavePublishSettings]: ../Media/SavePublishSettings.png
+[ValidateConnection]: ../Media/ValidateConnection.png
+[ValidateConnectionSuccess]: ../Media/ValidateConnectionSuccess.png
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
+[WebSiteNew]: ../Media/WebSiteNew.png
+[WebSiteStatusRunning]: ../Media/WebSiteStatusRunning.png
+
+[WebPIAzureSdk20NetVS12]: ../Media/WebPIAzureSdk20NetVS12.png
+[rzAddWAsub]: ../Media/rzAddWAsub.png
+[rzDownLoad]: ../Media/rzDownLoad.png
+[rzDown2]: ../Media/rzDown2.png
+[rzImp]: ../Media/rzImp.png
+
 
