@@ -1,5 +1,4 @@
-﻿<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="Introducing HDInsight" pageTitle="Introducing Windows Azure HDInsight Service" metaKeywords="hdinsight, hdinsight service, hdinsight azure, what is hdinsight" metaDescription="Learn about the HDInsight Service for Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
-
+<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="Introducing HDInsight" pageTitle="Introducing Windows Azure HDInsight Service" metaKeywords="hdinsight, hdinsight service, hdinsight azure, what is hdinsight" metaDescription="Learn about the HDInsight Service for Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
 
 # Introduction to Windows Azure HDInsight Service
 
@@ -7,32 +6,35 @@
 Windows Azure HDInsight Service is a service that deploys and provisions Apache™ Hadoop™ clusters in the cloud, providing a software framework designed to manage, analyze and report on big data.
 
 ###Big Data  
-Data is described as "big data" to indicate that it is being collected in ever escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts. Big data collection does not provide value to an enterprise on its own. For big data to provide value in the form of actionable intelligence or insight, not only must the right questions be asked and data relevant to the issues be collected, it must be accessible, cleaned, analyzed, and then presented in a useful way, often in combination with data from various other sources in what is now referred to as a mashup.
+Data is described as "big data" to indicate that it is being collected in ever escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts. Big data collection does not provide value to an enterprise on its own. For big data to provide value in the form of actionable intelligence or insight, not only must the right questions be asked and data relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way, often in combination with data from various other sources that establish perspective and context in what is now referred to as a mashup.
 
 ###Apache Hadoop  
 Apache Hadoop is a software framework that facilitates big data management and analysis. Apache Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system. HDFS uses data replication to address hardware failure issues that arise when deploying such highly distributed systems.
 
 ###MapReduce 
-To simplify the complexities of analyzing unstructured data from various sources, the MapReduce programming model provides a core abstraction that provides closure for map and reduce operations. The MapReduce programming model views all of its jobs as computations over datasets consisting of key-value pairs. So both input and output files must contain datasets that consist only of key-value pairs. Other Hadoop-related projects such as Pig and Hive are built on top of HDFS and the MapReduce framework. Projects such as these are used to provide a simpler way to manage a cluster than working with the MapReduce programs directly. Pig, for example, enables you to write programs using JavaScript that are compiled to MapReduce programs on the cluster. It also provides fluent controls to manage data flow. Hive provides a table abstraction for data in files stored in a cluster which can be queried using SQL-like statements.
+To simplify the complexities of analyzing unstructured data from various sources, the MapReduce programming model provides a core abstraction that underwrites closure for map and reduce operations. The MapReduce programming model views all of its jobs as computations over datasets consisting of key-value pairs. So both input and output files must contain datasets that consist only of key-value pairs. The key takeaway from this constraint is the MapReduce jobs are, as a result, composable. 
+
+Other Hadoop-related projects such as Pig and Hive are built on top of HDFS and the MapReduce framework. Projects such as these are used to provide a simpler way to manage a cluster than working with the MapReduce programs directly. Pig, for example, enables you to write programs using a procedural language called Pig Latin that are compiled to MapReduce programs on the cluster. It also provides fluent controls to manage data flow. Hive is a data warehouse infrastructure that provides a table abstraction for data in files stored in a cluster which can then be queried using SQL-like statements in a declarative language called HiveQL.
 
 ###The HDInsight Service
-The HDInsight Service for Windows Azure makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects available in a simpler, more scalable, and cost efficient environment. 
+The HDInsight Service for Windows Azure makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig and Hive available in a simpler, more scalable, and cost efficient environment. 
 
-One of the efficiencies introduced by the HDInsight Service is in how it manages and stores data. The HDInsight Service uses Windows Azure Blob Storage as the default file system. Windows Azure Blob Storage and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
+One of the key efficiencies introduced by the HDInsight Service is in how it manages and stores data. The HDInsight Service uses Windows Azure Storage-Blob (WASB) as the default file system. WASB and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
 
-- Windows Azure Blob Storage provides a highly scalable and available, low cost, long term, and shareable storage option for data that is to be processed using the HDInsight Service.
+- Windows Azure Storage-Blob (WASB) provides a highly scalable and available, low cost, long term, and shareable storage option for data that is to be processed using the HDInsight Service.
 - The Hadoop clusters deployed by the HDInsight Service on HDFS are optimized for running MapReduce computational tasks on the data.
  
-HDInsight Service clusters are deployed in Windows Azure on compute nodes to execute MapReduce tasks and can be dropped by users once these tasks have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Windows Azure Blob Storage is a robust, general purpose Azure storage solution. So storing data in Blob Storage enables the clusters used for computation to be safely deleted without losing user data. But Blob Storage is not just a low cost solution. Azure Vault Storage (ASV) provides a full featured HDFS file system interface for Blob Storage that provides a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data managed by Blog Storage. 
+HDInsight Service clusters are deployed in Azure on compute nodes to execute MapReduce tasks and can be dropped by users once these tasks have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. WASB is a robust, general purpose Azure storage solution. So storing data in blob storage enables the clusters used for computation to be safely deleted without losing user data. But blob storage is not just a low cost solution. WASB provides a full featured HDFS file system interface for blob btorage that provides a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data that it manages. 
 
-To simplify the configuring, running, and post-processing of Hadoop jobs, the HDInsight Service provides JavaScript and Hive interactive consoles. The JavaScript console is unique to HDInsight. It implements and makes available JavaScript, Pig and the Hadoop file system commands from the console. This simplified JavaScript approach enables IT and database professionals and a wider group of developers to deal with big data management and analysis by providing a more accessible path for them to begin using the Hadoop framework. HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
+To simplify the configuring, running, and post-processing of Hadoop jobs, the HDInsight Service ...
+HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
   
-Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, the HDInsight Service for Windows Azure also provides Open Database Connectivity (ODBC) drivers to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
+Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the Self-Service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, a Simba Hive Open Database Connectivity (ODBC) driver is available to integrate Business Intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
 
 ###Outline
 This topic describes the Hadoop ecosystem supported by the HDInsight Service, the main use scenarios for HDInsight Services, and a guide to further resources. It contains the following sections:
 
- * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with ASV/HDFS and the MapReduce framework using either the Power Query or the Hive ODBC driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
+ * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight Service </a> - The HDInsight Service provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with WASB/HDFS and the MapReduce framework using either the Power Query or the Simba Hive ODBC driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
 
  * <a href="#Scenarios">Big Data Scenarios for the HDInsight Service</a> - This section addresses the question: for what types of jobs is the HDInsight Service an appropriate technology?
 
@@ -45,13 +47,13 @@ This topic describes the Hadoop ecosystem supported by the HDInsight Service, th
 
 The HDInsight Service offers a framework implementing Microsoft's cloud-based solution for handling big data. This federated ecosystem manages and analyses large data amounts, exploiting the parallel processing capabilities of the MapReduce programming model. The Apache-compatible Hadoop technologies that can be used with the HDInsight are itemized and briefly described in this section.
 
-The HDInsight Service provides implementations of Hive and Pig to integrate data processing and warehousing capabilities.  Microsoft’s Big Data solution  integrates with Microsoft's BI tools, such as SQL Server Analysis Services, Reporting Services, PowerPivot and Excel. This enables you to perform a straightforward BI on data stored and managed by the HDInsight Service. 
+The HDInsight Service provides implementations of Hive and Pig to integrate data processing and warehousing capabilities.  Microsoft’s Big Data solution  integrates with Microsoft's BI tools, such as SQL Server Analysis Services, Reporting Services, PowerPivot and Excel. This enables you to perform a straightforward BI on data stored and managed by the HDInsight Service in WASB. 
 
 Other Apache-compatible technologies and sister technologies that are part of the Hadoop ecosystem and have been built to run on top of Hadoop clusters can also be downloaded are used with the HDInsight Service. These include open source technologies such as Sqoop which integrate HDFS with relational data stores. 
 
 ###Pig	
 
-Pig is a high-level platform for processing big data on Hadoop clusters. Pig consists of a data flow language, called Pig Latin, supporting writing queries on large datasets and an execution environment running programs from a console. The Pig Latin programs consist of dataset transformation series converted under the covers, to a MapReduce program series. Pig Latin abstractions provide richer data structures than MapReduce, and perform for Hadoop what SQL performs for RDBMS systems. Pig Latin is fully extensible. User Defined Functions (UDFs), written in Java, Python, C#, or JavaScript, can be called to customize each processing path stage when composing the analysis. For additional information, see [Welcome to Apache Pig!](http://pig.apache.org/)
+Pig is a high-level platform for processing big data on Hadoop clusters. Pig consists of a data flow language, called Pig Latin, supporting writing queries on large datasets and an execution environment running programs from a console. The Pig Latin programs consist of dataset transformation series converted under the covers, to a MapReduce program series. Pig Latin abstractions provide richer data structures than MapReduce, and perform for Hadoop what SQL performs for RDBMS systems. Pig Latin is fully extensible. User Defined Functions (UDFs), written in Java, Python, Ruby, C#, or JavaScript, can be called to customize each processing path stage when composing the analysis. For additional information, see [Welcome to Apache Pig!](http://pig.apache.org/)
 
 ###Hive	
 
@@ -63,9 +65,11 @@ Sqoop is tool that transfers bulk data between Hadoop and relational databases s
 
 ###Business Intelligence Tools and Connectors
 
-Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Power Query add-in or ODBC Hive driver. The ODBC driver for Excel is available for download from the HDInsight Service portal.
+Familiar Business Intelligence (BI) tools such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services retrieves, analyzes and reports data integrated with the HDInsight Service using either the Power Query add-in or the Hive ODBC Hive driver. The Simba Hive ODBC driver is available for download from the HDInsight Service portal.
 
  * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=39379).
+
+ * Simba Hive ODBC driver can be downloaded from this [Download Site](http://go.microsoft.com/fwlink/?LinkId=327839&clcid=0x409).
 
  * For information Analysis Services, see [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx).	
 
@@ -88,8 +92,6 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 
 * [How to Run the HDInsight Service Samples](/en-us/manage/services/hdinsight/howto-run-samples/) - A tutorial on how the run the samples that ship with the HDInsight Service.
 
-* [HDInsight Service Interactive JavaScript and Hive Consoles](/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/) - The tutorial that provides an introduction to the HDInsight Interactive consoles.	
-
 * [Big Data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/) - Big Data scenarios that explore what you can build with Windows Azure.	
 
 **Microsoft: Windows and SQL Database**	
@@ -100,7 +102,7 @@ The HDInsight Service (and Hadoop technologies in general) are most suitable for
 	
 * [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx) - A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
-* [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for SQL Databse sample database.	
+* [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for SQL Database sample database.	
 
 **Microsoft: Business Intelligence**		
 

@@ -1,4 +1,3 @@
-
 # Deploy MongoDB Worker Roles in Windows Azure
 *By [10gen Inc.][10gen-tutorial]*
  
@@ -8,7 +7,7 @@ The MongoDB Worker Role project allows you to deploy and run a MongoDB replica s
 
 ## Get the Package
 
-The MongoDB Windows Azure Worker Role is delivered as a Visual Studio 2010 solution with associated source files. You can access the package at GitHub:
+The MongoDB Windows Azure Worker Role is delivered as a Visual Studio solution with associated source files. You can access the package at GitHub:
 
 https://github.com/mongodb/mongo-azure/
 
@@ -40,7 +39,7 @@ Once you have unzipped the package or cloned the repository, you will see the fo
 
 ## Initial Setup
 
-We assume you’re running Windows x64 and Visual Studio. If not, install those first; Visual Studio 2010 or Visual Web Developer 2010 should work.
+We assume you’re running Windows x64 and Visual Studio. If not, install those first.
 
 1.  Install the latest [Windows Azure SDK][5].
 2.  Enable IIS on your local machine. This can be done by going to the “Turn Windows features on or off” control panel, under “Programs”. Check “Internet Information Services” and also check ASP.NET under World Wide Web Services|Application Development Features.
