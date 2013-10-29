@@ -67,7 +67,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
 
 In this article you learned how to use Power Query to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Azure. It is also possible to upload data into an HDInsight Service. To learn more, see the following articles:
 
-* [How to Upload Data to the HDInsight Service][upload-data].
+* [Upload Data to the HDInsight Service][upload-data].
 * [Using HDInsight to process Blob Storage data and write the results to a SQL Database][blob-hdi-sql]. 
 
 

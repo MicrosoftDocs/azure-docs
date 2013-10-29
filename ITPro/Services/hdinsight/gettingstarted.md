@@ -166,7 +166,7 @@ For the detailed instructions, see
 	</table>
 
 
-5. Click **Create HDInsight Cluster** on the lower right. The cluster is now provisioned and when it will be available when its status is listed as **Running**.
+5. Click **Create HDInsight Cluster** on the lower right. When the provision process completes, the  status column will show **Running**.
 
 For information on using the **CUSTOM CREATE** option, see [Provision HDInsight Clusters][hdinsight-provision].
 
@@ -195,7 +195,7 @@ The output is a set of key-value pairs. The key is a string that specifies a wor
 Running a MapReduce job requires the following elements:
 
 * A MapReduce program. In this tutorial, you will use the WordCount sample that comes with the HDInsight cluster distribution so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Using MapReduce with HDInsight][hdinsight-mapreduce].
-* An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [How to Upload Data to HDInsight][hdinsight-upload-data].
+* An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist.
 
 The URI scheme for accessing files in Blob storage is:
@@ -208,7 +208,7 @@ Because HDInsight uses a Blob Storage container as the default file system, you 
 
 For example, to access the hadoop-examples.jar, you can use one of the following options:
 
-	wasb://<conaintername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
+	wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
 	wasb:///example/jars/hadoop-examples.jar
 	/example/jars/hadoop-examples.jar
 				
