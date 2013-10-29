@@ -6,6 +6,10 @@
 
 Windows Azure provides built-in diagnostics to assist with debugging  an application hosted in Windows Azure Web Sites. In this article you will learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure.
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>This article describes using the Windows Azure Management Portal, Windows Azure PowerShell, and the Windows Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see <a href="/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Troubleshooting Windows Azure Web Sites in Visual Studio</a>.</p></div>
+
 ##Table of Contents##
 
 - [What is: Web Site diagnostics?](#whatisdiag)
@@ -38,11 +42,13 @@ Windows Azure Web Sites also logs deployment information when you publish an app
 
 <a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
 
-Diagnostics can be enabled by visiting the **Configure** page of your Windows Azure Web Site in the [Windows Azure Management Portal](https://manage.microsoft.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable or disable logging. When enabling **application diagnostics** you must also select the **logging level** and whether to enable logging to the **file system** or **storage**:
+Diagnostics can be enabled by visiting the **Configure** page of your Windows Azure Web Site in the [Windows Azure Management Portal](https://manage.microsoft.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable or disable logging. When enabling **application diagnostics** you must also select the **logging level** and whether to enable logging to the **file system**, **table storage**, or **blob storage**:
 
-* **logging level** - allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application.
+* **logging level** - allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application. **Logging level** can be set differently for **file system**, **table storage**, and **blob storage** logging.
 * **file system** - stores the application diagnostics information to the web site file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Windows Azure PowerShell or Windows Azure Command-Line Tools.
-* **storage** - stores the application diagnostics information in the specified Windows Azure Storage Account. The information will be placed in a table named **WAWSAppLogTable**.
+* **table storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and table name.
+* **blob storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and blob container.
+* **retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
 For most scenarios, logging **application diagnostics** to the **file system** will be sufficient; information stored in **storage** can only be accessed using a storage client.
 
@@ -142,6 +148,5 @@ To filter specific log types, such as HTTP, use the **-Path** parameter.
 
 - [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Tutorial - Troubleshooting Web Sites](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
-- [Troubleshooting Windows Azure Web Sites in Visual Studio]
+- [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 
-[Troubleshooting Windows Azure Web Sites in Visual Studio]:http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
