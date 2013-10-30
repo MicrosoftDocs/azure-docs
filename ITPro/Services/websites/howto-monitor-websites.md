@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -101,19 +101,27 @@ The **application diagnostics** section of the **Configure** management page con
 
 You can enable or disable the following application diagnostics:
 
-- **Application Logging (file system)** - Turns on logging of information produced by the application. The **Logging Level** field determines whether Error, Warning, or Information level information is logged. You may also select Verbose, which will log all information produced by the application.
+- **Application Logging (File System)** - Turns on logging of information produced by the application. The **Logging Level** field determines whether Error, Warning, or Information level information is logged. You may also select Verbose, which will log all information produced by the application.
 
 	Logs produced by this setting are stored on the file system of your web site, and can be downloaded using the steps in the **Downloading log files for a web site** section below.
 
-- **Application Logging (storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account. To specify a Windows Azure Storage Account, choose **On**, and then choose **manage connection** next to **Diagnostics Storage**. Specify a storage account name and storage access key. You can choose **Synchronize Primary Key** or **Synchronize Secondary Key** to retrieve the most recent primary or secondary key from your Windows Azure Storage account. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+- **Application Logging (Table Storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account in a table.
 
-	The log information will be stored in a table named **WAWSAppLogTable** in the Windows Azure Storage Account that you specify, and can be accessed using a Windows Azure Storage client.
+	To specify the Windows Azure Storage Account and table, choose **On**, select the **Logging Level**, and then choose **Manage Table Storage**. Specify the storage account and table to use, or create a new table.
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Windows Azure Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+	The log information stored in the table can be accessed using a Windows Azure Storage client.
+
+- **Application Logging (blob storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (Table Storage) option. However, the log information is stored in a blob in a Windows Azure Storage Account.
+
+	To specifi the Windows Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
+
+For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+
+Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Windows Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
 <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>Both <b>Application diagnostics (file system)</b> and <b>Application diagnostics (storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
+	<p><b>Application diagnostics (file system)</b>, <b>Application diagnostics (table storage)</b>, and <b>Application diagnostics (blob storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
 
 <div class="dev-callout"> 
 	<b>Note</b> 
