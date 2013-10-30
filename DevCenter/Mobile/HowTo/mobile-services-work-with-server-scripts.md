@@ -24,8 +24,8 @@ This article provides detailed information about and examples of how to work wit
 	+ [How to: Load Node.js modules]
 	+ [How to: Use helper functions]
 	+ [How to: Share code by using source control]
+	+ [How to: Work with app settings] 
 + [Using the command line tool]
-
 + [Working with tables]
 	+ [How to: Access tables from scripts]
 	+ [How to: Perform Bulk Inserts]
@@ -508,6 +508,8 @@ In this example, you must pass both a [tables object] and a [user object] to the
 
 Script files are uploaded to the shared directory either by using [source control][How to: Share code by using source control] or by using the [command line tool][Using the command line tool].
 
+###[How to: Work with app settings]: #app-settings
+
 <h2><a name="command-prompt"></a>Using the command line tool</h2>
 
 In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
@@ -908,6 +910,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Job Scheduler]: #scheduler-scripts
 [How to: Define multiple routes in a custom API]: #api-routes
 [How to: Send and receive data as XML]: #api-return-xml
+[How to: Work with app settings]: #app-settings
 
 <!-- Images. -->
 [1]: ../Media/mobile-insert-script-users.png
