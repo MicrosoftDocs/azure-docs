@@ -42,20 +42,20 @@ The new Twitter v1.1 APIs requires you to authenicate before accessing resources
 
 	![1][]
 
-	
+4. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+5. Click the **Identity** tab, enter the **Consumer key** and **Consumer secret** values obtained from Twitter, and click **Save**. 
+
+	![11][]
 
 2. Click the **Configure** tab, scroll down to **App settings** and enter a **Name** and **Value** pair for each of the following that you obtained from the Twitter site, then click **Save**.
 
-	+ `TWITTER_CONSUMER_KEY`
-	+ `TWITTER_CONSUMER_SECRET`
 	+ `TWITTER_ACCESS_TOKEN`
 	+ `TWITTER_ACCESS_TOKEN_SECRET`
 
 	![10][]
 
-	This stores the Twitter credentials in app settings. When you add your Twitter credentials to the app settings of your mobile service, they are stored encrypted and you can access them in your server scripts without hard-coding them in the script file.
+	This stores the Twitter access token in app settings. Like the consumer credentials on the **Identity** tab, the access credentials are also stored encrypted in app settings, and you can access them in your server scripts without hard-coding them in the script file. For more information, see [App settings].
 
 <h2><a name="create-table"></a><span class="short-header">Create new table</span>Create the new Updates table</h2>
 
@@ -101,14 +101,15 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 		var request = require('request');
 		var twitterUrl = "https://api.twitter.com/1.1/search/tweets.json?q=%23mobileservices&result_type=recent";
 
-		// Get the app settings from the service configuration module.
-		var settings = require('mobileservice-config').appSettings;
-
-		// Get your Twitter v1.1 access credentials from app settings.
-		var consumerKey = settings.TWITTER_CONSUMER_KEY,
-		    consumerSecret = settings.TWITTER_CONSUMER_SECRET,
-		    accessToken= settings.TWITTER_ACCESS_TOKEN,
-		    accessTokenSecret = settings.TWITTER_ACCESS_TOKEN_SECRET;
+		// Get the service configuration module.
+		var config = require('mobileservice-config');
+		
+		// Get the stored Twitter consumer key and secret. 
+		var consumerKey = config.twitterConsumerKey,
+		    consumerSecret = config.twitterConsumerSecret
+		// Get the Twitter access token from app settings.    
+		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
+		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 		
 		function getUpdates() {   
 		    // Check what is the last tweet we stored when the job last ran
@@ -217,6 +218,7 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [8]: ../Media/mobile-browse-updates-table.png
 [9]: ../Media/mobile-schedule-job-enabled.png
 [10]: ../Media/mobile-schedule-job-app-settings.png
+[11]: ../Media/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -224,3 +226,4 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../HowTo/mobile-services-register-twitter-auth.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
