@@ -185,27 +185,7 @@ Because HDInsight uses a Blob storage container as the default file system, you 
 
 	hadoop fs -ls /output/result.txt
 
-**Map a Blob storage URI to an WASB URI**
 
-Given a Blob storage URI, you can create the WASB URI. The mapping is straightforward. 
-
-
-To access an file (or folder) at 
-
-<table border="1">
-<tr><th>Blob storage URI</th><th>WASB URI</th></tr>
-
-<tr><td>http[s]://&lt;account&gt;/&lt;path-name&gt;</td><td>wasb[s]://&lt;account&gt;.blob.core.windows.net/&lt;path-name&gt;</td></tr>
-
-<tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;</td><td>wasb[s]://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/<br />&lt;path-name&gt;</td></tr>
-
-<tr><td>http[s]://&lt;account&gt;/&lt;container&gt;/&lt;path-name&gt;<br/>
-
-where account and container are the values used for specifying the default file system.</td><td>wasb:///&lt;path-name&gt;<br/> wasbs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/<br />&lt;path-name&gt;</td></tr>
-
-<tr><td>https://&lt;account&gt;.blob.core.windows.net/<br />dailylogs/input/log1.txt</td><td>wasbs://&lt;container&gt;@&lt;account&gt;.blob.core.windows.net/<br />input/log1.txt</td></tr>
-
-</table>
 
 ##<a id="nextsteps"></a>Next steps
 
