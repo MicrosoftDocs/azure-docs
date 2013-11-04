@@ -389,11 +389,11 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
-- [Using Windows Azure Blob storage with HDInsight][hdinsight-storage]
-- [Administering HDInsight using PowerShell][hdinsight-admin-powershell]
+- [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
+- [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
-- [Using Hive with HDInsight][hdinsight-hive]
-- [Using Pig with HDInsight][hdinsight-pig]
+- [Use Hive with HDInsight][hdinsight-hive]
+- [Use Pig with HDInsight][hdinsight-pig]
 
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
