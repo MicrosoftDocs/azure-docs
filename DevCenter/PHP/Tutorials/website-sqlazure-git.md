@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
 
 
@@ -28,19 +28,19 @@ By following this tutorial, you will build a simple registration web application
 Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 1. Login to the [Windows Azure Management Portal][management-portal].
-2. Click the **+ New** icon on the bottom left of the portal.
+2. Click the **New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure Web Site][new-website]
 
-3. Click **WEB SITE**, then **CUSTOM CREATE**.
+3. Click **Web Site**, then **Custom Create**.
 
 	![Custom Create a new Web Site][custom-create]
 
-	Enter a value for **URL**, select **Create a New SQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+	Enter a value for **URL**, select **Create a New SQL Database** from the **Database** dropdown,  and select the data center for your web site in the **Region** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in web site details][website-details-sqlazure]
 
-4. Enter a value for the **NAME** of your database, select the **EDITION** [(WEB or BUSINESS)][sql-database-editions], select the **MAX SIZE** for your database, choose the **COLLATION**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
+4. Enter a value for the **Name** of your database, select the **Edition** [(WEB or BUSINESS)][sql-database-editions], select the **Max Size** for your database, choose the **Collation**, and select **NEW SQL Database server**. Click the arrow at the bottom of the dialog.
 
 	![Fill in SQL Database settings][database-settings]
 
@@ -77,7 +77,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 To connect to the SQL Database instance that is running in Windows Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
 
-1. From the Windows Azure Management Portal, click **LINKED RESOURCES**, then click the database name.
+1. From the Windows Azure Management Portal, click **Linked Resources**, then click the database name.
 
 	![Linked Resources][linked-resources]
 
@@ -135,7 +135,7 @@ To run the application locally, follow the steps below. Note that these steps as
 	<p>You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.</p> 
 	</div>
 
-4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
+4. Open a web browser and browse to **http://localhost/registration/createtable.php**. This will create the `registration_tbl` table in the database.
 
 5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
@@ -234,7 +234,7 @@ To run the application locally, follow the steps below. Note that these steps as
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
+You can now browse to **http://localhost/registration/index.php** to test the application.
 
 ##Publish your application
 
@@ -292,11 +292,7 @@ To publish changes to application, follow these steps:
 [install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
-[wpi]: http://www.microsoft.com/web/downloads/platform.aspx
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
-[tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
-[localhost-createtable]: http://localhost/tasklist/createtable.php
-[localhost-index]: http://localhost/tasklist/index.php
 [running-app]: ../Media/running_app_3.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.png

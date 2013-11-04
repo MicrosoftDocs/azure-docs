@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="How to administer HDInsight using the management portal - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service from the management portal." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using the management portal - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service from the management portal." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Administer HDInsight clusters using management portal
 
-In this topic, you will learn how to use the Windows Azure Management portal to create an HDInsight cluster, and how to open the administrative tools. For more information on administering HDInsight using the Cross-platform Command-line Tools, see [How to Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. For more information on administering HDInsight using Windows Azure PowerShell, see [How to Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
+In this topic, you will learn how to use the Windows Azure Management portal to create an HDInsight cluster, and how to open the administrative tools. For more information on administering HDInsight using the Cross-platform Command-line Tools, see [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. For more information on administering HDInsight using Windows Azure PowerShell, see [Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
 
 **Prerequisites:**
 
@@ -51,8 +51,6 @@ A Windows Azure storage account located on the same data center is required befo
 
 ##<a id="enablerdp"></a> Enable remote desktop
 
-This session only applies HDInsight cluster version 2.1.
-
 The credentials provided at cluster creation now give access only to the services on the cluster, not remote desktop. Remote Desktop will be off by default and will require post creation configuration to turn on.
 
 **To enable remote desktop**
@@ -67,9 +65,6 @@ The credentials provided at cluster creation now give access only to the service
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 	The expiration date must be in the future, and at most seven days from now. And the time is the midnight of the selected date.
-
-	Once the remote access is enabled. The portal adds a **CONNECT** button and a **DISABLE REMOTE** button on the bottom of the CONFIGURATION page.
-
 
 ##<a id="hadoopcmd"></a> Open Hadoop command line
 

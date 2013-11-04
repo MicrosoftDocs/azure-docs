@@ -11,7 +11,7 @@ Pig’s scripting language is called *Pig Latin*. Pig Latin statements follow th
 - **Transform**: Manipulate the data 
 - **Dump or store**: Output data to the screen or store for processing
 
-For more information on Pig Latin, see [Pig Latin Reference Manual 1][piglatin-manual-1] and [Pig Latin Reference Manual 1][piglatin-manual-2].
+For more information oPig Latin, see [Pig Latin Reference Manual 1][piglatin-manual-1] and [Pig Latin Reference Manual 2][piglatin-manual-2].
 
 **Prerequisites:**
 
@@ -76,7 +76,7 @@ The second figure shows the data transformation:
 
 ##<a id="uploaddata"></a>Upload data file to the Blob storage
 
-HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [How to Upload Data to HDInsight][hdinsight-upload-data].
+HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload Data to HDInsight][hdinsight-upload-data].
 
 To access files, use the following syntax: 
 
@@ -195,7 +195,7 @@ In this session, you will review some Pig Latin statements, and the results afte
 
 ##<a id="powershell"></a>Run Pig Latin using PowerShell
 
-This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [How to Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
+This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
 
 
 **To run Pig Latin using PowerShell**
