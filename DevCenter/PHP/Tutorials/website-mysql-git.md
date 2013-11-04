@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
 
 
 #Create a PHP-MySQL Windows Azure web site and deploy using Git
@@ -14,7 +14,7 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP web site][running-app]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled.</p> If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Windows Azure Free Trial</a>.</p> </div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Web Sites feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Windows Azure Free Trial</a>.</p> </div>
 
 ##Set up the development environment
 
@@ -30,30 +30,30 @@ This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (
 Follow these steps to create a Windows Azure web site and a MySQL database:
 
 1. Login to the [Windows Azure Management Portal][management-portal].
-2. Click the **+ New** icon on the bottom left of the portal.
+2. Click the **New** icon on the bottom left of the portal.
 
 	![Create New Windows Azure web site][new-website]
 
-3. Click **WEB SITE**, then **CUSTOM CREATE**.
+3. Click **Web Site**, then **Custom Create**.
 
 	![Custom Create a new web site][custom-create]
 	
-	Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
+	Enter a value for **URL**, select **Create a New MySQL Database** from the **Database** dropdown,  and select the data center for your web site in the **Region** dropdown. Click the arrow at the bottom of the dialog.
 
 	![Fill in web site details][website-details]
 
-4. Enter a value for the **NAME** of your database, select the data center for your database in the **REGION** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
+4. Enter a value for the **Name** of your database, select the data center for your database in the **Region** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
 
 	![Create new MySQL database][new-mysql-db]
 
 	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
 
-6. Click the name of the web site displayed in the list of web sites to open the web site’s **QUICKSTART** dashboard.
+6. Click the name of the web site displayed in the list of web sites to open the web site’s **QuickStart** dashboard.
 
 	![Open web site dashboard][go-to-dashboard]
 
 
-7. At the bottom of the **QUICKSTART** page, click **Set up Git publishing**. 
+7. At the bottom of the **QuickStart** page, click **Set up Git publishing**. 
 
 	![Set up Git publishing][setup-git-publishing]
 
@@ -188,7 +188,7 @@ To build and run the application locally, follow the steps below. Note that thes
 		</body>
 		</html>
 
-You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
+You can now browse to **http://localhost/registration/index.php** to test the application.
 
 
 ##Publish your application
@@ -249,7 +249,6 @@ To publish changes to application, follow these steps:
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [install-git]: http://git-scm.com/
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
-[localhost-index]: http://localhost/registration/index.php
 [running-app]: ../Media/running_app_2.png
 [new-website]: ../../Shared/Media/new_website.jpg
 [custom-create]: ../../Shared/Media/custom_create.png
