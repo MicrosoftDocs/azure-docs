@@ -1,7 +1,7 @@
 
    * Sign in to the Windows Azure account by entering your credentials.
 
-     This method is quicker and easier but connects to Windows Azure only for the duration of the Visual Studio session, for up to 8 hours. Also, if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
+     This method is quicker and easier but connects to Windows Azure only for the duration of the Visual Studio session. Also, if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
 
      In **Server Explorer**, click the **Connect to Windows Azure** button. An alternative is to right-click the **Windows Azure** node, and then click **Connect to Windows Azure** in the context menu.
 
