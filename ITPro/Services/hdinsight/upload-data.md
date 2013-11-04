@@ -1,37 +1,37 @@
-<properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure, Windows Azure blob storage, wasb, wasbs, powershell" metaDescription="Learn how to upload data to the the HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure, Windows Azure blob storage, wasb, wasbs, powershell" metaDescription="Learn how to upload data to HDInsight, the Windows Azure big data solution with a full-featured Hadoop Distributed File System (HDFS) and Windows Azure Blob storage." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 #Upload data to HDInsight
 
-Windows Azure HDInsight Service provides a full featured HDFS file system over Windows Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both Windows Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For the benefits of using Windows Azure Blob storage, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. 
+Windows Azure HDInsight provides a full-featured Hadoop Distributed File System (HDFS) over Windows Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both Windows Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For the benefits of using Windows Azure Blob storage, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
 
 Windows Azure HDInsight clusters are typically deployed to execute MapReduce jobs and are dropped once these jobs have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Windows Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a Blob enables the HDInsight clusters used for computation to be safely released without losing data. 
 
 Windows Azure Blob storage can either be accessed through [AzCopy][azure-azcopy], [Windows Azure PowerShell][azure-powershell], [Windows Azure Storage Client Library for .NET][azure-storage-client-library] or through explorer tools. Here are some of the tools available:
 
 * [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
-* [cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
+* [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
 * [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)
 * [Windows Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)
 * [Windows Azure Explorer PRO](http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx)
 
-**Prerequisites:**
+**Prerequisites**
 
 Note the following requirements before you begin this article:
 
-* A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 ##In this article
 
-* [Upload data to Windows Azure Blob storage using AzCopy](#azcopy)
-* [Upload data to Windows Azure Blob storage using Windows Azure PowerShell](#powershell)
-* [Upload data to Windows Azure Blob storage using Azure Storage Explorer](#storageexplorer)
-* [Upload data to Windows Azure Blob storage using Hadoop command line](#commandline)
-* [Import data from Windows Azure SQL Database to Windows Azure Blob storage using Sqoop](#sqoop)
-* [Access data stored in Windows Azure Blob storage](#blob)
+* [Upload data to Blob storage using AzCopy](#azcopy)
+* [Upload data to Blob storage using Windows Azure PowerShell](#powershell)
+* [Upload data to Blob storage using Azure Storage Explorer](#storageexplorer)
+* [Upload data to Blob storage using Hadoop command line](#commandline)
+* [Import data from Windows Azure SQL Database to Blob storage using Sqoop](#sqoop)
+* [Access data in Blob storage](#blob)
 
-##<a id="azcopy"></a>Upload data to Windows Azure Blob storage using AzCopy##
+##<a id="azcopy"></a>Upload data to Blob storage using AzCopy##
 
-AzCopy is a command line utility which is designed to simplify the task of transferring data in to and out of a Windows Azure Storage account. You can use this as a standalone tool or incorporate this utility in an existing application. The tool can be downloaded from [here][azure-azcopy-download].
+AzCopy is a command line utility which is designed to simplify the task of transferring data in to and out of a Windows Azure Storage account. You can use this as a standalone tool or incorporate this utility in an existing application. [Download AzCopy][azure-azcopy-download].
 
 The AzCopy syntax is:
 
@@ -39,11 +39,11 @@ The AzCopy syntax is:
 
 For more information, see [AzCopy – Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
 
-##<a id="powershell"></a>Upload data to Windows Azure Blob storage using Windows Azure PowerShell##
+##<a id="powershell"></a>Upload data to Blob storage using Windows Azure PowerShell##
 
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Windows Azure Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
-**To upload a local file to Windows Azure Blob storage**
+**To upload a local file to Blob storage**
 
 1. Run Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 2. Set the values of the first five variables in the following script:
@@ -67,11 +67,11 @@ Windows Azure PowerShell is a powerful scripting environment that you can use to
 		
 3. Paste the script into the Windows Azure PowerShell console window to run it.
 
-Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the ‘/’ character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob’s key may be ‘input/log1.txt’. No actual ‘input’ directory exists, but due to the presence of the ‘/’ character in the key name, it has the appearance of a file path. In the previous script, you can give the file a folder structure by setting the $blobname variable. For example *$blobname="myfolder/myfile.txt".
+Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob’s key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path. In the previous script, you can give the file a folder structure by setting the $blobname variable. For example *$blobname="myfolder/myfile.txt"*.
 
-Using Windows Azure Explorer tools, you may notice some 0 bytes files. These files serve two purposes:
+Using Windows Azure Explorer tools, you may notice some 0 byte files. These files serve two purposes:
 
-- In case of empty folders, they serve as a marker of the existence of the folder. WASB is clever enough to know that if a blob exists called foo/bar then there is a folder called foo. But if you want to have an empty folder called foo, then the only way to signify that is by having this special 0-byte file in place.
+- In case of empty folders, they serve as a marker of the existence of the folder. Blob storage is clever enough to know that if a blob exists called foo/bar then there is a folder called foo. But if you want to have an empty folder called foo, then the only way to signify that is by having this special 0 byte file in place.
 - They hold some special metadata needed by the Hadoop file system, notably the permissions and owners for the folders.
 
 
@@ -81,11 +81,11 @@ Using Windows Azure Explorer tools, you may notice some 0 bytes files. These fil
 
 
 
-##<a id="storageexplorer"></a>Upload data to Windows Azure Blob storage using Azure Storage Explorer
+##<a id="storageexplorer"></a>Upload data to Blob storage using Azure Storage Explorer
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][]azure-storage-account]. For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-storage-account]. 
+Before using the tool, you must know your Windows Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts][azure-storage-account].  
 
 1. Run Azure Storage Explorer.
 
@@ -95,13 +95,13 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 	![HDI.ASEAddAccount][image-ase-addaccount]
 
-3. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. You can add multiple storage accounts, each account will be displayed on a tab. 
-4. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
+3. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. You can add multiple storage accounts, and each account will be displayed on a tab. 
+4. Under **Storage Type**, click **Blobs**.
 
 	![HDI.ASEBlob][image-ase-blob]
 
 5. From **Container**, click the container that is associated to your HDInsight cluster. When you create an HDInsight cluster, you must specify a container.  Otherwise, the cluster creation process creates one for you.
-6. From **Blob**, click **Upload**.
+6. Under **Blob**, click **Upload**.
 7. Specify a file to upload, and then click **Open**.
 
 
@@ -175,7 +175,7 @@ Before using the tool, you must know your Windows Azure storage account name and
 
 
 
-##<a id="commandline"></a> Upload data to Windows Azure Blob storage using Hadoop Command Line
+##<a id="commandline"></a> Upload data to Blob storage using Hadoop Command Line
 
 To use Hadoop command line, you must first connect to the cluster using remote desktop. 
 
@@ -203,7 +203,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 		wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-	The FQDN is required when you use wasbs.
+	The fully qualified domain name is required when you use *wasbs*.
 
 13. Use the following command to list the uploaded files:
 
@@ -214,7 +214,7 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 Sqoop is a tool designed to transfer data between Hadoop and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL or MySQL or Oracle into the Hadoop Distributed File System (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into a RDBMS. For more information, see [Sqoop User Guide][apache-sqoop-guide].
 
-Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications][sqldatabase-howto]. To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com][whatismyip].
+Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password, and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications][sqldatabase-howto]. To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com][whatismyip].
 
 1. Sign in to the [Management Portal][azure-management-portal].
 2. Click **HDINSIGHT**. You will see a list of deployed Hadoop clusters.
@@ -246,9 +246,9 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 			--input-fields-terminated-by \t 
 			--input-lines-terminated-by \n
 
-##<a id="blob"></a>Access data stored in Windows Azure Blob storage
+##<a id="blob"></a>Access data in Blob storage
 
-Data stored in Windows Azure Blob Storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with WASB://. To secure the connection, use WASBS://. The scheme for accessing data in Windows Azure Blob Storage is:
+Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *WASB://*. To secure the connection, use *WASBS://*. The scheme for accessing data in Blob storage is:
 
 	WASB[S]://[<container>@]<accountname>.blob.core.windows.net/<path>
 
@@ -263,15 +263,15 @@ The following is a sample PowerShell script for submitting a MapReduce job:
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName  | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $_.JobId -StandardError}
 
-For more information on accessing the files stored in Windows Azure Blob storage, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+For more information on accessing the files stored in Blob storage, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 ## Next steps
-Now that you understand how to get data into HDInsight Service, use the following articles to learn how to perform analysis:
+Now that you understand how to get data into HDInsight, use the following articles to learn how to perform analysis:
 
-* [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Using Hive with HDInsight][hdinsight-hive]
-* [Using Pig with HDInsight][hdinsight-pig]
+* [Use Hive with HDInsight][hdinsight-hive]
+* [Use Pig with HDInsight][hdinsight-pig]
 
 
 [powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
