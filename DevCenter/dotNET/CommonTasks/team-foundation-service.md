@@ -1,17 +1,17 @@
-﻿<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ghogen" />
+<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" metaDescription="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ghogen" />
 
 
-# Continuous delivery to Windows Azure by using Team Foundation Service
+# Continuous delivery to Windows Azure using Visual Studio Online
 
-Microsoft Team Foundation Service is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
+Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
 
-This tutorial assumes you have Visual Studio 2012 and the Windows Azure SDK installed. If you don’t already have Visual Studio 2012, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). You can use Visual Studio 2010, but you must have SP1 installed and you must install the [Compatibility GDR](http://www.microsoft.com/en-us/download/details.aspx?Id=29082).  Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
+This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don’t already have Visual Studio 2013, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 To set up a cloud service to automatically build and deploy to Windows Azure by using Team Foundation Service, follow these steps:
 
--   [Step 1: Sign up for TFS.][]
+-   [Step 1: Sign up for Visual Studio Online (VSO).][]
 
--   [Step 2: Check in a project to TFS.][]
+-   [Step 2: Check in a project to VSO.][]
 
 -   [Step 3: Connect the project to Windows Azure.][]
 
@@ -21,63 +21,58 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 -   [Step 6: Change the Production deployment (cloud services only)][]
 
-<h2> <a name="step1"></a><span class="short-header">Sign up for TFS</span>Step 1: Sign up for TFS</h2>
+<h2> <a name="step1"></a><span class="short-header">Sign up for VSO</span>Step 1: Sign up for VSO</h2>
 
-1. Create a TFS account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
-  You will need to sign-in using a Microsoft account. After you log in, create a TFS account URL. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
+1. Create a VSO account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
+  You will need to sign-in using a Microsoft account. After you log in, provide the requested information and create a TFS account URL. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
 ![][0]
  
-2. Select New Team Project.<br/>
+2. Now you can create your first project. Enter the project name and description. Choose the version control system you want to use. Team Foundation Version Control (TFVC) or Git are both supported. Then choose the process template your organization uses, and choose the **Create Project** button.<br/>
 ![][1]
 
-3. Give a name and description to your project and click the **Create Project** button.<br/>
+3. When project creation is done, click the **Open with Visual Studio to connect** button link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
 ![][2]
-
-4. When project creation is done, click the **Navigate to Project** button.<br/>
-![][3]
 
 <h2><a name="step2"> </a><span class="short-header">Check in a project</span>Step 2: Check in a project to TFS</h2>
 
-1. Click the **Open new instance in Visual Studio** link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow. This step requires Visual Studio 2012.<br/>
-![][4]
-
-2. In Visual Studio, open the solution you want to deploy, or create a new one.
+1. In Visual Studio, open the solution you want to deploy, or create a new one.
 You can deploy a web site or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, you can either create a new Windows Azure Cloud Service project,
-or a new ASP.NET MVC4 project. Make sure that the project targets .NET Framework 4,
-and add an ASP.NET MVC 4 web role and a worker role. When prompted, choose **Internet Application**.
-If you want to create a web site, choose the ASP.NET MVC4 Application project template.
+or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4,
+and add an ASP.NET MVC web role and a worker role. When prompted, choose **Internet Application**.
+If you want to create a web site, choose the ASP.NET MVC Application project template.
 
-3. Open the shortcut menu for the solution, and select **Add Solution to Source Control**.<br/>
+2. Open the shortcut menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
 
-4. Accept or change the defaults and choose the **OK** button. Once the process completes, source control icons appear in Solution Explorer.<br/>
+3. Accept or change the defaults and choose the **OK** button. Once the process completes, source control icons appear in Solution Explorer.<br/>
 ![][6]
 
-5. Open the shortcut menu for the solution, and choose **Check In**.<br/>
+4. Open the shortcut menu for the solution, and choose **Check In**.<br/>
 ![][7]
 
-6. In the Pending Changes area of Team Explorer, type a comment for the check-in and choose the **Check In** button.<br/>
+5. In the Pending Changes area of Team Explorer, type a comment for the check-in and choose the **Check In** button.<br/>
 ![][8]
+
 <br/>
 Note the options to include or exclude specific changes when you check in. If desired changes are excluded, choose the **Include All** link.<br/>
 ![][9]
 
 <h2> <a name="step3"> </a><span class="short-header">Connect the project to Windows Azure</span>Step 3: Connect the project to Windows Azure</h2>
 
-1. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up TFS publishing** link.<br/>
+1. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up Visual Studio Online publishing** link.<br/>
 ![][10]
 
-2. In the wizard, type the name of your TFS account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
+2. In the wizard, type the name of your Visual Studio Online account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
 ![][11]
 
 3. In the OAuth pop-up dialog, choose **Accept** to authorize Windows Azure to configure your team project in TFS.<br/>
 ![][12]
 
-4. When authorization succeeds, you see a dropdown containing a list of your TFS team projects.  Select the name of team project that you created in the previous steps, and choose the wizard’s checkmark button.<br/>
+4. When authorization succeeds, you see a dropdown containing a list of your Visual Studio Online team projects.  Select the name of team project that you created in the previous steps, and choose the wizard’s checkmark button.<br/>
 ![][13]
 
-5. When your project is linked, you will see some instructions for checking in changes to your TFS team project.  On your next check-in, TFS will build and deploy your project to Windows Azure.  Try this now by clicking the **Check In from Visual Studio 2012** link, and then the **Launch Visual Studio 2012** link. (or the equivalent **Visual Studio** button in the command-bar).<br/>
+5. When your project is linked, you will see some instructions for checking in changes to your Visual Studio Online team project.  On your next check-in, Visual Studio Online will build and deploy your project to Windows Azure.  Try this now by clicking the **Check In from Visual Studio** link, and then the **Launch Visual Studio** link. (or the equivalent **Visual Studio** button in the command-bar).<br/>
 ![][14]
 
 <h2><a name="step4"> </a><span class="short-header">Trigger a rebuild</span>Step 4: Trigger a rebuild and redeploy your project</h2>
