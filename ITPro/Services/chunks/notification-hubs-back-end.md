@@ -1,114 +1,160 @@
 
-
-You can send notifications using notification hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. 
-
 This section shows how to send notifications in two different ways:
 
-- using a console app
-- using a Mobile Services script
+- [From a console app]
+- [From Mobile Services]
 
-We also include the needed code to broadcast to both Windows Store and iOS devices, since the backend can broadcast to any of the supported devices
+Both backends send notifications to both Windows Store and iOS devices. You can send notifications from any backend using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">Notification Hubs REST interface</a>. 
 
+<h3><a name="console"></a>To send notifications from a console app in C#</h3>
 
-
-## To send notifications using a C# console app ##
+Skip steps 1-3 if you created a console app when you completed [Get started with Notification Hubs].
 
 1. In Visual Studio create a new Visual C# console application: 
 
    ![][13]
 
-2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then click **Library Package Manager**, then click **Package Manager Console**. Then, in the console window type the following:
+2. In the Visual Studio main menu, click **Tools**, **Library Package Manager**, and **Package Manager Console**, then in the console window type the following and press **Enter**:
 
         Install-Package WindowsAzure.ServiceBus
-
-    then press **Enter**.
+ 	
+	This adds a reference to the Windows Azure Service Bus SDK by using the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
 
 3. Open the file Program.cs and add the following `using` statement:
 
         using Microsoft.ServiceBus.Notifications;
 
-4. In the `Program` class, add the following method:
+4. In the `Program` class, add the following method, or replace it if it already exists:
 
         private static async void SendNotificationAsync()
         {
-		    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
+			// Define the notification hub.
+		    NotificationHubClient hub = 
+				NotificationHubClient.CreateClientFromConnectionString(
+					"<connection string with full access>", "<hub name>");
 		
-            var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
-            foreach (var category in categories) {
-                var toast = @"<toast><visual><binding template=""ToastText02""><text id=""1"">" + "Breaking " + category + " News!" + "</text></binding></visual></toast>";
-                await hub.SendWindowsNativeNotificationAsync(toast, category);
+		    // Create an array of breaking news categories.
+		    var categories = new string[] { "World", "Politics", "Business", 
+		        "Technology", "Science", "Sports"};
+		
+            foreach (var category in categories)
+            {
+                try
+                {
+                    // Define a Windows Store toast.
+                    var wnsToast = "<toast><visual><binding template=\"ToastText01\">" 
+                        + "<text id=\"1\">Breaking " + category + " News!" 
+                        + "</text></binding></visual></toast>";
+                    // Send a WNS notification using the template.            
+                    await hub.SendWindowsNativeNotificationAsync(wnsToast, category);
 
-                var alert = "{\"aps\":{\"alert\":\"Breaking "+ category +" News!\"}}";
-                await hub.SendAppleNativeNotificationAsync(alert, category);
+                    // Define a Windows Phone toast.
+                    var mpnsToast =
+                        "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                        "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                            "<wp:Toast>" +
+                                "<wp:Text1>Breaking " + category + " News!</wp:Text1>" +
+                            "</wp:Toast> " +
+                        "</wp:Notification>";
+                    // Send an MPNS notification using the template.            
+                    await hub.SendMpnsNativeNotificationAsync(mpnsToast, category);
+
+                    // Define an iOS alert.
+                    var alert = "{\"aps\":{\"alert\":\"Breaking " + category + " News!\"}}";
+                    // Send an APNS notification using the template.
+                    await hub.SendAppleNativeNotificationAsync(alert, category);
+                }
+                catch (ArgumentException)
+                {
+                    // An exception is raised when there are no devices registered for 
+                    // either the iOS, Windows Store, or Windows Phone platform. 
+                    // Consider using template notifications instead.
+                }
             }
 		 }
 
-   Make sure to insert the name of your hub and the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." Note that this is the connection string with **Full** access, not **Listen** access.
+	This code sends notifications for each of the six tags in the string array to Windows Store, Windows Phone and iOS devices. The use of tags makes sure that devices receive notifications only for the registered categories.
+	
+	<div class="dev-callout"><strong>Note</strong> 
+		<p>This code supports Windows Store, Windows Phone and iOS clients. Send methods return an error response when a registration doesn't exist for a particular platform. To avoid this, consider using template registrations to send a single notification to multiple platforms. For an example, see <a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/">Use Notification Hubs to broadcast localized breaking news</a>. </p>
+	</div>
 
-Note that this code sends one notification for each of 6 tags. Your device will only receive notitications for the ones you have registered for.
+6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier.
 
-Also note the last line of code sends an alert to an iOS device. this shows how a single notification hub can push notifications to multiple device types. In this line, replace the category placeholder with any one of the category tags that we used in our client apps ("World", "Politics", "Business", "Technology", "Science", "Sports").
-
-7. Then add the following lines in the `Main` method:
+7. Add the following lines in the **Main** method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Press the **F5** key to run the app. You should receive a toast notification for each category that you registered for.
+You can now proceed to [Run the app and generate notifications].
 
-   ![][14]
+###<a name="mobile-services"></a>To send notifications from Mobile Services
 
-## Mobile Services ##
+To send a notification using a Mobile Service do the following:
 
-To send a notification using a Mobile Service, follow [Get started with Mobile Services], then do the following:
+0. Complete the tutorial [Get started with Mobile Services] to create your mobile service.
 
-1. Log on to the [Windows Azure Management Portal], and click your Mobile Service.
+1. Log on to the [Windows Azure Management Portal], click Mobile Services, then click your mobile service.
 
 2. Select the tab **Scheduler** on the top.
 
    ![][15]
 
-3. Create a new scheduled job, insert a name, and then click **On demand**.
+3. Create a new scheduled job, type a name, and then click **On demand**.
 
    ![][16]
 
 4. When the job is created, click the job name. Then click the **Script** tab in the top bar.
 
-5. Insert the following script inside your scheduler function. Make sure to replace the placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier. When you are finished, click **Save** on the bottom bar.
+5. Insert the following script inside the scheduled job function: 
 
 	    var azure = require('azure');
 	    var notificationHubService = azure.createNotificationHubService(
 				'<hub name>', 
 				'<connection string with full access>');
-	    notificationHubService.wns.sendToastText01(
-	        '<category>',
-	        {
-	            text1: 'Breaking News!'
-	        },
-	        function (error) {
-	            if (!error) {
-	                console.warn("Notification successful");
-	            }
-	    });
-	    notificationHubService.apns.send(
-	        '<category>',
-	        {
-	            alert: "Breaking News!"
-	        },
-	        function (error)
-	        {
-	            if (!error) {
-	                console.warn("Notification successful");
-	            }
-	        }
-	    );
+
+   		 // Create an array of breaking news categories.
+		    var categories = ['World', 'Politics', 'Business', 'Technology', 'Science', 'Sports'];
+		    for (var i = 0; i < categories.length; i++) {
+		        // Send a WNS notification.
+		        notificationHubService.wns.sendToastText01(categories[i], {
+		            text1: 'Breaking ' + categories[i] + ' News!'
+		        }, sendComplete);
+		        // Send a MPNS notification.
+		        notificationHubService.mpns.sendToast(categories[i], {
+		            text1: 'Breaking ' + categories[i] + ' News!'
+		        }, sendComplete);
+		        // Send an APNS notification.
+		        notificationHubService.apns.send(categories[i], {
+		            alert: 'Breaking ' + categories[i] + ' News!'
+		        }, sendComplete);
+		    }
+
+	This code sends notifications for each of the six tags in the string array to Windows Store, Windows Phone and iOS devices. The use of tags makes sure that devices receive notifications only for the registered categories.
+
+6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier.
+
+7. Add the following helper function after the scheduled job function, then click **Save**.: 
 	
+        function sendComplete(error) {
+ 		   if (error) {
+	            // An exception is raised when there are no devices registered for 
+	            // the iOS, Windows Store, or Windows Phone platforms. Consider using template 
+	            // notifications instead.
+	            //console.warn("Notification failed:" + error);
+	        }
+	    }
+	
+	<div class="dev-callout"><strong>Note</strong> 
+		<p>This code supports Windows Store, Windows Phone and iOS clients. Send methods return an error response when a registration doesn't exist for a particular platform. To avoid this, consider using template registrations to send a single notification to multiple platforms. For an example, see <a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/">Use Notification Hubs to broadcast localized breaking news</a>. </p>
+	</div>
 
+You can now proceed to [Run the app and generate notifications].
 
-6. Click **Run Once** on the bottom bar. You should receive a toast notification.
-
-
-
+<!-- Anchors -->
+[From a console app]: #console
+[From Mobile Services]: #mobile-services
+[Run the app and generate notifications]: #test-app
 
 <!-- Images. -->
 [13]: ../media/notification-hub-create-console-app.png
@@ -116,24 +162,11 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 [15]: ../media/notification-hub-scheduler1.png
 [16]: ../media/notification-hub-scheduler2.png
 
-
 <!-- URLs. -->
 [Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
-[Use Notification Hubs to send notifications to users] : tutorial-notify-users-mobileservices.md
-
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Use Notification Hubs to send notifications to users]: tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
-[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
-[Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-push-js.md
-[WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx

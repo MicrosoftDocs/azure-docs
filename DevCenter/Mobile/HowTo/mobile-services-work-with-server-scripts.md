@@ -24,8 +24,8 @@ This article provides detailed information about and examples of how to work wit
 	+ [How to: Load Node.js modules]
 	+ [How to: Use helper functions]
 	+ [How to: Share code by using source control]
+	+ [How to: Work with app settings] 
 + [Using the command line tool]
-
 + [Working with tables]
 	+ [How to: Access tables from scripts]
 	+ [How to: Perform Bulk Inserts]
@@ -81,7 +81,6 @@ Here are the canonical main-function signatures for the table operations:
 + [Update][update function]: `function update (item, user, request) { … }`
 + [Delete][delete function]: `function del (id, user, request) { … }`
 + [Read][read function]: `function read (query, user, request) { … }`
-
 
 <div class="dev-callout"><strong>Note</strong>
 <p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
@@ -508,6 +507,35 @@ In this example, you must pass both a [tables object] and a [user object] to the
 
 Script files are uploaded to the shared directory either by using [source control][How to: Share code by using source control] or by using the [command line tool][Using the command line tool].
 
+###<a name="app-settings"></a>How to: Work with app settings
+
+Mobile Services enables you to securely store values as app settings, which can be accessed by your server scripts at runtime.  When you add data to the app settings of your mobile service, the name/value pairs are stored encrypted and you can access them in your server scripts without hard-coding them in the script file. For more information, see [App settings].
+
+The following custom API example uses the supplied [service object] to retrieve an app setting value.  
+
+		exports.get = function(request, response) {
+		
+			// Get the MY_CUSTOM_SETTING value from app settings.
+		    var customSetting = 
+		        request.service.config.appSettings.my_custom_setting;
+				
+			// Do something and then send a response.
+
+		}
+
+The following code uses the configuration module to access Twitter credentials, stored in app settings, that is used in a scheduled job script:
+
+		// Get the app settings from the service configuration module.
+		var settings = require('mobileservice-config').appSettings;
+
+		// Get your Twitter v1.1 access credentials from app settings.
+		var consumerKey = settings.TWITTER_CONSUMER_KEY,
+		    consumerSecret = settings.TWITTER_CONSUMER_SECRET,
+		    accessToken= settings.TWITTER_ACCESS_TOKEN,
+		    accessTokenSecret = settings.TWITTER_ACCESS_TOKEN_SECRET;
+
+Because a **config object** is not available in table operation and scheduled job scripts, you must require the configuration module to access app settings. For a complete example, see [Schedule backend jobs in Mobile Services].
+
 <h2><a name="command-prompt"></a>Using the command line tool</h2>
 
 In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
@@ -908,6 +936,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Job Scheduler]: #scheduler-scripts
 [How to: Define multiple routes in a custom API]: #api-routes
 [How to: Send and receive data as XML]: #api-return-xml
+[How to: Work with app settings]: #app-settings
 
 <!-- Images. -->
 [1]: ../Media/mobile-insert-script-users.png
@@ -918,8 +947,6 @@ To avoid overloading your log, you should remove or disable calls to console.log
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
 [Schedule backend jobs in Mobile Services]: /en-us/develop/mobile/tutorials/schedule-backend-tasks/
-
-
 [request object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
 [response object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
 [User object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx
@@ -946,14 +973,12 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Modify the response]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx
 [Management Portal]: https://manage.windowsazure.com/
 [Schedule jobs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
-
 [Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commands to manage Windows Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Windows Store Push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone Push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
 [Android Push]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
-
 [Windows Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
 [Send HTTP request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
@@ -971,3 +996,5 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [express object in express.js]: http://expressjs.com/api.html#express
 [Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
 [Leverage shared code and Node.js modules in your server scripts]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
+[service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
+[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
