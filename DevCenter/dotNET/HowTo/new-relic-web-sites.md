@@ -115,7 +115,17 @@ The New Relic package added to your application in the previous step is configur
 
 1. Sign in to the [Windows Azure management portal](https://manage.windowsazure.com) and navigate to your Web Site.
 
-2. From your Web Site, select **Configure** and then add the following values to the **App Settings** section of the page:
+2. From your Web Site, select **Configure**. In the **Developer Analytics** section, select either **Add-on** or **Custom**. Either method produces the same output, but requires slightly different input. **Add-on** lists your current New-Relic licenses and allows you to select one, while **Custom** requires you to manually specify the license key.
+
+	If you selected **Add-on**, use the **choose add-on** field to select your your New-Relic license.
+
+	![Image of the add-on fields][add-on]
+
+	If you selected **Custom**, use select New-Relic as the **Provider**, and then enter your license in the **Provider Key** field.
+
+	![Image of the custom fields][custom]
+
+3. After specifying license in **Developer Analytics**, click **Save**. Once the save operation has completed, the following values will have been added to the **App Settings** section of the page to support New-Relic:
 
 	<table border="1">
 	<thead>
@@ -137,12 +147,11 @@ The New Relic package added to your application in the previous step is configur
 	<tr>
 	<td>NEWRELIC\_HOME</td><td>C:\Home\site\wwwroot\newrelic</td>
 	</tr>
+	<tr>
+	<td>NEWRELIC\_LICENSEKEY</td><td>Your license key</td>
+	</tr>
 	</tbody>
 	</table><br/>
-
-3.	After entering these values, click **Save**.
-
-	![app settings values for New Relic][appsettings]
 
 	<div class="dev-callout"> 
 	<strong>Note</strong> 
@@ -240,3 +249,5 @@ browsers to load your webpages, where they come from, and what browsers they use
 [appsettings]: ../media/nrappsettings.png
 [newrelicconf]: ../media/nrwmlicensekey.png
 [vslicensekey]: ../media/nrvslicensekey.png
+[add-on]: ../media/nraddon.png
+[custom]: ../media/nrcustom.png

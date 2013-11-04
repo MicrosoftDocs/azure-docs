@@ -7,12 +7,9 @@
 
 Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Windows Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to a Windows Azure web site using Git.
 
-The ASP.NET application you'll build will look like this:
-![My Task List Application][Image0]
-
 <div chunk="../../Shared/Chunks/create-account-and-websites-and-vms-note.md" />
 
-<h2><span class="short-header">Overview</span>Overview</h2>
+<h2>Overview</h2>
 
 In this tutorial you will:
 
@@ -21,16 +18,16 @@ In this tutorial you will:
 -  [Create a Windows Azure web site][]
 -  [Deploy the ASP.NET application to the web site using Git][]
 
-<h2><span class="short-header">Background knowledge</span>Background knowledge</h2>
+<h2>Background knowledge</h2>
 
 Knowledge of the following is useful for this tutorial, though not required:
 
-* The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
+* The C# driver for MongoDB. For more information on developing C# applications against MongoDB, see the MongoDB [CSharp Language Center][MongoC#LangCenter]. 
 * The ASP .NET web application framework. You can learn all about it at the [ASP.net web site][ASP.NET].
-* The ASP .NET MVC 3.0 web application framework. You can learn all about it at the [ASP.NET MVC 3 web site][MVC3].
+* The ASP .NET MVC web application framework. You can learn all about it at the [ASP.NET MVC web site][MVCWebSite].
 * Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
-<h2><span class="short-header">Preparation</span>Preparation</h2>
+<h2>Preparation</h2>
 
 In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, and set up your development environment.
 
@@ -38,63 +35,64 @@ In this section you will learn how to create a virtual machine in Windows Azure 
 
 This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
 
-* To create a Windows virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running Windows Server 2008 R2 in Windows Azure][InstallMongoOnWindowsVM].
+* To create a Windows virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running Windows Server in Windows Azure][InstallMongoOnWindowsVM].
 * Alternatively, to create a Linux virtual machine and install MongoDB, see [Install MongoDB on a virtual machine running CentOS Linux in Windows Azure][InstallMongoOnCentOSLinuxVM].
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
-### Set up the development environment
+### Install Visual Studio
 
-This tutorial uses Microsoft Visual Studio 2010.  You can also use Microsoft Visual Web Developer 2010 Express Service Pack 1, which is a free version of Microsoft Visual Studio. Before you start, make sure you've installed the prerequisites listed below on your local development computer. You can install all of them by clicking the following link: [Web Platform Installer] [WebPlatformInstaller]. Alternatively, you can individually install the prerequisites using the following links:
+ Start by installing and running  [Visual Studio Express 2013 for Web] [VSEWeb] or [Visual Studio 2013] [VSUlt].
 
-* [Visual Studio 2010 prerequisites] [VsPreReqs]
-* [ASP.NET MVC 3 Tools Update] [MVCPrereqs]
+Visual Studio is an IDE, or integrated development environment. Just like you use Microsoft Word to write documents, you'll use an IDE to create applications. This tutorial uses Microsoft Visual Studio 2013, but you can use Microsoft Visual Studio Express 2013, which is a free version of Microsoft Visual Studio.
 
-If you're using Visual Web Developer 2010 instead of Visual Studio 2010, install the prerequisites by clicking the following link: [Visual Studio Web Developer Express SP1 prerequisites] [VsWebExpressPreReqs] 
 
-<h2><a id="createapp"></a><span class="short-header">Create and run the application locally</span>Create and run the My Task List ASP.NET application on your development computer</h2>
+<h2><a id="createapp"></a>Create and run the My Task List ASP.NET application on your development computer</h2>
 
-In this section you will create the My Task List ASP.NET application using Visual Studio.  You will also run the application locally against the MongoDB instance you created in the virtual machine hosted on Windows Azure.
+In this section you will create an ASP.NET application called "My Task List" by using Visual Studio.  You will run the application locally, but it will connect to your virtual machine on Windows Azure and use the MongoDB instance that you created there.
 
 ###Create the application
-Start by running Visual Studio and select **New Project** from the **Start** page.
+In Visual Studio, click **New Project**.
 
-Select **Visual C#** and then **Web** on the left and then select **ASP.NET MVC 3 Web Application** from the list of templates. Name your project "MyTaskListApp" and then click **OK**.
+![Start Page New Project][StartPageNewProject]
 
-![New Project Screen][Image00]
+In the **New Project** window, in the left pane, select **Visual C#**, and then select **Web**. In the middle pane, select **ASP.NET  Web Application**. At the bottom, name your project "MyTaskListApp," and then click **OK**.
 
-In the **New ASP.NET MVC 3 Project** dialog box, select **Internet Application**. Check **Use HTML5 markup** and leave **Razor** as the default view engine.
+![New Project Dialog][NewProjectMyTaskListApp]
 
-Click **OK**.
+In the **New ASP.NET Project** dialog box, select **MVC**, and then click **OK**.
 
-![New Internet Application][Image1]
+![Select MVC Template][VS2013SelectMVCTemplate]
 
+After the project completes, the default page created by the template appears.
+
+![Default ASP.NET MVC Application][VS2013DefaultMVCApplication]
 ###Install the MongoDB C# driver
 
 MongoDB offers client-side support for C# applications through a driver, which you need to install on your local development computer. The C# driver is available through NuGet.
 
 To install the MongoDB C# driver:
 
-1. In **Solution Explorer**, right-click the **MyTaskListApplication** project references and select **Add Library Package Reference...**.
+1. In **Solution Explorer**, under the **MyTaskListApp** project, right-click **References** and select **Manage NuGetPackages**.
 
-	![Add Library Package Reference][Image2]
+	![Manage NuGet Packages][VS2013ManageNuGetPackages]
 
-2. In the **Add Library Package Reference** window, click **Online** and then search for "mongocsharpdriver".  Click **Install** to install the driver.
+2. In the **Manage NuGet Packages** window, in the left pane, click **Online**. In the **Search Online** box on the right, type "mongocsharpdriver".  Click **Install** to install the driver.
 
-	![Search for MongoDB C# Driver][Image2.1]
+	![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
 
 3. Click **I Accept** to accept the 10gen, Inc. license terms.
 
 4. Click **Close** after the driver has installed.
-	![MongoDB C# Driver Installed][Image2.2]
+	![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]
 
 
 The MongoDB C# driver is now installed.  References to the **MongoDB.Driver.dll** and **MongoDB.Bson.dll** libraries have been added to the project.
 
-![MongoDB C# Driver References][Image2.3]
+![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
 ###Add a model
-In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
+In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** and name it *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
 
 	using System;
 	using System.Collections.Generic;
@@ -106,7 +104,7 @@ In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Cl
 	
 	namespace MyTaskListApp.Models
 	{
-	    public class Task
+	    public class MyTask
 	    {
 	        [BsonId(IdGenerator = typeof(CombGuidGenerator))]
 	        public Guid Id { get; set; }
@@ -127,7 +125,7 @@ In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Cl
 	}
 
 ###Add the data access layer
-In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.  Right-click the *DAL* folder and **Add** a new class file named *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
+In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.  Right-click the *DAL* folder and **Add** a new **Class**. Name the class file *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
 
 	using System;
 	using System.Collections.Generic;
@@ -161,23 +159,23 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	        }        
 	
 	        // Gets all Task items from the MongoDB server.        
-	        public List<Task> GetAllTasks()
+	        public List<MyTask> GetAllTasks()
 	        {
 	            try
 	            {
-	                MongoCollection<Task> collection = GetTasksCollection();
-	                return collection.FindAll().ToList<Task>();
+	                MongoCollection<MyTask> collection = GetTasksCollection();
+	                return collection.FindAll().ToList<MyTask>();
 	            }
 	            catch (MongoConnectionException)
 	            {
-	                return new List<Task>();
+	                return new List<MyTask >();
 	            }
 	        }
 	
 	        // Creates a Task and inserts it into the collection in MongoDB.
-	        public void CreateTask(Task task)
+	        public void CreateTask(MyTask task)
 	        {
-	            MongoCollection<Task> collection = GetTasksCollectionForEdit();
+	            MongoCollection<MyTask> collection = GetTasksCollectionForEdit();
 	            try
 	            {
 	                collection.Insert(task, SafeMode.True);
@@ -188,19 +186,19 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	            }
 	        }
 	
-	        private MongoCollection<Task> GetTasksCollection()
+	        private MongoCollection<MyTask> GetTasksCollection()
 	        {
 	            MongoServer server = MongoServer.Create(connectionString);
 	            MongoDatabase database = server[dbName];
-	            MongoCollection<Task> todoTaskCollection = database.GetCollection<Task>(collectionName);
+	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
 	            return todoTaskCollection;
 	        }
 	
-	        private MongoCollection<Task> GetTasksCollectionForEdit()
+	        private MongoCollection<MyTask> GetTasksCollectionForEdit()
 	        {
 	            MongoServer server = MongoServer.Create(connectionString);
 	            MongoDatabase database = server[dbName];
-	            MongoCollection<Task> todoTaskCollection = database.GetCollection<Task>(collectionName);
+	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
 	            return todoTaskCollection;
 	        }
 	
@@ -250,7 +248,7 @@ Open the *Controllers\HomeController.cs* file in **Solution Explorer** and repla
 	        private Dal dal = new Dal();
 	        private bool disposed = false;
 	        //
-	        // GET: /Task/
+	        // GET: /MyTask/
 	
 	        public ActionResult Index()
 	        {
@@ -258,7 +256,7 @@ Open the *Controllers\HomeController.cs* file in **Solution Explorer** and repla
 	        }
 	
 	        //
-	        // GET: /Task/Create
+	        // GET: /MyTask/Create
 	
 	        public ActionResult Create()
 	        {
@@ -266,10 +264,10 @@ Open the *Controllers\HomeController.cs* file in **Solution Explorer** and repla
 	        }
 	
 	        //
-	        // POST: /Task/Create
+	        // POST: /MyTask/Create
 	
 	        [HttpPost]
-	        public ActionResult Create(Task task)
+	        public ActionResult Create(MyTask task)
 	        {
 	            try
 	            {
@@ -314,13 +312,13 @@ Open the *Controllers\HomeController.cs* file in **Solution Explorer** and repla
 	}
 
 ###Set up the site style
-To change the title at the top of the page, open the *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace the existing **h1** heading text with the following:
+To change the title at the top of the page, open the *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:
 
-	<h1>My Task List Application</h1>
-	
+ 	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
+
 In order to set up the Task List menu, open the *\Views\Home\Index.cshtml* file and replace the existing code with the following code:
 	
-	@model IEnumerable<MyTaskListApp.Models.Task>
+	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
 	@{
 	    ViewBag.Title = "My Task List";
@@ -352,14 +350,14 @@ In order to set up the Task List menu, open the *\Views\Home\Index.cshtml* file 
 	}
 	
 	</table>
-	<div>  @Html.Partial("Create", new MyTaskListApp.Models.Task())</div>
+	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
 To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
 
-	@model MyTaskListApp.Models.Task
+	@model MyTaskListApp.Models.MyTask
 	
-	<script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
 	<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 	<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 	
@@ -400,7 +398,7 @@ To add the ability to create a new task, right-click the *Views\Home\\* folder a
 
 **Solution Explorer** should look like this:
 
-![Solution Explorer][Image3]
+![Solution Explorer][SolutionExplorerMyTaskListApp]
 
 ###Set the MongoDB connection string
 In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of code:
@@ -421,9 +419,9 @@ For more information on MongoDB connection strings, see [Connections][MongoConne
 
 ###Test the local deployment
 
-To run your application on your development computer, select **Start Debugging** from the **Debug** menu or hit **F5**. A development web server starts and a browser opens and launches the application's home page.  You can add a new task, which will be added to the MongoDB database running on your virtual machine in Windows Azure.
+To run your application on your development computer, select **Start Debugging** from the **Debug** menu or hit **F5**. IIS Express starts and a browser opens and launches the application's home page.  You can add a new task, which will be added to the MongoDB database running on your virtual machine in Windows Azure.
 
-![My Task List Application][Image4]
+![My Task List Application][TaskListAppBlank]
 
 <h2><span class="short-header">Deploy the application to a Windows Azure web site</span>Deploy the ASP.NET application to a Windows Azure web site</h2>
 
@@ -437,64 +435,87 @@ In this section you will create a Windows Azure web site.
 3. Enter a unique prefix for the application's URL.
 4. Select a region.
 5. Click **Create Web Site**.
-![Create a new web site][Image7]
+
+![Create a new web site][WAWSCreateWebSite]
+
 6. Your web site will be created quickly and will be listed in **Web sites**.
-![Dashboard][Image8]
+![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
 
 ###<a id="deployapp"></a> Deploy the ASP.NET application to the web site using Git
 In this section you will deploy the My Task List application using Git.
 
-1. Click your web site name in **Web sites**, then click **Dashboard**.  Click **Set up Git publishing** at the bottom of the **Dashboard** page for the **mytasklistapp** site. 
-2. Enter a user name and password in the **New user name and password** page and click the checkmark. Make note of the instructions on the resulting page as they will be used in the next section.
-3. The Git repository should be created quickly.
+1. Click your web site name in **Web sites**, then click **Dashboard**.  On the right side, under Quick Glance, click **Set up deployment from source control**.
+2. On the **Where is your source code?** page, choose **Local Git repository**, and the click the **Next** arrow. 
+3. The Git repository should be created quickly. Make note of the instructions on the resulting page as they will be used in the next section.
 
 	![Git Repository is Ready][Image9]
-4. Select **Push my local files to Windows Azure** to display instructions on pushing your code to Windows Azure. The instructions will look similar to the following:
+
+4. Under **Push my local files to Windows Azure** there are instructions for pushing your code to Windows Azure. The instructions will look similar to the following:
 
 	![Push local files to Windows Azure][Image10]
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
-6. Following these instructions in step 2, commit your local files.  
+6. Following the instructions in step 2, commit your local files.  
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
 	![Deployment Complete][Image11]
 9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: http://mytasklistapp.azurewebsites.net.
 
-<h2><span class="short-header">Summary</span>Summary</h2>
+<h2>Summary</h2>
 
 You have now successfully deployed your ASP.NET application to a Windows Azure web site.  To view the site, click the link in the **Site URL** field of the **Dashboard** page. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
+
+
+<!-- HYPERLINKS -->
 
 [AzurePortal]: http://manage.windowsazure.com
 [WindowsAzure]: http://www.windowsazure.com
 [ASP.NET]: http://www.asp.net
-[MVC3]: http://www.asp.net/mvc
+[MVCWebSite]: http://www.asp.net/mvc
 [MVCPrereqs]: http://www.microsoft.com/web/gallery/install.aspx?appsxml=&appid=MVC3
 [VsPreReqs]: http://www.microsoft.com/web/gallery/install.aspx?appsxml=&appid=VS2010SP1Pack
 [VsWebExpressPreReqs]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
-[WebPlatformInstaller]: http://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack
+[WebPlatformInstaller]:http://www.microsoft.com/web/downloads/platform.aspx
 [MongoC#LangCenter]: http://www.mongodb.org/display/DOCS/CSharp+Language+Center
 [MongoDB]: http://www.mongodb.org
 [MongoCSharpDriverDownload]: http://github.com/mongodb/mongo-csharp-driver/downloads
 [InstallMongoWinVM]: ../../../Shared/Tutorials/InstallMongoDbOnWin2k8VM.md
 [InstallMongoOnCentOSLinuxVM]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
 [InstallMongoOnWindowsVM]: /en-us/manage/windows/common-tasks/install-mongodb/
+ [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
+[VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
+<!-- IMAGES -->
 
-[Image0]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
-[Image00]: ../../../DevCenter/dotNET/Media/NewProject.png
-[Image1]: ../../../DevCenter/dotNET/Media/NewProject2.png
-[Image2]: ../../../DevCenter/dotNET/Media/AddReference.png
-[Image2.1]: ../../../DevCenter/dotNET/Media/AddReference2.png
-[Image2.2]: ../../../DevCenter/dotNET/Media/AddReference3.png
-[Image2.3]: ../../../DevCenter/dotNET/Media/AddReference4.png
-[Image3]: ../../../DevCenter/dotNET/Media/SolnExplorer.png
-[Image4]: ../../../DevCenter/dotNET/Media/TaskListAppBlank.png
-[Image7]: ../../../DevCenter/dotNET/Media/NewWebSite.png
-[Image8]: ../../../DevCenter/dotNET/Media/Dashboard.png
+[TaskListAppPreview]: ../../../DevCenter/dotNET/Media/TaskListAppFull.png
+
+[StartPageNewProject]: ../../../DevCenter/dotNET/Media/NewProject.png
+
+[NewProjectMyTaskListApp]: ../../../DevCenter/dotNET/Media/NewProjectMyTaskListApp.png
+
+[VS2013SelectMVCTemplate]: ../../../DevCenter/dotNET/Media/VS2013SelectMVCTemplate.png
+
+[VS2013DefaultMVCApplication]: ../../../DevCenter/dotNET/Media/VS2013DefaultMVCApplication.png
+
+[VS2013ManageNuGetPackages]: ../../../DevCenter/dotNET/Media/VS2013ManageNuGetPackages.png
+
+[SearchforMongoDBCSharpDriver]: ../../../DevCenter/dotNET/Media/SearchforMongoDBCSharpDriver.png
+
+[MongoDBCsharpDriverInstalled]: ../../../DevCenter/dotNET/Media/MongoDBCsharpDriverInstalled.png
+
+[MongoDBCSharpDriverReferences]: ../../../DevCenter/dotNET/Media/MongoDBCSharpDriverReferences.png
+
+[SolutionExplorerMyTaskListApp]: ../../../DevCenter/dotNET/Media/SolutionExplorerMyTaskListApp.png
+
+[TaskListAppBlank]: ../../../DevCenter/dotNET/Media/TaskListAppBlank.png
+[WAWSCreateWebSite]: ../../../DevCenter/dotNET/Media/WAWSCreateWebSite.png
+
+[WAWSDashboardMyTaskListApp]: ../../../DevCenter/dotNET/Media/WAWSDashboardMyTaskListApp.png
 [Image9]: ../../../DevCenter/dotNET/Media/RepoReady.png
 [Image10]: ../../../DevCenter/dotNET/Media/GitInstructions.png
 [Image11]: ../../../DevCenter/dotNET/Media/GitDeploymentComplete.png
 
+<!-- TOC BOOKMARKS -->
 [Create a virtual machine and install MongoDB]: #virtualmachine
 [Create and run the My Task List ASP.NET application on your development computer]: #createapp
 [Create a Windows Azure web site]: #createwebsite

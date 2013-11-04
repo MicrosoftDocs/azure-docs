@@ -19,7 +19,7 @@ The Hadoop MapReduce program reads the text file and counts how often each word 
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 **Outline**		
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
@@ -84,7 +84,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
 
 		# Download the job output to the workstation
-		Get-AzureStorageBlobContent -Container $ContainerName -Blob /example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
 	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be downloaded to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder. 
 
@@ -94,6 +94,12 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains *"there"*.
+
+The output from the WordCount script should appear in the cmd window:
+
+![HDI.Sample.WordCount.Output][image-hdi-sample-wordcount-output]
+
+Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
 
 <h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
 
@@ -183,13 +189,9 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 
 * [Sample: C# Steaming][cs-streaming]
 
-* [Sample: Scoop Import/Export][scoop]
-
 * [Tutorial: Using Pig][pig]
 
 * [Tutorial: Using Hive][hive]
-
-* [Tutorial: Using MapReduce][mapreduce]
 
 
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
@@ -201,4 +203,4 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
  
-
+[image-hdi-sample-wordcount-output]: ../media/HDI.Sample.WordCount.Output.png

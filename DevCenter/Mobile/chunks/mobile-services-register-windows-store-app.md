@@ -65,3 +65,5 @@
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Windows Azure Management Portal]: https://manage.windowsazure.com/

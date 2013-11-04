@@ -142,13 +142,13 @@ When managing your cluster and you have multiple subscriptions, it is advisable 
 
 The following is a sample script for selectting Azure subscription:
 
-		$subscriptionName = "<SubscriptionName>"
+	$subscriptionName = "<SubscriptionName>"
 
-		# Select Azure subscription
-		Select-AzureSubscription $subscriptionName
+	# Select Azure subscription
+	Select-AzureSubscription $subscriptionName
 
-		# Show the current subscription name
-		Get-AzureSubscription -Current | %{$_.SubscriptionName}
+	# Show the current subscription name
+	Get-AzureSubscription -Current | %{$_.SubscriptionName}
 
 
 
@@ -218,7 +218,7 @@ These are some of the resources available that you can use to learn to use Windo
 [microsoft-web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 
