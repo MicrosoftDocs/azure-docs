@@ -51,7 +51,7 @@ If you use the **Quick Create** option, you will get the 2.1 version. If you use
 
 ## Supported versions ##
 
-The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates.
+The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their deprecation dates will also be provided.
 
 <table border="1">
 <tr><th>HDInsight version</th><th><a href="http://go.microsoft.com/fwlink/?LinkID=286746">HDP version</a></th><th>Release date</th></tr>
