@@ -75,7 +75,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"			
 
-		The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+	The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
 3. Run the following commands to create a Windows Azure storage context object:
 
@@ -567,21 +567,20 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
 * [Using Hive with HDInsight][hdinsight-hive]
 
 
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-using-hdinsight/
 [hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-powershell/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/ 
+[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 
 [image-hdi-gettingstarted-runmrjob]: ../media/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ../media/HDI.GettingStarted.MRJobOutput.png

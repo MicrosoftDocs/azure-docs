@@ -268,7 +268,6 @@ While Pig allows you to perform data analysis, other languages included with the
 
 * [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Using MapReduce with HDInsight][hdinsight-using-mapreduce]
 * [Using Hive with HDInsight][hdinsight-using-hive]
 
 
@@ -279,14 +278,14 @@ While Pig allows you to perform data analysis, other languages included with the
 
 
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/upload-data/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-powershell/
+[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-using-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-using-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [hdinsight-using-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/ 
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 
 [image-hdi-log4j-sample]: ../media/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ../media/HDI.DataTransformation.gif
