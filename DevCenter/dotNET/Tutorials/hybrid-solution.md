@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial  hybrid .NET" metaDescription="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede"/>
+<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial  hybrid .NET" metaDescription="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="sethm" editor="mattshel" manager="dwrede"/>
 
 
 
@@ -98,7 +98,7 @@ to get the tools and set-up your development environment.
     necessary to start developing. The SDK includes tools that let you
     easily develop Windows Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
-    Visual Studio Express for Web.
+    Visual Studio Express 2012 for Web.
 
 <h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
 
@@ -171,7 +171,7 @@ This project will start as a Visual Studio console application. The
 project uses the Service Bus NuGet package to include the service bus
 libraries and configuration settings. The NuGet Visual Studio extension
 makes it easy to install and update libraries and tools in Visual Studio
-and Visual Web Developer. The Service Bus NuGet package is the easiest
+and Visual Studio Express 2012 for Web. The Service Bus NuGet package is the easiest
 way to get the Service Bus API and to configure your application with
 all of the Service Bus dependencies. For details about using NuGet and
 the Service Bus package, see [Using the NuGet Service Bus Package][].
@@ -179,9 +179,9 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 ### CREATE THE PROJECT
 
 1.  Using administrator privileges, launch either Microsoft Visual
-    Studio 2012 or Microsoft Visual Studio Express for Web. To
+    Studio 2012 or Microsoft Visual Studio Express 2012 for Web. To
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express for Web)** and then click **Run as administrator**.
+    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express 2012 for Web)** and then click **Run as administrator**.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 
@@ -360,7 +360,7 @@ display data retrieved from your product service.
 
 1.  Ensure that Microsoft Visual Studio 2012 is runnning with administrator privileges. If not, to
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express for Web)** and then click Run as administrator. The Windows
+    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express 2012 for Web)** and then click Run as administrator. The Windows
     Azure compute emulator, discussed later in this guide, requires that
     Visual Studio be launched with administrator privileges.
 

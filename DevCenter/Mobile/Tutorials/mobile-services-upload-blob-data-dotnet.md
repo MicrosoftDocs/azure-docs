@@ -5,10 +5,10 @@
 # Upload images to Windows Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-<!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone 8</a>
-	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-ios" title="iOS">iOS</a> 
--->
+<!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-ios" title="iOS">iOS</a> -->
+
 </div>	
 
 This topic shows you how to use Windows Azure Mobile Services to enable your app to upload and store user-generated images in Windows Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Windows Azure Blob storage service. 
@@ -46,89 +46,7 @@ Next, you will update the quickstart app to capture and upload images.
 
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
-A new insert script is registered that generates an SAS when a new Todo item is inserted.
-
-0. If you haven't yet created your storage account, see [How To Create a Storage Account].
-
-1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
-
-  ![][0]
-
-2. Make a note of the **Storage Account Name** and **Access Key**.
-
-   ![][1]
-
-3. In your mobile service, click the **Data** tab and then click the **TodoItem** table. 
-
-   ![][3]
-
-4. In **todoitem**, click the **Script** tab and select **Insert**.
-   
-  ![][4]
-
-   This displays the function that is invoked when an insert occurs in the TodoItem table.
-
-5. Replace the insert function with the following code:
-
-		var azure = require('azure');
-		var qs = require('querystring');
-
-		function insert(item, user, request) {
-			var accountName = '<storage-account-name>';
-			var accountKey = '<storage-account-key>';
-			var host = accountName + '.blob.core.windows.net';
-			var canonicalizedResource = '/' + item.containerName + '/' + item.resourceName;
-
-	    if ((typeof item.containerName !== "undefined") && (
-	    item.containerName !== null)) {
-	        // Set the BLOB store container name on the item, which must be lowercase.
-	        item.containerName = item.containerName.toLowerCase();
-	
-	        // If it does not already exist, create the container 
-	        // with public read access for blobs.        
-	        var blobService = azure.createBlobService(accountName, accountKey, host);
-	        blobService.createContainerIfNotExists(item.containerName, {
-	            publicAccessLevel: 'blob'
-	        }, function(error) {
-	            if (!error) {
-	
-	                // Provide write access to the container for the next 5 mins.        
-	                var sharedAccessPolicy = {
-	                    AccessPolicy: {
-	                        Permissions: azure.Constants.BlobConstants.SharedAccessPermissions.WRITE,
-	                        Expiry: new Date(new Date().getTime() + 5 * 60 * 1000)
-	                    }
-	                };
-	
-	                // Generate the upload URL with SAS for the new image.
-	                var sasQueryUrl = 
-	                    blobService.generateSharedAccessSignature(item.containerName, 
-	                    item.resourceName, sharedAccessPolicy);
-	                             
-	               // Set the query string.
-	               item.sasQueryString = qs.stringify(sasQueryUrl.queryString);
-	               
-	                // Set the full path on the new new item, 
-	                // which is used for data binding on the client. 
-	                item.imageUri = sasQueryUrl.baseUrl + sasQueryUrl.path;
-	
-	            } else {
-	                console.error(error);
-	            }
-	            request.execute();
-	        });
-	    } else {
-	        request.execute();
-	    }
-	}
-
-   This script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
-
-6. In the above script, replace the values of `<storage-account-name>` and `<storage-account-key>` with the values from your Storage account from Step 2, then click **Save**.
-
-   ![][10]
-
-Next, you will update the quickstart app to add image upload functionality by using the SAS generated on insert.
+<div chunk="../chunks/mobile-services-configure-blob-storage.md" />
 
 <h2><a name="add-select-images"></a><span class="short-header">Update the app</span>Update the quickstart client app to capture and upload images</h2>
 
@@ -172,13 +90,13 @@ Next, you will update the quickstart app to add image upload functionality by us
 
         [JsonProperty(PropertyName = "containerName")]
         public string ContainerName { get; set; }
-
+		
         [JsonProperty(PropertyName = "resourceName")]
         public string ResourceName { get; set; }
-
+		
         [JsonProperty(PropertyName = "sasQueryString")]
         public string SasQueryString { get; set; }
-
+		
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
@@ -190,7 +108,7 @@ Next, you will update the quickstart app to add image upload functionality by us
 
         // Use a StorageFile to hold the captured image for upload.
         StorageFile media = null;
-
+		
 		private async void OnTakePhotoClick(object sender, RoutedEventArgs e)
 		{
 			// Capture a new photo or video from the device.
@@ -206,18 +124,18 @@ Next, you will update the quickstart app to add image upload functionality by us
         private async void InsertTodoItem(TodoItem todoItem)
         {
             string errorString = string.Empty;
-
+			
             if (media != null)
             {
                 // Set blob properties of TodoItem.
                 todoItem.ContainerName = "todoitemimages";
                 todoItem.ResourceName = media.Name;
             }
-
+			
             // Send the item to be inserted. When blob properties are set this
             // generates an SAS in the response.
             await todoTable.InsertAsync(todoItem);
-
+			
             // If we have a returned SAS, then upload the blob.
             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
             {
@@ -228,19 +146,19 @@ Next, you will update the quickstart app to add image upload functionality by us
                     // and extract the storage credentials.
                     StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
                     var imageUri = new Uri(todoItem.ImageUri);
-
+					
                     // Instantiate a Blob store container based on the info in the returned item.
                     CloudBlobContainer container = new CloudBlobContainer(
                         new Uri(string.Format("https://{0}/{1}",
                             imageUri.Host, todoItem.ContainerName)), cred);
-
+					
                     // Upload the new image as a BLOB from the stream.
                     CloudBlockBlob blobFromSASCredential =
                         container.GetBlockBlobReference(todoItem.ResourceName);
                     await blobFromSASCredential.UploadFromStreamAsync(fileStream.AsInputStream());
                 }
             }
-
+			
             // Add the new item to the collection.
             items.Add(todoItem);
         }
@@ -249,7 +167,7 @@ Next, you will update the quickstart app to add image upload functionality by us
 
 The final step is to test the app and validate that uploads succeed.
 		
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+<h2><a name="test"></a><span class="short-header">Test the app</span>Test uploading the images in your app</h2>
 
 1. In Visual Studio, press the F5 key to run the app.
 
@@ -267,7 +185,7 @@ The final step is to test the app and validate that uploads succeed.
 
 	![][8]
 
-5. The new item, along with teh uploaded image, is displayed in the list view.
+5. The new item, along with the uploaded image, is displayed in the list view.
 
 	![][9]
 
@@ -314,7 +232,7 @@ Now that you have been able to securely upload images by integrating your mobile
 [7]: ../Media/mobile-quickstart-blob-camera.png
 [8]: ../Media/mobile-quickstart-blob-appbar2.png
 [9]: ../Media/mobile-quickstart-blob-ie.png
-[10]: ../Media/mobile-insert-script-blob2.png
+[10]: ../Media/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
@@ -328,3 +246,4 @@ Now that you have been able to securely upload images by integrating your mobile
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
 [Windows Azure Storage Client library for Windows Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
 [Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
+[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

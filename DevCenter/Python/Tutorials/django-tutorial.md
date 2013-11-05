@@ -1,12 +1,12 @@
-<properties linkid="django-ptvs-tutorial" urlDisplayName="Django with Python Tools for Visual Studio" pageTitle="Django with Python Tools for Visual Studio 2.0 - Windows Azure tutorial" metaKeywords="Azure Django Web Site, Azure Django Cloud Service, PTVS" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure using Python Tools for Visual Studio 2.0." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="django-ptvs-tutorial" urlDisplayName="Django with Python Tools for Visual Studio" pageTitle="Django with Python Tools 2.0 for Visual Studio - Windows Azure tutorial" metaKeywords="Azure Django Web Site, Azure Django Cloud Service, PTVS" metaDescription="A tutorial that teaches you how to build a Django web application hosted on Windows Azure using Python Tools 2.0 for Visual Studio." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
-# Creating Django applications with Python Tools for Visual Studio 2.0
+# Creating Django applications with Python Tools 2.0 for Visual Studio
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>In this tutorial, we'll use Python Tools for Visual Studio 2.0 to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Windows Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to a Windows Azure Web Site and a Windows Azure Cloud Service.</p>
+<p>In this tutorial, we'll use Python Tools 2.0 for Visual Studio to create a simple Django application. The application will allow users to vote on polls. We'll first use a local sqlite3 database, then move on to a SQL Server or MySQL database on Windows Azure. We'll show how to enable the Django admin interface, and use it to add polls to our database. We'll also use the Django shell integrated in Visual Studio.  Finally, we'll deploy our application to a Windows Azure Web Site and a Windows Azure Cloud Service.</p>
 <p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=290816" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/python/videos/django-tutorial-180x120.png') !important;" href="http://www.youtube.com/watch?v=S7A7VNnsA_8" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">24:01</span></div>
@@ -19,20 +19,17 @@ This tutorial focuses on Python Tools for Visual Studio and Windows Azure. For m
 ##Requirements
 To complete the tutorial, you'll need
 
-- [Python Tools for Visual Studio 2.0](http://pytools.codeplex.com)
+- [Python Tools 2.0 for Visual Studio](http://pytools.codeplex.com)
 - [Python 2.7 (32-bit)](http://www.python.org/download/)
-- A supported Visual Studio SKU:
-  - VS 2010 Pro or higher
-  - VS 2012 Pro or higher
-  - VS 2013 Pro or higher
-  - Free VS 2013 Integrated Shell. Windows Azure Cloud Services and Windows Azure Web Sites publishing are not available.
-- Windows Azure SDK 1.8, 2.0 or 2.1
+- Visual Studio and Windows Azure SDK:
+  - VS 2010 Pro or higher with Windows Azure SDK 2.1
+  - VS 2012 Pro or higher with Windows Azure SDK 2.1, 2.2 or later
+  - VS 2013 Pro or higher with Windows Azure SDK 2.2 or later
+  - Free VS 2013 Integrated Shell. **Windows Azure SDK does not support the Integrated Shell**. You can develop, debug and run Django applications locally using the free Integrated Shell but you won't be able to publish to Windows Azure Web Sites or Cloud Services using Visual Studio.
 
-You can use the Web Platform installer to install the Windows Azure SDK. This will install the Azure SDK, including Visual Studio extensions. In Web Platform installer, search for the applicable version:
+Use the Web Platform installer to install the Windows Azure SDK. This will install the SDK, emulator, and Windows Azure Tools for Visual Studio. In Web Platform installer, search for **Windows Azure SDK for .NET** and select one of the supported versions of the SDK for your version of Visual Studio.
 
-- Windows Azure SDK for .NET (VS 2010 SP1)
-- Windows Azure SDK for .NET (VS 2012)
-- Windows Azure SDK for .NET (VS 2013 Preview)
+**Note:** In order to run this application successfully using a Windows Azure Web Site or Cloud Service, you'll need to use the official CPython 2.7 distribution from [python.org](http://www.python.org/download/). Other distros may work, but are not officially supported.
 
 ##Create the project
 
@@ -503,9 +500,9 @@ Hosting Django in a Virtual Machine is out of scope for this tutorial.  It invol
 
 ###Windows Azure Cloud Service
 
-1. Right-click on the project node and **Add Windows Azure Cloud Service Project**.  This will add a new project to the solution, with the .Azure suffix. This new project is marked as the startup project in the solution.
+1. Right-click on the project node and select **Add Windows Azure Cloud Service Project** or **Convert -> Convert to Windows Azure Cloud Service Project** (you'll see one or the other, depending on your version of Visual Studio).  This will add a new project to the solution, with the .Azure suffix. This new project is marked as the startup project in the solution.
 
-	**Note:** If you don't have the **Add Windows Azure Cloud Service Project** item in your project context menu, then you need to install the Windows Azure Tools for Visual Studio. These are installed as part of the Windows Azure SDK for .NET. See the requirements section at the beginning of this tutorial.
+	**Note:** If you don't see the command to create the Windows Azure Cloud Service Project in your project context menu, then you need to install the Windows Azure Tools for Visual Studio. These are installed as part of the Windows Azure SDK for .NET. See the requirements section at the beginning of this tutorial.
 
 	![](../Media/django-tutorial-021-cloudservice-solution-explorer.png)
 

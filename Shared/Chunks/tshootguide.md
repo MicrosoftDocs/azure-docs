@@ -224,7 +224,7 @@ Manager], [Cloud Storage Studio], and [Azure Management Cmdlets].
 Azure Diagnostics Manager 2 is a Windows (WPF) based client for managing
 Windows Azure Diagnostics. It lets you view, download, and manage the
 diagnostics data collected by applications running in Windows Azure. See
-[http://www.cerebrata.com] for more information on these products.
+[http://www.cerebrata.com](http://www.cerebrata.com) for more information on these products.
 
 Cloud Storage Studio 2 is a Windows (WPF) based client for managing
 Windows Azure Storage.
@@ -279,11 +279,11 @@ do rudimentary tests without having to deploying your application. The
 debugging tools you use vary depending upon the programming language and the development tools
 you are using.
 
-After an application has been deployed, you can debug in the cloud using a debugger like Visual Studio. The requires creating a debug build and deploying it. In order to do this,you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio 2010 Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occured. While there are some drawbacks to debugging in the cloud, there are some circumstancesin which it is required. Not all Windows Azure Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
+After an application has been deployed, you can debug in the cloud using a debugger like Visual Studio. The requires creating a debug build and deploying it. In order to do this,you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occured. While there are some drawbacks to debugging in the cloud, there are some circumstancesin which it is required. Not all Windows Azure Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
 
-**Once you have debugged your application locally you will most likely
+Once you have debugged your application locally you will most likely
 have to rely on the instrumentation built into your application to
-determine where problems are occurring. **
+determine where problems are occurring.
 
 **Node.js Debugging**
 
@@ -305,7 +305,7 @@ Node-Inspector].
 
 **IntelliTrace**
 
-Microsoft Visual Studio 2010 Ultimate contains [IntelliTrace], which can
+Microsoft Visual Studio Ultimate contains [IntelliTrace], which can
 be enabled to debug applications before deployment into production.
 IntelliTrace supports ASP.NET, and WCF applications. Intellitrace is not
 supported when it is enabled in a production service, but can be used to
@@ -458,12 +458,12 @@ with the operating systems and platforms in use. For example:
 
 -   For a video illustrating the best approaches, see [Daniel Pearson's presentation Windows Debugging and Troubleshooting].
 
--   Open Suse 12.1 Linux. There is also a tremendous amount of resources
+-   Open Suse Linux. There is also a tremendous amount of resources
     available for troubleshooting applications on Suse Linux, both in
     the [Suse Linux documentation] and on the internet.
--   Ubuntu 11.10 Linux. Again, a large amount of information exists. To
-    start with the product documentation, see [https://help.ubuntu.com/].
--   CentOS 6.2 Linux. For more information, see [http://centos.org/].
+-   Ubuntu Linux. Again, a large amount of information exists. To
+    start with the product documentation, see [https://help.ubuntu.com/](https://help.ubuntu.com/).
+-   CentOS Linux. For more information, see [http://centos.org/](http://centos.org/).
 
 <h2><a id="PlatformServices"></a>Troubleshooting Windows Azure Services</h2>
 
@@ -484,17 +484,17 @@ The following links discuss either designs or practices to mitigate
 problems requiring troubleshooting or locations in which you should add
 tracing or logging work.
 
-- Storage status and error codes: [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx]
+- Storage status and error codes: [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx)
 
-- Storage analytics: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx] (see the three “for more information” links at the bottom.)
+- Storage analytics: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx) (see the three “for more information” links at the bottom.)
 
-- Overview of retry policies in the Windows Azure Storage Client Library: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/03/overview-of-retry-policies-in-the-windows-azure-storage-client-library.aspx]
+- Overview of retry policies in the Windows Azure Storage Client Library: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/03/overview-of-retry-policies-in-the-windows-azure-storage-client-library.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/03/overview-of-retry-policies-in-the-windows-azure-storage-client-library.aspx)
 
-- How to get the most out of Windows Azure Tables: [http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx]
+- How to get the most out of Windows Azure Tables: [http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx)
 
 	- See these sections: Best Practices; Tips for Programming Windows Azure; and Timeouts and ServerBusy – Is it normal?
 
-- Protecting your Blobs against application errors: [http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/30/protecting-your-blobs-against-application-errors.aspx]
+- Protecting your Blobs against application errors: [http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/30/protecting-your-blobs-against-application-errors.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/30/protecting-your-blobs-against-application-errors.aspx)
 
 **Azure Storage Explorers**
 
@@ -525,8 +525,7 @@ the entity is created.
 
 To get a view into the data in your Service Bus messaging entity and how
 it is being processed, you can use [Service Bus Explorer] or the Server
-Explorer in the Windows Azure Tools for Visual Studio version 1.7 to
-create, delete, and test queues, topics, subscriptions, and rules. This
+Explorer in the Windows Azure Tools for Visual Studio (version 1.7 or higher,) to create, delete, and test queues, topics, subscriptions, and rules. This
 is an excellent way to troubleshoot an application that is running but
 not processing data the way you expect. These tools include
 functionality that enables you to test queues, topics, and relay
@@ -611,9 +610,9 @@ investigate and address them, see [Troubleshooting the Service Bus].
 Troubleshooting
 
 -   Error codes:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/gg185949.aspx]
+    [http://msdn.microsoft.com/en-us/library/windowsazure/gg185949.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg185949.aspx)
 -   ACS Service limitations:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx]
+    [http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg185909.aspx)
 
 <h2><a id="SQLTroubleshooting"></a>Windows Azure SQL Database Troubleshooting</h2>
 
@@ -693,32 +692,32 @@ environment and tools available. In many ways the risks have been
 mediated by the database being in the Microsoft data centers. The tools
 that we have today cover the other risk factors, however better tools
 are coming to make the job much easier. Red-gate recently published a
-free tool for SQL Database backup and restore which can be found here: [http://www.red-gate.com/products/dba/sql-azure-backup/].
+free tool for SQL Database backup and restore which can be found here: [http://www.red-gate.com/products/dba/sql-azure-backup/](http://www.red-gate.com/products/dba/sql-azure-backup/).
 
 SQL Data Sync enables you to easily create and schedule
 bi-directional synchronizations from within the Data Sync web site
 without the need to write a single line of code. You can find more
 information here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx].
+[http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/hh456371.aspx).
 
 For more information on SQL Database backup and Restore strategies see the
 following articles:
 
 -   This topic gives an overview of SQL Database Backup and Restore
     Strategies:
-    [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx]
+    [http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx](http://social.technet.microsoft.com/wiki/contents/articles/1792.sql-azure-backup-and-restore-strategy.aspx)
 -   This topic explains how to back up a database to another database on
     the same server:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx]
+    [http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/ff951631.aspx)
 -   This topic explains how to export an existing SQL Database instance to
     a blob on a given storage account:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/hh335292.aspx]
+    [http://msdn.microsoft.com/en-us/library/windowsazure/hh335292.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/hh335292.aspx)
 -   This topic explains how to import an existing SQL Database instance
     from a bacpac file stored in a blob:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/hh335291.aspx]
+    [http://msdn.microsoft.com/en-us/library/windowsazure/hh335291.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/hh335291.aspx)
 -   This topic describes the business continuity capabilities provided
     by SQL Database:
-    [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx]
+    [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx)
 
 <h2><a id="Cache"></a>Windows Azure Caching</h2>
 Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Cachineg(Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:

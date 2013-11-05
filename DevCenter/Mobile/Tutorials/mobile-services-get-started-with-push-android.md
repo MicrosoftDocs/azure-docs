@@ -79,10 +79,13 @@ You mobile service is now configured to work with GCM to send push notifications
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. In Eclipse, click **Window**, then click **Android SDK Manager**. 
+1. In Eclipse, click **Window**, then click **Android SDK Manager**. Make a note of the API level of the highest SDK Platform that is installed. You will need to verify that the manifest file references this number.
 
 2. In the Android SDK Manager, expand **Extras**, check **Google Cloud Messaging for Android Library**, make a note of the **SDK Path**, click **Install Package**, select **Accept** to accept the license, then click **Install**.
 
+    <div class="dev-callout"><b>Note</b>
+	<p>Google Cloud Messaging has been deprecated, but the code referencing it still works.</p>
+    </div>
 	![][5]
 
 3. In the Android SDK Manager, under the **Android n.m (API x)** node, check **Google APIs**, then click **Install**. 
@@ -91,7 +94,13 @@ You mobile service is now configured to work with GCM to send push notifications
 
 	The `gcm.jar` library file is now shown in your project.
 
-5. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
+5. Open the project file AndroidManifest.xml. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API. It must also match the number of an SDK platform that has been installed (see step 1). For the same reason the **minSdkVersion** must be 16 or greater. Make any needed changes to these attributes. So the **uses-sdk** tag might look like this:
+
+	    <uses-sdk
+	        android:minSdkVersion="16"
+	        android:targetSdkVersion="18" />
+	
+6. Add the following new permissions after the existing `uses-permission` element:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -100,7 +109,7 @@ You mobile service is now configured to work with GCM to send push notifications
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-6. Add the following code into the `application` element: 
+7. Add the following code into the `application` element: 
 
         <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -112,27 +121,25 @@ You mobile service is now configured to work with GCM to send push notifications
         </receiver>
         <service android:name=".GCMIntentService" />
 
-7. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API.
-
-8. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
+8. In the code inserted in the previous two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
 9. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
 
-		@com.google.gson.annotations.SerializedName("channel")
-		private String mRegistrationId;
+	@com.google.gson.annotations.SerializedName("handle")
+	private String mHandle;
 
-		public String getRegistrationId() {
-			return mRegistrationId;
-		}
+	public String getHandle() {
+		return mHandle;
+	}
 
-		public final void setRegistrationId(String registrationId) {
-			mRegistrationId = registrationId;
-		}
+	public final void setHandle(String handle) {
+		mHandle = handle;
+	}
 
 	This code creates a new property that holds the registration ID.
 
     <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
+	<p>When dynamic schema is enabled on your mobile service, a new handle column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
 10.  Open the file ToDoItemActivity.java, and add the following import statement:
@@ -141,23 +148,23 @@ You mobile service is now configured to work with GCM to send push notifications
 
 11. Add the following private variables to the class, where _`<PROJECT_ID>`_ is the project ID assigned by Google to your app in the first procedure:
 
-		private String mRegistationId;
+		private String mHandle;
 		public static final String SENDER_ID = "<PROJECT_ID>";
 
 12. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
 
 		GCMRegistrar.checkDevice(this);
 		GCMRegistrar.checkManifest(this);
-		mRegistationId = GCMRegistrar.getRegistrationId(this);
-		if (mRegistationId.equals("")) {
+		mHandle = GCMRegistrar.getRegistrationId(this);
+		if (mHandle.equals("")) {
 			GCMRegistrar.register(this, SENDER_ID);
 		}
 
 	This code get the registration ID for the device.
 
-13. Add the following line of code to the **addItem** method:
+13. Add the following line of code to the **addItem** method, before the item is inserted into the table:
 
-		item.setRegistrationId(mRegistationId);
+		item.setHandle(mHandle);
 
 	This code sets the registrationId property of the item to the registration ID of the device.
 
@@ -205,6 +212,8 @@ You mobile service is now configured to work with GCM to send push notifications
 			
 		}
 
+	In the inserted code, hover the mouse over the red-underlined `PendingIntent` and in the displayed error dialog, select "import PendingIntent".
+	
     <div class="dev-callout"><b>Note</b>
 	<p>In this tutorial, only the <strong>onMessage</strong> override is implemented. In a real-world app you should consider implementing all four method overrides.</p>
     </div>
@@ -230,7 +239,7 @@ Your app is now updated to support push notifications.
 				success: function() {
 					// Write to the response and then send the notification in the background
 					request.respond();
-					push.gcm.send(item.channel, item.text, {
+					push.gcm.send(item.handle, item.text, {
 						success: function(response) {
 							console.log('Push notification sent: ', response);
 						}, error: function(error) {
@@ -283,8 +292,9 @@ You have successfully completed this tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-<!--In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. -->
+In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
+<!--
 This concludes the tutorials that demonstrate the basics of working with push notifications. Consider finding out more about the following Mobile Services topics:
 
 * [Get started with data]
@@ -298,6 +308,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 
 * [Mobile Services android conceptual]
   <br/>Learn more about using Mobile Services with Android devices.
+-->
 
 <!-- Anchors. -->
 [Register your app for push notifications]: #register

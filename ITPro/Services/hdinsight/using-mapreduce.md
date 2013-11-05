@@ -1,359 +1,212 @@
-﻿<properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Using MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Use MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-
-
-# Using MapReduce with HDInsight#
-
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. In this tutorial, you will create a Hadoop MapReduce job in Java, and execute the job on a Windows Azure HDInsight cluster to process a semi-structured Apache *log4j* log file stored in Azure Storage Vault. Azure Storage Vault or ASV provides a full featured HDFS file system over Windows Azure Blob storage.  
-
-**Estimated time to complete:** 30 minutes
-
-## In this Article
-* [Big Data and Hadoop MapReduce](#mapreduce)
-* [Upload a sample log4j file to the blob storage](#uploaddata)
-* [Connect to an HDInsight Cluster](#connect)
-* [Create a MapReduce job](#createjob)
-* [Run the MapReduce job](#runjob)
-* [Tutorial clean up](#cleanup)
-* [Next steps](#nextsteps)
-
-##<a id="mapreduce"></a>  Big Data and Hadoop MapReduce
-Log files are a good example of big data. Most applications save errors, exceptions and other coded issues in log files. These log files contain a wealth of data that must be processed and mined, and they can get large in size. Working with big data is difficult using relational databases with statistics and visualization packages. Hadoop provides a MapReduce framework for writing applications that process large amounts of structured and semi-structured data in parallel across large clusters of machines in a very reliable and fault-tolerant manner.
-
-[Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
-
-	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
-
-This MapReduce job takes a log4j log file as input, and generates an output file that contains the log level along with its frequency count.  The following is a sample output file:
-
-	[TRACE] 8
-	[DEBUG] 4
-	[INFO]  1
-	[WARN]  1
-	[ERROR] 1
-	[FATAL] 1
-
-The following figure is the visual representation of what you will accomplish in this tutorial:
-
-![HDI.VisualObjective](../media/HDI.VisualObject.gif "Visual Objective")
-
-In the figure, the Map program performs filtering and sorting; and the Reduce program performs a summary operation. 
+# Use MapReduce with HDInsight#
  
-##<a id="uploaddata"></a>Upload a Sample Log4j File to the Blob Storage
+This sample topic shows how to run a MapReduce program that counts word occurences in a text with the Windows Azure HDinsight service using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by the HDinsight service. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). Windows Azure Blob Storage is recommended. For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+The Hadoop MapReduce program reads the text file and counts how often each word occurs. The output is a new text file that consists of lines, each of which contains a word and the count (a key/value tab-separated pair) of how often that word occurred in the document. This process is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
 
-*Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
-
-Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
-
-1. Download [sample.log][sample-log], a sample log4j log file, to your local computer.
-
-2. Run **Azure Storage Explorer**.
-
-	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png "Azure Storage Explorer")
-
-3. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
-
-	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png "Add Account")
-
-4. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. 
-5. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
-
-	![HDI.ASEBlob](../media/HDI.ASEUploadFile.png "Azure Storage Explorer")
-
-6. From **Container**, click the container that is designated as the default file system.  The default name is the HDInsight cluster name. You shall see the folder structure of the container.
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file. You can also use other containers on the same storage account or other storage accounts.  For more information, see <a href="en-us/manage/services/hdinsight/howto-blob-store/">Using Windows Azure Blob Storage with HDInsight</a>.</p> 
-	</div>
-
-7. From **Blob**, click **Upload**.
-8. Browse to the sample.log file you just downloaded, and the click **Open**. You shall see the sample.log file listed there.
-9. Double-click the sample.log file to open it.
-11. Click **Text** to switch to the tab, so you can view the content of the file.  Notice that the following screen output shows a snippet of sample.log where the data follows a particular structure (except the row that starts with “java.lang.Exception…”). 
-
- ![Sample.log](../media/HDI.SampleLog.png)
-
-	Starting from left to right, the structured data rows have a *date* in column 1, *timestamp* in column 2, *class name* in column 3, *log level* in column 4, and so on. 
-
- The row starting with “java.lang.Exception” does not follow this “well-formed” data structure and is therefore, considered unstructured. The following table shows the key differences between the structured rows and unstructured rows. 
+The JAR file that contains the files needed by the Windows Azure HDInsight service to deploy the application to its Hadoop cluster is a .zip file and is available for download.
 
  
-	<table border="1">
-	<tr>
-	<td> 
-	Data Type
-	</td>
-	<td> 
-	Date Column
-	</td>
-	<td> 
-	Severity Column
-	</td>
-	</tr>
-	<tr>
-	<td> 
-	Structured
-	</td>
-	<td> 
-	1
-	</td>
-	<td> 
-	4
-	</td>
-	</tr>
-	<tr>
-	<td> 
-	Unstructured
-	</td>
-	<td> 
-	2
-	</td>
-	<td> 
-	5
-	</td>
-	</tr>
-	</table>
-12. Click **Close**. 
-13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
-
-For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
-
-##<a id="connect"></a>Connect to an HDInsight Cluster
-You must have an HDInsight cluster provisioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on provision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
-
-1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT** on the left. You shall see a list of deployed Hadoop clusters.
-3. Click the Hadoop cluster where you want to upload data to and run the MapReduce job.
-4. Click **Connect** on the bottom to connect to the remote desktop.
-5. Click **Open**.
-6. Click **Connect**.
-7. Click **Yes**.
-8. Enter your credentials, and then press **ENTER**.
-9. From Desktop, click **Hadoop Command Line**. You will use Hadoop command prompt to execute all of the commands in this tutorial. Most of the commands can be run from the [Interactive JavaScript Console](/en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/).
-10. Run the following command to list and verify the sample.log file you uploaded to Azure Storage Vault (ASV): 
-
-		hadoop fs -ls asv:///sample.log
-
-	The asv syntax is for listing the files in the default file system.  To access files in other containers, use the following syntax: 
-
-		hadoop fs -ls asv[s]://[[<containername>@]<storagename>.blob.core.windows.net]/<path>
-
-	For example, you can list the same file using the following command:
-
-		hadoop fs -ls asv://<containername>@<storagename>.blob.core.windows.net/sample.log
-
-	Replace *&lt;containername&gt;* with the container name, and *&lt;storagename&gt;* with the Blob Storage account name. 
-
-	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
-
-		hadoop fs -ls /sample.log
-	 
-	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
-
-		#ls asvs://<containername>@<storagename>.blob.core.windows.net/sample.log
-
-	
-
-##<a id="createjob"></a> Create the MapReduce Job ##
-The Java programming language is used in this sample. Hadoop Streaming allows developers to use virtually any programming language to create MapReduces jobs.
-
-1. From Hadoop command prompt, run the following commands to make a directory and change directory to the folder:
-
-		c:
-		mkdir \Tutorials
-		cd \Tutorials
-
-2. Run the following command to create a java file in the C:\Tutorials folder:
-
-		notepad log4jMapReduce.java
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>The class name is hard-coded in the program. If you want to change the file name,  you must update the java program accordingly.</p> 
-	</div>
-
-3. Click **Yes** to create a new file.
-
-4. Copy and paste the following java program into the Notepad window.
-
-		import java.io.IOException;
-		import java.util.Iterator;
-		import java.util.regex.Matcher;
-		import java.util.regex.Pattern;
-	
-		import org.apache.hadoop.fs.Path;
-		import org.apache.hadoop.io.IntWritable;
-		import org.apache.hadoop.io.LongWritable;
-		import org.apache.hadoop.io.Text;
-		import org.apache.hadoop.mapred.FileInputFormat;
-		import org.apache.hadoop.mapred.FileOutputFormat;
-		import org.apache.hadoop.mapred.JobClient;
-		import org.apache.hadoop.mapred.JobConf;
-		import org.apache.hadoop.mapred.MapReduceBase;
-		import org.apache.hadoop.mapred.Mapper;
-		import org.apache.hadoop.mapred.OutputCollector;
-		import org.apache.hadoop.mapred.Reducer;
-		import org.apache.hadoop.mapred.Reporter;
-		import org.apache.hadoop.mapred.TextInputFormat;
-		import org.apache.hadoop.mapred.TextOutputFormat;
-	
-		public class log4jMapReduce
-		{
-	
-			//The Mapper
-	      	public static class Map extends MapReduceBase implements Mapper<LongWritable, Text, Text, IntWritable>
-	      	{     
-		        private static final Pattern pattern = Pattern.compile("(TRACE)|(DEBUG)|(INFO)|(WARN)|(ERROR)|(FATAL)"); 
-	        	private static final IntWritable accumulator = new IntWritable(1); 
-	        	private Text logLevel = new Text();
-	
-	        	public void map(LongWritable key, Text value, OutputCollector<Text, IntWritable> collector, Reporter reporter) throws IOException 
-				{
-		     		// split on space, '[', and ']'
-		        	final String[] tokens = value.toString().split("[ \\[\\]]"); 
+**You will learn**
 		
-		        	if(tokens != null)
-		        	{
-			            //now find the log level token
-		            	for(final String token : tokens) 
-		            	{
-			                final Matcher matcher = pattern.matcher(token);
-		                	//log level found
-		                	if(matcher.matches()) 
-		                	{
-			                    logLevel.set(token);
-								//Create the key value pairs
-								collector.collect(logLevel, accumulator);
-		                	}                                                           
-		            	}
-		        	}                       
-	        	}
-	      	}
-	 
-	  		//The Reducer
-	    	public static class Reduce extends MapReduceBase implements Reducer<Text, IntWritable, Text, IntWritable>
-	    	{
-			    public void reduce(Text key, Iterator<IntWritable> values, OutputCollector<Text, IntWritable> collector,Reporter reporter) throws IOException
-		    	{
-			        int count = 0;
-					//code to aggregate the occurrence
-		        	while(values.hasNext())
-		        	{
-		                    	count += values.next().get();
-		        	}
-			
-		        	System.out.println(key +  "\t" + count);
-		        	collector.collect(key, new IntWritable(count));
-		    	}
-	   		}
+* How to use Windows Azure PowerShell to run a MapReduce program on the Windows Azure HDInsight service that analyzes data contained in a file.
+* How MapReduce programs are written in Java.
+
+**Prerequisites**	
+- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+
+**Outline**		
+This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
 	
-			//The java main method to execute the MapReduce job
-			public static void main(String[] args) throws Exception
-			{
-				//Code to create a new Job specifying the MapReduce class
-		    	final JobConf conf = new JobConf(log4jMapReduce.class);
-		    	conf.setOutputKeyClass(Text.class);
-		    	conf.setOutputValueClass(IntWritable.class);
-		    	conf.setMapperClass(Map.class);
+1. [Run the Sample with Windows Azure PowerShell](#run-sample)	
+2. [The Java Code for the WordCount MapReduce Program](#java-code)
+3. [Summary](#summary)	
+4. [Next Steps](#next-steps)	
+
+<h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
+
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+
+3. Set the two variables in the following commands, and then run them:
 		
-				// Combiner is commented out – to be used in bonus activity
+		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
+		$clusterName = "<ClusterName>"             ### HDInsight cluster name
 		
-			    //conf.setCombinerClass(Reduce.class);
-		    	conf.setReducerClass(Reduce.class);
-		    	conf.setInputFormat(TextInputFormat.class);
-		    	conf.setOutputFormat(TextOutputFormat.class);
-		
-				//File Input argument passed as a command line argument
-		    	FileInputFormat.setInputPaths(conf, new Path(args[0]));
-		
-				//File Output argument passed as a command line argument
-			    FileOutputFormat.setOutputPath(conf, new Path(args[1]));
-		
-				//statement to execute the job 
-			    JobClient.runJob(conf);
-			}
-		}
+5. Run the following commands to create a MapReduce job definition:
 
-5. Press **CTRL+S** to save the file.
-6. Close Notepad.
-7. Verify your current folder is C:\Tutorials.
+		### Define the MapReduce job
+		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
-8. Compile the java file using the following command:
+	The hadoop-examples.jar file comes with the HDInsight cluster distribution. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster distribution, and the output file path will be created at the run-time.
 
-		C:\apps\dist\java\bin\javac -classpath C:\apps\dist\hadoop-1.1.0-SNAPSHOT\hadoop-core-*.jar log4jMapReduce.java
- 
-	Make sure there is no compilation errors.
+6. Run the following command to submit the MapReduce job:
 
-9. Create a log4jMapReduce.jar file containing the Hadoop class files:
+		### Submit the job
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName  -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
 
-		C:\apps\dist\java\bin\jar -cvf log4jMapReduce.jar *.class
- 
-	After executing the jar command, you will have the following files in the C:\Tutorials directory:
+	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job, and the credentials. The Start-AzureHDInsightJob is an asynchronized call.
 
-		log4jMapReduce$Map.class
-		log4jMapReduce$Reduce.class
-		log4jMapReduce.class
-		log4jMapReduce.jar
-		log4jMapReduce.java
 
-##<a id="runjob"></a> Run the MapReduce Job
-Until now, you have uploaded a log4j log files to the Blob storage, and compiled the MapReduce job.  The next step is to run the job.
-
-1. From Hadoop command prompt, execute the following command to run the Hadoop MapReduce job:
-
-		hadoop jar C:\Tutorials\log4jMapReduce.jar log4jMapReduce asv:///sample.log asv:///Tutorials/output
-
- 
-
-	This command does a number of things: 
+8. Run the following command to check any errors with running the MapReduce job:	
 	
-	- Calling the Hadoop program
-	- Specifying the jar file (C:\Tutorials\log4jMapReduce.jar)
-	- Indicating the class file (log4jMapReduce)
-	- Specifying the input file (asv:///sample.log), and output directory (asv:///Tutorials/output). The command creates the output folder if the folder doesn't exist.
-	- Running the MapReduce job 	
+		# Get the job output
+		#Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError 
+		
+**To retrieve the results of the MapReduce job**
 
-	![HDI.MapReduceResults](../media/HDI.MapReduceResults.png "MapReduce job results")
+1. Open **Windows Azure PowerShell**.
+2. Set the three variables in the following commands, and then run them:
+
+		$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
+		
+		$storageAccountName = "<StorageAccountName>"   ### Windows Azure storage account name
+		$containerName = "<ContainerName>"			   ### Blob storage container name
+
+		The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+
+3. Run the following commands to create a Windows Azure storage context object:
+		
+		### Select the current subscription
+		Select-AzureSubscription $subscriptionName
+
+		### Create the storage account context object
+		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+
+	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
+
+4. Run the following command to download the MapReduce job output from the Blob container to the workstation:
+
+		# Download the job output to the workstation
+		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+
+	The */example/data/WordCountOutput* folder is the output folder specified when you run the MapReduce job. *part-r-00000* is the default file name for MapReduce job output.  The file will be downloaded to the same folder structure on the local folder. For example, in the following screenshot, the current folder is the C root folder.  The file will be downloaded to the *C:\example\data\WordCountOutput\* folder. 
+
+5. Run the following command to print the MapReduce job output file:
+
+		cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
+
+
+	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains *"there"*.
+
+
+Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
+
+<h2><a id="java-code"></a>The Java Code for the WordCount MapReduce Program</h2>
+
  
-	The Reduce programs begin to process the data when the Map programs are 100% complete. Prior to that, the Reducer(s) queries the Mappers for intermediate data and gathers the data, but waits to process. 
+	package org.apache.hadoop.examples;
 	
-	There are 6 Reduce input records (that correspond to the six log levels), and 1365 Map output records (that contain key value pairs). The Reduce program condensed the set of intermediate values that share the same key (DEBUG, ERROR, FATAL, and so on) to a smaller set of values.    
-
-2. View the output of the MapReduce job in HDFS:
-
-		hadoop fs -cat asv:///Tutorials/output/part-00000
-
-	By default, Hadoop creates files begin with the following naming convention: “part-00000”. Additional files created by the same job will have the number increased.The output look like:
-
-	![HDI.MapReduceResults](../media/HDI.MapReduceOutput.png "MapReduce job output")
+	import java.io.IOException;
+	import java.util.StringTokenizer;
+	
+	import org.apache.hadoop.conf.Configuration;
+	import org.apache.hadoop.fs.Path;
+	import org.apache.hadoop.io.IntWritable;
+	import org.apache.hadoop.io.Text;
+	import org.apache.hadoop.mapreduce.Job;
+	import org.apache.hadoop.mapreduce.Mapper;
+	import org.apache.hadoop.mapreduce.Reducer;
+	import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+	import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+	import org.apache.hadoop.util.GenericOptionsParser;
+	
+	public class WordCount {
+	
+	  public static class TokenizerMapper 
+	       extends Mapper<Object, Text, Text, IntWritable>{
+	    
+	    private final static IntWritable one = new IntWritable(1);
+	    private Text word = new Text();
+	      
+	    public void map(Object key, Text value, Context context
+	                    ) throws IOException, InterruptedException {
+	      StringTokenizer itr = new StringTokenizer(value.toString());
+	      while (itr.hasMoreTokens()) {
+	        word.set(itr.nextToken());
+	        context.write(word, one);
+	      }
+	    }
+	  }
+	  
+	  public static class IntSumReducer 
+	       extends Reducer<Text,IntWritable,Text,IntWritable> {
+	    private IntWritable result = new IntWritable();
+	
+	    public void reduce(Text key, Iterable<IntWritable> values, 
+	                       Context context
+	                       ) throws IOException, InterruptedException {
+	      int sum = 0;
+	      for (IntWritable val : values) {
+	        sum += val.get();
+	      }
+	      result.set(sum);
+	      context.write(key, result);
+	    }
+	  }
+	
+	  public static void main(String[] args) throws Exception {
+	    Configuration conf = new Configuration();
+	    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+	    if (otherArgs.length != 2) {
+	      System.err.println("Usage: wordcount <in> <out>");
+	      System.exit(2);
+	    }
+	    Job job = new Job(conf, "word count");
+	    job.setJarByClass(WordCount.class);
+	    job.setMapperClass(TokenizerMapper.class);
+	    job.setCombinerClass(IntSumReducer.class);
+	    job.setReducerClass(IntSumReducer.class);
+	    job.setOutputKeyClass(Text.class);
+	    job.setOutputValueClass(IntWritable.class);
+	    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+	    System.exit(job.waitForCompletion(true) ? 0 : 1);
+	  }
+	}
  
-	Notice that after running MapReduce that the data types are now totaled and in a structured format.  
 
-##<a id="cleanup"></a> Tutorial Clean Up ##
+<h2><a id="summary"></a>Summary</h2>
 
-The clean up task applies to this tutorial only; it is not performed in the actual deployment. In this task, you will delete input and output directories so that if you like, you can run the tutorial again.  
+In this tutorial, you saw how to deploy a MapReduce job on an Hadoop cluster hosted on the Windows Azure HDinsight Service and how to use Monte Carlo methods that require and generare large datasets that can be managed by this service.
 
-1. Delete the sample.log file:
 
-		hadoop fs -rm asv:///sample.log
- 
-2. Delete the output directory and recursively delete files within the directory:
 
-		hadoop fs –rmr asv:///Tutorials/output/
- 
-Congratulations! You have successfully completed this tutorial.
-
-##<a id="nextsteps"></a>Next Steps
+##<a id="nextsteps"></a>Next steps
 
 While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in your HDInsight Service. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-* [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
-* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
-* [How to Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
+* [Get Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Use Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+* [Use Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
+* [Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
 
+
+
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+
+
+[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
+
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+
+[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
 
 [sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
+

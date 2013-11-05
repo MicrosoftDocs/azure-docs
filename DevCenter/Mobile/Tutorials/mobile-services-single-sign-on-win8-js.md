@@ -31,7 +31,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 To be able to authenticate users, you must submit your app to the Windows Store. You must then register the client secret to integrate Live Connect with Mobile Services.
 
-1. If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Submit an app page</a> at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
 
    ![][0]
 
@@ -67,11 +67,11 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
     You will use this value to define the redirect domain.
 
-9. Navigate to the [My Applications] page in the Live Connect Developer Center and click on your app in the **My applications** list.
+9. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center and click on your app in the **My applications** list.
 
    ![][6] 
 
-10. Click **Edit settings**, then **API Settings** and make a note of the value of **Client secret**. 
+10. Click **Edit settings**, then **API Settings** and make a note of the values of **Client ID** and **Client secret**. 
 
    ![][7]
 

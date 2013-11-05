@@ -9,7 +9,7 @@ samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps] section. </span>
 
-<div chunk="../../shared/chunks/howto-service-bus-queues" />
+<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
@@ -23,7 +23,7 @@ The Service Bus **NuGet** package is the easiest way to get the
 Service Bus API and to configure your application with all of the
 Service Bus dependencies. The NuGet Visual Studio extension makes it
 easy to install and update libraries and tools in Visual Studio and
-Visual Web Developer. The Service Bus NuGet package is the easiest way
+Visual Studio Express 2012 for Web. The Service Bus NuGet package is the easiest way
 to get the Service Bus API and to configure your application with all of
 the Service Bus dependencies.
 

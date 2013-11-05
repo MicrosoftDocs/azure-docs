@@ -1,17 +1,15 @@
-<properties linkid="mobile-services-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Windows Azure Mobile Services" metaKeywords=""  writer="glenga" metaDescription="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="mobile-services-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Windows Azure Mobile Services" metaKeywords=""  writer="glenga" metaDescription="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+# Store server scripts in source control
 
-# Store server scripts in source control and use NPM
-
-This topic shows you how to set up source control for the first time in Windows Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. 
+This topic shows you how to set up source control for the first time in Windows Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. It also shows how to define shared code that can be reqiured by multiple scripts and how to upload Node.js modules. 
 
 The tutorial guides you through the following steps:
 
 1. [Enable source control in your mobile service].
 2. [Install Git and create the local repository].
 3. [Deploy updated script files to your mobile service].
-4. [Use a NPM module in your server script].
+4. [Leverage shared code and Node.js modules in your server scripts].
 
 To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Get started with data] tutorial.
 
@@ -26,7 +24,7 @@ To complete this tutorial, you must have already created a mobile service by com
    ![][1]
 
     <div class="dev-callout"><b>Note</b>
-	<p>Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p><p>Only a subscription owner can enable source control. Co-administrators are not provided with this option in the portal.</p>
+	<p>Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p>
     </div>
 
 3. Supply a **User name**, **New password**, confirm the password, then click the check button. 
@@ -119,14 +117,25 @@ Now that you have created your local repository, you can make changes to server 
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
-<h2><a name="use-npm"></a><span class="short-header">Use NPM</span>Use an NPM module in your server script</h2>
-Source control support also allows you to add any Node.js module you need in the scripts beyond the fixed set provided by Mobile Services. For example, you can assign unique GUID identifiers for your tasks on the server. To accomplish this, you need to use Node.js <a href="https://npmjs.org/package/node-uuid">node-uuid</a> module. Ensure you have Node.js by following the steps <a href="http://nodejs.org/">here</a> (preferably Node.js 0.6.20, although newer versions should work).
+<h2><a name="use-npm"></a><span class="short-header">Shared code and modules</span>Leverage shared code and Node.js modules in your server scripts</h2>
+Mobile Services provides access to the full set of core Node.js modules, which you can use in your code by using the **require** function. Your mobile service can also use Node.js modules that are not part of the core Node.js package, and you can even define your own shared code as Node.js modules. For more information about creating modules, see [Modules][Node.js API Documentation: Modules] in the Node.js API reference documentation.
 
-1. Navigate to the .\service  folder and install the <strong>node-uuid</strong> module by running the following command.
+Next, you will add the [node-uuid] Node.js module to your mobile service by using source control and the Node.js package manager (NPM). This module is then used to generate a new GUID value for the **uuid** property on inserted items. 
+
+1. If you haven't already done so, install Node.js on your local computer by following the steps at the <a href="http://nodejs.org/" target="_blank">Node.js web site</a>. 
+
+2. Navigate to the `.\service` folder of your local Git repository, then from the command prompt run the following command:
 
 		npm install node-uuid
 
-2. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
+	NPM creates the `node_modules` directory in the current location and installs the [node-uuid] module in the `\node-uuid` subdirectory. 
+
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
+	</div>
+
+4. Now browse to the .\service\table subfolder, open the todoitem.insert.js file and modify it as follows:
 
 		function insert(item, user, request) {
 		    var uuid = require('node-uuid');
@@ -137,13 +146,13 @@ Source control support also allows you to add any Node.js module you need in the
 
 	This code adds a uuid column to the table, populating it with unique GUID identifiers.
 
-3. As in the previous section, type the following command in the Git command prompt: 
+5. As in the previous section, type the following command in the Git command prompt: 
 
 		$ git add .
 		$ git commit –m "added node-uuid module"
 		$ git push origin master
 		
-	This commits your changes and pushes both the added node-uuid module and the changes to the todoitem.insert.js script to your mobile service.
+	This adds the new file, commits your changes, and pushes the new node-uuid module and changes to the todoitem.insert.js script to your mobile service.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -159,7 +168,7 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Enable source control in your mobile service]: #enable-source-control
 [Install Git and create the local repository]: #clone-repo
 [Deploy updated script files to your mobile service]: #deploy-scripts
-[Use a NPM module in your server script]: #use-npm
+[Leverage shared code and Node.js modules in your server scripts]: #use-npm
 
 <!-- Images. -->
 [0]: ../Media/mobile-services-selection.png
@@ -184,3 +193,5 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Define a custom API that supports pull notifications]: ../tutorials/mobile-services-create-pull-notifications-dotnet.md
+[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
+[node-uuid]: https://npmjs.org/package/node-uuid

@@ -1,29 +1,28 @@
-﻿<properties linkid="manage-services-hdinsight-using-hive" urlDisplayName="Using Hive" pageTitle="Using Hive with HDInsight - Windows Azure tutorial" metaKeywords="using hive, hive hdinsight, hive azure" metaDescription="Learn how to use Hive with data stored in HDInsight." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-using-hive" urlDisplayName="Using Hive" pageTitle="Using Hive with HDInsight - Windows Azure tutorial" metaKeywords="using hive, hive hdinsight, hive azure, powershell, hdinsight" metaDescription="Learn how to use Hive with data stored in HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+
 
 
 # Using Hive with HDInsight #
 
-Hive provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data. In this tutorial, you will use HiveQL to query the data in an Apache log4j log file and report basic statistics. 
+[Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data. In this article, you will use HiveQL to query the data in an Apache log4j log file and report basic statistics. 
 
+**Prerequisites:**
 
-[Apache Log4j](http://en.wikipedia.org/wiki/Log4j) is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
+Note the following requirements before you begin this article:
 
-	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
-
+* A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 
-##In this Article
+##In this article
 
 * [The Hive usage case](#usage)
-* [Upload a sample log4j file to Windows Azure Blob Storage](#uploaddata)
-* [Connect to the interactive console](#connect)
-* [Create a Hive table and upload data to the table](#createhivetable)
-* [Run Hive queries](#runhivequeries)
-* [Tutorial clean up](#cleanup)
-* [Next Steps](#nextsteps)
+* [Upload data files to Windows Azure Blob storage](#uploaddata)
+* [Run Hive queries using PowerShell](#runhivequeries)
+* [Next steps](#nextsteps)
 
-##<a id="usage"></a>The Hive Usage Case
+##<a id="usage"></a>The Hive usage case
 
 Databases are great for small sets of data and low latency queries. However, when it comes to Big Data and large data sets in terabytes, traditional SQL databases are not the ideal solution. Traditionally, database administrators have relied on scaling up by buying bigger hardware as database load increases and performance degrades. 
 
@@ -39,173 +38,181 @@ Generally, all applications save errors, exceptions and other coded issues in a 
 
 Log files are therefore a good example of big data. Working with big data is difficult using relational databases and statistics/visualization packages. Due to the large amounts of data and the computation of this data, parallel software running on tens, hundreds, or even thousands of servers is often required to compute this data in a reasonable time. Hadoop provides a Hive data warehouse system that facilitates easy data summarization, ad-hoc queries, and the analysis of large datasets stored in Hadoop compatible file systems.
 
-##<a id="uploaddata"></a>Upload a Sample Log4j File to Windows Azure Blob Storage
+[Apache Log4j][apache-log4j] is a logging utility. Each log inside a file contains a *log level* field to show the type and the severity. For example:
 
-HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+	2012-02-03 20:26:41 SampleClass3 [TRACE] verbose detail for id 1527353937
 
-*Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-1. Download [sample.log][sample-log] to your local computer.
 
-2. Run **Azure Storage Explorer**.
 
-	![HDI.AzureStorageExplorer](../media/HDI.AzureStorageExplorer.png "Azure Storage Explorer")
 
-3. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
 
-	![HDI.ASEAddAccount](../media/HDI.ASEAddAccount.png "Add Account")
 
-4. Enter **Storage account name** and **Storage account key**, and then click **Add Storage Account**. 
-5. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
 
-	![HDI.ASEBlob](../media/HDI.ASEUploadFile.png "Azure Storage Explorer")
 
-6. From **Container**, click the container that is designated as the default file system.  The default name is the HDInsight cluster name. You shall see the folder structure of the container.
-7. From **Blob**, click **Upload**.
-8. Browse to the sample.log file you just downloaded, and the click **Open**. You shall see the sample.log file listed there.
-9. Double-click the sample.log file to open it.
-11. Click **Text** to switch to the tab, so you can view the content of the file.  Notice that the following screen output shows a snippet of sample.log where the data follows a particular structure (except the row that starts with “java.lang.Exception…”). 
 
- ![Sample.log](../media/HDI.SampleLog.png)
+##<a id="uploaddata"></a>Upload data files to the Blob storage
 
-	Starting from left to right, the structured data rows have a *date* in column 1, *timestamp* in column 2, *class name* in column 3, *log level* in column 4, and so on. 
+HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article, you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [How to Upload Data to HDInsight][hdinsight-upload-data].
 
- The row starting with “java.lang.Exception” does not follow this “well-formed” data structure and is therefore, considered unstructured. The following table shows the key differences between the structured rows and unstructured rows. 
+To access files, use the following syntax: 
 
- 
-	<table border="1">
-	<tr>
-	<td> 
-	Data Type
-	</td>
-	<td> 
-	Date Column
-	</td>
-	<td> 
-	Severity Column
-	</td>
-	</tr>
-	<tr>
-	<td> 
-	Structured
-	</td>
-	<td> 
-	1
-	</td>
-	<td> 
-	4
-	</td>
-	</tr>
-	<tr>
-	<td> 
-	Unstructured
-	</td>
-	<td> 
-	2
-	</td>
-	<td> 
-	5
-	</td>
-	</tr>
-	</table>
-12. Click **Close**. 
-13. From the **File** menu, click **Exit** to close Azure Storage Explorer.
+		wasb[s]://[[<containername>@]<storageaccountname>.blob.core.windows.net]/<path>/<filename>
 
-For accessing ASV, see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/)
+For example:
 
-##<a id="connect"></a> Connect to the Interactive Console
+		wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log
 
-You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [How to Administer HDInsight Service](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
+replace *mycontainer* with the container name, and *mystorage* with the Blob storage account name. 
 
-1. Sign in to the [Management Portal](https://manage.windowsazure.com).
-2. Click **HDINSIGHT**. You shall see a list of deployed Hadoop clusters.
-3. Click the name of the HDInsight cluster where you want to connect to.
-4. Click **Manage Cluster**.
-5. Enter your credential, and then click **Log On**.
-6. From the HDInsight portal, click **Interactive Console**.
+Because the file is stored in the default file system, you can also access the file using the following:
 
- 	![HDI.TileInteractiveConsole](../media/HDI.TileInteractiveConsole.png "Interactive Console")
+		wasb:///example/data/sample.log
+		/example/data/sample.log
 
-1. Click **JavaScript** on the upper right corner to open the Interactive JavaScript console.
-2. Run the following commands to list the files in the default file system and display the content of sample.log:
 
-		#ls asv:///
-		#cat asv:///sample.log
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##<a id="runhivequeries"></a> Run Hive queries using PowerShell
+In the last section, you have uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create hive table, load data to the hive table, and then query the data to find out how many error logs.
+
+This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [How to Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
+
+There are two options to run Hive queries:
+
+**To run the Hive queries using Start-AzureHDInsightJob**
+
+1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+2. Set the variables in the following script and run it:
+
+		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
+		$subscriptionName = "<SubscriptionName>"
+		$storageAccountName = "<AzureStorageAccountName>"
+		$containerName = "<AzureStorageContainerName>"
+		
+		# Provide HDInsight cluster name Where you want to run the Hive job
+		$clusterName = "<HDInsightClusterName>"
+
+3. Run the following script to define the HiveQL queries:
+
+		# HiveQL queries
+		# Use the internal table option. 
+		$queryString = "DROP TABLE log4jLogs;" +
+		               "CREATE TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ';" +
+		               "LOAD DATA INPATH 'wasb://$containerName@$storageAccountName.blob.core.windows.net/example/data/sample.log' OVERWRITE INTO TABLE log4jLogs;" +
+		               "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+		
+		# Use the external table option. 
+		$queryString = "DROP TABLE log4jLogs;" +
+		                "CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION 'wasb://$containerName@$storageAccountName.blob.core.windows.net/example/data/';" +
+				        "SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;"
+
+	The LOAD DATA HiveQL command will result in moving the data file to the \hive\warehouse\ folder.  The DROP TABLE command will delete the table and the data file.  If you use the internal table option and want to run the script again, you must upload the sample.log file again. If you want to keep the data file, you must use the CREATE EXTERNAL TABLE command as shown in the script.
 	
-	![HDI.JavaScriptConsole](../media/HDI.IJCListFile.png "Interactive JavaScript Console")
+	You can also use the external table for the situation where the data file is located in a different container or storage account.
 
-	The asv syntax is for listing the files in the default file system.  To access files in other containers, use the following syntax: 
+	Use the DROP TABLE first in case you run the script again and the log4jlogs table already exists.
 
-		#ls asv[s]://[[<containername>@]<storagename>.blob.core.windows.net]/<path>
+4. Run the following script to create an Hive job definition:
+		
+		# Create a Hive job definition 
+		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
+		
+5. Run the following script to submit the Hive job:
 
-	For example, you can list the same file using the following command:
+		# Submit the job to the cluster 
+		$hiveJob = Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName -JobDefinition $hiveJobDefinition
+		
+6. Run the following script to wait for the Hive job to complete:
 
-		#ls asv://mycontainer@mystorage.blob.core.windows.net/sample.log
-
-	replace *mycontainer* with the container name, and *mystorage* with the Storage account name. 
-
-	Because the file is located on the default file system, the same result can also be retrieved by using the following command:
-
-		#ls /sample.log
-
-	To use asvs, you must provide the FQDN. For example to access sample.log on the default file system: 
-
-		#ls asvs://mycontainer@mystorage.blob.core.windows.net/sample.log 
+		# Wait for the Hive job to complete
+		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $hiveJob -WaitTimeoutInSeconds 3600
+		
+7. Run the following script to print the standard output:
+		# Print the standard error and the standard output of the Hive job.
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $hiveJob.JobId -StandardOutput
 
 
-##<a id="createhivetable"></a> Create a Hive Table and Upload Data to the Table
-1. Click the **Hive** button on the upper right corner. The Hive console looks like:
+ 	![HDI.HIVE.PowerShell][image-hdi-hive-powershell]
 
- 	![HDI.HiveConsole](../media/HDI.HiveConsole.png "Hive Console")
+	The results is:
 
-2. In the Hive Query pane, enter the following Hive query to create a table named log4jlogs, and then click **Evaluate**.
+		[ERROR] 3
 
-		CREATE TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ';
- 
-	Note the command is terminated by two single quotes with a space in between.
+**To submit Hive queries using Invoke-Hive**
 
-3. Enter the following command to list the table:
+1. Open a Windows Azure PowerShell console window.
+2. Set the variables for the following script and run it:
 
-		show tables;
+		$subscriptionName = "<SubscriptionName>"
+		$clusterName = "<HDInsightClusterName>"
+		$queryString = "show tables;"  # This query lists the existing Hive tables
 
-	You shall see *log4jlogs* in the list.
+3. Run the following script to invoke HiveQL queries:
 
-3. Enter the following Hive query to load the sample.log data into the logs table you just created,  replace **container** and **storagename**, and then click **Evaluate**.
+		Select-AzureSubscription -SubscriptionName $subscriptionName
+		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+		
+		Invoke-Hive $queryString
 
-		LOAD DATA INPATH 'asv://mycontainer@mystorage.blob.core.windows.net/sample.log' OVERWRITE INTO TABLE log4jLogs;
-	
-	You must replace *mycontainer* in the command with the actual container name, and *mystorage* with the actual storage account name.
+	The output is:
 
-##<a id="runhivequeries"></a> Run Hive Queries
-1. Enter the following query, and then click **Evaluate**.  The query returns the count of lines in the data:
+		hivesampletable
 
-		SELECT COUNT(*) FROM log4jLogs
+You can use the same command to run a HiveQL file:
 
-2. Enter the following query, and then click **Evaluate**. The query returns the count of errors from the structured data:   
+	Invoke-Hive –File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
 
-		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4
- 
-##<a id="cleanup"></a> Tutorial Clean Up
-
-The clean up task applies to this tutorial only; it is not necessarily performed in an actual deployment. In this task, you will delete the table and the data so that if you like, you can run the tutorial again.  
-
-1. From the Hive console, enter the following query, and then click **Evaluate** to delete the table log4jLogs:
-
-		drop table log4jLogs;
-
-2. Use Azure Storage Explorer to delete the sample.log file from the container.
-
-Congratulations! You have successfully completed this tutorial. 
-
-##<a id="nextsteps"></a>Next Steps
+		
+##<a id="nextsteps"></a>Next steps
 
 While Hive makes it easy to query data using a SQL-like query language, other languages available with the HDInsight Service provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-* [Using MapReduce with HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+* [Getting started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
+* [Upload data to HDInsight][hdinsight-upload-data]
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
-* [How to Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)
 
 [sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
+[apache-hive]: http://hive.apache.org/
+[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+
+[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
+[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
+[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+
+[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/
+[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
+
+[image-hdi-hive-powershell]: ../media/HDI.HIVE.PowerShell.png 

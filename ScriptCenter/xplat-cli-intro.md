@@ -72,7 +72,7 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Node.js can be installed from <a href="http://node.js.org/">http://node.js.org/</a>.</p>
+<p>Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.</p>
 </div>
 
 <h2><a id="Configure"></a>How to connect to your Windows Azure subscription</h2>
@@ -86,6 +86,12 @@ To download the publish settings for your account, use the following command:
 	azure account download
 
 This will open your default browser and prompt you to sign in to the Windows Azure Management Portal. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
+
+<div class="dev-callout">
+<b>Note</b>
+<p>If your account is associated with multiple Windows Azure Active Directory (AD) tenants, you may be prompted to select which AD you wish to download a publish settings file for.</p>
+<p>Once selected using the download page, or by visiting the Windows Azure Management portal, the selected AD becomes the default used by the portal and download page. Once a default has been established, you will see the text '<b>click here to return to the selection page</b>' at the top of the download page. Use the provided link to return to the selection page.</p>
+</div>
 
 Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
 

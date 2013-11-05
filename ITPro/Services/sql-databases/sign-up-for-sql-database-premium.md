@@ -57,7 +57,8 @@ Once your subscription is activated for the preview, you need to request Premium
 4.	Navigate to the **Quick Start** for the selected server by clicking the lightning bolt icon in the top navigation bar.
 5.	Click **Request Premium Database Quota** in the **Premium Database** section.
 
-![Image6] []
+	![Image6] []
+	
 6.	Confirm your request on the subsequent dialog.
 
 You may wait up to 5 days before being granted Premium database quota. Longer wait times may indicate high demand or fulfilled preview capacity.
@@ -71,18 +72,19 @@ A few additional notes about Premium database quota requests:
 - Requesting database quota is free, however, upgrading a Web or Business edition database to Premium will significantly increase the cost of the database.
 7.	You can see the status of your quota request on the server’s **Quick Start** page.
 
-![Image7] []
+	![Image7] []
+	
 8.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
 9.	Once granted, you can see a server’s remaining Premium database quota on the server’s **Quick Start** tab.
 
-![Image8] []
+	![Image8] []
 
 <h2><a id="Upgrade"></a>Step 3: Upgrade a database to Premium</h2>
 
 Once you have been granted quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
-![Image9] []
-
+	![Image9] []
+	
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium databases, see:
 
@@ -93,7 +95,7 @@ For additional information about Premium databases, see:
 
 [Image1]: ../media/AccountSignup-Figure1.png
 [Image2]: ../media/AccountSignupButton-Figure2.png
-[Image3]: ../media/Subscription-Figure3.PNG
+[Image3]: ../media/Subscription-Figure3.png
 [Image4]: ../media/Status-Figure4.png
 [Image5]: ../media/QuickStart-Figure5.PNG
 [Image6]: ../media/RequestQuota-Figure6.png

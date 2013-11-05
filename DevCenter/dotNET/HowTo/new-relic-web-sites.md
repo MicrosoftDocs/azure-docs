@@ -26,39 +26,12 @@ New Relic special pricing through the Windows Azure Store
 New Relic Standard is free to Windows Azure users.
 New Relic Pro is offered in multiple packages based on which web site mode you are using, and the instance size if you are using reserved mode.
 
-<table border="1">
-  <thead>
-    <tr>
-      <td>Web Site Mode</td>
-      <td>Instance Size</td>
-      <td>Price</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Shared</td>
-      <td>NA</td>
-      <td>$8.00</td>
-    </tr>
-    <tr>
-      <td>Standard</td>
-      <td>Small</td>
-      <td>$40.00</td>
-    </tr>
-    <tr>
-      <td>Standard</td>
-      <td>Medium</td>
-      <td>$75.00</td>
-    </tr>
-    <tr>
-      <td>Standard</td>
-      <td>Large</td>
-      <td>$140.00</td>
-    </tr>
-  </tbody>
-</table>
+For pricing information see the [New Relic page in the Windows Azure Store](http://www.windowsazure.com/en-us/store/service/?id=3ab16c2e-b5aa-48b5-94b4-8ffb2b7cb640).
 
-For hosts counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
+<div class="dev-callout"> 
+<strong>Note:</strong>
+<p>Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.</p>
+</div>
 
 Windows Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
@@ -142,7 +115,17 @@ The New Relic package added to your application in the previous step is configur
 
 1. Sign in to the [Windows Azure management portal](https://manage.windowsazure.com) and navigate to your Web Site.
 
-2. From your Web Site, select **Configure** and then add the following values to the **App Settings** section of the page:
+2. From your Web Site, select **Configure**. In the **Developer Analytics** section, select either **Add-on** or **Custom**. Either method produces the same output, but requires slightly different input. **Add-on** lists your current New-Relic licenses and allows you to select one, while **Custom** requires you to manually specify the license key.
+
+	If you selected **Add-on**, use the **choose add-on** field to select your your New-Relic license.
+
+	![Image of the add-on fields][add-on]
+
+	If you selected **Custom**, use select New-Relic as the **Provider**, and then enter your license in the **Provider Key** field.
+
+	![Image of the custom fields][custom]
+
+3. After specifying license in **Developer Analytics**, click **Save**. Once the save operation has completed, the following values will have been added to the **App Settings** section of the page to support New-Relic:
 
 	<table border="1">
 	<thead>
@@ -164,12 +147,11 @@ The New Relic package added to your application in the previous step is configur
 	<tr>
 	<td>NEWRELIC\_HOME</td><td>C:\Home\site\wwwroot\newrelic</td>
 	</tr>
+	<tr>
+	<td>NEWRELIC\_LICENSEKEY</td><td>Your license key</td>
+	</tr>
 	</tbody>
 	</table><br/>
-
-3.	After entering these values, click **Save**.
-
-	![app settings values for New Relic][appsettings]
 
 	<div class="dev-callout"> 
 	<strong>Note</strong> 
@@ -267,3 +249,5 @@ browsers to load your webpages, where they come from, and what browsers they use
 [appsettings]: ../media/nrappsettings.png
 [newrelicconf]: ../media/nrwmlicensekey.png
 [vslicensekey]: ../media/nrvslicensekey.png
+[add-on]: ../media/nraddon.png
+[custom]: ../media/nrcustom.png
