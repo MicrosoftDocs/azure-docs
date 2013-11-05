@@ -46,7 +46,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	Later in the tutorial you set this value as the **PROJECT_ID** variable in the client.
 
 3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toogle to turn on **Google Cloud Messaging for Android** and accept the terms of service. 
 
@@ -78,172 +78,81 @@ You mobile service is now configured to work with GCM to send push notifications
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. Open the project file AndroidManifest.xml and add the following new permissions after the existing `uses-permission` element:
+1. First we will want to add **PushSharp** as a reference in our project. To do this we must compile the latest version of PushSharp and add the compiled DLL as a reference to our Xamarin.Android project.
 
-	   	<uses-permission android:name="android.permission.WAKE_LOCK" />
-	    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-	    <uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" />
-	    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />   
+2. Visit the [PushSharp Github page], and download the latest release. Once you've extracted the collection of files, navigate to the following sample project folder:
 
-2. In the code inserted in the previous step, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `manifest.package` attribute. 
+	**/Client.Samples/PushSharp.ClientSample.MonoForAndroid/PushSharp.ClientSample.MonoForAndroid.Gcm/**
 
-3. Note that in the `uses-sdk` element, the **targetSdkVersion** must be 16 or greater since notifications don't work for earlier versions of the API.
+	.. and open the project file:
+	
+	**  PushSharp.ClientSample.MonoForAndroid.Gcm.csproj **
 
-4. Open the file TodoItem.java, add the following code to the **TodoItem** class:
+3. Build the MonoForAndroid PushSharp client sample in **Release** mode.
+
+4. Create an **_external** folder in your Xamarin.Android project folder
+
+5. Copy the following file from the MonoForAndroid PushSharp client sample to the newly created **_external** folder in your Xamarin.Android project folder:
+
+	 **\bin\Release\PushSharp.Client.MonoForAndroid.dll**
+
+6. Open your Xamarin.Android project in Xamarin Studio (or Visual Studio). 
+
+7. Right click the project **References** folder, and choose **Edit References…**
+
+8. Go to the **.Net Assembly** tab, browse to your project's **_external** folder, select the **PushSharp.Client.MonoForAndroid.dll** we built earlier and click **Add**. Click OK to close the dialog. 
+
+9. Open **Constants.cs** and add the following line, replacing **PROJECT_ID** with the Google Project_ID you noted earlier:
+
+		public const string SenderID = "PROJECT_ID"; // Google API Project Number
+
+10. Copy the file **PushService.cs** from the MonoForAndroid PushSharp client sample to your Xamarin.Android project folder and add it to your project.
+
+11. Change the namespace used in **PushService.cs** to match your project's namespace (ex: XamarinTodoQuickStart).
+
+12. Change the **SENDER_IDS** array in **PushService.cs** to reference the **SenderID** Constant we created above:
+
+		public static string[] SENDER_IDS = new string[] { Constants.SenderID };
+		
+13. Add a new static property to the **PushHandlerService** in **PushService.cs** to keep track of our device registration ID:
+
+		public static string RegistrationID { get; private set; }
+		
+14. Update the **OnRegistered** method in **PushService.cs** to store the received registration id to our local static variable:
+
+		protected override void OnRegistered(Context context, string registrationId)		{			Log.Verbose(PushHandlerBroadcastReceiver.TAG, "GCM Registered: " + registrationId);            RegistrationID = registrationId;		}
+15. Update the **OnMessage** method in **PushService.cs** to display the push message received as part of the notification (replace the existing **createNotification** call):        string message = intent.Extras.GetString("message");        createNotification("New todo item!", "Todo item: " + message);
+       
+16. Take note that the **OnMessage** method has the following code by default to store off the last push message received:
+		//Store the message
+		var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
+		var edit = prefs.Edit();
+		edit.PutString("last_msg", msg.ToString());
+		edit.Commit();
+
+17. Update the **createNotification** method in **PushService.cs** to reference **TodoActivity** instead of **DefaultActivity**.
+
+18. Open **TodoActivity.cs** and add the following using statement:
+
+		using PushSharp.Client;
+
+19. In **TodoActivity.cs** insert the following lines just above where the **MobileServiceClient** is created:
+	
+        // Check to ensure everything's setup right
+        PushClient.CheckDevice(this);
+        PushClient.CheckManifest(this);
+
+        // Register for push notifications
+        System.Diagnostics.Debug.WriteLine("Registering...");
+        PushClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
+
+20. Open **TodoItem.cs** and add a new field to keep track of the registered device id for the person who added the TodoItem:
 
         [DataMember(Name = "channel")]        public string RegistrationId { get; set; }
 
-	This code creates a new property that holds the registration ID.
+21. In **TodoActivity.cs** update the **AddItem** method to set the **RegistrationID** of the newly added **TodoItem** to the device's registration ID receieved during registration:
 
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new 'channel' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
-    </div>
-
-5. Create a new class named **PushBroadcastReceiver** that is defined as the following:
-
-        [BroadcastReceiver(Permission= "com.google.android.c2dm.permission.SEND")]
-        [IntentFilter(new[] { "com.google.android.c2dm.intent.RECEIVE" }, 
-        	Categories = new[] {"my_app_package" })]
-        [IntentFilter(new[] { "com.google.android.c2dm.intent.REGISTRATION" }, 
-        	Categories = new[] {"my_app_package" })]
-        [IntentFilter(new[] { "com.google.android.gcm.intent.RETRY" }, 
-        	Categories = new[] {"my_app_package**"})]
-        public class PushBroadcastReceiver : BroadcastReceiver
-        {
-            const string TAG = "PushHandlerBroadcastReceiver";
-
-            public PushBroadcastReceiver()
-            {
-                Debug.WriteLine("PushBroadcastReceiver()");
-            }
-
-            public override void OnReceive(Context context, Intent intent)
-            {
-                Debug.WriteLine("Receiver action is " + intent.Action);
-
-                PushIntentService.RunIntentInService(context, intent);
-                SetResult(Result.Ok, null, null);
-            }
-        }
-
-6. Replace **my_app_package** in **PushBroadcastReceiver** with the name of the app package for your project, which is the value of the manifest.package attribute
-
-6. Add the following private variable to the **TodoActivity** class, where _`<PROJECT_ID>`_ is the project ID assigned by Google to your app in the first procedure:
-
-		private const string SENDER_ID = "<PROJECT_ID>"; // Google API Project Number
-
-7. Create a new method named **RegisterForPushNotifications** defined with this code:
-
-        private void RegisterForPushNotifications()
-        {
-            string senders = SENDER_ID; // Google API Project Number
-            Intent intent = new Intent("com.google.android.c2dm.intent.REGISTER");
-            intent.PutExtra("app", PendingIntent.GetBroadcast(this, 0, new Intent(), 0));
-            intent.PutExtra("sender", senders);
-            StartService(intent);
-        }
-8. Create a new method named **UnregisterForPushNotifications** defined with this code:
-
-        private void UnregisterForPushNotifications()
-        {
-            var intent = new Intent("com.google.android.c2dm.intent.UNREGISTER");
-            intent.PutExtra("app", PendingIntent.GetBroadcast(this, 0, new Intent(), 0));
-            StartService(intent);
-        }
-
-9. In the **OnCreate** method, add this code before the MobileServiceClient is instantiated:
-
-		RegisterForPushNotifications();
-
-	This code requests the registration, which in turn gets the registration ID.
-
-10. Create a new class named **PushIntentService** that is defined as the following:
-
-		[Service]
-        public class PushIntentService : IntentService
-        {
-            static PowerManager.WakeLock sWakeLock;
-            static object LOCK = new object();
-
-            public static string RegistrationId { get; set; }
-
-            public static void RunIntentInService(Context context, Intent intent)
-            {
-                lock (LOCK)
-                {
-                    if (sWakeLock == null)
-                    {
-                        // This is called from BroadcastReceiver, there is no init.
-                        var pm = PowerManager.FromContext(context);
-                        sWakeLock = pm.NewWakeLock(
-                            WakeLockFlags.Partial, "My WakeLock Tag");
-                    }
-                }
-
-                sWakeLock.Acquire();
-                intent.SetClass(context, typeof(PushIntentService));
-                context.StartService(intent);
-            }
-
-            protected override void OnHandleIntent(Intent intent)
-            {
-                try
-                {
-                    Context context = this.ApplicationContext;
-                    string action = intent.Action;
-                                                  
-                    if (action.Equals("com.google.android.c2dm.intent.REGISTRATION"))
-                    {
-                        HandleRegistration(context, intent);
-                    }
-                    else if (action.Equals("com.google.android.c2dm.intent.RECEIVE"))
-                    {
-                        HandleMessage(context, intent);
-                    }
-                }
-                finally
-                {
-                    lock (LOCK)
-                    {
-                        //Sanity check for null as this is a public method
-                        if (sWakeLock != null)
-                            sWakeLock.Release();
-                    }
-                }
-            }
-
-            protected async void HandleRegistration(Context context, Intent intent)
-            {
-                try 
-                {
-                    RegistrationId = intent.GetStringExtra("registration_id");
-                    string error = intent.GetStringExtra("error");
-
-                    if (!String.IsNullOrEmpty(RegistrationId)) 
-                    {
-                        // TODO:: handle success
-                    }
-                    else if (!String.IsNullOrEmpty (error)) {
-                        // TODO:: handle error
-                    }
-                } 
-                catch (Exception ex) 
-                {
-                    // TODO:: handle error
-                }
-            }
-
-            private void HandleMessage(Context context, Intent intent)
-            {
-	            // TODO:: do something with the received message (ex: intent.GetStringExtra("text"))
-            }
-        }
-
-12. Add the following line of code to the **TodoItem** constructor in the **AddItem** method of **TodoActivity**:
-
-		RegistrationId = PushIntentService.RegistrationId
-
-	This code sets the registrationId property of the item to the registration ID of the device.
+		// Create a new item		var item = new TodoItem() {			Text = textNewTodo.Text,			Complete = false,            RegistrationId = PushHandlerService.RegistrationID		};
 
 Your app is now updated to support push notifications.
 
@@ -281,38 +190,16 @@ Your app is now updated to support push notifications.
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
-<div class="dev-callout"><b>Note</b>
-	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
-</div>
+1. Run the app and add a new Todo item. Ensure that you receive a push notification about the new Todo item being added.
 
-1. In Xamarin Studio, choose **Open Android Emulator Manager..** from the **Tools** menu, select your device, click **Edit**.
+3. Review the **Logs** tab of your mobile app in the Azure management portal to see the logging messages we added to the **Insert** method on the **TodoItem** table above.
 
-	![][24]
-
-2. Select **Google APIs** in **Target**, then click OK.
-
-   ![][25]
-
-	This targets the AVD to use Google APIs.
-
-3. From the **Run** menu, then click **Run** to start the app.
-
-4. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
-
-  	![][26]
-
-5. You will see an icon appear in the upper left corner of the emulator, which we have outlined in red to emphasize it (the red does not appear on the actual screen). 
-
-  	![][28]
-
-6. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
-
-  	![][27]
+4. Look at the **TodoItem** table in the Azure management portal to see the new **channel** column that was added and contains unique device registration identifiers.
 
 You have successfully completed this tutorial.
 
 ## Get completed example
-Download the [completed example project]. Be sure to update the **applicationURL** and **applicationKey** variables with your own Azure settings. 
+Download the [completed example project]. Be sure to update the **ApplicationURL**, **ApplicationKey**, and **SenderID** variables with your own Azure settings. 
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -373,4 +260,5 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Mobile Services android conceptual]: ../HowTo/mobile-services-client-xamarin-android.md
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 [completed example project]: http://www.google.com
+[PushSharp Github page]: https://github.com/Redth/PushSharp
 
