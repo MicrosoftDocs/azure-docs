@@ -1,5 +1,4 @@
 
-
 A new insert script is registered that generates an SAS when a new Todo item is inserted.
 
 0. If you haven't yet created your storage account, see [How To Create a Storage Account].
@@ -100,7 +99,7 @@ Next, you will update the quickstart app to add image upload functionality by us
 [7]: ../Media/mobile-quickstart-blob-camera.png
 [8]: ../Media/mobile-quickstart-blob-appbar2.png
 [9]: ../Media/mobile-quickstart-blob-ie.png
-[10]: ../Media/mobile-blob-storage-app-settings.png
+[10]: ../media/devcenter/mobile/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
