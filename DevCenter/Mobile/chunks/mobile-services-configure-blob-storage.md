@@ -15,7 +15,7 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
 
-	![][10]
+![][10]
 
 	The storage account access key is stored encrypted in app settings. You can access this key from any server script at runtime. For more information, see [App settings].
 
