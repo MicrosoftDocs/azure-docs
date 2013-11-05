@@ -105,23 +105,23 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 **Microsoft: Business intelligence**		
 
-* [Connect Excel to Windows Azure HDInsight with Power Query][connect-excel-with-power-query]: Connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+* [Connect Excel to Windows Azure HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
-* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Import data from Windows Azure HDInsight or any HDFS. This add-on enhances the self-service BI experience in Excel by simplifying data discovery and access to a broad range of data sources.
+* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Learn how to import data from Windows Azure HDInsight with the Microsoft Hive ODBC Driver.
 
-* [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx): A powerful data mashup and data exploration tool.
+* [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx): Download and get information about a powerful data mashup and exploration tool.
 			
-* [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx): Build comprehensive, enterprise-scale analytic solutions that deliver actionable insights.	
+* [SQL Server 2012 Analysis Services](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx): Download an evaluation copy of SQL Server 2012 and learn how to build comprehensive, enterprise-scale analytic solutions that deliver actionable insights.	
 
-* [SQL Server 2012 Reporting](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-reporting-services.aspx): A comprehensive, highly scalable solution that enables real-time decision making across the enterprise. 
+* [SQL Server 2012 Reporting](http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-reporting-services.aspx): Download an evaluation copy of SQL Server 2012 and learn how to create comprehensive, highly scalable solutions that enables real-time decision making across the enterprise. 
 	
 **Apache Hadoop**:			
 
-* [Apache Hadoop](http://hadoop.apache.org/): Software library providing a framework that allows for the distributed processing of large data sets across clusters of computers.	
+* [Apache Hadoop](http://hadoop.apache.org/): Learn more about the Apache Hadoop software library, a framework that allows for the distributed processing of large data sets across clusters of computers.	
 
-* [HDFS](http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html): Hadoop Distributed File System (HDFS) is the primary storage system used by Hadoop applications.		
+* [HDFS](http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html): Learn more about the architecture and design of the Hadoop Distributed File System (HDFS), the primary storage system used by Hadoop applications.		
 
-* [MapReduce](http://mapreduce.org/): A programming model and software framework for writing applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.	
+* [MapReduce](http://mapreduce.org/): Learn more about the programming  framework for writing Hadoop applications that rapidly process vast amounts of data in parallel on large clusters of compute nodes.	
 
 [connect-excel-with-hive-ODBC]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
 
