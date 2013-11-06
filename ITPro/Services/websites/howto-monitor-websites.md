@@ -111,9 +111,9 @@ You can enable or disable the following application diagnostics:
 
 	The log information stored in the table can be accessed using a Windows Azure Storage client.
 
-- **Application Logging (blob storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (Table Storage) option. However, the log information is stored in a blob in a Windows Azure Storage Account.
+- **Application Logging (Blob storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (Table Storage) option. However, the log information is stored in a blob in a Windows Azure Storage Account.
 
-	To specifi the Windows Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
+	To specify the Windows Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
 
 For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 

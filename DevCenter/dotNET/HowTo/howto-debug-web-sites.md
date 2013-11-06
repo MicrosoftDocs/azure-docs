@@ -44,11 +44,11 @@ Windows Azure Web Sites also logs deployment information when you publish an app
 
 Diagnostics can be enabled by visiting the **Configure** page of your Windows Azure Web Site in the [Windows Azure Management Portal](https://manage.microsoft.com). On the **Configure** page, use the **application diagnostics** and **site diagnostics** sections to enable or disable logging. When enabling **application diagnostics** you must also select the **logging level** and whether to enable logging to the **file system**, **table storage**, or **blob storage**:
 
-* **logging level** - allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application. **Logging level** can be set differently for **file system**, **table storage**, and **blob storage** logging.
-* **file system** - stores the application diagnostics information to the web site file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Windows Azure PowerShell or Windows Azure Command-Line Tools.
-* **table storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and table name.
-* **blob storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and blob container.
-* **retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
+* **Logging level** - allows you to filter the information captured to **informational**, **warning** or **error** information. Setting this to **verbose** will log all information produced by the application. **Logging level** can be set differently for **file system**, **table storage**, and **blob storage** logging.
+* **File system** - stores the application diagnostics information to the web site file system. These files can be accessed by FTP, or downloaded as a Zip archive by using the Windows Azure PowerShell or Windows Azure Command-Line Tools.
+* **Table storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and table name.
+* **Blob storage** - stores the application diagnostics information in the specified Windows Azure Storage Account and blob container.
+* **Retention period** - by default, logs are not automatically deleted from **blob storage**. Select **set retention** and enter the number of days to keep logs if you wish to automatically delete logs.
 
 For most scenarios, logging **application diagnostics** to the **file system** will be sufficient; information stored in **storage** can only be accessed using a storage client.
 
@@ -68,7 +68,7 @@ The directory structure that the logs are stored in is as follows:
 
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. 
 
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formattied using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)
 
 * **Deployment logs** - /LogFiles/[deployment method]. The deployment logs are located in a folder named after the deployment method. For example, /LogFiles/Git.
 
