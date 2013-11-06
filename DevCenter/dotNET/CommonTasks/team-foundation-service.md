@@ -23,7 +23,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 <h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Sign up for Visual Studio Online</h2>
 
-1. Create a Visual Studio Online account by navigating to [http://tfs.visualstudio.com](http://tfs.visualstudio.com). Click the **Sign up for free** link.
+1. Create a Visual Studio Online account by navigating to [http://www.visualstudio.com](http://www.visualstudio.com). Click the **Sign up for free** link.
   You will need to sign-in using a Microsoft account. After you log in, provide the requested information and create a TFS account URL. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
 ![][0]
  
