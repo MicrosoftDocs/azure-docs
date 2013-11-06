@@ -1,7 +1,7 @@
 <properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" writer="ricksal" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-# Use Notification Hubs to send breaking news to iOS devices
+# Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding">     	
 	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#" >Windows Store C#</a>
 	<a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS" class="current">iOS</a>
