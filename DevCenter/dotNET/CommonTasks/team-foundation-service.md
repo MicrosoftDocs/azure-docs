@@ -11,7 +11,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 -   [Step 1: Sign up for Visual Studio Online.][]
 
--   [Step 2: Check in a project to Visual Studio Online.][]
+-   [Step 2: Check in a project to source control.][]
 
 -   [Step 3: Connect the project to Windows Azure.][]
 
@@ -33,7 +33,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 3. When project creation is done, click the **Open with Visual Studio to connect** button link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
 ![][2]
 
-<h2><a name="step2"> </a><span class="short-header">Check in a project</span>Step 2: Check in a project to source control</h2>
+<h2><a name="step2"> </a><span class="short-header">Check in a project to source control.</span>Step 2: Check in a project to source control</h2>
 
 1. In Visual Studio, open the solution you want to deploy, or create a new one.
 You can deploy a web site or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
@@ -163,8 +163,8 @@ This step applies only to cloud services, not web sites. When you are ready, you
 
 For more information, see [Team Foundation Service](http://go.microsoft.com/fwlink/?LinkId=253861).
 
-[Step 1: Sign up for TFS.]: #step1
-[Step 2: Check in a project to TFS.]: #step2
+[Step 1: Sign up for Visual Studio Online.]: #step1
+[Step 2: Check in a project to source control.]: #step2
 [Step 3: Connect the project to Windows Azure.]: #step3
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
 [Step 5: Redeploy an earlier build (optional)]: #step5
