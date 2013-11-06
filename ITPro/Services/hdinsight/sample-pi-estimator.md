@@ -1,8 +1,8 @@
 <properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" metaDescription="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
 
-# The HDInsight Pi Estimator Sample
+# The HDInsight Pi Estimator sample
  
-This sample topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi on the Windows Azure HDinsight service with Azure Powershell. 
+This sample topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi on Windows Azure HDinsight with Azure Powershell. 
 
 The program uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, Pi/4. The value of Pi can be estimated from the value of 4R where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -12,7 +12,7 @@ The script provided for this sample submits a Hadoop JAR job and is set up to ru
 
 The .jar file that contains the files needed by Hadoop on Azure to deploy the application is a .zip file and is available for download. You can unzip it with various compression utilities then explore the files at your convenience.
 
-The other samples that are available to help you get up to speed using the Windows Azure HDInsight Service to run MapReduce jobs are listed on [Running the HDInsight Samples][run-samples] along with links to instructions on how to run them.
+The other samples that are available to help you get up to speed using the Windows Azure HDInsight Service to run MapReduce jobs are listed on [Run the HDInsight samples][run-samples] along with links to instructions on how to run them.
 
 **You will learn:**
 		
@@ -23,7 +23,7 @@ The other samples that are available to help you get up to speed using the Windo
 
 - You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
 - You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
@@ -425,9 +425,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 
 * [Sample: C# Steaming][cs-streaming]
 
-* [Tutorial: Using Pig][pig]
+* [Tutorial: Use Pig with HDInsight][pig]
 
-* [Tutorial: Using Hive][hive]
+* [Tutorial: Use Hive with HDInsight][hive]
 
 [run-samples]: /en-us/manage/services/hdinsight/howto-run-samples
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/

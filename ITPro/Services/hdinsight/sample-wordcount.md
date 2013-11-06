@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" metaDescription="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
 
-# The HDInsight WordCount Sample
+# The HDInsight WordCount sample
  
 This sample topic shows how to run a MapReduce program that counts word occurrences in a text with the Windows Azure HDInsight service using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by the HDInsight service. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
@@ -189,9 +189,9 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 
 * [Sample: C# Steaming][cs-streaming]
 
-* [Tutorial: Using Pig][pig]
+* [Tutorial: Use Pig with HDInsight][pig]
 
-* [Tutorial: Using Hive][hive]
+* [Tutorial: Use Hive with HDInsight][hive]
 
 
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-sqoop-import-export" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
 
-# Sqoop Import-Export Sample
+# Sqoop Import-Export sample
  
 This sample topic shows how to use Apache Sqoop to import data from a SQL database on Windows Azure to an Hadoop on Azure HDFS cluster.
 
