@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
 
-# The HDInsight C# Streaming WordCount Sample
+# The HDInsight C# Streaming WordCount sample
  
 Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write the C# code for MapReduce progams that uses the Hadoop streaming interface and how to run the programs using Windows Azure PowerShell. 
 
@@ -21,7 +21,7 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 - You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
 - You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
@@ -164,9 +164,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 
 * [Sample: 10GB GraySort][10gb-graysort]
 
-* [Tutorial: Using Pig][pig]
+* [Tutorial: Use Pig with HDInsight][pig]
 
-* [Tutorial: Using Hive][hive]
+* [Tutorial: Use Hive with HDInsight][hive]
 
 
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
