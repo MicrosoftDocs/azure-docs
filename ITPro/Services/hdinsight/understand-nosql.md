@@ -2,9 +2,9 @@
 
 # Data management: Understanding NoSQL technologies on Windows Azure
 
-**Summary:** This document explains NoSQL technologies on Windows Azure and why you would want to use them to manage non-relational data, which includes unstructured or particularly large data often referred to as "big data". Relational technology has long been the dominant approach for working with data. However, when you work with very large amounts of relational data, scaling across many servers is challenging. Also, some kinds of data, such as JSON documents or graphs, simply aren't a fit for a relational system. NoSQL technologies address the issues around scaling for large data sets and encompass a number of technologies that don't use the relational model.
+**Summary:** Windows Azure offers a broad array of options for your NoSQL workloads, but it can be challenging to determine which one is right for you.  This document explains NoSQL technologies on Windows Azure and how to choose the right service to manage your non-relational data, which includes unstructured or particularly large data sets often referred to as "big data." 
 
-NoSQL technologies are especially important for cloud applications, and so Windows Azure supports a variety of NoSQL alternatives. This guide walks through the options, explaining what each one provides and why you might want to use it.
+Relational technology has long been the dominant approach for working with data. However, when you work with very large amounts of different types of data, scaling across many servers is challenging. Also, relational is not the best fit for managing some kinds of data, such as JSON documents or graphs. This guide walks through the options, explaining what each one provides and why you might want to use it.
 
 **Contents:**
 
