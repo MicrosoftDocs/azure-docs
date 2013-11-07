@@ -64,7 +64,7 @@ Sqoop is tool that transfers bulk data between Hadoop and relational databases s
 
 ###Business intelligence tools and connectors
 
-Familiar business intelligence (BI) tool—such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services—retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver.
+Familiar business intelligence (BI) tools—such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services—retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 
  * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=286689).
 
