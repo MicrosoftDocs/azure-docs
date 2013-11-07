@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="How to Configure PHP in Windows Azure Web Sites" metaKeywords="Windows Azure, Windows Azure Web Sites, configuration, PHP" metaDescription="Learn how to configure the default PHP installation or add a custom PHP installation in Windows Azure Web Sites." linkid="" urlDisplayName="How to Configure PHP in Windows Azure Web Sites" headerExpose="" footerExpose="" disqusComments="1" writer="tbd" editor="mollybos" manager="paulettm" />
+﻿<properties umbracoNaviHide="0" pageTitle="How to Configure PHP in Windows Azure Web Sites" metaKeywords="Windows Azure, Windows Azure Web Sites, configuration, PHP" services="Web Sites" metaDescription="Learn how to configure the default PHP installation or add a custom PHP installation in Windows Azure Web Sites." linkid="" urlDisplayName="How to Configure PHP in Windows Azure Web Sites" headerExpose="" footerExpose="" disqusComments="1" writer="tbd" editor="mollybos" manager="paulettm" />
 
 
 
