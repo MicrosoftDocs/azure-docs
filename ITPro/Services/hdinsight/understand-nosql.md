@@ -4,7 +4,7 @@
 
 **Summary:** Windows Azure offers a broad array of options for your NoSQL workloads, but it can be challenging to determine which one is right for you.  This document explains NoSQL technologies on Windows Azure and how to choose the right service to manage your non-relational data, which includes unstructured or particularly large data sets often referred to as "big data." 
 
-Relational technology has long been the dominant approach for working with data. However, when you work with very large amounts of different types of data, scaling across many servers is challenging. Also, relational is not the best fit for managing some kinds of data, such as JSON documents or graphs. This guide walks through the options, explaining what each one provides and why you might want to use it.
+Relational technology has long been the dominant approach for working with data. However, when you work with very large amounts of different types of data, scaling across many servers is challenging. Also, relational technology is not the best fit for managing some kinds of data, such as JSON documents or graphs. This guide walks through the options, explaining what each one provides and why you might want to use it.
 
 **Contents:**
 
