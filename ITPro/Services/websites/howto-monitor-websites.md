@@ -182,12 +182,6 @@ Diagnostics can be further modified by adding key/value pairs to the **app setti
 
 - Default value: 1MB
 
-**DIAGNOSTICS_AZURETABLENAME**
-
-- The name of the table used to store application diagnostics in a Windows Azure Storage Account.
-
-- Default value: WAWSAppLogTable
-
 ###Downloading log files for a web site###
 
 Log files can be downloaded using either FTP, Windows Azure PowerShell, or the Windows Azure Command-Line tools.
