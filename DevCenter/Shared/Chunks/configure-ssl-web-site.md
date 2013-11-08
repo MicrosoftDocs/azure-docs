@@ -9,7 +9,23 @@ Secure Socket Layer (SSL) encryption is the most commonly used method of securin
 
 In order to enable SSL for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
-<a href="bkmk_getcert"></a><h2>Get a Certificate</h2>
+<a href="bkmk_domainname"></a><h2>Determine domain names</h2>
+
+Before requesting a certificate, you should first determine the domain names that you need to secure and whether you need a basic certificate, a wildcard certificate, or a certificate with Subject Alternate Name (subjectAltName, SAN).
+
+Most browsers will display a warning if the CN (or subjectAltName) of the certificate does not match the domain name that was entered in the browser. For example, if the certificate only lists www.contoso.com, but login.contoso.com is the domain name used to access the site in Internet Explorer, you will receive a warning that "The security certificate presented by this website was issued for a different website's address."
+
+**Basic certificates** are certificates where the Common Name (CN) of the certificate is set to the specific domain or subdomain that clients will use to visit the site. For example, *www.contoso.com*.
+
+**Wildcard certificates** are certificates where the CN of the certificate contains a wildcard '\*' at the subdomain level. This allows the certificate to match a single level of subdomains for a given domain. For example, a wildcard certificate for *\*.contoso.com* would be valid for *www.contoso.com*, *payment.contoso.com*, and *login.contoso.com*. It would not be valid for *test.login.contoso.com*, as this adds an extra subdomain level. It would also not be valid for contoso.com, as this is the domain level and not a subdomain.
+
+**subjectAltName** is an certificate extension that allows various values, or Subject Alternate Names, to be associated with a certificate. For the purpose of SSL certificates, this allows you to add additional DNS names that the certificate will be valid against. For example, a certificate using subjectAltName may have a CN of *contoso.com*, but may also have alternate names of *www.contoso.com*, *payment.contoso.com*, *test.login.contoso.com*, and even *fabrikam.com*. Such a certificate would be valid for all domain names specified in the Common Name and subjectAltName.
+
+It is possible for a certificate to provide support for bth wildcards and subjectAltName.
+
+For more information on how to configure the domain name of a Windows Azure Web Site, see [Configuring a custom domain name for a Windows Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/).
+
+<a href="bkmk_getcert"></a><h2>Get a certificate</h2>
 
 To configure SSL for an custom domain, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
 
@@ -19,7 +35,7 @@ The certificate must meet the following requirements for SSL certificates in Win
 
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
 
-* The certificate's subject name must match the domain used to access the web site. 
+* The certificate's subject name must match the domain used to access the web site. If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.
 
 	* You cannot obtain an SSL certificate from a certificate authority (CA) for the azurewebsites.net domain. You must acquire a custom domain name to use when accessing your web site. 
 
@@ -31,8 +47,9 @@ To get an SSL certificate from a Certificate Authority you must generate a Certi
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>When following either series of steps, you will be prompted to enter a <strong>Common Name</strong>. If you will be obtaining a wildcard certificate for use with multiple domains (www.contoso.com, sales.contoso.com,) then this value should be *.domainname (for example, *.contoso.com). If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com. If you need to support both a wildcard name like *.contoso.com and a bare domain name like contoso.com, you can use a wildcard Subject Alternative Name (SAN) certificate. A SAN certificate not only supports wildcards like *.contoso.com, but also lets you add a bare domain name like contoso.com as a Subject Alternative Name to the certificate.</p>
-<p>If the Common Name specified in the certificate does not match the domain name specified in the browser, the user may receive a security alert when visiting your site.</p>
+<p>When following either series of steps, you will be prompted to enter a <strong>Common Name</strong>. If you will be obtaining a wildcard certificate for use with multiple domains (www.contoso.com, sales.contoso.com,) then this value should be *.domainname (for example, *.contoso.com). If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com.</p>
+<p>If you need to support both a wildcard name like *.contoso.com and a bare domain name like contoso.com, you can use a wildcard Subject Alternative Name (SAN) certificate. For an example of creating a certificate request that uses the SubjectAltName extensions, see <a href="#bkmk_subjectaltname">SubjectAltName certificate</a>.</p>
+
 <p>For more information on how to configure the domain name of a Windows Azure Web Site, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure Web Site</a>.</p>
 </div>
 
@@ -177,6 +194,89 @@ Before performing the steps in this section, you must have associated a custom d
 </div>
 
 At this point, you should be able to visit your web site using HTTPS to verify that the certificate has been configured correctly.
+
+<a href="bkmk_subjectaltname"></a><h2>SubjectAltName certificates (Optional)</h2>
+
+OpenSSL can be used to create a certificate request that uses the SubjectAltName extension to support multiple domain names with a single certificate, however it requires a configuration file. The following steps walk through creating a configuration file, and then using it to request a certificate.
+
+1. Create a new file named __sancert.cnf__ and use the following as the contents of the file:
+ 
+		# -------------- BEGIN custom sancert.cnf -----
+		HOME = .
+		oid_section = new_oids
+		[ new_oids ]
+		[ req ]
+		default_days = 730
+		distinguished_name = req_distinguished_name
+		encrypt_key = no
+		string_mask = nombstr
+		req_extensions = v3_req # Extensions to add to certificate request
+		[ req_distinguished_name ]
+		countryName = Country Name (2 letter code)
+		countryName_default = 
+		stateOrProvinceName = State or Province Name (full name)
+		stateOrProvinceName_default = 
+		localityName = Locality Name (eg, city)
+		localityName_default = 
+		organizationalUnitName  = Organizational Unit Name (eg, section)
+		organizationalUnitName_default  = 
+		commonName              = Your common name (eg, domain name)
+		commonName_default      = www.mydomain.com
+		commonName_max = 64
+		[ v3_req ]
+		subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
+		# -------------- END custom sancert.cnf -----
+
+	Note the line that begins with 'subjectAltName'. Replace the domain names currently listed with domain names you wish to support in addition to the common name. For example:
+
+		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
+
+	You do not need to change the commonName_default field, as you will be prompted to enter your common name in one of the following steps.
+
+2. Save the __sancert.cnf__ file.
+
+1. Generate a private key and Certificate Signing Request by using the sancert.cnf configuration file. From a bash or terminal session, use the following command:
+
+		openssl req -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
+
+2. When prompted, enter the appropriate information. For example:
+
+ 		Country Name (2 letter code) []: US
+        State or Province Name (full name) []: Washington
+        Locality Name (eg, city) []: Redmond
+        Organizational Unit Name (eg, section) []: Windows Azure
+        Your common name (eg, domain name) []: www.microsoft.com
+ 
+
+	Once this process completes, you should have two files; **myserver.key** and **server.csr**. The **server.csr** contains the Certificate Signing Request.
+
+3. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+
+4. Once you have obtained a certificate from a CA, save it to a file named **myserver.crt**. If your CA provided the certificate in a text format, simply paste the certificate text into the **myserver.crt** file. The file should appear as follows when viewed in a text editor:
+
+		-----BEGIN CERTIFICATE-----
+		<certificate contents omitted>
+		-----END CERTIFICATE-----
+
+	Save the file.
+
+5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Windows Azure Web Sites:
+
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+
+	When prompted, enter a password to secure the .pfx file.
+
+	<div class="dev-callout"> 
+	<b>Note</b>
+	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a seperate download from your CA.</p>
+	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
+	<pre><code>
+	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	</code></pre>
+	</div>
+
+	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
+
 
 <a href="bkmk_selfsigned"></a><h2>Self-signed certificates (Optional)</h2>
 

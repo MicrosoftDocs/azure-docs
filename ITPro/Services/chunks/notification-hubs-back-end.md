@@ -96,17 +96,15 @@ To send a notification using a Mobile Service do the following:
 
 1. Log on to the [Windows Azure Management Portal], click Mobile Services, then click your mobile service.
 
-2. Select the tab **Scheduler** on the top.
+2. Click the **Scheduler** tab, then click **Create**.
 
    ![][15]
 
-3. Create a new scheduled job, type a name, and then click **On demand**.
+3. In **Create new job**, type a name, select **On demand**, and then click the check to accept.
 
    ![][16]
 
-4. When the job is created, click the job name. Then click the **Script** tab in the top bar.
-
-5. Insert the following script inside the scheduled job function: 
+4. After the job is created, click the job name and then in the **Script** tab insert the following script inside the scheduled job function: 
 
 	    var azure = require('azure');
 	    var notificationHubService = azure.createNotificationHubService(
