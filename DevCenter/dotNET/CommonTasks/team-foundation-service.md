@@ -3,11 +3,11 @@
 
 # Continuous delivery to Windows Azure using Visual Studio Online
 
-Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
+Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
 
 This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don’t already have Visual Studio 2013, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-To set up a cloud service to automatically build and deploy to Windows Azure by using Team Foundation Service, follow these steps:
+To set up a cloud service to automatically build and deploy to Windows Azure by using Visual Studio Online, follow these steps:
 
 -   [Step 1: Sign up for Visual Studio Online.][]
 
@@ -161,7 +161,7 @@ This step is optional. Select an earlier deployment and click the **Redeploy** b
 This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-For more information, see [Team Foundation Service](http://go.microsoft.com/fwlink/?LinkId=253861).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [Step 1: Sign up for Visual Studio Online.]: #step1
 [Step 2: Check in a project to source control.]: #step2
