@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using the management portal - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service from the management portal." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using Management Portal - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to use Windows Azure Management Portal to create an HDInsight cluster, and how to access the Hadoop command console on the cluster." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# Administer HDInsight clusters using the management portal
+# Administer HDInsight clusters using Management Portal
 
-In this topic, you will learn how to use the Windows Azure Management portal to create an HDInsight cluster, and how to access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the portal. 
+In this topic, you will learn how to use Windows Azure Management Portal to create an HDInsight cluster, and how to access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the portal. 
 
 - For more information on administering HDInsight using the Cross-platform Command-line Tools, see [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. 
 
