@@ -2,21 +2,21 @@
 
 
 
-#Using the Hadoop .NET SDK with the HDInsight Service#
+#Use the Hadoop .NET SDK with HDInsight#
 
 The Hadoop .NET SDK provides .NET client libraries that makes it easier to work with Hadoop from .NET. In this tutorial you will learn how to get the Hadoop .NET SDK and use it to build a simple .NET based application that runs Hive queries using the Windows Azure HDInsight Service. Given an actors.txt file, you will write an application to find the actor/actress who gets the most awards. 
 
-To enable the HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures).
+To enable HDInsight, click [here](https://account.windowsazure.com/PreviewFeatures).
 
 ## In this Article
 
-* [Downloading an installing the Hadoop .NET SDK](#install)
-* [Preparing for the tutorial](#prepare)
+* [Download and install the Hadoop .NET SDK](#install)
+* [Prepare for the tutorial](#prepare)
 * [Create the application](#create)
 * [Run the application](#run)
 * [Next Steps](#nextsteps)
 
-##<a id="install"></a> Downloading and Installing the Hadoop .NET SDK##
+##<a id="install"></a> Download and Install the Hadoop .NET SDK##
 
 You can install latest published build of the SDK from [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). The SDK includes the following components:
 
@@ -38,7 +38,7 @@ The NuGet syntax to install the libraries:
 			
 These commands add the libraries and references to the current Visual Studio project.
 
-##<a id="prepare"></a> Preparing for the Tutorial
+##<a id="prepare"></a> Prepare for the Tutorial
 
 You must have a [Windows Azure subscription][free-trial], and a [Windows Azure Storage Account][create-storage-account] before you can proceed. You must also know your Windows Azure storage account name and account key. For the instructions on how to  get this information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
@@ -153,7 +153,7 @@ In this section you will learn how to upload files to Hadoop cluster programmati
         Console.WriteLine("\nPress any key to continue.");
         Console.ReadKey();
 
-10. Update the constants in the application. Windows Azure HDInsight Service uses Windows Azure Blob storage as the default file system. During the HDInsight provision process, a blob is designated as the default file system. You have the options to use the default file system container or a container in a different Blob storage. For more information see [Using Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
+10. Update the constants in the application. Windows Azure HDInsight Service uses Windows Azure Blob storage as the default file system. During the HDInsight provision process, a blob is designated as the default file system. You have the options to use the default file system container or a container in a different Blob storage. For more information see [Use Windows Azure Blob storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
 
 	If you choose to use the default file system container, you can find the storage account name, the storage key, and the container name from the *c:\apps\dist\hadoop-1.1.0-SNAPSHOT\conf>core-site.xml* configuration file by remoting to the cluster. The container used as the default file system can be found by search *fs.default.name*; the storage account name and the account key can be found by searching *fs.azure.account.key*.
 	
@@ -174,13 +174,13 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 <p>For more information on loading data into Hive, see <a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-DMLOperations">Hive GettingStarted</a>.</p>
 </div>
 
-##<a id="nextsteps"></a>Next Steps
+##<a id="nextsteps"></a>Next steps
 Now you understand how to create a .NET application using Hadoop .NET SDK. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-* [Using Pig with HDInsight][hdinsight-pig] 
-* [Using MapReduce with HDInsight][hdinsight-mapreduce]
-* [Using Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Use Pig with HDInsight][hdinsight-pig] 
+* [Use MapReduce with HDInsight][hdinsight-mapreduce]
+* [Use Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/

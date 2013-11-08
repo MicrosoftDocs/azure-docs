@@ -1,15 +1,19 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using using the command line interface - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service using the command-line interface." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# Administer HDInsight using Cross-platform Command-line Interface
+# Administer HDInsight using the Cross-platform Command-line Interface
 
-In this article, you will learn how to using the Cross-platform Command-line Interface to manage HDInsight clusters. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
+In this article, you learn how to using the Cross-platform Command-line Interface to manage HDInsight clusters. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
+
+The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
+
+This article only covers using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool].
 
 
 **Prerequisites:**
 
 Before you begin this article, you must have the following:
 
-- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- **Windows Azure subscription**. Windows Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
 
@@ -35,7 +39,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>If you get an error saying the NPM command is not found, verify the following paths are in the PATH environment variable:
+	<p>If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable:
 	
 		C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm
 
@@ -60,7 +64,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 **To install the command-line interface using windows installer**
 
 1.	Browse to **http://www.windowsazure.com/en-us/downloads/**.
-2.	Scrool down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
+2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
 ##<a id="importsettings"></a> Download and import Windows Azure account publishsettings
 
@@ -103,7 +107,7 @@ After you have imported the publishsettings file, you can use the following comm
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>The storage account must be collocated in the same data center.Currently, you can only provision HDInsight clusters in the following data centers:</p>
+<p>The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
 <li>US East</li>
@@ -126,10 +130,6 @@ If you have already had a storage account but do not know the account name and a
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>For better performance, collocate the HDInsight cluster and the storage account in the same data center.</p> 
-</div>
 
 The *azure hdinsight cluster create* command creates the container if it doesn’t exist. If you choose to create the container beforehand, you can use the following command:
 
@@ -158,7 +158,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 
 ##<a id="provisionconfigfile"></a> Provision an HDInsight cluster using a configuration file
-Typically, you provision an HDInsight cluster, run their jobs, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
+Typically, you provision an HDInsight cluster, run jobs on it, and then delete the cluster to cut down the cost. The command-line interface gives you the option to save the configurations into a file, so that you can reuse it every time you provision a cluster.  
  
 	azure hdinsight cluster config create <file>
 	 
