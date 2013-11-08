@@ -8,7 +8,7 @@ In this article, you will learn how to submit MapReduce and Hive jobs using Powe
 
 Before you begin this article, you must have the following:
 
-* A Windows Azure HDInsight cluster. For instructions, see [Getting started with HDInsight Service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* A Windows Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
 * Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 
@@ -23,7 +23,7 @@ Before you begin this article, you must have the following:
 ##<a id="mapreduce-powershell"></a> Submit MapReduce jobs using PowerShell
 Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.far*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to use PowerShell from a workstation to run the word count sample. For more information on developing and running MapReduce jobs, see [Using MapReduce with HDInsight][hdinsight-mapreduce].
+Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.far*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to use PowerShell from a workstation to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
 
 **To run the word count MapReduce program using PowerShell**
 
@@ -41,7 +41,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
 
 6. Run the following command to run the MapReduce job:
 
@@ -269,12 +269,12 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 		Invoke-Hive "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
-For more information about Hive, see [Using Hive with HDInsight][hdinsight-hive].
+For more information about Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
 
 
 ##<a id="mapreduce-sdk"></a> Submit MapReduce Jobs Using HDInsight .NET SDK
-The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.jar*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information on developing and running MapReduce jobs, see [Using MapReduce with HDInsight][hdinsight-mapreduce].
+The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.jar*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
 
 
 The following procedures are needed to provision an HDInsight cluster using the SDK:
@@ -361,7 +361,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 		string containerName = "<Blob container name>";
 		
 	
-	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription name from the [Windows Azure Management portal][azure-management-portal]. 
+	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription name from the [Windows Azure Management Portal][azure-management-portal]. 
 
 	For information on certificate, see [Create and Upload a Management Certificate for Windows Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Windows Azure Tools* for both the *Issued To* and the *Issued By* fields.
 
@@ -380,7 +380,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
 		
 9. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 
@@ -427,8 +427,8 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 While the application is open in Visual Studio, press **F5** to run the application. A console window should open and display the status of the application and the application output. 
 
 
-##<a id="hive-sdk"></a> Submit Hive Jobs Using HDInsight .NET SDK 
-HDInsight clusters come with a sample Hive table called *hivesampletable*. In this session, you will create a .NET application to run a Hive job for listing the Hive tables created on HDInsight cluster. For a more information on using Hive, see [Using Hive with HDInsight][hdinsight-hive].
+##<a id="hive-sdk"></a> Submit Hive jobs using HDInsight .NET SDK 
+HDInsight clusters come with a sample Hive table called *hivesampletable*. In this session, you will create a .NET application to run a Hive job for listing the Hive tables created on HDInsight cluster. For a more information on using Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
 The following procedures are needed to provision an HDInsight cluster using the SDK:
 
@@ -522,7 +522,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             Query = "show tables;"
         };
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
 		
 9. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	
@@ -564,10 +564,10 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
-* [Using Hive with HDInsight][hdinsight-hive]
+* [Use Hive with HDInsight][hdinsight-hive]
 
 
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
