@@ -3,6 +3,7 @@
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+		<a href="/en-us/manage/services/notification-hubs/breaking-news-wp8" title="Windows Phone">Windows Phone</a>
 		<a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS">iOS</a>
 </div>
 
