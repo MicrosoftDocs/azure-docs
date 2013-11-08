@@ -60,7 +60,7 @@ Completing this tutorial is a prerequisite for all other notification hubs tutor
 You now have the connection strings required to register your Windows Phone 8 app and send notifications.
 
 <div class="dev-callout"><b>Note</b>
-		<p>This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications you can send to each channel. Notification Hubs support [MPNS authenticated mode]. Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.</p>
+		<p>This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications you can send to each channel. Notification Hubs support <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">MPNS authenticated mode</a>. <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.--></p>
 </div>
 
 <h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
@@ -80,7 +80,7 @@ You now have the connection strings required to register your Windows Phone 8 ap
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-3. At the following code at the top of **Application_Launching** method in App.xaml.cs. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example):
+3. At the following code at the top of **Application_Launching** method in App.xaml.cs:
 	
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -131,7 +131,7 @@ To send notifications using a .NET app:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In your `Program` class add the following method. Make sure to replace the "hub name" placeholder with the name of the notification hub that appears in the portal on the **Notification Hubs** tab (for example, **mynotificationhub2** in the previous example):
+3. In your `Program` class add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -198,13 +198,10 @@ In this simple example you broadcast notifications to all your Windows Phone 8 d
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
-
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone 8]: tbd!!!
 [MPNS authenticated mode]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
-
 [Use Notification Hubs to push notifications to users]: ./tutorial-notify-users-aspnet.md
 [Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
-
 [toast catalog]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202948(v=vs.105).aspx

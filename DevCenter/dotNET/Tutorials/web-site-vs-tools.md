@@ -31,9 +31,9 @@ You'll learn:
 
 This tutorial works with the development environment, web project, and Windows Azure Web Site that you set up in [Getting started with Windows Azure and ASP.NET][GetStarted].
 
-Remote debugging requires Visual Studio 2013. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, Visual Studio 2012, and Visual Studio 2012 Express for Web. 
+Remote debugging requires Visual Studio 2013 or Visual Studio 2012. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, and Visual Studio 2012 Express for Web. 
 
-<div class="dev-callout"><strong>Note</strong><p>The streaming logs feature that this tutorial demonstrates is only available for applications that target .NET Framework 4 or later.</p></div><br />
+The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
 <h2><a name="sitemanagement"></a><span class="short-header">Site management</span>Site configuration and management</h2>
 
@@ -65,7 +65,7 @@ Sometimes you might find that your application runs correctly when you run it lo
 
 In this section, you'll debug locally first, and then you'll see how to debug remotely. 
 
-<div class="dev-callout"><strong>Note</strong><p>The remote debugging feature is offered as a Community Technology Preview (CTP) and is still under development. Currently the feature does not work with site names or user names that are longer than 20 characters.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>Remote debugging is a preview feature and currently does not work with site names or user names that are longer than 20 characters.</p></div>
 
 ### Debug locally
 
@@ -120,13 +120,33 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 5. Make sure that the breakpoint you set earlier is still set.
 
-5. In Server Explorer, expand **Windows Azure**, expand **Web Sites**, right-click your web site, and click **Attach Debugger**.
+5. For Visual Studio 2013 only: In **Server Explorer** expand **Windows Azure**, expand **Web Sites**, right-click your web site, and click **Attach Debugger**. 
 
    ![Attach debugger](../Media/tws-attachdebugger.png)
 
-   The browser opens to your home page running in Windows Azure.
+   The browser automatically opens to your home page running in Windows Azure. You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
 
-   You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times when you start debugging again there won't be a delay.
+6. For Visual Studio 2012 only:
+
+   * In the Windows Azure Management Portal, go to the **Configure** tab for your web site, and then scroll down to the **Site Diagnostics** section.
+
+   * Set **Remote Debugging** to **On**, and set **Remote Debugging Visual Studio Version** to **2012**.
+
+      ![Set remote debugging in management portal](../Media/tws-debuginportal.png)
+   
+   * In the Visual Studio **Debug** menu, click **Attach to Process**.
+
+   * In the **Qualifier** box, enter the URL for your web site, without the `http://` prefix. 
+
+   * Select **Show processes from all users**.
+
+   * When you're prompted for credentials, enter the user name and password that has permissions to publish the web site. To get these credentials, go to the Dashboard tab for your web site in the management portal and click **Download the publish profile**. Open the file in a text editor, and you'll find the user name and password after the first occurrences of **userName=** and **userPWD=**. 
+
+   * When the processes appear in the **Available Processes** table, select **w3wp.exe**, and then click **Attach**.
+
+   * Open a browser to your site URL.
+
+      You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
 
 6. Click **About** in the menu again.
 

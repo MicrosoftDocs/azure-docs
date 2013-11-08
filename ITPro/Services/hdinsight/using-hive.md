@@ -54,7 +54,7 @@ Log files are therefore a good example of big data. Working with big data is dif
 
 ##<a id="uploaddata"></a>Upload data files to the Blob storage
 
-HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article, you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [How to Upload Data to HDInsight][hdinsight-upload-data].
+HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article, you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload Data to HDInsight][hdinsight-upload-data].
 
 To access files, use the following syntax: 
 
@@ -103,7 +103,7 @@ Because the file is stored in the default file system, you can also access the f
 ##<a id="runhivequeries"></a> Run Hive queries using PowerShell
 In the last section, you have uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create hive table, load data to the hive table, and then query the data to find out how many error logs.
 
-This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [How to Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
+This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 There are two options to run Hive queries:
 
