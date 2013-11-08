@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-using-pig" urlDisplayName="Use Pig" pageTitle="Use Pig with HDInsight - Windows Azure tutorial" metaKeywords="using pig, pig hdinsight, pig azure, powershell" metaDescription="Learn how to use Pig as an alternative to Java to writing scripts to execute a MapReduce job on big data in HDInsight. " metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# Using Pig with HDInsight #
+# Use Pig with HDInsight #
 
 
 [Apache *Pig*][apachepig-home] provides a scripting language to execute *MapReduce* jobs as an alternative to writing Java code. In this tutorial, you will use PowerShell to run some Pig Latin statements to analyze an Apache log4j log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
