@@ -45,19 +45,6 @@ app.js file:
 		//, sio = require('..//..//lib//socket.io'); //Original
   		, sio = require('socket.io');                //Updated
 
-3.  Since Windows Azure Web Sites does not currently support WebSockets, add the following code to force long-polling:
-
-		var io = sio.listen(app) //Original
-		  , nicknames = {};      //Original
-
-		io.configure(function () {                //Added
-		  io.set('transports', ['xhr-polling']);  //Added
-		});                                       //Added
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-		<p>The Cloud Services version of this tutorial does support using WebSockets. For more information, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/app-using-socketio/">Build a Node.js Chat Application with Socket.IO on a Windows Azure Cloud Service</a>.</p> 
-	</div>
 
 3.  To ensure the application listens on the correct port, open
     app.js in Notepad or your favorite editor, and then change the
@@ -118,6 +105,20 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 	<b>Note</b>
 	<p>During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.</p>
 	</div>
+
+3. Socket.IO uses WebSockets, which are not enabled by default on Windows Azure. To enable web sockets, use the following command:
+
+		azure site set -w
+
+	If prompted, enter the name of the web site.
+
+	<div class="dev-callout">
+	<b>Note</b>
+	<p>The 'azure site set -w' command will only work with version 0.7.4 or higher of the Windows Azure Cross-Platform Command-Line Interface. You can also enable WebSocket support using the Windows Azure Management Portal.</p>
+	<p>To enable WebSockets using the <a href="https://manage.windowsazure.com">Windows Azure Management Portal</a>, select the Configure page for your web site, select 'ON' for the Web Sockets entry, and then click Save.</p>
+	<img src="../Media/websockets.png" />
+	</div>
+
 
 4. To view the web site on Windows Azure, use the following command to launch your web browser and navigate to the hosted web site:
 
