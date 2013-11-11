@@ -2,7 +2,7 @@
 
 
 
-# Get started with the HDInsight Emulator for Windows Azure 
+# Get started with the Windows Azure HDInsight Emulator for Windows Azure
 
 This tutorial gets you started using the Microsoft HDInsight Emulator for Windows Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Windows Azure HDInsight Service. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions"). 
 
@@ -27,14 +27,14 @@ Before you begin this tutorial, you must have the following:
 
 ## In this tutorial
 
-* [Install the HDInsight Emulator for Windows Azure](#install)
+* [Install the HDInsight Emulator](#install)
 * [Run the word count sample](#runwordcount)
 * [Run the getting started samples](#rungetstartedsamples)
 * [Connect to Windows Azure Blob storage](#blobstorage)
 
-##<a name="install"></a>Install the HDInsight Emulator for Windows Azure
+##<a name="install"></a>Install the HDInsight Emulator
 
-The Microsoft HDInsight Emulator for Windows Azure is installable via the Microsoft Web Platform Installer.  
+The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform Installer.  
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -76,6 +76,7 @@ The Microsoft HDInsight Emulator for Windows Azure is installable via the Micros
 
 ##<a name="runwordcount"></a>Run a word count MapReduce job
 
+Now you have the HDInsight emulator configured on your workstation. You can run a MapReduce job to test the installation. You will first upload some text files to HDFS, and then run a word count MapReduce job to count the word frequencies of those files. 
 
 **To run the word count MapReduce job**
 
@@ -167,7 +168,7 @@ Generating and importing the data to HDFS is done using the PowerShell script im
 
 		powershell –File importdata.ps1 w3c -ExecutionPolicy unrestricted 
 
-	If you want to load data into WASB instead, see [Connect to Windows Azure Blob storage][#blobstorage].
+	If you want to load data into WASB instead, see [Connect to Windows Azure Blob storage](#blobstorage).
 
 4. Run the following command from Hadoop command line to list the imported files on the HDFS:
 
@@ -176,13 +177,13 @@ Generating and importing the data to HDFS is done using the PowerShell script im
 	The output should be similar to the following: 
 
 		c:\Hadoop\GettingStarted\w3c>hadoop fs -lsr /w3c
-		drwxr-xr-x   - jgao supergroup          0 2013-10-30 13:29 /w3c/input
-		drwxr-xr-x   - jgao supergroup          0 2013-10-30 13:29 /w3c/input/large
-		-rw-r--r--   1 jgao supergroup  543692369 2013-10-30 13:29 /w3c/input/large/data_w3c_large.txt
-		drwxr-xr-x   - jgao supergroup          0 2013-10-30 13:28 /w3c/input/medium
-		-rw-r--r--   1 jgao supergroup  272394671 2013-10-30 13:28 /w3c/input/medium/data_w3c_medium.txt
-		drwxr-xr-x   - jgao supergroup          0 2013-10-30 13:28 /w3c/input/small
-		-rw-r--r--   1 jgao supergroup    1058328 2013-10-30 13:28 /w3c/input/small/data_w3c_small.txt
+		drwxr-xr-x   - username supergroup          0 2013-10-30 13:29 /w3c/input
+		drwxr-xr-x   - username supergroup          0 2013-10-30 13:29 /w3c/input/large
+		-rw-r--r--   1 username supergroup  543692369 2013-10-30 13:29 /w3c/input/large/data_w3c_large.txt
+		drwxr-xr-x   - username supergroup          0 2013-10-30 13:28 /w3c/input/medium
+		-rw-r--r--   1 username supergroup  272394671 2013-10-30 13:28 /w3c/input/medium/data_w3c_medium.txt
+		drwxr-xr-x   - username supergroup          0 2013-10-30 13:28 /w3c/input/small
+		-rw-r--r--   1 username supergroup    1058328 2013-10-30 13:28 /w3c/input/small/data_w3c_small.txt
 
 5. Run the following command to display one of the data files to the console window:
 
@@ -291,7 +292,7 @@ The Hive query engine will feel familiar to analysts with strong SQL skills. It 
 	The output shall be similar to the following:
 
 		c:\Hadoop\GettingStarted>C:\Hadoop\hive-0.9.0\bin\hive.cmd -f ./Hive/w3c/w3ccrea	te.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
-		Hive history file=c:\hadoop\hive-0.9.0\logs\history/hive_job_log_jgao_201310311452_1053491002.txt
+		Hive history file=c:\hadoop\hive-0.9.0\logs\history/hive_job_log_username_201310311452_1053491002.txt
 		Logging initialized using configuration in file:/C:/Hadoop/hive-0.9.0/conf/hive-log4j.properties
 		OK
 		Time taken: 0.616 seconds
@@ -454,7 +455,7 @@ For example:
 
 <pre><code>ls: No FileSystem for scheme: wasb</code></pre>
 
-<p>It is because you are still using the Developer Preview version. Please follow the instructions found in [Install the HDInsight Emulator for Windows Azure](#install) to uninstall the developer preview version, and then reinstall the application.</p> 
+<p>It is because you are still using the Developer Preview version. Please follow the instructions found in the Install the HDInsight Emulator section of this article to uninstall the developer preview version, and then reinstall the application.</p> 
 </div>
 
 ### Connect to Windows Azure Blob storage
@@ -559,7 +560,7 @@ It is also possible to use a Windows Azure Blob storage container as the default
 ##<a href="nextsteps"></a> Next steps
 In this tutorial, you have an HDInsight Emulator installed, and have ran some Hadoop jobs. To learn more, see the following articles:
 
-- Additional installation issues for the HDInsight Emulator for Windows Azure may be found in the [Release Notes](https://gettingstarted.hadooponazure.com/releaseNotes.html).
+- Additional installation issues for the HDInsight Emulator may be found in the [Release Notes](https://gettingstarted.hadooponazure.com/releaseNotes.html).
 - Microsoft HDInsight feature suggestions may be made on the [Feature Voting](http://hdinsight.uservoice.com/forums/174476-microsoft-hdinsight-feature-suggestions) page.
 - There is a forum for asking questions and discussing issues at the  [MSDN forum for discussing HDInsight for Windows and Windows Azure](http://social.msdn.microsoft.com/Forums/en-US/hdinsight).
 - Microsoft Windows Azure HDInsight Service articles can be found at [www.windowsazure.com](http://www.windowsazure.com) by searching the keyword *hdinsight*.
