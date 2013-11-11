@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-provision-hdinsight-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision HDInsight clusters - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to provision clusters for the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-provision-hdinsight-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision HDInsight clusters - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to provision clusters for the Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 #Provision HDInsight clusters
 
@@ -28,7 +28,7 @@ HDInsight cluster uses a Windows Azure Blob Storage container as the default fil
 <p>Currently, only the Europe North and the US West and the US East region can host HDInsight clusters.</p> 
 </div>
 
-This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started].
+This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Getting Started with Windows Azure HDInsight][hdinsight-getting-started].
 
 
 **To create a HDInsight cluster using the custom create option**
@@ -164,7 +164,7 @@ It can take several minutes to provision a cluster.  When the provision process 
 
 
 ##<a id="powershell"></a> Using Windows Azure PowerShell
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
 
 The following procedures are needed to provision an HDInsight cluster using PowerShell:
@@ -681,7 +681,7 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Getting Started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" metaDescription="Learn how to programmatically submit Hadoop jobs using the Windows Azure HDInsight Service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" metaDescription="Learn how to programmatically submit Hadoop jobs to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Submit Hadoop jobs programmatically
 
@@ -9,7 +9,7 @@ In this article, you will learn how to submit MapReduce and Hive jobs using Powe
 Before you begin this article, you must have the following:
 
 * A Windows Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+* Install and configure HDInsight PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 
 ##In this article
@@ -27,7 +27,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 
 **To run the word count MapReduce program using PowerShell**
 
-1.	Open **Windows Azure PowerShell**. For instructions on opening the Windows Azure PowerShell console window, see the [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1.	Open **Windows Azure PowerShell**. For instructions on opening the Windows Azure PowerShell console window, see the [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 3. Set these two variables by running the following PowerShell commands:
 		
@@ -250,7 +250,7 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 **To run a Hive job using PowerShell**
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 2. Set the first two variables in the following commands, and then run the commands:
 		
@@ -573,7 +573,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-using-hdinsight/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 

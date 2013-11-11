@@ -2,16 +2,16 @@
 
 # Use MapReduce with HDInsight#
  
-This sample topic shows how to run a MapReduce program that counts word occurences in a text with the Windows Azure HDinsight service using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by the HDinsight service. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
+This sample topic shows how to run a MapReduce program that counts word occurences in a text with Windows Azure HDinsight using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by HDinsight. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
 The Hadoop MapReduce program reads the text file and counts how often each word occurs. The output is a new text file that consists of lines, each of which contains a word and the count (a key/value tab-separated pair) of how often that word occurred in the document. This process is done in two stages. The mapper (the cat.exe in this sample) takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer (the wc.exe in this sample) then sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
 
-The JAR file that contains the files needed by the Windows Azure HDInsight service to deploy the application to its Hadoop cluster is a .zip file and is available for download.
+The JAR file that contains the files needed by Windows Azure HDInsight to deploy the application to its Hadoop cluster is a .zip file and is available for download.
 
  
 **You will learn**
 		
-* How to use Windows Azure PowerShell to run a MapReduce program on the Windows Azure HDInsight service that analyzes data contained in a file.
+* How to use Windows Azure PowerShell to run a MapReduce program on Windows Azure HDInsight that analyzes data contained in a file.
 * How MapReduce programs are written in Java.
 
 **Prerequisites**	
@@ -19,7 +19,7 @@ The JAR file that contains the files needed by the Windows Azure HDInsight servi
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure HDInsight PowerShell](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 **Outline**		
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
@@ -31,7 +31,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 <h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 3. Set the two variables in the following commands, and then run them:
 		
@@ -174,15 +174,15 @@ Note that the output files of a MapReduce job are immutable. So if you rerun thi
 
 <h2><a id="summary"></a>Summary</h2>
 
-In this tutorial, you saw how to deploy a MapReduce job on an Hadoop cluster hosted on the Windows Azure HDinsight Service and how to use Monte Carlo methods that require and generare large datasets that can be managed by this service.
+In this tutorial, you saw how to deploy a MapReduce job on an HDInsight cluster and how to use Monte Carlo methods that require and generare large datasets that can be managed by this service.
 
 
 
 ##<a id="nextsteps"></a>Next steps
 
-While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in your HDInsight Service. To learn more, see the following articles:
+While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in HDInsight. To learn more, see the following articles:
 
-* [Get Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Use Hive with HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
 * [Use Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
 * [Run the HDInsight Samples](/en-us/manage/services/hdinsight/howto-run-samples/)

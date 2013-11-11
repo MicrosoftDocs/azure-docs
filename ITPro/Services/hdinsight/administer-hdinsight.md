@@ -97,7 +97,7 @@ In this article, you have learned how to create an HDInsight cluster using the W
 * [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Get Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
 
 
 [hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line-interface/

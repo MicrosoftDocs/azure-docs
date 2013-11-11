@@ -14,7 +14,7 @@ In Windows Azure HDInsight, Sqoop is deployed from the Hadoop Command Shell on t
 
  
 **You will learn:**		
-* How to use Windows Azure PowerShell to run a MapReduce program on the Windows Azure HDInsight service that analyzes data contained in a file.
+* How to use Windows Azure PowerShell to run a MapReduce program on Windows Azure HDInsight that analyzes data contained in a file.
 
 
 

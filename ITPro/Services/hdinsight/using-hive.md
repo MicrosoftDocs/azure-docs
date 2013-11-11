@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-using-hive" urlDisplayName="Using Hive" pageTitle="Using Hive with HDInsight - Windows Azure tutorial" metaKeywords="using hive, hive hdinsight, hive azure, powershell, hdinsight" metaDescription="Learn how to use Hive with data stored in HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-using-hive" urlDisplayName="Using Hive" pageTitle="Use Hive with HDInsight - Windows Azure tutorial" metaKeywords="using hive, hive hdinsight, hive azure, powershell, hdinsight" metaDescription="Learn how to use Hive with data stored in HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
 
 
 
-# Using Hive with HDInsight #
+# Use Hive with HDInsight #
 
 [Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied towards summarization, querying, and analysis of large volumes of data. In this article, you will use HiveQL to query the data in an Apache log4j log file and report basic statistics. 
 
@@ -10,8 +10,8 @@
 
 Note the following requirements before you begin this article:
 
-* A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight service][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+* A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure HDInsight PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 
@@ -103,13 +103,13 @@ Because the file is stored in the default file system, you can also access the f
 ##<a id="runhivequeries"></a> Run Hive queries using PowerShell
 In the last section, you have uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create hive table, load data to the hive table, and then query the data to find out how many error logs.
 
-This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight Service][hdinsight-getting-started] and [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight][hdinsight-getting-started] and [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 There are two options to run Hive queries:
 
 **To run the Hive queries using Start-AzureHDInsightJob**
 
-1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 2. Set the variables in the following script and run it:
 
 		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
@@ -193,9 +193,9 @@ You can use the same command to run a HiveQL file:
 		
 ##<a id="nextsteps"></a>Next steps
 
-While Hive makes it easy to query data using a SQL-like query language, other languages available with the HDInsight Service provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
+While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
-* [Getting started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Getting started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 

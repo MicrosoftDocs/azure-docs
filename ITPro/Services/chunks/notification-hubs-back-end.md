@@ -66,9 +66,8 @@ Skip steps 1-3 if you created a console app when you completed [Get started with
                 }
                 catch (ArgumentException)
                 {
-                    // An exception is raised when there are no devices registered for 
-                    // either the iOS, Windows Store, or Windows Phone platform. 
-                    // Consider using template notifications instead.
+                    // An exception is raised when the notification hub hasn't been 
+                    // registered for the iOS, Windows Store, or Windows Phone platform. 
                 }
             }
 		 }
@@ -76,7 +75,7 @@ Skip steps 1-3 if you created a console app when you completed [Get started with
 	This code sends notifications for each of the six tags in the string array to Windows Store, Windows Phone and iOS devices. The use of tags makes sure that devices receive notifications only for the registered categories.
 	
 	<div class="dev-callout"><strong>Note</strong> 
-		<p>This code supports Windows Store, Windows Phone and iOS clients. Send methods return an error response when a registration doesn't exist for a particular platform. To avoid this, consider using template registrations to send a single notification to multiple platforms. For an example, see <a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/">Use Notification Hubs to broadcast localized breaking news</a>. </p>
+		<p>This backend code supports Windows Store, Windows Phone and iOS clients. Send methods return an error response when the notification hub hasn't yet been configured for particular client platform. </p>
 	</div>
 
 6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier.
