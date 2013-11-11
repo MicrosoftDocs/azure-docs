@@ -19,7 +19,7 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 
 	The storage account access key is stored encrypted in app settings. You can access this key from any server script at runtime. For more information, see [App settings].
 
-4. click the **Data** tab and then click the **TodoItem** table. 
+4. Click the **Data** tab and then click the **TodoItem** table. 
 
    ![][3]
 

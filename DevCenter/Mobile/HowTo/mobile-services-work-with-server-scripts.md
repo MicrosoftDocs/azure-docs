@@ -523,18 +523,19 @@ The following custom API example uses the supplied [service object] to retrieve 
 
 		}
 
-The following code uses the configuration module to access Twitter credentials, stored in app settings, that is used in a scheduled job script:
+The following code uses the configuration module to retrieve Twitter access token values, stored in app settings, that are used in a scheduled job script:
 
-		// Get the app settings from the service configuration module.
-		var settings = require('mobileservice-config').appSettings;
+		// Get the service configuration module.
+		var config = require('mobileservice-config');
 
-		// Get your Twitter v1.1 access credentials from app settings.
-		var consumerKey = settings.TWITTER_CONSUMER_KEY,
-		    consumerSecret = settings.TWITTER_CONSUMER_SECRET,
-		    accessToken= settings.TWITTER_ACCESS_TOKEN,
-		    accessTokenSecret = settings.TWITTER_ACCESS_TOKEN_SECRET;
+		// Get the stored Twitter consumer key and secret. 
+		var consumerKey = config.twitterConsumerKey,
+		    consumerSecret = config.twitterConsumerSecret
+		// Get the Twitter access token from app settings.    
+		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
+		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
-Because a [config object][config module] is not available in table operation and scheduled job scripts, you must require the configuration module to access app settings. For a complete example, see [Schedule backend jobs in Mobile Services].
+Note that this code also retrieves Twitter consumer key values stored in the **Identity** tab in the portal. Because a **config object** is not available in table operation and scheduled job scripts, you must require the configuration module to access app settings. For a complete example, see [Schedule backend jobs in Mobile Services].
 
 <h2><a name="command-prompt"></a>Using the command line tool</h2>
 

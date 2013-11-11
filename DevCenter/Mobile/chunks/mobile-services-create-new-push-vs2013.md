@@ -25,3 +25,7 @@ First, you use the Add Push Notification wizard in Visual Studio 2013 to registe
 	<div class="dev-callout"><b>Note</b>
 		<p>When your app isn't already configured to connect to the mobile service, the wizard also completes the same configuration tasks demonstrated in <strong>Get started with data</strong>.</p>
 	</div>
+
+<!-- URLs. -->
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
