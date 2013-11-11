@@ -1,12 +1,12 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get Started with HDInsight Emulator for Windows Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" metaDescription="Learn how to use HDInsight Emulator for Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get Started with HDInsight Emulator for Windows Azure" metaKeywords="hdinsight, Windows Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" metaDescription="Learn how to use HDInsight Emulator for Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 
 
-# Get started with the Windows Azure HDInsight Emulator for Windows Azure
+# Get started with the HDInsight Emulator 
 
-This tutorial gets you started using the Microsoft HDInsight Emulator for Windows Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Windows Azure HDInsight Service. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions"). 
+This tutorial gets you started using the Microsoft HDInsight Emulator for Windows Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Windows Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions"). 
 
-HDInsight Emulator provides a local development environment for the Windows Azure HDInsight Service. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. But, in HDInsight, the default file system is Windows Azure Blob storage (WASB, aka Windows Azure Storage - Blobs), so eventually, you will want to develop your jobs using WASB. You can get started developing against WASB by using the Windows Azure Storage Emulator – probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storge – again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to the HDInsight Service and run a job against production data.
+HDInsight Emulator provides a local development environment for the Windows Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. But, in HDInsight, the default file system is Windows Azure Blob storage (WASB, aka Windows Azure Storage - Blobs), so eventually, you will want to develop your jobs using WASB. You can get started developing against WASB by using the Windows Azure Storage Emulator – probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storge – again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data.
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -411,7 +411,7 @@ The samples currently contain all of the required binaries, so building is not r
 
 
 ##<a name="blobstorage"></a>Connect to Windows Azure Blob storage
-Windows Azure HDInsight service uses Windows Azure Blob storage as the default file system. For more information, see [Using Windows Azure blob Storage with HDInsight][hdinsight-blob-store]. 
+Windows Azure HDInsight uses Windows Azure Blob storage as the default file system. For more information, see [Using Windows Azure blob Storage with HDInsight][hdinsight-blob-store]. 
 
 It is possible to configure a local cluster in the HDInsight Emulator to use Windows Azure Blob storage instead of local storage. The section covers:
 
@@ -498,7 +498,7 @@ For example:
 
 ### Use a Windows Azure Blob storage container as the default file system
 
-It is also possible to use a Windows Azure Blob storage container as the default file system, as is the case in Windows Azure HDInsight Service.  
+It is also possible to use a Windows Azure Blob storage container as the default file system, as is the case in Windows Azure HDInsight.  
 
 
 
@@ -563,7 +563,7 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 - Additional installation issues for the HDInsight Emulator may be found in the [Release Notes](https://gettingstarted.hadooponazure.com/releaseNotes.html).
 - Microsoft HDInsight feature suggestions may be made on the [Feature Voting](http://hdinsight.uservoice.com/forums/174476-microsoft-hdinsight-feature-suggestions) page.
 - There is a forum for asking questions and discussing issues at the  [MSDN forum for discussing HDInsight for Windows and Windows Azure](http://social.msdn.microsoft.com/Forums/en-US/hdinsight).
-- Microsoft Windows Azure HDInsight Service articles can be found at [www.windowsazure.com](http://www.windowsazure.com) by searching the keyword *hdinsight*.
+- Microsoft Windows Azure HDInsight articles can be found at [www.windowsazure.com](http://www.windowsazure.com) by searching the keyword *hdinsight*.
 
 [microsoft-web-platform-installer-4.6]: http://www.microsoft.com/web/downloads/platform.aspx
 
