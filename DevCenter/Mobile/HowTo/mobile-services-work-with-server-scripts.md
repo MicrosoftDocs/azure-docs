@@ -12,7 +12,7 @@ This article provides detailed information about and examples of how to work wit
 	+ [How to: Override default error handling]
 	+ [How to: Add custom parameters]
 	+ [How to: Work with table users][How to: Work with users]
-+ [Custom API]
++ [Custom API][Custom API anchor]
 	+ [How to: Define a custom API]
 	+ [How to: Implement HTTP methods]
 	+ [How to: Send and receive data as XML]
@@ -534,7 +534,7 @@ The following code uses the configuration module to access Twitter credentials, 
 		    accessToken= settings.TWITTER_ACCESS_TOKEN,
 		    accessTokenSecret = settings.TWITTER_ACCESS_TOKEN_SECRET;
 
-Because a **config object** is not available in table operation and scheduled job scripts, you must require the configuration module to access app settings. For a complete example, see [Schedule backend jobs in Mobile Services].
+Because a [config object][config module] is not available in table operation and scheduled job scripts, you must require the configuration module to access app settings. For a complete example, see [Schedule backend jobs in Mobile Services].
 
 <h2><a name="command-prompt"></a>Using the command line tool</h2>
 
@@ -925,7 +925,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Source control, shared code, and helper functions]: #shared-code
 [Using the command line tool]: #command-prompt
 [Working with tables]: #working-with-tables
-[Custom API]: #custom-api
+[Custom API anchor]: #custom-api
 [How to: Define a custom API]: #define-custom-api
 [How to: Share code by using source control]: #shared-code-source-control
 [How to: Use helper functions]: #helper-functions
@@ -997,4 +997,5 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
 [Leverage shared code and Node.js modules in your server scripts]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
 [service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[App settings]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
+[config module]: http://msdn.microsoft.com/en-us/library/dn508125.aspx
