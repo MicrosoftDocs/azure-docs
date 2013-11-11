@@ -1,4 +1,4 @@
-1. In the insert.js file for the **channels*** table, locate the following lines of code, comment them out or remove them from the file, then save your changes.
+1. In the insert.js file for the **channels** table, locate the following lines of code, comment them out or remove them from the file, then save your changes.
 
 		sendNotifications(item.channelUri);
 
