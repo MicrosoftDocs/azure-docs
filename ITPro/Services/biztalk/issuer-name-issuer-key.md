@@ -37,19 +37,31 @@ The ACS Issuer Name and Issuer Key are used by the following:
 ### To retrieve the ACS Issuer Name and Issuer Key
 
 1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. In the left navigation pane, click **Active Directory**.
-3. Click the **Access Control Namespaces** tab. 
-4. Click your ACS namespace and click **Manage**. The **Access Control Service** portal opens.
-5. Under **Service Settings**, click **Service Identities**. This displays your Service Identity, which is your ACS Issuer Name value. Click your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
+2. In the left navigation pane, select **BizTalk Services**.
+3. Select your BizTalk Service. 
+4. Select **Connection Information** in the task bar. The ACS Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.<br/><br/>
+To summarize:<br/>
+Issuer Name = Default Issuer<br/>
+Issuer Key = Default Key
+
+
+You can also click **Open ACS Management Portal** to retrieve the ACS values:
+
+1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+2. In the left navigation pane, select **BizTalk Services**.
+3. Select your BizTalk Service.
+4. Select the Connectioin Information button and select **Open ACS Management Portal**.
+5. In the Portal under **Service Settings**, click **Service Identities**. This displays your Service Identity, which is your ACS Issuer Name value. Click your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
 For example, in **Service Identities**, you see "owner". "Owner" is your ACS Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your ACS Issuer Key. <br/><br/>
 To summarize:<br/>
 Issuer Name = Service Identity name<br/>
 Issuer Key = Password value
 
+In the left navigation pane, you can also select **Active Directory** to retrieve the ACS values. 
+
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>When the ACS Namespace is created, a Service Identity is <strong>not</strong> automatically created. When you provision a BizTalk Service in the Windows Azure Management Portal, you specify an existing ACS Namespace. <em>If</em> an existing  Service Identity does not exist, provisioning a BizTalk Service automatically creates a Service Identity named "owner". </p> 
-<p>If the Service Identity already exists when you provision a BizTalk Service, that Service Identity Password <strong>and</strong> Symmetric Key must be generated. Only the Service Identity Name (Issuer Name) and Password (Issuer Key) are entered but the Symmetric Key must also be generated. </p>
+<p>When an ACS Namespace is created using <b>Active Directory</b>, a Service Identity is <b>not</b> automatically created. When you provision a BizTalk Service, an ACS Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.</p> 
 <p><a href="http://go.microsoft.com/fwlink/p/?LinkID=303942">How to: Use ACS Management Service to Configure Service Identities</a> provides more information on ACS Service Identities.</p>
 </div>
 
@@ -69,14 +81,17 @@ Issuer Key = Default Key
 ## Next
 Additional Windows Azure BizTalk Services topics:
 
--  [Installing the Windows Azure BizTalk Services SDK - June 2013 Preview](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+-  [Installing the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [Tutorials: Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 -  [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 -  [Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
--  [Business to Business Messaging](http://go.microsoft.com/fwlink/p/?LinkID=303670)<br/>
--  [Rich Messaging Endpoints](http://go.microsoft.com/fwlink/p/?LinkID=303671)<br/>
--  [Message Transforms](http://go.microsoft.com/fwlink/p/?LinkID=303672)<br/>
--  [BizTalk Adapter Service](http://go.microsoft.com/fwlink/p/?LinkID=303673)<br/>
+
 
 ## See Also
--  [How to: Use ACS Management Service to Configure Service Identities](http://go.microsoft.com/fwlink/p/?LinkID=303942)
+-  [How to: Use ACS Management Service to Configure Service Identities](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
