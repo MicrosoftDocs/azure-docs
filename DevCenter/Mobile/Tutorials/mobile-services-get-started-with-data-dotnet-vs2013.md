@@ -66,7 +66,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 		public class TodoItem
 		{
-		    public int Id { get; set; }
+		    public string Id { get; set; }
 		
 		    [JsonProperty(PropertyName = "text")]
 		    public string Text { get; set; }
@@ -92,7 +92,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 	This code inserts a new item into the table. 
 
-	<div class="dev-callout"><strong>Note</strong><p>New tables are created with only an Id column. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
+	<div class="dev-callout"><strong>Note</strong><p>New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
 
 7. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code: 
 
