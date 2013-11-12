@@ -328,7 +328,7 @@ Here is a sample javascript code that creates a hosted service and a deployment,
 	
 	var dataDisk1 = {
 	  LogicalDiskSizeInGB : 10,
-	  LUN : 0
+	  LUN : '0'
 	};
 	
 	var provisioningConfigurationSet = {
