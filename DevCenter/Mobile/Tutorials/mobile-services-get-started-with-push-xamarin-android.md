@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-xamarin-android" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications in Xamarin.Android apps with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-android.md" />
-
 # Get started with push notifications in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
@@ -216,7 +214,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 * [Mobile Services server script reference]
   <br/>Learn more about registering and using server scripts.
 
-* [Mobile Services android conceptual]
+* [Mobile Services Xamarin conceptual]
   <br/>Learn more about using Mobile Services with Android devices.
 
 <!-- Anchors. -->
@@ -255,9 +253,8 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-xamarin-android.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services android conceptual]: ../HowTo/mobile-services-client-xamarin-android.md
+[Mobile Services Xamarin conceptual]: ../HowTo/mobile-services-client-xamarin.md
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 [completed example project]: http://www.google.com
 [PushSharp Github page]: https://github.com/Redth/PushSharp

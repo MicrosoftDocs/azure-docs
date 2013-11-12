@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Windows Azure Mobile Services" writer="rpeters" metaKeywords="Windows Azure Xamarin.Android data, Azure mobile services data" metaDescription="Learn how to store and access data from your Windows Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-android.md" />
-
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding">    
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
@@ -29,7 +27,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Windows Azure Free Trial</a>.</p></div> 
 
 This tutorial requires the [Azure Mobile Services Component], [Xamarin.Android], and Android SDK 4.2 or a later version. 
 

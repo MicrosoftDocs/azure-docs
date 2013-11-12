@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-xamarin-android" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Xamarin.Android) - Mobile Services" metaKeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Xamarin.Android" metaDescription="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-android.md" />
-
 # Validate and modify data in Mobile Services by using server scripts
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
@@ -114,8 +112,8 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 2. In the GetView method, add the following code just above where the current code that sets <code>checkBox.Text</code> to <code>currentItem.Text</code>:
 
-       string displayDate = "missing";
-       if (currentItem.CreatedAt.HasValue)
+       	string displayDate = "missing";
+       	if (currentItem.CreatedAt.HasValue)
        		displayDate = currentItem.CreatedAt.Value.ToShortTimeString();
 
    This creates a formatted date string when a timestamp value exists. 
