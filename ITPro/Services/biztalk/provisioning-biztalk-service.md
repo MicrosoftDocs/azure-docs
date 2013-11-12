@@ -87,11 +87,12 @@ The following steps provision a new Windows Azure BizTalk Service:
 
 	![Select the New button][NEWButton]
 
-3. Select <b>APP SERVICES</b>, select <b>BIZTALK SERVICE</b>, and then select <b>CUSTOM CREATE</b>:
+3. Select <b>APP SERVICES</b>, select <b>BIZTALK SERVICE</b>, and then select **CUSTOM CREATE**:
 
 	![Select BizTalk Service and select Custom Create][NewBizTalkService]
 
 4. Enter the following BizTalk Service settings:
+
 	<table border="1">
 	<tr>
 	<td><strong>BizTalk Service Name</strong></td>
@@ -302,9 +303,9 @@ Now that a BizTalk Service is provisioned, you can familiar yourself with the di
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 - [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
+[NewBizTalkService]: ../Media/WABS_NewBizTalkService.png
 [NEWButton]: ../Media/WABS_New.png
 [ProgressComplete]: ../Media/WABS_ProgressComplete.png
-[NewBizTalkService]: ../Media/WABS_NewBizTalkService.png
 [ACSConnectInfo]: ../Media/WABS_ACSConnectInformation.png
 [QuickGlance]: ../Media/WABS_QuickGlance.png
 [ACSServiceIdentities]: ../Media/WABS_ACSServiceIdentities.png
