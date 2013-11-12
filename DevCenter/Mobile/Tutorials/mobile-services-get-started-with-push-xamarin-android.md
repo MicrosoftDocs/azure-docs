@@ -100,7 +100,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 8. Go to the **.Net Assembly** tab, browse to your project's **_external** folder, select the **PushSharp.Client.MonoForAndroid.dll** we built earlier and click **Add**. Click OK to close the dialog. 
 
-9. Open **Constants.cs** and add the following line, replacing **PROJECT_ID** with the Google Project_ID you noted earlier:
+9. Open **Constants.cs** and add the following line, replacing **PROJECT\_ID** with the Google Project_ID you noted earlier:
 
 		public const string SenderID = "PROJECT_ID"; // Google API Project Number
 
