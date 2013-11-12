@@ -56,7 +56,7 @@ In the Quick Start tab, you can do the following:
 </table>
 
 
-In the task bar at the bottom, you can **Manage** the BizTalk Service, view the ACS Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
+In the task bar at the bottom, you can **Manage** the BizTalk Service, view the Access Control Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
 
 <table border="1">
@@ -75,11 +75,11 @@ This is the same as <b>Create partner agreements</b> on the <b>Quick Start</b> t
 
 <tr>
 <td>Connection Information</td>
-<td>When you click Connection Information, the ACS Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+<td>When you click Connection Information, the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the ACS Management Portal. This ACS Mangement Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Management Portal. This Access Control Mangement Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the ACS Management Portal.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
 </tr>
 
 <tr>
@@ -207,7 +207,7 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 
 
 #### Manage, Connection Information, Sync Keys and Delete
-In the task bar at the bottom, you can **Manage** the BizTalk Service, view the ACS Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
+In the task bar at the bottom, you can **Manage** the BizTalk Service, view the Access Control Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -224,11 +224,11 @@ This is the same as <b>Create partner agreements</b> on the <b>Quick Start</b> t
 </tr>
 <tr>
 <td>Connection Information</td>
-<td>When you click Connection Information, the ACS Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+<td>When you click Connection Information, the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the ACS Management Portal. This ACS Mangement Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Management Portal. This Access Control Mangement Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the ACS Management Portal.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
 </tr>
 <tr>
 <td>Sync Keys</td>

@@ -29,8 +29,8 @@ A Windows Azure BizTalk Service consists of the following components:
 There are no minimum scale requirements for the SQL Database settings.</td>
 </tr>
 <tr>
-<td>Windows Azure Access Control Service (ACS) namespace</td>
-<td>The ACS namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this ACS Namespace. When you provision a BizTalk Service, the ACS Namespace is automatically created.</td>
+<td>Windows Azure Access Control namespace</td>
+<td>The Access Control namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control Namespace. When you provision a BizTalk Service, the Access Control Namespace is automatically created.</td>
 </tr>
 
 <tr>
@@ -75,11 +75,9 @@ This topic lists the steps to provision Windows Azure BizTalk Services, includin
 -  [Optional: Create the SQL Database Server](#SQLDB)
 -  [Optional: Create a Storage Account](#Storage)
 
-
-
 ##<a name="BizTalk"></a>Step 1: Provision a BizTalk Service
 
-The BizTalk Service hosts your Windows Azure BizTalk Service applications. When you provision a BizTalk Service, the ACS Namespace and self-signed SSL certificate are automatically created. You can choose to create a new Windows Azure SQL Database and new Storage Account. After the BizTalk Service is provisioned, some of these requirements can be updated. 
+The BizTalk Service hosts your Windows Azure BizTalk Service applications. When you provision a BizTalk Service, the Access Control Namespace and self-signed SSL certificate are automatically created. You can choose to create a new Windows Azure SQL Database and new Storage Account. After the BizTalk Service is provisioned, some of these requirements can be updated. 
 
 The following steps provision a new Windows Azure BizTalk Service:
 
@@ -214,7 +212,7 @@ Depending on the state of the BizTalk Service, there are some operations that ca
 This section lists the following steps: 
 
 -  [Add a private certificate](#AddCert)
--  [Retrieve the Access Control Service (ACS) namespace](#ACS)
+-  [Retrieve the Access Control namespace](#ACS)
 
 ####<a name="AddCert"></a>Add a private certificate
 When you provision a Windows Azure BizTalk Service, a URL that includes your BizTalk Service name is created. A private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. 
@@ -232,27 +230,27 @@ To add a production-ready certificate:
 5. Browse to your private SSL certificate (*CertificateName*.pfx) that includes your BizTalk Service name, enter the password, and select the check mark.
 
 
-####<a name="ACS"></a>Retrieve the Access Control Service (ACS) namespace
+####<a name="ACS"></a>Retrieve the Access Control namespace
 
-The ACS namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this ACS namespace. 
+The Access Control namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control namespace. 
 
-The ACS Namespace is automatically created for your BizTalk service. To retrieve the ACS namespace, Default Issuer, and Issuer Key, select the **Connection Information** button on the BizTalk Service Dashboard.
+The Access Control Namespace is automatically created for your BizTalk service. To retrieve the Access Control namespace, Default Issuer, and Issuer Key, select the **Connection Information** button on the BizTalk Service Dashboard.
 
-To retrieve the ACS Namespace:
+To retrieve the Access Control Namespace:
 
 1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. Select **BIZTALK SERVICES** in the left navigation pane and then select your BizTalk Service.
 3. In the task bar, select **Connection Information**:<br/><br/>
 ![Select Connection Information][ACSConnectInfo]
 
-You can copy and paste the ACS values.
+You can copy and paste the Access Control values.
 
-When the ACS namespace is created, the ACS values can be used with any application. When Windows Azure BizTalk Services is provisioned, this ACS namespace controls the authentication with your BizTalk Service deployment. If you want to change the subscription or manage the namespace, select **ACTIVE DIRECTORY** in the left navigation pane and then select your namespace. The bottom navigation pane lists your options.
+When the Access Control namespace is created, the Access Control values can be used with any application. When Windows Azure BizTalk Services is provisioned, this Access Control namespace controls the authentication with your BizTalk Service deployment. If you want to change the subscription or manage the namespace, select **ACTIVE DIRECTORY** in the left navigation pane and then select your namespace. The bottom navigation pane lists your options.
 
-Clicking **Manage** opens the ACS Management Portal. In the ACS Management Portal, the BizTalk Service uses **Service identities**:<br/><br/>
-![ACS Service Identities in the ACS Management Portal][ACSServiceIdentities]
+Clicking **Manage** opens the Access Control Management Portal. In the Access Control Management Portal, the BizTalk Service uses **Service identities**:<br/><br/>
+![ACS Service Identities in the Access Control Management Portal][ACSServiceIdentities]
 
-The ACS service identity is a set of credentials that allow applications or clients to authenticate directly with ACS and receive a token. 
+The Access Control service identity is a set of credentials that allow applications or clients to authenticate directly with Access Control and receive a token. 
 
 **Important**<br/>
 The BizTalk Service uses **Owner** for the default service identity and the **Password** value. If you use the Symmetric Key value instead of the Password value, the following error may occur:
