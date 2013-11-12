@@ -119,12 +119,12 @@ To be able to store app data in the new mobile service, you must first create a 
  	<tr>
  	<td>__updatedAt</td>
  	<td>date</td>
- 	<td>&nbsp;</td>
+ 	<td><font color="transparent">-</font></td>
  	</tr>
  	<tr>
  	<td>__version</td>
  	<td>timestamp (MSSQL)</td>
- 	<td>&nbsp;</td>
+ 	<td><font color="transparent">-</font></td>
  	</tr> 	
  	</table> 
 

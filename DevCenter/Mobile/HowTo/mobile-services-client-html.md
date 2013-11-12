@@ -286,7 +286,7 @@ Custom `id` strings are trimmed of whitespace before being stored in the databas
 
 +  [ASCII control codes C0 and C1]
 +  Printable characters:  **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
-+  The ids “.” and “..”
++  The ids "." and ".."
 
 
 
