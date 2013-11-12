@@ -244,13 +244,15 @@ All the functions described so far are additive, so we can just keep calling the
 
 ### <a name="lookingup"></a>How to: Look up data by ID
 
-The `lookup` function takes only the `id` value, and returns the object from the database with that ID.
+The `lookup` function takes only the `id` value, and returns the object from the database with that ID. Database tables are created with either an integer or string `id` column. The `id` column is  of type `varchar(255)` by default and initialized with the `NEWID()` function.
 
-			todoItemTable.lookup(3).done(function (result) {
+			todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
 			})
+
+
 
 <h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
@@ -271,6 +273,29 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			}, function (err) {
 			   alert("Error: " + err);
 			});
+
+You can insert new rows into a table with your own custom `id` values. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+
+			todoItemTable.insert({
+			   id: "email@domain.com",				
+			   text: "New Item",
+			   complete: false
+			})
+
+Custom `id` strings are trimmed of whitespace before being stored in the database. The value for the `id` must be unique and it must not include characters from the following sets:
+
++  [ASCII control codes C0 and C1]
++  Printable characters:  **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+
+
+
+If a value is not provided for the `id` field, a default `id` will be generated based on the `NEWID()` funtion.
+
+
+
+
 
 <h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
 
@@ -583,3 +608,4 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-html.md
 [login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
 [Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
