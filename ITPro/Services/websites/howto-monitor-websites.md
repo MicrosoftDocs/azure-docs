@@ -117,6 +117,10 @@ You can enable or disable the following application diagnostics:
 
 For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+
 Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Windows Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
 <div class="dev-callout"> 
@@ -134,6 +138,7 @@ Since application logging to storage requires using a storage client to view the
 <li><b>.NET</b> - <a href="/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">Enable diagnostic logging for Windows Azure Web Sites</a></li>
 <li><b>Node.js</b> - <a href="/en-us/develop/nodejs/how-to-guides/Debug-Website/">How to debug a Node.js application in Windows Azure Web Sites</a></li>
 </ul>
+<p>Application logging to table or blob storage is only supported for .NET applications.</p>
 </div>
 
 ####Site Diagnostics####
