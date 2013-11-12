@@ -39,6 +39,9 @@ This guide shows you how to perform common scenarios using the iOS client for Wi
 This guide assumes that you have created a mobile service with a table.  For more information see [Create a table]. The examples in this topic use a table named `ToDoItem`, which has the following columns:
 
 + `id`
++ `__createdAt`
++ `__updatedAt`
++ `__version`
 + `text`
 + `complete`
 + `duration`
@@ -203,7 +206,7 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 	}];	
 
 <div class="dev-callout"><strong>Note</strong>
-<p>When inserting an item, the insert fails when you manually set `id` in the dictionary object.</p>
+<p>When inserting an item, you can manually set the `id` in the dictionary object to a custom unique value.</p>
 </div>
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
@@ -220,7 +223,7 @@ Update an existing object by modifying an item returned from a previous query an
 
 When making updates, you only need to supply the field being update, along with the row ID, as in the following example:
 
-	[table update:@{"id" : 1, "Complete": Yes} completion:^(NSDictionary *item, NSError *error) {
+	[table update:@{"id" : "37BBF396-11F0-4B39-85C8-B319C729AF6D", "Complete": Yes} completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
 	

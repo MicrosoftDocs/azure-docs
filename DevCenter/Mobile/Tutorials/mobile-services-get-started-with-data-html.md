@@ -98,7 +98,35 @@ To be able to store app data in the new mobile service, you must first create a 
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
-5. Click the **Columns** tab and verify that there is only a single **id** column, which is automatically created for you.
+5. Click the **Columns** tab. Verify that the following default columns are automatically created for you: 
+	
+	<table border="1" cellpadding="10">
+ 	<tr>
+ 	<th>Column Name</th>
+ 	<th>Type</th>
+ 	<th>Index</th>
+ 	</tr>
+ 	<tr>
+ 	<td>id</td>
+ 	<td>string</td>
+ 	<td>Indexed</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__createdAt</td>
+ 	<td>date</td>
+ 	<td>Indexed</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__updatedAt</td>
+ 	<td>date</td>
+ 	<td>&nbsp;</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__version</td>
+ 	<td>timestamp (MSSQL)</td>
+ 	<td>&nbsp;</td>
+ 	</tr> 	
+ 	</table> 
 
   This is the minimum requirement for a table in Mobile Services. 
 

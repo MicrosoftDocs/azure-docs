@@ -50,7 +50,7 @@ The corresponding typed client-side .NET type is the following:
 
 	public class TodoItem
 	{
-		public int id { get; set; }
+		public string id { get; set; }
 
 		[JsonProperty(PropertyName = "text")]
 		public string Text { get; set; }
@@ -202,12 +202,12 @@ All the functions described so far are additive, so we can just keep calling the
 
 The `LookupAsync` function can be used to look up objects from the database with a particular ID. 
 
-	// This query filters out the item with the ID of 25
-	TodoItem item25 = await todoTable.LookupAsync(25);
+	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
+	TodoItem item25 = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
 <h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
-<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</p> </div>
+<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. A unique custom ID value can optionally be provided with insert operations. A valid ID value must always be present in update and delete operations.</p> </div>
 
 The following code illustrates how to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 
@@ -222,7 +222,7 @@ To insert untyped data, you may take advantage of Json.NET as shown below. Again
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
-If you attempt to insert an item with the "Id" field already set, you will get back a `MobileServiceInvalidOperationException` from the service. 
+
 
 <h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
 
@@ -234,7 +234,7 @@ The following code illustrates how to update an existing instance with the same 
 To insert untyped data, you may take advantage of Json.NET like so. Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update. The ID can be obtained from the result of the `InsertAsync` call.
 
 	JObject jo = new JObject(); 
-	jo.Add("Id", 52);
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	jo.Add("Text", "Hello World"); 
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
@@ -251,7 +251,7 @@ The following code illustrates how to delete an existing instance. The instance 
 To delete untyped data, you may take advantage of Json.NET like so. Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete. A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service. The result of a `DeleteAsync` call is usually `null` as well. The ID to pass in can be obtained from the result of the `InsertAsync` call.
 
 	JObject jo = new JObject(); 
-	jo.Add("Id", 52);
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 			
 If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
