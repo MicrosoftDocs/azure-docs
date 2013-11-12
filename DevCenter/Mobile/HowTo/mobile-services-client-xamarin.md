@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Xamarin, iOS, Android, .NET client" metaDescription="Learn how to use the Xamarin Component client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
+<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Xamarin, iOS, Android, .NET client" metaDescription="Learn how to use the Xamarin Component client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="xamarin" />
  
 
 
@@ -433,9 +433,11 @@ You get back JSON values that you can use like a property bag. For more informat
 
 The value returned by `MobileServiceClient.GetTable` and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a `MyMockTable : IMobileServiceTable<TodoItem>` that implements your testing logic.
 
-<h2><a name="customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
+<!-- <h2><a name="customizing"></a><span class="short-header">Customizing the client</span>How to: Customize the client</h2>
+-->
 
-<!--### <a name="headers"></a>How to: Customize request headers
+<!--
+### <a name="headers"></a>How to: Customize request headers
 
 You might want to attach a custom header to every outgoing request, or to change responses status codes. You can accomplish that by configuring a DelegatingHandler like below:
 
@@ -460,10 +462,12 @@ You might want to attach a custom header to every outgoing request, or to change
 			response.StatusCode = HttpStatusCode.ServiceUnavailable;
 			return response;
 		}
-	}-->
+	}
+-->
 			
 			
-<!--### <a name="serialization"></a>How to: Customize serialization
+<!--
+### <a name="serialization"></a>How to: Customize serialization
 
 The [MobileServiceClient](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) class exposes a `SerializerSettings` property of type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T_Newtonsoft_Json_JsonSerializerSettings.htm)
 
@@ -471,7 +475,8 @@ Using this property, you may set Json.NET properties (there have many), includin
 
 	var settings = new JsonSerializerSettings();
 	settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-	client.SerializerSettings = settings;-->
+	client.SerializerSettings = settings;
+-->
 
 <h2><a name="nextsteps"></a>Next steps</h2>
 
@@ -528,12 +533,12 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Get started with Mobile Services Android]: ../tutorials/mobile-services-get-started-xamarin-android.md
 [Xamarin download]: http://xamarin.com/download/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Xamarin.iOS quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-xamarin-ios/
-[Xamarin.Android quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-xamarin-android/
-[Xamarin.iOS data tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
-[Xamarin.Android data tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android/
-[Xamarin.iOS authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
-[Xamarin.Android authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/
+[Xamarin.iOS quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios/
+[Xamarin.Android quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-android/
+[Xamarin.iOS data tutorial]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
+[Xamarin.Android data tutorial]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android/
+[Xamarin.iOS authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
+[Xamarin.Android authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Xamarin.Auth component]: https://components.xamarin.com/view/xamarin.auth
 [ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
@@ -542,8 +547,8 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Get started with data Android]: ../Tutorials/mobile-services-get-started-with-data-xamarin-android.md
 [Get started with authentication iOS]: ../Tutorials/mobile-services-get-started-with-users-xamarin-ios.md
 [Get started with authentication Android]: ../Tutorials/mobile-services-get-started-with-users-xamarin-android.md
-[Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-xamarin-android.md
-[Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-xamarin-android.md
+[Validate and modify data with scripts ios]: ../Tutorials/mobile-services-validate-and-modify-data-xamarin-ios.md
+[Validate and modify data with scripts android]: ../Tutorials/mobile-services-validate-and-modify-data-xamarin-android.md
 [Refine queries with paging iOS]: ../Tutorials/mobile-services-paging-data-xamarin-ios.md
 [Refine queries with paging Android]: ../Tutorials/mobile-services-paging-data-xamarin-android.md
 [Authorize users with scripts iOS]: ../Tutorials/mobile-services-authorize-users-xamarin-ios.md
