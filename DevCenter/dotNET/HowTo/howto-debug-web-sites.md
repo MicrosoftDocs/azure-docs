@@ -52,11 +52,7 @@ Diagnostics can be enabled by visiting the **Configure** page of your Windows Az
 
 For most scenarios, logging **application diagnostics** to the **file system** will be sufficient; information stored in **storage** can only be accessed using a storage client.
 
-<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>All information logged for <b>site diagnostics</b> is stored on the web site file system.</p> </div>
-
-<a name="download"></a><h2>How to: Downloading logs</h2>
+<a name="download"></a><h2>How to: Download logs</h2>
 
 Diagnostic information stored to the web site file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Windows Azure PowerShell or the Windows Azure Command-Line Tools.
 
@@ -118,7 +114,7 @@ To stream logging information, start a new of Windows Azure PowerShell and use t
 
 	Get-AzureWebSiteLog -Name websitename -Tail
 
-This will connect to the web site specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web site.
+This will connect to the web site specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web site. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **-Message** parameter.
 
@@ -134,7 +130,7 @@ To stream logging information, open a new command prompt, PowerShell, Bash, or T
 
 	azure site log tail websitename
 
-This will connect to the web site named 'websitename' and begin streaming information to the window as log events occur on the web site.
+This will connect to the web site named 'websitename' and begin streaming information to the window as log events occur on the web site. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **-Filter** parameter.
 
