@@ -21,7 +21,7 @@ The following tables list the Operations that can be performed when the BizTalk 
         <th rowspan="18">BizTalk Service State</th>
 </tr>
 <tr bgcolor="FAF9F9">
-        <th>&nbsp;</th>
+        <th> </th>
         <th>Start</th>
         <th>Stop</th>
         <th>Restart</th>
@@ -31,65 +31,65 @@ The following tables list the Operations that can be performed when the BizTalk 
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Active</b></td>
-<td>&nbsp;</td>
+<td> </td>
 <td><center>√</center></td>
 <td><center>√</center></td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Disabled</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Suspended</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Stopped</b></td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
+<td> </td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Service Update Failed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>DisableFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>EnableFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
@@ -99,16 +99,16 @@ RestartFailed</b></td>
 <td><center>√</center></td>
 <td><center>√</center></td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>SuspendedFailed<br/>
 ResumeFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 <td><center>√</center></td>
 <td><center>√</center></td>
@@ -116,29 +116,29 @@ ResumeFailed</b></td>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
 RestoreFailed<br/></b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 </table>
@@ -154,7 +154,7 @@ RestoreFailed<br/></b></td>
         <th rowspan="18">BizTalk Service State</th>
 </tr>
 <tr bgcolor="FAF9F9">
-        <th>&nbsp;</th>
+        <th> </th>
         <th>Scale</th>
         <th>Update Configuration</th>
         <th>Backup</th>
@@ -167,73 +167,73 @@ RestoreFailed<br/></b></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Disabled</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Suspended</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Stopped</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 <td><center>√</center></td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>Service Update Failed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>DisableFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>EnableFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>StartFailed<br/>
 StopFailed<br/>
 RestartFailed</b></td>
-<td>&nbsp;</td>
+<td> </td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>SuspendedFailed<br/>
 ResumeFailed</b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
 RestoreFailed<br/></b></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
-<td>&nbsp;</td>
+<td> </td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
+<td> </td>
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
 <td><center>√</center></td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
+<td> </td>
+<td> </td>
 </tr>
 </table>
 

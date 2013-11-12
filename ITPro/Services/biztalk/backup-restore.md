@@ -56,7 +56,7 @@ When a Backup is created, the following items are backed up:
 
 <table border="1"> 
 <TR bgcolor="FAF9F9">
-<th>&nbsp;</th>
+<th> </th>
 <TH>Items backed up</TH> 
 </TR> 
 <TR>
