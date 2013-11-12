@@ -18,7 +18,7 @@ The following table lists the differences:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <th><font color="transparent">blank</font></th>
+        <th>&nbsp;</th>
         <th>Developer</th>
         <th>Basic</th>
         <th>Standard</th>
