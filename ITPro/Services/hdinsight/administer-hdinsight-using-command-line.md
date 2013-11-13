@@ -202,7 +202,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 
 * [Administer HDInsight using management portal][hdinsight-admin]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
-* [Getting started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]
 * [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]
 

@@ -19,7 +19,7 @@ In Windows Azure HDInsight, Sqoop is deployed from the Hadoop Command Shell on t
 
 
 **Prerequisites**:	
-You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 
 You will also need your outward facing IP address for your current location when configuring your firewall on SQL Database. To obtain it, go to the site [WhatIsMyIP][what-is-my-ip] and make a note of it. Later in the procedure, you also need the outward facing IP address for the head of the Hadoop cluster. You can obtain this IP address in the same way.
 

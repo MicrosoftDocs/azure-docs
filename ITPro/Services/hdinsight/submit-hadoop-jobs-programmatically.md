@@ -263,11 +263,13 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 3. Run the following commands to select Azure subscription and the cluster to run the Hive job:
 
 		Select-AzureSubscription -SubscriptionName $subscriptionName
-		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
 
 4. Submit the hive job:
 
-		Invoke-Hive "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+		Invoke-Hive -Query "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+
+	You can use the -File switch to specify a HiveQL script file on HDFS.
 
 For more information about Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
@@ -523,6 +525,8 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         };
 
 	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+
+	You can also use the File parameter to specify a HiveQL script file on HDFS.
 		
 9. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	
@@ -567,8 +571,9 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+* [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
 * [Use Hive with HDInsight][hdinsight-hive]
-
+* [Use Pig with HDInsight][hdinsight-pig]
 
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
@@ -581,6 +586,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
 [image-hdi-gettingstarted-runmrjob]: ../media/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ../media/HDI.GettingStarted.MRJobOutput.png

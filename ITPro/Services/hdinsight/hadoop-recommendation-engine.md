@@ -25,7 +25,7 @@ This tutorial is composed of the following segments:
 
 ## <a name="setup"></a>Setup and configuration 
 
-This tutorial assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run a sample. If you have not done this already, consult the [Getting Started with the Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites.
+This tutorial assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run a sample. If you have not done this already, consult the [Get Started with the Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites.
 
 ## <a name="segment1"></a>Examining and formatting the data 
 

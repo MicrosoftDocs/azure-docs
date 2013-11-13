@@ -221,6 +221,8 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 		
 		$pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $QueryString 
 
+		You can also use the -File switch to specify a Pig script file on HDFS.
+
 4. Run the following script to submit the Pig job:
 		
 		# Submit the Pig job
