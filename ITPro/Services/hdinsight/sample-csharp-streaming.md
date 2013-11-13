@@ -162,8 +162,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Sample: 10GB GraySort][10gb-graysort]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
 [streamreader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx
