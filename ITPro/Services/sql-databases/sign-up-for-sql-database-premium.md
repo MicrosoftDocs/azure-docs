@@ -54,7 +54,7 @@ Once your subscription is activated for the preview, you need to request Premium
 	**Note** – Account administrators, service administrators, and co-administrators of the subscription can request quota once the subscription is signed up for the preview.
 
 2.	Navigate to the **Servers** list in the **SQL Databases** extension.
-3.	Request Premium database quota.
+3.	Select the server for which you plan to Request Premium database quota.
 4.	Navigate to the **Quick Start** for the selected server by clicking the lightning bolt icon in the top navigation bar.
 5.	Click **Request Premium Database Quota** in the **Premium Database** section.
 
@@ -85,7 +85,7 @@ Once your subscription is activated for the preview, you need to request Premium
 
 Once you have been granted quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
-	![Image9] []
+	
 	
 **Note:** You can only change the Premium status or the reservation sizeof your database once in a 24 hour period.
 <h2><a id="NextSteps"></a>Next Steps</h2>
@@ -104,6 +104,6 @@ For additional information about Premium databases, see:
 [Image6]: ../media/RequestQuota-Figure6.png
 [Image7]: ../media/PendingApproval-Figure7.png
 [Image8]: ../media/QuotaApproved-Figure8.png
-[Image9]: ../media/PremiumDatabase-Figure9a.png
+
 
 
