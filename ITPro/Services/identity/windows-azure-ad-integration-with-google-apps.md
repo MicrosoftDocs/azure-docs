@@ -98,3 +98,8 @@ When integrating Windows Azure Active Directory with Google Apps for user provis
 <li>Select <strong>Enable API access</strong>.
 <img src="../media/Google_Tutorial_09.png" title="Enable API" /><p></p></li>
 </ol>
+
+
+
+
+
