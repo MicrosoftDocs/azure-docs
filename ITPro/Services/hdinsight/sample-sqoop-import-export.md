@@ -117,21 +117,15 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 
 
 * [Sample: Pi Estimator][pi-estimator]
-
 * [Sample: WordCount] [wordcount]
-
 * [Sample: C# Steaming][cs-streaming]
-
 * [Sample: 10GB GraySort][10gb-graysort]
-
-
 * [Tutorial: Using Pig][pig]
-
 * [Tutorial: Using Hive][hive]
-
 * [Tutorial: Using MapReduce][mapreduce]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [what-is-my-ip]:http://www.whatismyip.com/
 [wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/

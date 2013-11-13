@@ -423,7 +423,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Sample: C# Steaming][cs-streaming]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [run-samples]: /en-us/manage/services/hdinsight/howto-run-samples
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/

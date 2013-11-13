@@ -44,8 +44,9 @@ From this article and the articles on each of the samples, you learned how to ru
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
 * [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/

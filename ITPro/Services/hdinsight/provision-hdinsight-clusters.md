@@ -684,9 +684,9 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Getting Started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-
-
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
