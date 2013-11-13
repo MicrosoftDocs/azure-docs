@@ -4,7 +4,7 @@ This section shows how to send notifications in two different ways:
 - [From a console app]
 - [From Mobile Services]
 
-Both backends send notifications to both Windows Store and iOS devices. You can send notifications from any backend using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">Notification Hubs REST interface</a>. 
+Both backends send notifications to both Windows Store and iOS devices. You can send notifications from any backend using the [Notification Hubs REST interface]. 
 
 <h3><a name="console"></a>To send notifications from a console app in C#</h3>
 
@@ -167,3 +167,4 @@ You can now proceed to [Run the app and generate notifications].
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+[Notification Hubs REST interface]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
