@@ -105,5 +105,11 @@ Configuring a custom domain requires access to your public domain’s DNS zone f
 
 <img src="../media/Google_Tutorial_10.png" title="Custom Domain" />
 
+##To add a custom domain in Windows Azure AD, perform the following steps: ##
 
-
+<ol>
+<li>In the Windows Azure Management Portal, select <strong>Active Directory</strong> in the left navigation pane to open the <strong>active directory</strong> dialog page.</li>
+<li>In the directory list, select your directory to open your directory’s configuration page.</li>
+<li>Select <strong>DOMAINS</strong> from the top level menu.</li>
+<li>To open the <strong>ADD DOMAIN NAME</strong> textbox, type your domain name, and then click <strong>add</strong>.</li>
+</ol>
