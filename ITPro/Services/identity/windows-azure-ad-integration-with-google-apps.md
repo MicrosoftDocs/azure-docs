@@ -99,7 +99,11 @@ When integrating Windows Azure Active Directory with Google Apps for user provis
 <img src="../media/Google_Tutorial_09.png" title="Enable API" /><p></p></li>
 </ol>
 
+# Adding custom domains #
+Configuring user provisioning with Google Apps requires the Windows Azure AD domain and the Google Apps domain to have the same fully qualified domain name (FQDN). However, when you are, for example, using trial tenants to test the scenario in this tutorial, the FQDNS of your tenants typically don’t match. To address this issue, you can configure custom domains in Windows Azure AD and in Google Apps. 
+Configuring a custom domain requires access to your public domain’s DNS zone file. 
 
+<img src="../media/Google_Tutorial_10.png" title="Custom Domain" />
 
 
 
