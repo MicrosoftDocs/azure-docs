@@ -134,4 +134,26 @@ Configuring a custom domain requires access to your public domain’s DNS zone f
 	
 	<p></p>If you have already federated single sign-on configured, you must update the Google Apps tenant URL in your federated single ign-on configuration.</li>
 </ol>
+
+
+
+# Configuring user provisioning #
+The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Google Apps.
+
+## To configure user provisioning, perform the following steps: ##
+<ol>
+<li>In the Windows Azure Management Portal, select <strong>Active Directory</strong> in the left navigation pane to open the <strong>active directory</strong> dialog page.</li>
+<li>In the directory list, select your directory to open your directory’s configuration page.</li>
+<li>Select <strong>APPLICATIONS</strong> from the top level menu.</li>
+<li>From the list of applications, select <strong>Google Apps</strong> to open the <strong>google apps</strong> configuration dialog.</li>
+<li>To open the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog, click <strong>Configure account sync</strong>.</li>
+<li>On the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog page, provide the Google Apps domain name, the Google Apps user name and the Google Apps password, and then click the <strong>Next</strong> button.
+<p></p><img src="../media/Google_Tutorial_18.png" title="Enter Google Apps credentials" /></li>
+<li>On the <strong>Confirmation</strong> dialog page, click the <strong>Complete</strong> button to close the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog.</li>
+</ol>
+You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Google Apps.
+
+See Also
+[Best Practices for Managing the Application access enhancements for Windows Azure Active Directory
+Application Access](http://social.technet.microsoft.com/wiki/contents/articles/18409.best-practices-for-managing-the-application-access-enhancements-for-windows-azure-active-directory.aspx)
  
