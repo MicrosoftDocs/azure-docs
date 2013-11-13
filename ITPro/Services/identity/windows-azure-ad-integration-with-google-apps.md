@@ -112,4 +112,6 @@ Configuring a custom domain requires access to your public domain’s DNS zone f
 <li>In the directory list, select your directory to open your directory’s configuration page.</li>
 <li>Select <strong>DOMAINS</strong> from the top level menu.</li>
 <li>To open the <strong>ADD DOMAIN NAME</strong> textbox, type your domain name, and then click <strong>add</strong>.</li>
+<li>Click <strong>Next</strong> to open the <strong>Verify your domain name</strong> dialog page.
+<p></p><img src="../media/Google_Tutorial_11.png" title="Specify a domain name" /></li>
 </ol>
