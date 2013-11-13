@@ -36,18 +36,18 @@ In this section you will update the TodoList user interface to allow updating th
 
 
 1. In Visual Studio, open the TodoList project you downloaded in the [Get started with Mobile Services] tutorial.
-2. In the Visual Studio Solution Explorer, open MainPage.xaml and replace the `phone:LongListSelector` definition with the ListBox shown below and save the change.
+2. In the Visual Studio Solution Explorer, open MainPage.xaml and replace the `ListView` definition with the `ListView` shown below and save the change.
 
-		<ListBox Grid.Row="4" Grid.ColumnSpan="2" Name="ListItems">
-			<ListBox.ItemTemplate>
+		<ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
+			<ListView.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
 						<CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Margin="10,5" VerticalAlignment="Center"/>
-						<TextBox x:Name="ToDoText" Width="330" Text="{Binding Text, Mode=TwoWay}" AcceptsReturn="False" LostFocus="ToDoText_LostFocus"/>
+						<TextBox x:Name="ToDoText" Height="25" Width="300" Margin="10" Text="{Binding Text, Mode=TwoWay}" AcceptsReturn="False" LostFocus="ToDoText_LostFocus"/>
 					</StackPanel>
 				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
+			</ListView.ItemTemplate>
+		</ListView>
 
 3. In the Visual Studio Solution Explorer, open MainPage.xaml.cs. Add the event handler to the MainPage for the TextBox `LostFocus` event as shown below.
 
@@ -68,6 +68,8 @@ In this section you will update the TodoList user interface to allow updating th
 
         private async void UpdateToDoItem(TodoItem item)
         {
+            Exception exception = null;
+
             try
             {
                 //update at the remote table
@@ -75,7 +77,12 @@ In this section you will update the TodoList user interface to allow updating th
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Update Failed", MessageBoxButton.OK);
+                exception = ex;
+            }
+
+            if (exception != null)
+            {
+                await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
             }
         }
 
@@ -83,24 +90,23 @@ The application now writes the text changes to each item back to the database wh
 
 <h2><a name="enableOC"></a><span class="short-header">Enable Optimistic Concurrency</span>Enable Conflict Detection in your application</h2>
 
-Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Windows Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` field. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact.
+Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Windows Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact.
 
 1. In MainPage.xaml.cs update the **TodoItem** class definition with the following code to include the **__version** system property enabling support for write conflict detection:
 
-    public class TodoItem
-    {
-        public string Id { get; set; }
+		public class TodoItem
+		{
+			public string Id { get; set; }
 
-        [JsonProperty(PropertyName = "text")]
-        public string Text { get; set; }
+			[JsonProperty(PropertyName = "text")]
+			public string Text { get; set; }
 
-        [JsonProperty(PropertyName = "complete")]
-        public bool Complete { get; set; }
+			[JsonProperty(PropertyName = "complete")]
+			public bool Complete { get; set; }
 
-        [JsonProperty(PropertyName = "__version")]
-        public byte[] Version { set; get; }
-
-    }
+			[JsonProperty(PropertyName = "__version")]
+			public byte[] Version { set; get; }
+		}
 
 	<div class="dev-callout"><strong>Note</strong>
 	<p>When using untyped tables, enable optimistic concurrency by adding the `Version` flag on the `SystemProperties` of the table.</p>
@@ -111,61 +117,70 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
 
 2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.xaml.cs, add the following code to handle the exception in the `UpdateToDoItem()` method.
 
-        private async void UpdateToDoItem(TodoItem item)		
+        private async void UpdateToDoItem(TodoItem item)
         {
+            Exception exception = null;
+
             try
             {
                 //update at the remote table
                 await todoTable.UpdateAsync(item);
             }
-            catch (MobileServicePreconditionFailedException<TodoItem> exception)
+            catch (MobileServicePreconditionFailedException<TodoItem> writeException)
             {
-				//Conflict detected, the item has changed since the last query
-				//Resolve the conflict between the local and server item
-				ResolveConflict(item, exception.Item);
+                exception = writeException;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Update Failed", MessageBoxButton.OK);
+                exception = ex;
+            }
+
+            if (exception != null)
+            {
+                if (exception is MobileServicePreconditionFailedException)
+                {
+                    //Conflict detected, the item has changed since the last query
+                    //Resolve the conflict between the local and server item
+                    ResolveConflict(item, ((MobileServicePreconditionFailedException<TodoItem>) exception).Item);
+                }
+                else
+                {
+                    await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
+                }
             }
         }
 
 3. In MainPage.xaml.cs, add the definition for the `ResolveConflict()` method referenced in `UpdateToDoItem()`. Notice that in order to resolve the conflict, you set the local item's version to the updated version from the server before committing the user's decision. Otherwise, you will continually encounter the conflict.
 
 
-        private async void ResolveConflict(TodoItem localItem, TodoItem serverItem)		
+        private async void ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
+            //Ask user to choose the resoltion between versions
+            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n", 
+                                                        serverItem.Text, localItem.Text), 
+                                                        "CONFLICT DETECTED - Select a resolution:");
+            UICommand localBtn = new UICommand("Commit Local Text");
+            UICommand ServerBtn = new UICommand("Leave Server Text");
+            msgDialog.Commands.Add(localBtn);
+            msgDialog.Commands.Add(ServerBtn);
 
-            // Ask user to choose between the local text value or leaving the 
-			// server's updated text value
-            MessageBoxResult mbRes = MessageBox.Show(String.Format("The item has already been updated on the server.\n\n" +
-                                                                   "Server value: {0} \n" +
-                                                                   "Local value: {1}\n\n" +
-                                                                   "Press OK to update the server with the local value.\n\n" +
-                                                                   "Press CANCEL to keep the server value.", serverItem.Text, localItem.Text), 
-                                                                   "CONFLICT DETECTED ", MessageBoxButton.OKCancel);
-
-            // OK : After examining the updated text from the server, overwrite it
-            //      with the changes made in this client.
-            if (mbRes == MessageBoxResult.OK)
+            localBtn.Invoked = async (IUICommand command) =>
             {
-                // Update the version of the item to the latest version
-                // to resolve the conflict. Otherwise the exception
-                // will be thrown again for the attempted update.
+                // To resolve the conflict, update the version of the 
+                // item being committed. Otherwise, you will keep
+                // catching a MobileServicePreConditionFailedException.
                 localItem.Version = serverItem.Version;
 
-                // Recursively updating just in case another conflict 
-				// occurs while the user is deciding.
-                this.UpdateToDoItem(localItem);
-            }
+                // Updating recursively here just in case another 
+                // change happened while the user was making a decision
+                UpdateToDoItem(localItem);
+            };
 
-            // CANCEL : After examining the updated text from the server, leave 
-			// the server item intact and refresh this client's query discarding 
-			// the proposed changes.
-            if (mbRes == MessageBoxResult.Cancel)
+            ServerBtn.Invoked = async (IUICommand command) =>
             {
-                RefreshTodoItems();
-            }
+            };
+
+            await msgDialog.ShowAsync();
         }
 
 

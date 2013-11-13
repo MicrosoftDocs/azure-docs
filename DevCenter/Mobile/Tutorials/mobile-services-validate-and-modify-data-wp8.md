@@ -129,7 +129,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
         public class TodoItem
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
 
             [JsonProperty(PropertyName = "text")]
             public string Text { get; set; }
