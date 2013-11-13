@@ -114,4 +114,8 @@ Configuring a custom domain requires access to your public domain’s DNS zone f
 <li>To open the <strong>ADD DOMAIN NAME</strong> textbox, type your domain name, and then click <strong>add</strong>.</li>
 <li>Click <strong>Next</strong> to open the <strong>Verify your domain name</strong> dialog page.
 <p></p><img src="../media/Google_Tutorial_11.png" title="Specify a domain name" /></li>
+<li>Select a <strong>RECORD TYPE</strong>, and then register the selected record in your DNS zone file.
+<p></p><img src="../media/Google_Tutorial_12.png" title="Verify Domain" /></li>
+<li>Using the <strong>nslookup command</strong>, you should verify whether the DNS record has been successfully registered.
+<p></p><img src="../media/Google_Tutorial_13.png" title="nslookup" /></li>
 </ol>
