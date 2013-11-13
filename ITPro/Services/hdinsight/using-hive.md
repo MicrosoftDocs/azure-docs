@@ -10,7 +10,7 @@
 
 Note the following requirements before you begin this article:
 
-* A Windows Azure HDInsight cluster. For instructions, see [Getting started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
 * Install and configure HDInsight PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
@@ -54,7 +54,7 @@ Log files are therefore a good example of big data. Working with big data is dif
 
 ##<a id="uploaddata"></a>Upload data files to the Blob storage
 
-HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article, you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload Data to HDInsight][hdinsight-upload-data].
+HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article, you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload Data to HDInsight][hdinsight-upload-data].
 
 To access files, use the following syntax: 
 
@@ -103,7 +103,7 @@ Because the file is stored in the default file system, you can also access the f
 ##<a id="runhivequeries"></a> Run Hive queries using PowerShell
 In the last section, you have uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create hive table, load data to the hive table, and then query the data to find out how many error logs.
 
-This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Getting Started with Windows Azure HDInsight][hdinsight-getting-started] and [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
+This article provides the instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] and [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 There are two options to run Hive queries:
 
@@ -144,6 +144,8 @@ There are two options to run Hive queries:
 		
 		# Create a Hive job definition 
 		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
+
+	You can also use the -File switch to specify a HiveQL script file on HDFS.
 		
 5. Run the following script to submit the Hive job:
 
@@ -180,7 +182,7 @@ There are two options to run Hive queries:
 		Select-AzureSubscription -SubscriptionName $subscriptionName
 		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
 		
-		Invoke-Hive $queryString
+		Invoke-Hive -Query $queryString
 
 	The output is:
 
@@ -195,7 +197,7 @@ You can use the same command to run a HiveQL file:
 
 While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
-* [Getting started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 

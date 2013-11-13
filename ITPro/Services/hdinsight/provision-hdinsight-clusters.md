@@ -20,7 +20,7 @@ Before you begin this article, you must have the following:
 
 ##<a id="portal"></a> Using Windows Azure Management Portal
 
-HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
 <div class="dev-callout"> 
@@ -28,7 +28,7 @@ HDInsight cluster uses a Windows Azure Blob Storage container as the default fil
 <p>Currently, only the Europe North and the US West and the US East region can host HDInsight clusters.</p> 
 </div>
 
-This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Getting Started with Windows Azure HDInsight][hdinsight-getting-started].
+This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
 
 
 **To create a HDInsight cluster using the custom create option**
@@ -164,8 +164,7 @@ It can take several minutes to provision a cluster.  When the provision process 
 
 
 ##<a id="powershell"></a> Using Windows Azure PowerShell
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
-
+Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 The following procedures are needed to provision an HDInsight cluster using PowerShell:
 
@@ -681,7 +680,7 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
-* [Getting Started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 
@@ -692,6 +691,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/

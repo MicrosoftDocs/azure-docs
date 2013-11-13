@@ -24,7 +24,7 @@ Before you begin this article, you must have the following:
 
 ##<a id="create"></a> Create an HDInsight cluster
 
-An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
 **To create an HDInsight cluster**
