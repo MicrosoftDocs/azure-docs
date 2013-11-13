@@ -94,10 +94,10 @@ Includes Agreements, Message Types, BizTalk Services Portal</strong></td>
 <td>Included</td>
 </tr>
 <tr>
-<td><strong>High Availability
+<td><strong>High Availability</strong>
 <br/><br/>
 For Service Level Agreement (SLA), see <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.
-</strong></td>
+</td>
 <td>Not included</td>
 <td>Included</td>
 <td>Included</td>
@@ -118,8 +118,8 @@ For Service Level Agreement (SLA), see <a HREF="http://go.microsoft.com/fwlink/p
 <td>Included</td>
 </tr>
 <tr>
-<td><strong>Archiving<br/><br/>
-Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</strong></td>
+<td><strong>Archiving</strong><br/><br/>
+Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</td>
 <td>Included</td>
 <td>Not Included</td>
 <td>Not Included</td>

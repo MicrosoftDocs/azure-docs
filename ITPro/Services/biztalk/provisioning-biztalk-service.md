@@ -17,7 +17,7 @@ A Windows Azure BizTalk Service consists of the following components:
 <tr>
 <td>Windows Azure Subscription</td>
 <td><p>The subscription governs access to the Windows Azure Management Portal and is created by the Windows Azure account holder at <a HREF="https://account.windowsazure.com/Subscriptions"> Windows Azure Subscriptions</a>.</p>
-<p>The Windows Azure account can have multiple subscriptions and can be managed by the Windows Azure account holder or by different people or groups. For example, your Windows Azure account holder creates a subscription named <i>BizTalkServiceSubscription</i> and gives the BizTalk Administrators within your company (e.g. ContosoBTSAdmins@live.com) access to this subscription. In this scenario, the BizTalk Administrators log into the Windows Azure Management Portal and have full Administrator rights to all the hosted services in the subscription, including Windows Azure BizTalk Services. The BizTalk Administrators are not the Windows Azure account holders and therefore don’t have access to any billing information.</p>
+<p>The Windows Azure account can have multiple subscriptions and can be managed by the Windows Azure account holder or by different people or groups. For example, your Windows Azure account holder creates a subscription named <em>BizTalkServiceSubscription</em> and gives the BizTalk Administrators within your company (e.g. ContosoBTSAdmins@live.com) access to this subscription. In this scenario, the BizTalk Administrators log into the Windows Azure Management Portal and have full Administrator rights to all the hosted services in the subscription, including Windows Azure BizTalk Services. The BizTalk Administrators are not the Windows Azure account holders and therefore don’t have access to any billing information.</p>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Manage Subscriptions and Storage Accounts in the Windows Azure Management Portal</a> provides more information on Windows Azure Accounts and Subscriptions.
 </td>
 </tr>
@@ -83,11 +83,11 @@ The following steps provision a new Windows Azure BizTalk Service:
 
 1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 
-2. At the bottom of the navigation pane, select <b>+NEW</b>:
+2. At the bottom of the navigation pane, select **+NEW**:
 
 	![Select the New button][NEWButton]
 
-3. Select <b>APP SERVICES</b>, select <b>BIZTALK SERVICE</b>, and then select **CUSTOM CREATE**:
+3. Select **APP SERVICES**, select **BIZTALK SERVICE**, and then select **CUSTOM CREATE**:
 
 	![Select BizTalk Service and select Custom Create][NewBizTalkService]
 
@@ -104,11 +104,11 @@ The following steps provision a new Windows Azure BizTalk Service:
 	</tr>
 	<tr>
 	<td><strong>Domain URL</strong></td>
-	<td><b>Optional</b>. By default, the domain URL is <i>YourBizTalkServiceName</i>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <i>contoso</i>, you can enter: <br/><br/>
-	<i>MyCompany</i>.contoso.com<br/>
-	<i>MyCompanyMyApplication</i>.contoso.com<br/>
-	<i>MyApplication</i>.contoso.com<br/>
-	<i>YourBizTalkServiceName</i>.contoso.com<br/>
+	<td><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
+	<em>MyCompany</em>.contoso.com<br/>
+	<em>MyCompanyMyApplication</em>.contoso.com<br/>
+	<em>MyApplication</em>.contoso.com<br/>
+	<em>YourBizTalkServiceName</em>.contoso.com<br/>
 	</td>
 	</tr>
 	<tr>
@@ -120,7 +120,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 	<li>Basic</li>
 	<li>Premium</li>
 	</ul>
-	<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Developer, Basic, Standard and Premium Editions Chart</a> lists the differences with the editions. If you are in the testing/development phase, choose <b>Developer</b>. If you are in the production phase, use the chart to determine if Premium, Standard, or Basic is the correct choice for your business scenario.
+	<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">BizTalk Services: Developer, Basic, Standard and Premium Editions Chart</a> lists the differences with the editions. If you are in the testing/development phase, choose <strong>Developer</strong>. If you are in the production phase, use the chart to determine if Premium, Standard, or Basic is the correct choice for your business scenario.
 	</td>
 	</tr>
 	<tr>
@@ -133,16 +133,16 @@ The following steps provision a new Windows Azure BizTalk Service:
 	<ul>
 	<li><strong>Use an existing SQL Database instance</strong>: Select this option to use an existing Azure SQL Database. An existing Azure SQL Database can be used if it's not used by another BizTalk Service. You need the login name and password specified when that Azure SQL Database Server was created.</li>
 	<li><p><strong>Create a new SQL Database instance</strong>: Select this option to create a new SQL Database.</p></li>
-	<p><b>Note</b></p>
+	<p><strong>Note</strong></p>
 	<p>When you create a new Azure SQL Server and Database, Windows Azure Services is automatically enabled on the SQL Database. The BizTalk Service requires Windows Azure Services be enabled on the Azure SQL Database.</p>
-	<p><b>Tip</b></p>
+	<p><strong>Tip</strong></p>
 	Create the Tracking database and Monitoring/Archiving Storage Account in the same region as the BizTalk Service.
 	</ul>
 	</td>
 	</tr>
 	<tr>
-	<td><b>Subscription</b></td>
-	<td><b>Optional</b>. Available only when there is more than one subscription. Select your subscription to host your BizTalk Service.</td>
+	<td><strong>Subscription</strong></td>
+	<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription to host your BizTalk Service.</td>
 	</tr>
 	</table>
 Select the NEXT arrow.
@@ -163,7 +163,7 @@ Select the NEXT arrow.
 	<tr>
 	<td><strong>Name</strong></td>
 	<td><p>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.</p>
-	Enter the SQL Database name to be used by your BizTalk Service. By Default, <i>YourBizTalkServiceName</i>_db is entered.</td>
+	Enter the SQL Database name to be used by your BizTalk Service. By Default, <em>YourBizTalkServiceName</em>_db is entered.</td>
 	</tr>
 	<tr>
 	<td><strong>Server</strong></td>
