@@ -8,7 +8,7 @@ Managing and analyzing data in the cloud is just as important as it is anywhere 
 - [Running a DBMS in a Virtual Machine](#dbinvm)
 - [SQL Database](#sqldb)
 	- [SQL Data Sync](#datasync)
-	- [SQL Data Reporting](#datarpt)
+	- [SQL Data Reporting using Virtual Machines](#datarpt)
 - [Table Storage](#tblstor)
 - [Hadoop](#hadoop)
 
@@ -100,22 +100,22 @@ As the diagram shows, SQL Data Sync can synchronize data across different locati
 Synchronization can be bi-directional, and you determine exactly what data is synchronized and how frequently it’s done. (Synchronization between databases isn’t atomic, however—there’s always at least some delay.) And however it’s used, setting up synchronization with SQL Data Sync is entirely configuration-driven; there’s no code to write.
 
 
-### <a name="datarpt"></a>SQL Data Reporting
+### <a name="datarpt"></a>SQL Data Reporting using Virtual Machines
 
-Once a database contains data, somebody will probably want to create reports using that data. To let you do this with data stored in SQL Database, Windows Azure provides SQL Reporting. This cloud service provides a subset of the functionality in SQL Server Reporting Services (SSRS), the reporting technology included with SQL Server.
-In its initial incarnation, SQL Reporting is aimed primarily at independent software vendors (ISVs) who need to embed reports in their applications. [Figure 5](#Fig5) shows how the process works.
+Once a database contains data, somebody will probably want to create reports using that data. Windows Azure can run SQL Server Reporting Services (SSRS) in Windows Azure Virtual Machines, which is functionally equivalent to running SQL Server Reporting Services on-premises. Then you can use SSRS to run reports on data stored in a Windows Azure SQL Database.  [Figure 5](#Fig5) shows how the process works.
 
 <a name="Fig5"></a>![Diagram of SQL reporting][SQL-report]
  
-**Figure 5: Windows Azure SQL Reporting provides reporting services for data in SQL Database.**
+**Figure 5: SQL Server Reporting Services running in a Windows Azure Virtual Machines provides reporting services for data in SQL Database. .**
 
-Before a user can see a report, someone defines what that report should look like (step 1). With SQL Reporting, this can be done using either of two tools: SQL Server Data Tools, part of SQL Server 2012, or its predecessor, Business Intelligence (BI) Development Studio. As with SSRS, these report definitions are expressed in the *Report Definition Language (RDL)*. After the RDL files for a report have been created, they are uploaded to SQL Reporting in the cloud (step 2). The report definition is now ready to use.
+Before a user can see a report, someone defines what that report should look like (step 1). With SSRS on a VM, this can be done using either of two tools: SQL Server Data Tools, part of SQL Server 2012, or its predecessor, Business Intelligence (BI) Development Studio. As with SSRS, these report definitions are expressed in the Report Definition Language (RDL). After the RDL files for a report have been created, they are uploaded to a VM in the cloud (step 2). The report definition is now ready to use.
 
-Next, a user of the application accesses the report (step 3). The application passes this request to SQL Reporting (step 4), which contacts SQL Database to get the data it needs (step 5). SQL Reporting uses this data and the relevant RDL files to render the report (step 6), then returns the report to the application (step 7), which displays it to the user (step 8).
+Next, a user of the application accesses the report (step 3). The application passes this request to the SSRS VM (step 4), which contacts SQL Database or other data sources to get the data it needs (step 5). SSRS uses this data and the relevant RDL files to render the report (step 6), then returns the report to the application (step 7), which displays it to the user (step 8).
 
-Embedding a report in an application, the scenario shown here, isn’t the only option. It’s also possible to view reports in a SQL Reporting portal or in other ways. Reports can also be combined, with one report containing a link to another.
+Embedding a report in an application, the scenario shown here, isn’t the only option. It’s also possible to view reports in Report Manager on the VM, SharePoint on the VM, or in other ways. Reports can also be combined, with one report containing a link to another.
 
-Like SQL Database, SQL Reporting is a multi-tenant PaaS service. You can use it immediately—there’s nothing to install—and it requires minimal management. Microsoft monitors the service, provides patches, handles scaling, and does the other work needed to keep the service available. While it’s possible to run reports on SQL Database tables using the on-premises version of SSRS, SQL Reporting is typically a better alternative for adding reporting to Windows Azure applications.
+SSRS on a Windows Azure VM gives you full functionality as a reporting solution in the cloud. Reports can use any data source supported by SSRS. Applications and reports can include embedded code or assemblies to support custom behaviors. Report execution and rendering are fast because report server content and engine run together on the same virtual server.
+
 
 
 ## <a name="tblstor"></a>Table Storage
