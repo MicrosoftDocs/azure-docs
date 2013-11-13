@@ -119,3 +119,19 @@ Configuring a custom domain requires access to your public domain’s DNS zone f
 <li>Using the <strong>nslookup command</strong>, you should verify whether the DNS record has been successfully registered.
 <p></p><img src="../media/Google_Tutorial_13.png" title="nslookup" /></li>
 </ol>
+## To add a custom domain in Google Apps, perform the following steps:##
+<ol>
+<li>Sing-on to your Google Apps tenant.</li>
+<li>In the <strong>Admin console</strong>, click <strong>Domains</strong>. 
+<p></p><img src="../media/Google_Tutorial_14.png" title="Domains" /></li>
+<li>Click <strong>Add a custom domain</strong>.
+<p></p><img src="../media/Google_Tutorial_15.png" title="Add custom domain" /></li>
+<li>Click <strong>Use a domain you already own</strong>, and then click <strong>Continue</strong>.
+<p></p><img src="../media/Google_Tutorial_16.png" title="Switch to a custom domain" /></li>
+<li>Type the name of your custom domain, and then click <strong>Continue</strong>.
+<p></p><img src="../media/Google_Tutorial_17.png" title="Use a domain name you already own" /></li>
+<li>Complete the steps to verify ownership of the domain.
+	
+	<p></p>If you have already federated single sign-on configured, you must update the Google Apps tenant URL in your federated single ign-on configuration.</li>
+</ol>
+ 
