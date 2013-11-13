@@ -61,7 +61,7 @@ In the left navigation pane, you can also select **Active Directory** to retriev
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>When an Access Control Namespace is created using <b>Active Directory</b>, a Service Identity is <b>not</b> automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.</p> 
+<p>When an Access Control Namespace is created using <strong>Active Directory</strong>, a Service Identity is <strong>not</strong> automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.</p> 
 <p><a href="http://go.microsoft.com/fwlink/p/?LinkID=303942">How to: Use ACS Management Service to Configure Service Identities</a> provides more information on Access Control Service Identities.</p>
 </div>
 
