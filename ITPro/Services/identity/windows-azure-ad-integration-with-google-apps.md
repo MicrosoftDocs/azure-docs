@@ -85,3 +85,16 @@ The objective of this section is to outline how to enable users to authenticate 
 </ol>
 You can now go to the [Access Panel](https://login.microsoftonline.com/login.srf?wa=wsignin1.0&rpsnv=2&ct=1384289458&rver=6.1.6206.0&wp=MCMBI&wreply=https:%2F%2Faccount.activedirectory.windowsazure.com%2Flanding.aspx%3Ftarget%3D%252fapplications%252fdefault.aspx&lc=1033&id=500633) and test single sign-on to Google Apps.
 
+# Enabling Google Apps API Access #
+When integrating Windows Azure Active Directory with Google Apps for user provisioning, you must enable API access for your tenant in Google Apps.
+
+## To enable Google Apps API access ##
+<ol>
+<li>Sing-on to your Google Apps tenant.</li>
+<li>In the <strong>Admin console</strong>, click <strong>Security</strong>.<p></p> 
+<img src="../media/Google_Tutorial_05.png" title="Security" /><p></p>
+	If the Security icon is not visible, click More controls at the bottom of the Admin console.</li>
+<li>On the Security page, click <strong>API reference</strong> to open the related configuration dialog page.</li>
+<li>Select <strong>Enable API access</strong>.
+<img src="../media/Google_Tutorial_09.png" title="Enable API" /><p></p></li>
+</ol>
