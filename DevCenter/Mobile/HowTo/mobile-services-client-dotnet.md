@@ -203,11 +203,11 @@ All the functions described so far are additive, so we can just keep calling the
 The `LookupAsync` function can be used to look up objects from the database with a particular ID. 
 
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
-	TodoItem item25 = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
 <h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
-<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. A unique custom ID value can optionally be provided with insert operations. A valid ID value must always be present in update and delete operations.</p> </div>
+<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong>. This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. A unique custom ID value can be provided with insert operations. A valid ID value must always be present in update and delete operations.</p> </div>
 
 The following code illustrates how to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 

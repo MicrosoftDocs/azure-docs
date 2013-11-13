@@ -91,24 +91,23 @@ The application now writes the text changes to each item back to the database wh
 
 <h2><a name="enableOC"></a><span class="short-header">Enable Optimistic Concurrency</span>Enable Conflict Detection in your application</h2>
 
-Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Windows Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` field. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact.
+Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Windows Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact.
 
 1. In MainPage.xaml.cs update the **TodoItem** class definition with the following code to include the **__version** system property enabling support for write conflict detection:
 
-    public class TodoItem
-    {
-        public string Id { get; set; }
+		public class TodoItem
+		{
+			public string Id { get; set; }
 
-        [JsonProperty(PropertyName = "text")]
-        public string Text { get; set; }
+			[JsonProperty(PropertyName = "text")]
+			public string Text { get; set; }
 
-        [JsonProperty(PropertyName = "complete")]
-        public bool Complete { get; set; }
+			[JsonProperty(PropertyName = "complete")]
+			public bool Complete { get; set; }
 
-        [JsonProperty(PropertyName = "__version")]
-        public byte[] Version { set; get; }
-
-    }
+			[JsonProperty(PropertyName = "__version")]
+			public byte[] Version { set; get; }
+		}
 
 	<div class="dev-callout"><strong>Note</strong>
 	<p>When using untyped tables, enable optimistic concurrency by adding the `Version` flag on the `SystemProperties` of the table.</p>
