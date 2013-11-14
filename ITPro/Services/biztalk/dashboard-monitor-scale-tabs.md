@@ -296,12 +296,12 @@ The following performance counters/metrics are available:
 <td>RountdTrip Latency</td>
 <td>In milliseconds (ms), this performance metric displays the average time taken to process a message from the time it is received until it is fully processed by the BizTalk Service across all bridges. Only messages successfully processed are counted.<br/><br/>
 When the following events occur, a timestamp is created:
-<bl>
+<ul>
 <li>Message enters the gateway</li>
 <li>Message is routed to the destination</li>
 <li>Destination response is received</li>
 <li>Destination acknowledgement response sent to the gateway</li>
-</bl>
+</ul>
 <br/>
 This metric shows the result of the following calculation:
 <br/><br/>
@@ -320,12 +320,12 @@ This metric shows the result of the following calculation:
 <td>In milliseconds (ms), this performance metric displays the average time taken to process a message by the BizTalk Service across all bridges, excluding the time spent in destinations. Only messages successfully processed are counted.<br/><br/>
 When each of the following events occur, a timestamp is created:
 
-<bl>
+<ul>
 <li>Message enters the gateway</li>
 <li>Message is routed to the destination</li>
 <li>Destination response is received</li>
 <li>Destination acknowledgement response sent to the gateway</li>
-</bl>
+</ul>
 <br/>This metric shows the result of the following calculation:<br/><br/>
 [Destination acknowledgement response sent to the gateway] – [Message enters the gateway] – [Destination response is received] + [Message is routed to the destination]</td>
 </tr>
