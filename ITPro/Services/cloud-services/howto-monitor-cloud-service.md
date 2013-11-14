@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Windows Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" metaDescription="Learn how to monitor cloud services by using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ryanwi" />
+<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Windows Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" metaDescription="Learn how to monitor cloud services by using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ryanwi" />
 
 
 #How to Monitor Cloud Services
@@ -23,7 +23,7 @@ By default, minimal monitoring is provided for a new cloud service using perform
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://msdn.microsoft.com/en-us/library/hh411552.aspx">Overview of Windows Azure Diagnostics</a> and <a href="http://msdn.microsoft.com/en-us/library/hh411520.aspx">Overview of Creating and Using Performance Counters in a Windows Azure Application</a>.</p> 
+<p>If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://msdn.microsoft.com/en-us/library/gg433048.aspx">Collect Logging Data by Using Windows Azure Diagnostics</a> and <a href="http://msdn.microsoft.com/en-us/library/hh411542.aspx">Create and Use Performance Counters in a Windows Azure Application</a>.</p> 
 </div>
 
 By default performance counter data from role instances is sampled and transferred from the role instance at 3-minute intervals. When you enable verbose monitoring, the raw performance counter data is aggregated for each role instance and across role instances for each role at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is  purged after 10 days.
@@ -42,7 +42,7 @@ Use the following procedures to configure verbose or minimal monitoring in the M
 - Create a storage account to store the monitoring data. You can use different storage accounts for different roles. For more information, see help for **Storage Accounts**, or see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
 
 
-- Enable Windows Azure Diagnostics for your cloud service roles. <br /><br />You must update the cloud service definition file (.csdef) and the cloud service configuration file (.cscfg). For more information, see [Enabling Diagnostics in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/).
+- Enable Windows Azure Diagnostics for your cloud service roles. <br /><br />You must update the cloud service definition file (.csdef) and the cloud service configuration file (.cscfg). For more information, see [Configuring Windows Azure Diagnostics](http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx).
 
 In the Management Portal, you can add or modify the diagnostics connection strings that Windows Azure Diagnostics uses to access the storage accounts that store verbose monitoring data, and you can set the level of monitoring to verbose or minimal. Because verbose monitoring stores data in a storage account, you must configure the diagnostics connection strings before you set the monitoring level to verbose.
 
