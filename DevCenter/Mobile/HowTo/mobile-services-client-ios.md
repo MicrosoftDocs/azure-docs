@@ -202,7 +202,7 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 		// data compared to what was passed to the server.
 	}];	
 
-Mobile Services supports unique custom string values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique string id values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 	NSDictionary *newItem = @{"id: "37BBF396-11F0-4B39-85C8-B319C729AF6D", "text": "my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -211,9 +211,9 @@ Mobile Services supports unique custom string values. This allows applications t
 		// data compared to what was passed to the server.
 	}];	
 
-If a custom id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
 
-Supporting custom Ids provides the following advantages to developers
+Supporting string ids provides the following advantages to developers
 
 + Ids can be generated without making a roundtrip to the database.
 + Records are easier to merge from different tables or databases.

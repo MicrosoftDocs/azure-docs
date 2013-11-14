@@ -275,7 +275,7 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			});
 
 
-Mobile Services supports unique custom id string values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique string id values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 			todoItemTable.insert({
 			   id: "myemail@domain.com",				
@@ -283,9 +283,9 @@ Mobile Services supports unique custom id string values. This allows application
 			   complete: false
 			})
 
-If a custom id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
 
-Supporting custom Ids provides the following advantages to developers
+Supporting string ids provides the following advantages to developers
 
 + Ids can be generated without making a roundtrip to the database.
 + Records are easier to merge from different tables or databases.
