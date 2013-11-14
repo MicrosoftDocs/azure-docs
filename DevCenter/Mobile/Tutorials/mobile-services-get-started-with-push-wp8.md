@@ -31,12 +31,24 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 <div chunk="../chunks/mobile-services-create-new-push-table.md" />
 
 <h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+		
+1. In Visual Studio, open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
 
-1. Open the file App.xaml.cs and add the following using statement:
+	    public class Registrations
+	    {
+	        public string Id { get; set; }
+	
+	        [JsonProperty(PropertyName = "handle")]
+	        public string Handle { get; set; }
+	    }
+	
+	The Handle property is used to store the channel URI.
+
+2. Open the file App.xaml.cs and add the following using statement:
 
         using Microsoft.Phone.Notification;
 
-2. Add the following to App.xaml.cs:
+3. Add the following to App.xaml.cs:
 	
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
@@ -52,7 +64,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             }
                   
 	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
-	       var registration = new Registration { Handle = CurrentChannel.Uri };
+	       var registration = new Registrations { Handle = CurrentChannel.Uri };
 	       await registrationsTable.InsertAsync(registration);
         }
 
@@ -62,25 +74,14 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 		<p>In this this tutorial, the mobile service sends a flip Tile notification to the device. When you send a toast notification, you must instead call the <strong>BindToShellToast</strong> method on the channel. To support both toast and tile notifications, call both <strong>BindToShellTile</strong> and  <strong>BindToShellToast</strong> </p>
 	</div>
     
-3. At the top of the **Application_Launching** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+4. At the top of the **Application_Launching** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
 
         AcquirePushChannel();
 
    This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
-		
-4. Open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
 
-	    public class Registrations
-	    {
-	        public string Id { get; set; }
-	
-	        [JsonProperty(PropertyName = "handle")]
-	        public string Handle { get; set; }
-	    }
-	
-	The Handle property is used to store the channel URI.
 
-6.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
+5.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
    ![][1]
 
