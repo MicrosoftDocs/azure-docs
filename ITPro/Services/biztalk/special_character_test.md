@@ -1,3 +1,5 @@
+<properties linkid="specChar" urlDisplayName="Special character test" metaKeywords="test for alt characters" metaDescription="test for alt characters" metaCanonical="test for alt characters" umbracoNaviHide="0" disqusComments="1" writer="cgronlun" editor="cgronlun" manager="paulettm" /> 
+
 # Heading 1 with all special characters: & < > « » √ – — ™ © ® ‘ ’ “ ”
 
 This sentence has nonbreaking spaces (Alt 0160) between all words.
@@ -40,6 +42,12 @@ smiley (for fun only) ☺
 
 3. List item
 
+<div class="dev-callout">
+<b>Note (dev-callout) with special chars « » √ – — ™ © ® ‘ ’ “ ”</b>
+<p>Paragraph (dev-callout) with special chars: « » √ – — ™ © ® ‘ ’ “ ” </p>
+</div>
+
+
 ### Heading 3 with special characters: & < > « » √ – — ™ © ® ‘ ’ “ ”
 
 * Bullet list with special characters
@@ -61,10 +69,7 @@ smiley (for fun only) ☺
 
 	<a href="some URL">Link sample with alt char brackets</a>
 
-<div class="dev-callout">
-<b>Note (dev-callout) with special chars & < > « » √ – — ™ © ® ‘ ’ “ ”</b>
-<p>Paragraph (dev-callout) with special chars: & < > « » √ – — ™ © ® ‘ ’ “ ” </p>
-</div>
+
 
 ## HTML-tagged table with spec. chars.
 
@@ -72,16 +77,19 @@ smiley (for fun only) ☺
 <table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 	<tr>
 	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">3 chars</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">& < ></td></tr>
-	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th>
+</tr>
+<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">nonbreak, 2 chars</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">  ” “</td>
+<tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">5 chars</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">« » √ – —</td></tr>
 	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">7 chars</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">™ © ® ‘ ’ “ ”</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">5 chars</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">™ © ® ‘ ’</td></tr>
+</tr>
+ 
 	</table>
 
 
