@@ -289,7 +289,7 @@ For **insert** operations, the callback object is a [**TableOperationCallback&lt
 
 The entity parameter of the **onCompleted** method contains the newly inserted object. The successful code shows how to access the *id* of the inserted row.
 
-Mobile Services supports unique custom string values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique string ids. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.id = "myemail@mydomain.com";
@@ -297,9 +297,9 @@ Mobile Services supports unique custom string values. This allows applications t
 		mToDoItem.complete = false;
 		mToDoItem.duration = 5; 
 
-If a custom id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
 
-Supporting custom Ids provides the following advantages to developers
+Supporting string ids provides the following advantages to developers
 
 + Ids can be generated without making a roundtrip to the database.
 + Records are easier to merge from different tables or databases.

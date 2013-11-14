@@ -147,7 +147,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
         private async void ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
-            //Ask user to choose the resoltion between versions
+            //Ask user to choose the resolution between versions
             MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n", 
                                                         serverItem.Text, localItem.Text), 
                                                         "CONFLICT DETECTED - Select a resolution:");
