@@ -120,9 +120,14 @@ You mobile service is now configured to work with GCM to send push notifications
 
 3. In the Android SDK Manager, under the **Android n.m (API x)** node, check **Google APIs**, then click **Install**. 
 
-4. Browse to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), and copy the `google-play-services.jar` file from the `\extras\google\google_play_services\libproject\google-play-services_lib\libs` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
+<!--4. Browse to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), and copy the `google-play-services.jar` file from the `\extras\google\google_play_services\libproject\google-play-services_lib\libs` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
 
 	The `google-play-services.jar` library file is now shown in your project.
+-->
+
+4. Install the Google Play Services SDK in your project. In Eclipse, click **File** + **Import**, select **Android + Existing Android Code into Workspace**, then click **Next**. Browse to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), then browse to the `\extras\google\google_play_services\libproject subfolder, and there select the google-play-services-lib folder, and click **OK**. Click the Copy projects into workspace check-box, and then click **Finish**.
+
+5. Now you must reference the SDK library from your project. Follow the instructions at [Referencing a library project].
 
 5. Open the project file **AndroidManifest.xml**. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. Consult [Set Up Google Play Services SDK] to determine how low you can set this value, if you need to set it below 16 because you are using an older device. Set the property appropriately.
 
@@ -366,6 +371,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Android Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Set Up Google Play Services SDK]: http://developer.android.com/google/play-services/setup.html
+[Referencing a library project]: http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-android.md
