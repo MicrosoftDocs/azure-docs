@@ -42,6 +42,12 @@ smiley (for fun only) ☺
 
 3. List item
 
+<div class="dev-callout">
+<b>Note (dev-callout) with special chars « » √ – — ™ © ® ‘ ’ “ ”</b>
+<p>Paragraph (dev-callout) with special chars: « » √ – — ™ © ® ‘ ’ “ ” </p>
+</div>
+
+
 ### Heading 3 with special characters: & < > « » √ – — ™ © ® ‘ ’ “ ”
 
 * Bullet list with special characters
@@ -74,7 +80,7 @@ smiley (for fun only) ☺
 	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th>
 </tr>
 <tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">3 chars</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">nonbreak, 2 chars</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">  ” “</td>
 <tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">5 chars</td>
@@ -83,7 +89,7 @@ smiley (for fun only) ☺
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">5 chars</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">™ © ® ‘ ’</td></tr>
 </tr>
-	git 
+ 
 	</table>
 
 
