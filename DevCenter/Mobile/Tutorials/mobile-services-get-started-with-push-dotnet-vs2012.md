@@ -42,31 +42,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 <h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. Open the file App.xaml.cs and add the following using statement:
-
-        using Windows.Networking.PushNotifications;
-
-2. Add the following to App.xaml.cs:
-	
-        private async void AcquirePushChannel()
-	    {
-	       CurrentChannel = 
-               await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-	
-	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
-	       var registration = new Registration { Handle = CurrentChannel.Uri };
-	       await registrationsTable.InsertAsync(registration);
-        }
-
-     This code inserts the current channel into the Registrations table.
-    
-3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
-
-        AcquirePushChannel();
-
-   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
-		
-4. Open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
+1. Open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
 
 	    public class Registrations
 	    {
@@ -78,7 +54,31 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 	
 	The Handle property is used to store the channel URI.
 
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+2. Open the file App.xaml.cs and add the following using statement:
+
+        using Windows.Networking.PushNotifications;
+
+3. Add the following to App.xaml.cs:
+	
+        private async void AcquirePushChannel()
+	    {
+	       CurrentChannel = 
+               await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+	
+	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
+	       var registration = new Registrations { Handle = CurrentChannel.Uri };
+	       await registrationsTable.InsertAsync(registration);
+        }
+
+     This code inserts the current channel into the Registrations table.
+    
+4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+
+        AcquirePushChannel();
+
+   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
+		
+5. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
    ![][15]
 
