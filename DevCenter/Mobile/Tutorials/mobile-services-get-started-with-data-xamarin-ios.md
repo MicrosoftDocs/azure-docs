@@ -19,7 +19,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Azure Mobile Services Component], [XCode 4.5][Install Xcode], [Xamarin.iOS], and iOS 5.0 or later versions.
+This tutorial requires the [Azure Mobile Services Component], [XCode 5.0][Install Xcode], [Xamarin.iOS], and iOS 5.0 or later versions.
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F" target="_blank">Windows Azure Free Trial</a>.</p></div> 
 
@@ -125,7 +125,21 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 10. Uncomment the following lines in the **RefreshDataAsync** method in **TodoService**
 
-		// TODO:: Uncomment these lines to use Mobile Services        /*		try         {			// This code refreshes the entries in the list view by querying the TodoItems table.			// The query excludes completed TodoItems			Items = await todoTable				.Where (todoItem => todoItem.Complete == false).ToListAsync();		}         catch (MobileServiceInvalidOperationException e)         {			Console.Error.WriteLine (@"ERROR {0}", e.Message);			return null;		}        */
+		// TODO:: Uncomment these lines to use Mobile Services
+        /*
+		try 
+        {
+			// This code refreshes the entries in the list view by querying the TodoItems table.
+			// The query excludes completed TodoItems
+			Items = await todoTable
+				.Where (todoItem => todoItem.Complete == false).ToListAsync();
+		} 
+        catch (MobileServiceInvalidOperationException e) 
+        {
+			Console.Error.WriteLine (@"ERROR {0}", e.Message);
+			return null;
+		}
+        */
         
     This creates a query to return all tasks that have not yet been completed.
 
@@ -207,7 +221,7 @@ Once you have completed the data series, try these other iOS tutorials:
 [9]: ../Media/mobile-todoitem-data-browse.png
 
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
-[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet.md
+[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-xamarin-ios.md
 [Refine queries with paging]: ./mobile-services-paging-data-xamarin-ios.md
 [Get started with Mobile Services]: ./mobile-services-get-started-xamarin-ios.md
 [Get started with data]: ./mobile-services-get-started-with-data-xamarin-ios.md

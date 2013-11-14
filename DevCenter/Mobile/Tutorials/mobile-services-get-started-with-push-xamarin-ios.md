@@ -2,13 +2,9 @@
 
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS" class="current">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Android C#</a></div>
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Xamarin.iOS app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
 <p>You can watch a video version of this tutorial by clicking the clip to the right.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-ios-180x120.png') !important;" href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>
-</div>
 
    <div class="dev-callout"><b>Note</b>
    <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
@@ -26,7 +22,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial requires the following:
 
-+ [XCode 4.5][Install Xcode] 
++ [XCode 5.0][Install Xcode] 
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 + [Xamarin.iOS]
@@ -235,19 +231,54 @@ Both your mobile service is now configured to work with APNS.
 
 3. In **AppDelegate**, override the **FinishedLaunching** event: 
 
-        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)        {            // NOTE: Don't call the base implementation on a Model class            // see http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events             UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert |                 UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);             return true;        }
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | 
+                UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes); 
+
+            return true;
+        }
 
 4. In **AppDelegate**, override the **RegisteredForRemoteNotifications** event:
 
-        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)        {            // NOTE: Don't call the base implementation on a Model class            // see http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events             string trimmedDeviceToken = deviceToken.Description;            if (!string.IsNullOrWhiteSpace(trimmedDeviceToken))            {                trimmedDeviceToken = trimmedDeviceToken.Trim('<');                trimmedDeviceToken = trimmedDeviceToken.Trim('>');            }            DeviceToken = trimmedDeviceToken;        }
+        public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+        {
+            string trimmedDeviceToken = deviceToken.Description;
+            if (!string.IsNullOrWhiteSpace(trimmedDeviceToken))
+            {
+                trimmedDeviceToken = trimmedDeviceToken.Trim('<');
+                trimmedDeviceToken = trimmedDeviceToken.Trim('>');
+            }
+            DeviceToken = trimmedDeviceToken;
+        }
 
 5. In **AppDelegate**, override the **ReceivedRemoteNotification** event:
 
-        public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)        {            // NOTE: Don't call the base implementation on a Model class            // see http://docs.xamarin.com/guides/ios/application_fundamentals/delegates,_protocols,_and_events             Debug.WriteLine(userInfo.ToString());            NSObject inAppMessage;            bool success = userInfo.TryGetValue(new NSString("inAppMessage"), out inAppMessage);            if (success)            {                var alert = new UIAlertView("Got push notification", inAppMessage.ToString(), null, "OK", null);                alert.Show();            }        }
+        public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
+        {
+            Debug.WriteLine(userInfo.ToString());
+            NSObject inAppMessage;
+
+            bool success = userInfo.TryGetValue(new NSString("inAppMessage"), out inAppMessage);
+
+            if (success)
+            {
+                var alert = new UIAlertView("Got push notification", inAppMessage.ToString(), null, "OK", null);
+                alert.Show();
+            }
+        }
 
 6. In **TodoListViewController**, modify the **OnAdd** action to get the device token stored in **AppDelegeate**, and store it into the **TodoItem** being added.
 
-            string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;			var newItem = new TodoItem() 			{				Text = itemText.Text, 				Complete = false,                DeviceToken = deviceToken			};
+      string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+			var newItem = new TodoItem() 
+			{
+				Text = itemText.Text, 
+				Complete = false,
+                DeviceToken = deviceToken
+			};
 
 Your app is now updated to support push notifications.
 
@@ -393,7 +424,7 @@ In this simple example a user receives a push notification with the data that wa
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-xamarin-ios.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-xamarin-ios.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-xamarin-ios.md
-[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-xamarin-ios.md
+[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-ios.md
 [Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-xamarin-ios.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Xamarin.iOS]: http://xamarin.com/download
