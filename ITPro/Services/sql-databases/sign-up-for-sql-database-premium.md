@@ -54,7 +54,7 @@ Once your subscription is activated for the preview, you need to request Premium
 	**Note** – Account administrators, service administrators, and co-administrators of the subscription can request quota once the subscription is signed up for the preview.
 
 2.	Navigate to the **Servers** list in the **SQL Databases** extension.
-3.	Select the server for which you plan to Request Premium database quota.
+3.	Select the server for which you plan to request Premium database quota.
 4.	Navigate to the **Quick Start** for the selected server by clicking the lightning bolt icon in the top navigation bar.
 5.	Click **Request Premium Database Quota** in the **Premium Database** section.
 
