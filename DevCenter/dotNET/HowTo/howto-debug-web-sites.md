@@ -64,7 +64,7 @@ The directory structure that the logs are stored in is as follows:
 
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. 
 
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://msdn.microsoft.com/en-us/library/windows/desktop/aa814385(v=vs.85).aspx). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619). Windows Azure Web Sites do not support the s-computername, s-ip and cs-version fields for W3C logging.
 
 * **Deployment logs** - /LogFiles/[deployment method]. The deployment logs are located in a folder named after the deployment method. For example, /LogFiles/Git.
 
@@ -139,6 +139,75 @@ To filter specific log types, such as HTTP, use the **-Path** parameter.
 <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>If you have not installed the Windows Azure Command-Line Tools, or have not configured it to use your Windows Azure Subscription, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">How to Use Windows Azure Command-Line Tools</a>.</p></div>
+
+<a name="understandlogs"></a><h2>How to: Understand application diagnostics logs</h2>
+
+Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage.
+
+###File system
+
+Each line logged to the file system or received using streaming will be in the following format:
+
+	{Date}  PID[{process id}] {event type/level} {message}
+
+###Table storage
+
+When logging to table storage, the following properties (columns) are used for each entity (row) stored in the table.
+
+<table style="max-width:620px;border-collapse:collapse">
+<thead>
+<tr>
+<th style="width:45%;border:1px solid black;background-color:#0099dd">Property name</th>
+<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Value/format</th>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
+<td style="border:1px solid black;vertical-align:top">Date/time value in yyyyMMddHH format</td>
+</tr>
+</thead>
+<tr>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Unique GUID value</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top">Timestamp</td>
+<td style="border:1px solid black;vertical-align:top">Timestamp of this entity</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Added for consistency with web role diagnostic information</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
+<td style="border:1px solid black;vertical-align:top">Web site name</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Event level (e.g. error, warning, information)</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top">EventId</td>
+<td style="border:1px solid black;vertical-align:top">Event ID</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Pid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Process ID</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top">Tid</td>
+<td style="border:1px solid black;vertical-align:top">Thread ID</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Message</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Event detail message</td>
+</tr>
+</table>
+
+###Blob storage
+
+When logging to blob storage, data is stored in Comma Separated Value (CSV) format as follows:
+
+	Timestamp(DateTime), Level, ApplicationName, InstanceID, Timestamp(ticks), EventID , ProcessID , ThreadID , Message
 
 <a name="nextsteps"></a><h2>Next steps</h2>
 
