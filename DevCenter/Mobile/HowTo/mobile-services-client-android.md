@@ -1,4 +1,4 @@
-﻿<properties linkid="mobile-services-how-to-Anroid-client" writer="ricksal" urlDisplayName="Android Client Library" pageTitle="How to use the Android client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service Android client library, Android client library" metaDescription="Learn how to use the Android client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="mobile-services-how-to-Anroid-client" writer="ricksal" urlDisplayName="Android Client Library" pageTitle="How to use the Android client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service Android client library, Android client library" metaDescription="Learn how to use the Android client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -65,7 +65,7 @@ We assume that you have created a mobile service and a table. For more informati
 The corresponding typed client side object is the following:
 
 	public class ToDoItem {
-		private Integer id;
+		private String id;
 		private String text;
 		private Boolean complete;
 		private Date due
@@ -289,6 +289,47 @@ For **insert** operations, the callback object is a [**TableOperationCallback&lt
 
 The entity parameter of the **onCompleted** method contains the newly inserted object. The successful code shows how to access the *id* of the inserted row.
 
+Mobile Services supports unique custom string values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+
+		ToDoItem mToDoItem = new ToDoItem();
+		mToDoItem.id = "myemail@mydomain.com";
+		mToDoItem.text = "Test Program";
+		mToDoItem.complete = false;
+		mToDoItem.duration = 5; 
+
+If a custom id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+
+Supporting custom Ids provides the following advantages to developers
+
++ Ids can be generated without making a roundtrip to the database.
++ Records are easier to merge from different tables or databases.
++ Ids values can integrate better with an application's logic.
+
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id
+
+	//if id is not assigned by application, let's generate a new one
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+If an application provides a value for an id, Mobile Services will store it as is. This includes leading or trailing white spaces. White space will not be trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1].
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+You can alternatively use integer ids for your tables. In order to use an integer id you must create your table with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+
+
+
 <h2><a name="updating"></a><span class="short-header">Updating data</span>How to: Update data in a mobile service</h2>
 
 The following code shows how to update data in a table. In this example, *mToDoItem* is a reference to an item in the *ToDoItem* table, and we update its *duration* property..
@@ -321,9 +362,9 @@ The following code shows how to delete data from a table. It deletes an existing
 
 Note that in the *delete* case, the callback object is a [**TableDeleteCallback**](http://go.microsoft.com/fwlink/p/?LinkId=296858) and the **onCompleted** method is somewhat different in that no table row is returned.
 
-The following code illustrates another way to do this. It deletes an existing item in the ToDoItem table by specifying the value of the id field of the row to delete (assumed to equal "5"). 
+The following code illustrates another way to do this. It deletes an existing item in the ToDoItem table by specifying the value of the id field of the row to delete (assumed to equal "37BBF396-11F0-4B39-85C8-B319C729AF6D"). 
 
-		mToDoTable.delete(5, new TableDeleteCallback() {
+		mToDoTable.delete("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableDeleteCallback() {
 		    public void onCompleted(Exception exception, 
 		            ServiceFilterResponse response) {
 		        if(exception == null){
@@ -333,9 +374,9 @@ The following code illustrates another way to do this. It deletes an existing it
 		});
 
 <h2><a name="lookup"></a><span class="short-header">Looking up data</span>How to: Look up a specific item</h2>
-Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for *id* = 23.
+Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following code shows how to do this, for *id* = "37BBF396-11F0-4B39-85C8-B319C729AF6D".
 
-		mToDoTable.lookUp(23, new TableOperationCallback<ToDoItem>() {
+		mToDoTable.lookUp("37BBF396-11F0-4B39-85C8-B319C729AF6D", new TableOperationCallback<ToDoItem>() {
 		    public void onCompleted(item entity, Exception exception,
 		            ServiceFilterResponse response) {
 		        if(exception == null){
@@ -788,3 +829,5 @@ The Javadocs reference for the Android client API is at [http://dl.windowsazure.
 [Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
 [Get started with authentication]: ./mobile-services-get-started-with-users-XXXXX.md
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
