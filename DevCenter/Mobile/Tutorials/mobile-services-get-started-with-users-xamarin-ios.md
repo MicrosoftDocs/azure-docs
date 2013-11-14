@@ -15,7 +15,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions as well as [Xamarin Studio] for OSX.
+Completing this tutorial requires [Xamarin.iOS], XCode 5.0 and iOS 5.0 or later versions.
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
 
@@ -78,7 +78,17 @@ Next, you will update the app to authenticate users before requesting resources 
 
 2. Then add a new method named **Authenticate** to **TodoService** defined as:
 
-        private async Task Authenticate(UIViewController view)        {            try            {                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccount);            }            catch (Exception ex)            {                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);            }        }
+        private async Task Authenticate(UIViewController view)
+        {
+            try
+            {
+                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccount);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+            }
+        }
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you are using an identity provider other than a Microsoft Account, change the value passed to <strong>LoginAsync</strong> above to one of the following: <i>Facebook</i>, <i>Twitter</i>, or <i>Google</i>.</p>
@@ -86,16 +96,41 @@ Next, you will update the app to authenticate users before requesting resources 
 
 3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
 
-        private async Task CreateTable()        {            // Create an MSTable instance to allow us to work with the TodoItem table            todoTable = client.GetTable<TodoItem>();        }
+        private async Task CreateTable()
+        {
+            // Create an MSTable instance to allow us to work with the TodoItem table
+            todoTable = client.GetTable<TodoItem>();
+        }
 	
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
 
-        public async Task LoginAndGetData(UIViewController view)        {            await Authenticate(view);            await CreateTable();        }
+        public async Task LoginAndGetData(UIViewController view)
+        {
+            await Authenticate(view);
+            await CreateTable();
+        }
 
 5. In the **TodoListViewController** override the **ViewDidAppear** method and define it as found below. This logs in the user if the **TodoService** doesn't yet have a handle on the user:
 
-        public override async void ViewDidAppear(bool animated)        {            base.ViewDidAppear(animated);            if (TodoService.DefaultService.User == null)            {                await TodoService.DefaultService.LoginAndGetData(this);            }            if (TodoService.DefaultService.User == null)            {                // TODO:: show error                return;            }                             RefreshAsync();        }
-6. Remove the original call to **RefreshAsync** from **TodoListViewController.ViewDidLoad**.		
+        public override async void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            if (TodoService.DefaultService.User == null)
+            {
+                await TodoService.DefaultService.LoginAndGetData(this);
+            }
+
+            if (TodoService.DefaultService.User == null)
+            {
+                // TODO:: show error
+                return;
+            } 
+                
+            RefreshAsync();
+        }
+6. Remove the original call to **RefreshAsync** from **TodoListViewController.ViewDidLoad**.
+		
 7. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
@@ -124,6 +159,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Xamarin.iOS]: http://xamarin.com/download
 [Get started with Mobile Services]: ./mobile-services-get-started-xamarin-ios.md
 [Get started with data]: ./mobile-services-get-started-with-data-xamarin-ios.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-xamarin-ios.md

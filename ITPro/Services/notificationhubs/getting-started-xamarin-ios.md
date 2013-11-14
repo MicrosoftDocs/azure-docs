@@ -26,7 +26,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial demonstrates the simple broadcast scenario using notification hubs. <!-- Be sure to follow along with the next tutorial to learn how to use notification hubs to address specific users and groups of devices. --> This tutorial requires the following prerequisites:
 
-+ [XCode 4.5][Install Xcode] 
++ [XCode 5.0][Install Xcode] 
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 + [Xamarin.iOS]
@@ -491,6 +491,6 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Xamarin.iOS]: http://xamarin.com/download
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/

@@ -61,13 +61,32 @@ Now that the mobile service is validating data and sending error responses, you 
 
 3. In the TodoService.cs file, locate the current <code>try/catch</code> exception handling in the **InsertTodoItemAsync** method, and replace the <code>catch</code> with:
     
-		catch (Exception ex)        {        	var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);            Console.WriteLine(exDetail.Message);                                            UIAlertView alert = new UIAlertView() {             	Title = "Error",             	Message = exDetail.Message            } ;            alert.AddButton("Ok");            alert.Show();            return -1;		}
+    catch (Exception ex)
+    {
+        var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
+        Console.WriteLine(exDetail.Message);
+                                
+        UIAlertView alert = new UIAlertView() { 
+            	Title = "Error", 
+            	Message = exDetail.Message
+        } ;
+        alert.AddButton("Ok");
+        alert.Show();
+
+        return -1;
+		}
 
    This shows a popup window which displays the error to the user. 
 
 4. Locate the **OnAdd** method in **TodoListViewController.cs**. Update the method to make sure the returned <code>index</code> isn't <code>-1</code> as is returned in the exception handling in **InsertTodoItemAsync**. In this case we don't want to add a new row to the <code>TableView</code>.
 
-		if (index != -1)        {    		TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },    			UITableViewRowAnimation.Top);    		itemText.Text = "";        }
+    if (index != -1)
+    {
+        TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
+             UITableViewRowAnimation.Top);
+
+        itemText.Text = "";
+    }
 
 
 5. Rebuild and start the app. 

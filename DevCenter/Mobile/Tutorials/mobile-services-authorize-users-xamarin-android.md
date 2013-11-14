@@ -49,7 +49,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Xamarin Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
+1. In Xamarin Studio or Visual Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
 
 2. Click **Run** to start the app and sign in with your chosen identity provider. 
 

@@ -57,9 +57,10 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. In the TodoActivity.cs file, locate the **AddItem** method and replace the call to the CreateAndShowDialog method with the following code:
 
-		var exDetail = ex.InnerException.InnerException as 
-			MobileServiceInvalidOperationException;
-			        CreateAndShowDialog(exDetail.Message, "Error");
+       var exDetail = ex.InnerException.InnerException as 
+            MobileServiceInvalidOperationException;
+        
+        CreateAndShowDialog(exDetail.Message, "Error");
 
 	This displays the error message returned by the mobile service. 
 
@@ -104,7 +105,8 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 1. Add the following code to the private field definitions in the **TodoItem** class:
 
-        [DataMember(Name = "createdAt")]        public DateTime? CreatedAt { get; set; }
+        [DataMember(Name = "createdAt")]
+        public DateTime? CreatedAt { get; set; }
   
     <div class="dev-callout"><b>Note</b>
 	<p>The <code>DataMember's Name</code> annotation tells the client to map the new <code>CreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>

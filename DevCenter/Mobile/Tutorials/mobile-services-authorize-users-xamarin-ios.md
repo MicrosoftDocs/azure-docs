@@ -49,7 +49,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Xamarin Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
+1. In Xamarin Studio or Visual Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
 
 2. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider. 
 
