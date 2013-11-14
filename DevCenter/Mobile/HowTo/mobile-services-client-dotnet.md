@@ -329,6 +329,67 @@ Applications using untyped tables enable optimistic concurrency by setting the `
 	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
+The following code shows how to resolve a write conflict once detected. The correct `__version` value must be included in the `UpdateAsync()` call to commit a resolution.
+
+	private async void UpdateToDoItem(TodoItem item)
+	{
+    	MobileServicePreconditionFailedException<TodoItem> exception = null;         
+		
+	    try
+    	{
+	        //update at the remote table
+    	    await todoTable.UpdateAsync(item);
+    	}
+    	catch (MobileServicePreconditionFailedException<TodoItem> writeException)
+	    {
+        	exception = writeException;
+	    }
+		
+    	if (exception != null)
+    	{
+			// Conflict detected, the item has changed since the last query
+        	// Resolve the conflict between the local and server item
+	        ResolveConflict(item, exception.Item);
+    	}
+	}
+
+
+	private async void ResolveConflict(TodoItem localItem, TodoItem serverItem)
+	{
+    	//Ask user to choose the resoltion between versions
+	    MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n", 
+        	                                        serverItem.Text, localItem.Text), 
+                                                	"CONFLICT DETECTED - Select a resolution:");
+
+	    UICommand localBtn = new UICommand("Commit Local Text");
+    	UICommand ServerBtn = new UICommand("Leave Server Text");
+    	msgDialog.Commands.Add(localBtn);
+	    msgDialog.Commands.Add(ServerBtn);          
+
+    	localBtn.Invoked = async (IUICommand command) =>
+	    {
+        	// To resolve the conflict, update the version of the 
+	        // item being committed. Otherwise, you will keep
+        	// catching a MobileServicePreConditionFailedException.
+	        localItem.Version = serverItem.Version;             
+
+    	    // Updating recursively here just in case another 
+        	// change happened while the user was making a decision
+	        UpdateToDoItem(localItem);
+    	};          
+		
+	    ServerBtn.Invoked = async (IUICommand command) =>
+    	{
+	        RefreshTodoItems();
+    	};          
+		
+	    await msgDialog.ShowAsync();
+	}
+
+
+
+
+
 For a more complete example of using optimistic concurrency for Mobile Services, see the [Optimistic Concurrency Tutorial].
 
 
