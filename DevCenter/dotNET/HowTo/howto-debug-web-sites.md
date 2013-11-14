@@ -205,7 +205,7 @@ When logging to table storage, the following properties (columns) are used for e
 
 ###Blob storage
 
-When logging to blob storage, data is stored in Comma Separated Value (CSV) format as follows:
+When logging to blob storage, data is stored in comma-separated values (CSV) format as follows:
 
 	Timestamp(DateTime), Level, ApplicationName, InstanceID, Timestamp(ticks), EventID , ProcessID , ThreadID , Message
 
