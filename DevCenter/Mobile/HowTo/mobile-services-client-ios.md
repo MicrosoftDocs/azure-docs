@@ -39,9 +39,6 @@ This guide shows you how to perform common scenarios using the iOS client for Wi
 This guide assumes that you have created a mobile service with a table.  For more information see [Create a table]. The examples in this topic use a table named `ToDoItem`, which has the following columns:
 
 + `id`
-+ `__createdAt`
-+ `__updatedAt`
-+ `__version`
 + `text`
 + `complete`
 + `duration`
@@ -205,9 +202,45 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 		// data compared to what was passed to the server.
 	}];	
 
-<div class="dev-callout"><strong>Note</strong>
-<p>When inserting an item, you can manually set the `id` in the dictionary object to a custom unique value.</p>
-</div>
+Mobile Services supports unique custom string values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+
+	NSDictionary *newItem = @{"id: "37BBF396-11F0-4B39-85C8-B319C729AF6D", "text": "my new item", @"complete" : @NO};
+	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+		// The result contains the new item that was inserted,
+		// depending on your server scripts it may have additional or modified 
+		// data compared to what was passed to the server.
+	}];	
+
+If a custom id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+
+Supporting custom Ids provides the following advantages to developers
+
++ Ids can be generated without making a roundtrip to the database.
++ Records are easier to merge from different tables or databases.
++ Ids values can integrate better with an application's logic.
+
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id
+
+	//if id is not assigned by application, let's generate a new one
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+If an application provides a value for an id, Mobile Services will store it as is. This includes leading or trailing white spaces. White space will not be trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1].
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+You can alternatively use integer ids for your tables. In order to use an integer id you must create your table with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
 
@@ -457,3 +490,5 @@ For more information see, New topic about processing headers in the server-side.
 [How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables

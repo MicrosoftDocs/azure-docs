@@ -89,26 +89,23 @@ The application now writes the text changes to each item back to the database wh
 
 <h2><a name="enableOC"></a><span class="short-header">Enable Optimistic Concurrency</span>Enable Conflict Detection in your application</h2>
 
-Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Windows Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact.
+Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. [Optimistic Concurrency Control] assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. Windows Azure Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is added to each table. In this section, we will enable the application to detect these write conflicts through the `__version` system property. The application will be notified by a `MobileServicePreconditionFailedException` during an update attempt if the record has changed since the last query. It will then be able to make a choice of whether to commit its change to the database or leave the last change to the database intact. For more information on the System Properties for Mobile Services, see [System Properties].
 
 1. In MainPage.xaml.cs update the **TodoItem** class definition with the following code to include the **__version** system property enabling support for write conflict detection:
 
 		public class TodoItem
 		{
-			public string Id { get; set; }
-			
+			public string Id { get; set; }            
 			[JsonProperty(PropertyName = "text")]
-			public string Text { get; set; }
-			
+			public string Text { get; set; }            
 			[JsonProperty(PropertyName = "complete")]
-			public bool Complete { get; set; }
-			
+			public bool Complete { get; set; }            
 			[JsonProperty(PropertyName = "__version")]
 			public byte[] Version { set; get; }
 		}
 
 	<div class="dev-callout"><strong>Note</strong>
-	<p>When using untyped tables, enable optimistic concurrency by adding the `Version` flag on the `SystemProperties` of the table.</p>
+	<p>When using untyped tables, enable optimistic concurrency by adding the Version flag to the SystemProperties of the table.</p>
 	<pre><code>//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre>
 	</div>
@@ -139,7 +136,6 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
 
         private async void ResolveConflict(TodoItem localItem, TodoItem serverItem)		
         {
-
             // Ask user to choose between the local text value or leaving the 
 			// server's updated text value
             MessageBoxResult mbRes = MessageBox.Show(String.Format("The item has already been updated on the server.\n\n" +
@@ -148,7 +144,6 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
                                                                    "Press OK to update the server with the local value.\n\n" +
                                                                    "Press CANCEL to keep the server value.", serverItem.Text, localItem.Text), 
                                                                    "CONFLICT DETECTED ", MessageBoxButton.OKCancel);
-
             // OK : After examining the updated text from the server, overwrite it
             //      with the changes made in this client.
             if (mbRes == MessageBoxResult.OK)
@@ -157,12 +152,10 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
                 // to resolve the conflict. Otherwise the exception
                 // will be thrown again for the attempted update.
                 localItem.Version = serverItem.Version;
-
                 // Recursively updating just in case another conflict 
 				// occurs while the user is deciding.
                 this.UpdateToDoItem(localItem);
             }
-
             // CANCEL : After examining the updated text from the server, leave 
 			// the server item intact and refresh this client's query discarding 
 			// the proposed changes.
@@ -176,7 +169,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
 
 <h2><a name="test-app"></a><span class="short-header">Test the app</span>Test database write conflicts in the application</h2>
 
-In this section you will test the code to handle write conflicts by running the app in two different Windows Phone 8 emulators (WVGA and WVGA 512M). Both client apps will attempt to update the same item's `text` property requiring the user to resolve the conflict.
+In this section you will test the code that handles write conflicts by running the app in two different Windows Phone 8 emulators (WVGA and WVGA 512M). Both client apps will attempt to update the same item's `text` property requiring the user to resolve the conflict.
 
 
 1. In Visual Studio, make sure **Emulator WVGA 512MB** is selected from the dropdown box as the deployment target as shown in the screenshot below.
@@ -199,15 +192,15 @@ In this section you will test the code to handle write conflicts by running the 
 
 	![][3]
 
-6. In the left emulator, update one of the items, then click another text box so that the `LostFocus` event handler updates the database. The screenshot below shows an example. 
+6. In the left emulator, update the `text` of the last TodoItem to **Test Write 1**, then click another text box so that the `LostFocus` event handler updates the database. The screenshot below shows an example. 
 
 	![][4]
 
-7. At this point the corresponding item in the right emulator has an old version and old text value. In the right emulator, enter a different value for the text property. Then click another text box so the `LostFocus` event handler in the right emulator attempts to update the database with the old version.
+7. At this point the corresponding item in the right emulator has an old version and old text value. In the right emulator, enter **Test Write 2** for the text property. Then click another text box so the `LostFocus` event handler in the right emulator attempts to update the database with the old version.
 
 	![][5]
 
-8. Since the version used with the update attempt didn't match the server version, the client SDK throws the `MobileServicePreconditionFailedException` allowing the app to resolve this conflict. To resolve the conflict, you can click **ok** to commit the values from the right app. Alternatively, click **cancel** to discard the values in the right app, leaving the values from the left app committed. 
+8. Since the version used with the update attempt didn't match the server version, the Mobile Services SDK throws the `MobileServicePreconditionFailedException` allowing the app to resolve this conflict. To resolve the conflict, you can click **ok** to commit the values from the right app. Alternatively, click **cancel** to discard the values in the right app, leaving the values from the left app committed. 
 
 	![][6]
 
@@ -220,7 +213,7 @@ You can detect and resolve write conflicts in server scripts. This is a good ide
 +  If the TodoItem's ` complete` field is set to true, then it is considered completed and `text` can no longer be changed.
 +  If the TodoItem's ` complete` field is still false, then attempts to update `text` will be comitted.
 
-The following steps walk you through adding the server update script.
+The following steps walk you through adding the server update script and testing it.
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
@@ -239,14 +232,11 @@ The following steps walk you through adding the server update script.
 		function update(item, user, request) { 
 			request.execute({ 
 				conflict: function (serverRecord) {
-
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
-
 						//Make sure that you are using the latest version 
 						//prevents conflict event to be fired recursively
 						item.__version = serverRecord.__version.slice(0);
-
 						//write the updated item to the table
 						request.execute();
 					}
@@ -257,23 +247,23 @@ The following steps walk you through adding the server update script.
 				}
 			}); 
 		}   
-5. Change the TodoItem text for one of theitems in app in the left emulator. Then click another text box so the `LostFocus` event handler updates the database.
+5. Change the TodoItem text for the last item in the app in the left emulator. Then click another text box so the `LostFocus` event handler updates the database.
 
 	![][4]
 
-6. In the right emulator, enter a different value for the text property. Then click another text box so the `LostFocus` event handler in the right emulator attempts to update the database with the old version
+6. In the right emulator, enter a different value for the text property of the last TodoItem. Then click another text box so the `LostFocus` event handler in the right emulator attempts to update the database with the old version
 
 	![][5]
 
-7. Notice that no exception was encountered in the app since the server script allows the update since the item is not marked complete. To see that the update was trult successful, click **Refresh** in the app in the left emulator to re-query the database.
+7. Notice that no exception was encountered in the app since the server script resolved the conflict by allowing the update since the item is not marked complete. To see that the update was truly successful, click **Refresh** in the app in the left emulator to re-query the database.
 
 	![][10]
 
-8. In the app in the left emulator, click the check box to complete one of the TodoItems.
+8. In the app in the left emulator, click the check box to complete the last TodoItem.
 
 	![][11]
 
-9. In the app in the right emulator, try to update the same TodoItem's text and trigger the `LostFocus` event. In response to conflict the script refused the update because the item was already completed. 
+9. In the app in the right emulator, try to update the same TodoItem's text and trigger the `LostFocus` event. In response to the conflict, the script resolved it by refusing the update because the item was already completed. 
 
 	![][12]
 
@@ -335,3 +325,4 @@ Once you have completed the data series, you can also try one of the following W
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
+[System Properties]: http://go.microsoft.com/fwlink/?LinkId=331143

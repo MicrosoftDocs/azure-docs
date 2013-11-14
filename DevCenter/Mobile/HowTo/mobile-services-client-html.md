@@ -274,26 +274,45 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			   alert("Error: " + err);
 			});
 
-You can insert new rows into a table with your own custom `id` values. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+
+Mobile Services supports unique custom id string values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 			todoItemTable.insert({
-			   id: "email@domain.com",				
+			   id: "myemail@domain.com",				
 			   text: "New Item",
 			   complete: false
 			})
 
-Custom `id` strings are trimmed of whitespace before being stored in the database. The value for the `id` must be unique and it must not include characters from the following sets:
+If a custom id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
 
-+  [ASCII control codes C0 and C1]
-+  Printable characters:  **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
+Supporting custom Ids provides the following advantages to developers
+
++ Ids can be generated without making a roundtrip to the database.
++ Records are easier to merge from different tables or databases.
++ Ids values can integrate better with an application's logic.
+
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id
+
+	//if id is not assigned by application, let's generate a new one
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+If an application provides a value for an id, Mobile Services will store it as is. This includes leading or trailing white spaces. White space will not be trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1].
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  The ids "." and ".."
 
-
-
-
-If a value is not provided for the `id` field, a default `id` will be generated based on the `NEWID()` funtion.
-
-
+You can alternatively use integer ids for your tables. In order to use an integer id you must create your table with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 
 
@@ -609,3 +628,4 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
 [Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
