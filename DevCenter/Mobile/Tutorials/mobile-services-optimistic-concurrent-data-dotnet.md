@@ -15,9 +15,7 @@
 </div>	
 
 
-<div class="dev-callout">
-<p>This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Store app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.</p>
-</div>
+This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Store app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.
 
 In this tutorial you will add functionality to the quickstart app to handle contentions that occur when updating the TodoItem database. This tutorial walks you through these basic steps:
 
@@ -77,7 +75,7 @@ In this section you will update the TodoList user interface to allow updating th
         private async void UpdateToDoItem(TodoItem item)
         {
             Exception exception = null;
-
+			
             try
             {
                 //update at the remote table
@@ -87,7 +85,7 @@ In this section you will update the TodoList user interface to allow updating th
             {
                 exception = ex;
             }
-
+			
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
@@ -105,21 +103,21 @@ Two or more clients may write changes to the same item, at the same time, in som
 		public class TodoItem
 		{
 			public string Id { get; set; }
-
+			
 			[JsonProperty(PropertyName = "text")]
 			public string Text { get; set; }
-
+			
 			[JsonProperty(PropertyName = "complete")]
 			public bool Complete { get; set; }
-
+			
 			[JsonProperty(PropertyName = "__version")]
 			public byte[] Version { set; get; }
 		}
 
 	<div class="dev-callout"><strong>Note</strong>
 	<p>When using untyped tables, enable optimistic concurrency by adding the `Version` flag on the `SystemProperties` of the table.</p>
-	<p><pre><code>//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre></p>
+	<pre><code>//Enable optimistic concurrency by retrieving __version
+todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre>
 	</div>
 
 
@@ -128,7 +126,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
         private async void UpdateToDoItem(TodoItem item)
         {
             Exception exception = null;
-
+			
             try
             {
                 //update at the remote table
@@ -142,7 +140,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
             {
                 exception = ex;
             }
-
+			
             if (exception != null)
             {
                 if (exception is MobileServicePreconditionFailedException)
@@ -171,23 +169,23 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre
             UICommand ServerBtn = new UICommand("Leave Server Text");
             msgDialog.Commands.Add(localBtn);
             msgDialog.Commands.Add(ServerBtn);
-
+			
             localBtn.Invoked = async (IUICommand command) =>
             {
                 // To resolve the conflict, update the version of the 
                 // item being committed. Otherwise, you will keep
                 // catching a MobileServicePreConditionFailedException.
                 localItem.Version = serverItem.Version;
-
+				
                 // Updating recursively here just in case another 
                 // change happened while the user was making a decision
                 UpdateToDoItem(localItem);
             };
-
+			
             ServerBtn.Invoked = async (IUICommand command) =>
             {
             };
-
+			
             await msgDialog.ShowAsync();
         }
 

@@ -15,9 +15,7 @@
 </div>	
 
 
-<div class="dev-callout">
-<p>This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Phone 8 app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.</p>
-</div>
+This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Phone 8 app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.
 
 In this tutorial you will add functionality to the quickstart app to handle contentions that occur when updating the TodoItem database. This tutorial walks you through these basic steps:
 
@@ -98,21 +96,21 @@ Two or more clients may write changes to the same item, at the same time, in som
 		public class TodoItem
 		{
 			public string Id { get; set; }
-
+			
 			[JsonProperty(PropertyName = "text")]
 			public string Text { get; set; }
-
+			
 			[JsonProperty(PropertyName = "complete")]
 			public bool Complete { get; set; }
-
+			
 			[JsonProperty(PropertyName = "__version")]
 			public byte[] Version { set; get; }
 		}
 
 	<div class="dev-callout"><strong>Note</strong>
 	<p>When using untyped tables, enable optimistic concurrency by adding the `Version` flag on the `SystemProperties` of the table.</p>
-	<p><pre><code>//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre></p>
+	<pre><code>//Enable optimistic concurrency by retrieving __version
+todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre>
 	</div>
 
 2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.xaml.cs, add the following code to handle the exception in the `UpdateToDoItem()` method.
