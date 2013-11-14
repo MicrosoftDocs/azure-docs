@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure PowerShell for HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure PowerShell to use with the HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure PowerShell for HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure Windows Azure HDInsight PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 #Install and configure PowerShell for HDInsight
 
@@ -17,7 +17,7 @@ Before you begin this article, you must have the following:
 - [Connect to your Windows Azure subscription](#connect)
 - [Select Azure subscription](#selectsubscription)
 - [Run PowerShell scripts](#runscripts)
-- [Getting help](#help)
+- [Get help](#help)
 - [Additional resource](#resource)
 - [See also](#seealso)
 
@@ -170,7 +170,7 @@ There are two ways to run the PowerShell scripts.
 
 
 
-##<a id="help"></a>Getting help
+##<a id="help"></a>Get help
 
 These resources provide help for specific cmdlets:
 
@@ -212,7 +212,7 @@ These are some of the resources available that you can use to learn to use Windo
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Provision HDInsight clusters][hdinsight-provision]
 - [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-- [How to install and configure Windows Azure PowerShell][powershell-how-to-install]
+- [Install and configure Windows Azure PowerShell][powershell-how-to-install]
 
 [stockoverflow]: http://go.microsoft.com/fwlink/?linkid=320213&clcid=0x409
 [microsoft-web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409

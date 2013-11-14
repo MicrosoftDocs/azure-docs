@@ -123,7 +123,7 @@ In this article you learned how to use the Microsoft Hive ODBC driver to retriev
 
 * For information on using Sqoop to copy data from an HDInsight Service to SQL Azure, see [Using HDInsight to process Blob Storage data and write the results to a SQL Database][blob-hdi-sql]. 
 
-* For information on using Sqoop or Windows Azure Blob Storage to load data into an HDInsight Service, see [How to Upload Data to the HDInsight Service][upload-data].
+* For information on using Sqoop or Windows Azure Blob Storage to load data into an HDInsight Service, see [Upload Data to the HDInsight][upload-data].
 
 [connect-excel-power-query]: /en-us/manage/services/hdinsight/connect-excel-with-power-query/
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/

@@ -234,6 +234,47 @@ Once you have the storage account and the blob container prepared, you are ready
 
 	![HDI.CLI.Provision][image-hdi-ps-provision]
 
+You can also provision cluster and configure it to connect to more than one Azure Blob storage or custom Hive and Oozie metastores. This advanced feature allows you to separate lifetime of your data and metadata from the lifetime of the cluster. 
+
+**To provision an HDInsight cluster using configuration**
+
+- Run the following commands from a Windows PowerShell window:
+
+		$subscriptionName = "<SubscriptionName>"
+		$clusterName = "<ClusterName>"
+		$location = "<MicrosoftDataCenter>"
+		$clusterNodes = <ClusterSizeInNodes>
+		
+		$storageAccountName_Default = "<DefaultFileSystemStorageAccountName>"
+		$containerName_Default = "<DefaultFileSystemContainerName>"
+		
+		$storageAccountName_Add1 = "<AdditionalStorageAccountName>"
+		
+		$hiveSQLDatabaseServerName = "<SQLDatabaseServerNameForHiveMetastore>"
+		$hiveSQLDatabaseName = "<SQLDatabaseDatabaseNameForHiveMetastore>"
+		$oozieSQLDatabaseServerName = "<SQLDatabaseServerNameForOozieMetastore>"
+		$oozieSQLDatabaseName = "<SQLDatabaseDatabaseNameForOozieMetastore>"
+		
+		# Get the storage account keys
+		Select-AzureSubscription $subscriptionName
+		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
+		$storageAccountKey_Add1 = Get-AzureStorageKey $storageAccountName_Add1 | %{ $_.Primary }
+		
+		$oozieCreds = Get-Credential -Message "Oozie metastore"
+		$hiveCreds = Get-Credential -Message "Hive metastore"
+		
+		# Create a Blob storage container
+		#$dest1Context = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default  
+		#New-AzureStorageContainer -Name $containerName_Default -Context $dest1Context
+		
+		# Create a new HDInsight cluster
+		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
+		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
+		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 |
+		    Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore |
+		    Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore |
+		        New-AzureHDInsightCluster -Subscription $subscriptionName  -Name $clusterName -Location $location
+
 **To list HDInsight clusters**
 
 - Run the following commands from a Windows Azure PowerShell window:
