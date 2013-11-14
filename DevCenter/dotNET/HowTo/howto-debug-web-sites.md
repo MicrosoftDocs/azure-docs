@@ -162,7 +162,7 @@ When logging to table storage, the following properties (columns) are used for e
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">Date/time value in yyyyMMddHH format</td>
+<td style="border:1px solid black;vertical-align:top">Date/time of the event in yyyyMMddHH format</td>
 </tr>
 </thead>
 <tr>
@@ -175,7 +175,7 @@ When logging to table storage, the following properties (columns) are used for e
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Added for consistency with web role diagnostic information</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Date/time of the event in Tick format</td>
 </tr>
 <tr>
 <td style="border:1px solid black;vertical-align:top">ApplicationName</td>
