@@ -232,7 +232,6 @@ Once you have completed the data series, try these other iOS tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[GetStartedWithData app]: http://www.google.com
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
