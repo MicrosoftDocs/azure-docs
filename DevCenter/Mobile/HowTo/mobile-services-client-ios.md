@@ -43,6 +43,7 @@ This guide assumes that you have created a mobile service with a table.  For mor
 + `complete`
 + `duration`
 
+
 If you are creating your iOS application for the first time, make sure to add the `WindowsAzureMobileServices.framework` in your application's **Link Binary With Libraries** setting.
 
 In addition, you must add the following reference in the appropriate files or in your application's .pch file.
@@ -202,7 +203,7 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 		// data compared to what was passed to the server.
 	}];	
 
-Mobile Services supports unique string id values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 	NSDictionary *newItem = @{"id: "37BBF396-11F0-4B39-85C8-B319C729AF6D", "text": "my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -211,7 +212,7 @@ Mobile Services supports unique string id values. This allows applications to us
 		// data compared to what was passed to the server.
 	}];	
 
-If a string id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
 
 Supporting string ids provides the following advantages to developers
 
@@ -254,7 +255,7 @@ Update an existing object by modifying an item returned from a previous query an
 		//handle errors or any additional logic as needed
 	}];
 
-When making updates, you only need to supply the field being update, along with the row ID, as in the following example:
+When making updates, you only need to supply the field being updated, along with the row ID, as in the following example:
 
 	[table update:@{"id" : "37BBF396-11F0-4B39-85C8-B319C729AF6D", "Complete": Yes} completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
@@ -269,7 +270,7 @@ To delete an item from the table, simply pass the item to the delete method, as 
 
 You can also just delete a record using its id directly, as in the following example:
 
-	[table deleteWithId:[NSNumber numberWithInt:1] completion:^(NSDictionary *item, NSError *error) {
+	[table deleteWithId:[NSString @"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];	
 

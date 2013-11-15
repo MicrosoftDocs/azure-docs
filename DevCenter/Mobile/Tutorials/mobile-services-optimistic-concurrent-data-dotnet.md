@@ -46,10 +46,16 @@ In this section you will update the TodoList user interface to allow updating th
 			</ListView.ItemTemplate>
 		</ListView>
 
-3. In the Visual Studio Solution Explorer, open MainPage.xaml.cs. Add the event handler to the MainPage for the TextBox `LostFocus` event as shown below.
+
+3. In MainPage.xaml.cs, add the following `using` directive to the top of the page.
+
+		using System.Threading.Tasks;
 
 
-        private void ToDoText_LostFocus(object sender, RoutedEventArgs e)
+4. In the Visual Studio Solution Explorer, open MainPage.xaml.cs. Add the event handler to the MainPage for the TextBox `LostFocus` event as shown below.
+
+
+        private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
             TodoItem item = tb.DataContext as TodoItem;
@@ -57,13 +63,13 @@ In this section you will update the TodoList user interface to allow updating th
             if (item.Text != tb.Text)
             {
                 item.Text = tb.Text;
-                UpdateToDoItem(item);
+                await UpdateToDoItem(item);
             }
         }
 
 4. In MainPage.xaml.cs, add the definition for the MainPage `UpdateToDoItem()` method referenced in the event handler as shown below.
 
-        private async void UpdateToDoItem(TodoItem item)
+        private async Task UpdateToDoItem(TodoItem item)
         {
             Exception exception = null;			
             try
@@ -97,7 +103,7 @@ Two or more clients may write changes to the same item, at the same time, in som
 			[JsonProperty(PropertyName = "complete")]
 			public bool Complete { get; set; }			
 			[JsonProperty(PropertyName = "__version")]
-			public byte[] Version { set; get; }
+			public string Version { set; get; }
 		}
 
 	<div class="dev-callout"><strong>Note</strong>
@@ -110,7 +116,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.xaml.cs, add the following code to handle the exception in the `UpdateToDoItem()` method.
 
-        private async void UpdateToDoItem(TodoItem item)
+        private async Task UpdateToDoItem(TodoItem item)
         {
             Exception exception = null;			
             try
@@ -132,7 +138,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
                 {
                     //Conflict detected, the item has changed since the last query
                     //Resolve the conflict between the local and server item
-                    ResolveConflict(item, ((MobileServicePreconditionFailedException<TodoItem>) exception).Item);
+                    await ResolveConflict(item, ((MobileServicePreconditionFailedException<TodoItem>) exception).Item);
                 }
                 else
                 {
@@ -141,10 +147,11 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
             }
         }
 
+
 3. In MainPage.xaml.cs, add the definition for the `ResolveConflict()` method referenced in `UpdateToDoItem()`. Notice that in order to resolve the conflict, you set the local item's version to the updated version from the server before committing the user's decision. Otherwise, you will continually encounter the conflict.
 
 
-        private async void ResolveConflict(TodoItem localItem, TodoItem serverItem)
+        private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
             //Ask user to choose the resolution between versions
             MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n", 
@@ -162,7 +169,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
                 localItem.Version = serverItem.Version;				
                 // Updating recursively here just in case another 
                 // change happened while the user was making a decision
-                UpdateToDoItem(localItem);
+                await UpdateToDoItem(localItem);
             };			
             ServerBtn.Invoked = async (IUICommand command) =>
             {
@@ -261,9 +268,6 @@ The following steps walk you through adding the server update script and testing
 				conflict: function (serverRecord) {
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
-						//Make sure that you are using the latest version 
-						//prevents conflict event to be fired recursively
-						item.__version = serverRecord.__version.slice(0);
 						//write the updated item to the table
 						request.execute();
 					}

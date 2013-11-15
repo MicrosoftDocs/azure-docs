@@ -244,7 +244,7 @@ All the functions described so far are additive, so we can just keep calling the
 
 ### <a name="lookingup"></a>How to: Look up data by ID
 
-The `lookup` function takes only the `id` value, and returns the object from the database with that ID. Database tables are created with either an integer or string `id` column. The `id` column is  of type `varchar(255)` by default and initialized with the `NEWID()` function.
+The `lookup` function takes only the `id` value, and returns the object from the database with that ID. Database tables are created with either an integer or string `id` column. A string `id` column is the default.
 
 			todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
 			   alert(JSON.stringify(result));
@@ -275,7 +275,7 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			});
 
 
-Mobile Services supports unique string id values. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 			todoItemTable.insert({
 			   id: "myemail@domain.com",				
@@ -283,7 +283,7 @@ Mobile Services supports unique string id values. This allows applications to us
 			   complete: false
 			})
 
-If a string id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
 
 Supporting string ids provides the following advantages to developers
 
