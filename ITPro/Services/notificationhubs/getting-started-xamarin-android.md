@@ -8,7 +8,7 @@
 
 
 This topic shows you how to use Windows Azure Notification Hubs to send push notifications to a Xamarin.Android application. 
-In this tutorial, you create a blank Xamarin.Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
+In this tutorial, you create a blank Xamarin.Android app that receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
 The tutorial walks you through these basic steps to enable push notifications:
 
@@ -467,3 +467,4 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Use Notification Hubs to send breaking news]: ./breaking-news-dotnet.md
 [PushSharp Github page]: https://github.com/Redth/PushSharp
 [Xamarin.NotificationHub Github page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
