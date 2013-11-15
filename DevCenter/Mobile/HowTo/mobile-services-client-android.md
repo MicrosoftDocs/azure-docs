@@ -289,7 +289,7 @@ For **insert** operations, the callback object is a [**TableOperationCallback&lt
 
 The entity parameter of the **onCompleted** method contains the newly inserted object. The successful code shows how to access the *id* of the inserted row.
 
-Mobile Services supports unique string ids. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.id = "myemail@mydomain.com";
@@ -297,7 +297,7 @@ Mobile Services supports unique string ids. This allows applications to use cust
 		mToDoItem.complete = false;
 		mToDoItem.duration = 5; 
 
-If a string id value is not provided when inserting new records into a table, Mobile Services will generate a GUID for the id.
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
 
 Supporting string ids provides the following advantages to developers
 
@@ -427,7 +427,7 @@ The next step is to insert the object. The callback function passed to the [**in
 									ServiceFilterResponse response) {
 		        if(exception == null){
 		            Log.i(TAG, "Object inserted with ID " + 
-		        jsonObject.getAsJsonPrimitive("id").getAsInt());
+		        jsonObject.getAsJsonPrimitive("id").getAsString());
 		        }
 		    }
 		});
@@ -454,7 +454,7 @@ The following code shows how to delete an instance, in this case, the same insta
 
 You can also delete an instance directly by using its ID: 
 		
-		mTable.delete(task.getAsJsonPrimitive("id").getAsInt(), ...)
+		mTable.delete(task.getAsJsonPrimitive("id").getAsString(), ...)
 
 
 ### <a name="json_get"></a>How to: Return all rows from an untyped table

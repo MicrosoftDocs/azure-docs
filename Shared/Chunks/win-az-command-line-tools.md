@@ -858,7 +858,7 @@ This command creates a table.
 This command supports the following additional option:
 
 + **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
-+ **-integerId**: The new table will be created with an id column of type integer instead of string.
++ **--integerId**: The new table will be created with an id column of type integer instead of string.
 
 **mobile data read [options] [servicename] [tablename] [query]**
 
