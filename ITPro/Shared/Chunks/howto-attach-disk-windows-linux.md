@@ -146,11 +146,11 @@ The data disk that you just attached to the virtual machine is offline and not i
 	`sudo -i blkid`
 
 	The output will look similar to the following:
-	
-	`/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
-	`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
-	`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
-	
+
+		`/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
+		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
+		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
+
 	**Note:** blkid may not require sudo access in all cases, however, it may be easier to run with `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 	**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
@@ -163,8 +163,8 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/mnt/datadrive` created in the earlier steps: 
 
-	`sudo umount /mnt/datadrive`
-	`sudo mount /mnt/datadrive`
+		`sudo umount /mnt/datadrive`
+		`sudo mount /mnt/datadrive`
 
 	If the second command produces an error please check the /etc/fstab file for correct syntax.
 
