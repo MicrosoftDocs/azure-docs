@@ -19,18 +19,32 @@ Notification Hubs is the recommended solution for sending notifications from you
 
 ### Use a common registration table and platform identifier 
 
-To support multiple clients for push, only a few changes are needed to the [previous push notification tutorial](http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/) on the client side. In the type definition for the channels table, add a field which indicates which platform the client is registering from:
+If you choose not to use Notification Hubs, you can still support push notifications to multiple clients from your mobile service by defining a common device registration mechanism. Use a single table to store the device-specific information used by the push notification services of your supported platform. The **Get started with push notifications** tutorials ([Windows Store C#][Get started with push Windows dotnet]/[Windows Store JavaScript][Get started with push Windows js]/[Windows Phone][Get started with push Windows Phone]/[iOS][Get started with push iOS]/[Android][Get started with push Android]) use a **Registrations** table, and store the channel URI (Windows), device token (iOS), or   handle (Android) in a column named _handle_. 
+
+<div class="dev-callout"><b>Note</b>
+	<p>When you use the Add Push Notification wizard in Visual Studio 2013 to add push notifications to a Windows Store app, the wizard automatically creates a table named <strong>Channel</strong> to store channel URIs. The tutorial <strong>Get started with push notifications in Visual Studio 2012</strong> (<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012">Windows Store C#</a>/<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012">Windows Store JavaScript</a>) shows you how to enable push notifications using the <strong>Registrations</strong> table.</p>
+</div>
+
+To support multiple clients in this single registration table, include a _platform_ column in the table, where this field is set to the platform of the client inserting a row during registeration. For example, the following **Registrations** class definition, from a Windows Store C# or Windows Phone app, maps the client _ChannelUri_ field to the _handle_ column in the Registrations table: 
 		
 		public class Registrations
 		{
 			[JsonProperty(PropertyName = "platform")]			
-			public string Platform { get; set; }
+			public string Platform { 
+				get
+				{
+					return "windowsstore";
+					// return "windowsphone";
+				}
+			}
 			
 		    public string Id { get; set; }
 		
 			[JsonProperty(PropertyName = "handle")]
-			public string Handle { get; set; }
+			public string ChannelUri { get; set; }
 		}
+
+The **Registrations** object also has a _Platform_ field, which always returns `windowsstore` (or `windowsphone`).
 
 This way, when registering for a push channel, you know which push API to use. In a Windows Store app, the constructor could set this property to "winstore" (for example) and in the Windows Phone app version, it could be set to "winphone." As long as dynamic schema is turned on (which it is by default although it is recommended that it be turned off before production), all you need to do is add a new property to the Channel class on the client as shown above. The new column will get automatically added by Mobile Services when the next insert occurs.
 
@@ -88,3 +102,9 @@ You can use the .NET Framework Portable Class Library to implement the Model-Vie
 [Tutorials and resources]: /en-us/develop/mobile/resources/
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Get started with push iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
+[Get started with push Windows dotnet]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
+[Get started with push Windows js]: /en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012/
+[Get started with push Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
+[Get started with push iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
+[Get started with push Android]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
