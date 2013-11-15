@@ -26,7 +26,7 @@
     	    }
 	    }
 
-   This registers a new insert script, which uses the [wns object] to send a push notification (the inserted text) to the channel provided in the insert request.
+   This registers a new insert script, which stores the registration information in the new table.
 
 <!-- images-->
 [3]: ../Media/mobile-portal-data-tables-registrations.png
