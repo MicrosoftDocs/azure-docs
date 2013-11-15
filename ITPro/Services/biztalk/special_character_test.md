@@ -44,7 +44,8 @@ smiley (for fun only) ☺
 
 <div class="dev-callout">
 <b>Note (dev-callout) with special chars « » √ – — ™ © ® ‘ ’ “ ”</b>
-<p>Paragraph (dev-callout) with special chars: « » √ – — ™ © ® ‘ ’ “ ” </p>
+<p>Paragraph (dev-callout) with special chars: « » √ – — ™ © ® ‘ ’ “ ” . </p>
+<p>Ampersand and less-than and greater-than brackets do not validate when embedded in explicitly tagged HTML elements, such as the table below.</p>
 </div>
 
 
@@ -73,23 +74,27 @@ smiley (for fun only) ☺
 
 ## HTML-tagged table with spec. chars.
 
+Ampersand and less-than and greater-than brackets do not validate when embedded in explicitly tagged HTML elements, such as the table below.
+
 
 <table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
+<tr>
+
 	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
 	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th>
 </tr>
 <tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">nonbreak, 2 chars</td>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">  ” “</td>
+</tr>
 <tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">5 chars</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">« » √ – —</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">« » √ – —</td>
+</tr>
 	<tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">5 chars</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">™ © ® ‘ ’</td></tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">™ © ® ‘ ’</td>
 </tr>
- 
 	</table>
 
 
