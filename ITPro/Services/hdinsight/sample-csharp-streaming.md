@@ -1,8 +1,8 @@
 <properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
 
-# The HDInsight C# Streaming WordCount Sample
+# The HDInsight C# streaming wordcount sample
  
-Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write the C# code for MapReduce progams that uses the Hadoop streaming interface and how to run the programs using Windows Azure PowerShell. 
+Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write MapReduce progams in C# that uses the Hadoop streaming interface and how to run the programs on Windows Azure HDInsight using Windows Azure HDInsight PowerShell. 
 
 In the example, both the mapper and the reducer are executables that read the input from [stdin][stdin-stdout-stderr] (line by line) and emit the output to [stdout][stdin-stdout-stderr]. The program counts all of the words in the text.
 
@@ -12,8 +12,9 @@ When an executable is specified for **reducers**, each reducer task launches the
 
 For more information on the Hadoop streaming interface, see [Hadoop Streaming][hadoop-streaming]. 
  
-**You will learn:**		
-* How to use Windows Azure PowerShell to run a C# streaming program on the Windows Azure HDInsight service that analyzes data contained in a file.		
+**You will learn:**	
+	
+* How to use Windows Azure PowerShell to run a C# streaming program to analyze data contained in a file on HDInsight.		
 * How to write C# code that uses the Hadoop Streaming interface.
 
 
@@ -26,64 +27,62 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 - You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 
-**Outline**		
+##In this article
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
 	
-1. [Run the Sample with Windows Azure PowerShell](#run-sample)	
-2. [The C# Code for Hadoop Streaming](#java-code)
+1. [Run the sample with Windows Azure PowerShell](#run-sample)	
+2. [The C# code for Hadoop Streaming](#java-code)
 3. [Summary](#summary)	
-4. [Next Steps](#next-steps)	
+4. [Next steps](#next-steps)	
 
-<h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
+<h2><a id="run-sample"></a>Run the sample with Windows Azure PowerShell</h2>
 
-1. Open Windows Azure PowerShell and Notepad.
+**To run the MapReduce job**
 
-2. Define the streaming job using the `New-AzureHDInsightStreamingMapReduceJobDefinition` cmdlet. The parameters specify the mapper and reducer functions and the input file and output files. Copy and paste the following code into PowerShell.
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+
+3. Set the two variables in the following commands, and then run them:
+		
+		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+		$clusterName = "<ClusterName>"             # HDInsight cluster name
+
+
+2. Run the following command to define the MapReduce job.
  
-		### Create a MapReduce job definition for the streaming job.
-		### Parameter 0 is the path and the file name of the mapper and reducer.
-		### Parameter 1 is the input file and output file path and name.
-		### Parameter 2 designates mapper and reducer executables.
+		# Create a MapReduce job definition for the streaming job.
 		$streamingWC = New-AzureHDInsightStreamingMapReduceJobDefinition -Files "/example/apps/wc.exe", "/example/apps/cat.exe" -InputPath "/example/data/gutenberg/davinci.txt" -OutputPath "/example/data/StreamingOutput/wc.txt" -Mapper "cat.exe" -Reducer "wc.exe" 
 
-3. Copy and paste the following code into Notepad.
-	
-		### Provide the Windows Azure subscription name and the HDInsight cluster name.
-		$subscriptionName = "myAzureSubscriptionName"   
-		$clusterName = "myClusterName"
+	The parameters specify the mapper and reducer functions and the input file and output files.
                  
-4. Set the values for the two variables: $subscriptionname, $clustername to the subscription and cluster you are using. Copy and paste this modified code into PowerShell and then press **Enter** to run.                 
+5. Run the following commands to run the MapReduce job, wait for the job to complete, and then print the standard error:
 
-5. The C# Streaming MapReduce job is run by piping the job definition with the `Start-AzureHDInsightJob`, which requires the cluster and subscription names with the `Wait-AzureHDInsightJob` to get status on the run, and the `Get-AzureHDInsightJobOutput` to display the results in PowerShell. Copy and paste the following code into PowerShell and press **Enter** to see the run the job and get the result.
-
-		### Run the C# Streaming MapReduce job.
-		### Wait for the job to complete.
-		### Print output and standard error file of the MapReduce job
+		# Run the C# Streaming MapReduce job.
+		# Wait for the job to complete.
+		# Print output and standard error file of the MapReduce job
 		$streamingWC | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clustername | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -Subscription $subscriptionName -StandardError 
 
-6. Display the results of the word count.
+6. Run the following commands to display the results of the word count.
 
-		### Select the current subscription
+		$subscriptionName = "<SubscriptionName>"   
+		$storageAccountName = "<StorageAccountName>" 
+		$containerName = "<ContainerName>"
+
+		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
-		$subscriptionName = "Azure-Irregulars_563702"   
               
-		## Windows Azure storage account name
-		$storageAccountName = "storetutorialcluster21" 
-
-		### Blob storage container and account name
-		$containerName = "storetc21default"         
+		# Blob storage container and account name
 		$storageAccountKey = Get-AzureStorageKey –StorageAccountName $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey 
  
-		### Retrieve the output
+		# Retrieve the output
 		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
 
-		### The number of words in the text is:
+		# The number of words in the text is:
 		cat ./example/data/StreamingOutput/wc.txt/part-00000
 
-Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
-
-<h2><a id="java-code"></a>The C# Code for Hadoop Streaming</h2>
+	Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
+	
+<h2><a id="java-code"></a>The C# code for Hadoop Streaming</h2>
 
 The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and wc.exe application as the reduce interface to count the number of words that are streamed from a document. Both the mapper and reducer read characters, line by line, from the standard input stream (stdin) and write to the standard output stream (stdout). 
 
@@ -151,22 +150,18 @@ The reducer code in the wc.cs file uses a [StreamReader][streamreader]   object 
 
 <h2><a id="summary"></a>Summary</h2>
 
-In this tutorial, you saw how to deploy a MapReduce job on an Hadoop cluster hosted on the Windows Azure HDInsight Service using C# Streaming.
+In this tutorial, you saw how to deploy a MapReduce job on HDInsight using Hadoop Streaming.
 
-<h2><a id="next-steps"></a>Next Steps</h2>
+<h2><a id="next-steps"></a>Next steps</h2>
 
 For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
 
-
+* [Get started with Windows Azure HDInsight][getting-started]
 * [Sample: Pi Estimator][pi-estimator]
-
 * [Sample: Wordcount][wordcount]
-
 * [Sample: 10GB GraySort][10gb-graysort]
-
-* [Tutorial: Using Pig][pig]
-
-* [Tutorial: Using Hive][hive]
+* [Use Pig with HDInsight][pig]
+* [Use Hive with HDInsight][hive]
 
 
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
@@ -181,4 +176,4 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 [mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
- 
+[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/

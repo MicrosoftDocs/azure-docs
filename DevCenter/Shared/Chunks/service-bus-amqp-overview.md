@@ -1,7 +1,7 @@
-# AMQP 1.0 support in Windows Azure Service Bus
+# AMQP 1.0 support in Service Bus
 
 
->AMQP 1.0 support in Service Bus now enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and running on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
+>Both Windows Azure Service Bus and Service Bus for Windows Server (Service Bus 1.1) support the Advanced Message Queueing Protocol (AMQP) 1.0. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol. You can construct applications using components that are built using different languages and frameworks, and running on different operating systems. All these components can connect to Service Bus and seamlessly exchange structured business messages efficiently and at full fidelity.
 
 ## Introduction: What is AMQP 1.0 and why is it important?
 
@@ -44,7 +44,7 @@ Some of the commonly cited benefits of open standards include:
 
 The addition of AMQP 1.0 means that you can now leverage the queuing and publish/subscribe brokered messaging features of Service Bus from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks and operating systems.
 
-The diagram below illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API, and .NET clients running on Windows, exchange messages via the Windows Azure Service Bus using AMQP 1.0.
+The diagram below illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API, and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.
 
 ![][0]
 
@@ -85,7 +85,7 @@ For more information about how to obtain and use these libraries with Service Bu
 ## Summary
 
 *    AMQP 1.0 is an open, reliable messaging protocol that you can use to build cross-platform, hybrid applications. AMQP 1.0 is an OASIS standard.
-*    AMQP 1.0 support is now available in Windows Azure Service Bus. Pricing is the same as for the existing protocols.
+*    AMQP 1.0 support is now available in Windows Azure Service Bus and Service Bus for Windows Server (Service Bus 1.1). Pricing is the same as for the existing protocols.
 
 ## References
 
