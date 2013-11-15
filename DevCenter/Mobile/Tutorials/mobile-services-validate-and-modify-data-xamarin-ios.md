@@ -33,8 +33,8 @@ It is always a good practice to validate the length of data that is submitted by
 
 4. Replace the existing script with the following function, and then click **Save**.
 
-        function insert(item, user, request) {
-            if (item.text.length > 10) {
+    function insert(item, user, request) {
+        if (item.text.length > 10) {
                 request.respond(statusCodes.BAD_REQUEST, 'Text length must be 10 characters or less.');
             } else {
                 request.execute();
@@ -59,8 +59,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 3. In the TodoService.cs file, locate the current <code>try/catch</code> exception handling in the **InsertTodoItemAsync** method, and replace the <code>catch</code> with:
     
-    catch (Exception ex)
-    {
+    catch (Exception ex) {
         var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
         Console.WriteLine(exDetail.Message);
                                 
@@ -78,11 +77,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
 4. Locate the **OnAdd** method in **TodoListViewController.cs**. Update the method to make sure the returned <code>index</code> isn't <code>-1</code> as is returned in the exception handling in **InsertTodoItemAsync**. In this case we don't want to add a new row to the <code>TableView</code>.
 
-    if (index != -1)
-    {
+    if (index != -1) {
         TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
-             UITableViewRowAnimation.Top);
-
+            UITableViewRowAnimation.Top);
         itemText.Text = "";
     }
 

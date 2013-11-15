@@ -56,10 +56,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. In the TodoActivity.cs file, locate the **AddItem** method and replace the call to the CreateAndShowDialog method with the following code:
 
-       var exDetail = ex.InnerException.InnerException as 
-            MobileServiceInvalidOperationException;
-        
-        CreateAndShowDialog(exDetail.Message, "Error");
+    var exDetail = ex.InnerException.InnerException as 
+        MobileServiceInvalidOperationException;
+    CreateAndShowDialog(exDetail.Message, "Error");
 
 	This displays the error message returned by the mobile service. 
 
@@ -119,24 +118,25 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
    This creates a formatted date string when a timestamp value exists. 
 
-7. Locate the code `checkBox.Text = currentItem.Text` again and replace this line of code with the following:
+3. Locate the code `checkBox.Text = currentItem.Text` again and replace this line of code with the following:
 
 		checkBox.Text = string.Format("{0} - {1}", currentItem.Text, displayDate);
 
 	This appends the timestamp date to the item for display.
 	
-6. From the **Run** menu, then click **Run** to start the app. 
+4. From the **Run** menu, then click **Run** to start the app. 
 
    Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
-7. In **TodoActivity.cs**, replace the existing query in **RefreshItemsFromTableAsync** with the following query:
+5. In **TodoActivity.cs**, replace the existing query in **RefreshItemsFromTableAsync** with the following query:
 
 		var list = await todoTable.Where(item => item.Complete == false && 
 										 item.CreatedAt != null)
 								  .ToListAsync();
+
    This method updates the query to also filter out items that do not have a timestamp value.
 	
-8. From the **Run** menu, then click **Run** to start the app.
+6. From the **Run** menu, then click **Run** to start the app.
 
    Notice that all items created without timestamp value disappear from the UI.
 
