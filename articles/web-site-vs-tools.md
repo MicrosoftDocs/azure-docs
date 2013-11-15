@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-troubleshooting-web-sites-in-visual-studio" urlDisplayName="Troubleshooting Windows Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Windows Azure Web Sites in Visual Studio" metaKeywords="" metaDescription="This tutorial shows how to use Visual Studio tools for managing and debugging Windows Azure Web Sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
 
-# Troubleshooting Windows Azure Web Sites in Visual Studio
+# Troubleshooting Windows Azure Web Sites in Visual Studio jemash2
 
 During development and testing of a web application, you can troubleshoot by [running in debug mode](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) or by using [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). You can run in debug mode locally in IIS Express or remotely in a Windows Azure Web Site. But for errors that occur only in production, the best way to debug might be by reviewing logs that application code or the web server creates. This tutorial shows how to use Visual Studio tools that help debug an application while it runs in a Windows Azure Web Site, by running remotely in debug mode or by viewing application and web server logs.
 
