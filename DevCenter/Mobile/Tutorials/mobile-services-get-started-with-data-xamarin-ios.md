@@ -88,7 +88,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 2. In the Solution view in Xamarin Studio, open the **TodoService** class and uncomment the following `using` statement:
 
-        // using Microsoft.WindowsAzure.MobileServices;
+        using Microsoft.WindowsAzure.MobileServices;
                
 3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
@@ -98,36 +98,35 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 5. In the **Constants** class, uncomment the following constants:
 
-        // public const string ApplicationURL = @"AppUrl";
-        // public const string ApplicationKey = @"AppKey";
+        public const string ApplicationURL = @"AppUrl";
+        public const string ApplicationKey = @"AppKey";
 
 6. Replace **AppUrl** and **AppKey** in the above constants with the values you found above in the Management Portal.
 
 7. In the **TodoService** class, uncomment the following line of code:
 
-        // private MobileServiceClient client;
+        private MobileServiceClient client;
 
    	This creates a property that represents the MobileServiceClient that connects to the service
 
 8. In the **TodoService** class, uncomment the following line of code:
 
-        // private IMobileServiceTable<TodoItem> todoTable;  
+        private IMobileServiceTable<TodoItem> todoTable;  
 
    	This creates a property representation for your mobile services table.
 
 9. Uncomment the following lines in the **TodoService** constructor:
 
 		// TODO:: Uncomment these lines to use Mobile Services
-		// client = new MobileServiceClient(Constants.ApplicationURL, Constants.ApplicationKey).WithFilter(this); 
-		// todoTable = client.GetTable<TodoItem>(); 
+		client = new MobileServiceClient(Constants.ApplicationURL, Constants.ApplicationKey).WithFilter(this); 
+		todoTable = client.GetTable<TodoItem>(); 
 
     This creates an instance of the Mobile Services client and creates the TodoItem table instance.
 
 10. Uncomment the following lines in the **RefreshDataAsync** method in **TodoService**
 
 		// TODO:: Uncomment these lines to use Mobile Services
-        /*
-		try 
+    try 
         {
 			// This code refreshes the entries in the list view by querying the TodoItems table.
 			// The query excludes completed TodoItems
@@ -139,19 +138,18 @@ Now that your mobile service is ready, you can update the app to store items in 
 			Console.Error.WriteLine (@"ERROR {0}", e.Message);
 			return null;
 		}
-        */
         
     This creates a query to return all tasks that have not yet been completed.
 
 11. Locate the **InsertTodoItemAsync** method, and uncomment the following line:
 
-		// await todoTable.InsertAsync(todoItem);
+		await todoTable.InsertAsync(todoItem);
 		
     This code sends an insert request to the mobile service.
 
 13. Locate the **CompleteItemAsync** method, and uncomment the following line:
 
-		// await todoTable.UpdateAsync(item);
+		await todoTable.UpdateAsync(item);
 		
    This code removes TodoItems after they are marked as completed. 
 

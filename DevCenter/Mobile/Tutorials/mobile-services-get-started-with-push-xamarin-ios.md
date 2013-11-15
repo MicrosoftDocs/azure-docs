@@ -58,7 +58,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-<<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
+<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 

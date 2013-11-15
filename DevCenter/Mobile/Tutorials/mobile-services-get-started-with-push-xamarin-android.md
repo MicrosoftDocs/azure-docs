@@ -116,23 +116,25 @@ You mobile service is now configured to work with GCM to send push notifications
 			Log.Verbose(PushHandlerBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
             RegistrationID = registrationId;
 		}
+
 15. Update the **OnMessage** method in **PushService.cs** to display the push message received as part of the notification (replace the existing **createNotification** call):
 
         string message = intent.Extras.GetString("message");
         createNotification("New todo item!", "Todo item: " + message);
        
 16. Take note that the **OnMessage** method has the following code by default to store off the last push message received:
-		//Store the message
-		var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-		var edit = prefs.Edit();
-		edit.PutString("last_msg", msg.ToString());
-		edit.Commit();
+
+        //Store the message
+        var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
+        var edit = prefs.Edit();
+        edit.PutString("last_msg", msg.ToString());
+        edit.Commit();
 
 17. Update the **createNotification** method in **PushService.cs** to reference **TodoActivity** instead of **DefaultActivity**.
 
 18. Open **TodoActivity.cs** and add the following using statement:
 
-		using PushSharp.Client;
+        using PushSharp.Client;
 
 19. In **TodoActivity.cs** insert the following lines just above where the **MobileServiceClient** is created:
 	
