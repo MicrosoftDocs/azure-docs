@@ -315,9 +315,8 @@ You must complete specific configuration steps in the operating system for the v
 
 **NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-  - [SLES 11 SP2 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure)
-  - [SLES 11 SP3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
-
+> - [SLES 11 SP2 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure)
+> - [SLES 11 SP3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -400,7 +399,7 @@ You must complete specific configuration steps in the operating system for the v
 
 **NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-  - [openSUSE 12.3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure)
+> - [openSUSE 12.3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
