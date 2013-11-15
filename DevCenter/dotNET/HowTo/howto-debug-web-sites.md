@@ -190,16 +190,20 @@ When logging to table storage, the following properties (columns) are used for e
 <td style="border:1px solid black;vertical-align:top">Event ID</td>
 </tr>
 <tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Pid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Process ID</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instance of the web site that the even occured on</td>
 </tr>
 <tr>
-<td style="border:1px solid black;vertical-align:top">Tid</td>
-<td style="border:1px solid black;vertical-align:top">Thread ID</td>
+<td style="border:1px solid black;vertical-align:top">Pid</td>
+<td style="border:1px solid black;vertical-align:top">Process ID</td>
 </tr>
 <tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Message</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Event detail message</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
+<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Thread ID</td>
+</tr>
+<tr>
+<td style="border:1px solid black;vertical-align:top">Message</td>
+<td style="border:1px solid black;vertical-align:top">Event detail message</td>
 </tr>
 </table>
 
