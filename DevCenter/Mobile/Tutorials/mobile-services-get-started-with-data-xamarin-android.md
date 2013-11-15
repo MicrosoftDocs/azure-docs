@@ -2,7 +2,7 @@
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding">    
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>	
 
 <p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Xamarin.Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
@@ -279,7 +279,7 @@ Once you have completed the data series, try these other Xamarin.Android tutoria
 [Management Portal]: https://manage.windowsazure.com/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [Download the Android app project]: http://www.google.com/
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Xamarin.Android]: http://xamarin.com/download
-[completed example project]: http://www.google.com
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331302

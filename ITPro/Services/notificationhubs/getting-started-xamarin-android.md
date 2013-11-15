@@ -3,13 +3,7 @@
 
 
 # Get started with Notification Hubs
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
-    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a>
-    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-xamarin-android" title="iOS"  class="current">Xamarin.Android</a>
-    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-xamarin-ios" title="iOS">Xamarin.iOS</a>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-android" title="iOS" class="current">Xamarin.Android</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-ios" title="iOS">Xamarin.iOS</a>
 </div>	
 
 
