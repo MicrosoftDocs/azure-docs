@@ -120,14 +120,13 @@ You mobile service is now configured to work with GCM to send push notifications
 
 3. In the Android SDK Manager, under the **Android n.m (API x)** node, check **Google APIs**, then click **Install**. 
 
-<!--4. Browse to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), and copy the `google-play-services.jar` file from the `\extras\google\google_play_services\libproject\google-play-services_lib\libs` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
 
-	The `google-play-services.jar` library file is now shown in your project.
--->
 
-4. Install the Google Play Services SDK in your project. In Eclipse, click **File** + **Import**, select **Android + Existing Android Code into Workspace**, then click **Next**. Browse to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), then browse to the `\extras\google\google_play_services\libproject subfolder, and there select the google-play-services-lib folder, and click **OK**. Click the Copy projects into workspace check-box, and then click **Finish**.
+4. Install the Google Play Services SDK in your project. In Eclipse, click **File**, then **Import**. Select **Android**, then **Existing Android Code into Workspace**, and click **Next**. Click **Browse**, navigate to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), then go to the `\extras\google\google_play_services\libproject` subfolder, and there select the google-play-services-lib folder, and click **OK**. Check the **Copy projects into workspace** checkbox, and then click **Finish**.
 
-5. Now you must reference the SDK library from your project. Follow the instructions at [Referencing a library project].
+	![][29]
+
+5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
 
 5. Open the project file **AndroidManifest.xml**. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. Consult [Set Up Google Play Services SDK] to determine how low you can set this value, if you need to set it below 16 because you are using an older device. Set the property appropriately.
 
@@ -136,7 +135,7 @@ You mobile service is now configured to work with GCM to send push notifications
 7. The **uses-sdk** tag might look like this, depending on the choices you made in the preceding steps:
 
 	    <uses-sdk
-	        android:minSdkVersion="16"
+	        android:minSdkVersion="17"
 	        android:targetSdkVersion="19" />
 	
 8. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
@@ -245,6 +244,12 @@ You mobile service is now configured to work with GCM to send push notifications
 
 Your app is now updated to support push notifications.
 
+
+<!--4. Browse to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), and copy the `google-play-services.jar` file from the `\extras\google\google_play_services\libproject\google-play-services_lib\libs` subfolder into the `\libs` project subfolder, then in Package Explorer, right-click the **libs** folder and click **Refresh**.  
+
+	The `google-play-services.jar` library file is now shown in your project.
+-->
+
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
@@ -315,27 +320,13 @@ Your app is now updated to support push notifications.
 
 You have successfully completed this tutorial.
 
-## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"></a>Next steps
 
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
-<!--
-This concludes the tutorials that demonstrate the basics of working with push notifications. Consider finding out more about the following Mobile Services topics:
-
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with Windows Account.
-
-* [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
-
-* [Mobile Services android conceptual]
-  <br/>Learn more about using Mobile Services with Android devices.
--->
 
 <!-- Anchors. -->
+
 [Register your app for push notifications]: #register
 [Configure Mobile Services]: #configure
 [Update scripts to send push notifications]: #update-scripts
@@ -365,6 +356,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [26]: ../Media/mobile-quickstart-push1-android.png
 [27]: ../Media/mobile-quickstart-push2-android.png
 [28]: ../Media/mobile-push-icon.png
+[29]: ../Media/mobile-eclipse-import-Play-library.png
 
 <!-- URLs. -->
 [Google Cloud Console]: https://cloud.google.com/console
