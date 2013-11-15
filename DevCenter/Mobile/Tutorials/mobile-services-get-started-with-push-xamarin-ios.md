@@ -78,9 +78,8 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    
    ![][105]
 
-    <div class="dev-callout"><b>Note</b>
-  <p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
-    </div>
+	Note: If you choose to supply a **Bundle Identifier** value other than *MobileServices.Quickstart*, you must also update the bundle identifier value in your Xcode project.
+    
 
 3. Locate the app ID that you just created, and click on its row. 
 
@@ -99,9 +98,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    ![][108] 
 
 
-    <div class="dev-callout"><b>Note</b>
-  <p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
-    </div>
+    Note: This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
 
 5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
 
@@ -115,9 +112,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
   ![][9] 
 
-    <div class="dev-callout"><b>Note</b>
-  <p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
-    </div>
+    Note: By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
@@ -125,9 +120,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    ![][10]
 
-    <div class="dev-callout"><b>Note</b>
-  <p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
-    </div>
+    Note: The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 
