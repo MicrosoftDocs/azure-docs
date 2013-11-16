@@ -145,8 +145,8 @@ Your app is now able to store a set of categories in local storage on the device
 These steps register with the notification hub on startup using the categories that have been stored in local storage. 
 
 <div class="dev-callout"><strong>Note</strong> 
-	<p>Because there is no guarantee that the channel used by a given device is persisted, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
-</div> 
+	<p>Because the device token assigned by the Apple Push Notification Service (APNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.</p>
+</div>  
 
 1. Add the following method in the interface section of the file Notifications.h:
 

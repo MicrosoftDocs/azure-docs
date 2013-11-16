@@ -14,12 +14,12 @@ In Windows Azure HDInsight, Sqoop is deployed from the Hadoop Command Shell on t
 
  
 **You will learn:**		
-* How to use Windows Azure PowerShell to run a MapReduce program on the Windows Azure HDInsight service that analyzes data contained in a file.
+* How to use Windows Azure PowerShell to run a MapReduce program on Windows Azure HDInsight that analyzes data contained in a file.
 
 
 
 **Prerequisites**:	
-You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 
 You will also need your outward facing IP address for your current location when configuring your firewall on SQL Database. To obtain it, go to the site [WhatIsMyIP][what-is-my-ip] and make a note of it. Later in the procedure, you also need the outward facing IP address for the head of the Hadoop cluster. You can obtain this IP address in the same way.
 
@@ -117,21 +117,15 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 
 
 * [Sample: Pi Estimator][pi-estimator]
-
 * [Sample: WordCount] [wordcount]
-
 * [Sample: C# Steaming][cs-streaming]
-
 * [Sample: 10GB GraySort][10gb-graysort]
-
-
 * [Tutorial: Using Pig][pig]
-
 * [Tutorial: Using Hive][hive]
-
 * [Tutorial: Using MapReduce][mapreduce]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [what-is-my-ip]:http://www.whatismyip.com/
 [wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/

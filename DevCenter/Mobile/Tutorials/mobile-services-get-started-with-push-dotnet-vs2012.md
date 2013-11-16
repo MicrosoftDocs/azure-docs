@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" writer="glenga" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" metaDescription="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-
-
 # Get started with push notifications in Mobile Services using Visual Studio 2012
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -40,51 +38,11 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 ## <a name="create-table"></a>Create a new table
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   ![][0]
-
-2. Click the **Data** tab, and then click **Create**.
-
-   ![][1]
-
-   This displays the **Create new table** dialog.
-
-3. Keeping the default **Anybody with the application key** setting for all permissions, type _Registrations_ in **Table name**, and then click the check button.
-
-   ![][2]
-
-  This creates the **Registrations** table, which stores the channel URIs used to send push notifications.
-
-Next, you will modify the your app to enable push notifications.
+<div chunk="../chunks/mobile-services-create-new-push-table.md" />
 
 <h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
-1. Open the file App.xaml.cs and add the following using statement:
-
-        using Windows.Networking.PushNotifications;
-
-2. Add the following to App.xaml.cs:
-	
-        private async void AcquirePushChannel()
-	    {
-	       CurrentChannel = 
-               await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-	
-	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
-	       var registration = new Registration { Handle = CurrentChannel.Uri };
-	       await registrationsTable.InsertAsync(registration);
-        }
-
-     This code inserts the current channel into the Registrations table.
-    
-3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
-
-        AcquirePushChannel();
-
-   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
-		
-4. Open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
+1. Open the project file MainPage.xaml.cs and add the following code that creates a new **Registrations** class:
 
 	    public class Registrations
 	    {
@@ -96,41 +54,39 @@ Next, you will modify the your app to enable push notifications.
 	
 	The Handle property is used to store the channel URI.
 
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+2. Open the file App.xaml.cs and add the following using statement:
+
+        using Windows.Networking.PushNotifications;
+
+3. Add the following to App.xaml.cs:
+	
+        private async void AcquirePushChannel()
+	    {
+	       CurrentChannel = 
+               await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+	
+	       IMobileServiceTable<Registrations> registrationsTable = App.MobileService.GetTable<Registrations>();
+	       var registration = new Registrations { Handle = CurrentChannel.Uri };
+	       await registrationsTable.InsertAsync(registration);
+        }
+
+     This code inserts the current channel into the Registrations table.
+    
+4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+
+        AcquirePushChannel();
+
+   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
+		
+5. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
    ![][15]
 
    This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
+<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert scripts in the Management Portal</h2>
 
-1. In the Management Portal, click the **Data** tab and then click the **Registrations** table. 
-
-   ![][3]
-
-2. In **Registrations**, click the **Script** tab and select **Insert**.
-   
-   ![][4]
-
-   This displays the function that is invoked when an insert occurs in the **Registrations** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-		function insert(item, user, request) {
-			var registrationTable = tables.getTable('Registrations');
-			registrationTable
-				.where({ handle: item.handle })
-				.read({ success: insertChannelIfNotFound });
-	        function insertChannelIfNotFound(existingRegistrations) {
-        	    if (existingRegistrations.length > 0) {
-            	    request.respond(200, existingRegistrations[0]);
-        	    } else {
-            	    request.execute();
-        	    }
-    	    }
-	    }
-
-   This registers a new insert script, which uses the [wns object] to send a push notification (the inserted text) to the channel provided in the insert request.
+<div chunk="../chunks/mobile-services-update-registrations-script.md" />
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 

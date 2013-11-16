@@ -24,7 +24,7 @@ Before you begin this article, you must have the following:
 
 ##<a id="create"></a> Create an HDInsight cluster
 
-An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
 **To create an HDInsight cluster**
@@ -97,7 +97,7 @@ In this article, you have learned how to create an HDInsight cluster using the W
 * [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Get Started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
 
 
 [hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line-interface/

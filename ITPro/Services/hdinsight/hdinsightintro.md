@@ -76,7 +76,7 @@ Familiar business intelligence (BI) tools—such as Excel, PowerPivot, SQL Serve
 
 
 <h2> <a name="Scenarios"></a>Big data scenarios for HDInsight</h2>
-An exemplary scenario providing a use case for an HDInsight service is an ad hoc analysis, in batch fashion, on an entire unstructured dataset stored on Windows Azure nodes, which does not require frequent updates.
+An exemplary scenario providing a use case for HDInsight is an ad hoc analysis, in batch fashion, on an entire unstructured dataset stored on Windows Azure nodes, which does not require frequent updates.
 
 These conditions apply to a wide variety of activities in business, science and governance. These might include, for example, monitoring supply chains in retail, suspicious trading patterns in finance, demand patterns for public utilities and services, air and water quality from arrays of environmental sensors, or crime patterns in metropolitan areas.
 
@@ -92,6 +92,8 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 * [Run the HDInsight samples](/en-us/manage/services/hdinsight/howto-run-samples/): A tutorial on how the run the samples that ship with HDInsight.
 
 * [Big data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Big data scenarios that explore what you can build with Windows Azure.	
+
+* [Windows Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
 
 **Microsoft: Windows and SQL Database**	
 

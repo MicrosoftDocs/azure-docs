@@ -7,6 +7,8 @@ HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the clo
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, run a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
+In conjunction withe the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+
 **Prerequisites:**
 
 Before you begin this tutorial, you must have the following:
@@ -36,7 +38,7 @@ In this tutorial, you will use *PowerShell Tools for Windows Azure HDInsight* to
 * Install PowerShell Tools for Windows Azure HDInsight.
 * Configure connectivity to your Windows Azure account.
 
-For more information, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+For more information, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 **To install Windows Azure PowerShell**
 
@@ -49,7 +51,7 @@ For more information, see [Install and Configure PowerShell for HDInsight][hdins
 
 1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
 2. Click **Run** from the bottom of the page to run the installation package.
-3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
 
@@ -62,7 +64,7 @@ Your Windows Azure subscription information is used by the cmdlets to connect to
 
 1. Sign in to the [Windows Azure Management Portal][azure-management-portal] using the credentials for your Windows Azure account.
 
-2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 3.	Run the following command to download the publishsettings file.
 
 		Get-AzurePublishSettingsFile
@@ -114,7 +116,7 @@ You must choose one of the two data centers for your Windows Azure Storage accou
 
 
 For the detailed instructions, see
-[How to Create a Storage Account][azure-create-storageaccount] and [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+[How to Create a Storage Account][azure-create-storageaccount] and [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
 
@@ -218,7 +220,7 @@ For example, to access the hadoop-examples.jar, you can use one of the following
 				
 The use of the *wasb://* prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. The output directory assumes a default path relative to the *wasb:///user/&lt;username&gt;* folder. 
 
-For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
 
@@ -242,7 +244,7 @@ For more information, see [Using Windows Azure Blob Storage with HDInsight][hdin
 
 **To run the WordCount sample**
 
-1. Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 3. Run the following commands to set the variables.  
 		
@@ -389,6 +391,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
+- [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
@@ -404,6 +407,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
+[hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
