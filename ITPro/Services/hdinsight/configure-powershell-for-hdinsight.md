@@ -17,6 +17,7 @@ Before you begin this article, you must have the following:
 - [Connect to your Windows Azure subscription](#connect)
 - [Select Azure subscription](#selectsubscription)
 - [Run PowerShell scripts](#runscripts)
+- [Debug PowerShell](#debug)
 - [Get help](#help)
 - [Additional resource](#resource)
 - [See also](#seealso)
@@ -63,7 +64,7 @@ Installing the module also installs a customized console for Windows Azure Power
 2. Click **Run** from the bottom of the page to run the installation package.
 3. Reboot the computer.
 
-To get a list of the HDInsight cmdlets, run the following command from Windows Azure PowerShell console window:
+To get a list of the HDInsight cmdlets, run the following command from the Windows Azure PowerShell console window:
 
 	get-help hdinsight
 
@@ -157,7 +158,7 @@ The following is a sample script for selecting Azure subscription:
 
 
 
-##<a id="runscripts"></a> Run PowerShell scripts
+##<a id="runscripts"></a>Run PowerShell scripts
 
 There are two ways to run the PowerShell scripts.  
 
@@ -172,7 +173,8 @@ There are two ways to run the PowerShell scripts.
 	
 
 
-
+##<a id="debug"></a> Debug PowerShell
+PowerShell provides some *common parameters*. Some of them can be utilized for troubleshooting purpose, for example, -debug and -verbose. For more information about the common parameters, see [about_CommonParameters][powershell-common-parameters].
 
 
 ##<a id="help"></a>Get help
@@ -246,3 +248,4 @@ These are some of the resources available that you can use to learn to use Windo
 [powershell-scripting]: http://go.microsoft.com/fwlink/p/?linkid=320210&clcid=0x409
 [powershell-running-scripts]: http://go.microsoft.com/fwlink/p/?linkid=320627&clcid=0x409
 [powershell-run-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-common-parameters]: http://technet.microsoft.com/en-us/library/hh847884.aspx

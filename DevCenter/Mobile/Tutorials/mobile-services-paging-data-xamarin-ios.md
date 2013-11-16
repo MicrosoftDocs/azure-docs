@@ -1,7 +1,5 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-xamarin-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Xamarin.iOS) - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to data in your Xamarin.iOS application using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-ios.md" />
-
 # Refine Mobile Services queries with paging
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -25,7 +23,10 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 4. Open the **TodoService.cs** file, locate the **RefreshDataAsync** method, and replace the LINQ query on the <code>todoTable</code> with the following query: 
 
-			Items = await todoTable							.Where (todoItem => todoItem.Complete == false)        		            .Take(3)                		    .ToListAsync();
+			Items = await todoTable
+							.Where (todoItem => todoItem.Complete == false)
+        		            .Take(3)
+                		    .ToListAsync();
 
    This query returns the top three items that are not marked as completed. 
 
@@ -35,14 +36,18 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 7. Update the LINQ query in the **RefreshDataAsync** method once more to the following:
 
-			Items = await todoTable							.Where (todoItem => todoItem.Complete == false)		                    .Skip(3)		                    .Take(3)		                    .ToListAsync();
+			Items = await todoTable
+							.Where (todoItem => todoItem.Complete == false)
+		                    .Skip(3)
+		                    .Take(3)
+		                    .ToListAsync();
 
    This time, set the **Skip** value to 3. 
 
    This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
     <div class="dev-callout"><b>Note</b>
-    <p>This tutorial uses a simplified scenario by setting hard-coded paging values for the <strong>Skip</strong> and <strong>Take</strong> properties. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the **IncludeTotalCount** method to get the total count of all items available on the server, along with the paged data.</p>
+    <p>This tutorial uses a simplified scenario by setting hard-coded paging values for the <strong>Skip</strong> and <strong>Take</strong> properties. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the <strong>IncludeTotalCount</strong> method to get the total count of all items available on the server, along with the paged data.</p>
     </div>
 
 ## <a name="next-steps"> </a>Next Steps

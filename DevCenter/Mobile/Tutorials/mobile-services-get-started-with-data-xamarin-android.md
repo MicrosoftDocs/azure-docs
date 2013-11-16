@@ -1,21 +1,11 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Windows Azure Mobile Services" writer="rpeters" metaKeywords="Windows Azure Xamarin.Android data, Azure mobile services data" metaDescription="Learn how to store and access data from your Windows Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-android.md" />
-
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding">    
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>	
 
-
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-
 <p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Xamarin.Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
-
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">15:32</span></div>
-</div>
 
 <div class="dev-callout"><b>Note</b>
 <p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from a Xamarin.Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">Get started with Mobile Services</a>.</p>
@@ -29,7 +19,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Windows Azure Free Trial</a>.</p></div> 
 
 This tutorial requires the [Azure Mobile Services Component], [Xamarin.Android], and Android SDK 4.2 or a later version. 
 
@@ -46,8 +36,6 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is a Xamar
 2. In Xamarin Studio, click **File** then **Open**, browse to where you extracted the GetStartedWithData sample project, and select **XamarinTodoQuickStart.Android.sln** and open it.
 
 3. Locate and open the **TodoActivity** class
-
-   ![][12]
 
    Notice that there are `// TODO::` comments that specify the steps you must take to make this app work with your mobile service.
 
@@ -116,7 +104,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 3. From the **Solution** window, open the **TodoActivity** class, and uncomment the following line of code: 
 
-		// using Microsoft.WindowsAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
  
 4. We will remove the in-memory list currently used by the app, so we can replace it with a mobile service. In the **TodoActivity** class, comment out the following line of code, which defines the existing **todoItemList** list.
 
@@ -126,7 +114,8 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 6. We now add our mobile service. Uncomment the following lines of code:
 
-        // private MobileServiceClient client; // Mobile Service Client references        // private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
+        private MobileServiceClient client; // Mobile Service Client references
+        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
 
 7. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
@@ -138,11 +127,21 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 9. In the **Constants** class, uncomment the following member variables:
 
-        // public const string ApplicationURL = @"AppUrl";        // public const string ApplicationKey = @"AppKey";
-10. Replace **AppUrl** and **AppKey** in the above variables with the values retrieved from the Management Portal above.
+        public const string ApplicationURL = @"AppUrl";
+        public const string ApplicationKey = @"AppKey";
+        
+10. Replace **AppUrl** and **AppKey** in the above variables with the values retrieved from the Management Portal above.
 
 11. In the **OnCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
-        /*		// Create the Mobile Service Client instance, using the provided		// Mobile Service URL and key		client = new MobileServiceClient(			Constants.ApplicationURL,			Constants.ApplicationKey).WithFilter(filter);		// Get the Mobile Service Table instance to use		todoTable = client.GetTable<TodoItem>();        */      
+
+		// Create the Mobile Service Client instance, using the provided
+		// Mobile Service URL and key
+		client = new MobileServiceClient(
+			Constants.ApplicationURL,
+			Constants.ApplicationKey).WithFilter(filter);
+
+		// Get the Mobile Service Table instance to use
+		todoTable = client.GetTable<TodoItem>();    
 
   	This creates a new instance of MobileServiceClient that is used to access your mobile service. It also creates the MobileServiceTable instance that is used to proxy data storage in the mobile service.
 
@@ -150,19 +149,48 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 13. Uncommment these lines of the **CheckItem** method:
 
-        /*		try {			await todoTable.UpdateAsync(item);			if (item.Complete)				adapter.Remove(item);		} catch (Exception e) {			CreateAndShowDialog(e, "Error");		}        */
+		try {
+			await todoTable.UpdateAsync(item);
+			if (item.Complete)
+				adapter.Remove(item);
+		} catch (Exception e) {
+			CreateAndShowDialog(e, "Error");
+		}
 
    	This sends an item update to the mobile service and removes checked items from the adapter.
     
-15. Uncommment these lines of the **AddItem** method:
+14. Uncommment these lines of the **AddItem** method:
 	
-        /*		try 		{			// Insert the new item			await todoTable.InsertAsync(item);			if (!item.Complete) 				adapter.Add(item);					} 		catch (Exception e) 		{			CreateAndShowDialog(e, "Error");		}        */       		
+		try 
+		{
+			// Insert the new item
+			await todoTable.InsertAsync(item);
+
+			if (!item.Complete) 
+				adapter.Add(item);			
+		} 
+		catch (Exception e) 
+		{
+			CreateAndShowDialog(e, "Error");
+		}   		
 
   	This code creates a new item and inserts it into the table in the remote mobile service.
 
-16. Uncommment these lines of the **RefreshItemsFromTableAsync** method:
+15. Uncommment these lines of the **RefreshItemsFromTableAsync** method:
 
-        /*		try {			// Get the items that weren't marked as completed and add them in the adapter			var list = await todoTable.Where(item => item.Complete == false).ToListAsync ();			adapter.Clear();			foreach (TodoItem current in list)				adapter.Add(current);		}         catch (Exception e)         {			CreateAndShowDialog(e, "Error");		}        */  
+		try {
+			// Get the items that weren't marked as completed and add them in the adapter
+			var list = await todoTable.Where(item => item.Complete == false).ToListAsync ();
+
+			adapter.Clear();
+
+			foreach (TodoItem current in list)
+				adapter.Add(current);
+		} 
+        catch (Exception e) 
+        {
+			CreateAndShowDialog(e, "Error");
+		}
 
 	This queries the mobile service and returns all items that are not marked as complete. Items are added to the adapter for binding.
 		
@@ -231,12 +259,10 @@ Once you have completed the data series, try these other Xamarin.Android tutoria
 [6]: ../Media/mobile-create-todoitem-table.png
 [8]: ../Media/mobile-dashboard-tab.png
 [9]: ../Media/mobile-todoitem-data-browse.png
-[10]: ../Media/mobile-data-sample-download-android.png
-[12]: ../Media/mobile-eclipse-project.png
 [13]: ../Media/mobile-quickstart-startup-android.png
 
 <!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->
-[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet.md
+[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-xamarin-android.md
 [Refine queries with paging]: ./mobile-services-paging-data-xamarin-android.md
 [Get started with Mobile Services]: ./mobile-services-get-started-xamarin-android.md
 [Get started with data]: ./mobile-services-get-started-with-data-xamarin-android.md
@@ -247,7 +273,7 @@ Once you have completed the data series, try these other Xamarin.Android tutoria
 [Management Portal]: https://manage.windowsazure.com/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [Download the Android app project]: http://www.google.com/
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Xamarin.Android]: http://xamarin.com/download
-[completed example project]: http://www.google.com
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331302

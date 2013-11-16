@@ -3,7 +3,11 @@
 # Push notifications to users by using Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-android" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-onpage-left-content">
@@ -14,7 +18,7 @@
 This tutorial walks you through these steps to update push notifications in your app:
 
 1. [Create the Registration table]
-2. [Update the app]
+2. [Update your app]
 3. [Update server scripts]
 4. [Verify the push notification behavior] 
 
@@ -90,9 +94,9 @@ Next, you will modify the push notifications app to store registration data in t
 		}
 
 
-6.  Open the **ToDoItemActivity.java** file, and in the `addItem` method, delete the following lines:
+6.  Open the **ToDoActivity.java** file, and in the `addItem` method, delete the following lines:
 
-		item.setHandle(mHandle);
+		item.setHandle(MyHandler.getHandle());
 
 7. Find the `mClient` property, replace it with the following code:
 
@@ -112,44 +116,39 @@ Next, you will modify the push notifications app to store registration data in t
 
 
 
-8. In the **GCMIntentService** file, add the following import statements:
+8. In the **MyHandler** file, add the following import statements:
 
 		import android.util.Log;
 		
-		import com.google.android.gcm.GCMRegistrar;
-		
+		import com.microsoft.windowsazure.notifications.NotificationsHandler;
+
 		import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 		import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
 		import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 		import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
 		
 
-9. Replace the `onRegistered` method with the following code:
+9. Add the following code to the end of the `onRegistered` method:
 
-		@Override
-		protected void onRegistered(final Context context, String registrationID) {
-	
-			MobileServiceClient client = ToDoActivity.getClient();
-			MobileServiceTable<Registration> registrations = client.getTable(Registration.class);
-	
-			// Create a new Registration
-			Registration registration = new Registration();
-			registration.setHandle(registrationID);
-			
-			// Insert the new Registration
-			registrations.insert(registration, new TableOperationCallback<Registration>() {
-	
-				public void onCompleted(Registration entity, Exception exception, ServiceFilterResponse response) {
-					
-					if (exception != null) {
-						Log.e("GCMIntentService", exception.getMessage());
-					} else {
-						GCMRegistrar.setRegisteredOnServer(context, true);
-	
-					}
-				}
-			});
-		}
+	    MobileServiceClient client = ToDoActivity.getClient();
+	    MobileServiceTable<Registration> registrations = client.getTable(Registration.class);
+
+	    // Create a new Registration
+	    Registration registration = new Registration();
+	    registration.setHandle(gcmRegistrationId);
+
+	    // Insert the new Registration
+	    registrations.insert(registration, new TableOperationCallback<Registration>() {
+
+	        public void onCompleted(Registration entity, Exception exception, ServiceFilterResponse response) {
+
+	            if (exception != null) {
+	                Log.e("MyHandler", exception.getMessage());
+	            } else {
+	                Log.e("MyHandler", "Registration OK");
+	            }
+	        }
+	    });
 		
 
 Your app is now updated to support push notifications to users.
@@ -227,13 +226,13 @@ Your app is now updated to support push notifications to users.
 5. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
 
   
-6. You will see an icon appear in the upper left corner of the emulator, which we have outlined in red to emphasize it (the red does not appear on the actual screen). 
+6. You will see a black notification box appear briefly in the lower part of the screen. 
 
   ![][28]
 
-7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
+<!--7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
 
-  ![][27]
+  ![][27]-->
 
 You have successfully completed this tutorial.
 
@@ -255,7 +254,7 @@ This concludes the tutorials that demonstrate the basics of working with push no
   
 <!-- Anchors. -->
 [Create the Registration table]: #create-table
-[Update the app]: #update-app
+[Update your app]: #update-app
 [Update server scripts]: #update-scripts
 [Verify the push notification behavior]: #test-app
 [Next Steps]: #next-steps

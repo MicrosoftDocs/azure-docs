@@ -1,10 +1,8 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.iOS) - Windows Azure Mobile Services" writer="rpeters" metaKeywords="Windows Azure Xamarin.iOS data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-ios.md" />
-
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS" class="current">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Android C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>	
 
 This topic shows you how to use Windows Azure Mobile Services to leverage data in a Xamarin.iOS app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.
@@ -21,9 +19,9 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-This tutorial requires the [Azure Mobile Services Component], [XCode 4.5][Install Xcode], [Xamarin.iOS], and iOS 5.0 or later versions.
+This tutorial requires the [Azure Mobile Services Component], [XCode 5.0][Install Xcode], [Xamarin.iOS], and iOS 5.0 or later versions.
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-xamarin-ios%2F" target="_blank">Windows Azure Free Trial</a>.</p></div> 
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -90,7 +88,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 2. In the Solution view in Xamarin Studio, open the **TodoService** class and uncomment the following `using` statement:
 
-        // using Microsoft.WindowsAzure.MobileServices;
+        using Microsoft.WindowsAzure.MobileServices;
                
 3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
@@ -100,46 +98,58 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 5. In the **Constants** class, uncomment the following constants:
 
-        // public const string ApplicationURL = @"AppUrl";
-        // public const string ApplicationKey = @"AppKey";
+        public const string ApplicationURL = @"AppUrl";
+        public const string ApplicationKey = @"AppKey";
 
 6. Replace **AppUrl** and **AppKey** in the above constants with the values you found above in the Management Portal.
 
 7. In the **TodoService** class, uncomment the following line of code:
 
-        // private MobileServiceClient client;
+        private MobileServiceClient client;
 
    	This creates a property that represents the MobileServiceClient that connects to the service
 
 8. In the **TodoService** class, uncomment the following line of code:
 
-        // private IMobileServiceTable<TodoItem> todoTable;  
+        private IMobileServiceTable<TodoItem> todoTable;  
 
    	This creates a property representation for your mobile services table.
 
 9. Uncomment the following lines in the **TodoService** constructor:
 
 		// TODO:: Uncomment these lines to use Mobile Services
-		// client = new MobileServiceClient(Constants.ApplicationURL, Constants.ApplicationKey).WithFilter(this); 
-		// todoTable = client.GetTable<TodoItem>(); 
+		client = new MobileServiceClient(Constants.ApplicationURL, Constants.ApplicationKey).WithFilter(this); 
+		todoTable = client.GetTable<TodoItem>(); 
 
     This creates an instance of the Mobile Services client and creates the TodoItem table instance.
 
 10. Uncomment the following lines in the **RefreshDataAsync** method in **TodoService**
 
-		// TODO:: Uncomment these lines to use Mobile Services        /*		try         {			// This code refreshes the entries in the list view by querying the TodoItems table.			// The query excludes completed TodoItems			Items = await todoTable				.Where (todoItem => todoItem.Complete == false).ToListAsync();		}         catch (MobileServiceInvalidOperationException e)         {			Console.Error.WriteLine (@"ERROR {0}", e.Message);			return null;		}        */
+		// TODO:: Uncomment these lines to use Mobile Services
+    try 
+        {
+			// This code refreshes the entries in the list view by querying the TodoItems table.
+			// The query excludes completed TodoItems
+			Items = await todoTable
+				.Where (todoItem => todoItem.Complete == false).ToListAsync();
+		} 
+        catch (MobileServiceInvalidOperationException e) 
+        {
+			Console.Error.WriteLine (@"ERROR {0}", e.Message);
+			return null;
+		}
         
     This creates a query to return all tasks that have not yet been completed.
 
 11. Locate the **InsertTodoItemAsync** method, and uncomment the following line:
 
-		// await todoTable.InsertAsync(todoItem);
+		await todoTable.InsertAsync(todoItem);
 		
     This code sends an insert request to the mobile service.
 
 13. Locate the **CompleteItemAsync** method, and uncomment the following line:
 
-		// await todoTable.UpdateAsync(item);
+		await todoTable.UpdateAsync(item);
 		
    This code removes TodoItems after they are marked as completed. 
 
@@ -209,7 +219,7 @@ Once you have completed the data series, try these other iOS tutorials:
 [9]: ../Media/mobile-todoitem-data-browse.png
 
 <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
-[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-dotnet.md
+[Validate and modify data with scripts]: ./mobile-services-validate-and-modify-data-xamarin-ios.md
 [Refine queries with paging]: ./mobile-services-paging-data-xamarin-ios.md
 [Get started with Mobile Services]: ./mobile-services-get-started-xamarin-ios.md
 [Get started with data]: ./mobile-services-get-started-with-data-xamarin-ios.md
@@ -220,9 +230,8 @@ Once you have completed the data series, try these other iOS tutorials:
 [Management Portal]: https://manage.windowsazure.com/
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[GetStartedWithData app]: http://www.google.com
-[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268622
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 [Xamarin.iOS]: http://xamarin.com/download
-[completed example project]: http://www.google.com
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331302

@@ -1,14 +1,10 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Xamarin.iOS) - Mobile Services" metaKeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Xamarin.iOS" metaDescription="Learn how to validate and modify data sent using server scripts from your Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-ios.md" />
-
 # Validate and modify data in Mobile Services by using server scripts
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">iOS C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Android C#</a>
-</div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your iOS app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your iOS app to take advantage of these new behaviors. The finished code is available in the [ValidateModifyData app][GitHub] sample.
 
 This tutorial walks you through these basic steps:
 
@@ -37,8 +33,8 @@ It is always a good practice to validate the length of data that is submitted by
 
 4. Replace the existing script with the following function, and then click **Save**.
 
-        function insert(item, user, request) {
-            if (item.text.length > 10) {
+    function insert(item, user, request) {
+        if (item.text.length > 10) {
                 request.respond(statusCodes.BAD_REQUEST, 'Text length must be 10 characters or less.');
             } else {
                 request.execute();
@@ -63,13 +59,29 @@ Now that the mobile service is validating data and sending error responses, you 
 
 3. In the TodoService.cs file, locate the current <code>try/catch</code> exception handling in the **InsertTodoItemAsync** method, and replace the <code>catch</code> with:
     
-		catch (Exception ex)        {        	var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);            Console.WriteLine(exDetail.Message);                                            UIAlertView alert = new UIAlertView() {             	Title = "Error",             	Message = exDetail.Message            } ;            alert.AddButton("Ok");            alert.Show();            return -1;		}
+    catch (Exception ex) {
+        var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
+        Console.WriteLine(exDetail.Message);
+                                
+        UIAlertView alert = new UIAlertView() { 
+            	Title = "Error", 
+            	Message = exDetail.Message
+        } ;
+        alert.AddButton("Ok");
+        alert.Show();
+
+        return -1;
+		}
 
    This shows a popup window which displays the error to the user. 
 
 4. Locate the **OnAdd** method in **TodoListViewController.cs**. Update the method to make sure the returned <code>index</code> isn't <code>-1</code> as is returned in the exception handling in **InsertTodoItemAsync**. In this case we don't want to add a new row to the <code>TableView</code>.
 
-		if (index != -1)        {    		TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },    			UITableViewRowAnimation.Top);    		itemText.Text = "";        }
+    if (index != -1) {
+        TableView.InsertRows(new [] { NSIndexPath.FromItemSection(index, 0) },
+            UITableViewRowAnimation.Top);
+        itemText.Text = "";
+    }
 
 
 5. Rebuild and start the app. 
@@ -119,3 +131,4 @@ Server scripts are also used when authorizing users and for sending push notific
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330

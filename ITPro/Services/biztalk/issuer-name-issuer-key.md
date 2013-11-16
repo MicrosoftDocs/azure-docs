@@ -3,7 +3,7 @@
 
 # BizTalk Services: Issuer Name and Issuer Key
 
-Windows Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control (ACS) Issuer Name and Issuer Key. Specifically:
+Windows Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, and the Access Control Issuer Name and Issuer Key. Specifically:
 
 
 <table border="1">
@@ -13,11 +13,11 @@ Windows Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, 
 </tr>
 <tr>
 <td>Deploying your application from Visual Studio</td>
-<td>ACS Issuer Name and Issuer Key</td>
+<td>Access Control Issuer Name and Issuer Key</td>
 </tr>
 <tr>
 <td>Configuring the Windows Azure BizTalk Services Portal</td>
-<td>ACS Issuer Name and Issuer Key</td>
+<td>Access Control Issuer Name and Issuer Key</td>
 </tr>
 <tr>
 <td>Creating LOB Relays with the BizTalk Adapter Services in Visual Studio</td>
@@ -28,41 +28,41 @@ Windows Azure BizTalk Services uses the Service Bus Issuer Name and Issuer Key, 
 
 This topic lists the steps to retrieve the Issuer Name and Issuer Key. 
 
-## ACS Issuer Name and Issuer Key
-The ACS Issuer Name and Issuer Key are used by the following:
+## Access Control Issuer Name and Issuer Key
+The Access Control Issuer Name and Issuer Key are used by the following:
 
-- Your Windows Azure BizTalk Service application created in Visual Studio: To successfully deploy your BizTalk Service application in Visual Studio to Windows Azure, you enter the ACS Issuer Name and Issuer Key. 
-- The Windows Azure BizTalk Services  Portal: The first time you log in to the BizTalk Services Portal, you enter your BizTalk Service name as the service provider,  enter the ACS Issuer Name, and the ACS Issuer Key.
+- Your Windows Azure BizTalk Service application created in Visual Studio: To successfully deploy your BizTalk Service application in Visual Studio to Windows Azure, you enter the Access Control Issuer Name and Issuer Key. 
+- The Windows Azure BizTalk Services  Portal: The first time you log in to the BizTalk Services Portal, you enter your BizTalk Service name as the service provider, enter the Access Control Issuer Name, and the Access Control Issuer Key.
 
-### To retrieve the ACS Issuer Name and Issuer Key
+### To retrieve the Access Control Issuer Name and Issuer Key
 
 1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services**.
 3. Select your BizTalk Service. 
-4. Select **Connection Information** in the task bar. The ACS Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.<br/><br/>
+4. Select **Connection Information** in the task bar. The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.<br/><br/>
 To summarize:<br/>
 Issuer Name = Default Issuer<br/>
 Issuer Key = Default Key
 
 
-You can also click **Open ACS Management Portal** to retrieve the ACS values:
+You can also click **Open ACS Management Portal** to retrieve the Access Control values:
 
 1. Log in to the [Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. In the left navigation pane, select **BizTalk Services**.
 3. Select your BizTalk Service.
-4. Select the Connectioin Information button and select **Open ACS Management Portal**.
-5. In the Portal under **Service Settings**, click **Service Identities**. This displays your Service Identity, which is your ACS Issuer Name value. Click your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
-For example, in **Service Identities**, you see "owner". "Owner" is your ACS Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your ACS Issuer Key. <br/><br/>
+4. Select the Connection Information button and select **Open ACS Management Portal**.
+5. In the Portal under **Service Settings**, click **Service Identities**. This displays your Service Identity, which is your Access Control Issuer Name value. Click your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
+For example, in **Service Identities**, you see "owner". "Owner" is your Access Control Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your Access Control Issuer Key. <br/><br/>
 To summarize:<br/>
 Issuer Name = Service Identity name<br/>
 Issuer Key = Password value
 
-In the left navigation pane, you can also select **Active Directory** to retrieve the ACS values. 
+In the left navigation pane, you can also select **Active Directory** to retrieve the Access Control values. 
 
 <div class="dev-callout"> 
 <b>Important</b> 
-<p>When an ACS Namespace is created using <b>Active Directory</b>, a Service Identity is <b>not</b> automatically created. When you provision a BizTalk Service, an ACS Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.</p> 
-<p><a href="http://go.microsoft.com/fwlink/p/?LinkID=303942">How to: Use ACS Management Service to Configure Service Identities</a> provides more information on ACS Service Identities.</p>
+<p>When an Access Control Namespace is created using <strong>Active Directory</strong>, a Service Identity is <strong>not</strong> automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.</p> 
+<p><a href="http://go.microsoft.com/fwlink/p/?LinkID=303942">How to: Use ACS Management Service to Configure Service Identities</a> provides more information on Access Control Service Identities.</p>
 </div>
 
 

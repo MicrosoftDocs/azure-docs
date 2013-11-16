@@ -220,7 +220,7 @@ Once you have completed the data series, try one of these other tutorials:
 [Get started with Mobile Services]: ./mobile-services-get-started.md
 [Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
+[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet-vs2012.md
 [JavaScript and HTML]: ./mobile-services-get-started-with-data-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

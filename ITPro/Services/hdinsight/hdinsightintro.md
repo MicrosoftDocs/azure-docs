@@ -93,6 +93,8 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 * [Big data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Big data scenarios that explore what you can build with Windows Azure.	
 
+* [Windows Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
+
 **Microsoft: Windows and SQL Database**	
 
 * [Windows Azure home page](https://www.windowsazure.com/en-us/): Scenarios, free trial sign up, development tools and documentation that you need get started building applications.

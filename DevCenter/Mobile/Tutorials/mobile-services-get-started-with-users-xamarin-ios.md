@@ -1,10 +1,8 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-users-xamarin-ios" urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.iOS" metaDescription="Learn how to use authentication in your Windows Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin.ios.md" />
-
 # Get started with authentication in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS" class="current">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Android C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 This topic shows you how to authenticate users in Windows Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
@@ -17,11 +15,7 @@ This tutorial walks you through these basic steps to enable authentication in yo
 
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
-Completing this tutorial requires XCode 4.5 and iOS 5.0 or later versions as well as [Xamarin Studio] for OSX.
-
-<!--<div class="dev-callout"><b>Note</b>
-	<p>This tutorial demonstrates the basic method provided by Mobile Services to authenticate users by using a variety of identity providers. This method is easy to configure and supports multiple providers. However, this method also requires users to log-in every time your app starts. To instead use Live Connect to provide a single sign-on experience in your Windows Store app, see the topic <a href="/en-us/develop/mobile/tutorials/single-sign-on-win8-dotnet">Single sign-on for Windows Store apps by using Live Connect</a>.</p>
-</div>-->
+Completing this tutorial requires [Xamarin.iOS], XCode 5.0 and iOS 5.0 or later versions.
 
 <h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
 
@@ -84,7 +78,17 @@ Next, you will update the app to authenticate users before requesting resources 
 
 2. Then add a new method named **Authenticate** to **TodoService** defined as:
 
-        private async Task Authenticate(UIViewController view)        {            try            {                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccount);            }            catch (Exception ex)            {                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);            }        }
+        private async Task Authenticate(UIViewController view)
+        {
+            try
+            {
+                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccount);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+            }
+        }
 
     <div class="dev-callout"><b>Note</b>
 	<p>If you are using an identity provider other than a Microsoft Account, change the value passed to <strong>LoginAsync</strong> above to one of the following: <i>Facebook</i>, <i>Twitter</i>, or <i>Google</i>.</p>
@@ -92,16 +96,41 @@ Next, you will update the app to authenticate users before requesting resources 
 
 3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
 
-        private async Task CreateTable()        {            // Create an MSTable instance to allow us to work with the TodoItem table            todoTable = client.GetTable<TodoItem>();        }
+        private async Task CreateTable()
+        {
+            // Create an MSTable instance to allow us to work with the TodoItem table
+            todoTable = client.GetTable<TodoItem>();
+        }
 	
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
 
-        public async Task LoginAndGetData(UIViewController view)        {            await Authenticate(view);            await CreateTable();        }
+        public async Task LoginAndGetData(UIViewController view)
+        {
+            await Authenticate(view);
+            await CreateTable();
+        }
 
 5. In the **TodoListViewController** override the **ViewDidAppear** method and define it as found below. This logs in the user if the **TodoService** doesn't yet have a handle on the user:
 
-        public override async void ViewDidAppear(bool animated)        {            base.ViewDidAppear(animated);            if (TodoService.DefaultService.User == null)            {                await TodoService.DefaultService.LoginAndGetData(this);            }            if (TodoService.DefaultService.User == null)            {                // TODO:: show error                return;            }                             RefreshAsync();        }
-6. Remove the original call to **RefreshAsync** from **TodoListViewController.ViewDidLoad**.		
+        public override async void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            if (TodoService.DefaultService.User == null)
+            {
+                await TodoService.DefaultService.LoginAndGetData(this);
+            }
+
+            if (TodoService.DefaultService.User == null)
+            {
+                // TODO:: show error
+                return;
+            } 
+                
+            RefreshAsync();
+        }
+6. Remove the original call to **RefreshAsync** from **TodoListViewController.ViewDidLoad**.
+		
 7. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
@@ -130,7 +159,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
+[Xamarin.iOS]: http://xamarin.com/download
 [Get started with Mobile Services]: ./mobile-services-get-started-xamarin-ios.md
 [Get started with data]: ./mobile-services-get-started-with-data-xamarin-ios.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-xamarin-ios.md
@@ -138,4 +167,4 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Authorize users with scripts]: ./mobile-services-authorize-users-xamarin-ios.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[completed example project]: http://www.google.com
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328

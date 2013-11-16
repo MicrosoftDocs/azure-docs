@@ -1,20 +1,11 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-xamarin-android" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="" metaDescription="Learn how to use push notifications in Xamarin.Android apps with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-android.md" />
-
 # Get started with push notifications in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android" class="current">Android C#</a></div>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-
-<p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Xamarin.Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
-</div>
-
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-push-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">17:11</span></div>
-</div>
+This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Xamarin.Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -102,7 +93,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 8. Go to the **.Net Assembly** tab, browse to your project's **_external** folder, select the **PushSharp.Client.MonoForAndroid.dll** we built earlier and click **Add**. Click OK to close the dialog. 
 
-9. Open **Constants.cs** and add the following line, replacing **PROJECT_ID** with the Google Project_ID you noted earlier:
+9. Open **Constants.cs** and add the following line, replacing **PROJECT\_ID** with the Google Project_ID you noted earlier:
 
 		public const string SenderID = "PROJECT_ID"; // Google API Project Number
 
@@ -120,21 +111,30 @@ You mobile service is now configured to work with GCM to send push notifications
 		
 14. Update the **OnRegistered** method in **PushService.cs** to store the received registration id to our local static variable:
 
-		protected override void OnRegistered(Context context, string registrationId)		{			Log.Verbose(PushHandlerBroadcastReceiver.TAG, "GCM Registered: " + registrationId);            RegistrationID = registrationId;		}
-15. Update the **OnMessage** method in **PushService.cs** to display the push message received as part of the notification (replace the existing **createNotification** call):        string message = intent.Extras.GetString("message");        createNotification("New todo item!", "Todo item: " + message);
+		protected override void OnRegistered(Context context, string registrationId)
+		{
+			Log.Verbose(PushHandlerBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
+            RegistrationID = registrationId;
+		}
+
+15. Update the **OnMessage** method in **PushService.cs** to display the push message received as part of the notification (replace the existing **createNotification** call):
+
+        string message = intent.Extras.GetString("message");
+        createNotification("New todo item!", "Todo item: " + message);
        
 16. Take note that the **OnMessage** method has the following code by default to store off the last push message received:
-		//Store the message
-		var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-		var edit = prefs.Edit();
-		edit.PutString("last_msg", msg.ToString());
-		edit.Commit();
+
+        //Store the message
+        var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
+        var edit = prefs.Edit();
+        edit.PutString("last_msg", msg.ToString());
+        edit.Commit();
 
 17. Update the **createNotification** method in **PushService.cs** to reference **TodoActivity** instead of **DefaultActivity**.
 
 18. Open **TodoActivity.cs** and add the following using statement:
 
-		using PushSharp.Client;
+        using PushSharp.Client;
 
 19. In **TodoActivity.cs** insert the following lines just above where the **MobileServiceClient** is created:
 	
@@ -148,11 +148,17 @@ You mobile service is now configured to work with GCM to send push notifications
 
 20. Open **TodoItem.cs** and add a new field to keep track of the registered device id for the person who added the TodoItem:
 
-        [DataMember(Name = "channel")]        public string RegistrationId { get; set; }
+        [DataMember(Name = "channel")]
+        public string RegistrationId { get; set; }
 
 21. In **TodoActivity.cs** update the **AddItem** method to set the **RegistrationID** of the newly added **TodoItem** to the device's registration ID receieved during registration:
 
-		// Create a new item		var item = new TodoItem() {			Text = textNewTodo.Text,			Complete = false,            RegistrationId = PushHandlerService.RegistrationID		};
+		// Create a new item
+		var item = new TodoItem() {
+			Text = textNewTodo.Text,
+			Complete = false,
+            RegistrationId = PushHandlerService.RegistrationID
+		};
 
 Your app is now updated to support push notifications.
 
@@ -203,21 +209,7 @@ Download the [completed example project]. Be sure to update the **ApplicationURL
 
 ## <a name="next-steps"> </a>Next steps
 
-<!--In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. -->
-
-This concludes the tutorials that demonstrate the basics of working with push notifications. Consider finding out more about the following Mobile Services topics:
-
-* [Get started with data]
-  <br/>Learn more about storing and querying data using Mobile Services.
-
-* [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with Windows Account.
-
-* [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
-
-* [Mobile Services android conceptual]
-  <br/>Learn more about using Mobile Services with Android devices.
+In this simple example a user receives a push notification with the data that was just inserted. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
 <!-- Anchors. -->
 [Register your app for push notifications]: #register
@@ -251,14 +243,13 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-xamarin-android.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-xamarin-android.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-xamarin-android.md
-[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-xamarin-android.md
+[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-android.md
 [Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-xamarin-android.md
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Windows Developer Preview registration steps for Mobile Services]: ../HowTo/mobile-services-windows-developer-preview-registration.md
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services android conceptual]: ../HowTo/mobile-services-client-xamarin-android.md
+[Mobile Services Xamarin conceptual]: ../HowTo/mobile-services-client-xamarin.md
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
-[completed example project]: http://www.google.com
+[completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [PushSharp Github page]: https://github.com/Redth/PushSharp
 

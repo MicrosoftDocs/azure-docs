@@ -1,14 +1,11 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-xamarin-android" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Xamarin.Android) - Mobile Services" metaKeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Xamarin.Android" metaDescription="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
-<div chunk="../chunks/article-left-menu-xamarin-android.md" />
-
 # Validate and modify data in Mobile Services by using server scripts
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
 
-This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Android app to take advantage of these new behaviors.
+This topic shows you how to leverage server scripts in Windows Azure Mobile Services. Server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification. In this tutorial, you will define and register server scripts that validate and modify data. Because the behavior of server side scripts often affects the client, you will also update your Android app to take advantage of these new behaviors. The finished code is available in the [ValidateModifyData app][GitHub] sample.
 
 This tutorial walks you through these basic steps:
 
@@ -59,9 +56,9 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. In the TodoActivity.cs file, locate the **AddItem** method and replace the call to the CreateAndShowDialog method with the following code:
 
-		var exDetail = ex.InnerException.InnerException as 
-			MobileServiceInvalidOperationException;
-			        CreateAndShowDialog(exDetail.Message, "Error");
+    var exDetail = ex.InnerException.InnerException as 
+        MobileServiceInvalidOperationException;
+    CreateAndShowDialog(exDetail.Message, "Error");
 
 	This displays the error message returned by the mobile service. 
 
@@ -106,7 +103,8 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 1. Add the following code to the private field definitions in the **TodoItem** class:
 
-        [DataMember(Name = "createdAt")]        public DateTime? CreatedAt { get; set; }
+        [DataMember(Name = "createdAt")]
+        public DateTime? CreatedAt { get; set; }
   
     <div class="dev-callout"><b>Note</b>
 	<p>The <code>DataMember's Name</code> annotation tells the client to map the new <code>CreatedAt</code> property in the app to the <code>createdAt</code> column defined in the TodoItem table, which has a different name. By using this annotation, your app can have property names on objects that differ from column names in the SQL Database. Without this annotation, an error occurs because of the casing differences.</p>
@@ -114,30 +112,31 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
 2. In the GetView method, add the following code just above where the current code that sets <code>checkBox.Text</code> to <code>currentItem.Text</code>:
 
-       string displayDate = "missing";
-       if (currentItem.CreatedAt.HasValue)
+       	string displayDate = "missing";
+       	if (currentItem.CreatedAt.HasValue)
        		displayDate = currentItem.CreatedAt.Value.ToShortTimeString();
 
    This creates a formatted date string when a timestamp value exists. 
 
-7. Locate the code `checkBox.Text = currentItem.Text` again and replace this line of code with the following:
+3. Locate the code `checkBox.Text = currentItem.Text` again and replace this line of code with the following:
 
 		checkBox.Text = string.Format("{0} - {1}", currentItem.Text, displayDate);
 
 	This appends the timestamp date to the item for display.
 	
-6. From the **Run** menu, then click **Run** to start the app. 
+4. From the **Run** menu, then click **Run** to start the app. 
 
    Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
-7. In **TodoActivity.cs**, replace the existing query in **RefreshItemsFromTableAsync** with the following query:
+5. In **TodoActivity.cs**, replace the existing query in **RefreshItemsFromTableAsync** with the following query:
 
 		var list = await todoTable.Where(item => item.Complete == false && 
 										 item.CreatedAt != null)
 								  .ToListAsync();
+
    This method updates the query to also filter out items that do not have a timestamp value.
 	
-8. From the **Run** menu, then click **Run** to start the app.
+6. From the **Run** menu, then click **Run** to start the app.
 
    Notice that all items created without timestamp value disappear from the UI.
 
@@ -183,3 +182,4 @@ Server scripts are also used when authorizing users and for sending push notific
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
+[GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330

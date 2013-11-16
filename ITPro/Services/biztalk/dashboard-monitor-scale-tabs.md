@@ -29,7 +29,7 @@ In the Quick Start tab, you can do the following:
     <tr>
         <td>Get the tools</td>
 
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premise development computer. These templates create the <b>BizTalk Services</b> (bridge) and the <b>BizTalk Service Artifacts</b> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premise development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
 
         <br/><br/>
 		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Windows Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Windows Azure BizTalk Services SDK</a> lists the steps to get started.
@@ -56,7 +56,7 @@ In the Quick Start tab, you can do the following:
 </table>
 
 
-In the task bar at the bottom, you can **Manage** the BizTalk Service, view the ACS Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
+In the task bar at the bottom, you can **Manage** the BizTalk Service, view the Access Control Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
 
 <table border="1">
@@ -68,30 +68,30 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, view the 
 <td>Manage</td>
 <td>When you click Manage, the Windows Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
 <br/><br/>
-This is the same as <b>Create partner agreements</b> on the <b>Quick Start</b> tab.
+This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 
 <tr>
 <td>Connection Information</td>
-<td>When you click Connection Information, the ACS Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+<td>When you click Connection Information, the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the ACS Management Portal. This ACS Mangement Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Management Portal. This Access Control Mangement Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the ACS Management Portal.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
 </tr>
 
 <tr>
 <td>Sync Keys</td>
-<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <b>Sync Keys</b> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <strong>Sync Keys</strong> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
 <br/><br/>
 For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
 <br/><br/>
 <ol>
-<li>Click your BizTalk Service and click <b>Sync Keys</b>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
+<li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
-<li>Click your BizTalk Service and click <b>Sync Keys</b>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
+<li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
@@ -162,7 +162,7 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 </tr>
 <tr>
 <td>Service URL</td>
-<td>This URL routes to your BizTalk Service. This is the same as the <b>Domain URL</b> entered when your BizTalk Service is provisioned. </td>
+<td>This URL routes to your BizTalk Service. This is the same as the <strong>Domain URL</strong> entered when your BizTalk Service is provisioned. </td>
 </tr>
 <tr>
 <td>Public Virtual IP (VIP) Address</td>
@@ -170,7 +170,7 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 </tr>
 <tr>
 <td>ACS Namespace</td>
-<td>Authenticates with BizTalk Service. This is the same <b>ACS Namespace</b> entered when the BizTalk Service is provisioned.</td>
+<td>Authenticates with BizTalk Service. This is the same <strong>ACS Namespace</strong> entered when the BizTalk Service is provisioned.</td>
 </tr>
 <tr>
 <td>Edition</td>
@@ -179,7 +179,7 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 </tr>
 <tr>
 <td>Location</td>
-<td>Shows the geographic region that hosts your BizTalk Service. This is the same as the <b>Region</b> entered when the BizTalk Service is provisioned.</td>
+<td>Shows the geographic region that hosts your BizTalk Service. This is the same as the <strong>Region</strong> entered when the BizTalk Service is provisioned.</td>
 </tr>
 <tr>
 <td>Created</td>
@@ -187,15 +187,15 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 </tr>
 <tr>
 <td>Tracking Database</td>
-<td>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. This is the same <b>Tracking Database</b> entered when the BizTalk Service is provisioned.</td>
+<td>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. This is the same <strong>Tracking Database</strong> entered when the BizTalk Service is provisioned.</td>
 </tr>
 <tr>
 <td>Monitoring/Archiving Storage</td>
-<td>The Azure Storage account name that stores the monitoring output of your BizTalk Service. This is the same <b>Monitoring/Archiving Storage Account</b> entered when the BizTalk Service is provisioned.</td>
+<td>The Azure Storage account name that stores the monitoring output of your BizTalk Service. This is the same <strong>Monitoring/Archiving Storage Account</strong> entered when the BizTalk Service is provisioned.</td>
 </tr>
 <tr>
 <td>Subscription Name</td>
-<td>The subscription governs access to the Windows Azure Management Portal. This is the same <b>Subscription</b> name selected when the BizTalk Service is provisioned.</td>
+<td>The subscription governs access to the Windows Azure Management Portal. This is the same <strong>Subscription</strong> name selected when the BizTalk Service is provisioned.</td>
 </tr>
 <tr>
 <td>Subscription ID</td>
@@ -207,7 +207,7 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 
 
 #### Manage, Connection Information, Sync Keys and Delete
-In the task bar at the bottom, you can **Manage** the BizTalk Service, view the ACS Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
+In the task bar at the bottom, you can **Manage** the BizTalk Service, view the Access Control Namespace **Connection Information**, **Sync Keys** of the Storage Account, or **Delete** the BizTalk Service:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -218,28 +218,28 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, view the 
 <td>Manage</td>
 <td>When you click Manage, the Windows Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
 <br/><br/>
-This is the same as <b>Create partner agreements</b> on the <b>Quick Start</b> tab.
+This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> provides more information on the BizTalk Services Portal.</td>
 </tr>
 <tr>
 <td>Connection Information</td>
-<td>When you click Connection Information, the ACS Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+<td>When you click Connection Information, the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the ACS Management Portal. This ACS Mangement Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Management Portal. This Access Control Mangement Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the ACS Management Portal.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
 </tr>
 <tr>
 <td>Sync Keys</td>
-<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <b>Sync Keys</b> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+<td>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. <strong>Sync Keys</strong> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
 <br/><br/>
 For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
 <br/><br/>
 <ol>
-<li>Click your BizTalk Service and click <b>Sync Keys</b>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
+<li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
-<li>Click your BizTalk Service and click <b>Sync Keys</b>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
+<li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
@@ -296,12 +296,12 @@ The following performance counters/metrics are available:
 <td>RountdTrip Latency</td>
 <td>In milliseconds (ms), this performance metric displays the average time taken to process a message from the time it is received until it is fully processed by the BizTalk Service across all bridges. Only messages successfully processed are counted.<br/><br/>
 When the following events occur, a timestamp is created:
-<bl>
+<ul>
 <li>Message enters the gateway</li>
 <li>Message is routed to the destination</li>
 <li>Destination response is received</li>
 <li>Destination acknowledgement response sent to the gateway</li>
-</bl>
+</ul>
 <br/>
 This metric shows the result of the following calculation:
 <br/><br/>
@@ -320,12 +320,12 @@ This metric shows the result of the following calculation:
 <td>In milliseconds (ms), this performance metric displays the average time taken to process a message by the BizTalk Service across all bridges, excluding the time spent in destinations. Only messages successfully processed are counted.<br/><br/>
 When each of the following events occur, a timestamp is created:
 
-<bl>
+<ul>
 <li>Message enters the gateway</li>
 <li>Message is routed to the destination</li>
 <li>Destination response is received</li>
 <li>Destination acknowledgement response sent to the gateway</li>
-</bl>
+</ul>
 <br/>This metric shows the result of the following calculation:<br/><br/>
 [Destination acknowledgement response sent to the gateway] – [Message enters the gateway] – [Destination response is received] + [Message is routed to the destination]</td>
 </tr>
