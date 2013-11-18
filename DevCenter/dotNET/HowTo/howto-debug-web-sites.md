@@ -154,7 +154,7 @@ Each line logged to the file system or received using streaming will be in the f
 
 When logging to table storage, the following properties (columns) are used for each entity (row) stored in the table.
 
-<table style="max-width:620px;border-collapse:collapse">
+<table style="width:100%;border-collapse:collapse">
 <thead>
 <tr>
 <th style="width:45%;border:1px solid black;background-color:#0099dd">Property name</th>

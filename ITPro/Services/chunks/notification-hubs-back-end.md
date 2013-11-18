@@ -160,8 +160,8 @@ You can now proceed to [Run the app and generate notifications].
 [16]: ../media/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
-[Use Notification Hubs to send notifications to users]: tutorial-notify-users-mobileservices.md
+[Get started with Notification Hubs]: ../notificationhubs/getting-started-windowsdotnet.md
+[Use Notification Hubs to send notifications to users]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
