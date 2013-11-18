@@ -13,7 +13,7 @@ This folder contains all the information that an individual needs to start contr
 3.	Now that machine is set up with Git, you need a fork of this repository.  Go to the top of the page and click the **Fork** button.  You now have your own fork of this repository.
 4.	The last step involves copying your fork to your local machine.  To do this go open GitBash.  On the command prompt enter:
 
-		git clone git@github.com:<your user name>/azure-content.git
+		git clone https://github.com:<your user name>/azure-content.git
 
 	Next create a reference to the root repository by entering these commands:
 
