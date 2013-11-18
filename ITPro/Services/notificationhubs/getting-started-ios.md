@@ -242,7 +242,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 6. In the same file, add the following method:
 
-	    (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
+	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:
 		                              @"<connection string>" notificationHubPath:@"mynh"];
 		    
@@ -259,7 +259,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
 		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		    [[userInfo objectForKey:@"aps"] valueForKey:@”alert”] delegate:nil cancelButtonTitle:
+		    [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle:
 		    @"OK" otherButtonTitles:nil, nil];
 		    [alert show];
 		}
