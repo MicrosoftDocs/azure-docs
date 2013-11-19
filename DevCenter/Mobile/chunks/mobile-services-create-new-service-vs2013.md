@@ -5,21 +5,21 @@ The following steps create a new mobile service in Windows Azure and add code to
 
 1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
 
-	![add connected service](../Media/mobile-add-connected-service.png")
+	![add connected service](../Media/mobile-add-connected-service.png)
 
 2. In the Services Manager dialog, click **Create service...**, then select **&lt;Import...&gt;** from  **Subscription** in the Create Mobile Service dialog.  
 
-	![create a new mobile service from VS 2013](../Media/mobile-create-service-from-vs2013.png")
+	![create a new mobile service from VS 2013](../Media/mobile-create-service-from-vs2013.png)
 
 3. In Import Windows Azure Subscriptions, click **Download subscription file**, login to your Windows Azure account (if required), click **Save** when your browser requests to save the file.
 
-	![download subscription file in VS](../Media/mobile-import-azure-subscription.png")
+	![download subscription file in VS](../Media/mobile-import-azure-subscription.png)
 
 	<div class="dev-callout"><strong>Note</strong> <p>The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Windows Azure subscription.</p></div> 
 
 4. Click **Browse**, navigate to the location where you saved the .publishsettings file, select the file, then click **Open** and then **Import**. 
 
-	![import subscription in VS](../Media/mobile-import-azure-subscription-2.png")
+	![import subscription in VS](../Media/mobile-import-azure-subscription-2.png)
 
 	Visual Studio imports the data needed to connect to your Windows Azure subscription. When your subscription already has one or more existing mobile services, the service names are displayed. 
 
@@ -31,7 +31,7 @@ The following steps create a new mobile service in Windows Azure and add code to
 
 6. In **Database**, select **&lt;Create a free SQL Database&gt;**, supply the **Server user name**, **Server password**, and **Server password confirmation** then click **Create**.
 
-  ![create service from VS 2013 part 2](../Media/mobile-create-service-from-vs2013-2.png")
+  ![create service from VS 2013 part 2](../Media/mobile-create-service-from-vs2013-2.png)
 
 	<div class="dev-callout"><strong>Note</strong> <p>As part of this tutorial, you create a new free SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. You can only have one free database instance. If you already have a database in the same region as the new mobile service, you can instead choose the existing database. When you choose an existing database, make sure that you supply correct login credentials. If you supply incorrect login credentials, the mobile service is created in an unhealthy state.</p></div>
 
