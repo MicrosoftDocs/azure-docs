@@ -246,7 +246,7 @@ The value for the `id` must be unique and it must not include characters from th
 +  The ids "." and ".."
 
 
-You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 
 To insert untyped data, you may take advantage of Json.NET as shown below. 
