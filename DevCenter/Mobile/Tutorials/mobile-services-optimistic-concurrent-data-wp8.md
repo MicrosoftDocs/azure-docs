@@ -113,7 +113,8 @@ Two or more clients may write changes to the same item, at the same time, in som
 	<div class="dev-callout"><strong>Note</strong>
 	<p>When using untyped tables, enable optimistic concurrency by adding the Version flag to the SystemProperties of the table.</p>
 	<pre><code>//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;</code></pre>
+todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+</code></pre>
 	</div>
 
 
