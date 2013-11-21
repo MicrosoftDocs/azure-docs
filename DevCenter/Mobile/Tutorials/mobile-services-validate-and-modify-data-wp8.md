@@ -96,7 +96,7 @@ Now that the mobile service is validating data and sending error responses, you 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
 
 <div class="dev-callout"><b>Note</b>
-<p>The **createdAt** timestamp property demonstrated here is now redundant. Mobile Services automatically creates a **__createdAt** system property for each table. You could use this system property in your application by simply adding the following member to the `TodoItem` class</p>
+<p>The <b>createdAt</b> timestamp property demonstrated here is now redundant. Mobile Services automatically creates a <b>__createdAt</b> system property for each table. You could use this system property in your application by simply adding the following member to the TodoItem class</p>
 <pre><code>
 [JsonProperty(PropertyName = "__createdAt")]
 public DateTime createdAt { set; get; }
