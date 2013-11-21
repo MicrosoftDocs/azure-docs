@@ -261,18 +261,19 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 6. Run the following command to submit the MapReduce job:
 
 		# Submit the job
-		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName  -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition 
+		Select-AzureSubscription $subscriptionName
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
 		
 	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job. 
 
 6. Run the following command to check the completion of the MapReduce job:
 
-		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $wordCountJob -WaitTimeoutInSeconds 3600 
+		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600 
 		
 8. Run the following command to check any errors with running the MapReduce job:	
 	
 		# Get the job output
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError
 		
 	The following screenshot shows the output of a successful run. Otherwise, you will see some error messages.
 
