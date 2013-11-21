@@ -305,9 +305,10 @@ Supporting string ids provides the following advantages to developers
 + Records are easier to merge from different tables or databases.
 + Ids values can integrate better with an application's logic.
 
-You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's id.
 
-	//if id is not assigned by application, let's generate a new one
+	//Example of generating an id. This is not required since Mobile Services
+	//will generate an id if one is not passed in.
 	item.id = item.id || newGuid();
 	request.execute();
 
