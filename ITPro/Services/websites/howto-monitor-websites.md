@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Windows Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" metaDescription="Learn how to monitor Windows Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
 
 
 
@@ -101,19 +101,31 @@ The **application diagnostics** section of the **Configure** management page con
 
 You can enable or disable the following application diagnostics:
 
-- **Application Logging (file system)** - Turns on logging of information produced by the application. The **Logging Level** field determines whether Error, Warning, or Information level information is logged. You may also select Verbose, which will log all information produced by the application.
+- **Application Logging (File System)** - Turns on logging of information produced by the application. The **Logging Level** field determines whether Error, Warning, or Information level information is logged. You may also select Verbose, which will log all information produced by the application.
 
 	Logs produced by this setting are stored on the file system of your web site, and can be downloaded using the steps in the **Downloading log files for a web site** section below.
 
-- **Application Logging (storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account. To specify a Windows Azure Storage Account, choose **On**, and then choose **manage connection** next to **Diagnostics Storage**. Specify a storage account name and storage access key. You can choose **Synchronize Primary Key** or **Synchronize Secondary Key** to retrieve the most recent primary or secondary key from your Windows Azure Storage account. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+- **Application Logging (Table Storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (File System) option. However, the log information is stored in a Windows Azure Storage Account in a table.
 
-	The log information will be stored in a table named **WAWSAppLogTable** in the Windows Azure Storage Account that you specify, and can be accessed using a Windows Azure Storage client.
+	To specify the Windows Azure Storage Account and table, choose **On**, select the **Logging Level**, and then choose **Manage Table Storage**. Specify the storage account and table to use, or create a new table.
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Windows Azure Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+	The log information stored in the table can be accessed using a Windows Azure Storage client.
+
+- **Application Logging (Blob storage)** - Turns on the logging of information produced by the application, similar to the Application Logging (Table Storage) option. However, the log information is stored in a blob in a Windows Azure Storage Account.
+
+	To specify the Windows Azure Storage Account and blob, choose **On**, select the **Logging Level**, and then choose **Manage Blob Storage**. Specify the storage account, blob container, and blob name to use, or create a new container and blob.
+
+For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+
+Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Windows Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
 
 <div class="dev-callout"> 
 	<b>Note</b> 
-	<p>Both <b>Application diagnostics (file system)</b> and <b>Application diagnostics (storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
+	<p><b>Application diagnostics (file system)</b>, <b>Application diagnostics (table storage)</b>, and <b>Application diagnostics (blob storage)</b> can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to storage as a long-term logging solution, while enabling file system logging with a level of verbose after instrumenting the application code in order to troubleshoot a problem.</p> </div>
 
 <div class="dev-callout"> 
 	<b>Note</b> 
@@ -121,11 +133,12 @@ Since application logging to storage requires using a storage client to view the
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>Application logging relies on log information generated by your application. The method used to generate log information is specific to the language your application is written in. For language-specific information on using application logging, see the following articles:</p>
+<p>Application logging relies on log information generated by your application. The method used to generate log information, as well as the format of the information is specific to the language your application is written in. For language-specific information on using application logging, see the following articles:</p>
 <ul>
 <li><b>.NET</b> - <a href="/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">Enable diagnostic logging for Windows Azure Web Sites</a></li>
 <li><b>Node.js</b> - <a href="/en-us/develop/nodejs/how-to-guides/Debug-Website/">How to debug a Node.js application in Windows Azure Web Sites</a></li>
 </ul>
+<p>Application logging to table or blob storage is only supported for .NET applications.</p>
 </div>
 
 ####Site Diagnostics####
@@ -173,12 +186,6 @@ Diagnostics can be further modified by adding key/value pairs to the **app setti
 - The maximum size of the **Application** folder in which application diagnostics written to file are stored.
 
 - Default value: 1MB
-
-**DIAGNOSTICS_AZURETABLENAME**
-
-- The name of the table used to store application diagnostics in a Windows Azure Storage Account.
-
-- Default value: WAWSAppLogTable
 
 ###Downloading log files for a web site###
 
@@ -265,7 +272,7 @@ The .htm files include the following sections:
 
 **Log File Type: Web Server Logging**
 
-- Location: /LogFiles/http/RawLogs
+- Location: /LogFiles/http/RawLogs. The information stored in the files is formatted using the [W3C extended log format](http://msdn.microsoft.com/en-us/library/windows/desktop/aa814385(v=vs.85).aspx). The s-computername, s-ip and cs-version fields are not used by Windows Azure Web Sites.
 
 - Read Files with: Log Parser. Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 

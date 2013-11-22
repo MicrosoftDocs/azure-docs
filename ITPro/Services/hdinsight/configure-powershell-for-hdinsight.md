@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure PowerShell for HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure Windows Azure HDInsight PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure HDInsight PowerShell - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure HDInsight PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-#Install and configure PowerShell for HDInsight
+#Install and configure HDInsight PowerShell
 
  This article provides basic information about installing and configuring workstations to manage HDInsight clusters using PowerShell.
 
@@ -13,10 +13,11 @@ Before you begin this article, you must have the following:
 ##In this article
 
 - [Install Windows Azure PowerShell](#azure-cmdlets)
-- [Install Windows Azure HDInsight PowerShell Tools](#hdinsight-cmdlets)
+- [Install Windows Azure HDInsight PowerShell](#hdinsight-cmdlets)
 - [Connect to your Windows Azure subscription](#connect)
 - [Select Azure subscription](#selectsubscription)
 - [Run PowerShell scripts](#runscripts)
+- [Debug PowerShell](#debug)
 - [Get help](#help)
 - [Additional resource](#resource)
 - [See also](#seealso)
@@ -28,7 +29,7 @@ Before you begin this article, you must have the following:
 
 **To install Windows Azure PowerShell**
 
-1. Open Internet Explorer, and browse to the [Windows Azure Downloads][powershell-download] page.
+1. Browse to the [Windows Azure Downloads][powershell-download] page.
 2. Click **Run** from the bottom of the page to run the installation package.
 
 	<div class="dev-callout"> 
@@ -52,17 +53,22 @@ Installing the module also installs a customized console for Windows Azure Power
 1. Click the **Start** menu. 
 2. Click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
 
-##<a id="hdinsight-cmdlets"></a>Install Windows Azure HDInsight PowerShell Tools
+##<a id="hdinsight-cmdlets"></a>Install Windows Azure HDInsight PowerShell
 
-*Windows Azure HDInsight PowerShell Tools* is a PowerShell module that provides additional cmdlets to manage HDInsight clusters. You can use HDInsight PowerShell cmdlets to provision clusters, manage clusters, and submit Hadoop jobs. 
+*Windows Azure HDInsight PowerShell* is a PowerShell module that provides additional cmdlets to manage HDInsight clusters. You can use HDInsight PowerShell cmdlets to provision clusters, manage clusters, and submit Hadoop jobs. 
 
 
-**To install Windows Azure HDInsight PowerShell Tools**
+**To install Windows Azure HDInsight PowerShell**
 
-1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
+1. Browse to the Windows Azure HDInsight PowerShell [download page][hdinsight-cmdlets-download].
 2. Click **Run** from the bottom of the page to run the installation package.
+3. Reboot the computer.
 
+To get a list of the HDInsight cmdlets, run the following command from the Windows Azure PowerShell console window:
 
+	get-help hdinsight
+
+For more information about the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 
 
@@ -140,7 +146,7 @@ The cmdlets require your Windows Azure subscription information so that it can b
 
 When managing your cluster and you have multiple subscriptions, it is advisable to select the default subscription.
 
-The following is a sample script for selectting Azure subscription:
+The following is a sample script for selecting Azure subscription:
 
 	$subscriptionName = "<SubscriptionName>"
 
@@ -152,11 +158,11 @@ The following is a sample script for selectting Azure subscription:
 
 
 
-##<a id="runscripts"></a> Run PowerShell scripts
+##<a id="runscripts"></a>Run PowerShell scripts
 
 There are two ways to run the PowerShell scripts.  
 
-- Copy and paste the modified script directly into the Windows Azure PowerShell console window. Each line of the script requires a carridge return to excute. You may need to press ENTER to execute the last line of the script.
+- Copy and paste the modified script directly into the Windows Azure PowerShell console window. Each line of the script requires a carriage return to execute. You may need to press ENTER to execute the last line of the script.
 - Save the modified script as a file with the .ps1 extension, and run the script file from the Windows Azure PowerShell windows. Before you can run a script, you must run the following command from an elevated command prompt to set the execution policy to *RemoteSigned*:
 
 		Set-ExecutionPolicy RemoteSigned
@@ -167,7 +173,8 @@ There are two ways to run the PowerShell scripts.
 	
 
 
-
+##<a id="debug"></a> Debug PowerShell
+PowerShell provides some *common parameters*. Some of them can be utilized for troubleshooting purpose, for example, -debug and -verbose. For more information about the common parameters, see [about_CommonParameters][powershell-common-parameters].
 
 
 ##<a id="help"></a>Get help
@@ -181,6 +188,7 @@ These resources provide help for specific cmdlets:
 	<tr><td>help</td><td>Describes how to use the Help system.<br/>
 	Note: The description includes some information about Help files that does not apply to the Windows Azure module. Specifically, Help files are installed when the module is installed. They are not available for download separately.</td></tr>
 	<tr><td>help azure</td><td>Lists all cmdlets in the Windows Azure PowerShell module.</td></tr>
+	<tr><td>help hdinsight</td><td>Lists all cmdlets in the Windows Azure HDInsight PowerShell module.</td></tr>
 	<tr><td>help &lt;language>-dev</td><td>	Lists cmdlets for developing and managing applications in a specific language. For example, help node-dev, help php-dev, or help python-dev.</td></tr>
 	<tr><td>help &lt;cmdlet></td><td>Displays help about a Windows PowerShell cmdlet.</td></tr>
 	<tr><td>help &lt;cmdlet> -parameter *</td><td>Displays parameter definitions for a cmdlet. <br/>For example, help get-azuresubscription -parameter *</td></tr>
@@ -209,6 +217,7 @@ These are some of the resources available that you can use to learn to use Windo
 
 ##<a id="seealso"></a>See also
 
+- [HDInsight cmdlet reference][hdinsight-powershell-reference]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Provision HDInsight clusters][hdinsight-provision]
 - [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
@@ -221,6 +230,7 @@ These are some of the resources available that you can use to learn to use Windo
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx 
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
@@ -238,3 +248,4 @@ These are some of the resources available that you can use to learn to use Windo
 [powershell-scripting]: http://go.microsoft.com/fwlink/p/?linkid=320210&clcid=0x409
 [powershell-running-scripts]: http://go.microsoft.com/fwlink/p/?linkid=320627&clcid=0x409
 [powershell-run-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-common-parameters]: http://technet.microsoft.com/en-us/library/hh847884.aspx

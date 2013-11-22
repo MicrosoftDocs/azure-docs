@@ -24,7 +24,7 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure HDInsight PowerShell](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 
 ##In this article
@@ -39,7 +39,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 **To run the MapReduce job**
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 3. Set the two variables in the following commands, and then run them:
 		
@@ -162,8 +162,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Sample: 10GB GraySort][10gb-graysort]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hadoop-streaming]: http://wiki.apache.org/hadoop/HadoopStreaming
 [streamreader]: http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx

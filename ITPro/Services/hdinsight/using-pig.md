@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-using-pig" urlDisplayName="Use Pig" pageTitle="Use Pig with HDInsight - Windows Azure tutorial" metaKeywords="using pig, pig hdinsight, pig azure, powershell" metaDescription="Learn how to use Pig as an alternative to Java to writing scripts to execute a MapReduce job on big data in HDInsight. " metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# Using Pig with HDInsight #
+# Use Pig with HDInsight #
 
 
 [Apache *Pig*][apachepig-home] provides a scripting language to execute *MapReduce* jobs as an alternative to writing Java code. In this tutorial, you will use PowerShell to run some Pig Latin statements to analyze an Apache log4j log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
@@ -18,7 +18,7 @@ For more information on Pig Latin, see [Pig Latin Reference Manual 1][piglatin-m
 Note the following requirements before you begin this article:
 
 * A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+* Install and configure HDInsight PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 
@@ -200,7 +200,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 
 **To run Pig Latin using PowerShell**
 
-1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 2. Set the variable in the following script, and run it:
 
 		# Provide the HDInsight cluster name
@@ -220,6 +220,8 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 		                "DUMP RESULT;" 
 		
 		$pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $QueryString 
+
+		You can also use the -File switch to specify a Pig script file on HDFS.
 
 4. Run the following script to submit the Pig job:
 		
@@ -266,7 +268,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 While Pig allows you to perform data analysis, other languages included with HDInsight may be of interest to you also. Hive provides a SQL-like query language that allows you to easily query against data stored in HDInsight, while MapReduce jobs written in Java allow you to perform complex data analysis. For more information, see the following:
 
 
-* [Get started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-using-hive]
 

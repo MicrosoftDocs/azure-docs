@@ -4,7 +4,7 @@
 # Get started with push notifications in Mobile Services using Visual Studio 2012
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
 </div>	
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
@@ -39,23 +39,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 ## <a name="create-table"></a>Create a new table
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
-
-   ![][0]
-
-2. Click the **Data** tab, and then click **Create**.
-
-   ![][1]
-
-   This displays the **Create new table** dialog.
-
-3. Keeping the default **Anybody with the application key** setting for all permissions, type _Registrations_ in **Table name**, and then click the check button.
-
-   ![][2]
-
-  This creates the **Registrations** table, which stores the channel URIs used to send push notifications.
-
-Next, you will modify the your app to enable push notifications.
+<div chunk="../chunks/mobile-services-create-new-push-table.md" />
 
 <h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
@@ -88,33 +72,7 @@ Next, you will modify the your app to enable push notifications.
 
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
-1. In the Management Portal, click the **Data** tab and then click the **Registrations** table. 
-
-   ![][3]
-
-2. In **Registrations**, click the **Script** tab and select **Insert**.
-   
-   ![][4]
-
-   This displays the function that is invoked when an insert occurs in the **Registrations** table.
-
-3. Replace the insert function with the following code, and then click **Save**:
-
-		function insert(item, user, request) {
-			var registrationTable = tables.getTable('Registrations');
-			registrationTable
-				.where({ handle: item.handle })
-				.read({ success: insertChannelIfNotFound });
-	        function insertChannelIfNotFound(existingRegistrations) {
-        	    if (existingRegistrations.length > 0) {
-            	    request.respond(200, existingRegistrations[0]);
-        	    } else {
-            	    request.execute();
-        	    }
-    	    }
-	    }
-
-   This registers a new insert script, which uses the [wns object] to send a push notification (the inserted text) to the channel provided in the insert request.
+<div chunk="../chunks/mobile-services-update-registrations-script.md" />
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
