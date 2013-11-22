@@ -46,20 +46,21 @@ Hadoop MapReduce is a software framework for writing applications which process 
 6. Run the following command to run the MapReduce job:
 
 		# Submit the MapReduce job
-		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition 
+		Select-AzureSubscription $subscriptionName
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
 
 	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job. 
 
 7. Run the following command to check the completion of the MapReduce job:
 
 		# Wait for the job to complete
-		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $wordCountJob -WaitTimeoutInSeconds 3600 
+		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600 
 		
 
 8. Run the following command to check any errors with running the MapReduce job:	
 
 		# Get the job standard error output
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError 
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError 
 					
 	The following screenshot shows the output of a successful run. Otherwise, you will see some error messages.
 
@@ -266,7 +267,7 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 4. Submit the hive job:
 
-		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+		Use-AzureHDInsightCluster $clusterName
 		Invoke-Hive -Query "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
 	You can use the -File switch to specify a HiveQL script file on HDFS.

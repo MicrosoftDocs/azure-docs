@@ -94,7 +94,7 @@ Once you have the storage account and the blob container prepared, you are ready
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
 	# Create a new HDInsight cluster
-	New-AzureHDInsightCluster -Subscription $subscriptionName -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+	New-AzureHDInsightCluster -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
 
 The following screenshot shows the script execution:
@@ -109,16 +109,16 @@ Use the following commands to list and show cluster details:
 
 **To list all clusters in the current subscription**
 
-	Get-AzureHDInsightCluster -Subscription $subscriptionName
+	Get-AzureHDInsightCluster 
 
 **To show details of the specific cluster in the current subscription**
 
-	Get-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName
+	Get-AzureHDInsightCluster -Name $clusterName 
 
 ##<a id="delete"></a> Delete a cluster
 Use the following command to delete a cluster:
 
-	Remove-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName
+	Remove-AzureHDInsightCluster -Name $clusterName 
 
 
 ##<a id="mapreduce"></a> Submit MapReduce jobs
@@ -135,7 +135,7 @@ The following PowerShell script submits the word count sample job:
 	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $_.JobId -StandardError}
+	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
 For information about the WASB prefix, see [Use Windows Azure Blob storage for HDInsight][hdinsight-storage].
 
@@ -211,7 +211,7 @@ The following script submit a hive job to list the Hive tables:
 	$querystring = "show tables;SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
 	Select-AzureSubscription -SubscriptionName $subscriptionName
-	Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+	Use-AzureHDInsightCluster -Name $clusterName
 	
 	Invoke-Hive $querystring
 

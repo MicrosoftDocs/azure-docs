@@ -155,16 +155,17 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 5. Run the following script to submit the Hive job:
 
 		# Submit the job to the cluster 
-		$hiveJob = Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName -JobDefinition $hiveJobDefinition
+		Select-AzureSubscription $subscriptionName
+		$hiveJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $hiveJobDefinition
 		
 6. Run the following script to wait for the Hive job to complete:
 
 		# Wait for the Hive job to complete
-		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $hiveJob -WaitTimeoutInSeconds 3600
+		Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
 		
 7. Run the following script to print the standard output:
 		# Print the standard error and the standard output of the Hive job.
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $hiveJob.JobId -StandardOutput
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
 
 
  	![HDI.HIVE.PowerShell][image-hdi-hive-powershell]
@@ -185,7 +186,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 3. Run the following script to invoke HiveQL queries:
 
 		Select-AzureSubscription -SubscriptionName $subscriptionName
-		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+		Use-AzureHDInsightCluster $clusterName 
 		
 		Invoke-Hive -Query $queryString
 
