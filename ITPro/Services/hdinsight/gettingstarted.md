@@ -38,7 +38,7 @@ In this tutorial, you will use *PowerShell Tools for Windows Azure HDInsight* to
 * Install PowerShell Tools for Windows Azure HDInsight.
 * Configure connectivity to your Windows Azure account.
 
-For more information, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
+For more information, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 **To install Windows Azure PowerShell**
 
@@ -51,7 +51,7 @@ For more information, see [Install and Configure HDInsight PowerShell][hdinsight
 
 1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
 2. Click **Run** from the bottom of the page to run the installation package.
-3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
+3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
 
@@ -64,7 +64,7 @@ Your Windows Azure subscription information is used by the cmdlets to connect to
 
 1. Sign in to the [Windows Azure Management Portal][azure-management-portal] using the credentials for your Windows Azure account.
 
-2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
+2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 3.	Run the following command to download the publishsettings file.
 
 		Get-AzurePublishSettingsFile
@@ -244,7 +244,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 
 **To run the WordCount sample**
 
-1. Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
+1. Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 3. Run the following commands to set the variables.  
 		
@@ -420,7 +420,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 
 [powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-
+[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
 [image-hdi-storageaccount-quickcreate]: ../media/HDI.StorageAccount.QuickCreate.png
 [image-hdi-clusterstatus]: ../media/HDI.ClusterStatus.png
 [image-hdi-quickcreatecluster]: ../media/HDI.QuickCreateCluster.png

@@ -1,137 +1,701 @@
+administer-hdinsight-using-command-line.md:<properties linkid="manage-services-hdinsight-administer-hdinsight-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using using the Cross-Platform Command-Line Interface | Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to use the Cross-Platform Command-Line Interface to manage HDInsight clusters on any platform that supports Node.js, including Windows, Mac, and Linux." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+administer-hdinsight-using-command-line.md:In this article, you learn how to use the Cross-Platform Command-Line Interface to manage HDInsight clusters. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
+administer-hdinsight-using-command-line.md:The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
+administer-hdinsight-using-command-line.md:This article only covers using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool].
 administer-hdinsight-using-command-line.md:- **Windows Azure subscription**. Windows Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+administer-hdinsight-using-command-line.md:* [Download and import Windows Azure account publishsettings](#importsettings)
+administer-hdinsight-using-command-line.md:The command-line interface can be installed using *Node.js Package Manager (NPM)* or Windows Installer.
+administer-hdinsight-using-command-line.md:3.	Open **Command Prompt** (or *Windows Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
+administer-hdinsight-using-command-line.md:		npm install –g azure-cli
+administer-hdinsight-using-command-line.md:		azure hdinsight –h
+administer-hdinsight-using-command-line.md:		azure -h
+administer-hdinsight-using-command-line.md:		azure hdinsight -h
+administer-hdinsight-using-command-line.md:		azure hdinsight cluster -h
+administer-hdinsight-using-command-line.md:		azure hdinsight cluster create -h
+administer-hdinsight-using-command-line.md:1.	Browse to **http://www.windowsazure.com/en-us/downloads/**.
+administer-hdinsight-using-command-line.md:##<a id="importsettings"></a> Download and import Windows Azure account publishsettings
 administer-hdinsight-using-command-line.md:Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publishsettings once.
+administer-hdinsight-using-command-line.md:<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p> 
+administer-hdinsight-using-command-line.md:		azure account download
+administer-hdinsight-using-command-line.md:		azure account import <file>
+administer-hdinsight-using-command-line.md:HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account is required before you can create an HDInsight cluster. 
+administer-hdinsight-using-command-line.md:	azure account storage create [options] <StorageAccountName>
+administer-hdinsight-using-command-line.md:For information on creating a Windows Azure storage account using Windows Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
+administer-hdinsight-using-command-line.md:	azure account storage list
+administer-hdinsight-using-command-line.md:	azure account storage show <StorageAccountName>
+administer-hdinsight-using-command-line.md:	azure account storage keys list <StorageAccountName>
+administer-hdinsight-using-command-line.md:For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
+administer-hdinsight-using-command-line.md:The *azure hdinsight cluster create* command creates the container if it doesn’t exist. If you choose to create the container beforehand, you can use the following command:
+administer-hdinsight-using-command-line.md:	azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster create –-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster config create <file>
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster create --config <file>
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster list
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster show <ClusterName>
+administer-hdinsight-using-command-line.md:	azure hdinsight cluster delete <ClusterName>
+administer-hdinsight-using-command-line.md:* [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+administer-hdinsight-using-command-line.md:* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+administer-hdinsight-using-command-line.md:* [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]
+administer-hdinsight-using-command-line.md:* [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]
+administer-hdinsight-using-command-line.md:[azure-command-line-tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+administer-hdinsight-using-command-line.md:[azure-command-line-tool]: /en-us/manage/linux/other-resources/command-line-tools/
+administer-hdinsight-using-command-line.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+administer-hdinsight-using-command-line.md:[azure-manage-storageaccount]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+administer-hdinsight-using-command-line.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+administer-hdinsight-using-command-line.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+administer-hdinsight-using-command-line.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+administer-hdinsight-using-command-line.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+administer-hdinsight-using-powershell.md:<properties linkid="manage-services-hdinsight-administer-hdinsight-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using PowerShell - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight clusters using PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+administer-hdinsight-using-powershell.md:Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. In this article, you will learn how to manage HDInsight clusters using a local Windows Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 administer-hdinsight-using-powershell.md:- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-administer-hdinsight-using-powershell.md:	# List storage accounts for the current subscription
-administer-hdinsight-using-powershell.md:Once you have the storage account and the blob container prepared, you are ready to create a cluster. In this version you need to explicitly specify subscription information and certificate for cmdlets.   
-administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"
-administer-hdinsight-using-powershell.md:	Select-AzureSubscription $subscriptionName
-administer-hdinsight-using-powershell.md:**To list all clusters in the current subscription**
-administer-hdinsight-using-powershell.md:**To show details of the specific cluster in the current subscription**
-administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"   
-administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"       
-administer-hdinsight-using-powershell.md:	Select-AzureSubscription $subscriptionName
-administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"     
-administer-hdinsight-using-powershell.md:	Select-AzureSubscription -SubscriptionName $subscriptionName
+administer-hdinsight-using-powershell.md:- Install and configure PowerShell for HDInsight. For the detailed instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+administer-hdinsight-using-powershell.md:HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account and storage container are required before you can create an HDInsight cluster. 
+administer-hdinsight-using-powershell.md:**To create a Windows Azure storage account**
+administer-hdinsight-using-powershell.md:For information on creating a Windows Azure storage account using the management portal, see [How to Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+administer-hdinsight-using-powershell.md:**To create Windows Azure storage container**
+administer-hdinsight-using-powershell.md:For information about the WASB prefix, see [Use Windows Azure Blob storage for HDInsight][hdinsight-storage].
+administer-hdinsight-using-powershell.md:* [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
+administer-hdinsight-using-powershell.md:* [Get started with Windows Azure HDInsight][hdinsight-get-started]
+administer-hdinsight-using-powershell.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+administer-hdinsight-using-powershell.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+administer-hdinsight-using-powershell.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+administer-hdinsight-using-powershell.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+administer-hdinsight-using-powershell.md:[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+administer-hdinsight.md:<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using Management Portal - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to use Windows Azure Management Portal to create an HDInsight cluster, and how to access the Hadoop command console on the cluster." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+administer-hdinsight.md:In this topic, you will learn how to use Windows Azure Management Portal to create an HDInsight cluster, and how to access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the portal. 
+administer-hdinsight.md:- For more information on administering HDInsight using Windows Azure PowerShell, see [Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
 administer-hdinsight.md:- **Windows Azure subscription**. Windows Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-configure-powershell-for-hdinsight.md:- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-configure-powershell-for-hdinsight.md:- [Connect to your Windows Azure subscription](#connect)
-configure-powershell-for-hdinsight.md:- [Select Azure subscription](#selectsubscription)
-configure-powershell-for-hdinsight.md:##<a id="connect"></a>Connect to your subscription
-configure-powershell-for-hdinsight.md:The cmdlets require your Windows Azure subscription information so that it can be used to manage your services. This information is provided by downloading and then importing it for use by the cmdlets:
-configure-powershell-for-hdinsight.md:- The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the [Windows Azure Management Portal][azure-management-portal] from which you can download the subscription information. The information is contained in a .publishsettings file.
-configure-powershell-for-hdinsight.md:6. To view the subscription information, type:
-configure-powershell-for-hdinsight.md:<p>If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this process to download a new .publishsettings file, and then import those settings. For information about adding co-administrators to help manage services for a subscription, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx">Add and Remove Co-Administrators for Your Windows Azure Subscriptions</a>.</p> 
-configure-powershell-for-hdinsight.md:##<a id="selectsubscription"></a> Select Azure subscription
-configure-powershell-for-hdinsight.md:When managing your cluster and you have multiple subscriptions, it is advisable to select the default subscription.
-configure-powershell-for-hdinsight.md:The following is a sample script for selecting Azure subscription:
-configure-powershell-for-hdinsight.md:	$subscriptionName = "<SubscriptionName>"
-configure-powershell-for-hdinsight.md:	# Select Azure subscription
-configure-powershell-for-hdinsight.md:	Select-AzureSubscription $subscriptionName
-configure-powershell-for-hdinsight.md:	# Show the current subscription name
-configure-powershell-for-hdinsight.md:	<tr><td>help &lt;cmdlet> -parameter *</td><td>Displays parameter definitions for a cmdlet. <br/>For example, help get-azuresubscription -parameter *</td></tr>
+administer-hdinsight.md:- **Windows Azure storage account**. This storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can only be provisioned in three data centers: US East, US West, and Europe North. So your Windows Azure storage account needs to be created in one of these data centers. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+administer-hdinsight.md:An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+administer-hdinsight.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+administer-hdinsight.md:3. Provide **Cluster Name**, **Cluster Size**, **Cluster Admin Password**, and a Windows Azure **Storage Account**, and then click **Create HDInsight Cluster**. Once the cluster is created and running, the status shows *Running*.
+administer-hdinsight.md:	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.</p> 
+administer-hdinsight.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+administer-hdinsight.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+administer-hdinsight.md:In this article, you have learned how to create an HDInsight cluster using the Windows Azure Management Portal, and how to open the Hadoop command line tool. To learn more, see the following articles:
+administer-hdinsight.md:* [Administer HDInsight Using PowerShell][hdinsight-admin-powershell]
+administer-hdinsight.md:* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
+administer-hdinsight.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+administer-hdinsight.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+administer-hdinsight.md:[azure-management-portal]: https://manage.windowsazure.com/
+administer-hdinsight.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+administer-hdinsight.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+administer-hdinsight.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+avoid-WASB-throttling.md:<properties linkid="manage-services-hdinsight-avoid-WASB-throttling" urlDisplayName="HDInsight Administration" pageTitle="Avoid WASB throttling - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to avoid throttling with the Windows Azure Storage - Blob service." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+avoid-WASB-throttling.md:TODO: Considering this may be the first time the customer encounters information about a feature, the guide should provide a brief description of what the feature/service area is.  For third-party services, this is a good place to mention any special offers for Windows Azure customers.
+blob-hive-sql.md:<properties linkid="manage-services-hdinsight-process-blob-data-and-write-to-sql" urlDisplayName="Hadoop with SQL Database" pageTitle="Using HDInsight to process data and store to SQL Database - Windows Azure" metaKeywords="Azure blob hdinsight, hdinsight blob, hdinsight sql database" metaDescription="How to use HDInsight to retrieve data from Windows Azure Blob Storage, process it, and store the results into a SQL Database." disqusComments="1" umbracoNaviHide="1" writer="bswan"/>
+blob-hive-sql.md:Hive provides a means of running MapReduce job through an SQL-like scripting language, called HiveQL, which can be applied towards summarization, querying, and analysis of large volumes of data. This tutorial will show you how to use HiveQL to process data stored in Windows Azure Blob Storage and move the results to a Windows Azure SQL Database. 
+blob-hive-sql.md:* [Upload data to Windows Azure Blob Storage](#uploaddata)
+blob-hive-sql.md:* [Export data from HDFS to Windows Azure SQL Database](#exportdata)
+blob-hive-sql.md:##<a id="uploaddata"></a>Upload Data to Windows Azure Blob Storage
+blob-hive-sql.md:HDInsight provides two options for storing data, Windows Azure Blob Storage and Hadoop Distributed File system (HDFS). For more information on choosing file storage, see [Use Windows Azure Blob Storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store). When you provision an HDInsight cluster, the provision process creates a Windows Azure Blob storage container as the default HDInsight file system. To simplify the tutorial procedures, you will use this container for storing the log4j file.
+blob-hive-sql.md:*Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+blob-hive-sql.md:Before using the tool, you must know your Windows Azure storage account name and account key. For the instructions on creating a Windows Azure Storage account, see [How To Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/). For the instructions for get the information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+blob-hive-sql.md:2. Click **Add Account** if the Windows Azure storage account has not been added to the tool. 
+blob-hive-sql.md:4. From **Storage Type**, click **Blobs** to display the Windows Azure Blob storage of the account.
+blob-hive-sql.md:You must have an HDInsight cluster previsioned before you can work on this tutorial. To enable the Windows Azure HDInsight Service preview, click [here](https://account.windowsazure.com/PreviewFeatures). For information on prevision an HDInsight cluster see [Administer HDInsight clusters using management portal](/en-us/manage/services/hdinsight/howto-administer-hdinsight/) or [Get Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/).
+blob-hive-sql.md:1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+blob-hive-sql.md:2. Replace **storageaccountname** in the following query with your Windows Azure Storage account name, and then copy and paste the following code to the query pane:
+blob-hive-sql.md:##<a id="exportdata"></a>Export Data from HDFS to Windows Azure SQL Database
+blob-hive-sql.md:Before copying data from HDFS to a Windows Azure SQL Database, the SQL Database must exist. To create a database, follow the instructions here: [Get started with Windows Azure SQL Database](http://www.windowsazure.com/en-us/manage/services/sql-databases/getting-started-w-sql-databases/). Note that your table schema must match that of the data in HDFS and it must have a clustered index. To use the command below, create a database called **MyDatabase** and a table called **AvgDelays** with the following schema:
+blob-hive-sql.md:1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+blob-hive-sql.md:Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Windows Azure SQL Database. To learn more, see the following articles:
+blob-hive-sql.md:* [Get Started with Windows Azure HDInsight Service](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+blob-hive-sql.md:[free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
+blob-hive-sql.md:[create-storage-account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
+configure-powershell-for-hdinsight.md:<properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure HDInsight PowerShell - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure HDInsight PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+configure-powershell-for-hdinsight.md:HDInsight PowerShell is integrated with Windows Azure PowerShell version 0.7.2. Although the updates are optional, they provides streamlined experience with using Windows Azure PowerShell. For example, the *Subscription* parameter is no longer needed.
+configure-powershell-for-hdinsight.md:Before installing Windows Azure PowerShell version 0.7.2 or higher, you must uninstall Windows Azure HDInsight PowerShell first. 
+configure-powershell-for-hdinsight.md:For information on installing and configuring Windows Azure PowerShell, see [How to install and configure Windows Azure PowerShell][powershell-how-to-install].
+configure-powershell-for-hdinsight.md:- [HDInsight cmdlet reference][hdinsight-powershell-reference]
+configure-powershell-for-hdinsight.md:- [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+configure-powershell-for-hdinsight.md:- [Install and configure Windows Azure PowerShell][powershell-how-to-install]
+configure-powershell-for-hdinsight.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+configure-powershell-for-hdinsight.md:[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx 
+configure-powershell-for-hdinsight.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+configure-powershell-for-hdinsight.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+configure-powershell-for-hdinsight.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+configure-powershell-for-hdinsight.md:[azure-management-portal]: https://manage.windowsazure.com/
+configure-powershell-for-hdinsight.md:[azure-cmdlet-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
+configure-powershell-for-hdinsight.md:[azure-msdn-forum]: http://go.microsoft.com/fwlink/p/?linkid=320212&clcid=0x409
+configure-powershell-for-hdinsight.md:[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376 
+configure-powershell-for-hdinsight.md:[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+configure-powershell-for-hdinsight.md:[powershell-how-to-install]: /en-us/manage/install-and-configure-windows-powershell/
+configure-powershell-for-hdinsight.md:[powershell-repository]: https://github.com/WindowsAzure/azure-sdk-tools
+configure-powershell-for-hdinsight.md:[powershell-technet-script-center]: http://go.microsoft.com/fwlink/p/?linkid=320211&clcid=0x409
+configure-powershell-for-hdinsight.md:[powershell-scripting]: http://go.microsoft.com/fwlink/p/?linkid=320210&clcid=0x409
+configure-powershell-for-hdinsight.md:[powershell-running-scripts]: http://go.microsoft.com/fwlink/p/?linkid=320627&clcid=0x409
+configure-powershell-for-hdinsight.md:[powershell-run-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+configure-powershell-for-hdinsight.md:[powershell-common-parameters]: http://technet.microsoft.com/en-us/library/hh847884.aspxconnect-excel-with-hive-ODBC.md:<properties linkid="manage-services-hdinsight-excel-hiveodbc" urlDisplayName="HDInsight and Excel" pageTitle="Connect Excel to HDInsight with the Microsoft Hive ODBC Driver for HDinsight" metaKeywords="hdinsight, excel, hiveodbc, hive excel, hdinsight excel" metaDescription="How to use Excel to access data stored in Windows Azure HDInsight using HiveODBC" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+connect-excel-with-hive-ODBC.md:One key feature of Microsoft’s Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight Service. An example of this integration is the ability to connect Excel to the Hive data warehouse of an HDInsight Hadoop cluster using the Microsoft Hive Open Database Connectivity (ODBC) Driver. 
+connect-excel-with-hive-ODBC.md:It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to Windows Azure HDInsight with Power Query][connect-excel-power-query].
 connect-excel-with-hive-ODBC.md:* You have established a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have created an HDInsight cluster using the HDInsight Service. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service][getting-started] 
+connect-excel-with-hive-ODBC.md:1. Click **Start** -> **Control Panel** to launch the **Control Panel** for Microsoft Windows. 
+connect-excel-with-hive-ODBC.md:2. In the Control Panel, click **System and Security**->**Administrative Tools**. Then click **Data Sources (ODBC)** if you are using Windows 7 or **ODBC Data Sources (32 bit)** or **ODBC Data Sources (64 bit)**, as appropriate, if you are using Windows 8. This will launch the **ODBC Data Source Administrator** dialog. 
+connect-excel-with-hive-ODBC.md:7. Enter a data source a name in the **Data Source** box. In this example, *tutorial-cluster-21*. Select **Hive Server 2** from the **Hive Server Type** dropdown menu and **Windows Azure HDInsight Service** from the **Mechanism** dropdown menu in the **Authentication** box. The port should set to *443* and this value should not be changed.
+connect-excel-with-hive-ODBC.md:8. In the **Host** box, enter the  name of your cluster followed by *.azurehdinsight.net*. For example, if your cluster name is "tutorialcluster" as in the example shown, then the final value for host should be *tutorialcluster.azurehdinsight.net*.
+connect-excel-with-hive-ODBC.md:* For information on using Sqoop or Windows Azure Blob Storage to load data into an HDInsight Service, see [Upload Data to the HDInsight][upload-data].
+connect-excel-with-power-query.md:<properties linkid="manage-services-hdinsight-excel-dataexplorer" urlDisplayName="HDInsight and Excel" pageTitle="Connect Excel to Windows Azure HDInsight with Power Query" metaKeywords="hdinsight, excel, power query, hive excel, hdinsight excel" metaDescription="Learn how to query data in HDInsight, the Windows Azure big data solution, with Microsoft Power Query for Excel." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+connect-excel-with-power-query.md:#Connect Excel to Windows Azure HDInsight with Power Query
+connect-excel-with-power-query.md:One key feature of Microsoft’s big data solution is the integration of  Microsoft Business Intelligence (BI) components with HDInsight Hadoop clusters. A primary example of this integration is the ability to connect Excel to the Windows Azure storage account containing the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. This article walks you through how to set up and use Power Query from Excel to query data associated with an HDInsight cluster. 
 connect-excel-with-power-query.md:- A Windows Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+connect-excel-with-power-query.md:- A HDInsight cluster. To configure one, see [Get started with Windows Azure HDInsight][hdinsight-getting-started].
+connect-excel-with-power-query.md:- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
+connect-excel-with-power-query.md:3. Click the **Power Query** menu, click **From Other Sources**, and then click **From Windows Azure HDInsight**. 
+connect-excel-with-power-query.md:3. Enter the **Account Name** of the Windows Azure Blob storage account associated with your cluster, and then click **OK**. 
+connect-excel-with-power-query.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+connect-excel-with-power-query.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+connect-excel-with-power-query.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+connect-excel-with-power-query.md:[azure-management-portal]: https://manage.windowsazure.com/
+debug-hdinsight.md:<properties linkid="manage-services-hdinsight-debug-jobs" urlDisplayName="HDInsight Administration" pageTitle="Debug HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to debug the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+debug-hdinsight.md:The error messages itemized in this topic are provided to help the users of Windows Azure HDInsight understand possible error conditions that they can encounter when administering the service using Windows Azure PowerShell and to advise them on the steps which can be taken to recover from the error.
+debug-hdinsight.md:Some of these error mssages could also be seen in the Windows Azure portal when used manage HDinsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on paramters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
+debug-hdinsight.md:The errors a user can encounter in Windows Azure PowerShell or in the Windows Azure Portal are listed alphabetically by name. The discription and mitigation of Errors are also provided.
+debug-hdinsight.md:	**Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with http:// and ending in .com. The fully qualified URL can usually be found in the storage tab of the manage.windowsazure.com portal.
+debug-hdinsight.md:	**Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with http:// and ending in .com. The fully qualified URL can usually be found in the storage tab of the manage.windowsazure.com portal.
+debug-hdinsight.md:- [Windows Azure HDInsight SDK documentation](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+DeployClusterProgrammatically.md:<properties linkid="manage-services-hdinsight-programmatic-deploy" urlDisplayName="Deploying HDInsight Programmatically" pageTitle="Deploying an HDInsight Cluster Programmatically - Windows Azure Services" metaKeywords="hdinsight deploy, hdinsight deployment, programmatic deployment, hdinsight azure" metaDescription="Deploying an HDInsight Cluster Programmatically" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+DeployClusterProgrammatically.md:HDInsight Service clusters can be created programmatically by issuing an authenticated call to the [Service Management REST API](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx).  As the HDInsight Service moves through preview toward general availability, better support and documentation will be provided as this feature matures.  
+DeployClusterProgrammatically.md:The Windows Azure Service Management API uses mutual authentication of management certificates over SSL to ensure that a request made to the service is secure. No anonymous requests are allowed. For details and guidance, see [Authenticating Service Management Requests](http://msdn.microsoft.com/en-us/library/windowsazure/ee460782.aspx).
+DeployClusterProgrammatically.md:The following URI path forms the base for operations on the Windows Azure HDInsight Service:
 DeployClusterProgrammatically.md:	https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
-DeployClusterProgrammatically.md:      <Description>HdInsight clusters for subscription ... </Description>
+DeployClusterProgrammatically.md:It is important to note that at this time, one must create a cluster via the Windows Azure management portal at least once prior to using the programmatic endpoints. For links to information on using the portal, see the [Next Steps](#next) below.
+DeployClusterProgrammatically.md:    <CloudService xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+DeployClusterProgrammatically.md:      <Name>azurehdinsight</Name>
+DeployClusterProgrammatically.md:          <ResourceProviderNamespace>azurehdinsight</ResourceProviderNamespace>
+DeployClusterProgrammatically.md:              <Value>https://clustername.azurehdinsight.net</Value>
 DeployClusterProgrammatically.md:     https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
-DeployClusterProgrammatically.md:          <SubscriptionId>##subscription##</SubscriptionId>
+DeployClusterProgrammatically.md:    <Resource xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+DeployClusterProgrammatically.md:                <AccountName>##azurestorageaccount##</AccountName>
+DeployClusterProgrammatically.md:Optionally, following node size, you can specify a SQL Database to be the persistent metadata store for Hive and Oozie.  Please co-locate this database with the Windows Azure HDInsight Service Cluster.  **It is important to note that both of these must be provided (an error will result if only one value is provided).**
 DeployClusterProgrammatically.md:    https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
-develop-deploy-hadoop-streaming.md:- Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-develop-deploy-hadoop-streaming.md:		$subscriptionName = "<AzureSubscriptionName>"
-develop-deploy-hadoop-streaming.md:		# Select Azure subscription
-develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
-develop-deploy-hadoop-streaming.md:		$subscriptionName = "<AzureSubscriptionName>"
-develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
-develop-deploy-hadoop-streaming.md:		$subscriptionName = "<AzureSubscriptionName>"
-develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
-develop-deploy-hadoop-streaming.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
-develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
-develop-deploy-hadoop-streaming.md:		New-AzureHDInsightCluster -Subscription $subscriptionName  -Name $clusterName -Location $location -Config $config
-develop-deploy-hadoop-streaming.md:		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName -JobDefinition $mrJobDef 
-develop-deploy-hadoop-streaming.md:		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $mrJob -WaitTimeoutInSeconds 3600 
-develop-deploy-hadoop-streaming.md:		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardError 
-develop-deploy-hadoop-streaming.md:		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardOutput
-develop-deploy-hadoop-streaming.md:		Remove-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName 
-develop-deploy-hadoop-streaming.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
-develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
-get-started-hdinsight-emulator.md:2. Click **STORAGE** on the left. You shall see a list of storage accounts under your subscription.
+DeployClusterProgrammatically.md:This topic shows how to perform basic management tasks for the Windows Azure HDInsight Service by using operations in the REST API. You have learned how to programmatically list, create, and delete an HDInsight Service cluster.
+DeployClusterProgrammatically.md: For information on how to use the Windows Azure Management Portal to perform these actions, instead of doing them programatically as shown here, see [How To: Administer HDInsight][hdinsight-admin].
+develop-deploy-hadoop-streaming-jobs.md:<properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy a Hadoop streaming program - Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, hadoop streaming, streaming" metaDescription="Learn how to develop and deploy a C# Hadoop streaming program." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+develop-deploy-hadoop-streaming-jobs.md:Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Windows Azure HDInsight, and to displaying the result on Excel.
+develop-deploy-hadoop-streaming-jobs.md:- Install Windows Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
+develop-deploy-hadoop-streaming-jobs.md:- Install Windows Azure HDInsight PowerShell on the emulator computer. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]
+develop-deploy-hadoop-streaming-jobs.md:- Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+develop-deploy-hadoop-streaming-jobs.md:- [Upload data and the applications to Windows Azure Blob storage](#upload)
+develop-deploy-hadoop-streaming-jobs.md:- [Run the MapReduce program on Windows Azure HDInsight](#run)
+develop-deploy-hadoop-streaming-jobs.md:	<tr><td>Template</td><td>Visual C#/Windows/Console Application</td></tr>
+develop-deploy-hadoop-streaming-jobs.md:	<tr><td>Template</td><td>Visual C#/Windows/Console Application</td></tr>
+develop-deploy-hadoop-streaming-jobs.md:By default, HDInsight emulator uses HDFS as the default file system.  Optionally, you can configure the HDInsight emulator to use Windows Azure Blob storage. For details, see [Get started with HDInsight Emulator][hdinsight-emulator-wasb]. In this section, you will use the HDFS copyFromLocal command to upload the files. The next section shows you how to upload files using Windows Azure PowerShell. For other methods, see [Upload data to HDInsight][hdinsight-upload-data].
+develop-deploy-hadoop-streaming-jobs.md:1. Open Windows Azure PowerShell. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]. 
+develop-deploy-hadoop-streaming-jobs.md:##<a id="upload"></a>Upload data to Windows Azure Blob storage
+develop-deploy-hadoop-streaming-jobs.md:Windows Azure HDInsight uses Windows Azure Blob storage as the default file system. You can configure an HDInsight cluster to use additional Blob storage for the data files. In this section, you will create a storage account and upload the data files to the Blob storage.  The data files are the txt files in the %hadoop_home% directory.
+develop-deploy-hadoop-streaming-jobs.md:1. Open Windows Azure PowerShell.
+develop-deploy-hadoop-streaming-jobs.md:1. Open Windows Azure PowerShell.
+develop-deploy-hadoop-streaming-jobs.md:		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+develop-deploy-hadoop-streaming-jobs.md:1. Open Windows Azure PowerShell.
+develop-deploy-hadoop-streaming-jobs.md:		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+develop-deploy-hadoop-streaming-jobs.md:##<a name="run"></a>Run the MapReduce job on Windows Azure HDInsight
+develop-deploy-hadoop-streaming-jobs.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
+develop-deploy-hadoop-streaming-jobs.md:6. Open Windows Azure PowerShell.
+develop-deploy-hadoop-streaming-jobs.md:8. When prompted, enter username and password for the HDInsight cluster. Because you will delete the cluster at the end of the script and you will not need the username and password anymore, the username and password can be any strings. If you don't want to get prompted for the credentials, see [Working with Passwords, Secure Strings and Credentials in Windows PowerShell][powershell-PSCredential]
+develop-deploy-hadoop-streaming-jobs.md:This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to Windows Azure HDInsight with Power Query][hdinsight-powerquery].
+develop-deploy-hadoop-streaming-jobs.md:1. Open Windows Azure PowerShell window.
+develop-deploy-hadoop-streaming-jobs.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
+develop-deploy-hadoop-streaming-jobs.md:- [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+develop-deploy-hadoop-streaming-jobs.md:- [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
+develop-deploy-hadoop-streaming-jobs.md:- [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+develop-deploy-hadoop-streaming-jobs.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+develop-deploy-hadoop-streaming-jobs.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+develop-deploy-hadoop-streaming-jobs.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+develop-deploy-hadoop-streaming-jobs.md:[hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
+develop-deploy-hadoop-streaming-jobs.md:[hdinsight-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+develop-deploy-hadoop-streaming-jobs.md:[hdinsight-emulator-wasb]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/#blobstorage
+develop-deploy-hadoop-streaming-jobs.md:[hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
+develop-deploy-hadoop-streaming-jobs.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+develop-deploy-hadoop-streaming-jobs.md:[powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+get-started-hdinsight-emulator.md:<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get Started with HDInsight Emulator for Windows Azure" metaKeywords="hdinsight, Windows Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" metaDescription="Learn how to use HDInsight Emulator for Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+get-started-hdinsight-emulator.md:This tutorial gets you started using the Microsoft HDInsight Emulator for Windows Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Windows Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions"). 
+get-started-hdinsight-emulator.md:HDInsight Emulator provides a local development environment for the Windows Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. But, in HDInsight, the default file system is Windows Azure Blob storage (WASB, aka Windows Azure Storage - Blobs), so eventually, you will want to develop your jobs using WASB. You can get started developing against WASB by using the Windows Azure Storage Emulator – probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storage – again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data.
+get-started-hdinsight-emulator.md:- The HDInsight Emulator requires a 64-bit version of Windows. One of the following requirements must be satisfied:
+get-started-hdinsight-emulator.md:	- Windows 7 Service Pack 1
+get-started-hdinsight-emulator.md:	- Windows Server 2008 R2 Service Pack1
+get-started-hdinsight-emulator.md:	- Windows 8 
+get-started-hdinsight-emulator.md:	- Windows Server 2012.
+get-started-hdinsight-emulator.md:- Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. You only need to follow the first two sections of the article to install Windows Azure PowerShell and HDInsight PowerShell.
+get-started-hdinsight-emulator.md:* [Connect to Windows Azure Blob storage](#blobstorage)
+get-started-hdinsight-emulator.md:* [Run HDInsight PowerShell](#powershell)
+get-started-hdinsight-emulator.md:1. Open Internet Explorer, and then browse to the [Microsoft HDInsight Emulator for Windows Azure installation page][hdinsight-emulator-install].
+get-started-hdinsight-emulator.md:The HDInsight Emulator installation provides some samples to get new users started learning Apache Hadoop-based Services on Windows quickly. These samples covers some tasks that are typically needed when processing a big data set. Going through the samples can familiarize yourself with concepts associated with the MapReduce programming model and its ecosystem.
+get-started-hdinsight-emulator.md:The samples are organized around the processing IIS W3C log data scenarios. A data generation tool is provided to create and import the data sets in various sizes to HDFS or WASB (Windows Azure Blob storage). See [Use Windows Azure Blob storage for HDInsight][hdinsight-blob-store] for more information). MapReduce, Pig or Hive jobs may then be run on the pages of data generated by the PowerShell script. Note that the Pig and Hive scripts used both compile to MapReduce programs. Users may run a series of jobs to observe, for themselves, the effects of using these different technologies and the effects of the size of the data on the execution of the processing tasks. 
+get-started-hdinsight-emulator.md:		powershell –File importdata.ps1 w3c -ExecutionPolicy unrestricted 
+get-started-hdinsight-emulator.md:	If you want to load data into WASB instead, see [Connect to Windows Azure Blob storage](#blobstorage).
+get-started-hdinsight-emulator.md:		powershell –F buildsamples.ps1
+get-started-hdinsight-emulator.md:##<a name="blobstorage"></a>Connect to Windows Azure Blob storage
+get-started-hdinsight-emulator.md:Windows Azure HDInsight uses Windows Azure Blob storage as the default file system. For more information, see [Use Windows Azure blob Storage with HDInsight][hdinsight-blob-store]. 
+get-started-hdinsight-emulator.md:It is possible to configure a local cluster in the HDInsight Emulator to use Windows Azure Blob storage instead of local storage. The section covers:
+get-started-hdinsight-emulator.md:- connect to a Windows Azure Blob storage
+get-started-hdinsight-emulator.md:- configure a Windows Azure Blob storage as the default file system for the HDInsight Emulator
+get-started-hdinsight-emulator.md:The Windows Azure Storage emulator comes with [Windows Azure SDK for .NET][azure-sdk]. The storage emulator don't start automatically. You must manually start it.  The application name is *Windows Azure Storage Emulator*. To start/stop the emulators, right-click the blue Windows Azure icon in the Windows System Tray, and then click Show Storage Emulator UI.
+get-started-hdinsight-emulator.md:### Connect to Windows Azure Blob storage
+get-started-hdinsight-emulator.md:For the instructions of creating a storage account, see [How To Create a Storage Account][azure-create-storage-account].
+get-started-hdinsight-emulator.md:1. Sign in to the [Management Portal][azure-management-portal].
+get-started-hdinsight-emulator.md:Before you can access a Windows Azure Storage account, you must add the account name and the account key to the configuration file.
+get-started-hdinsight-emulator.md:**To configure the connection to a Windows Azure Storage account**
+get-started-hdinsight-emulator.md:		    <name>fs.azure.account.key.<StorageAccountName>.blob.core.windows.net</name>
+get-started-hdinsight-emulator.md:### Use a Windows Azure Blob storage container as the default file system
+get-started-hdinsight-emulator.md:It is also possible to use a Windows Azure Blob storage container as the default file system, as is the case in Windows Azure HDInsight.  
+get-started-hdinsight-emulator.md:**To configure the default file system using a Windows Azure Blob storage container**
+get-started-hdinsight-emulator.md:##<a name="powershell"></a> Run HDInsight PowerShell
+get-started-hdinsight-emulator.md:For more information for submitting Hadoop jobs, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. For more information about the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+get-started-hdinsight-emulator.md:- Additional installation issues for the HDInsight Emulator may be found in the [Release Notes](https://gettingstarted.hadooponazure.com/releaseNotes.html).
+get-started-hdinsight-emulator.md:- There is a forum for asking questions and discussing issues at the  [MSDN forum for discussing HDInsight for Windows and Windows Azure](http://social.msdn.microsoft.com/Forums/en-US/hdinsight).
+get-started-hdinsight-emulator.md:- Microsoft Windows Azure HDInsight articles can be found at [www.windowsazure.com](http://www.windowsazure.com) by searching the keyword *hdinsight*.
+get-started-hdinsight-emulator.md:[azure-sdk]: http://www.windowsazure.com/en-us/downloads/
+get-started-hdinsight-emulator.md:[azure-create-storage-account]: /en-us/manage/services/storage/how-to-create-a-storage-account/
+get-started-hdinsight-emulator.md:[azure-management-portal]: https://manage.windowsazure.com/
+get-started-hdinsight-emulator.md:[hdinsight-emulator-release-notes]: http://gettingstarted.hadooponazure.com/releaseNotes.html
+get-started-hdinsight-emulator.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+get-started-hdinsight-emulator.md:[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+gettingstarted.md:<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Getting Started" pageTitle="Get started using HDInsight | Windows Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, getting started hdinsight, powershell" metaDescription="Get started with HDInsight, a big data solution. Learn how to provision an HDInsight cluster, run a Hadoop MapReduce job, and then output data to Excel for analysis." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+gettingstarted.md:# Get started using Windows Azure HDInsight
+gettingstarted.md:HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Windows Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data. HDInsight uses Windows Azure Blob storage as the default file system. 
+gettingstarted.md:In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, run a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
+gettingstarted.md:In conjunction withe the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 gettingstarted.md:- A Windows Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+gettingstarted.md:- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
+gettingstarted.md:In this tutorial, you will use *PowerShell Tools for Windows Azure HDInsight* to run a MapReduce job. It requires the following configuration steps:
+gettingstarted.md:* Install the Windows Azure module for Windows PowerShell.
+gettingstarted.md:* Install PowerShell Tools for Windows Azure HDInsight.
+gettingstarted.md:* Configure connectivity to your Windows Azure account.
+gettingstarted.md:For more information, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+gettingstarted.md:**To install Windows Azure PowerShell**
+gettingstarted.md:1. Open Internet Explorer, and browse to the [Windows Azure Downloads][powershell-download] page.
+gettingstarted.md:2. Under **Windows downloads** in the **Command line tools** section, click **Windows Azure PowerShell**, and then follow the instructions.
+gettingstarted.md:**To install and import the PowerShell Tools for Windows Azure HDInsight**
+gettingstarted.md:3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 gettingstarted.md:Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
-gettingstarted.md:7. Once the file is imported, you can use the following command to list your subscriptions:
-gettingstarted.md:8. When you have multiple subscriptions, you can use the following command to make a subscription the current subscription:
-gettingstarted.md:		$subscriptionName = "<SubscriptionName>" 
-gettingstarted.md:		Select-AzureSubscription $subscriptionName
-gettingstarted.md:		$subscriptionName = "<SubscriptionName>"       
-gettingstarted.md:		Select-AzureSubscription $subscriptionName
-gettingstarted.md:	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
-hdinsight-error-messages.md:- **Mitigation**: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.
-hdinsight-error-messages.md:- **Mitigation**: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.
-hdinsight-error-messages.md:- **Mitigation**: Re-activate your subscription or get a new valid subscription.
-hdinsight-error-messages.md:- **Mitigation**: Check that your subscription ID is valid and retry the operation. 
+gettingstarted.md:<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p> 
+gettingstarted.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal] using the credentials for your Windows Azure account.
+gettingstarted.md:2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+gettingstarted.md:	The command opens an Internet Explorer window and a web page. The URL is *https://manage.Windowsazure.com/publishsettings/index?client=powershell*. 
+gettingstarted.md:6.	From the Windows Azure PowerShell window, run the following command to import the publishsettings file:
+gettingstarted.md:The HDInsight provision process requires a Windows Azure Storage account to be used as the default file system. The storage account must be located in the same data center as the HDInsight compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
+gettingstarted.md:You must choose one of the two data centers for your Windows Azure Storage account.
+gettingstarted.md:**To create a Windows Azure Storage account**
+gettingstarted.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+gettingstarted.md:[How to Create a Storage Account][azure-create-storageaccount] and [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+gettingstarted.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal]. 
+gettingstarted.md:The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+gettingstarted.md:For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+gettingstarted.md:1. Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+gettingstarted.md:1. Open **Windows Azure PowerShell**.
+gettingstarted.md:	The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+gettingstarted.md:3. Run the following commands to create a Windows Azure storage context object:
+gettingstarted.md:3. Click the **Power Query** menu, click **From Other Sources**, and then click **From Windows Azure HDInsight**.
+gettingstarted.md:- [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
+gettingstarted.md:- [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+gettingstarted.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+gettingstarted.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+gettingstarted.md:[hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
+gettingstarted.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+gettingstarted.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+gettingstarted.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+gettingstarted.md:[azure-management-portal]: https://manage.windowsazure.com/
+gettingstarted.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+gettingstarted.md:[powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
+gettingstarted.md:[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+hadoop-recommendation-engine.md:<properties linkid="manage-services-hdinsight-recommendation-engine-using-mahout" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
+hadoop-recommendation-engine.md:This tutorial assumes that you have gotten setup with Windows Azure and the HDinsight preview and that you have created an HDInsight cluster on which you can run a sample. If you have not done this already, consult the [Get Started with the Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/) tutorial for instructions on how to satisfy these prerequisites.
+hadoop-social-web-data.md:<properties linkid="manage-services-hdinsight-social-web-data" urlDisplayName="Hadoop Social Web Data" pageTitle="Analyzing Twitter Data with Hive - Windows Azure" metaKeywords="Azure Twitter Hadoop, Azure Hive query, Azure data analysis" metaDescription="A tutorial that teaches you to query and analyze data from Twitter using Apache Hadoop-based Services for Windows Azure and a Hive query in Excel." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
+hadoop-social-web-data.md:In this tutorial you will query, explore, and analyze data from twitter using the Apache Hadoop-based HDInsight Service for Windows Azure and a complex Hive example. Social web sites are one of the major driving forces for Big Data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. This tutorial assumed that an HDInsight cluster has already been created through the [Windows Azure Portal](http://www.windowsazure.com).  
+hadoop-social-web-data.md:		track=weather,Azure,WindowsAzure,cloud
+hadoop-social-web-data.md:1. While the tweets are being collected, create an RDP session the the HDInsight cluster you have created through the Windows Azure Portal. 
+hadoop-social-web-data.md:2. Press **Ctrl+C** to terminate the Curl tweet collection process, use Windows Explorer to navigate to where the twitter file resides.  **Right click** to send to Compressed (Zipped folder). This saves upload time.
+hadoop-social-web-data.md:In this tutorial we have seen how to transform unstructured Json dataset into structured Hive table to query, explore, and analyze data from Twitter using HDInsight on Windows Azure. For updates and support files, you may find them in the GitHub repository [here](https://github.com/wenming/BigDataSamples/tree/master/twittersample). 
+hdinsight-error-messages.md:<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Errors" pageTitle="Debug HDInsight: Error Messages" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" metaDescription="Error messages to debug Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+hdinsight-error-messages.md:The error messages itemized in this topic are provided to help the users of Windows Azure HDInsight understand possible error conditions that they can encounter when administering the service using Windows Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
+hdinsight-error-messages.md:Some of these error mssages could also be seen in the Windows Azure portal when used manage HDinsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on paramters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
+hdinsight-error-messages.md:The errors a user can encounter in Windows Azure PowerShell or in the Windows Azure Portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following infomation for the error:
+hdinsight-error-messages.md:- **Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with *http://* and ending in *.com*. The fully qualified URL can usually be found in the storage tab of the manage.windowsazure.com portal.  
+hdinsight-error-messages.md:- **Mitigation**: Supply a valid blob URL. The URL MUST be fully valid, including starting with *http://* and ending in *.com*. The fully qualified URL can usually be found in the storage tab of the manage.windowsazure.com portal. 
+hdinsight-error-messages.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+hdinsight-version.md:<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What version of Hadoop is in Windows Azure HDInsight" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" metaDescription="A list of the Apache Hadoop component versions included in Windows Azure HDInsight" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+hdinsight-version.md:#What Version of Hadoop is in Windows Azure HDInsight?
+hdinsight-version.md:[Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) provides Hadoop services via components described in the following table:
+hdinsight-version.md:	<p> For more information on using HiveODBC, see <a href="/en-us/manage/services/hdinsight/use-excel-via-hive-odbc-driver/">How to connect Excel to Windows Azure HDInsight via HiveODBC</a>.</p>
+hdinsight-version.md:The Hadoop distribution in Windows Azure HDInsight is based on the [Hortonworks Data Platform 1.1.0](http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html). Note that this may change in future updates to Windows Azure HDInsight. One way to determine the available components and their versions is to login to a cluster and examine the contents of the "C:\apps\dist\" directory.hdinsightintro.md:<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="Introducing HDInsight" pageTitle="Introduction to Windows Azure HDInsight" metaKeywords="hdinsight, hdinsight service, hdinsight azure, what is hdinsight" metaDescription="Windows Azure HDInsight is a service that deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+hdinsightintro.md:# Introduction to Windows Azure HDInsight
+hdinsightintro.md:Windows Azure HDInsight is a service that deploys and provisions Apache™ Hadoop® clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.
+hdinsightintro.md:Windows Azure HDInsight makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig and Hive available in a simpler, more scalable, and cost-efficient environment. 
+hdinsightintro.md:One of the primary efficiencies introduced by HDInsight is in how it manages and stores data. HDInsight uses Windows Azure Blob storage as the default file system. Blob storage and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
+hdinsightintro.md:- Windows Azure Blob storage provides a highly scalable and available, low cost, long term, and shareable storage option for data that is to be processed using HDInsight.
+hdinsightintro.md:HDInsight uses Windows Azure PowerShell to configure, run, and post-process Hadoop jobs. HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
+hdinsightintro.md:Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the self-service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, the Microsoft Hive ODBC Driver is available to integrate business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
+hdinsightintro.md:<h2 id="ecosystem"> <a name="Ecosystem">The Hadoop ecosystem on Windows Azure </a></h2>
+hdinsightintro.md:An exemplary scenario providing a use case for HDInsight is an ad hoc analysis, in batch fashion, on an entire unstructured dataset stored on Windows Azure nodes, which does not require frequent updates.
+hdinsightintro.md:* [HDInsight Documentation](http://go.microsoft.com/fwlink/?LinkID=285601): The documentation page for Windows Azure HDInsight with links to articles, videos, and more resources.
+hdinsightintro.md:* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/): A tutorial that provides a quickstart for using HDInsight.
+hdinsightintro.md:* [Big data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Big data scenarios that explore what you can build with Windows Azure.	
+hdinsightintro.md:* [Windows Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
+hdinsightintro.md:**Microsoft: Windows and SQL Database**	
+hdinsightintro.md:* [Windows Azure home page](https://www.windowsazure.com/en-us/): Scenarios, free trial sign up, development tools and documentation that you need get started building applications.
+hdinsightintro.md:* [Windows Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
+hdinsightintro.md:* [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+hdinsightintro.md:* [Connect Excel to Windows Azure HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+hdinsightintro.md:* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Learn how to import data from Windows Azure HDInsight with the Microsoft Hive ODBC Driver.
+interactiveconsole.md:<properties linkid="manage-services-hdinsight-interactive-console" urlDisplayName="HDInsight interactive console" pageTitle="Using the HDInsight Interactive Console - Windows Azure tutorial" metaKeywords="hdinsight, hdinsight console, hdinsight javascript" metaDescription="Learn how to use the interactive JavaScript and Hive console with HDInsight" umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+interactiveconsole.md:1. Sign in to the [Management Portal](https://manage.windowsazure.com).
+interactiveconsole.md:9. Click **Windows Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
+monitor-hdinsight.md:<properties linkid="manage-services-hdinsight-monitor" urlDisplayName="Monitoring HDInsight" pageTitle="How to monitor HDInsight - Windows Azure guidance" metaKeywords="hdinsight, hdinsight monitor, hdinsight monitor azure, hdinsight job monitor" metaDescription="Learn how to monitor jobs submitted to HDInsight clusters." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
+monitor-hdinsight.md:* [Tutorial: Getting Started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)provision-hdinsight-clusters.md:<properties linkid="manage-services-hdinsight-provision-hdinsight-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision HDInsight clusters - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to provision clusters for the Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 provision-hdinsight-clusters.md:- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-provision-hdinsight-clusters.md:		# List storage accounts for the current subscription
-provision-hdinsight-clusters.md:		$subscriptionName = "<SubscriptionName>"		# The name of the Azure subscription.
-provision-hdinsight-clusters.md:		Select-AzureSubscription $subscriptionName
-provision-hdinsight-clusters.md:		$subscriptionName = "<SubscriptionName>"
-provision-hdinsight-clusters.md:		Select-AzureSubscription $subscriptionName
+provision-hdinsight-clusters.md:* [Using Windows Azure Management Portal](#portal)
+provision-hdinsight-clusters.md:* [Using Windows Azure PowerShell](#powershell)
+provision-hdinsight-clusters.md:##<a id="portal"></a> Using Windows Azure Management Portal
+provision-hdinsight-clusters.md:HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+provision-hdinsight-clusters.md:This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
+provision-hdinsight-clusters.md:1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+provision-hdinsight-clusters.md:			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *US East* or *US West* or *Europe North*.</td>
+provision-hdinsight-clusters.md:			<td>Specify the Windows Azure SQL database that will be used as the metastore for Hive/OOzie. This SQL database must be in the same data center as the HDInsight cluster. The list box only lists the SQL databases in the same data center as you specified on the Cluster Details page.</td></tr>
+provision-hdinsight-clusters.md:			<td>Specify the Windows Azure Storage account that will be used as the default file system for the HDInsight cluster. You can choose one of the three options:
+provision-hdinsight-clusters.md:<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p> 
+provision-hdinsight-clusters.md:##<a id="powershell"></a> Using Windows Azure PowerShell
+provision-hdinsight-clusters.md:Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+provision-hdinsight-clusters.md:- Create a Windows Azure Storage account
+provision-hdinsight-clusters.md:- Create a Windows Azure Blob container
+provision-hdinsight-clusters.md:HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account and storage container are required before you can create an HDInsight cluster. The storage account must be located in the same data center as the HDInsight Cluster.
+provision-hdinsight-clusters.md:**To create a Windows Azure storage account**
+provision-hdinsight-clusters.md:- Run the following commands from a Windows Azure PowerShell console window:
+provision-hdinsight-clusters.md:**To create Windows Azure storage container**
+provision-hdinsight-clusters.md:- Run the following commands from a Windows Azure PowerShell window:
+provision-hdinsight-clusters.md:- Run the following commands from a Windows Azure PowerShell window:		
+provision-hdinsight-clusters.md:		$storageAccountName = "<StorageAccountName>"	# The Windows Azure storage account that hosts the default container. The default container will be used as the default file system.
+provision-hdinsight-clusters.md:		$containerName = "<ContainerName>"				# The Windows Azure Blob storage container that will be used as the default file system for the HDInsight cluster.
+provision-hdinsight-clusters.md:- Run the following commands from a Windows PowerShell window:
+provision-hdinsight-clusters.md:- Run the following commands from a Windows Azure PowerShell window:
+provision-hdinsight-clusters.md:Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
+provision-hdinsight-clusters.md:- Download and import Windows Azure account publish settings
+provision-hdinsight-clusters.md:- Create a Windows Azure Storage account
+provision-hdinsight-clusters.md:The command-line interface can be installed using *Node.js Package Manager (NPM)* or Windows Installer.
+provision-hdinsight-clusters.md:3.	Open **Command Prompt** (or *Windows Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
+provision-hdinsight-clusters.md:		npm install –g azure-cli
+provision-hdinsight-clusters.md:		azure hdinsight –h
+provision-hdinsight-clusters.md:		azure -h
+provision-hdinsight-clusters.md:		azure hdinsight -h
+provision-hdinsight-clusters.md:		azure hdinsight cluster -h
+provision-hdinsight-clusters.md:		azure hdinsight cluster create -h
+provision-hdinsight-clusters.md:1.	Browse to **http://www.windowsazure.com/en-us/downloads/**.
 provision-hdinsight-clusters.md:Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
+provision-hdinsight-clusters.md:<p>The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p> 
+provision-hdinsight-clusters.md:		azure account download
+provision-hdinsight-clusters.md:		azure account import <file>
+provision-hdinsight-clusters.md:HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account is required before you can create an HDInsight cluster. The storage account must be located in the same data center.
+provision-hdinsight-clusters.md:**To create a Windows Azure storage account**
+provision-hdinsight-clusters.md:		azure account storage create [options] <StorageAccountName>
+provision-hdinsight-clusters.md:For information on creating a Windows Azure storage account using Windows Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
+provision-hdinsight-clusters.md:	azure account storage list
+provision-hdinsight-clusters.md:	azure account storage show <StorageAccountName>
+provision-hdinsight-clusters.md:	azure account storage keys list <StorageAccountName>
+provision-hdinsight-clusters.md:For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
+provision-hdinsight-clusters.md:The *azure hdinsight cluster create* command creates the container if it doesn’t exist. If you choose to create the container beforehand, you can use the following command:
+provision-hdinsight-clusters.md:	azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+provision-hdinsight-clusters.md:		azure hdinsight cluster create –-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+provision-hdinsight-clusters.md:		azure hdinsight cluster config create <file>
+provision-hdinsight-clusters.md:		azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName "<StorageAccountName>.blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
+provision-hdinsight-clusters.md:		azure hdinsight cluster config storage add <file> --storageAccountName "<StorageAccountName>.blob.core.windows.net"
+provision-hdinsight-clusters.md:		azure hdinsight cluster config metastore set <file> --type "hive" --server "<SQLDatabaseName>.database.windows.net"
+provision-hdinsight-clusters.md:		azure hdinsight cluster config metastore set <file> --type "oozie" --server "<SQLDatabaseName>.database.windows.net"
+provision-hdinsight-clusters.md:		azure hdinsight cluster create --config <file>
+provision-hdinsight-clusters.md:		azure hdinsight cluster list
+provision-hdinsight-clusters.md:		azure hdinsight cluster show <ClusterName>
+provision-hdinsight-clusters.md:		azure hdinsight cluster delete <ClusterName>
+provision-hdinsight-clusters.md:	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+provision-hdinsight-clusters.md:		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+provision-hdinsight-clusters.md:		using Microsoft.WindowsAzure.Management.HDInsight;
+provision-hdinsight-clusters.md:		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 provision-hdinsight-clusters.md:        string subscriptionid = "<WindowsAzureSubscriptionID>";
-provision-hdinsight-clusters.md:        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
+provision-hdinsight-clusters.md:        string storageaccountname = "<WindowsAzureStorageAccountName>";     // Full path must be used
+provision-hdinsight-clusters.md:        string storageaccountkey = "<WindowsAzureStorageAccountKey>";
+provision-hdinsight-clusters.md:* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+provision-hdinsight-clusters.md:* [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+provision-hdinsight-clusters.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+provision-hdinsight-clusters.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+provision-hdinsight-clusters.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+provision-hdinsight-clusters.md:[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+provision-hdinsight-clusters.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+provision-hdinsight-clusters.md:[azure-management-portal]: https://manage.windowsazure.com/
+provision-hdinsight-clusters.md:[azure-command-line-tools]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+provision-hdinsight-clusters.md:[azure-command-line-tool]: /en-us/manage/linux/other-resources/command-line-tools/
+provision-hdinsight-clusters.md:[azure-manage-storageaccount]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+provision-hdinsight-clusters.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+provision-hdinsight-clusters.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+provision-hdinsight-clusters.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+RemoteJobExecution.md:<properties linkid="manage-services-hdinsight-remote-jobs" urlDisplayName="Remote Jobs with HDInsight" pageTitle="Programmatically execute remote jobs on HDInsight - Windows Azure Services" metaKeywords="remote job, remote job hdinsight, hdinsight azure" metaDescription="How to programmatically execute remote jobs on your HDInsight cluster" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+RemoteJobExecution.md:          'https://yourhadoopcluster.azurehdinsight.net:563/templeton/v1/hive'
+RemoteJobExecution.md: * URL: https://yourhadoopcluster.azurehdinsight.net:563
+RemoteJobExecution.md:    httpClient = new WebHCatHttpClient(new Uri("https://yourazurecluster.azurehdinsight.net:563"), "username", "password");
+run-samples.md:<properties linkid="manage-services-hdinsight-run-samples" urlDisplayName="How to run Samples" pageTitle="How to Run the HDInsight Samples - Windows Azure Services" metaKeywords="hdinsight samples, hdinsight samples azure" metaDescription="Learn how to run the samples included with the HDInsight clusters." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+run-samples.md:A set of samples are provided to help you get started with Windows Azure HDInsight. These samples are made available on each of the HDInsight clusters that you create. Running these samples will familiarize you with Windows Azure HDInsight PowerShell.
+run-samples.md:Much additional documentation exists on the web for Hadoop-related technologies such as Java-based MapReduce programming and streaming, as well as documentation on the cmdlets using in PowerShell scripting. For more information on these resources, see the final **Resources for HDInsight** section of the [Introduction to Windows Azure HDInsight][hdinsight-resources] topic.
+run-samples.md:- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+run-samples.md:- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+run-samples.md:The samples can be run using Windows Azure PowerShell. Instructions on how to do this are provided for each of the samples on the pages linked above.
+run-samples.md:From this article and the articles on each of the samples, you learned how to run the samples included with the HDInsight clusters using Windows Azure PowerShell. For tutorials on using Pig, Hive, and MapReduce with HDInsight, see the following topics:
+run-samples.md:* [Get started with Windows Azure HDInsigth Service][getting-started]
+run-samples.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+sample-10gb-graysort.md:<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+sample-10gb-graysort.md:This sample topic shows how to run a general purpose GraySort with Windows Azure HDInsight using Windows Azure PowerShell. A GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum. 
+sample-10gb-graysort.md:* How to use Windows Azure PowerShell to run a series of MapReduce programs on Windows Azure HDInsight.		
+sample-10gb-graysort.md:- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+sample-10gb-graysort.md:- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+sample-10gb-graysort.md:1. [Run the sample with Windows Azure PowerShell](#run-sample)	
+sample-10gb-graysort.md:<h2><a id="run-sample"></a>Run the sample with Windows Azure PowerShell</h2>
+sample-10gb-graysort.md:1. Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 sample-10gb-graysort.md:		# Provide the Windows Azure subscription name and the HDInsight cluster name.
-sample-10gb-graysort.md:		$subscriptionName = "myAzureSubscriptionName"   
-sample-10gb-graysort.md:		Select-AzureSubscription $subscriptionName         
+sample-10gb-graysort.md:1. Open Windows Azure PowerShell.
 sample-10gb-graysort.md:		# Provide the Windows Azure subscription name and the HDInsight cluster name.
-sample-10gb-graysort.md:		$subscriptionName = "myAzureSubscriptionName"   
-sample-10gb-graysort.md:		Select-AzureSubscription $subscriptionName        
+sample-10gb-graysort.md:1. Open Windows Azure PowerShell.
 sample-10gb-graysort.md:		# Provide the Windows Azure subscription name and the HDInsight cluster name.
-sample-10gb-graysort.md:		$subscriptionName = "myAzureSubscriptionName"   
-sample-10gb-graysort.md:		Select-AzureSubscription $subscriptionName 
+sample-10gb-graysort.md:This sample has demonstrated how to run a series of MapReduce jobs using Windows Azure HDInsight, where the data output for one job becomes the input for the next job in the series.
+sample-10gb-graysort.md:For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+sample-10gb-graysort.md:* [Get started with Windows Azure HDInsight][getting-started]
+sample-10gb-graysort.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+sample-csharp-streaming.md:<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+sample-csharp-streaming.md:Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial shows how to write MapReduce progams in C# that uses the Hadoop streaming interface and how to run the programs on Windows Azure HDInsight using Windows Azure HDInsight PowerShell. 
+sample-csharp-streaming.md:* How to use Windows Azure PowerShell to run a C# streaming program to analyze data contained in a file on HDInsight.		
+sample-csharp-streaming.md:- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+sample-csharp-streaming.md:- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+sample-csharp-streaming.md:1. [Run the sample with Windows Azure PowerShell](#run-sample)	
+sample-csharp-streaming.md:<h2><a id="run-sample"></a>Run the sample with Windows Azure PowerShell</h2>
+sample-csharp-streaming.md:1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 sample-csharp-streaming.md:		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
-sample-csharp-streaming.md:		Select-AzureSubscription $subscriptionName
-sample-csharp-streaming.md:		$subscriptionName = "<SubscriptionName>"   
-sample-csharp-streaming.md:		# Select the current subscription
-sample-csharp-streaming.md:		Select-AzureSubscription $subscriptionName
+sample-csharp-streaming.md:For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+sample-csharp-streaming.md:* [Get started with Windows Azure HDInsight][getting-started]
+sample-csharp-streaming.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+sample-csharp-streaming.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+sample-pi-estimator.md:<properties linkid="manage-services-hdinsight-sample-pi-estimator" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" metaDescription="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+sample-pi-estimator.md:This topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi with Windows Azure HDinsight using Windows Azure Powershell. 
+sample-pi-estimator.md:* How to use Windows Azure PowerShell to run the Pi Estimator MapReduce program on Windows Azure HDInsight.	
+sample-pi-estimator.md:- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+sample-pi-estimator.md:- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+sample-pi-estimator.md:1. [Run the sample with Windows Azure PowerShell](#run-sample)	
+sample-pi-estimator.md:<h2><a id="run-sample"></a>Run the sample with Windows Azure PowerShell</h2>
+sample-pi-estimator.md:1. Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 sample-pi-estimator.md:		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
-sample-pi-estimator.md:		Select-AzureSubscription $subscriptionName
-sample-pi-estimator.md:		$piJob | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
+sample-pi-estimator.md:For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+sample-pi-estimator.md:* [Get Started with Windows Azure HDInsight][getting-started]
+sample-pi-estimator.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+sample-pi-estimator.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+sample-sqoop-import-export.md:<properties linkid="manage-services-hdinsight-sample-sqoop-import-export" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+sample-sqoop-import-export.md:This sample topic shows how to use Apache Sqoop to import data from a SQL database on Windows Azure to an Hadoop on Azure HDFS cluster.
+sample-sqoop-import-export.md:In Windows Azure HDInsight, Sqoop is deployed from the Hadoop Command Shell on the head node of the HDFS cluster. You use the Remote Desktop feature available in the Hadoop on Azure portal to access the head node of the cluster for this deployment.
+sample-sqoop-import-export.md:* How to use Windows Azure PowerShell to run a MapReduce program on Windows Azure HDInsight that analyzes data contained in a file.
 sample-sqoop-import-export.md:You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
-sample-sqoop-import-export.md:3. Select the type of subscription (such as **Pay-As-You-Go**) associated with you account in the **Create Server** window and press **Next**.
+sample-sqoop-import-export.md:1. Log in into your Windows Azure account. To create a database server, click the **Database** icon in the lower left-hand corner on the page.
 sample-sqoop-import-export.md:10. Return to the **WindowsAzurePlatform** portal page, click your subscription on the left-hand side (**Pay-As-You-Go** in the example below) and select your database (here named wq6xlbyoq0). The AventureWorks2012 should be listed in the **Database Name** column. Select it and press the **Manage** icon at the top of the page.
+sample-sqoop-import-export.md:5. Enter your credentials for the Hadoop cluster (not your Hadoop on Azure account) into the **Windows Security** window and select **OK**.
+sample-sqoop-import-export.md:In this tutorial, you saw how to transfer data between a Hadoop cluster managed by Windows Azure HDInsight and a relational database using Apache Sqoop.
+sample-sqoop-import-export.md:For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+sample-sqoop-import-export.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+sample-wordcount.md:<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" metaDescription="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+sample-wordcount.md:This sample topic shows how to run a MapReduce program that counts word occurrences in a text file with Windows Azure HDInsight using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on an HDInsight cluster. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
+sample-wordcount.md:* How to use Windows Azure PowerShell to run a MapReduce program on an HDInsight cluster.
+sample-wordcount.md:- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+sample-wordcount.md:- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Get Started with Windows Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+sample-wordcount.md:- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]
+sample-wordcount.md:1. [Run the sample using Windows Azure PowerShell](#run-sample)	
+sample-wordcount.md:<h2><a id="run-sample"></a>Run the sample using Windows Azure PowerShell</h2> 
+sample-wordcount.md:1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 sample-wordcount.md:		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
-sample-wordcount.md:		Select-AzureSubscription $subscriptionName
+sample-wordcount.md:1. Open **Windows Azure PowerShell**.
 sample-wordcount.md:		$subscriptionName = "<SubscriptionName>"       # Windows Azure subscription name
-sample-wordcount.md:		# Select the current subscription
-sample-wordcount.md:		Select-AzureSubscription $subscriptionName
-sample-wordcount.md:	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
-submit-hadoop-jobs-programmatically.md:		$subscriptionName = "<SubscriptionName>"   
-submit-hadoop-jobs-programmatically.md:	The subscription is the one you used to create the HDInsight cluster. And the HDInsight cluster is the one you want to use to run the MapReduce job.
-submit-hadoop-jobs-programmatically.md:		Select-AzureSubscription $subscriptionName
-submit-hadoop-jobs-programmatically.md:		$subscriptionName = "<SubscriptionName>"       
-submit-hadoop-jobs-programmatically.md:		Select-AzureSubscription $subscriptionName
-submit-hadoop-jobs-programmatically.md:	The Select-AzureSubscription is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
-submit-hadoop-jobs-programmatically.md:		$subscriptionName = "<SubscriptionName>"   
-submit-hadoop-jobs-programmatically.md:3. Run the following commands to select Azure subscription and the cluster to run the Hive job:
-submit-hadoop-jobs-programmatically.md:		Select-AzureSubscription -SubscriptionName $subscriptionName
+sample-wordcount.md:		$storageAccountName = "<StorageAccountName>"   # Windows Azure storage account name
+sample-wordcount.md:	The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+sample-wordcount.md:3. Run the following commands to create a Windows Azure storage context object:
+sample-wordcount.md:In this tutorial, you have seen how to run a MapReduce program that counts word occurrences in a text file with HDInsight using Windows Azure PowerShell.
+sample-wordcount.md:For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+sample-wordcount.md:* [Get Started with Windows Azure HDInsight][hdinsight-get-started]
+sample-wordcount.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+sample-wordcount.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+submit-hadoop-jobs-programmatically.md:<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" metaDescription="Learn how to programmatically submit Hadoop jobs to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+submit-hadoop-jobs-programmatically.md:* A Windows Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+submit-hadoop-jobs-programmatically.md:* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+submit-hadoop-jobs-programmatically.md:* [Submit MapReduce jobs using PowerShell](#mapreduce-powershell)
+submit-hadoop-jobs-programmatically.md:* [Submit Hive jobs using PowerShell](#hive-powershell)
+submit-hadoop-jobs-programmatically.md:##<a id="mapreduce-powershell"></a> Submit MapReduce jobs using PowerShell
+submit-hadoop-jobs-programmatically.md:Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+submit-hadoop-jobs-programmatically.md:1.	Open **Windows Azure PowerShell**. For instructions on opening the Windows Azure PowerShell console window, see the [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+submit-hadoop-jobs-programmatically.md:	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+submit-hadoop-jobs-programmatically.md:1. Open **Windows Azure PowerShell**.
+submit-hadoop-jobs-programmatically.md:	The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+submit-hadoop-jobs-programmatically.md:3. Run the following commands to create a Windows Azure storage context object:
+submit-hadoop-jobs-programmatically.md:##<a id="hive-powershell"></a> Submit Hive jobs using PowerShell
+submit-hadoop-jobs-programmatically.md:1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+submit-hadoop-jobs-programmatically.md:	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+submit-hadoop-jobs-programmatically.md:		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+submit-hadoop-jobs-programmatically.md:		using Microsoft.WindowsAzure.Storage;
+submit-hadoop-jobs-programmatically.md:		using Microsoft.WindowsAzure.Storage.Blob;
+submit-hadoop-jobs-programmatically.md:		using Microsoft.WindowsAzure.Management.HDInsight;
 submit-hadoop-jobs-programmatically.md:		string subscriptionID = "<Windows Azure subscription ID>";
-submit-hadoop-jobs-programmatically.md:        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+submit-hadoop-jobs-programmatically.md:		string storageAccountName = "<Windows Azure storage account name>";
+submit-hadoop-jobs-programmatically.md:		string storageAccountKey = "<Windows Azure storage account key>";
+submit-hadoop-jobs-programmatically.md:	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription name from the [Windows Azure Management Portal][azure-management-portal]. 
+submit-hadoop-jobs-programmatically.md:	For information on certificate, see [Create and Upload a Management Certificate for Windows Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Windows Azure Tools* for both the *Issued To* and the *Issued By* fields.
+submit-hadoop-jobs-programmatically.md:	The Windows Azure Storage account name is the account you specify when you provision the HDInsight cluster. The default container name is the same as the HDInsight cluster name.
+submit-hadoop-jobs-programmatically.md:	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+submit-hadoop-jobs-programmatically.md:	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+submit-hadoop-jobs-programmatically.md:		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+submit-hadoop-jobs-programmatically.md:		using Microsoft.WindowsAzure.Management.HDInsight;
 submit-hadoop-jobs-programmatically.md:		string subscriptionID = "<Windows Azure subscription ID>";
-submit-hadoop-jobs-programmatically.md:        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+submit-hadoop-jobs-programmatically.md:	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription ID from you system administrator. 
+submit-hadoop-jobs-programmatically.md:	For information on certificate, see [Create and Upload a Management Certificate for Windows Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Windows Azure Tools* for both the *Issued To* and the *Issued By* fields.
+submit-hadoop-jobs-programmatically.md:	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+submit-hadoop-jobs-programmatically.md:* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+submit-hadoop-jobs-programmatically.md:* [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+submit-hadoop-jobs-programmatically.md:* [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
+submit-hadoop-jobs-programmatically.md:[azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+submit-hadoop-jobs-programmatically.md:[azure-management-portal]: http://manage.windowsazure.com/
+submit-hadoop-jobs-programmatically.md:[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
+submit-hadoop-jobs-programmatically.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+submit-hadoop-jobs-programmatically.md:[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+understand-nosql.md:<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Windows Azure | Windows Azure" metaKeywords="" metaDescription="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" writer="dchappell" editor="cgronlun" manager="paulettm" />
+understand-nosql.md:# Data management: Understanding NoSQL technologies on Windows Azure
+understand-nosql.md:**Summary:** Windows Azure offers a broad array of options for your NoSQL workloads, but it can be challenging to determine which one is right for you.  This document explains NoSQL technologies on Windows Azure and how to choose the right service to manage your non-relational data, which includes unstructured or particularly large data sets often referred to as "big data." 
+understand-nosql.md:* Data on Windows Azure: The Big Picture	
+understand-nosql.md:* Windows Azure Relational Technologies: A Quick Look	
+understand-nosql.md:* Windows Azure NoSQL Technologies: Operational Data	
+understand-nosql.md:* Windows Azure NoSQL Technologies: Analytical Data	
+understand-nosql.md:**Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Understanding NoSQL technologies on Windows Azure PDF file</a>
+upload-data.md:<properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure, Windows Azure blob storage, wasb, wasbs, powershell" metaDescription="Learn how to upload data to HDInsight, the Windows Azure big data solution with a full-featured Hadoop Distributed File System (HDFS) and Windows Azure Blob storage." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+upload-data.md:Windows Azure HDInsight provides a full-featured Hadoop Distributed File System (HDFS) over Windows Azure Blob storage. It has been designed as an HDFS extension to provide a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Both Windows Azure Blob storage and HDFS are distinct file systems that are optimized for storage of data and computations on that data. For the benefits of using Windows Azure Blob storage, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+upload-data.md:Windows Azure HDInsight clusters are typically deployed to execute MapReduce jobs and are dropped once these jobs have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Windows Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a Blob enables the HDInsight clusters used for computation to be safely released without losing data. 
+upload-data.md:Windows Azure Blob storage can either be accessed through [AzCopy][azure-azcopy], [Windows Azure PowerShell][azure-powershell], [Windows Azure Storage Client Library for .NET][azure-storage-client-library] or through explorer tools. Here are some of the tools available:
+upload-data.md:* [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
+upload-data.md:* [Windows Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx)
+upload-data.md:* [Windows Azure Explorer PRO](http://www.cloudberrylab.com/microsoft-azure-explorer-pro.aspx)
+upload-data.md:* A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+upload-data.md:* [Upload data to Blob storage using Windows Azure PowerShell](#powershell)
+upload-data.md:* [Import data from Windows Azure SQL Database to Blob storage using Sqoop](#sqoop)
+upload-data.md:AzCopy is a command line utility which is designed to simplify the task of transferring data in to and out of a Windows Azure Storage account. You can use this as a standalone tool or incorporate this utility in an existing application. [Download AzCopy][azure-azcopy-download].
+upload-data.md:For more information, see [AzCopy – Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
+upload-data.md:##<a id="powershell"></a>Upload data to Blob storage using Windows Azure PowerShell##
+upload-data.md:Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+upload-data.md:1. Run Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 upload-data.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
-upload-data.md:		Select-AzureSubscription $subscriptionName
-upload-data.md:	$subscriptionName = "<SubscriptionName>"   
-upload-data.md:	Select-AzureSubscription $subscriptionName
+upload-data.md:		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+upload-data.md:3. Paste the script into the Windows Azure PowerShell console window to run it.
+upload-data.md:Using Windows Azure Explorer tools, you may notice some 0 byte files. These files serve two purposes:
+upload-data.md:*Azure Storage Explorer* is a useful tool for inspecting and altering the data in your Windows Azure Storage. It is a free tool that can be downloaded from [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+upload-data.md:Before using the tool, you must know your Windows Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts][azure-storage-account].  
+upload-data.md:	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
+upload-data.md:1. Sign in to the [Management Portal][azure-management-portal].
+upload-data.md:	Because the default file system is on Windows Azure Blob storage, /example/datadavinci.txt is actually on Windows Azure Blob storage.  You can also refer to the file as:
+upload-data.md:Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password, and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications][sqldatabase-howto]. To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com][whatismyip].
+upload-data.md:1. Sign in to the [Management Portal][azure-management-portal].
+upload-data.md:For more information on accessing the files stored in Blob storage, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+upload-data.md:* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+upload-data.md:[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+upload-data.md:[azure-management-portal]: https://manage.windowsazure.com
+upload-data.md:[azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+upload-data.md:[azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
+upload-data.md:[azure-storage-account]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+upload-data.md:[azure-azcopy-download]: https://github.com/downloads/WindowsAzure/azure-sdk-downloads/AzCopy.zip
+upload-data.md:[azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
+upload-data.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+upload-data.md:[sqldatabase-howto]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/
+upload-data.md:[image-azure-storage-explorer]: ../media/HDI.AzureStorageExplorer.png
+using-blob-store.md:<properties linkid="manage-services-hdinsight-using-blob-store-hdinsight" urlDisplayName="Use Windows Azure Blob Store with HDInsight" pageTitle="Using Blob Store with HDInsight - Windows Azure tutorial" metaKeywords="hdinsight blob, asv, hdinsight asv, hdinsight azure, wasb, wasbs, hdinsight, hdinsight storage" metaDescription="How to use Windows Azure Blob storage with HDInsight. Low-cost Blob storage has an HDFS interface that enables the full set of components in the Hadoop ecosystem." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+using-blob-store.md:#Use Windows Azure Blob storage with HDInsight
+using-blob-store.md:Windows Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Windows Azure Blob storage for storing data. Blob storage is a robust, general purpose Windows Azure storage solution. Blob storage provides a full-featured HDFS interface for a seamless experience by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data. Blob storage is not just a low-cost solution; storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
+using-blob-store.md:<p>Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Windows Azure Blob storage.</p> 
+using-blob-store.md:For information on provisioning an HDInsight cluster, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
+using-blob-store.md:* [Benefits of Windows Azure Blob storage](#benefits)
+using-blob-store.md:Other than the Blob storage container designated as the default file system, you can also access containers that reside in the same Windows Azure storage account or different Windows Azure storage accounts located on the same data center as the HDInsight cluster:
+using-blob-store.md:	<p>Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.</p> 
+using-blob-store.md:##<a id="benefits"></a>Benefits of Windows Azure Blob storage
+using-blob-store.md:The implied performance cost of not having compute and storage co-located is mitigated by the way the compute clusters are provisioned close to the storage account resources inside the Windows Azure data center, where the high speed network makes it very efficient for the compute nodes to access the data inside Blob storage.
+using-blob-store.md:* **Data reuse and sharing:** The data in HDFS is located inside the compute cluster. Only the applications that have access to the compute cluster can use the data using HDFS API. The data in Blob storage can be accessed either through the HDFS APIs or through the [Blob Storage REST APIs](http://msdn.microsoft.com/en-us/library/windowsazure/dd135733.aspx). Thus, a larger set of applications (including other HDInsight clusters) and tools can be used to produce and consume the data.
+using-blob-store.md:To use blobs, you first create a [Windows Azure storage account](/en-us/manage/services/storage/how-to-create-a-storage-account/). As part of this, you specify a Windows Azure data center that will store the objects you create using this account. This data center must also used to host the HDInsight cluster. Wherever it lives, each blob you create belongs to some container in your storage account. This container may be an artitary Blob storage container created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
+using-blob-store.md:When provisioning an HDInsight cluster from Windows Azure Management Portal, there are two options: *quick create* and *custom create*. Using either of the options, a Windows Azure Storage account must be created beforehand.  For instructions, see [How to Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
+using-blob-store.md:The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with *WASBS*. We recommend using *WASBS* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+using-blob-store.md:The &lt;container&gt; identifies the name of the Blob storage container. If no container name is specified but the domain is, then it refers to the [root container](http://msdn.microsoft.com/en-us/library/windowsazure/ee395424.aspx) of the domain's storage account. Note that root containers are read-only.
+using-blob-store.md:In this article, you learned how to use Blob storage with HDInsight and that Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term archiving data acquisition solutions with Windows Azure Blob storage and use HDInsight to unlock the information inside the stored data.
+using-blob-store.md:* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
+using-hdinsight-sdk.md:<properties linkid="manage-services-hdinsight-using-client-library" urlDisplayName="Using the Hadoop .NET SDK" pageTitle="How to use the Hadoop .NET SDK with HDInsight - Windows Azure guidance" metaKeywords="hdinsight hadoop .net sdk, hadoop .net sdk, hadoop .net sdk azure" metaDescription="Learn how to use the Hadoop .NET SDK with the HDInsight Service." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+using-hdinsight-sdk.md:The Hadoop .NET SDK provides .NET client libraries that makes it easier to work with Hadoop from .NET. In this tutorial you will learn how to get the Hadoop .NET SDK and use it to build a simple .NET based application that runs Hive queries using the Windows Azure HDInsight Service. Given an actors.txt file, you will write an application to find the actor/actress who gets the most awards. 
+using-hdinsight-sdk.md:To enable HDInsight, click [here](https://account.windowsazure.com/PreviewFeatures).
+using-hdinsight-sdk.md:	* **WebHDFS client library** - works with files in HDFS and Windows Azure Blog Storage.
 using-hdinsight-sdk.md:You must have a [Windows Azure subscription][free-trial], and a [Windows Azure Storage Account][create-storage-account] before you can proceed. You must also know your Windows Azure storage account name and account key. For the instructions on how to  get this information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+using-hdinsight-sdk.md:	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+using-hdinsight-sdk.md:		var clusterURI = [HDInsight cluster URL]; //"https://HDInsightCluster Name.azurehdinsight.net:563";
+using-hdinsight-sdk.md:10. Update the constants in the application. Windows Azure HDInsight Service uses Windows Azure Blob storage as the default file system. During the HDInsight provision process, a blob is designated as the default file system. You have the options to use the default file system container or a container in a different Blob storage. For more information see [Use Windows Azure Blob storage with HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
+using-hdinsight-sdk.md:	If you choose to use the default file system container, you can find the storage account name, the storage key, and the container name from the *c:\apps\dist\hadoop-1.1.0-SNAPSHOT\conf>core-site.xml* configuration file by remoting to the cluster. The container used as the default file system can be found by search *fs.default.name*; the storage account name and the account key can be found by searching *fs.azure.account.key*.
+using-hdinsight-sdk.md:<p>Each step performed by the application may take seconds or even minutes to complete. The time to upload the Actors.txt file will vary based on your Internet connection to the Windows Azure data center, while the other steps are dependent on cluster size.</p>
+using-hdinsight-sdk.md:* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+using-hdinsight-sdk.md:[free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/
+using-hdinsight-sdk.md:[create-storage-account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
+using-hive.md:<properties linkid="manage-services-hdinsight-using-hive" urlDisplayName="Using Hive" pageTitle="Use Hive with HDInsight - Windows Azure tutorial" metaKeywords="using hive, hive hdinsight, hive azure, powershell, hdinsight" metaDescription="Learn how to use Hive with data stored in HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="mollybos" manager="paulettm" />
 using-hive.md:- You must have a **Windows Azure subscription**. Windows Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+using-hive.md:- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Windows Azure portal, see [Get started with Windows Azure HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
+using-hive.md:- You must have installed **Windows Azure PowerShell** and the **HDInsight PowerShell Tools**, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+using-hive.md:* [Upload data files to Windows Azure Blob storage](#uploaddata)
+using-hive.md:Log files are therefore a paradigmatic example of big data. HDInsight provides a Hive data warehouse system that facilitates easy data summarization, ad-hoc queries, and the analysis of these big datasets stored in Hadoop compatible file systems such as Windows Azure Blob Storage.
+using-hive.md:HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. 
+using-hive.md:This article provides the instructions for using Windows Azure PowerShell cmdlets to run a Hive query. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure as explained in the **Prerequisites** section at the beginning of this topic.
+using-hive.md:1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 using-hive.md:		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
-using-hive.md:		$subscriptionName = "<SubscriptionName>"
-using-hive.md:		Select-AzureSubscription $subscriptionName
-using-hive.md:		$subscriptionName = "<SubscriptionName>"
-using-hive.md:		Select-AzureSubscription -SubscriptionName $subscriptionName
+using-hive.md: 	![HDI.HIVE.PowerShell][image-hdi-hive-powershell]
+using-hive.md:1. Open a Windows Azure PowerShell console window.
+using-hive.md:* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+using-hive.md:* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+using-hive.md:[azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
+using-hive.md:[azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
+using-hive.md:[azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
+using-hive.md:[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
+using-hive.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+using-hive.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/
+using-hive.md:[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
+using-hive.md:[image-hdi-hive-powershell]: ../media/HDI.HIVE.PowerShell.png 
+using-mapreduce.md:<properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Use MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+using-mapreduce.md:This sample topic shows how to run a MapReduce program that counts word occurences in a text with Windows Azure HDinsight using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on a Hadoop cluster created and managed by HDinsight. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
+using-mapreduce.md:The JAR file that contains the files needed by Windows Azure HDInsight to deploy the application to its Hadoop cluster is a .zip file and is available for download.
+using-mapreduce.md:* How to use Windows Azure PowerShell to run a MapReduce program on Windows Azure HDInsight that analyzes data contained in a file.
+using-mapreduce.md:- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+using-mapreduce.md:- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure HDInsight PowerShell](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+using-mapreduce.md:1. [Run the Sample with Windows Azure PowerShell](#run-sample)	
+using-mapreduce.md:<h2><a id="run-sample"></a>Run the Sample with Windows Azure PowerShell</h2>
+using-mapreduce.md:1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure HDInsight PowerShell][hdinsight-configure-powershell].
 using-mapreduce.md:		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
-using-mapreduce.md:		Select-AzureSubscription $subscriptionName
+using-mapreduce.md:1. Open **Windows Azure PowerShell**.
 using-mapreduce.md:		$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
-using-mapreduce.md:		### Select the current subscription
-using-mapreduce.md:		Select-AzureSubscription $subscriptionName
-using-mapreduce.md:	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
-using-pig.md:		$subscriptionName = "<SubscriptionName>"
-using-pig.md:		Select-AzureSubscription $subscriptionName
+using-mapreduce.md:		$storageAccountName = "<StorageAccountName>"   ### Windows Azure storage account name
+using-mapreduce.md:		The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+using-mapreduce.md:3. Run the following commands to create a Windows Azure storage context object:
+using-mapreduce.md:* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
+using-mapreduce.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+using-mapreduce.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+using-mapreduce.md:[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
+using-mapreduce.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/configure-powershell-for-hdinsight/
+using-mapreduce.md:[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+using-mapreduce.md:[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
+using-pig.md:<properties linkid="manage-services-hdinsight-using-pig" urlDisplayName="Use Pig" pageTitle="Use Pig with HDInsight - Windows Azure tutorial" metaKeywords="using pig, pig hdinsight, pig azure, powershell" metaDescription="Learn how to use Pig as an alternative to Java to writing scripts to execute a MapReduce job on big data in HDInsight. " metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+using-pig.md:* A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+using-pig.md:* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+using-pig.md:* [Upload data files to Windows Azure Blob storage](#uploaddata)
+using-pig.md:* [Run Pig Latin using PowerShell](#powershell)
+using-pig.md:HDInsight uses a Windows Azure Blob storage container as the default file system.  For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload data to HDInsight][hdinsight-upload-data].
+using-pig.md:##<a id="powershell"></a>Run Pig Latin using PowerShell
+using-pig.md:This section provides instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] and [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+using-pig.md:1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+using-pig.md:	![HDI.Pig.PowerShell][image-hdi-pig-powershell]
+using-pig.md:* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+using-pig.md:[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
+using-pig.md:[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+using-pig.md:[image-hdi-pig-powershell]: ../media/hdi.pig.powershell.png  
+versioning-hdinsight.md:<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What version of Hadoop is in Windows Azure HDInsight?" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" metaDescription="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+versioning-hdinsight.md:#What version of Hadoop is in Windows Azure HDInsight?
+versioning-hdinsight.md:The default cluster version used by [Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) is 2.1. It is based on the Hortonworks Data Platform version 1.3.0 and provides Hadoop services with the component versions itemized in the following table:
+versioning-hdinsight.md:[Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
+versioning-hdinsight.md:If you use the **Quick Create** option, you will get the 2.1 version. If you use the **Custom Create** option from the Windows Azure Portal, you can choose the version of the cluster you will deploy from the HDInsight Version drop-down on the **Cluster Details** page.
+versioning-hdinsight.md:- Formula 2: Add 90 days to the date HDInsight version X+1 (the subsequent version after X) is made available in the Windows Azure Management Portal.
+versioning-hdinsight.md:* The default Hadoop distribution in Windows Azure HDInsight version 2.1 is based on the [Hortonworks Data Platform 1.3.0][hdp-1-3-0]. 
+versioning-hdinsight.md:* The Hadoop distribution in Windows Azure HDInsight version 1.6 is based on the [Hortonworks Data Platform 1.1.0][hdp-1-1-0]. 

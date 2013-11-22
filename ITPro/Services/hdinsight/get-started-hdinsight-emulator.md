@@ -23,7 +23,7 @@ Before you begin this tutorial, you must have the following:
 	- Windows 8 
 	- Windows Server 2012.
 
-- Install and configure HDInsight PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell]. You only need to follow the first two sections of the article to install Windows Azure PowerShell and HDInsight PowerShell.
+- Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. You only need to follow the first two sections of the article to install Windows Azure PowerShell and HDInsight PowerShell.
 
 ## In this tutorial
 
