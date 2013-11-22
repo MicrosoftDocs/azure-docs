@@ -164,7 +164,7 @@ It can take several minutes to provision a cluster.  When the provision process 
 
 
 ##<a id="powershell"></a> Using Windows Azure PowerShell
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 The following procedures are needed to provision an HDInsight cluster using PowerShell:
 
