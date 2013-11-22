@@ -227,7 +227,7 @@ Once you have the storage account and the blob container prepared, you are ready
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
 		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -Subscription $subscriptionName -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+		New-AzureHDInsightCluster -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
 	It can take several minutes before the cluster provision completes.
 
@@ -272,13 +272,13 @@ You can also provision cluster and configure it to connect to more than one Azur
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 |
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore |
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore |
-		        New-AzureHDInsightCluster -Subscription $subscriptionName  -Name $clusterName -Location $location
+		        New-AzureHDInsightCluster -Name $clusterName -Location $location
 
 **To list HDInsight clusters**
 
 - Run the following commands from a Windows Azure PowerShell window:
 
-		Get-AzureHDInsightCluster -Subscription <SubscriptionName> -Clustername <ClusterName>
+		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
 
