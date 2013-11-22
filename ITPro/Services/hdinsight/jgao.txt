@@ -1,0 +1,137 @@
+administer-hdinsight-using-command-line.md:- **Windows Azure subscription**. Windows Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+administer-hdinsight-using-command-line.md:Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publishsettings once.
+administer-hdinsight-using-powershell.md:- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+administer-hdinsight-using-powershell.md:	# List storage accounts for the current subscription
+administer-hdinsight-using-powershell.md:Once you have the storage account and the blob container prepared, you are ready to create a cluster. In this version you need to explicitly specify subscription information and certificate for cmdlets.   
+administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"
+administer-hdinsight-using-powershell.md:	Select-AzureSubscription $subscriptionName
+administer-hdinsight-using-powershell.md:**To list all clusters in the current subscription**
+administer-hdinsight-using-powershell.md:**To show details of the specific cluster in the current subscription**
+administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"   
+administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"       
+administer-hdinsight-using-powershell.md:	Select-AzureSubscription $subscriptionName
+administer-hdinsight-using-powershell.md:	$subscriptionName = "<SubscriptionName>"     
+administer-hdinsight-using-powershell.md:	Select-AzureSubscription -SubscriptionName $subscriptionName
+administer-hdinsight.md:- **Windows Azure subscription**. Windows Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+configure-powershell-for-hdinsight.md:- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+configure-powershell-for-hdinsight.md:- [Connect to your Windows Azure subscription](#connect)
+configure-powershell-for-hdinsight.md:- [Select Azure subscription](#selectsubscription)
+configure-powershell-for-hdinsight.md:##<a id="connect"></a>Connect to your subscription
+configure-powershell-for-hdinsight.md:The cmdlets require your Windows Azure subscription information so that it can be used to manage your services. This information is provided by downloading and then importing it for use by the cmdlets:
+configure-powershell-for-hdinsight.md:- The **Get-AzurePublishSettingsFile** cmdlet opens a web page on the [Windows Azure Management Portal][azure-management-portal] from which you can download the subscription information. The information is contained in a .publishsettings file.
+configure-powershell-for-hdinsight.md:6. To view the subscription information, type:
+configure-powershell-for-hdinsight.md:<p>If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this process to download a new .publishsettings file, and then import those settings. For information about adding co-administrators to help manage services for a subscription, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx">Add and Remove Co-Administrators for Your Windows Azure Subscriptions</a>.</p> 
+configure-powershell-for-hdinsight.md:##<a id="selectsubscription"></a> Select Azure subscription
+configure-powershell-for-hdinsight.md:When managing your cluster and you have multiple subscriptions, it is advisable to select the default subscription.
+configure-powershell-for-hdinsight.md:The following is a sample script for selecting Azure subscription:
+configure-powershell-for-hdinsight.md:	$subscriptionName = "<SubscriptionName>"
+configure-powershell-for-hdinsight.md:	# Select Azure subscription
+configure-powershell-for-hdinsight.md:	Select-AzureSubscription $subscriptionName
+configure-powershell-for-hdinsight.md:	# Show the current subscription name
+configure-powershell-for-hdinsight.md:	<tr><td>help &lt;cmdlet> -parameter *</td><td>Displays parameter definitions for a cmdlet. <br/>For example, help get-azuresubscription -parameter *</td></tr>
+connect-excel-with-hive-ODBC.md:* You have established a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have created an HDInsight cluster using the HDInsight Service. For instructions on how to do this, see [Getting Started with Windows Azure HDInsight Service][getting-started] 
+connect-excel-with-power-query.md:- A Windows Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+DeployClusterProgrammatically.md:	https://management.core.windows.net/subscription-id/cloudservices/azurehdinsight
+DeployClusterProgrammatically.md:      <Description>HdInsight clusters for subscription ... </Description>
+DeployClusterProgrammatically.md:     https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
+DeployClusterProgrammatically.md:          <SubscriptionId>##subscription##</SubscriptionId>
+DeployClusterProgrammatically.md:    https://management.core.windows.net/<subscriptionId>/cloudservices/azurehdinsight/resources/azurehdinsight/containers/<containerName>
+develop-deploy-hadoop-streaming.md:- Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+develop-deploy-hadoop-streaming.md:		$subscriptionName = "<AzureSubscriptionName>"
+develop-deploy-hadoop-streaming.md:		# Select Azure subscription
+develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
+develop-deploy-hadoop-streaming.md:		$subscriptionName = "<AzureSubscriptionName>"
+develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
+develop-deploy-hadoop-streaming.md:		$subscriptionName = "<AzureSubscriptionName>"
+develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
+develop-deploy-hadoop-streaming.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
+develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
+develop-deploy-hadoop-streaming.md:		New-AzureHDInsightCluster -Subscription $subscriptionName  -Name $clusterName -Location $location -Config $config
+develop-deploy-hadoop-streaming.md:		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Subscription $subscriptionName -JobDefinition $mrJobDef 
+develop-deploy-hadoop-streaming.md:		Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $mrJob -WaitTimeoutInSeconds 3600 
+develop-deploy-hadoop-streaming.md:		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardError 
+develop-deploy-hadoop-streaming.md:		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $mrJob.JobId -StandardOutput
+develop-deploy-hadoop-streaming.md:		Remove-AzureHDInsightCluster -Name $clusterName -Subscription $subscriptionName 
+develop-deploy-hadoop-streaming.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
+develop-deploy-hadoop-streaming.md:		Select-AzureSubscription $subscriptionName
+get-started-hdinsight-emulator.md:2. Click **STORAGE** on the left. You shall see a list of storage accounts under your subscription.
+gettingstarted.md:- A Windows Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+gettingstarted.md:Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
+gettingstarted.md:7. Once the file is imported, you can use the following command to list your subscriptions:
+gettingstarted.md:8. When you have multiple subscriptions, you can use the following command to make a subscription the current subscription:
+gettingstarted.md:		$subscriptionName = "<SubscriptionName>" 
+gettingstarted.md:		Select-AzureSubscription $subscriptionName
+gettingstarted.md:		$subscriptionName = "<SubscriptionName>"       
+gettingstarted.md:		Select-AzureSubscription $subscriptionName
+gettingstarted.md:	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
+hdinsight-error-messages.md:- **Mitigation**: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.
+hdinsight-error-messages.md:- **Mitigation**: Free up resources in your subscription or increase the resources available to the subscription and try to create the cluster again.
+hdinsight-error-messages.md:- **Mitigation**: Re-activate your subscription or get a new valid subscription.
+hdinsight-error-messages.md:- **Mitigation**: Check that your subscription ID is valid and retry the operation. 
+provision-hdinsight-clusters.md:- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+provision-hdinsight-clusters.md:		# List storage accounts for the current subscription
+provision-hdinsight-clusters.md:		$subscriptionName = "<SubscriptionName>"		# The name of the Azure subscription.
+provision-hdinsight-clusters.md:		Select-AzureSubscription $subscriptionName
+provision-hdinsight-clusters.md:		$subscriptionName = "<SubscriptionName>"
+provision-hdinsight-clusters.md:		Select-AzureSubscription $subscriptionName
+provision-hdinsight-clusters.md:Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
+provision-hdinsight-clusters.md:        string subscriptionid = "<WindowsAzureSubscriptionID>";
+provision-hdinsight-clusters.md:        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
+sample-10gb-graysort.md:		# Provide the Windows Azure subscription name and the HDInsight cluster name.
+sample-10gb-graysort.md:		$subscriptionName = "myAzureSubscriptionName"   
+sample-10gb-graysort.md:		Select-AzureSubscription $subscriptionName         
+sample-10gb-graysort.md:		# Provide the Windows Azure subscription name and the HDInsight cluster name.
+sample-10gb-graysort.md:		$subscriptionName = "myAzureSubscriptionName"   
+sample-10gb-graysort.md:		Select-AzureSubscription $subscriptionName        
+sample-10gb-graysort.md:		# Provide the Windows Azure subscription name and the HDInsight cluster name.
+sample-10gb-graysort.md:		$subscriptionName = "myAzureSubscriptionName"   
+sample-10gb-graysort.md:		Select-AzureSubscription $subscriptionName 
+sample-csharp-streaming.md:		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+sample-csharp-streaming.md:		Select-AzureSubscription $subscriptionName
+sample-csharp-streaming.md:		$subscriptionName = "<SubscriptionName>"   
+sample-csharp-streaming.md:		# Select the current subscription
+sample-csharp-streaming.md:		Select-AzureSubscription $subscriptionName
+sample-pi-estimator.md:		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+sample-pi-estimator.md:		Select-AzureSubscription $subscriptionName
+sample-pi-estimator.md:		$piJob | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
+sample-sqoop-import-export.md:You have a Windows Azure Account and have enabled the HDInsight Service for your subscription. You have installed Windows Azure PowerShell and the Powershell tools for Windows Azure HDInsight, and have configured them for use with your account. For instructions on how to do this, see [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+sample-sqoop-import-export.md:3. Select the type of subscription (such as **Pay-As-You-Go**) associated with you account in the **Create Server** window and press **Next**.
+sample-sqoop-import-export.md:10. Return to the **WindowsAzurePlatform** portal page, click your subscription on the left-hand side (**Pay-As-You-Go** in the example below) and select your database (here named wq6xlbyoq0). The AventureWorks2012 should be listed in the **Database Name** column. Select it and press the **Manage** icon at the top of the page.
+sample-wordcount.md:		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+sample-wordcount.md:		Select-AzureSubscription $subscriptionName
+sample-wordcount.md:		$subscriptionName = "<SubscriptionName>"       # Windows Azure subscription name
+sample-wordcount.md:		# Select the current subscription
+sample-wordcount.md:		Select-AzureSubscription $subscriptionName
+sample-wordcount.md:	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
+submit-hadoop-jobs-programmatically.md:		$subscriptionName = "<SubscriptionName>"   
+submit-hadoop-jobs-programmatically.md:	The subscription is the one you used to create the HDInsight cluster. And the HDInsight cluster is the one you want to use to run the MapReduce job.
+submit-hadoop-jobs-programmatically.md:		Select-AzureSubscription $subscriptionName
+submit-hadoop-jobs-programmatically.md:		$subscriptionName = "<SubscriptionName>"       
+submit-hadoop-jobs-programmatically.md:		Select-AzureSubscription $subscriptionName
+submit-hadoop-jobs-programmatically.md:	The Select-AzureSubscription is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
+submit-hadoop-jobs-programmatically.md:		$subscriptionName = "<SubscriptionName>"   
+submit-hadoop-jobs-programmatically.md:3. Run the following commands to select Azure subscription and the cluster to run the Hive job:
+submit-hadoop-jobs-programmatically.md:		Select-AzureSubscription -SubscriptionName $subscriptionName
+submit-hadoop-jobs-programmatically.md:		string subscriptionID = "<Windows Azure subscription ID>";
+submit-hadoop-jobs-programmatically.md:        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+submit-hadoop-jobs-programmatically.md:		string subscriptionID = "<Windows Azure subscription ID>";
+submit-hadoop-jobs-programmatically.md:        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+upload-data.md:		$subscriptionName = "<WindowsAzureSubscriptionName>"
+upload-data.md:		Select-AzureSubscription $subscriptionName
+upload-data.md:	$subscriptionName = "<SubscriptionName>"   
+upload-data.md:	Select-AzureSubscription $subscriptionName
+using-hdinsight-sdk.md:You must have a [Windows Azure subscription][free-trial], and a [Windows Azure Storage Account][create-storage-account] before you can proceed. You must also know your Windows Azure storage account name and account key. For the instructions on how to  get this information, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+using-hive.md:- You must have a **Windows Azure subscription**. Windows Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+using-hive.md:		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
+using-hive.md:		$subscriptionName = "<SubscriptionName>"
+using-hive.md:		Select-AzureSubscription $subscriptionName
+using-hive.md:		$subscriptionName = "<SubscriptionName>"
+using-hive.md:		Select-AzureSubscription -SubscriptionName $subscriptionName
+using-mapreduce.md:		$subscriptionName = "<SubscriptionName>"   ### Windows Azure subscription name
+using-mapreduce.md:		Select-AzureSubscription $subscriptionName
+using-mapreduce.md:		$subscriptionName = "<SubscriptionName>"       ### Windows Azure subscription name
+using-mapreduce.md:		### Select the current subscription
+using-mapreduce.md:		Select-AzureSubscription $subscriptionName
+using-mapreduce.md:	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
+using-pig.md:		$subscriptionName = "<SubscriptionName>"
+using-pig.md:		Select-AzureSubscription $subscriptionName

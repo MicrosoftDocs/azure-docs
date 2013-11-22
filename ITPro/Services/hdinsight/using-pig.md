@@ -226,17 +226,18 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 4. Run the following script to submit the Pig job:
 		
 		# Submit the Pig job
-		$pigJob = Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName -JobDefinition $pigJobDefinition 
+		Select-AzureSubscription $subscriptionName
+		$pigJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $pigJobDefinition 
 
 5. Run the following script to wait for the Pig job to complete:		
 
 		# Wait for the Pig job to complete
-		$Wait-AzureHDInsightJob -Subscription $subscriptionName -Job $pigJob -WaitTimeoutInSeconds 3600
+		$Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
 
 6. Run the following script to print the Pig job output:
 		
 		# Print the standard error and the standard output of the Pig job.
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionname -JobId $pigJob.JobId -StandardOutput
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $pigJob.JobId -StandardOutput
 
 	![HDI.Pig.PowerShell][image-hdi-pig-powershell]
 
