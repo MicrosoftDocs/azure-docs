@@ -15,7 +15,7 @@ The following table lists the throttling source and thresholds:
 <table border="1">
 
 <tr bgcolor="FAF9F9">
-        <td>-</td>
+        <th> </th>
         <td><strong>Description</strong></td>
         <td><strong>Low Threshold</strong></td>
         <td><strong>High Threshold</strong></td>
@@ -53,22 +53,23 @@ A pipeline pulls messages from an external FTP source. The role instance doing t
 - A response is sent to the client so the client can resubmit the message.
 - You must wait until the throttling is resolved. Specifically, you must wait until the low threshold is reached.
 
-### Important notes
+## Important notes
 - Throttling cannot be disabled.
 - Throttling thresholds cannot be modified.
 - Throttling is implemented system-wide.
+- The Azure SQL Database Server also has built-in throttling.
 
-## Next
+## Additional Windows Azure BizTalk Services topics
 
-[BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-
-Additional Windows Azure BizTalk Services topics:
-
--  [Installing the Windows Azure BizTalk Services SDK - June 2013 Preview](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+-  [Installing the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [Tutorials: Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 -  [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 -  [Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
--  [Business to Business Messaging](http://go.microsoft.com/fwlink/p/?LinkID=303670)<br/>
--  [Rich Messaging Endpoints](http://go.microsoft.com/fwlink/p/?LinkID=303671)<br/>
--  [Message Transforms](http://go.microsoft.com/fwlink/p/?LinkID=303672)<br/>
--  [BizTalk Adapter Service](http://go.microsoft.com/fwlink/p/?LinkID=303673)<br/>
+
+## See Also
+- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>

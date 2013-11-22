@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" metaDescription="Learn how to programmatically submit Hadoop jobs using the Windows Azure HDInsight Service." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" metaDescription="Learn how to programmatically submit Hadoop jobs to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Submit Hadoop jobs programmatically
 
@@ -9,7 +9,7 @@ In this article, you will learn how to submit MapReduce and Hive jobs using Powe
 Before you begin this article, you must have the following:
 
 * A Windows Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+* Install and configure HDInsight PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 
 ##In this article
@@ -27,7 +27,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 
 **To run the word count MapReduce program using PowerShell**
 
-1.	Open **Windows Azure PowerShell**. For instructions on opening the Windows Azure PowerShell console window, see the [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1.	Open **Windows Azure PowerShell**. For instructions on opening the Windows Azure PowerShell console window, see the [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 3. Set these two variables by running the following PowerShell commands:
 		
@@ -250,7 +250,7 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 **To run a Hive job using PowerShell**
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 2. Set the first two variables in the following commands, and then run the commands:
 		
@@ -263,11 +263,13 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 3. Run the following commands to select Azure subscription and the cluster to run the Hive job:
 
 		Select-AzureSubscription -SubscriptionName $subscriptionName
-		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
 
 4. Submit the hive job:
 
-		Invoke-Hive "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+		Use-AzureHDInsightCluster $clusterName -Subscription (Get-AzureSubscription -Current).SubscriptionId
+		Invoke-Hive -Query "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+
+	You can use the -File switch to specify a HiveQL script file on HDFS.
 
 For more information about Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
@@ -523,6 +525,8 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         };
 
 	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+
+	You can also use the File parameter to specify a HiveQL script file on HDFS.
 		
 9. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	
@@ -567,13 +571,14 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
+* [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
 * [Use Hive with HDInsight][hdinsight-hive]
-
+* [Use Pig with HDInsight][hdinsight-pig]
 
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-using-hdinsight/
+[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
 [hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 
@@ -581,6 +586,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 
 [image-hdi-gettingstarted-runmrjob]: ../media/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ../media/HDI.GettingStarted.MRJobOutput.png

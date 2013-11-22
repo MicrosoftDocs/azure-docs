@@ -41,11 +41,11 @@ For more information, see [AzCopy – Uploading/Downloading files for Windows Az
 
 ##<a id="powershell"></a>Upload data to Blob storage using Windows Azure PowerShell##
 
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 
 **To upload a local file to Blob storage**
 
-1. Run Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Run Windows Azure PowerShell console window as instructed in [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
 2. Set the values of the first five variables in the following script:
 
 		$subscriptionName = "<WindowsAzureSubscriptionName>"

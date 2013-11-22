@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using using the command line interface - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to perform administrative tasks for the HDInsight service using the command-line interface." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using using the Cross-Platform Command-Line Interface | Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to use the Cross-Platform Command-Line Interface to manage HDInsight clusters on any platform that supports Node.js, including Windows, Mac, and Linux." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Administer HDInsight using the Cross-platform Command-line Interface
 
-In this article, you learn how to using the Cross-platform Command-line Interface to manage HDInsight clusters. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
+In this article, you learn how to use the Cross-Platform Command-Line Interface to manage HDInsight clusters. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. 
 
 The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 
@@ -202,7 +202,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 
 * [Administer HDInsight using management portal][hdinsight-admin]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
-* [Getting started with Windows Azure HDInsight Service][hdinsight-getting-started]
+* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
 * [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]
 * [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]
 
