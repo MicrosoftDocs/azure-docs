@@ -2,13 +2,8 @@
 
 
 # Get started with Notification Hubs
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
-    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS" class="current">iOS</a>
-</div>	
 
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS" class="current">iOS</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>	
 
 This topic shows you how to use Windows Azure Notification Hubs to send push notifications to an iOS application. 
 In this tutorial you create a blank iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
@@ -242,7 +237,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 6. In the same file, add the following method:
 
-	    (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
+	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {    
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:
 		                              @"<connection string>" notificationHubPath:@"mynh"];
 		    
@@ -259,7 +254,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
 		    NSLog(@"%@", userInfo);
 		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		    [[userInfo objectForKey:@"aps"] valueForKey:@”alert”] delegate:nil cancelButtonTitle:
+		    [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle:
 		    @"OK" otherButtonTitles:nil, nil];
 		    [alert show];
 		}

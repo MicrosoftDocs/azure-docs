@@ -4,7 +4,7 @@
 
 # How to use the iOS client library for Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 This guide shows you how to perform common scenarios using the iOS client for Windows Azure Mobile Services. The samples are written in objective-C and require the [Mobile Services SDK].  This tutorial also requires the [iOS SDK]. The scenarios covered include querying for data; inserting, updating, and deleting data; authenticating users; and handling errors. If you are new to Mobile Services, you should consider first completing the [Mobile Services quickstart][Get started with Mobile Services]. The quickstart tutorial helps you configure your account and create your first mobile service.
@@ -109,7 +109,7 @@ The following predicate returns only the incomplete items in our ToDoItem table:
 	
 A single record can be retrieved by using its Id.
 
-	[table readWithId:[NSNumber numberWithInt:1] completion:^(NSDictionary *item, NSError *error) {
+	[table readWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(NSDictionary *item, NSError *error) {
 		//your code here
 	}];
 
@@ -178,7 +178,7 @@ In the following example, a simple function requests 20 records from the server 
 
 To limit which field are returned from your query, simply specify the names of the fields you want in the **selectFields** property. The following example returns only the text and completed fields:
 
-	query.selectFields = @["text", @"completed"];
+	query.selectFields = @[@"text", @"completed"];
 
 #### <a name="parameters"></a>Specifying additional querystring parameters
 
@@ -196,7 +196,7 @@ For more information, see [How to: access custom parameters].
 
 To insert a new row into the table, you create a new [NSDictionary object] and pass that to the insert function. The following code inserts a new todo item into the table:
 
-	NSDictionary *newItem = @{"text": "my new item", @"complete" : @NO};
+	NSDictionary *newItem = @{@"text": @"my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 		// The result contains the new item that was inserted,
 		// depending on your server scripts it may have additional or modified 
@@ -205,7 +205,7 @@ To insert a new row into the table, you create a new [NSDictionary object] and p
 
 Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
 
-	NSDictionary *newItem = @{"id: "37BBF396-11F0-4B39-85C8-B319C729AF6D", "text": "my new item", @"complete" : @NO};
+	NSDictionary *newItem = @{@"id": @"myemail@emaildomain.com", @"text": @"my new item", @"complete" : @NO};
 	[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 		// The result contains the new item that was inserted,
 		// depending on your server scripts it may have additional or modified 
@@ -220,9 +220,10 @@ Supporting string ids provides the following advantages to developers
 + Records are easier to merge from different tables or databases.
 + Ids values can integrate better with an application's logic.
 
-You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's id.
 
-	//if id is not assigned by application, let's generate a new one
+	//Example of generating an id. This is not required since Mobile Services
+	//will generate an id if one is not passed in.
 	item.id = item.id || newGuid();
 	request.execute();
 
@@ -241,7 +242,7 @@ The value for the `id` must be unique and it must not include characters from th
 +  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  The ids "." and ".."
 
-You can alternatively use integer ids for your tables. In order to use an integer id you must create your table with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
 
 When dynamic schema is enabled, Mobile Services automatically generates new columns based on the fields of the object in the insert or update request. For more information, see [Dynamic schema].
 
@@ -250,27 +251,27 @@ When dynamic schema is enabled, Mobile Services automatically generates new colu
 Update an existing object by modifying an item returned from a previous query and then calling the **update** function.
 
 	NSMutableDictionary *item = [self.results.item objectAtIndex:0];
-	[item setObject:@YES forKey:"complete"];
+	[item setObject:@YES forKey:@"complete"];
 	[table update:item completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
 
 When making updates, you only need to supply the field being updated, along with the row ID, as in the following example:
 
-	[table update:@{"id" : "37BBF396-11F0-4B39-85C8-B319C729AF6D", "Complete": Yes} completion:^(NSDictionary *item, NSError *error) {
+	[table update:@{@"id" : @"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete": @Yes} completion:^(NSDictionary *item, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
 	
 	
 To delete an item from the table, simply pass the item to the delete method, as follows:
 
-	[table delete:item completion:^(NSDictionary *item, NSError *error) {
+	[table delete:item completion:^(id itemId, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];
 
 You can also just delete a record using its id directly, as in the following example:
 
-	[table deleteWithId:[NSString @"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(NSDictionary *item, NSError *error) {
+	[table deleteWithId:[@"37BBF396-11F0-4B39-85C8-B319C729AF6D"] completion:^(id itemId, NSError *error) {
 		//handle errors or any additional logic as needed
 	}];	
 
@@ -299,7 +300,7 @@ You can also set permissions on tables to restrict access for specific operation
 
 ### Server-managed login
 
-Here is an example of how to login using Facebook. This code could be called in your controller's ViewDidLoad or manually triggered from a UIButton. This will display a standard UI for logging into the identity provider.
+Here is an example of how to login using a Microsoft Account. This code could be called in your controller's ViewDidLoad or manually triggered from a UIButton. This will display a standard UI for logging into the identity provider.
 
 	[client loginWithProvider:@"MicrosoftAccount" controller:self animated:YES
 		completion:^(MSUser *user, NSError *error) {

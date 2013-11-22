@@ -29,14 +29,10 @@ This guide shows you how to perform common scenarios using the Xamarin Component
 - [How to: Insert data into a mobile service]
 - [How to: Modify data in a mobile service]
 - [How to: Delete data in a mobile service]
-- [How to: Bind data to user interface in a mobile service]
 - [How to: Authenticate users]
 - [How to: Handle errors]
 - [How to: Work with untyped data]
 - [How to: Design unit tests]
-- [How to: Customize the client]
-	- [Customize request headers]
-	- [Customize serialization]
 - [Next steps]
 	
 <div chunk="../chunks/mobile-services-concepts.md" />
