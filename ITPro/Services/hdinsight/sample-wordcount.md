@@ -50,14 +50,15 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 6. Run the following command to submit the MapReduce job:
 
 		# Submit the job
-		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName  -Subscription $subscriptionName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
+		Select-AzureSubscription $subscriptionName
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600  
 
 	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job.
 
 8. Run the following command to check any errors with running the MapReduce job:	
 	
 		# Get the job output
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $wordCountJob.JobId -StandardError 
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError 
 		
 **To retrieve the results of the MapReduce job**
 

@@ -54,7 +54,8 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 5. Run the following commands to submit the MapReduce job and wait for the job to complete:
 
 		# Run the Pi Estimator MapReduce job.
-		$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName –Subscription $subscriptionName
+		Select-AzureSubscription $subscriptionName
+		$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
 	
 		# Wait for the job to complete.  
 		$piJob | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
@@ -62,7 +63,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 6. Run the following command to retrieve the MapReduce job standard output:
 
 		# Print output and standard error file of the MapReduce job
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $piJob.JobId -StandardOutput
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
 
 	For comparison, the first 10 decimal places of Pi are 3.1415926535
 
