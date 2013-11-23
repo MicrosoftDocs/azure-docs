@@ -36,9 +36,9 @@ The Table service contains the following components:
 
 -   **Table**: A table is a collection of entities. Tables don't enforce
     a schema on entities, which means a single table can contain
-    entities that have different sets of properties. An account can
-    contain many tables, the size of which is only limited by the 100TB
-    storage account limit.
+    entities that have different sets of properties. The number of tables that a 
+	storage account can contain is limited only by the 
+    storage account capacity limit.
 
 -   **Entity**: An entity is a set of properties, similar to a database
     row. An entity can be up to 1MB in size.
