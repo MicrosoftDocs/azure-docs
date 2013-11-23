@@ -26,9 +26,7 @@ The Queue service contains the following components:
     http://myaccount.queue.core.windows.net/imagesToDownload
 
 -   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
+    through a storage account. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 -   **Queue:** A queue contains a set of messages. All messages must be
     in a queue.
