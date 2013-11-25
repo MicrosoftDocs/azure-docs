@@ -3,7 +3,7 @@
 
 # Get started using Windows Azure HDInsight
 
-HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Windows Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data. HDInsight uses Windows Azure Blob storage as the default file system. 
+HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Windows Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Windows Azure Blob storage. 
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, run a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
@@ -264,7 +264,9 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 		Select-AzureSubscription $subscriptionName
 		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
 		
-	In addition to the MapReduce job definition, you also provide the HDInsight cluster name where you want to run the MapReduce job. 
+	In addition to the MapReduce job definition, you must also provide the HDInsight cluster name where you want to run the MapReduce job. 
+
+	The *Start-AzureHDInsightJob* is an asynchroized call.  To check the completion of the job, use the *Wait-AzureHDInsightJob* cmdlet.
 
 6. Run the following command to check the completion of the MapReduce job:
 
@@ -398,6 +400,9 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Upload data to HDInsight][hdinsight-upload-data]
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
+- [Develop and deploy Hadoop streaming jobs to HDInsight][hdinsight-develop-deploy-streaming]
+
+
 
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
@@ -409,6 +414,9 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
+[hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
+
+
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
