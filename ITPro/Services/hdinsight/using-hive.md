@@ -12,7 +12,7 @@
 
 - You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Windows Azure portal, see [Get started with Windows Azure HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
 
-- You must have installed **Windows Azure PowerShell** and the **HDInsight PowerShell Tools**, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+- You must have installed **Windows Azure PowerShell**, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 **Estimated time to complete:** 30 minutes
 
@@ -114,7 +114,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 **To run the Hive queries using Start-AzureHDInsightJob**
 
-1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
+1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 2. Set the variables in the following script and run it:
 
 		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.

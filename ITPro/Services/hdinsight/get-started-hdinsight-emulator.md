@@ -13,6 +13,8 @@ HDInsight Emulator provides a local development environment for the Windows Azur
 <p>The HDInsight Emulator can use only a single node deployment. </p> 
 </div>
 
+For a tutorial using HDInsight, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
+
 **Prerequisites**	
 Before you begin this tutorial, you must have the following:
 
@@ -23,7 +25,7 @@ Before you begin this tutorial, you must have the following:
 	- Windows 8 
 	- Windows Server 2012.
 
-- Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. You only need to follow the first two sections of the article to install Windows Azure PowerShell and HDInsight PowerShell.
+- Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. 
 
 ## In this tutorial
 
@@ -587,10 +589,10 @@ For more information for submitting Hadoop jobs, see [Submit Hadoop jobs program
 ##<a name="nextsteps"></a> Next steps
 In this tutorial, you have an HDInsight Emulator installed, and have ran some Hadoop jobs. To learn more, see the following articles:
 
-- Additional installation issues for the HDInsight Emulator may be found in the [Release Notes](https://gettingstarted.hadooponazure.com/releaseNotes.html).
-- Microsoft HDInsight feature suggestions may be made on the [Feature Voting](http://hdinsight.uservoice.com/forums/174476-microsoft-hdinsight-feature-suggestions) page.
-- There is a forum for asking questions and discussing issues at the  [MSDN forum for discussing HDInsight for Windows and Windows Azure](http://social.msdn.microsoft.com/Forums/en-US/hdinsight).
-- Microsoft Windows Azure HDInsight articles can be found at [www.windowsazure.com](http://www.windowsazure.com) by searching the keyword *hdinsight*.
+- [Get started using Windows Azure HDInsight][hdinsight-get-started]
+- [Develop and deploy Hadoop streaming jobs to HDInsight][hdinsight-develop-deploy-streaming]
+- [HDInsight emulator release notes](https://gettingstarted.hadooponazure.com/releaseNotes.html)
+- [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
 
 [microsoft-web-platform-installer-4.6]: http://www.microsoft.com/web/downloads/platform.aspx
 
@@ -606,5 +608,7 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+[hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
 
 [image-hdi-emulator-services]: ../media/HDI.Emulator.Services.png 
