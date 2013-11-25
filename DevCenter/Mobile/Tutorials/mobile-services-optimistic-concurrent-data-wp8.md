@@ -19,11 +19,18 @@ This tutorial requires the following
 + Microsoft Visual Studio 2012 Express for Windows Phone 8 or later.
 + [Windows Phone 8 SDK] running on Windows 8. 
 + [Windows Azure Account]
++ This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
++ Windows Azure Mobile Services NuGet Package 1.1.0 or later. To get the latest version, follow these steps below:
+	1. In Visual Studio, open the project and right-click the project in Solution Explorer then click **Manage Nuget Packages**. 
+
+		![][13]
+
+	2. Expand **Online** and click **Microsoft and .NET**. In the search text box enter **Windows Azure Mobile Services**. Click **Install** on the **Windows Azure Mobile Services** NuGet Package.
+
+		![][14]
 
 
-
-
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+ 
 
 <h2><a name="uiupdate"></a><span class="short-header">Update the UI</span>Update the application to allow updates</h2>
 
@@ -311,6 +318,8 @@ Once you have completed the data series, you can also try one of the following W
 [10]: ../Media/mobile-oc-apps-insync-wp8.png
 [11]: ../Media/mobile-oc-apps-complete-checkbox-wp8.png
 [12]: ../Media/mobile-oc-apps-already-completed-wp8.png
+[13]: ../Media/mobile-manage-nuget-packages-VS.png
+[14]: ../Media/mobile-manage-nuget-packages-dialog.png
 
 
 <!-- URLs. -->

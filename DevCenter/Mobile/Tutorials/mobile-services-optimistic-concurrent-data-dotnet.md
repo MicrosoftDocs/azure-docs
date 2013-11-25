@@ -6,7 +6,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/optimistic-concurrent-data-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/optimistic-concurrent-data-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
-This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Store app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.
+This tutorial is intended to help you better understand how to handle conflicts that occur when two or more clients write to the same database record in a Windows Store app. Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Windows Azure Mobile Services provides support for detecting and resolving these conflicts. This topic walks you through the steps that allow you to handle database write conflicts on both the server and in your application.
 
 In this tutorial you will add functionality to the quickstart app to handle contentions that occur when updating the TodoItem database. This tutorial walks you through these basic steps:
 
@@ -19,13 +19,19 @@ In this tutorial you will add functionality to the quickstart app to handle cont
 This tutorial requires the following
 
 + Microsoft Visual Studio 2012 Express for Windows or later.
-+ The Mobile Services quickstart application downloaded in the [Get started with Mobile Services] tutorial. 
++ This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 + [Windows Azure Account]
++ Windows Azure Mobile Services NuGet Package 1.1.0 or later. To get the latest version, follow these steps below:
+	1. In Visual Studio, open the project and right-click the project in Solution Explorer then click **Manage Nuget Packages**. 
+
+		![][19]
+
+	2. Expand **Online** and click **Microsoft and .NET**. In the search text box enter **Windows Azure Mobile Services**. Click **Install** on the **Windows Azure Mobile Services** NuGet Package.
+
+		![][20]
 
 
-
-
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+ 
 
 <h2><a name="uiupdate"></a><span class="short-header">Update the UI</span>Update the application to allow updates</h2>
 
@@ -363,6 +369,8 @@ Once you have completed the data series, you can also try one of the following W
 [16]: ../Media/Mobile-oc-store-checkbox.png
 [17]: ../Media/Mobile-oc-store-2-items.png
 [18]: ../Media/Mobile-oc-store-already-complete.png
+[19]: ../Media/mobile-manage-nuget-packages-VS.png
+[20]: ../Media/mobile-manage-nuget-packages-dialog.png
 
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
