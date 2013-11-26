@@ -12,7 +12,15 @@ You can attach a data disk to a virtual machine to store application data. A dat
 
 You can upload and attach a data disk that already contains data to the virtual machine, or you can attach an empty disk to the machine. The virtual machine is not stopped to add the disk. You are limited in the number of disks that you can attach to a virtual machine based on the size of the machine. The following table lists the number of attached disks that are allowed for each size of virtual machine. For more information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
 
-For more information about using data disks, see [Manage disks and images] [].
+**Data Disk vs. Resource Disk**  
+Data Disks reside on Windows Azure Storage and can be used for persistent storage of files and application data.
+
+Each virtual machine created also has a temporary local *Resource Disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and temporary storage of data. It is also used to store page or swap files for the operating system.
+
+On Windows, the Resource Disk is labeled as the **D:** drive.  On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
+
+For more information about using data disks, see [Manage disks and images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+
 
 <h2><a id="attachexisting"></a>How to: Attach an existing disk</h2>
 
