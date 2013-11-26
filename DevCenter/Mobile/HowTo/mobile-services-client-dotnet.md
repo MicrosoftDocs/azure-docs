@@ -718,4 +718,4 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
-[Optimistic Concurrency Tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/optimistic-concurrent-data-dotnet/
+[Optimistic Concurrency Tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
