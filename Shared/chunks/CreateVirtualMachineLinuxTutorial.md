@@ -96,7 +96,7 @@ Data Disks reside on Windows Azure Storage and can be used for persistent storag
 
 Each virtual machine created also has a temporary local *Resource Disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and temporary storage of data. It is also used to store page or swap files for the operating system.
 
-On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
+On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
 
 
 1. If you have not already done so, sign in to the Windows Azure Management Portal.
