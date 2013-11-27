@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy a Hadoop streaming program - Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, hadoop streaming, streaming" metaDescription="Learn how to develop and deploy a C# Hadoop streaming program." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# Develop and deploy a Hadoop streaming job to HDInsight
+# Develop and deploy Hadoop streaming jobs to HDInsight
 Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Windows Azure HDInsight, and to displaying the result on Excel.
 
 **Prerequisites:**
@@ -8,7 +8,7 @@ Hadoop provides a streaming API to MapReduce that enables you to write map and r
 Before you begin this tutorial, you must have the following:
 
 - Install Windows Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
-- Install Windows Azure HDInsight PowerShell on the emulator computer. For instructions, see [Install and configure Windows Azure HDInsight PowerShell][hdinsight-powershell]
+- Install Windows Azure PowerShell on the emulator computer. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]
 - Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
@@ -220,7 +220,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory.
 
 **To run the MapReduce job using HDInsight PowerShell**
 
-1. Open Windows Azure PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-powershell]. 
+1. Open Windows Azure PowerShell. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]. 
 3. Run the following commands to set variables:
 
 		$clusterName = "http://localhost:50111"
