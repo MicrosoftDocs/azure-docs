@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Windows Azure Mobile Services" writer="glenga" metaKeywords="" Description="Learn how to get started using data with Windows Azure Mobile Services." metaCanonical="" services="storage" authors="jemash" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Windows Azure Mobile Services" writer="glenga" metaKeywords="" description="Learn how to get started using data with Windows Azure Mobile Services." metaCanonical="" services="storage" authors="jemash" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" />
 
 
 # Get started with data in Mobile Services JEMASH TEST FOR CHUNK
