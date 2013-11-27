@@ -9,8 +9,8 @@
 The Windows Azure Linux Agent (waagent) manages virtual machine interaction with the Windows Azure Fabric Controller. It provides the following functionality for Linux IaaS deployments:
 
 * Image Provisioning
-  - Creation of a user account.
-  - Configuring SSH authentication types.
+  - Creation of a user account
+  - Configuring SSH authentication types
   - Deployment of SSH public keys and key pairs
   - Setting the host name
   - Publishing the host name to the platform DNS
@@ -27,36 +27,59 @@ The Windows Azure Linux Agent (waagent) manages virtual machine interaction with
   - Configuring SCSI timeouts for the root device (which could be remote)
 * Diagnostics
   - Console redirection to the serial port
+* SCVMM Deployments
+    - Detect and bootstrap the VMM agent for Linux when running in a System
+      Center Virtual Machine Manager 2012 R2 environment
 
-The information flow from the platform to the agent occurs via two channels. A TCP endpoint exposing a REST API and a boot-time attached DVD for IaaS deployments. The DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs. The deployment configuration and topology are obtained over the REST API.
+
+The information flow from the platform to the agent occurs via two channels:
+
+* A boot-time attached DVD for IaaS deployments.
+    This DVD includes an OVF-compliant configuration file that includes all
+    provisioning information other than the actual SSH keypairs.
+* A TCP endpoint exposing a REST API used to obtain deployment and topology
+    configuration.
+
 ###Obtaining the Linux Agent
 You can obtain the Latest Linux Agent directly from:
 
-- [The different Distribution providers endorsing Linux on Azure](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/)
-- or from the [Github Open Source Repository for the Windows Azure Linux Agent](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)
+- [The different Distribution providers endorsing Linux on Azure](http://support.microsoft.com/kb/2805216)
+- or from the [Github Open Source Repository for the Windows Azure Linux Agent](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###Supported Linux Distributions
-- CentOS 6.0+
-- Ubuntu 12.04+- Suse (SLES) 11SP2+
-- Open Suse 12.1+
+* CentOS 6.2+
+* Debian 7.0+
+* Ubuntu 12.04+
+* openSUSE 12.3+
+* SLES 11 SP2+
+* Oracle Linux 6.4+
+
+Other Supported Systems:
+
+* FreeBSD 9+ (WALinuxAgent v2.0.0+)
+
 
 ###Requirements
 
 Waagent depends on some system packages in order to function properly:
 
-- Python 2.4+
-- Openssl 1.0+
-- Openssh 5.3+
-- Filesystem utilities: sfdisk, fdisk, mkfs
-- Password tools: chpasswd
-- Text processing tools: sed, grep
+* Python 2.4+
+* Openssl 1.0+
+* Openssh 5.3+
+* Filesystem utilities: sfdisk, fdisk, mkfs
+* Password tools: chpasswd, sudo
+* Text processing tools: sed, grep
+* Network tools: ip-route
 
 ##Installation
 
-Installation using an RPM or a DEB package is preferred. If installing manually,waagent should be copied to /usr/sbin/waagent and installed by running: 
+Installation using an RPM or a DEB package is preferred. If installing manually, waagent should be copied to /usr/sbin/waagent and installed by running: 
 
-	/usr/sbin/waagent -install
+	/usr/sbin/waagent -install -verbose
+
+The agent's log file is kept at /var/log/waagent.log.
+
 
 ##Command Line Options
 
@@ -67,44 +90,53 @@ Installation using an RPM or a DEB package is preferred. If installing manually,
 
 ###Commands
 
-- help: Lists the supported commands and flags.
+- -help: Lists the supported commands and flags.
 
-- install: Checks the system for required dependencies. 
+- -install: Manual installation of the agent
+ * Checks the system for required dependencies
 
- Creates the SysV init script (/etc/init.d/waagent), 
- the logrotate configuration file (/etc/logrotate.d/waagent), 
- and configures the image to run the init script on boot. 
- Writes sample configuration file to /etc/waagent.conf. 
- Any existing configuration file is moved to /etc/waagent.conf.old. 
- Detects kernel version and apply VNUMA workaround if necessary. 
- Moves udev rules that may interfere with networking 
- (/lib/udev/rules.d/75-persistent-net-generator.rules,
-  /etc/udev/rules.d/70-persistent-net.rules) to /var/lib/waagent/.
+ * Creates the SysV init script (/etc/init.d/waagent), the logrotate configuration file (/etc/logrotate.d/waagent and configures the image to run the init script on boot
 
-- uninstall: Unregisters the init script from the system and deletes it. 
- Deletes the logrotate configuration and the waagent config file in 
- /etc/waagent.conf.
+ * Writes sample configuration file to /etc/waagent.conf
 
- Automatic reverting of the VNUMA workaround is not supported – please edit the GRUB configuration files by hand to re-enable NUMA if required. 
- Restores any moved udev rules.
+ * Any existing configuration file is moved to /etc/waagent.conf.old
 
-- deprovision: Attempt to clean the system and make it suitable for 
- re-provisioning. Deletes the following:
-	- All SSH host keys 
-    (if Provisioning.RegenerateSshHostKeyPair is set in the configuration file)
- - Nameserver configuration in /etc/resolv.conf
- - Root password from /etc/shadow 
-    (if Provisioning.DeleteRootPassword is set in the configuration file)
- - Cached DHCP client leases.
- - Resets host name to localhost.localdomain.
- WARNING! This doesn’t guarantee that the image is cleared of all  sensitive information and suitable for redistribution.
+ * Detects kernel version and applies the VNUMA workaround if necessary
 
-- deprovision+user: Everything under deprovision (above) and also deletes  the last provisioned user account and associated data.
+ * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) to /var/lib/waagent/  
 
-- version: Displays the version of waagent
+- -uninstall: Remove waagent and associated files
+ * Unregisters the init script from the system and deletes it
 
-- serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as  the boot console. This ensures that kernel bootup logs are sent to the serial port and made available for debugging.
-- daemon: Run waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent init script.
+ * Deletes the logrotate configuration and the waagent config file in /etc/waagent.conf
+
+ * Restores any moved udev rules that were moved during installation
+
+ * Automatic reverting of the VNUMA workaround is not supported, please edit the GRUB configuration files by hand to re-enable NUMA if required.
+
+- -deprovision: Attempt to clean the system and make it suitable for re-provisioning. This operation deleted the following:
+ * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
+
+ * Nameserver configuration in /etc/resolv.conf
+
+ * Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
+
+ * Cached DHCP client leases
+
+ * Resets host name to localhost.localdomain
+
+ **Warning:** Deprovision does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
+
+- -deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Windows Azure so it may be captured and re-used.
+
+- -version: Displays the version of waagent
+
+- -serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
+   the boot console. This ensures that kernel bootup logs are sent to the
+   serial port and made available for debugging.
+
+- -daemon: Run waagent as a daemon to manage interaction with the platform.
+   This argument is specified to waagent in the waagent init script.
 
 ##Configuration
 
@@ -142,10 +174,7 @@ The special keyword "None" may be used for some string type configuration entrie
 Type: String  
 Default: None
 
-If a path to an executable program is specified, the program is invoked at two events.
-
-1. When the waagent has provisioned the image and the “Ready” state is about to be reported to the Fabric. The argument specified to the program  will be “Ready”. waagent will not wait for the program to return before  continuing.
-2. When the waagent has received a shutdown request from the Fabric and is about to shutdown the virtual machine. The argument specified to the program will be “Shutdown”.   waagent will wait for the program to return before initiating the shutdown process.
+If a path to an executable program is specified, it is invoked when waagent has provisioned the image and the "Ready" state is about to be reported to the Fabric. The argument specified to the program will be "Ready". The agent will not wait for the program to return before continuing.
 
 **Role.ConfigurationConsumer:**
 

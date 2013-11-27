@@ -8,6 +8,9 @@ A virtual machine in Windows Azure runs the operating system that you choose whe
 
 **Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
+**Important**: The Windows Azure platform SLA will be applicable for virtual machines running the Linux OS only when one of the [endorsed distributions](http://support.microsoft.com/kb/2805216) is used with the configuration details as specified in [this article](http://support.microsoft.com/kb/2805216). All Linux distributions that are provided in the Azure Platform Image Gallery are endorsed distributions with the required configuration.
+
+
 ##Prerequisites##
 This article assumes that you have the following items:
 
@@ -31,7 +34,7 @@ NUMA is not supported because of a bug in Linux kernel versions below 2.6.37. Th
 
 The Windows Azure Linux Agent requires that the python-pyasn1 package is installed.
 
-It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409).
+It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409) (many current distributions/kernels may already include this fix).
 
 All of the VHDs must have sizes that are multiples of 1 MB.
 
@@ -44,7 +47,7 @@ This task includes the following steps:
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
-### Prepare the CentOS 6.2 and CentOS 6.3 operating system ###
+### Prepare the CentOS 6.2+ operating system ###
 
 You must complete specific configuration steps in the operating system for the virtual machine to run in Windows Azure.
 
@@ -78,8 +81,10 @@ You must complete specific configuration steps in the operating system for the v
 
 		chkconfig network on
 
-7. Install the drivers for the Linux Integration Services.
-	
+7. CentOS 6.2 or 6.3: Install the drivers for the Linux Integration Services
+
+	**Note:** The step is only valid for CentOS 6.2 and 6.3.  In CentOS 6.4+ the Linux Integration Services are already available in the kernel.
+
 	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from [Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=34603).
 
 	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
@@ -101,7 +106,7 @@ You must complete specific configuration steps in the operating system for the v
 	h) In the Command Prompt window, type the following commands:
 
 		mount /dev/cdrom /media
-		/media/install.sh`
+		/media/install.sh
 		reboot
 
 8. Install python-pyasn1 by running the following command:
@@ -109,87 +114,100 @@ You must complete specific configuration steps in the operating system for the v
 		sudo yum install python-pyasn1
 
 9. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
-> [openlogic]
-> name=CentOS-$releasever - openlogic packages for $basearch
-> baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
-> enabled=1
-> gpgcheck=0
-> 
-> [base]
-> name=CentOS-$releasever - Base
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-> gpgcheck=1
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#released updates
-> [updates]
-> name=CentOS-$releasever - Updates
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-> gpgcheck=1
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#additional packages that may be useful
-> [extras]
-> name=CentOS-$releasever - Extras
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-> gpgcheck=1
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#additional packages that extend functionality of existing packages
-> [centosplus]
-> name=CentOS-$releasever - Plus
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-> gpgcheck=1
-> enabled=0
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#contrib - packages by Centos Users
-> [contrib]
-> name=CentOS-$releasever - Contrib
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
-> gpgcheck=1
-> enabled=0
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+
+		[openlogic]
+		name=CentOS-$releasever - openlogic packages for $basearch
+		baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+		enabled=1
+		gpgcheck=0
+		
+		[base]
+		name=CentOS-$releasever - Base
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#released updates
+		[updates]
+		name=CentOS-$releasever - Updates
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#additional packages that may be useful
+		[extras]
+		name=CentOS-$releasever - Extras
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#additional packages that extend functionality of existing packages
+		[centosplus]
+		name=CentOS-$releasever - Plus
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#contrib - packages by Centos Users
+		[contrib]
+		name=CentOS-$releasever - Contrib
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 10.	Add the following lines to /etc/yum.conf
 
--	http_caching=packages
+		http_caching=packages
+		exclude=kernel*
 
--	exclude=kernel*
-11. Disable the yum module "fastestmirror" by editing the file
-"/etc/yum/pluginconf.d/fastestmirror.conf" and under [main]
+11. Disable the yum module "fastestmirror" by editing the file "/etc/yum/pluginconf.d/fastestmirror.conf", and under [main] type the following
 
--	set enabled=0  
-12.	Clear the current Yum metadata
-You need to clear your current yum metadata:
--	yum clean all
+		set enabled=0
 
+12.	Run the following commend to clear the current yum metadata:
 
-13. Update a Running VM's Kernel by running
+		yum clean all
 
--	For CentOS 6.2 do:
-		-	sudo yum remove kernel-firmware
-		-	sudo yum --disableexcludes=main install kernel-2.6.32-279.14.1.el6.openlogic.x86_64 kernel-firmware-2.6.32-279.14.1.el6.openlogic.x86_64
+13. For CentOS 6.2 and 6.3, update a running VM's kernel by running the following commands
 
--	For CentOS 6.3 do:
-		-		yum install kernel-2.6.32-279.14.1.el6.openlogic.x86_64.rpm
+	For CentOS 6.2, run the following commands:
 
+		sudo yum remove kernel-firmware
+		sudo yum --disableexcludes=all install kernel
 
-14. Ensure that you have modified the kernel boot line to include lines for 
+	For CentOS 6.3+ type the following:
 
--	console=ttyS0 ( this will enable serial console output)
+		sudo yum --disableexcludes=all install kernel
 
--	rootdelay=300
+14. Modify the kernel boot line in grub to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
 
-15. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-16.	Comment out Defaults targetpw in /etc/sudoers
-17.	SSH Server should be included by default
-18.	No SWAP on Host OS DISK should be created 
-	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
-19. Install the Windows Azure Linux Agent by running
--	yum install WALinuxAgent-1.2-1
-20.	Run the following commands to deprovision the virtual machine:
+15. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of 300 seconds or more.
+
+16.	In /etc/sudoers, comment out the following line, if it exists:
+
+		Defaults targetpw
+
+17.	Ensure that the SSH server is installed and configured to start at boot time
+
+18. Install the Windows Azure Linux Agent by running the following command
+
+		yum install WALinuxAgent
+
+19.	Do not create swap space on the OS disk
+
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+20.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
@@ -197,48 +215,59 @@ You need to clear your current yum metadata:
 
 21. Click **Shutdown** in Hyper-V Manager.
 
-### Prepare the Ubunutu 12.04 and 12.10 operating system ###
+
+### Prepare the Ubuntu 12.04+ operating system ###
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3.	Replace the current repositories in your image to use the azure repositories that carry the kernel and agent package that you will need to upgrade the VM.
+3.	Replace the current repositories in your image to use the azure repositories that carry the kernel and agent package that you will need to upgrade the VM.  The steps vary slightly depending on the Ubuntu version.
 
-	The steps for this are different depending on the distribution that you are using.
+	Before editing /etc/apt/sources.list, it is recommended to make a backup
+		sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-	Ubuntu 12.04 and 12.04.1:
-	-	sudo sed -i “s,archive.ubuntu.com,azure.archive.ubuntu.com,g” /etc/apt/sources.list
-	-	sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
-	-	sudo apt-get update
+	Ubuntu 12.04:
+
+		sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+		sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
+		sudo apt-get update
 
 	Ubuntu 12.10:
-	-	sudo sed -i “s,archive.ubuntu.com,azure.archive.ubuntu.com,g” /etc/apt/sources.list
-	-	sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
-	-	sudo apt-get update
 
+		sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+		sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
+		sudo apt-get update
+
+	Ubuntu 13.04+:
+
+		sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
+		sudo apt-get update
 
 4. Update the operating system to the latest kernel by running the following commands : 
 
-		Ubuntu 12.04 and 12.04.1:
-	-	sudo apt-get update
-	-	sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
-	-	(recommended) sudo apt-get dist-upgrade
-	-	sudo reboot
+	Ubuntu 12.04:
+
+		sudo apt-get update
+		sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+		(recommended) sudo apt-get dist-upgrade
+		sudo reboot
 
 	Ubuntu 12.10:
-	-	sudo apt-get update
-	-	sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
-	-	(recommended) sudo apt-get dist-upgrade
-	-	sudo reboot
 
+		sudo apt-get update
+		sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
+		(recommended) sudo apt-get dist-upgrade
+		sudo reboot
+	
+	Ubuntu 13.04 and 13.10:
 
-5.	 Install the agent by running the following commands with sudo:
+		sudo apt-get update
+		sudo apt-get install hv-kvp-daemon-init
+		(recommended) sudo apt-get dist-upgrade
+		sudo reboot
 
-		apt-get update
-		apt-get install walinuxagent 
-
-6.	Fix the Grub timeout. Ubuntu waits at Grub for user input after a system crash. To prevent this, complete the following steps:
+5.	Ubuntu will wait at the Grub prompt for user input after a system crash. To prevent this, complete the following steps:
 
 	a) Open the /etc/grub.d/00_header file.
 
@@ -248,225 +277,214 @@ You need to clear your current yum metadata:
 
 	d) Run update-grub.
 
-7. Ensure that you have modified the kernel boot line to include lines for 
+6. Modify the kernel boot line in Grub or Grub2 to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
 
--	console=ttyS0 ( this will enable serial console output)
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
--	rootdelay=300
+7.	In /etc/sudoers, comment out the following line, if it exists:
 
-8. It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+		Defaults targetpw
 
-9. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
-10.	Comment out Defaults targetpw in /etc/sudoers
-11.	SSH Server should be included by default
-12.	No SWAP on Host OS DISK should be created 
-	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
-	
+8.	Ensure that the SSH server is installed and configured to start at boot time
 
-13.	Run the following commands to deprovision the virtual machine:
+9.	 Install the agent by running the following commands with sudo:
+
+		apt-get update
+		apt-get install walinuxagent 
+
+10.	Do not create swap space on the OS disk
+
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+11.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-14. Click **Shutdown** in Hyper-V Manager.
+12. Click **Shutdown** in Hyper-V Manager.
 
-### Prepare the SUSE Linux Enterprise Server 11 SP2 operating system ###
+
+### Prepare the SUSE Linux Enterprise Server 11 SP2 & SP3 operating system ###
+
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
+
+> - [SLES 11 SP2 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure)
+> - [SLES 11 SP3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Addd the repository containing the latest agent and the latest kernel
-  On the shell, call 'zypper lr'. If this command returns
+3. Add the repository containing the latest kernel and Windows Azure Linux Agent. Run the command `zypper lr`. For example, with SLES 11 SP3 the output should look similar to the following:
 
-	 | Alias                        | Name               | Enabled | Refresh
-	
-	1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes    
-	2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes    
-	3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes    
-	4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes 
+		# | Alias                        | Name               | Enabled | Refresh
+		--+------------------------------+--------------------+---------+--------
+		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
+		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
+		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
+		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
+		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
+		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
 
-		then the repositories are configured as expected, no adjustments are necessary.
+ 	In case the command returns an error message such as the following:
 
- 	In case the command returns "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories." then the repositories need to be re-enabled by calling 'suse_register -r'. You    		will get following output:
+		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
 
-      Query installed languages failed.(134)  No packages found.
-      To complete the registration, provide some additional parameters:
-
-      Personal identification (mandatory) with:
-        * E-mail address :    email="me@example.com"
-
-
-      You can provide these parameters with the '-a' option.
-      You can use the '-a' option multiple times.
-
-      Example:
-
-      suse_register -a email="me@example.com"
-
-      To register your product manually, use the following URL:
-
-      https://secure-www.novell.com/center/regsvc-1.0/?lang=POSIX&guid=64f60dc79688491e8bf88527804e06f0&command=interactive
-
-
-      Information on Novell's Privacy Policy:
-      Submit information to help you manage your registered systems.
-      http://www.novell.com/company/policies/privacy/textonly.html
-
-   Verify your repositories have been added by calling 'zypper lr', this is the expected output:
-
-	    | Alias                        | Name               | Enabled | Refresh
-     
-      1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes    
-      2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes    
-      3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes    
-      4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes 
+	then the repositories may need to be re-enabled or the system registered.  This can be done via the suse_register utility.  For more information, please see the [SLES documentation](https://www.suse.com/documentation/sles11/).
 
    In case one of the relevant update repositories is not enabled, enable it with following command:
 
-     # zypper mr -e [NUMBER OF REPOSITORY]
+		zypper mr -e [REPOSITORY NUMBER]
 
    In the above case, the command proper command would be
 
-      # zypper mr -e 1 2 3 4
+		zypper mr -e 1 2 3 4
 
-4. To get the ATA Piix driver, update the kernel to the latest available 
-   version:
+4. Update the kernel to the latest available version:
 
--	   \# zypper up kernel-default
+		zypper up kernel-default
 
-5. Disable automatic DVD ROM probing.
+5. Install the Windows Azure Linux Agent:
 
-6. Install the Windows Azure Linux Agent:
+		zypper up WALinuxAgent
+		
+	You may see message similar to the following:
 
--	   Call 'zypper up WALinuxAgent' and you will get a similar message like the following:
+		"There is an update candidate for 'WALinuxAgent', but it is from different vendor.
+		Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
 
-      "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
-      Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
+	As the vendor of the package has changed from "Microsoft Corporation" to "SUSE LINUX Products GmbH, Nuernberg, Germany", one has to explicitely install the package as mentioned in the message.
 
-   As the vendor of the package has changed from "Microsoft Corporation" to "SUSE LINUX Products GmbH, 
-   Nuernberg, Germany", one has to explicitely install the package as mentioned in the message.
+	Note: The version of the WALinuxAgent package might be slightly different.
 
-   Note: The version of the WALinuxAgent package might be slightly different.
+6. Modify the kernel boot line in Grub to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
 
-7. To enable serial console and increase the rootdelay, adjust 
-   the kernel command line in the file '/boot/grub/menu.lst' and add the 
-   following string to the end of the kernel line:
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-   >console=ttyS0 rootdelay=300
+7.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
-8.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more (The SUSE agent intallation scripts normally take care of this).
+8.	In /etc/sudoers, comment out the following line, if it exists:
 
-9.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+		Defaults targetpw
 
-10.	Comment out Defaults targetpw in /etc/sudoers
+9.	Ensure that the SSH server is installed and configured to start at boot time
 
-11.	SSH Server should be included by default
+10.	Do not create swap space on the OS disk
 
-12.	No SWAP on Host OS DISK should be created 
-	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-13.	Run the following commands to deprovision the virtual machine:
+11.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-14. Click **Shutdown** in Hyper-V Manager.
+12. Click **Shutdown** in Hyper-V Manager.
+
 
 ### Prepare the openSUSE 12.3 operating system ###
+
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
+
+> - [openSUSE 12.3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
 2. Click **Connect** to open the window for the virtual machine.
 
-3. Update the operating system to the latest kernel.
+3. Update the operating system to the latest available kernel and patches
 
-	**Note:** The SLES kernel update does not currently contain an important fix on the kernel to improve storage performance. It is expected that this fix will be available soon after release. It is recommended that you use an image from the [SUSE Studio gallery]( http://www.susestudio.com) to take advantage of all the functionality in Windows Azure.
+4. On the shell, run the command '`zypper lr`'. If this command returns
 
-4. On the shell, call 'zypper lr'. If this command returns
-
-         | Alias | Name | Enabled | Refresh
-      
-      1 | openSUSE_12.3_OSS     | openSUSE_12.3_OSS     | Yes     | Yes    
-      2 | openSUSE_12.3_Updates | openSUSE_12.3_Updates | Yes     | Yes
+		# | Alias                     | Name                      | Enabled | Refresh
+		--+---------------------------+---------------------------+---------+--------
+		1 | Cloud:Tools_openSUSE_12.3 | Cloud:Tools_openSUSE_12.3 | Yes     | Yes
+		2 | openSUSE_12.3_OSS         | openSUSE_12.3_OSS         | Yes     | Yes
+		3 | openSUSE_12.3_Updates     | openSUSE_12.3_Updates     | Yes     | Yes
 
    then the repositories are configured as expected, no adjustments are necessary.
 
    In case the command returns "No repositories defined. Use the 'zypper addrepo' command to add one 
-   or more repositories." then the repositories need to be re-enabled:
+   or more repositories". then the repositories need to be re-enabled:
 
-      # zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
-      # zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
+		zypper ar -f http://download.opensuse.org/distribution/12.3/repo/oss openSUSE_12.3_OSS
+		zypper ar -f http://download.opensuse.org/update/12.3 openSUSE_12.3_Updates
 
-   Verify your repositories have been added by calling 'zypper lr', this is the expected output:
-
-       | Alias | Name | Enabled | Refresh
-     
-      1 | openSUSE_12.3_OSS     | openSUSE_12.3_OSS     | Yes     | Yes    
-      2 | openSUSE_12.3_Updates | openSUSE_12.3_Updates | Yes     | Yes
+   Verify your repositories have been added by calling 'zypper lr' again.
 
    In case one of the relevant update repositories is not enabled, enable it with following command:
 
-      # zypper mr -e [NUMBER OF REPOSITORY]
+		zypper mr -e [NUMBER OF REPOSITORY]
 
+5.	Disable automatic DVD ROM probing.
 
-5.	To get the ATA Piix driver, update the kernel to the latest available 
-   version:
-
-	   \# zypper in perl
-
-   \# zypper up kernel-default
-
-   Note: It is necessary to install the package 'perl' before updating the kernel, because there's a missing dependency in openSUSE 12.3.
-
-
-7.	Disable automatic DVD ROM probing.
-
-8.	Install the Windows Azure Linux Agent:
+6.	Install the Windows Azure Linux Agent:
 
 	First, add the repository containing the new WALinuxAgent:
 
-      # zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.3/Cloud:Tools.repo
+		zypper ar -f -r http://download.opensuse.org/repositories/Cloud:/Tools/openSUSE_12.3/Cloud:Tools.repo
 
-   Then, call 'zypper up WALinuxAgent' and you will get a similar message like the following:
+	Then, run the following command:
+ 
+		zypper up WALinuxAgent
 
-      "There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
-      Use 'zypper install WALinuxAgent-1.2-1.1.noarch' to install this candidate."
+	After you run this command, you may a similar message like the following:
 
-   As the vendor of the package has changed from "Microsoft Corporation" to "obs://build.opensuse.org/Cloud",
-   one has to explicitely install the package as mentioned in the message.
+		"There is an update candidate for 'WALinuxAgent', but it is from different vendor. 
+		Use 'zypper install WALinuxAgent' to install this candidate."
 
-   Note: The version of the WALinuxAgent package might be slightly different.
+	This message is expected. As the vendor of the package has changed from "Microsoft Corporation" to "obs://build.opensuse.org/Cloud," one has to explicitely install the package as mentioned in the message.
 
-9.	To enable serial console and increase the rootdelay, adjust 
-   the kernel command line in the file '/boot/grub/menu.lst' and add the 
-   following string to the end of the kernel line:
+7.	Modify the kernel boot line in Grub to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
 
-   console=ttyS0 rootdelay=300
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
- 	In the same file, remove the following part from the kernel command line:
+ 	And in /boot/grub/menu.lst, remove the following parameters from the kernel command line if they exist:
 
-      libata.atapi_enabled=0 reserve=0x1f0,0x8
+		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-10.	Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more (The SUSE agent intallation scripts normally take care of this).
+9.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
-11.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+10.	In /etc/sudoers, comment out the following line, if it exists:
 
-12.	Comment out Defaults targetpw in /etc/sudoers
-13.	SSH Server should be included by default
-14.	No SWAP on Host OS DISK should be created 
-	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+		Defaults targetpw
 
-15.	Run the following commands to deprovision the virtual machine:
+11.	Ensure that the SSH server is installed and configured to start at boot time
+
+12.	Do not create swap space on the OS disk
+
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+13.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
 		waagent –force –deprovision
 		export HISTSIZE=0
 		logout
 
-16. Click **Shutdown** in Hyper-V Manager.
+14. Ensure the Windows Azure Linux Agent runs at startup:
+
+		systemctl enable waagent.service
+
+14. Click **Shutdown** in Hyper-V Manager.
 
 
 ## <a id="createstorage"> </a>Step 2: Create a storage account in Windows Azure ##
@@ -542,41 +560,52 @@ Do one of the following:
 ## <a id="nonendorsed"> </a>Information for Non Endorsed Distributions ##
 In essence all distributions running on Windows Azure will need to meet the following prerequisites to have a chance to properly run in the platform. 
 
-This list is by no means comprehensive because every distribution is different; it is quite possible that even if you meet all the following criteria you will still need to significantly modify your image to ensure that it runs properly in Windows Azure.
+This list is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your image to ensure that it properly runs on top of the platform.
 
- It is for this reason that we recommend that you start with one of our [partners endorsed images](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/).
+It is for this reason that we recommend that you start with one of our [partners endorsed images](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/).
 
-The list below replaces step 2 of the process to create your own VHD:
+The list below replaces step 1 of the process to create your own VHD:
 
-1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper-V or that you have successfully compiled them ( They have been open sourced). The drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409).
+1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper V or that you have successfully compiled them ( They have been Open Sourced). The Drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)
 
-2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default.
+2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default
 
-3.	Your compressed intird should be less than 40 MB (* we are continuously working to increase this number so it might be outdated by now)
+3.	Your compressed intird should be less than 40 MB (* we are continuously workign to increase this number so it might be outdated by now)
 
-4.	You should add the following lines to your Kernel Boot
+4.	Modify the kernel boot line in Grub or Grub2 to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
 
-	-	console=ttyS0 rootdelay=300
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-5.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent  from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
+5.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
-6.	You should ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
+6.	You should Ensure that all SCSI devices mounted in your kernel include an I/O timeout of  300 seconds or more.
 
-7.	You will need to install the Agent following the steps in the [Agent Guide](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/). The Agent has been released under the Apache 2 license and you can get the latest bits at the [Agent GitHub Location](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)
-8.	Comment out Defaults targetpw in /etc/sudoers
+7.	You will need to install the Windows Azure Linux Agent following the steps in the [Linux Agent Guide](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/). The agent has been released under the Apache 2 license and you can get the latest bits at the [Agent GitHub Location](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409)
 
-9.	SSH Server should be included by default
+8.	In /etc/sudoers, comment out the following line, if it exists:
 
-10.	No SWAP on Host OS DISK should be created 
-	SWAP if needed can be requested for creation on the local resource disk by the Linux Agent. You may modify /etc/waagent.conf appropriately.
+		Defaults targetpw
 
-11.	Run the following commands to deprovision the virtual machine:
+9.	Ensure that the SSH server is installed and configured to start at boot time
 
-        waagent –force –deprovision
+10.	Do not create swap space on the OS disk
+
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+11.	You will need to run the following commands to deprovision the virtual machine:
+
+        waagent -force -deprovision
         export HISTSIZE=0
         logout
 
 12.	You will then need to shut down the virtual machine and proceed with the upload.
+
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Windows Azure]: #createstorage
