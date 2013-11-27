@@ -26,7 +26,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 1. Download the C# version of the GetStartedWithMobileServices sample app from the [Developer Code Samples site]. 
 
-   ![][10]
+	![][10]
 
 2. In Visual Studio 2013, open the downloaded project and examine the MainPage.xaml.cs file.
 
