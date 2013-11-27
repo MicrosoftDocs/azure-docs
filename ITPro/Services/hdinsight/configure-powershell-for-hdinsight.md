@@ -1,8 +1,8 @@
 <properties linkid="manage-services-hdinsight-configure-powershell-for-hdinsight" urlDisplayName="HDInsight Administration" pageTitle="Install and configure HDInsight PowerShell - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to install and configure HDInsight PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-#Install and configure HDInsight PowerShell
+#Install and configure PowerShell for HDInsight
 
- This article provides basic information about installing and configuring workstations to manage HDInsight clusters using PowerShell.
+This article provides basic information about installing and configuring workstations to manage HDInsight clusters using Windows Azure PowerShell.
 
 **Prerequisites:**
 
@@ -13,7 +13,6 @@ Before you begin this article, you must have the following:
 ##In this article
 
 - [Install Windows Azure PowerShell](#azure-cmdlets)
-- [Install Windows Azure HDInsight PowerShell](#hdinsight-cmdlets)
 - [Connect to your Windows Azure subscription](#connect)
 - [Select Azure subscription](#selectsubscription)
 - [Run PowerShell scripts](#runscripts)
@@ -52,23 +51,6 @@ Installing the module also installs a customized console for Windows Azure Power
 
 1. Click the **Start** menu. 
 2. Click **All Programs**, click **Windows Azure**, and then click **Windows Azure PowerShell**.
-
-##<a id="hdinsight-cmdlets"></a>Install Windows Azure HDInsight PowerShell
-
-*Windows Azure HDInsight PowerShell* is a PowerShell module that provides additional cmdlets to manage HDInsight clusters. You can use HDInsight PowerShell cmdlets to provision clusters, manage clusters, and submit Hadoop jobs. 
-
-
-**To install Windows Azure HDInsight PowerShell**
-
-1. Browse to the Windows Azure HDInsight PowerShell [download page][hdinsight-cmdlets-download].
-2. Click **Run** from the bottom of the page to run the installation package.
-3. Reboot the computer.
-
-To get a list of the HDInsight cmdlets, run the following command from the Windows Azure PowerShell console window:
-
-	get-help hdinsight
-
-For more information about the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 
 
