@@ -32,12 +32,13 @@ You can add additional performance metrics on the the **Monitor** management pag
 
 - A **Usage Overview** section that shows statistics for the web site's CPU, file system, and memory usage.
 - A list of **linked resources** such as a SQL or MySQL database, or a Windows Azure storage account, that are associated with your web site. Click the name of the resource to manage the resource. If you have a MySQL database, clicking its name will take you to the ClearDB management page. There you can see your performance metrics, or go to the ClearDB dashboard, where you can upgrade your MySQL database if required. If no resources are listed , click **Manage Linked Resources** to go to the **Linked Resources** page, where you can add a link to a resource for your web site.
-- A **Quick Glance** section which includes the following summary information and links:
+- A **Quick Glance** section which includes the following summary information and links (depending on your settings, some of the options listed below may not appear):
  - **View Connection Strings** - View your web site's database connection strings.
  - **Download the Publish Profile** – Link to the publish profile, a file which contains credentials and URLs required to publish to the web site using any enabled publishing methods.
  - **Reset Your Deployment Credentials** – Displays a dialog box where you provide unique credentials for use when publishing with Git or FTP. If you wish to use Git or FTP deployment then you must reset deployment credentials because authentication to an FTP host or Git repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for Git or FTP publishing to any web site in your subscription.
  - **Reset Your Publish Profile Credentials** - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.
  - **Set up Deployment from Source Control** – Displays a dialog box where you can set up continuous publishing from Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
+ - **Edit in Visual Studio Online** - Click this link to edit your web site directly online. You can enable this feature on the **Configure** page.
  - **Disconnect from Dropbox** - If you have set up a connection to Dropbox for deployment purposes, this link allows you to disconnect it.
  - **Delete Git repository** - If you have set up a Git repository, this link allows you to delete it.
  - **Status** – Indicates whether the web site is running.
@@ -62,7 +63,7 @@ The **Monitor** management page provides a chart that displays usage information
 ##Configure##
 The **Configure** management page is used to set application specific settings including:
 
-- **General** – Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, there is an option to choose a 64-bit platform. Set **Managed Pipeline Mode**  to **Classic** only if you have legacy web sites that run exclusively on older versions of IIS (**Integrated** is the default.) To enable your web site to use real time request pattern applications such as chat, you can set **Web Sockets** to **On**.
+- **General** – Set the version of .NET framework or PHP required by your web application. For sites in Standard mode, there is an option to choose a 64-bit platform. Set **Managed Pipeline Mode**  to **Classic** only if you have legacy web sites that run exclusively on older versions of IIS (**Integrated** is the default.) To enable your web site to use real time request pattern applications such as chat, you can set **Web Sockets** to **On**. To enable editing of your web site directly online, set **Edit in Visual Studio Online** to **On**.
 - **Certificates** - Upload an SSL certificate for a custom domain. SSL certificates can be uploaded only in Standard mode. The certificates you upload are listed here and can be assigned to any web site in your subscription and region. Wildcard certificates (certificates with an asterisk) are supported.
 - **Domain Names** - View or add additional custom domain names for a web site. Custom domain names can only be used in Shared or Standard mode.
 - **SSL Bindings** - SSL bindings to custom domains can only be used in standard mode. Choose an SSL mode (**SNI**, **IP**, or **No SSL**) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded.  

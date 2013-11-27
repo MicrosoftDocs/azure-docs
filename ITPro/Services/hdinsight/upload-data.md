@@ -261,7 +261,8 @@ The following is a sample PowerShell script for submitting a MapReduce job:
 	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName  | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $_.JobId -StandardError}
+	Select-AzureSubscription $subscriptionName
+	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName  | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 
 For more information on accessing the files stored in Blob storage, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
