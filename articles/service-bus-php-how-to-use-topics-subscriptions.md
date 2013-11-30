@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" metaDescription="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" Title="How to Use Service Bus Topics/Subscriptions" authors="waltpo"/>
 
 
 
@@ -25,22 +25,20 @@ subscriptions. The samples are written in PHP and use the [Windows Azure SDK for
 
 [WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-<h2><a id="CreateApplication"></a>Create a PHP application</h2>
+##<a id="CreateApplication"></a>Create a PHP application
 
 The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the [Windows Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.</p> 
-</div>
+> WACOM.NOTE
+> Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
-<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
+##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-<h2><a id="ConfigureApp"></a>Configure your application to use Service Bus</h2>
+##<a id="ConfigureApp"></a>Configure your application to use Service Bus
 
 To use the Windows Azure Service Bus topic APIs, you need to:
 
@@ -49,10 +47,8 @@ To use the Windows Azure Service Bus topic APIs, you need to:
 
 The following example shows how to include the autoloader file and reference the **ServiceBusService** class.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.</p> 
-</div>
+	>WACOM.NOTE
+	> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -60,7 +56,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2><a id="ConnectionString"></a>Setup a Windows Azure Service Bus connection</h2>
+##<a id="ConnectionString"></a>Setup a Windows Azure Service Bus connection
 
 To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
 
@@ -85,7 +81,7 @@ For the examples outlined here, the connection string will be passed directly.
 
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-<h2><a id="CreateTopic"></a>How to: Create a topic</h2>
+##<a id="CreateTopic"></a>How to: Create a topic
 
 Management operations for Service Bus topics can be performed via the
 **ServiceBusRestProxy** class. A **ServiceBusRestProxy** object is
@@ -116,12 +112,10 @@ The example below shows how to instantiate a **ServiceBusRestProxy** and call **
 		echo $code.": ".$error_message."<br />";
 	}
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.</p> 
-</div>
+	WACOM.NOTE
+	> You can use the <b>listTopics</b> method on <b>ServiceBusRestProxy</b> objects to check if a topic with a specified name already exists within a service namespace.
 
-<h2><a id="CreateSubscription"></a>How to: Create a subscription</h2>
+##<a id="CreateSubscription"></a>How to: Create a subscription
 
 Topic subscriptions are also created with the **ServiceBusRestProxy->createSubscription** method. Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.
 
@@ -156,10 +150,8 @@ The **MatchAll** filter is the default filter that is used if no filter is speci
 
 You can also setup filters that allow you to scope which messages sent to a topic should show up within a specific topic subscription. The most flexible type of filter supported by subscriptions is the **SqlFilter**, which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about SqlFilters, see [SqlFilter.SqlExpression Property][sqlfilter].
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.</p> 
-</div>
+	WACOM.NOTE
+	> Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
 
 The example below creates a subscription named "HighMessages" with a **SqlFilter** that only selects messages that have a custom **MessageNumber** property greater than 3 (see [How to: Send messages to a topic](#SendMessage) for information about adding custom properties to messages):
 
@@ -187,7 +179,7 @@ Similarly, the following example creates a subscription named "LowMessages" with
 
 When a message is now sent to the `mytopic` topic, it will always be delivered to receivers subscribed to the `mysubscription` subscription, and selectively delivered to receivers subscribed to the "HighMessages" and "LowMessages" subscriptions (depending upon the message content).
 
-<h2><a id="SendMessage"></a>How to: Send messages to a topic</h2>
+##<a id="SendMessage"></a>How to: Send messages to a topic
 
 To send a message to a Service Bus topic, your application will call the **ServiceBusRestProxy->sendTopicMessage** method. The code below demonstrates how to send a message to the `mytopic` topic we created above within the
 `MySBNamespace` service namespace.
@@ -234,7 +226,7 @@ Messages sent to Service Bus topics are instances of the **BrokeredMessage** cla
 
 Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
-<h2><a id="ReceiveMessages"></a>How to: Receive messages from a subscription</h2>
+##<a id="ReceiveMessages"></a>How to: Receive messages from a subscription
 
 The primary way to receive messages from a subscription is to use a **ServiceBusRestProxy->receiveSubscriptionMessage** method. Received messages can work in two different modes: **ReceiveAndDelete** (the default) and **PeekLock**.
 
@@ -283,7 +275,7 @@ The example below demonstrates how a message can be received and processed using
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="HandleCrashes"></a>How to: Handle application crashes and unreadable messages</h2>
+##<a id="HandleCrashes"></a>How to: Handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the **unlockMessage** method on the received message (instead of the **deleteMessage** method). This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
@@ -291,7 +283,7 @@ There is also a timeout associated with a message locked within the queue, and i
 
 In the event that the application crashes after processing the message but before the **deleteMessage** request is issued, then the message will be redelivered to the application when it restarts. This is often called **At Least Once Processing**, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **getMessageId** method of the message, which will remain constant across delivery attempts.
 
-<h2><a id="DeleteTopicsAndSubscriptions"></a>How to Delete Topics and Subscriptions</h2>
+##<a id="DeleteTopicsAndSubscriptions"></a>How to Delete Topics and Subscriptions
 
 To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic** or the **ServiceBusRestProxy->deleteSubscripton** methods respectively. Note that deleting a topic will also delete any subscriptions that are registered with the topic.
 
@@ -323,7 +315,7 @@ By using the **deleteSubscription** method, you can delete a subscription indepe
 
 	$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
-<h2><a id="NextSteps"></a>Next steps</h2>
+##<a id="NextSteps"></a>Next steps</h2>
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
