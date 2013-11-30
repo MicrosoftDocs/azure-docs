@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" Title="How to Use Service Bus Queues" authors="waltpo" Title="How to Use Service Bus Queues" />
+<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in PHP." metaCanonical="" disqusComments="1" umbracoNaviHide="0" Title="How to Use Service Bus Queues" authors="waltpo" />
 
 
 # How to Use Service Bus Queues
