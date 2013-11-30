@@ -29,7 +29,7 @@ The Table service contains the following components:
     http://`<storage account>`.table.core.windows.net/`<table>`  
       
     You can address Azure tables directly using this address with the
-    OData protocol. For more information, see [OData.org][]
+    OData protocol. For more information, see ![OData.org][]
 
 -   **Storage Account:** All access to Windows Azure Storage is done
     through a storage account. The total capacity of a storage account for all blob, table, and queue
@@ -53,4 +53,6 @@ The Table service contains the following components:
 
 
   
+[Table1]: ../../../DevCenter/dotNet/Media/table1.png
+[OData.org]: http://www.odata.org/
   
