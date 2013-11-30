@@ -53,6 +53,6 @@ The Table service contains the following components:
 
 
   
-[Table1]: ../media/howto-table-storage/table1.png
+[Table1]: media/howto-table-storage/table1.png
 [OData.org]: http://www.odata.org/
   
