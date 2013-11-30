@@ -33,7 +33,7 @@ The only requirement for creating a PHP application that accesses the Windows Az
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
-<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
+##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 

@@ -34,7 +34,7 @@ The only requirement for creating a PHP application that accesses the Windows Az
 
 In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
 
-##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
+##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
@@ -315,7 +315,7 @@ By using the **deleteSubscription** method, you can delete a subscription indepe
 
 	$serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 
-##<a id="NextSteps"></a>Next steps</h2>
+##<a id="NextSteps"></a>Next steps
 
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
