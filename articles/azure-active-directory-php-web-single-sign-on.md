@@ -183,7 +183,8 @@ This tutorial has shown you how to create and configure a single tenant PHP appl
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
 [Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
-
+[Summary]: #summary
+[Introduction]: #introduction
 [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
