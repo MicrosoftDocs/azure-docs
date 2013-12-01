@@ -93,10 +93,8 @@ To build and run the application locally, follow the steps below. Note that thes
 		echo "<h3>Table created.</h3>";
 		?>
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
-	</div>
+	> WACOM.NOTE 
+	> You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 4. Open a web browser and browse to [http://localhost/registration/createtable.php][localhost-createtable]. This will create the `registration_tbl` table in the database.
 
@@ -120,7 +118,7 @@ To build and run the application locally, follow the steps below. Note that thes
 		</style>
 		</head>
 		<body>
-		<h1>Register here!</h1>
+		#Register here!
 		<p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
 		<form method="post" action="index.php" enctype="multipart/form-data" >
 		      Name  <input type="text" name="name" id="name"/></br>
@@ -149,10 +147,8 @@ To build and run the application locally, follow the steps below. Note that thes
 			die(var_dump($e));
 		}
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
-	</div>
+	> WACOM.NOTE
+	> Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 7. Following the database connection code, add code for inserting registration information into the database.
 
