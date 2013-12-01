@@ -1,18 +1,16 @@
-﻿<properties linkid="develop-php-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Web Single Sign-On with PHP and Windows Azure Active Directory" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory, PHP SSO AAD" metaDescription="Learn how to create a PHP web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
-
+﻿<properties linkid="develop-php-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Web Single Sign-On with PHP and Windows Azure Active Directory" metaKeywords="Azure PHP web app, Azure single sign-on, Azure PHP Active Directory, PHP SSO AAD" description="Learn how to create a PHP web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Web Single Sign-On with PHP and Windows Azure Active Directory" authors="waltpo"/>
 
 
 # Web Single Sign-On with PHP and Windows Azure Active Directory
 
-<h2><a name="introduction"></a>Introduction</h2>
+##<a name="introduction"></a>Introduction
 
 This tutorial will show PHP developers how to leverage Windows Azure Active Directory to enable single sign-on for users of Office 365 customers. You will learn how to:
 
 * Provision the web application in a customer's tenant
 * Protect the application using WS-Federation
 
-<h3>Prerequisites</h3>
+###Prerequisites
 The following development environment prerequisites are required for this walkthrough:
 
 * [PHP Sample Code for Windows Azure Active Directory]
@@ -22,14 +20,14 @@ The following development environment prerequisites are required for this walkth
 * Windows PowerShell
 * [Office 365 PowerShell Commandlets]
 
-<h3>Table of Contents</h3>
+###Table of Contents
 * [Introduction][]
 * [Step 1: Create a PHP Application][]
 * [Step 2: Provision the Application in a Company's Directory Tenant][]
 * [Step 3: Protect the Application Using WS-Federation for Employee Sign In][]
 * [Summary][]
 
-<h2><a name="createapp"></a>Step 1: Create a PHP Application</h2>
+##<a name="createapp"></a>Step 1: Create a PHP Application
 This step describes how to create a simple PHP application that will represent a protected resource. Access to this resource will be granted through federated authentication managed by the company's STS, which is described later in the tutorial.
 
 1. Open a new instance of Eclipse.
@@ -46,7 +44,7 @@ This step describes how to create a simple PHP application that will represent a
 			<title>Index</title>
 		</head>
 		<body>
-			<h2>Index Page</h2>
+			##Index Page
 		</body>
 		</html> 
 
@@ -62,7 +60,7 @@ This step describes how to create a simple PHP application that will represent a
 
 12. The **index.php** page will open in a new tab in Eclipse. The page should simply display the text: *Index Page*. 
 
-<h2><a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant</h2>
+##<a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant
 This step describes how an administrator of a Windows Azure Active Directory customer provisions the PHP application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
 
 The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Windows Azure Active Directory to register and authenticate applications to the directory.
@@ -92,7 +90,8 @@ This step will output information similar to the following:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-	<div class="dev-callout"><strong>Note</strong><p>You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.</p></div>
+> WACOM.NOTE 
+> You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.
 
 6. The final step sets the reply URL for your application. The reply URL is where responses are sent following authentication attempts. Type the following commands and press enter:
 
@@ -102,7 +101,7 @@ This step will output information similar to the following:
 	
 The web application has now been provisioned in the directory and it can be used for web single sign-on by company employees.
 
-<h2><a name="protectapp"></a>Step 3: Protect the Application Using WS-Federation for Employee Sign In</h2>
+##<a name="protectapp"></a>Step 3: Protect the Application Using WS-Federation for Employee Sign In
 This step shows you how to add support for federated login using Windows Identity Foundation (WIF) and the simpleSAML.php libraries you downloaded with the sample code in the prerequisites. You will also add a login page and configure trust between the application and the directory tenant.
 
 1. In Eclipse, right-click the **phpSample** project, click **New**, then click **File**. 
@@ -118,7 +117,8 @@ This step shows you how to add support for federated login using Windows Identit
 		federation.realm=spn:7829c758-2bef-43df-a685-717089474505
 		federation.reply=https://localhost/phpSample/index.php 
 
-	<div class="dev-callout"><strong>Note</strong><p>The <b>audienceuris</b> and <b>realm</b> values must be prefaced by "spn:".</p></div>
+		> WACOM.NOTE
+		> The <b>audienceuris</b> and <b>realm</b> values must be prefaced by "spn:".
 
 4. In Eclipse, right-click the **phpSample** project, click **New**, then click **PHP File**. 
 
@@ -161,8 +161,8 @@ This step shows you how to add support for federated login using Windows Identit
 			<title>Index Page</title>
 		</head>
 		<body>
-			<h2>Index Page</h2>
-			<h3>Welcome <strong><?php print_r($loginManager->getPrincipal()->getName()); ?></strong>!</h3>
+			##Index Page
+			###Welcome <strong><?php print_r($loginManager->getPrincipal()->getName()); ?></strong>!
 			<h4>Claim list:</h4>
 			<ul>
 				<?php
@@ -176,14 +176,14 @@ This step shows you how to add support for federated login using Windows Identit
 
 8. From the **Run** menu, click **Run**. You should automatically be redirected to the Office 365 Identity Provider page, where you can log in using your directory tenant credentials. For example, *john.doe@fabrikam.onmicrosoft.com*.
 
-<h2><a name="summary"></a>Summary</h2>
+##<a name="summary"></a>Summary
 This tutorial has shown you how to create and configure a single tenant PHP application that uses the single sign-on capabilities of Windows Azure Active Directory.
 
-[Introduction]: #introduction
+
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
 [Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
-[Summary]: #summary
+
 [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
