@@ -529,26 +529,32 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 		echo $code.": ".$error_message."<br />";
 	}
 
-
+[ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-
+[win-azure-account]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[storage-account]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
 
 [download-SDK-PHP]: https://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
-
+[Composer]: http://getcomposer.org/
+[ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
 [cloud service]: http://www.windowsazure.com/en-us/manage/services/cloud-services/what-is-a-cloud-service/
-
+[CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
+[ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
 [service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
 [Windows Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
 [cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
-
+[GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
+[ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
 [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
 [storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
 [azure-blobs]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/blob-service/
-
+[azure-tables]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/
+[azure-queues]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/queue-service/
+[AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
 [Windows Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
