@@ -108,14 +108,14 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
 [limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
-
+[odbc-php]: http://www.php.net/odbc
 [manual-config]: http://php.net/manual/en/install.windows.iis7.php
 [install-drivers]: http://php.net/manual/en/sqlsrv.requirements.php
 [driver-docs]: http://msdn.microsoft.com/en-us/library/dd638075(SQL.10).aspx
-
+[access-php-odbc]: http://social.technet.microsoft.com/wiki/contents/articles/accessing-sql-azure-from-php.aspx
 [install-sql-express]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
 [preview-portal]: https://manage.windowsazure.com
-
+[prod-portal-instructions]: http://blogs.msdn.com/b/brian_swan/archive/2010/02/12/getting-started-with-php-and-sql-azure.aspx
 [new-website]: ./media/sql-database-php-how-to-use-sql-database/plus-new.png
 [custom-create]: ./media/sql-database-php-how-to-use-sql-database/create_custom_sql_db-2.png
 [database-settings]: ./media/sql-database-php-how-to-use-sql-database/new-sql-db.png

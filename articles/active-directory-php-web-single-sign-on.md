@@ -117,8 +117,7 @@ This step shows you how to add support for federated login using Windows Identit
 		federation.realm=spn:7829c758-2bef-43df-a685-717089474505
 		federation.reply=https://localhost/phpSample/index.php 
 
-		> WACOM.NOTE
-		> The <b>audienceuris</b> and <b>realm</b> values must be prefaced by "spn:".
+		<div class="dev-callout"><strong>Note</strong><p>The <b>audienceuris</b> and <b>realm</b> values must be prefaced by "spn:".</p></div>
 
 4. In Eclipse, right-click the **phpSample** project, click **New**, then click **PHP File**. 
 
@@ -161,8 +160,8 @@ This step shows you how to add support for federated login using Windows Identit
 			<title>Index Page</title>
 		</head>
 		<body>
-			##Index Page
-			###Welcome <strong><?php print_r($loginManager->getPrincipal()->getName()); ?></strong>!
+			<h2>Index Page</h2>
+			<h3>Welcome <strong><?php print_r($loginManager->getPrincipal()->getName()); ?></strong>!</h3>
 			<h4>Claim list:</h4>
 			<ul>
 				<?php
