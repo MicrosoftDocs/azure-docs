@@ -83,7 +83,17 @@ Once your subscription is activated for the preview, you need to request Premium
 
 <h2><a id="Upgrade"></a>Step 3: Create a Premium database</h2>
 
-Once you have been granted quota, you can create a new Premium edition database or upgrade an existing Web or Business  database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
+
+Once you have been granted quota, you can create a new Premium edition database or upgrade an existing Web or Business  database to Premium to take advantage of reserved capacity and more predictable performance. 
+
+![Image9] []
+
+
+
+![Image10] []
+
+
+For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
 	
 	
@@ -104,6 +114,9 @@ For additional information about Premium databases, see:
 [Image6]: ../media/RequestQuota-Figure6.png
 [Image7]: ../media/PendingApproval-Figure7.png
 [Image8]: ../media/QuotaApproved-Figure8.png
+[Image9]: ../media/SpecifyDBSettings-Figure9.png
+[Image10]: ../media/PremiumDBSettings-Figure10.png
+
 
 
 
