@@ -1,4 +1,7 @@
-# (TODO: Title of the tutorial)
+<properties linkid="get-started-with-scheduler" urlDisplayName="Get started with Scheduler" pageTitle="Get started using Scheduler | Windows Azure" metaKeywords="scheduler" metaDescription="TBD" umbracoNaviHide="0" disqusComments="1" writer="krisragh" editor="mattshel" manager="paulettm" />
+
+
+# Get started with Scheduler
 
 (TODO: provide a short description of the article.)
 
