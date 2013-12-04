@@ -1,33 +1,44 @@
 <properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage a storage account - Windows Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" metaDescription="Learn how to manage storage accounts in Windows Azure by using the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tysonn" />
 
-
-
-
 <h1><a id="managestorageaccounts"></a>How To Manage Storage Accounts</h1>
 
 ##Table of Contents##
 
-* [How to: Turn geo-replication off or on](#georeplication)
+* [How to: Manage storage account replication](#georeplication)
 * [How to: View, copy, and regenerate storage access keys](#regeneratestoragekeys)
 * [How to: Delete a storage account](#deletestorageaccount)
 
-<h2><a id="georeplication"></a>How to: Turn geo-replication off or on</h2>
+<h2><a id="georeplication"></a>How to: Manage storage account replication</h2>
 
-When geo-replication is turned on for a storage account, the stored content is replicated to a secondary location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. This is the highest level of storage durability, known as *geo redundant storage* (GRS). Geo-replication is turned on by default. 
+You have three options for replicating your storage account:
 
-If you turn off geo-replication, you have *locally redundant storage* (LRS). For locally redundant storage, account data is replicated three times within the same data center. LRS is offered at discounted rates. Be aware that if you turn off geo-replication, and you later change your mind, you will incur a one-time data cost to replicate your existing data to the secondary location. 
+- 	**Geo-redundant replication.** Geo-redundant replication is enabled for your storage account by default. With geo-redundant replication, your data is replicated to a secondary geographic location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. 
 
-For more information about geo-replication, see [Introducing Geo-Replication for Windows Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). For pricing information, see [Pricing Details](https://www.windowsazure.com/en-us/pricing/details/#storage).
+- 	**Locally redundant replication**. With locally redundant replication, your storage account data is replicated three times within the same data center. Locally redundant replication is offered at discounted rates. 
+	
+	Be aware that if you specify locally redundant replication for your storage account, and you later decide to enable geo-redundant replication, you will incur a one-time data cost to replicate your existing data to the secondary location. 
 
-### To turn geo-replication on or off for a storage account ###
+- **Read access geo-redundant replication (preview only).** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
-1. In the [Windows Azure Preview Management Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+	<div class="dev-callout"> 
+	<b>Note</b> 
+
+	<p>In order to use read-access geo-redundant replication while it is in preview, you must manually request that the feature be enabled for your subscription. Visit the <a href="https://account.windowsazure.com/PreviewFeatures">Windows Azure Preview Features</a> page to request read-access geo-redundant replication for your subscription. For more details about read-access geo-redundant replication, see the <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx">Windows Azure Storage Team Blog</a>.</p>
+
+	<p>If read-access geo-redundant replication is not enabled as a preview feature on your subscription, the option to select it for your storage account will be disabled.</p>
+	</div>
+
+For pricing information for storage account replication, see [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/).
+
+### To specify replication settings for a storage account ###
+
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of your storage account to display the dashboard.
 
 2. Click **Configure**.
 
-3. Beside **Geo-Replication**, click **On** or **Off**.
+3. In the **Replication**, field, select the type of replication you want for your storage account.
 
-4. Click **Save**.
+4. Click **Save**, and confirm your choice if prompted.
 
 
 <h2><a id="regeneratestoragekeys"></a>How to: View, copy, and regenerate storage access keys</h2>

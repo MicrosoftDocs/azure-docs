@@ -34,17 +34,29 @@ This topic describes how to create a storage account in the Windows Azure Manage
 	<p>To create an affinity group, open the <b>Networks</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Create a new affinity group</b> or <b>Create</b>. You can use affinity groups that you create in the previous Management Portal. To open the other portal, click <b>Preview</b> on the title bar, and then click <b>Take me to the previous portal</b>. (To return to this portal, click <b>View the Preview Portal</b> at the bottom of the portal.) You can also create and manage affinity groups using the Windows Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.</p> 
 </div>
 
-5. In **Subscription**, enter the Windows Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subsccription.
+5. If you have more than one Windows Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Windows Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
 
-6. If you don't want geo-replication for your storage account, clear the **Enable Geo-Replication** check box.
+6. In **Replication**, select the level of replication that you desire for your storage account.
 
- Geo-replication is enabled by default so that, in the event of a major disaster in the primary location, storage fails over to a secondary location. A secondary location in the same region is assigned and cannot be changed. After a geo-failover, the secondary location becomes the primary location for the storage account, and stored data is replicated to a new secondary location.
+	By default, replication is set to **Geo-Redundant**. With geo-redundant replication, your storage account and all data in it fails over to a secondary location in the event of a major disaster in the primary location. Windows Azure assigns a secondary location in the same region, which cannot be changed. After a failover, the secondary location becomes the primary location for the storage account, and your data is replicated to a new secondary location.
 
- If you don't want to use geo-replication, or if your organization's policies won't allow its use, you can turn off geo-replication. This will result in locally redundant storage, which is offered at a discount. Be aware that if you turn off geo-replication, and you later decide to turn it on again, you will incur a one-time charge to replicate your existing data to the secondary location.
+ 	If you don't want to use geo-redundant replication, or if your organization's policies won't allow its use, set **Replication** to **Locally Redundant**. This will result in locally redundant storage, which is offered at a discount. Be aware that if you turn off geo-redundant replication, and you later decide to turn it on again, you will incur a one-time charge to replicate your existing data to the secondary location.
+
+	A third replication option, **Read Access Geo-Redundant**, is currently in preview. This option enables read-only access to the replicated data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
+
+	<div class="dev-callout"> 
+	<b>Note</b> 
+
+	<p>In order to use read-access geo-redundant replication while it is in preview, you must manually request that the feature be enabled for your subscription. Visit the <a href="https://account.windowsazure.com/PreviewFeatures">Windows Azure Preview Features</a> page to request read-access geo-redundant replication for your subscription. For more details about read-access geo-redundant replication, see the <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx">Windows Azure Storage Team Blog</a>.</p>
+
+	<p>If read-access geo-redundant replication is not enabled as a preview feature on your subscription, the option to select it for your storage account will be disabled.</p>
+	</div>
+
+	For pricing information for storage account replication, see [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/).
 
 6. Click **Create Storage Account**.
 
-	It can take a while for the storage account to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
+	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
 
 	![StoragePage] (../media/Storage_StoragePage.png)
 
