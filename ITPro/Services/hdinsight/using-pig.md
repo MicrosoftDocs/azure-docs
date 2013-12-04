@@ -232,7 +232,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 5. Run the following script to wait for the Pig job to complete:		
 
 		# Wait for the Pig job to complete
-		$Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
+		Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
 
 6. Run the following script to print the Pig job output:
 		
