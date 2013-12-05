@@ -43,7 +43,7 @@ The extension for Windows Azure is installed using one of the following two meth
 
 	In most Touch applications, if you wish to add an external library of classes, you simply download the package, unpack it in your application directory and configure the Touch loader with the location of the library. 
 
-	You can manually add the Windows Azure extensions to your application using the following steps :
+	You can manually add the Windows Azure extensions to your application using the following steps:
 
 	1. Download the Windows Azure extensions package from [here].(https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure) (You may use your Sencha Forums ID to access this area.)
 
@@ -115,7 +115,7 @@ Now that the Windows Azure extension has been downloaded and installed in your a
 
 3. Configuring Azure
 
-	The Azure package is initialized by calling the **Ext.Azure.init** method in the launch section of your application. This method is passed a configuration object containing mobile service creditials as well as other creditials and features you wish to utilize.
+	The Azure package is initialized by calling the **Ext.Azure.init** method in the launch section of your application. This method is passed a configuration object containing mobile service credentials as well as other credentials and features you wish to utilize.
 
 	While you can pass the configuration object directly to the init method, we suggest creating a Sencha application configuration property called **azure** and placing all the appropriate information there. You can then pass this property value to the Ext.Azure.init method.
 
@@ -149,7 +149,7 @@ Congratulations! Your application should now have access to your mobile service.
 
 ##Building the ToDo App
 
-Now that we have configured your application to include the Windows Azure extension, and provided it with your mobile service creditials, we can move on to creating a Touch application which utilizes your mobile service for viewing and editing your ToDo list data stored in the service.
+Now that we have configured your application to include the Windows Azure extension, and provided it with your mobile service credentials, we can move on to creating a Touch application which utilizes your mobile service for viewing and editing your ToDo list data stored in the service.
 
 ###1. Configuring the Azure data proxy
 
@@ -159,7 +159,7 @@ Your Touch application will be communicating with your mobile service via a data
 
 Sencha Touch models provide the definition of the data records you will be using in your application. They allow you to not only define the data fields but also provide configuration about the proxy that will be handling the communication between the application and the Azure mobile service.
 
-In the code below you can see that we define the fields (and their types) for the model, and also provide a proxy configuration. When configuring your proxy, you need to give it a type (in this case 'azure'), the mobile service tablename (ToDoItem) and other optional parameters. In this example, we will be turning on proxy paging so that we can seemlessly page forward and backward through list items.
+In the code below you can see that we define the fields (and their types) for the model, and also provide a proxy configuration. When configuring your proxy, you need to give it a type (in this case 'azure'), the mobile service tablename (ToDoItem) and other optional parameters. In this example, we will be turning on proxy paging so that we can seamlessly page forward and backward through list items.
 
 The Azure proxy will automatically set all HTTP headers with the appropriate CRUD operations expected by the Azure API (including authentication credentials, if they exist).
 
