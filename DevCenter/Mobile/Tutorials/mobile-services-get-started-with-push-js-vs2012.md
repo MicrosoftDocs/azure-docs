@@ -93,7 +93,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
         	    registrationsTable.read({
             	    success: function(registrations) {
                 	    registrations.forEach(function(registration) {
-                    	    push.wns.sendToastText04(registration.uri, {
+                    	    push.wns.sendToastText04(registration.handle, {
                         	    text1: item.text
                     	    }, {
                         	    success: function(pushResponse) {
