@@ -1,4 +1,6 @@
-# Transform and Extend your Site
+<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" metaDescription="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="timamm" editor="mollybos" manager="paulettm"/>
+
+# Transform and extend your site
 
 By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can make modifications to the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure web sites. You can also use XDT declarations to add private site extensions to enable custom site administration scenarios. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
 
