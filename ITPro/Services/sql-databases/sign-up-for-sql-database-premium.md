@@ -11,7 +11,7 @@ Windows Azure SQL Database has released a limited preview of a new service - Pre
 
 ##Table of Contents##
 
-* [Step 1: Sign-Up for the preview of Premium for SQL Datbase](#SignUp)
+* [Step 1: Sign-Up for the preview of Premium for SQL Database](#SignUp)
 * [Step 2: Request Premium database quota](#Quota)
 * [Step 3: Create a Premium database ](#Upgrade)
 
@@ -34,7 +34,7 @@ The first step to take advantage of this feature is to sign up your subscription
 
 	Only active, paid Windows Azure subscriptions are eligible for the preview. You may sign up multiple subscriptions, but each subscription can be signed up only once. 
 
-	Signing a subscription up for the  preview will not incur additional charges, but once activated and Premium quota granted, creating or upgrading to a Premium database is subject to the pricing outlined in the [SQL Database Pricing Page](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
+	Signing a subscription up for the preview will not incur additional charges, but once activated and Premium quota granted, creating or upgrading to a Premium database is subject to the pricing outlined in the [SQL Database Pricing Page](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
 
 	The current status of the sign up request is reflected in the preview features list.
 
@@ -97,7 +97,7 @@ For more information, see [Managing a Premium Database](http://go.microsoft.com/
 
 	
 	
-**Note:** You can only change the Premium status or the reservation sizeof your database once in a 24 hour period.
+**Note:** You can only change the Premium status or the reservation size of your database once in a 24 hour period.
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium databases, see:
 
