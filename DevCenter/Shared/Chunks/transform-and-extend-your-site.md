@@ -33,7 +33,7 @@ The following applicationHost.xdt sample shows how to add a new environment vari
   		</system.webServer> 
 	</configuration> 
 
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Notes**
+ **Notes**
 
 - Elements from the list of modules under `system.webServer` cannot be removed or reordered, but additions to the list are possible. 
 - A log file with transform status and details is available from the FTP root under LogFiles\Transform.
