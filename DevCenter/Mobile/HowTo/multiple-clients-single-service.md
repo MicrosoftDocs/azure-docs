@@ -19,7 +19,7 @@ Notification Hubs is the recommended solution for sending notifications from you
 
 ### Use a common registration table and platform identifier 
 
-If you choose not to use Notification Hubs, you can still support push notifications to multiple clients from your mobile service by defining a common device registration mechanism. Use a single table to store the device-specific information used by the push notification services of your supported platform. The **Get started with push notifications** tutorials ([Windows Store C#][Get started with push Windows dotnet]/[Windows Store JavaScript][Get started with push Windows js]/[Windows Phone][Get started with push Windows Phone]/[iOS][Get started with push iOS]/[Android][Get started with push Android]) use a **Registrations** table, and store the channel URI (Windows), device token (iOS), or   handle (Android) in a column named _handle_. 
+If you choose not to use Notification Hubs, you can still support push notifications to multiple clients from your mobile service by defining a common device registration mechanism. Use a single table to store the device-specific information used by the push notification services of your supported platform. The **Get started with push notifications** tutorials ([Windows Store C#][Get started with push Windows dotnet]/[Windows Store JavaScript][Get started with push Windows js]/[Windows Phone][Get started with push Windows Phone]/[iOS][Get started with push iOS]/[Android][Get started with push Android]) use a **Registrations** table, and store the channel URI (Windows), device token (iOS), or handle (Android) in a column named _handle_. 
 
 <div class="dev-callout"><b>Note</b>
 	<p>When you use the Add Push Notification wizard in Visual Studio 2013 to add push notifications to a Windows Store app, the wizard automatically creates a table named <strong>Channel</strong> to store channel URIs. The tutorial <strong>Get started with push notifications in Visual Studio 2012</strong> (<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012">Windows Store C#</a>/<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012">Windows Store JavaScript</a>) shows you how to enable push notifications using the <strong>Registrations</strong> table.</p>
@@ -36,6 +36,7 @@ To support multiple clients in this single registration table, include a _platfo
 					return "windowsstore";
 					// return "windowsphone";
 				}
+				set {}
 			}
 			
 		    public string Id { get; set; }
@@ -44,44 +45,59 @@ To support multiple clients in this single registration table, include a _platfo
 			public string ChannelUri { get; set; }
 		}
 
-The **Registrations** object also has a _Platform_ field, which always returns `windowsstore` (or `windowsphone`).
+Note that on this Windows device, the _Platform_ field always returns `windowsstore` (or `windowsphone`). With dynamic schema enabled (the default), Mobile Services adds a platform column in the Registrations table, if it doesn't already exist. For more information, see [Dynamic schema]. 
 
-This way, when registering for a push channel, you know which push API to use. In a Windows Store app, the constructor could set this property to "winstore" (for example) and in the Windows Phone app version, it could be set to "winphone." As long as dynamic schema is turned on (which it is by default although it is recommended that it be turned off before production), all you need to do is add a new property to the Channel class on the client as shown above. The new column will get automatically added by Mobile Services when the next insert occurs.
+In your server-side script that sends notifications, use the platform field to determine which platform-specific function to call on the [push object].  The following script is a modification of the server script from the **Get started with push notifications** tutorials ([Windows Store C#][Get started with push Windows dotnet]/[Windows Store JavaScript][Get started with push Windows js]/[Windows Phone][Get started with push Windows Phone]/[iOS][Get started with push iOS]/[Android][Get started with push Android]) to enable multiple client platforms:
 
-Next, on the server-side, add a script to handle the stored platform to send notifications to the correct client. The code below relies on parts of the "send" example from the [Push notifications to users by using Mobile Services on Windows Store](http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet/) tutorial and the [Push notifications to users by using Mobile Services on Windows Phone](http://www.windowsazure.com/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8/) tutorial.
+		function insert(item, user, request) {
+		    request.execute({
+		        success: function() {
+		            request.respond();
+		            sendNotifications();
+		        }
+		    });
+		
+		    function sendNotifications() {
+		        var registrationsTable = tables.getTable('Registrations');
+		        registrationsTable.read({
+		            success: function(registrations) {
+		                registrations.forEach(function(registration) {
+		                    if (registration.platform === 'winstore') {
+		                        push.wns.sendToastText04(registration.handle, {
+		                            text1: item.text
+		                        }, {
+		                            success: pushCompleted
+		                        });
+		                    } else if (registration.platform === 'winphone') {
+		                        push.mpns.sendFlipTile(registration.handle, {
+		                            title: item.text
+		                        }, {
+		                            success: pushCompleted
+		                        });
+		                    } else if (registration.platform === 'ios') {
+		                        push.apns.send(registration.handle, {
+		                            alert: "Toast: " + item.text,
+		                            payload: {
+		                                inAppMessage: item.text
+		                            }
+		                        });
+		                    } else if (registration.platform === 'android') {
+		                        push.gcm.send(registration.handle, item.text, {
+		                            success: pushCompleted
+		                        });
+		                    } else {
+		                        console.error("Unknown push notification platform");
+		                    }
+		                });
+		            }
+		        });
+		    }
+		
+		    function pushCompleted(pushResponse) {
+		        console.log("Sent push:", pushResponse);
+		    }
+		}
 
-		function sendNotifications() {
-			var channelTable = tables.getTable('Channel');
-			var pushOptions = {
-				success: function(pushResult) {
-					console.log('Push succeeded: ', pushResult);
-				},
-				error: function(err) {
-					console.warn('Push failed: ', err);
-				}
-			}; 
-				
-
-			channelTable.read({
-				success: function(channels) {
-					channels.forEach(function(channel) {
-					
-						if (channel.platform === 'winstore') {
-							push.wns.sendToastText04(channel.uri, "Text to push" , pushOptions);                  
-						}
-						else if (channel.platform === 'winphone') {
-							push.mpns.sendFlipTile(channel.uri, "Text to push" , pushOptions);
-						} 
-						else
-						{
-							console.error('Unknown platform.');
-						}
-					});
-				}
-			});
-		} 
-
-Finally, notification hubs are an excellent way to support cross-platform notifications. For more information, please see [Notify users with Notification Hubs](http://www.windowsazure.com/en-us/manage/services/notification-hubs/notify-users/tutorial-notify-users-cross-platform-mobileservice/) and [Send cross-platform notifications to users with Notification Hubs](http://www.windowsazure.com/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/).
 
 
 ## Windows App Registration
@@ -102,9 +118,10 @@ You can use the .NET Framework Portable Class Library to implement the Model-Vie
 [Tutorials and resources]: /en-us/develop/mobile/resources/
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
-[Get started with push iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
 [Get started with push Windows dotnet]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012/
 [Get started with push Windows js]: /en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012/
 [Get started with push Windows Phone]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
 [Get started with push iOS]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
 [Get started with push Android]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
+[Dynamic schema]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx
+[push object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx
