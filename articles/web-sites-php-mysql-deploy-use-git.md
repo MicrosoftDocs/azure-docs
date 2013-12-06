@@ -1,4 +1,4 @@
-<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" title="Create a PHP-MySQL Windows Azure web site and deploy using Git"/>
 
 
 #Create a PHP-MySQL Windows Azure web site and deploy using Git
@@ -20,12 +20,10 @@ By following this tutorial, you will build a simple registration web application
 
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.</p>
-</div>
+> WACOM.NOTE
+> If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.
 
-<h2><a id="create-web-site-and-set-up-git"></a>Create a Windows Azure web site and set up Git publishing</h2>
+##<a id="create-web-site-and-set-up-git"></a>Create a Windows Azure web site and set up Git publishing
 
 Follow these steps to create a Windows Azure web site and a MySQL database:
 
@@ -46,9 +44,9 @@ Follow these steps to create a Windows Azure web site and a MySQL database:
 
 	![Create new MySQL database][new-mysql-db]
 
-	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
 
-6. Click the name of the web site displayed in the list of web sites to open the web site’s **QuickStart** dashboard.
+6. Click the name of the web site displayed in the list of web sites to open the web site???s **QuickStart** dashboard.
 
 	![Open web site dashboard][go-to-dashboard]
 
@@ -195,10 +193,8 @@ You can now browse to **http://localhost/registration/index.php** to test the ap
 
 After you have tested your application locally, you can publish it to your Windows Azure web site using Git. You will initialize your local Git repository and publish the application.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>These are the same steps shown in the portal at the end of the Create a Windows Azure web site and Set up Git Publishing section above.</p>
-</div>
+> WACOM.NOTE
+> These are the same steps shown in the portal at the end of the Create a Windows Azure web site and Set up Git Publishing section above.
 
 1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the Deployment tab on the portal.
 	
@@ -246,22 +242,25 @@ To publish changes to application, follow these steps:
 	![List of web site deployments][deployments-list]
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
+[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
+
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
-[running-app]: ../Media/running_app_2.png
-[new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/custom_create.png
-[website-details]: ../../Shared/Media/website_details.jpg
-[new-mysql-db]: ../../Shared/Media/new_mysql_db.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
-[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
-[credentials]: ../../Shared/Media/git-deployment-credentials.png
-[creating-repo]: ../Media/creating_repo.jpg
-[push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git-instructions.png
-[git-change-push]: ../Media/php-git-change-push.png
-[git-initial-push]: ../Media/php-git-initial-push.png
-[deployments-list]: ../Media/php-deployments-list.png
-[connection-string-info]: ../../Shared/Media/connection_string_info.png
+[running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
+[new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg
+[custom-create]: ./media/web-sites-php-mysql-deploy-use-git/custom_create.png
+[website-details]: ./media/web-sites-php-mysql-deploy-use-git/website_details.jpg
+[new-mysql-db]: ./media/web-sites-php-mysql-deploy-use-git/new_mysql_db.jpg
+[go-to-dashboard]: ./media/web-sites-php-mysql-deploy-use-git/go_to_dashboard.png
+[setup-git-publishing]: ./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png
+[credentials]: ./media/web-sites-php-mysql-deploy-use-git/git-deployment-credentials.png
+
+
+[git-instructions]: ./media/web-sites-php-mysql-deploy-use-git/git-instructions.png
+[git-change-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
+[git-initial-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
+[deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
+[connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
+[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
