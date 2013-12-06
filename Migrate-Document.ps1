@@ -63,16 +63,20 @@ function RemoveUnusedReferences([string]$DocumentFullPath)
     $ReferenceRegex = '\[\s*(?<reference>\S+)\s*\]\s*:\s*(?<imageRelativePath>\S+)\s*(\".*?\")?'
 
     # Definition of regex used for Markdown links
-    $LinksReferenceRegex = '(?<!!)\[(?<linkReferenceLabel>.*?)\]\s*\[(?<linkReferenceInDoc>\S*?)\]'
+    $LinksReferenceRegex = '(?<!!)\[(?<linkReferenceLabel>[-A-Za-z0-9 _]*?)\]\s*\[(?<linkReferenceInDoc>[-A-Za-z0-9 _]*?)\]'
+    $IndividualLinksReferenceRegex = '(?<!!)\[(?<IndividualLinkReferenceLabel>[-A-Za-z0-9 _]*?)\](?!:)'
 
     # Retrieve all links references
-    $LinkReferences = Select-String -Path $DocumentFullPath -Pattern $LinksReferenceRegex | ForEach-Object {$_.Matches}
+    $LinkReferences = Select-String -Path $DocumentFullPath -Pattern $LinksReferenceRegex -AllMatches | ForEach-Object {$_.Matches}
+
+    # Retrieve all individual links references
+    $IndividualLinkReferences = Select-String -Path $DocumentFullPath -Pattern $IndividualLinksReferenceRegex -AllMatches | ForEach-Object {$_.Matches}
 
     # Retrieve all image references
-    $ImageReferences = Select-String -Path $DocumentFullPath -Pattern $ImageInlineRegex | ForEach-Object {$_.Matches}
+    $ImageReferences = Select-String -Path $DocumentFullPath -Pattern $ImageInlineRegex -AllMatches | ForEach-Object {$_.Matches}
 
     # Retieve all references (both links and images)
-    $References = Select-String -Path $DocumentFullPath -Pattern $ReferenceRegex | ForEach-Object {$_.Matches}
+    $References = Select-String -Path $DocumentFullPath -Pattern $ReferenceRegex -AllMatches | ForEach-Object {$_.Matches}
 
     # Get the document content
     $localEncoding = Get-FileEncoding $DocumentFullPath
@@ -88,6 +92,15 @@ function RemoveUnusedReferences([string]$DocumentFullPath)
             Foreach ($LinkReference in $LinkReferences)
             {
                 if ($LinkReference.Groups["linkReferenceInDoc"].Value -eq $Reference.Groups["reference"].Value)
+                {
+                    $ContainsLinkReference = $true
+                    break
+                }
+            }
+
+            Foreach ($IndividualLinkReference in $IndividualLinkReferences)
+            {
+                if ($IndividualLinkReference.Groups["IndividualLinkReferenceLabel"].Value -eq $Reference.Groups["reference"].Value)
                 {
                     $ContainsLinkReference = $true
                     break
