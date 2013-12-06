@@ -1,4 +1,4 @@
-<properties linkid="manage-services-sql-databases-premium" urlDisplayName="Premium SQL Database" pageTitle="Sign up for Windows Azure Premium for SQL Database" metaKeywords="" description="Describes how to sign up for the Premium for SQL Database preview, request your Premium database quota, and then upgrade a database to Premium in Windows Azure SQL Database." metaCanonical="" services="" documentationCenter="" title="Sign up for the preview of Premium for Windows Azure SQL Database" authors=""  solutions="" writer="karaman" manager="" editor="tysonn"  />
+<properties linkid="manage-services-sql-databases-premium" urlDisplayName="Premium SQL Database" pageTitle="Sign up for Windows Azure Premium for SQL Database" metaKeywords="" description="Describes how to sign up for the Premium for SQL Database preview, request your Premium database quota, and then upgrade a database to Premium in Windows Azure SQL Database." metaCanonical="" services="cloud-services" documentationCenter="" title="Sign up for the preview of Premium for Windows Azure SQL Database" authors=""  solutions="" writer="karaman" manager="" editor="tysonn"  />
 
 
 

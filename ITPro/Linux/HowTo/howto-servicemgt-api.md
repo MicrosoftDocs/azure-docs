@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Windows Azure" metaKeywords="" description="Learn how to use the Windows Azure Service Management API for a Linux virtual machine." metaCanonical="" services="" documentationCenter="" title="How to Use the Service Management API" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Windows Azure" metaKeywords="" description="Learn how to use the Windows Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 

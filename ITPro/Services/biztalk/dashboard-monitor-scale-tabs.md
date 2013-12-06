@@ -1,4 +1,4 @@
-<properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor and Scale tabs" pageTitle="Dashboard, Monitor, and Scale in Biztalk Services | Windows Azure" metaKeywords="BizTalk Services, Windows Azure, dashboard, monitor, scale" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="" documentationCenter="" title=" Monitor and Scale tabs" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor and Scale tabs" pageTitle="Dashboard, Monitor, and Scale in Biztalk Services | Windows Azure" metaKeywords="BizTalk Services, Windows Azure, dashboard, monitor, scale" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
 
 
 

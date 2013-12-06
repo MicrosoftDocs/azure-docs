@@ -1,4 +1,4 @@
-<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" services="" documentationCenter="PHP" title="Create a PHP-MySQL Windows Azure web site and deploy using Git" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties linkid="develop-php-website-with-mysql-and-git" urlDisplayName="Web w/ MySQL + Git" pageTitle="PHP web site with MySQL and Git - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use Git deployment to Windows Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Windows Azure web site and deploy using Git" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
 
 
 

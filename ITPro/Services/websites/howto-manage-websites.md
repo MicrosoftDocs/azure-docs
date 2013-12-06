@@ -1,4 +1,4 @@
-<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" services="" documentationCenter="" title="How to Manage Web Sites" authors=""  solutions="" writer="tysonn" manager="" editor=""  />
+<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Web Sites" authors=""  solutions="" writer="tysonn" manager="" editor=""  />
 
 
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Windows Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Windows Azure virtual machines." metaCanonical="" services="" documentationCenter="" title="SharePoint Deployment on Windows Azure Virtual Machines" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-windows-other-resource-sharepoint-wp" urlDisplayName="SharePoint on Azure" pageTitle="SharePoint 2010 Deployment on Windows Azure Virtual Machines" metaKeywords="" description="Understand the supported scenarios for using SharePoint 2010 on Windows Azure virtual machines." metaCanonical="" services="virtual-machines" documentationCenter="" title="SharePoint Deployment on Windows Azure Virtual Machines" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 

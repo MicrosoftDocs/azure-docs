@@ -1,4 +1,4 @@
-<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Windows Azure" metaKeywords="BizTalk Services, get started, Windows Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Developer, Basic, Standard, and Premium." metaCanonical="" services="" documentationCenter="" title=" Basic" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Windows Azure" metaKeywords="BizTalk Services, get started, Windows Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
 
 
 

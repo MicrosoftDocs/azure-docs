@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-process-blob-data-and-write-to-sql" urlDisplayName="Blob to SQL" pageTitle="Process Blob Storage data and write results to SQL | Windows Azure" metaKeywords="" description="Learn how to use the HDInsight service to process data stored in Windows Azure Blob storage and write the results to a SQL Database." metaCanonical="" services=",," documentationCenter="" title="Using Hive to Process Blob Storage Data and Write the Results to a SQL Database" authors=""  solutions="" writer="bswan" manager="" editor=""  />
+<properties linkid="manage-services-hdinsight-process-blob-data-and-write-to-sql" urlDisplayName="Blob to SQL" pageTitle="Process Blob Storage data and write results to SQL | Windows Azure" metaKeywords="" description="Learn how to use the HDInsight service to process data stored in Windows Azure Blob storage and write the results to a SQL Database." metaCanonical="" services="sql-database,storage,hdinsight" documentationCenter="" title="Using Hive to Process Blob Storage Data and Write the Results to a SQL Database" authors=""  solutions="" writer="bswan" manager="" editor=""  />
 
 
 
