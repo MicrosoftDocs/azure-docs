@@ -1,4 +1,6 @@
-﻿<properties linkid="manage-dataservices-recoveryservices-backup" urlDisplayName="Windows Azure Backup" pageTitle="Configure Windows Azure Backup to quickly and easily back-up Windows Server" metaKeywords="Windows Azure Backup, Online Backup, back-up service" metaDescription="Use Windows Azure Backup to help you protect important server data offsite with automated backups to Windows Azure, where they are available for easy data restoration." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" /> 
+<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Windows Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Windows Azure Backup to quickly and easily back-up Windows Server" authors=""  solutions="" writer="starra" manager="cynthn" editor="tysonn"  />
+
+
 
 <h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Backup to quickly and easily back-up Windows Server</h1>
 <div class="dev-callout"> 

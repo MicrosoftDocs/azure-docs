@@ -1,4 +1,6 @@
-<properties linkid="dev-downloads-cli-tools-install" urlDisplayName="CLI Tools Install" pageTitle="Windows Azure Command-Line Tools for Mac and Linux Install" metaKeywords="" metaDescription="Get started using the Windows Azure command-line tools for Mac and Linux." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-downloads-cli-tools-install" urlDisplayName="CLI Tools Install" pageTitle="Windows Azure Command-Line Tools for Mac and Linux Install" metaKeywords="" description="Get started using the Windows Azure command-line tools for Mac and Linux." metaCanonical="" services="" documentationCenter="" title="Thanks for downloading the Windows Azure SDK for Mac" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #Thanks for downloading the Windows Azure SDK for Mac

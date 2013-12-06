@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" metaDescription="Learn how to use Service Bus queues in Windows Azure. Code samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="guayan" />
+<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors=""  solutions="" writer="guayan" manager="" editor=""  />
+
+
 
 
 # How to Use Service Bus Queues

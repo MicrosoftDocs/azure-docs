@@ -1,4 +1,6 @@
-<properties linkid="websites-global-web-presence" urlDisplayName="Create a Global Web Presence on Windows Azure Web Sites" pageTitle="Create a Global Web Presence on Windows Azure Web Sites" metaKeywords="Web Sites" metaDescription="Understand tasks associated with hosting an organization's public site on Windows Azure Web Sites." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" /> 
+<properties linkid="develop-media-services-resources-java" urlDisplayName="Media Services Java Resources" pageTitle="Windows Azure Media Services - Resources (Java)" metaKeywords="" description="Find resources, tutorials, and documentation about how to use Media Services with Windows Azure in Java." metaCanonical="http://www.windowsazure.com/en-us/develop/media-services/resources/" services="" documentationCenter="" title="Create a Global Web Presence on Windows Azure Web Sites" authors=""  solutions="" writer="jroth" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

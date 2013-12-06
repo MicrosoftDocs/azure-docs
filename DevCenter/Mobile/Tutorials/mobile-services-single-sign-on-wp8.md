@@ -1,4 +1,6 @@
-<properties linkid="single-sign-on-wp8" urldisplayname="Mobile Services" writer="glenga" headerexpose="" pagetitle="Authenticate your Windows Phone 8 app with Mobile Services using Live Connect single sign-on" metakeywords="Get started Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8" footerexpose="" metadescription="Authenticate your Windows Phone 8 app for Windows Azure Mobile Services using Live Connect." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Windows Azure Mobile Services from a Windows Phone application." metaCanonical="" services="" documentationCenter="" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 

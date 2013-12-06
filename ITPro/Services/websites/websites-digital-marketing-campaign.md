@@ -1,4 +1,6 @@
-<properties linkid="websites-digital-marketing-campaign" urlDisplayName="Create a Digital Marketing Campaign on Windows Azure Web Sites" pageTitle="Create a Digital Marketing Campaign on Windows Azure Web Sites" metaKeywords="Web Sites" metaDescription="Understand tasks associated with using Windows Azure Web Sites for digital marketing campaigns." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" /> 
+<properties linkid="develop-media-services-resources " urlDisplayName="Resources" pageTitle="Windows Azure Media Services Center - Resources" metaKeywords="" description="Find resources, tutorials, and documentation about how to use Media Services with Windows Azure." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Windows Azure Web Sites" authors=""  solutions="" writer="jroth" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

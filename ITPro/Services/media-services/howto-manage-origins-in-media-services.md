@@ -1,4 +1,6 @@
-<properties linkid="manage-services-how-to-manage-origins-in-a-media-service" urlDisplayName="How to manage origins" pageTitle="How to manage origins in a media service - Windows Azure" metaKeywords="Azure link resource, managing origins in a media service" metaDescription="Learn how to managing origins in a media service in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="juliako" />
+<properties linkid="scripting-center-index" urlDisplayName="index" pageTitle="Scripting Center Index" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Manage Origins in a Media Services Account" authors=""  solutions="" writer="juliako" manager="" editor=""  />
+
+
 
 
 

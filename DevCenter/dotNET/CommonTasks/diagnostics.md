@@ -1,4 +1,6 @@
-<properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Windows Azure feature guide" metaKeywords="Azure diagnostics monitoring  logs crash dumps C#" metaDescription="Learn how to use diagnostic data in Windows Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="ryanwi"/>
+<properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Windows Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Windows Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="" documentationCenter=".NET" title="Enabling Diagnostics in Windows Azure" authors=""  solutions="" writer="ryanwi" manager="" editor=""  />
+
+
 
 
 

@@ -1,4 +1,6 @@
-<properties linkid="" urlDisplayName="" pageTitle="Windows Azure publishing profile overview" metaKeywords="" metaDescription="A tutorial that teaches you how to import a publishing profile from Windows Azure to WebMatrix." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="downloads-publishing-profile-overview" urlDisplayName="Publishing Profile Overview" pageTitle="Windows Azure publishing profile overview" metaKeywords="" description="A tutorial that teaches you how to import a publishing profile from Windows Azure to WebMatrix." metaCanonical="" services="" documentationCenter="" title="How to Import a Publish Profile from Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # How to Import a Publish Profile from Windows Azure

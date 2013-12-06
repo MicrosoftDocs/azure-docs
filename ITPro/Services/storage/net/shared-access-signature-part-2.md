@@ -1,4 +1,6 @@
-﻿<properties linkid="manage-services-storage-net-shared-access-signatures-part-2" urlDisplayName="Shared Access Signatures Blob Service" pageTitle="Shared Access Signatures, Part 2: Create and Use a SAS with the Windows Azure Blob Service" metaKeywords="Get started Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage   Azure blob .NET   Azure blob C#   Azure blob C#  shared access signature" metaDescription="Create shared access signatures to delegate access to storage account resources, and consume them from a separate client application. Samples are written in C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" Part 2: Create and Use a SAS with the Blob Service" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

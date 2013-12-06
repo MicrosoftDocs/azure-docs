@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-get-started-html" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Mobile Services for HTML5" metaKeywords="" writer="glenga" metaDescription="Follow this tutorial to get started using Windows Azure Mobile Services for HTML5 development. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-html" urlDisplayName="Get Started (HTML5)" pageTitle="Get Started with Windows Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Windows Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

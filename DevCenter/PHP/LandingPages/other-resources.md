@@ -1,4 +1,6 @@
-<properties linkid="devnav-php-otherresources" urlDisplayName="Other Resources" pageTitle="Windows Azure PHP resources" metaKeywords="Azure PHP" metaDescription="Find topics about using PHP with Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-php-otherresources" urlDisplayName="Other Resources" pageTitle="Windows Azure PHP resources" metaKeywords="Azure PHP" description="Find topics about using PHP with Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" services="" documentationCenter="" title="PHP Developer Center - Other Resources" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # PHP Developer Center - Other Resources

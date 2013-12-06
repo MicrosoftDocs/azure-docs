@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-commons-tasks-enable-ssl" urlDisplayName="Enable SSL - Web Sites" pageTitle="Configure an SSL certificate - Windows Azure Web Site" metaKeywords="SSL Azure, Azure SSL certificate web site, node.js SSL Azure web site, node.js Azure SSL certificate" metaDescription="Learn how to configure an SSL certificate for your Windows Azure Web Site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-nodejs-common-tasks-enable-ssl-web-site" urlDisplayName="SSL Web Sites" pageTitle="Enable SSL for Web Sites - Node.js Dev Center" metaKeywords="" description="" metaCanonical="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-sites/" services="web-sites" documentationCenter="Node.js" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 <div chunk="../../Shared/Chunks/configure-ssl-web-site.md" />

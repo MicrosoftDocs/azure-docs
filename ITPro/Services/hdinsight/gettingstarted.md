@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Getting Started" pageTitle="Get started using HDInsight | Windows Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, getting started hdinsight, powershell" metaDescription="Get started with HDInsight, a big data solution. Learn how to provision an HDInsight cluster, run a Hadoop MapReduce job, and then output data to Excel for analysis." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using HDInsight | Windows Azure" metaKeywords="" description="Get started with HDInsight, a big data solution. Learn how to provision an cluster, run a Hadoop MapReduce job, and then output data to Excel for analysis." metaCanonical="" services="" documentationCenter="" title="Get started using Windows Azure HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+
+
 
 
 # Get started using Windows Azure HDInsight

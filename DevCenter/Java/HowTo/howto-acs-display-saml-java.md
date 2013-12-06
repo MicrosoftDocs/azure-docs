@@ -1,4 +1,6 @@
-<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" metaDescription="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="waltpo" editor="mollybos" />
+<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Windows Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Windows Azure Access Control Service" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+
+
 
 
 

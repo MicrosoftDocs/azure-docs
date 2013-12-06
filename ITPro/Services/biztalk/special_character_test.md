@@ -1,4 +1,6 @@
-<properties linkid="specChar" urlDisplayName="Special character test" metaKeywords="test for alt characters" metaDescription="test for alt characters" metaCanonical="test for alt characters" umbracoNaviHide="0" disqusComments="1" writer="cgronlun" editor="cgronlun" manager="paulettm" /> 
+<properties linkid="develop-media-services-resources-rest" urlDisplayName="Windows Azure Media Services Resources (REST)" pageTitle="Windows Azure Media Services - Resources (REST)" metaKeywords="" description="Find resources, tutorials, and documentation about how to use Media Services with Windows Azure in REST." metaCanonical="http://www.windowsazure.com/en-us/develop/media-services/resources/" services="" documentationCenter="" title="" authors=""  solutions="" writer="cgronlun" manager="paulettm" editor="cgronlun"  />
+
+
 
 # Heading 1 with all special characters: & < > « » √ – — ™ © ® ‘ ’ “ ”
 
