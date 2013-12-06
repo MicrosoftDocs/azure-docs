@@ -19,7 +19,7 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 ![Windows Azure PHP web site][ws-storage-app]
 
-<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Installing the Windows Azure client libraries
 
@@ -325,7 +325,7 @@ To make your application store data into the cloud you need to first create a st
 
 	![Fill in web site details][storage-quick-create-details]
 
-	When the storage account has been created you will see the text **Creation of Storage Account ‘[NAME]’ completed successfully**.
+	When the storage account has been created you will see the text **Creation of Storage Account ???[NAME]??? completed successfully**.
 
 4. Ensure the **Storage** tab is selected and then select the storage account you just created from the list.
 
@@ -357,9 +357,9 @@ Follow these steps to create a Windows Azure Web Site:
 
 	![Fill in web site details][website-quick-create-details]
 
-	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
 
-5. Click the name of the web site displayed in the list of web sites to open the web site’s **QUICKSTART** dashboard.
+5. Click the name of the web site displayed in the list of web sites to open the web site???s **QUICKSTART** dashboard.
 
 	![Open web site dashboard][go-to-dashboard]
 
@@ -426,31 +426,31 @@ To publish changes to application, follow these steps:
 3. Browse to **http://[your web site domain]/index.php** to see your changes. 
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-pear]: http://pear.php.net/manual/en/installation.getting.php
-[install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
+
+
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
-[pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
+
 [msdn-errors]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
-[tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
-[localhost-createtable]: http://localhost/tasklist/createtable.php
-[localhost-index]: http://localhost/tasklist/index.php
+
+
+
 [msdn-table-query-syntax]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
-[ws-storage-app]: ../Media/ws-storage-app.png
+[ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
 [management-portal]: https://manage.windowsazure.com
-[new-website]: ../../Shared/Media/new_website.jpg
-[download-php-sdk]: /en-us/develop/php/download-php-sdk/
-[website-quick-create]: ../../Shared/Media/website-quick-create.png
-[website-quick-create-details]: ../../Shared/Media/website-quick-create-details.png
-[storage-quick-create]: ../../Shared/Media/storage-quick-create.png
-[storage-quick-create-details]: ../../Shared/Media/storage-quick-create-details.png
-[storage-manage-keys]: ../../Shared/Media/storage-manage-keys.png
-[storage-access-keys]: ../../Shared/Media/storage-access-keys.png
-[website-details]: ../../Shared/Media/website_details.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
-[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
-[credentials]: ../../Shared/Media/git-deployment-credentials.png
-[creating-repo]: ../Media/creating_repo.jpg
-[push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git-instructions.png
-[where-is-code]: ../../Shared/Media/where_is_code.png
+[new-website]: ./media/web-sites-php-storage/new_website.jpg
+
+[website-quick-create]: ./media/web-sites-php-storage/website-quick-create.png
+[website-quick-create-details]: ./media/web-sites-php-storage/website-quick-create-details.png
+[storage-quick-create]: ./media/web-sites-php-storage/storage-quick-create.png
+[storage-quick-create-details]: ./media/web-sites-php-storage/storage-quick-create-details.png
+[storage-manage-keys]: ./media/web-sites-php-storage/storage-manage-keys.png
+[storage-access-keys]: ./media/web-sites-php-storage/storage-access-keys.png
+
+[go-to-dashboard]: ./media/web-sites-php-storage/go_to_dashboard.png
+[setup-git-publishing]: ./media/web-sites-php-storage/setup_git_publishing.png
+[credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
+
+
+[git-instructions]: ./media/web-sites-php-storage/git-instructions.png
+[where-is-code]: ./media/web-sites-php-storage/where_is_code.png
