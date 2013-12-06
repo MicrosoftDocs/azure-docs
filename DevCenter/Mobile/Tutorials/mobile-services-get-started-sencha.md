@@ -4,7 +4,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" class="current" title="Sencha">Sencha</a></div>
 
-This tutorial shows you how to leverage Windows Azure Mobile Services in your Sencha Touch application. In this tutorial, you will create a simple To Do List app using Sencha Touch that utilizes the mobile service created when you complete the topic <a href="/en-us/develop/mobile/tutorials/getting-started-html" target="_blank">Getting started with Mobile Services</a>.
+This tutorial shows you how to leverage Windows Azure Mobile Services in your Sencha Touch application. In this tutorial, you will create a simple To Do List app using Sencha Touch that utilizes the mobile service created when you complete the topic <a href="/en-us/develop/mobile/tutorials/get-started-html" target="_blank">Getting started with Mobile Services</a>.
 
 A screenshot from the completed app is shown below:
 
@@ -17,7 +17,7 @@ This tutorial is intended for intermediate to advanced web application developer
 
 ##Requirements
 
-- As this tutorial uses an existing mobile service, you are required to have already successfully reviewed and completed the steps outlined in <a href="/en-us/develop/mobile/tutorials/getting-started-html" target="_blank">Getting started with Mobile Services</a>.
+- As this tutorial uses an existing mobile service, you are required to have already successfully reviewed and completed the steps outlined in <a href="/en-us/develop/mobile/tutorials/get-started-html" target="_blank">Getting started with Mobile Services</a>.
 
 - Download and install <a href="http://wwww.sencha.com/products/touch/download" target="_blank">Sencha Touch</a>.
 
