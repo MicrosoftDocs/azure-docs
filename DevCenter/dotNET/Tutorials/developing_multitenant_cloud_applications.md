@@ -1,4 +1,6 @@
-﻿<properties linkid="develop-net-tutorials-multitenant-apps-for-active-direcotry" urlDisplayName="Multi-Tenant Cloud App Security" pageTitle="Developing multi-tenant apps for Windows Azure Active Directory" metaKeywords="" metaDescription="Learn how to develop multi-tenant cloud applications using Windows Azure Active Directory." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

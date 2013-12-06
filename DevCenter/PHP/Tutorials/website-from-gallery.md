@@ -1,4 +1,6 @@
-<properties linkid="develop-php-website-from-gallery" urlDisplayName="Web site from Gallery" pageTitle="WordPress Web site from Gallery - Windows Azure tutorial" metaKeywords="Azure create website WordPress, Azure WordPress, WordPress blog Azure" metaDescription="A tutorial that teaches you how to create a new Windows Azure web site for a WordPress blog, and then deploy it through the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-website-from-gallery" urlDisplayName="Web site from Gallery" pageTitle="WordPress Web site from Gallery - Windows Azure tutorial" metaKeywords="Azure create website WordPress, Azure WordPress, WordPress blog Azure" description="A tutorial that teaches you how to create a new Windows Azure web site for a WordPress blog, and then deploy it through the Management Portal." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a WordPress web site from the gallery in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

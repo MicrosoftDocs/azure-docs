@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Windows Azure" metaKeywords="Azure optimization, Azure best practice performance" metaDescription="Learn about best practices for performance in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Windows Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Windows Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

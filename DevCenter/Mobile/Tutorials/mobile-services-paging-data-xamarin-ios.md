@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-add-paging-to-data-xamarin-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (Xamarin.iOS) - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to data in your Xamarin.iOS application using Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Refine Mobile Services queries with paging" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 # Refine Mobile Services queries with paging
 

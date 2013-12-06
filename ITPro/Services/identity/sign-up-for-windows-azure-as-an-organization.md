@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Sign up for Windows Azure as an organization" metaKeywords="Windows Azure Active Directory, Windows Azure AD, organizational account" metaDescription="Learn how to create a Windows Azure AD tenant in Windows Azure." linkid="documentation-services-identity-sign-up-for-windows-azure-as-an-organization" urlDisplayName="Sign up as an organization" headerExpose="" footerExpose="" disqusComments="0" />
+<properties linkid="manage-services-identity-organization-account" urlDisplayName="Organization accounts" pageTitle="Sign up for Windows Azure as an organization" metaKeywords="" description="Learn how you can use an organizational account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have improve efficiencies between your organization's on-premises identity infrastructure and Windows Azure AD." metaCanonical="" services="active-directory" documentationCenter="" title="Sign up for Windows Azure as an organization" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 <h1 id="signup">Sign up for Windows Azure as an organization</h1>

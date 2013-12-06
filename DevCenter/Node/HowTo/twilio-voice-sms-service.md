@@ -1,4 +1,6 @@
-<properties linkname="dev-nodejs-how-to-twilio-voice-sms-service" urldisplayname="Twilio Voice and SMS Service" headerexpose="" pagetitle="Twilio Voice and SMS Service - How To - Node.js - Develop" metakeywords="voice sms voip" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="dev-nodejs-how-to-twilio-voice-sms-service" urlDisplayName="Twilio Voice and SMS Service" pageTitle="Using Twilio for Voice, VoIP, and SMS Messaging in Windows Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title=" VoIP" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

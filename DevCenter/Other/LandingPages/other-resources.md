@@ -1,4 +1,6 @@
-<properties linkid="develop-other-otherresources" urlDisplayName="Other Resources" pageTitle="Windows Azure other resources" metaKeywords="Azure develop resource" metaDescription="Find other developer resources for Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="develop-other-otherresources" urlDisplayName="Other Resources" pageTitle="Windows Azure other resources" metaKeywords="Azure develop resource" description="Find other developer resources for Windows Azure." metaCanonical="" services="" documentationCenter="" title="Developer Center - Other Resources" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Developer Center - Other Resources

@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure, Windows Azure blob storage, wasb, wasbs, powershell" metaDescription="Learn how to upload data to HDInsight, the Windows Azure big data solution with a full-featured Hadoop Distributed File System (HDFS) and Windows Azure Blob storage." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-upload-data-to-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data to HDInsight | Windows Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, the interactive console, the Hadoop command line, or Sqoop." metaCanonical="" services="" documentationCenter="" title="Upload data to HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+
+
 
 #Upload data to HDInsight
 

@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-hadoop-and-data" urlDisplayName="Hadoop and Data" pageTitle="Hadoop and data (.NET) - Windows Azure tutorial" metaKeywords="Azure Hadoop, Azure Apache, store data Hadoop, import data Hadoop, Azure Hadoop jobs" metaDescription="A tutorial that teaches you techniques for storing and importing data for Hadoop jobs run with Apache Hadoop-based Services for Windows Azure. " metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Hadoop on Windows Azure - Working With Data" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Hadoop on Windows Azure - Working With Data

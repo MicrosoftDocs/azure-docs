@@ -1,4 +1,6 @@
-<properties linkid="throttling" urlDisplayName="BizTalk Services: Throttling" pageTitle="BizTalk Services: Throttling" metaKeywords="Get started Azure biztalk services, throttling, Azure unstructured data" metaDescription="Describes BizTalk Services: Throttling, including when a role instance throttles." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/throttling" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="susanjo" manager="paulettm" /> 
+<properties linkid="manage-services-biztalk-services-throttling" urlDisplayName="Throttling" pageTitle="Throttling thresholds in BizTalk Services | Windows Azure" metaKeywords="BizTalk Services, throttling, Windows Azure" description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of simultaneous messages." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Throttling" authors=""  solutions="" writer="mandia" manager="paulettm" editor="susanjo"  />
+
+
 
 
 

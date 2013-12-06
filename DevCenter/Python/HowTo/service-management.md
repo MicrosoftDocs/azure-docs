@@ -1,4 +1,6 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" metaDescription="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # How to use Service Management from Python

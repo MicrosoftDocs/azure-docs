@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-net-2-how-to-storage-store-apps" urlDisplayName="Using Storage with Windows Store Apps" pageTitle="Using Windows Azure Storage with Windows Store Apps" metaKeywords="Get started Azure storage   Azure blob   Azure queue   Azure table   Windows Store   Windows Runtime Windows Azure Storage Client Library for Windows Runtime" metaDescription="Learn how to develop Windows Store apps that make use of Windows Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="manage-services-storage-using-storage-with-windows-store-apps" urlDisplayName="Windows Azure Storage in Windows Store apps" pageTitle="Use Windows Azure Storage in Windows Store Apps | Windows Azure Tutorial" metaKeywords="" description="Learn how to use Windows Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="" documentationCenter="" title="How to use Windows Azure Storage in Windows Store Apps" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

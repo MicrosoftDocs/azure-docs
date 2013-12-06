@@ -1,4 +1,6 @@
-﻿<properties umbracoNaviHide="0" pageTitle="What is Windows Azure Multi-Factor Authentication" metaKeywords="Windows Azure Multi-Factor Authentication, Windows Azure MFA, WAMFA" metaDescription="Learn about Windows Azure Multi-Factor Authentication." linkid="documentation-services-identity-what-is-windows-azure-multi-factor-authentication" urlDisplayName="What is Windows Azure Multi-Factor Authentication" headerExpose="" footerExpose="" disqusComments="0" writer="billmath" editor="lisatoft" manager="terrylan" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="What is Windows Azure Multi-Factor Authentication?" authors=""  solutions="" writer="billmath" manager="terrylan" editor="lisatoft"  />
+
+
 
 
 

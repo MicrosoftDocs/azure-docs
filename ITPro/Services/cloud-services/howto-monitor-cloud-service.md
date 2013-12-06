@@ -1,4 +1,6 @@
-<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Windows Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" metaDescription="Learn how to monitor cloud services by using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="ryanwi" />
+<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Windows Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Windows Azure Management Portal." metaCanonical="" services="" documentationCenter="" title="How to Monitor Cloud Services" authors=""  solutions="" writer="ryanwi" manager="" editor=""  />
+
+
 
 
 #How to Monitor Cloud Services

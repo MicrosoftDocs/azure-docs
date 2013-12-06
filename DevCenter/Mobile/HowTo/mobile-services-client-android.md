@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-how-to-Anroid-client" writer="ricksal" urlDisplayName="Android Client Library" pageTitle="How to use the Android client library - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service Android client library, Android client library" metaDescription="Learn how to use the Android client library for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-mobile-how-to-guides/work-with-android-client-library" urlDisplayName="Android Client Library" pageTitle="Working with the Mobile Services Android ClientLibrary" metaKeywords="" description="Learn how to use an Android client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the Android client library for Mobile Services" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+
+
 
 
 

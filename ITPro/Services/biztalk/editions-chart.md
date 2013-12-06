@@ -1,4 +1,6 @@
-<properties linkid="editions-chart" urlDisplayName="BizTalk Services Editions" pageTitle="BizTalk Services: Developer, Basic, Standard and Enterprise Editions Chart" metaKeywords="Get started Azure biztalk services, editions, Azure unstructured data" metaDescription="A chart that lists the differences with the different Windows Azure BizTalk Services editions." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/editions-chart" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="cgronlun" manager="paulettm" /> 
+<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Windows Azure" metaKeywords="BizTalk Services, get started, Windows Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Developer, Basic, Standard, and Premium." metaCanonical="" services="" documentationCenter="" title=" Basic" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+
+
 
 
 # BizTalk Services: Developer, Basic, Standard, and Premium Editions Chart

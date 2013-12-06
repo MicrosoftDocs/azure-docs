@@ -1,4 +1,6 @@
-<properties linkid="dotnet-how-to-debug-web-sites" urlDisplayName="How to enable diagnostics" pageTitle="How to enable diagnostics - Windows Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" metaDescription="Learn how to debug Windows Azure web sites by using the diagnostics settings in the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="larryfr" />
+<properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Windows Azure Web Sites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Windows Azure." metaCanonical="" services="" documentationCenter=".NET" title="Enable diagnostic logging for Windows Azure Web Sites" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+
+
 
 
 

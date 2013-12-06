@@ -1,4 +1,6 @@
-<properties linkid="develop-php-white-papers" urlDisplayName="White Papers" pageTitle="White papers (PHP) - Windows Azure resources" metaKeywords="Azure whitepapers" metaDescription="Find Windows Azure white papers." metaCanonical="http://www.windowsazure.com/en-us/develop/net/other-resources/white-papers/" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-php-white-papers" urlDisplayName="White Papers" pageTitle="White papers (PHP) - Windows Azure resources" metaKeywords="Azure whitepapers" description="Find Windows Azure white papers." metaCanonical="http://www.windowsazure.com/en-us/develop/net/other-resources/white-papers/" services="" documentationCenter="PHP" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 
