@@ -1,4 +1,6 @@
-<properties linkid="dev-net-tutorials-hadoop-marketplace" urlDisplayName="Hadoop Marketplace" pageTitle="Running Hadoop jobs and analyzing data (.NET) - Windows Azure" metaKeywords="Azure MapReduce, Azure Apache Hadoop, Azure Hive data, Azure Hadoop cluster, Azure Hadoop Excel" metaDescription="A tutorial that teaches you how to run MapReduce programs using Apache Hadoop-based services for Windows Azure. Then query Hive data from Excel." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" Importing Data from Windows Azure Marketplace" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Running Hadoop Jobs on Windows Azure, Importing Data from Windows Azure Marketplace, and Analysing the Data with the Excel Hive Add-In 

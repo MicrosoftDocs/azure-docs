@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Intro to Windows Azure" metaKeywords="" metaDescription="" linkid="dev-net-fundamentals-intro-to-windows-azure" urlDisplayName="Intro to Windows Azure" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-net-fundamentals-intro-to-windows-azure" urlDisplayName="Intro to Windows Azure" pageTitle="Intro to Windows Azure - Windows Azure fundamentals" metaKeywords="" description="Learn how to develop,,deploy,,and manage applications on Windows Azure,,Microsoft's cloud computing platform for IaaS,,PaaS,,and websites." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

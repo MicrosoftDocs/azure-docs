@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-how-to-dotnet-client" urlDisplayName=".NET Client" pageTitle="How to use an .NET client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" metaDescription="Learn how to use a .NET client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
+<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET ClientLibrary" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+
+
  
 
 
@@ -7,7 +9,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"> 
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework" class="current">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 
@@ -29,6 +31,7 @@ This guide shows you how to perform common scenarios using a .NET client for Win
 - [How to: Insert data into a mobile service]
 - [How to: Modify data in a mobile service]
 - [How to: Delete data in a mobile service]
+- [How to: Use Optimistic Concurrency]
 - [How to: Bind data to user interface in a mobile service]
 - [How to: Authenticate users]
 - [How to: Handle errors]
@@ -43,14 +46,14 @@ This guide shows you how to perform common scenarios using a .NET client for Win
 
 <h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
 
-We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/?LinkId=298592). In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `id`, `Text`, and `Complete`.
+We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/?LinkId=298592). In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `Id`, `Text`, and `Complete`.
 
 The corresponding typed client-side .NET type is the following:
 
 
 	public class TodoItem
 	{
-		public int id { get; set; }
+		public string Id { get; set; }
 
 		[JsonProperty(PropertyName = "text")]
 		public string Text { get; set; }
@@ -202,27 +205,68 @@ All the functions described so far are additive, so we can just keep calling the
 
 The `LookupAsync` function can be used to look up objects from the database with a particular ID. 
 
-	// This query filters out the item with the ID of 25
-	TodoItem item25 = await todoTable.LookupAsync(25);
+	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
+	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
 <h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
-<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</p> </div>
+<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong>. This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. A valid id value must always be present in update and delete operations.</p> </div>
 
 The following code illustrates how to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 
 	await todoTable.InsertAsync(todoItem);
 
-After the await `todoTable.InsertAsync` call returns, the ID of the object in the server is populated to the `todoItem` object in the client. 
+If a unique custom id value is not included in the `todoItem` passed to the `todoTable.InsertAsync` call, a value for id will be generated by the server set in the `todoItem` object returned to the client. 
 
-To insert untyped data, you may take advantage of Json.NET as shown below. Again, note that an ID must not be specified when inserting an object.
+Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
+
+Supporting string ids provides the following advantages to developers
+
++ Ids can be generated without making a roundtrip to the database.
++ Records are easier to merge from different tables or databases.
++ Ids values can integrate better with an application's logic.
+
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's id.
+
+	//Example of generating an id. This is not required since Mobile Services
+	//will generate an id if one is not passed in.
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+If an application provides a value for an id, Mobile Services will store it as is. This includes leading or trailing white spaces. White space will not be trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1].
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+
+You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+
+
+To insert untyped data, you may take advantage of Json.NET as shown below. 
 
 	JObject jo = new JObject(); 
 	jo.Add("Text", "Hello World"); 
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
-If you attempt to insert an item with the "Id" field already set, you will get back a `MobileServiceInvalidOperationException` from the service. 
+Here is an example using an email address as a unique string id.
+
+	JObject jo = new JObject(); 
+	jo.Add("id", "myemail@emaildomain.com"); 
+	jo.Add("Text", "Hello World"); 
+	jo.Add("Complete", false);
+	var inserted = await table.InsertAsync(jo);
+
 
 <h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
 
@@ -234,12 +278,12 @@ The following code illustrates how to update an existing instance with the same 
 To insert untyped data, you may take advantage of Json.NET like so. Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update. The ID can be obtained from the result of the `InsertAsync` call.
 
 	JObject jo = new JObject(); 
-	jo.Add("Id", 52);
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	jo.Add("Text", "Hello World"); 
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
 			
-If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
+If you attempt to update an item without providing the "Id" value, there is no way for the service to tell which instance to update, so the Mobile Services SDK will throw an `ArgumentException`. 
 			
 			
 <h2><a name="deleting"></a><span class="short-header">Deleting data</span>How to: Delete data in a mobile service</h2>
@@ -251,11 +295,107 @@ The following code illustrates how to delete an existing instance. The instance 
 To delete untyped data, you may take advantage of Json.NET like so. Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete. A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service. The result of a `DeleteAsync` call is usually `null` as well. The ID to pass in can be obtained from the result of the `InsertAsync` call.
 
 	JObject jo = new JObject(); 
-	jo.Add("Id", 52);
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 			
 If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
 			
+
+
+<h2><a name="optimisticconcurrency"></a><span class="short-header">Optimistic Concurrency</span>How to: Use Optimistic Concurrency</h2>
+
+Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. Optimistic Concurrency Control assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back. 
+
+Mobile Services supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is defined for each table created by Mobile Services. Each time a record is updated, Mobile Services sets the `__version` property for that record to a new value. During each update request, the `__version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the server, then the Mobile Services .NET client library throws a `MobileServicePreconditionFailedException<T>`. The type included with the exception is the record from the server containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct `__version` value from the server to commit changes.  
+
+To enable optimistic concurrency the application defines a column on the table class for the `__version` system property. The following definition provides an example.
+
+    public class TodoItem
+    {
+        public string Id { get; set; }
+
+        [JsonProperty(PropertyName = "text")]
+        public string Text { get; set; }
+
+        [JsonProperty(PropertyName = "complete")]
+        public bool Complete { get; set; }
+
+		// *** Enable Optimistic Concurrency *** //
+        [JsonProperty(PropertyName = "__version")]
+        public byte[] Version { set; get; }
+    }
+
+
+Applications using untyped tables enable optimistic concurrency by setting the `Version` flag on the `SystemProperties` of the table as follows.
+
+	//Enable optimistic concurrency by retrieving __version 
+	todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+
+
+The following code shows how to resolve a write conflict once detected. The correct `__version` value must be included in the `UpdateAsync()` call to commit a resolution.
+
+	private async void UpdateToDoItem(TodoItem item)
+	{
+    	MobileServicePreconditionFailedException<TodoItem> exception = null;         
+		
+	    try
+    	{
+	        //update at the remote table
+    	    await todoTable.UpdateAsync(item);
+    	}
+    	catch (MobileServicePreconditionFailedException<TodoItem> writeException)
+	    {
+        	exception = writeException;
+	    }
+		
+    	if (exception != null)
+    	{
+			// Conflict detected, the item has changed since the last query
+        	// Resolve the conflict between the local and server item
+	        await ResolveConflict(item, exception.Item);
+    	}
+	}
+
+
+	private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
+	{
+    	//Ask user to choose the resoltion between versions
+	    MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n", 
+        	                                        serverItem.Text, localItem.Text), 
+                                                	"CONFLICT DETECTED - Select a resolution:");
+
+	    UICommand localBtn = new UICommand("Commit Local Text");
+    	UICommand ServerBtn = new UICommand("Leave Server Text");
+    	msgDialog.Commands.Add(localBtn);
+	    msgDialog.Commands.Add(ServerBtn);          
+
+    	localBtn.Invoked = async (IUICommand command) =>
+	    {
+        	// To resolve the conflict, update the version of the 
+	        // item being committed. Otherwise, you will keep
+        	// catching a MobileServicePreConditionFailedException.
+	        localItem.Version = serverItem.Version;             
+
+    	    // Updating recursively here just in case another 
+        	// change happened while the user was making a decision
+	        UpdateToDoItem(localItem);
+    	};          
+		
+	    ServerBtn.Invoked = async (IUICommand command) =>
+    	{
+	        RefreshTodoItems();
+    	};          
+		
+	    await msgDialog.ShowAsync();
+	}
+
+
+
+
+
+For a more complete example of using optimistic concurrency for Mobile Services, see the [Optimistic Concurrency Tutorial].
+
+
 
 <h2><a name="binding"></a><span class="short-header">Displaying data</span>How to: Bind data to user interface in a mobile service</h2>
 
@@ -539,6 +679,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
+[How to: Use Optimistic Concurrency]: #optimisticconcurrency
 [How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Design unit tests]: #unit-testing 
@@ -577,3 +718,6 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[Optimistic Concurrency Tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/

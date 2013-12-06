@@ -154,11 +154,13 @@ Analyzing data is a fundamental part of how businesses use information technolog
 
 Analyzing data can take many forms, and so these two options are quite different. It's worth looking at each one separately.
 
-###SQL Reporting###
+###Reporting with SQL Database###
+One of the most common ways to use stored data is to create reports based on that data.
+ 
+Running SQL Server Reporting Services (SSRS) on Windows Azure Virtual Machines allows you to build easily accessible reporting capabilities into your Windows Azure application. You can create reports with tables, charts, maps, gauges, and more in various formats, including HTML, XML, PDF, and Excel. 
 
-One of the most common ways to use stored data is to create reports based on that data. To let you do this with data in SQL Database, Windows Azure provides SQL Reporting. A subset of the reporting services included with SQL Server, SQL Reporting lets you build reporting into applications running on Windows Azure or on premises. The reports you create can be in various formats, including HTML, XML, PDF, Excel, and others, and they can be embedded in applications or viewed via a web browser.
-
-Another option for doing analytics with SQL Database data is to use on-premises business intelligence tools. To a client, SQL Database looks like SQL Server, and so the same technologies can work with both. For example, you're free to use on-premises SQL Server Reporting Services to create reports from SQL Database data. 
+You can also perform analytics with SQL Database data using on-premises business intelligence tools, including SSRS. To a client, SQL Database looks like SQL Server, and so the same technologies can work with both.  
+ 
 
 ###HDInsight (Hadoop)###
 

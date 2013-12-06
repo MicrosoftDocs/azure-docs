@@ -1,4 +1,6 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Windows Azure VM" pageTitle="Ruby on Rails Web application in a Windows Azure Virtual Machine - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm" metaDescription="Learn how to create a Ruby on Rails application that is hosted in a Windows Azure Virtual Machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="larryfr" />
+<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Windows Azure using Linux VM" pageTitle="Ruby on Rails Web App on Windows Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based web site on Windows Azure using a Linux virtual machine. " metaCanonical="" services="" documentationCenter="Ruby" title="Ruby on Rails Web application on a Windows Azure VM" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+
+
 
 
 
@@ -40,7 +42,7 @@ The following is a screenshot of the completed application:
 
 1. Install Ruby in your development environment. Depending on your operating system, the steps may vary.
 
-	* **Apple OS X** - There are several Ruby distributions for OS X. This tutorial was validated on OS X by using [Homebrew](http://mxcl.github.com/homebrew/) to install **rbenv** and **ruby-build**. Installation information can be found at [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - There are several Ruby distributions for OS X. This tutorial was validated on OS X by using [Homebrew](http://brew.sh/) to install **rbenv** and **ruby-build**. Installation information can be found at [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
 	* **Linux** - Use your distributions package management system. This tutorial was validated on Ubuntu 12.10 using the ruby1.9.1 and ruby1.9.1-dev packages.
 

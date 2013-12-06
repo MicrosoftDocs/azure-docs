@@ -1,4 +1,6 @@
-<properties linkid="develop-net-architecture-load-testing" urlDisplayName="Load Testing" pageTitle="Load Testing in Windows Azure" metaKeywords="Load Testing Pattern Architecture" metaDescription="Load testing patterns and application architecture using Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/architecture" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-net-architecture-load-testing" urlDisplayName="Load Testing Pattern" pageTitle="Load Testing Application Pattern - Windows Azure Architecture Patterns" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a load testing system on Windows Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 <div>
 <div class="left-nav">
 <div class="static-nav">

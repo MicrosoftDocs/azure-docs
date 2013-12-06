@@ -1,4 +1,6 @@
-<properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" writer="ricksal" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-iOS" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial for iOS" metaKeywords="" description="Learn how to use Windows Azure Service Bus Notification Hubs to send localized breaking news notifications (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+
+
 
 
 

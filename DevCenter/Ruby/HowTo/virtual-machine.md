@@ -1,4 +1,6 @@
-<properties linkid="dev-ruby-how-to-virtual-machine" urlDisplayName="Virtual Machine" pageTitle="How to work with Virtual Machines (Ruby) - Windows Azure" metaKeywords="Ruby virtual machine, ruby azure virtual machine, ruby vm, ruby azure vm" metaDescription="Learn how to use Windows Azure Service Management to create, list, and delete Virtual machines. Samples written in Ruby." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="larryfr" />
+<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Windows Azure Multi-Factor Authentication?" pageTitle="What is Windows Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Windows Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Windows Azure Virtual Machines using Ruby" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+
+
 
 #How to Manage Windows Azure Virtual Machines using Ruby
 

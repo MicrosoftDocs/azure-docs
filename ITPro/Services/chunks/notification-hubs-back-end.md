@@ -4,7 +4,7 @@ This section shows how to send notifications in two different ways:
 - [From a console app]
 - [From Mobile Services]
 
-Both backends send notifications to both Windows Store and iOS devices. You can send notifications from any backend using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">Notification Hubs REST interface</a>. 
+Both backends send notifications to both Windows Store and iOS devices. You can send notifications from any backend using the [Notification Hubs REST interface]. 
 
 <h3><a name="console"></a>To send notifications from a console app in C#</h3>
 
@@ -66,9 +66,8 @@ Skip steps 1-3 if you created a console app when you completed [Get started with
                 }
                 catch (ArgumentException)
                 {
-                    // An exception is raised when there are no devices registered for 
-                    // either the iOS, Windows Store, or Windows Phone platform. 
-                    // Consider using template notifications instead.
+                    // An exception is raised when the notification hub hasn't been 
+                    // registered for the iOS, Windows Store, or Windows Phone platform. 
                 }
             }
 		 }
@@ -76,7 +75,7 @@ Skip steps 1-3 if you created a console app when you completed [Get started with
 	This code sends notifications for each of the six tags in the string array to Windows Store, Windows Phone and iOS devices. The use of tags makes sure that devices receive notifications only for the registered categories.
 	
 	<div class="dev-callout"><strong>Note</strong> 
-		<p>This code supports Windows Store, Windows Phone and iOS clients. Send methods return an error response when a registration doesn't exist for a particular platform. To avoid this, consider using template registrations to send a single notification to multiple platforms. For an example, see <a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/">Use Notification Hubs to broadcast localized breaking news</a>. </p>
+		<p>This backend code supports Windows Store, Windows Phone and iOS clients. Send methods return an error response when the notification hub hasn't yet been configured for particular client platform. </p>
 	</div>
 
 6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* that you obtained earlier.
@@ -161,10 +160,11 @@ You can now proceed to [Run the app and generate notifications].
 [16]: ../media/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: mobile-services-get-started-with-notification-hub-ios.md
-[Use Notification Hubs to send notifications to users]: tutorial-notify-users-mobileservices.md
+[Get started with Notification Hubs]: ../notificationhubs/getting-started-windowsdotnet.md
+[Use Notification Hubs to send notifications to users]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+[Notification Hubs REST interface]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx

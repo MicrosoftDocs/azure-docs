@@ -1,4 +1,6 @@
-<properties linkid="manage-linux-fundamentals" urlDisplayName="Fundamentals" pageTitle="Windows Azure Linux virtual machine fundamentals" metaKeywords="Azure Linux vms, Linux vms, Linux virtual machine" metaDescription="Find introductory topics about using Linux virtual machines in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="manage-linux-fundamentals" urlDisplayName="Fundamentals" pageTitle="Windows Azure Linux virtual machine fundamentals" metaKeywords="Azure Linux vms, Linux vms, Linux virtual machine" description="Find introductory topics about using Linux virtual machines in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Fundamentals" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #Fundamentals

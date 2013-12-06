@@ -1,4 +1,6 @@
-<properties linkid="dev-php-create-mysql-db" urlDisplayName="Create MySQL Database" pageTitle="How to create a MySQL Database in Windows Azure" metaKeywords="MySQL Azure" metaDescription="Learn how to use ClearDB to create a MySQL database in a Windows Azure data center." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="bswan" editor="mollybos" manager="paulettm" />
+<properties linkid="develop-php-common-tasks-create-mysql-database" urlDisplayName="Create MySQL Database" pageTitle="Create a MySQL Database - PHP Dev Center" metaKeywords="" description="Learn how to create a MySQL Database on Windows Azure." metaCanonical="" services="" documentationCenter="" title="" authors=""  solutions="" writer="bswan" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

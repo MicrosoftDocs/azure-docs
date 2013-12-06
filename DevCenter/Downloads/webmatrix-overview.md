@@ -1,4 +1,6 @@
-<properties linkid="dev-download-webmatrix" urlDisplayName="WebMatrix Overview" pageTitle="WebMatrix Overview for Windows Azure" metaKeywords="" metaDescription="Download a free copy of WebMatrix 2 for Windows Azure. WebMatrix is a web development tool for creating, publishing, and maintaining web sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-download-webmatrix" urlDisplayName="WebMatrix Overview" pageTitle="WebMatrix Overview for Windows Azure" metaKeywords="" description="Download a free copy of WebMatrix 2 for Windows Azure. WebMatrix is a web development tool for creating, publishing, and maintaining web sites." metaCanonical="" services="" documentationCenter="" title="WebMatrix. Built for Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #WebMatrix… Built for Azure

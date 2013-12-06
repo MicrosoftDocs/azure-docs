@@ -1,10 +1,12 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-wp8" writer="glenga" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Windows Phone)" metaKeywords="" metaDescription="Learn how to validate and modify data sent using server scripts from your Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-wp8" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # Validate and modify data in Mobile Services by using server scripts
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a>
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 
@@ -81,10 +83,11 @@ Now that the mobile service is validating data and sending error responses, you 
             }
             catch (MobileServiceInvalidOperationException e)
             {
-                MessageBox.Show(e.Response.Content,
+                MessageBox.Show(e.Message,
                     string.Format("{0} (HTTP {1})",
-                    e.Response.StatusDescription,
-                    e.Response.StatusCode), MessageBoxButton.OK);
+                    e.Response.ReasonPhrase,
+                    (int)e.Response.StatusCode), 
+					MessageBoxButton.OK);
             }
         }
 
@@ -93,6 +96,16 @@ Now that the mobile service is validating data and sending error responses, you 
 ## <a name="add-timestamp"></a>Add a timestamp
 
 The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+
+<div class="dev-callout"><b>Note</b>
+<p>The <b>createdAt</b> timestamp property demonstrated here is now redundant. Mobile Services automatically creates a <b>__createdAt</b> system property for each table. You could use this system property in your application by simply adding the following member to the TodoItem class</p>
+<pre><code>
+[JsonProperty(PropertyName = "__createdAt")]
+public DateTime createdAt { set; get; }
+</code></pre>
+</div>
+
+
 
 1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
 
@@ -129,7 +142,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 
         public class TodoItem
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
 
             [JsonProperty(PropertyName = "text")]
             public string Text { get; set; }

@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-using-blob-store-hdinsight" urlDisplayName="Use Windows Azure Blob Store with HDInsight" pageTitle="Using Blob Store with HDInsight - Windows Azure tutorial" metaKeywords="hdinsight blob, asv, hdinsight asv, hdinsight azure, wasb, wasbs, hdinsight, hdinsight storage" metaDescription="How to use Windows Azure Blob storage with HDInsight. Low-cost Blob storage has an HDFS interface that enables the full set of components in the Hadoop ecosystem." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Windows Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="," documentationCenter="" title="Use Windows Azure Blob storage with HDInsight" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+
+
 
 
 #Use Windows Azure Blob storage with HDInsight
@@ -128,7 +130,7 @@ Using the custom create, you can either choose an existing Blob storage containe
 
 ###Use APIs to create containers
 
-Creating an HDInsight default file system can be done by creating a new Blob storage container through the commonly-used APIs in a storage account for which core-site.xml contains the storage key. In addition, you can also create a new container by referring to it in an HDFS command. For example:
+Creating an HDInsight default file system can be done by creating a new Blob storage container through the commonly-used APIs in a storage account for which core-site.xml contains the storage key. In addition, you can also create a new container by referring to it in an HDFS command from Hadoop command line. For example:
 
 	hadoop fs -mkdir wasbs://<newcontainer>@<accountname>.blob.core.windows.net/<newdirectory>
 
@@ -173,15 +175,7 @@ refers to the file *result.txt* on the read-only WASB file system in the root co
 	
 refers to the file *result.txt* in the output directory on the default file system.
 
-You must specify the FQDN when using SSL. The following command will return an error:
-
-	wasbs:///output/result.txt 
-
-Instead, you must use the following command:
-
-	wasbs://dailylogs@myaccount.blob.core.windows.net/output/result.txt 
-
-Because HDInsight uses a Blob storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths. For example, the following statement lists all top-level directories and files of the default file system:
+Because HDInsight uses a Blob storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths. For example, the following statement lists all top-level directories and files of the default file system from Hadoop command line:
 
 	hadoop fs -ls /output/result.txt
 

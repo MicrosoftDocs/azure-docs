@@ -1,5 +1,4 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" title="Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix" />
-
+﻿<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix" authors=""  solutions="" writer="" manager="" editor="mollybos"  />
 
 
 #Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix

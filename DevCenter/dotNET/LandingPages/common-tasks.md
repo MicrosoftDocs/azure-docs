@@ -1,4 +1,6 @@
-<properties linkid="dev-net-common-tasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure .NET Common Tasks" metaKeywords="Azure .NET" metaDescription="Find topics about common tasks when using .NET in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="dev-net-common-tasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure .NET Common Tasks" metaKeywords="Azure .NET" description="Find topics about common tasks when using .NET in Windows Azure." metaCanonical="" services="" documentationCenter="" title=".NET Developer Center - Common tasks" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #.NET Developer Center - Common tasks

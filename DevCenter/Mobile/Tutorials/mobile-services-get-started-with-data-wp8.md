@@ -1,10 +1,12 @@
-<properties linkid="mobile-services-get-started-with-data-wp8" urldisplayname="Mobile Services" headerexpose="" pagetitle="Get started with data in Windows Azure Mobile Services" metakeywords="access and change data, Windows Azure Mobile Services, mobile devices, Windows Azure, mobile, Windows Phone 8 app," writer="glenga" footerexpose="" metadescription="More in-depth review of how to access and change in your Windows Phone 8-based app using Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-get-started-with-data-wp8" urlDisplayName="Get Started with Data" pageTitle="Get started with data (WP8) - Windows Azure Mobile Services" metaKeywords="" description="Learn how to get started using data from your Windows Azure Mobile Services Windows Phone 8 app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>	
 
 <div class="dev-onpage-video-clear clearfix">
@@ -100,7 +102,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
         public class TodoItem
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
 
             [JsonProperty(PropertyName = "text")]
             public string Text { get; set; }

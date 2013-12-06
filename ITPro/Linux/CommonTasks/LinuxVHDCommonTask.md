@@ -1,4 +1,6 @@
-﻿<properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Windows Azure" metaKeywords="Azure VHD, uploading Linux VHD" metaDescription="Learn to create and upload a Windows Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="kathydav" editor="tysonn" manager="jeffreyg"/>
+<properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Windows Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload a Windows Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" services="" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors=""  solutions="" writer="kathydav" manager="jeffreyg" editor="tysonn"  />
+
+
 
 
 
@@ -106,7 +108,7 @@ You must complete specific configuration steps in the operating system for the v
 	h) In the Command Prompt window, type the following commands:
 
 		mount /dev/cdrom /media
-		/media/install.sh`
+		/media/install.sh
 		reboot
 
 8. Install python-pyasn1 by running the following command:
@@ -115,47 +117,47 @@ You must complete specific configuration steps in the operating system for the v
 
 9. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
 
-> [openlogic]
-> name=CentOS-$releasever - openlogic packages for $basearch
-> baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
-> enabled=1
-> gpgcheck=0
-> 
-> [base]
-> name=CentOS-$releasever - Base
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
-> gpgcheck=1
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#released updates
-> [updates]
-> name=CentOS-$releasever - Updates
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
-> gpgcheck=1
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#additional packages that may be useful
-> [extras]
-> name=CentOS-$releasever - Extras
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
-> gpgcheck=1
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#additional packages that extend functionality of existing packages
-> [centosplus]
-> name=CentOS-$releasever - Plus
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
-> gpgcheck=1
-> enabled=0
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
->  
-> \#contrib - packages by Centos Users
-> [contrib]
-> name=CentOS-$releasever - Contrib
-> baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
-> gpgcheck=1
-> enabled=0
-> gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		[openlogic]
+		name=CentOS-$releasever - openlogic packages for $basearch
+		baseurl=http://olcentgbl.trafficmanager.net/openlogic/$releasever/openlogic/$basearch/
+		enabled=1
+		gpgcheck=0
+		
+		[base]
+		name=CentOS-$releasever - Base
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/os/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#released updates
+		[updates]
+		name=CentOS-$releasever - Updates
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/updates/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#additional packages that may be useful
+		[extras]
+		name=CentOS-$releasever - Extras
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/extras/$basearch/
+		gpgcheck=1
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#additional packages that extend functionality of existing packages
+		[centosplus]
+		name=CentOS-$releasever - Plus
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/centosplus/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
+		
+		#contrib - packages by Centos Users
+		[contrib]
+		name=CentOS-$releasever - Contrib
+		baseurl=http://olcentgbl.trafficmanager.net/centos/$releasever/contrib/$basearch/
+		gpgcheck=1
+		enabled=0
+		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 10.	Add the following lines to /etc/yum.conf
 
@@ -172,12 +174,12 @@ You must complete specific configuration steps in the operating system for the v
 
 13. For CentOS 6.2 and 6.3, update a running VM's kernel by running the following commands
 
--	For CentOS 6.2, run the following commands:
+	For CentOS 6.2, run the following commands:
 
 		sudo yum remove kernel-firmware
 		sudo yum --disableexcludes=all install kernel
 
--	For CentOS 6.3+ type the following:
+	For CentOS 6.3+ type the following:
 
 		sudo yum --disableexcludes=all install kernel
 
@@ -215,6 +217,7 @@ You must complete specific configuration steps in the operating system for the v
 
 21. Click **Shutdown** in Hyper-V Manager.
 
+
 ### Prepare the Ubuntu 12.04+ operating system ###
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -226,35 +229,41 @@ You must complete specific configuration steps in the operating system for the v
 	Before editing /etc/apt/sources.list, it is recommended to make a backup
 		sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-	-	Ubuntu 12.04:
+	Ubuntu 12.04:
+
 		sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
 		sudo apt-get update
 
-	-	Ubuntu 12.10:
+	Ubuntu 12.10:
+
 		sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
 		sudo apt-get update
 
-	-	Ubuntu 13.04+:
+	Ubuntu 13.04+:
+
 		sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		sudo apt-get update
 
 4. Update the operating system to the latest kernel by running the following commands : 
 
-	-	Ubuntu 12.04:
+	Ubuntu 12.04:
+
 		sudo apt-get update
 		sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
 		(recommended) sudo apt-get dist-upgrade
 		sudo reboot
 
-	-	Ubuntu 12.10:
+	Ubuntu 12.10:
+
 		sudo apt-get update
 		sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
 		(recommended) sudo apt-get dist-upgrade
 		sudo reboot
 	
-	-	Ubuntu 13.04 and 13.10:
+	Ubuntu 13.04 and 13.10:
+
 		sudo apt-get update
 		sudo apt-get install hv-kvp-daemon-init
 		(recommended) sudo apt-get dist-upgrade
@@ -303,12 +312,13 @@ You must complete specific configuration steps in the operating system for the v
 
 12. Click **Shutdown** in Hyper-V Manager.
 
+
 ### Prepare the SUSE Linux Enterprise Server 11 SP2 & SP3 operating system ###
 
-	**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-	- [SLES 11 SP2 for Windows Azure](http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure)
-	- [SLES 11 SP3 for Windows Azure](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
+> - [SLES 11 SP2 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure)
+> - [SLES 11 SP3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -386,11 +396,12 @@ You must complete specific configuration steps in the operating system for the v
 
 12. Click **Shutdown** in Hyper-V Manager.
 
+
 ### Prepare the openSUSE 12.3 operating system ###
 
-	**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-	- [openSUSE 12.3 for Windows Azure](http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure)
+> - [openSUSE 12.3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -591,7 +602,7 @@ The list below replaces step 1 of the process to create your own VHD:
 
 11.	You will need to run the following commands to deprovision the virtual machine:
 
-        waagent –force –deprovision
+        waagent -force -deprovision
         export HISTSIZE=0
         logout
 

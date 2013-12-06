@@ -1,4 +1,6 @@
-﻿<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) - Windows Azure" metaKeywords="Windows Azure table storage service, Azure table service Ruby, table storage Ruby" metaDescription="Learn how to use the table storage service in Windows Azure. Code samples are written using the Ruby API." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="guayan" />
+<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) - Windows Azure" metaKeywords="Windows Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors=""  solutions="" writer="guayan" manager="" editor=""  />
+
+
 
 
 

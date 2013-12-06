@@ -1,9 +1,11 @@
-<properties linkid="develop-mobile-tutorials-get-started-ios" urlDisplayName="Get Started (iOS)" pageTitle="Get Started with Windows Azure Mobile Services for iOS" writer="glenga" metaKeywords="Windows Azure iOS application, mobile service iOS, getting started Azure iOS" metaDescription="Learn how to use Windows Azure Mobile Services with your iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-ios" urlDisplayName="Get Started (iOS)" pageTitle="Get Started with Windows Azure Mobile Services for iOS apps" metaKeywords="Windows Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Windows Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 <p>This tutorial shows you how to add a cloud-based backend service to an iOS app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>

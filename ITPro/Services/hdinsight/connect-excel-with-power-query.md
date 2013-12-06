@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-excel-dataexplorer" urlDisplayName="HDInsight and Excel" pageTitle="Connect Excel to Windows Azure HDInsight with Power Query" metaKeywords="hdinsight, excel, power query, hive excel, hdinsight excel" metaDescription="Learn how to query data in HDInsight, the Windows Azure big data solution, with Microsoft Power Query for Excel." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-connect-excel-with-power-query" urlDisplayName="HDInsight and Excel" pageTitle="Connect Excel to HDInsight with Power Query | Windows Azure" metaKeywords="hdinsight, excel, data explorer, hive excel, hdinsight excel, power query" description="Learn how to take advantage of business intelligence components and use Excel to access data stored in Windows Azure HDInsight using Power Query." metaCanonical="" services="" documentationCenter="" title="Connect Excel to Windows Azure HDInsight with Power Query" authors=""  solutions="" writer="bradsev" manager="paulettm" editor="mollybos"  />
+
+
 
 
 #Connect Excel to Windows Azure HDInsight with Power Query

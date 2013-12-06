@@ -1,10 +1,12 @@
-<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-html" writer="glenga" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (HTML) - Mobile Services" metaKeywords="" metaDescription="Learn how to authorize users in scripts in your HTML app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-html" urlDisplayName="Authorize Users in Scripts (HTML5)" pageTitle="Authorize users in scripts (HTML 5) | Mobile Dev Center" metaKeywords="Windows Azure authorizing user, html5 scripts authorization, authorize mobile services, html5 azure security" description="Learn how to authorize users in scripts in your HTML app with Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Use scripts to authorize users in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # Use scripts to authorize users in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML" class="current">HTML</a>
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>	
 
 

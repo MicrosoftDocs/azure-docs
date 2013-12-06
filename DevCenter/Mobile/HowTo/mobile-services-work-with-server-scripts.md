@@ -1,4 +1,6 @@
-<properties linkid="register-for-facebook-auth" writer="ricksal" urldisplayname="Mobile Services" headerexpose="" pagetitle="Work with server scripts in Mobile Services" metakeywords="server scripts, mobile devices, Windows Azure, scheduler" footerexpose="" metadescription="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="register-for-facebook-auth" urlDisplayName="Mobile Services" pageTitle="Work with server scripts in Mobile Services" metaKeywords="server scripts, mobile devices, Windows Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+
+
 
 # Work with server scripts in Mobile Services
  
@@ -12,7 +14,7 @@ This article provides detailed information about and examples of how to work wit
 	+ [How to: Override default error handling]
 	+ [How to: Add custom parameters]
 	+ [How to: Work with table users][How to: Work with users]
-+ [Custom API]
++ [Custom API][Custom API anchor]
 	+ [How to: Define a custom API]
 	+ [How to: Implement HTTP methods]
 	+ [How to: Send and receive data as XML]
@@ -527,7 +529,7 @@ The following code uses the configuration module to retrieve Twitter access toke
 
 		// Get the service configuration module.
 		var config = require('mobileservice-config');
-		
+
 		// Get the stored Twitter consumer key and secret. 
 		var consumerKey = config.twitterConsumerKey,
 		    consumerSecret = config.twitterConsumerSecret
@@ -926,7 +928,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Source control, shared code, and helper functions]: #shared-code
 [Using the command line tool]: #command-prompt
 [Working with tables]: #working-with-tables
-[Custom API]: #custom-api
+[Custom API anchor]: #custom-api
 [How to: Define a custom API]: #define-custom-api
 [How to: Share code by using source control]: #shared-code-source-control
 [How to: Use helper functions]: #helper-functions
@@ -998,4 +1000,5 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
 [Leverage shared code and Node.js modules in your server scripts]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
 [service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[App settings]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
+[config module]: http://msdn.microsoft.com/en-us/library/dn508125.aspx

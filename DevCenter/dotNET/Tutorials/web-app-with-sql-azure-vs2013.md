@@ -1,9 +1,14 @@
-<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Secure MVC Windows Azure with SQL" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="OAuth, Membership, Windows Azure hello world tutorial, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="A tutorial that helps you develop a secure ASP.NET MVC 5 web application with ASP.NET Membership and a SQL Database back-end and deploy it to Windows Azure." metaCanonical=" " disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 web site with a SQL Database back-end deploy it to Windows Azure." metaCanonical="" services="," documentationCenter=".NET" title=" OAuth" authors=""  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
+
+
 
 # Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to a Windows Azure Web Site
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 18 October 2013.***
 <br/><br/>
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013 class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
+
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Windows Azure.
 
 You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Windows Azure for free. If you want to use Visual Studio 2012, see the [previous tutorial](/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/). This version of the tutorial is far simpler than the previous version.

@@ -1,10 +1,12 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" writer="glenga" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" metaDescription="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet-vs2013" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>	
 
 This topic shows how Visual Studio 2013 lets you use Windows Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.

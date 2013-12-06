@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-programmatic-deploy" urlDisplayName="Deploying HDInsight Programmatically" pageTitle="Deploying an HDInsight Cluster Programmatically - Windows Azure Services" metaKeywords="hdinsight deploy, hdinsight deployment, programmatic deployment, hdinsight azure" metaDescription="Deploying an HDInsight Cluster Programmatically" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Deploying an HDInsight Service Cluster Programmatically" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+
+
 
 
 #Deploying an HDInsight Service Cluster Programmatically

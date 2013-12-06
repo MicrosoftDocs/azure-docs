@@ -1,4 +1,6 @@
-<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL - Web Sites" pageTitle="Configure an SSL certificate - Windows Azure Web Site" metaKeywords="SSL Azure, Azure SSL certificate web site, .NET SSL Azure web site, .NET Azure SSL certificate, C# SSL Azure web site, VB SSl Azure, VB Azure SSL certificate web site" metaDescription="Learn how to configure an SSL certificate for your Windows Azure Web Site." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-common-tasks-enable-ssl-web-site" urlDisplayName="SSL for Web Sites" pageTitle="Enable SSL for Web Sites - .NET Dev Center" metaKeywords="" description="Learn how to enable SSL with a Windows Azure Web Site." metaCanonical="" services="web-sites" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

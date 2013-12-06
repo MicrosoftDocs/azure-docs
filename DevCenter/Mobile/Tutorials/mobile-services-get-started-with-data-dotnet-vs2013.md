@@ -1,9 +1,11 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet" urlDisplayName="Get Started with Data" pageTitle="Get started with data - Windows Azure Mobile Services" writer="glenga" metaKeywords="" metaDescription="Learn how to get started using data with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 # Get started with data in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
 <p>This topic shows you how to use Windows Azure Mobile Services to leverage data in a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
 
@@ -66,7 +68,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 		public class TodoItem
 		{
-		    public int Id { get; set; }
+		    public string Id { get; set; }
 		
 		    [JsonProperty(PropertyName = "text")]
 		    public string Text { get; set; }
@@ -92,7 +94,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 	This code inserts a new item into the table. 
 
-	<div class="dev-callout"><strong>Note</strong><p>New tables are created with only an Id column. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
+	<div class="dev-callout"><strong>Note</strong><p>New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Dynamic schema</a>.</p></div>
 
 7. In the **RefreshTodoItems** method, add the **async** modifier to the method, then uncomment the following line of code: 
 

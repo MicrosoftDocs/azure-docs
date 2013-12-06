@@ -1,4 +1,6 @@
-<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Windows Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" metaDescription="A tutorial that teaches you how to use MySQL in with Django on a Windows Azure virtual machine. Code samples written in Python." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Windows Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" description="A tutorial that teaches you how to use MySQL in with Django on a Windows Azure virtual machine. Code samples written in Python." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World - MySQL Windows Edition" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

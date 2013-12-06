@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" metaDescription="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="krisragh" />
+<properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+
+
 
 
 
@@ -7,7 +9,7 @@
 # How to use an HTML/JavaScript client for Windows Azure Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a>
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript" class="current">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 
@@ -244,13 +246,15 @@ All the functions described so far are additive, so we can just keep calling the
 
 ### <a name="lookingup"></a>How to: Look up data by ID
 
-The `lookup` function takes only the `id` value, and returns the object from the database with that ID.
+The `lookup` function takes only the `id` value, and returns the object from the database with that ID. Database tables are created with either an integer or string `id` column. A string `id` column is the default.
 
-			todoItemTable.lookup(3).done(function (result) {
+			todoItemTable.lookup("37BBF396-11F0-4B39-85C8-B319C729AF6D").done(function (result) {
 			   alert(JSON.stringify(result));
 			}, function (err) {
 			   alert("Error: " + err);
 			})
+
+
 
 <h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
 
@@ -271,6 +275,48 @@ This inserts data from the supplied JSON object into the table. You can also spe
 			}, function (err) {
 			   alert("Error: " + err);
 			});
+
+
+Mobile Services supports unique custom string values for the table id. This allows applications to use custom values such as email addresses or usernames for the id column of a Mobile Services table. For example if you wanted to identify each record by an email address, you could use the following JSON object.
+
+			todoItemTable.insert({
+			   id: "myemail@domain.com",				
+			   text: "New Item",
+			   complete: false
+			})
+
+If a string id value is not provided when inserting new records into a table, Mobile Services will generate a unique value for the id.
+
+Supporting string ids provides the following advantages to developers
+
++ Ids can be generated without making a roundtrip to the database.
++ Records are easier to merge from different tables or databases.
++ Ids values can integrate better with an application's logic.
+
+You can also use server scripts to set id values. The script example below generates a custom GUID and assigns it to a new record's id. This is similar to the id value that Mobile Services would generate if you didn't pass in a value for a record's id.
+
+	//Example of generating an id. This is not required since Mobile Services
+	//will generate an id if one is not passed in.
+	item.id = item.id || newGuid();
+	request.execute();
+
+	function newGuid() {
+		var pad4 = function(str) { return "0000".substring(str.length) + str; };
+		var hex4 = function () { return pad4(Math.floor(Math.random() * 0x10000 /* 65536 */ ).toString(16)); };
+		return (hex4() + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + "-" + hex4() + hex4() + hex4());
+	}
+
+
+If an application provides a value for an id, Mobile Services will store it as is. This includes leading or trailing white spaces. White space will not be trimmed from value.
+
+The value for the `id` must be unique and it must not include characters from the following sets:
+
++ Control characters: [0x0000-0x001F] and [0x007F-0x009F]. For more information, see [ASCII control codes C0 and C1].
++  Printable characters: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  The ids "." and ".."
+
+You can alternatively use integer Ids for your tables. In order to use an integer Id you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Windows Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables].
+
 
 <h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
 
@@ -583,3 +629,5 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-html.md
 [login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
 [Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables

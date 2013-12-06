@@ -1,3 +1,5 @@
+<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Web Site with MongoDB on MongoLab" pageTitle="Create a Web Site that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create a Windows Azure web site that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On" authors=""  solutions="" writer="" manager="" editor=""  />
+
 
 
 # Create a C# ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On

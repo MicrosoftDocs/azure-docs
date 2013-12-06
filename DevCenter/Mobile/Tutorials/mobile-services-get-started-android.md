@@ -1,9 +1,11 @@
-<properties linkid="develop-mobile-tutorials-get-started-android" urlDisplayName="Get Started (Android)" pageTitle="Get Started with Windows Azure Mobile Services for Android" metaKeywords="Windows Azure Android application, mobile service Android, getting started Azure Android" writer="glenga" metaDescription="Learn how to use Windows Azure Mobile Services with your Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-android" urlDisplayName="Get Started (Android)" pageTitle="Get Started with Windows Azure Mobile Services for Android apps" metaKeywords="Windows Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Windows Azure Mobile Services for Android development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">

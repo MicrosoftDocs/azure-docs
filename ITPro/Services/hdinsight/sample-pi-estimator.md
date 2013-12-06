@@ -25,7 +25,7 @@ The other samples that are available to help you get up to speed using HDInsight
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 ##In this article	
 This topic shows you how to run the sample, presents the Java code for the Pi Estimator MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
@@ -39,7 +39,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 **To submit the MapReduce job**
 
-1. Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and Configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
 	
 		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
@@ -54,7 +54,8 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 5. Run the following commands to submit the MapReduce job and wait for the job to complete:
 
 		# Run the Pi Estimator MapReduce job.
-		$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName –Subscription $subscriptionName
+		Select-AzureSubscription $subscriptionName
+		$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
 	
 		# Wait for the job to complete.  
 		$piJob | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
@@ -62,7 +63,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 6. Run the following command to retrieve the MapReduce job standard output:
 
 		# Print output and standard error file of the MapReduce job
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $piJob.JobId -StandardOutput
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $piJob.JobId -StandardOutput
 
 	For comparison, the first 10 decimal places of Pi are 3.1415926535
 
@@ -423,6 +424,11 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Sample: C# Steaming][cs-streaming]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
+* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+
+[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
 
 [run-samples]: /en-us/manage/services/hdinsight/howto-run-samples
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/

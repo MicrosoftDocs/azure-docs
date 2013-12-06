@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-remote-jobs" urlDisplayName="Remote Jobs with HDInsight" pageTitle="Programmatically execute remote jobs on HDInsight - Windows Azure Services" metaKeywords="remote job, remote job hdinsight, hdinsight azure" metaDescription="How to programmatically execute remote jobs on your HDInsight cluster" umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-execute-remote-job" urlDisplayName="Execute Remote Jobs with HDInsight" pageTitle="How to Execute Remote Jobs with HDInsight Programmatically" metaKeywords="" description="Learn how to use the WebHCat REST API to provide metadata management and remote job submission to your Hadoop cluster." metaCanonical="" services="hdinsight" documentationCenter="" title="Executing Remote Jobs on Your HDInsight Cluster Programmatically" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

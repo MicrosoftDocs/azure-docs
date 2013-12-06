@@ -1,5 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to Use Service Bus Topics/Subscriptions" authors="waltpo"/>
-
+<properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Windows Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Windows Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 # How to Use Service Bus Topics/Subscriptions

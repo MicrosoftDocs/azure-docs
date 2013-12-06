@@ -1,4 +1,6 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Windows Azure" metaKeywords="" metaDescription="Learn how to use the Windows Azure Service Management API for a Linux virtual machine." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Windows Azure" metaKeywords="" description="Learn how to use the Windows Azure Service Management API for a Linux virtual machine." metaCanonical="" services="" documentationCenter="" title="How to Use the Service Management API" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #How to Use the Service Management API
@@ -328,7 +330,7 @@ Here is a sample javascript code that creates a hosted service and a deployment,
 	
 	var dataDisk1 = {
 	  LogicalDiskSizeInGB : 10,
-	  LUN : 0
+	  LUN : '0'
 	};
 	
 	var provisioningConfigurationSet = {

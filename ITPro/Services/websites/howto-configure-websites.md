@@ -1,4 +1,6 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure Web Sites, configuring Azure Web Sites, Azure SQL database, Azure MySQL" metaDescription="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" services="" documentationCenter="" title="How to Configure Web Sites" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 
@@ -38,6 +40,14 @@ Follow these steps to change configuration options for a web site.
 <li><strong>Platform</strong> - For sites in Standard mode, you can choose whether you want your application to run in a 32-bit or 64-bit environment. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
 
 <li><strong>Web Sockets</strong> - Choose <strong>On</strong> to enable your web site to use real time request pattern applications such as chat.</li>
+
+<li><strong>Edit in Visual Studio Online</strong> - Select <strong>On</strong> to enable live code editing with Visual Studio Online. After you save this configuration change, the DASHBOARD tab's <strong>Quick Glance</strong> section will display a link called <strong>Edit in Visual Studio Online</strong>. Click the link to edit your web site directly online. If you need to authenticate, you can use your basic deployment credentials. 
+<p><strong>Note</strong>: If you have 'deployment from source control' enabled, it is possible for a deployment to overwrite changes the changes you make in the Visual Studio Online editor. It is therefore best not to use 'deployment from source control' if you want to edit the site contents directly with Visual Studio Online.</p>
+
+</li>
+
+
+
 </ul></li>
 
 <!-- CERTIFICATES -->

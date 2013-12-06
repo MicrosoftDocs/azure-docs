@@ -1,14 +1,11 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to send push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" urlDisplayName="Get started with notification hubs" pageTitle="Get started with Windows Azure Notification Hubs" metaKeywords="" description="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" services="" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors=""  solutions="" writer="elioda" manager="" editor=""  />
+
+
 
 
 # Getting Started with Notification Hubs
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#" class="current">Windows Store C#</a>
-	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a>
-    <a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a>
-</div>	
 
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android">Android</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
 This topic shows you how to use Windows Azure Notification Hubs to send push notifications to a Windows Store application. 
 In this tutorial you create a blank Windows Store app that receives push notifications using the Windows Push Notification service (WNS). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.

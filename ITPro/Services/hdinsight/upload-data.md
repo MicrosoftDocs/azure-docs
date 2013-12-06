@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-upload-data" urlDisplayName="Upload data to HDInsight" pageTitle="How to upload data to HDInsight - Windows Azure Services" metaKeywords="hdinsight, hdinsight upload, hdinsight upload data, upload data azure, Windows Azure blob storage, wasb, wasbs, powershell" metaDescription="Learn how to upload data to HDInsight, the Windows Azure big data solution with a full-featured Hadoop Distributed File System (HDFS) and Windows Azure Blob storage." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-upload-data-to-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data to HDInsight | Windows Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, the interactive console, the Hadoop command line, or Sqoop." metaCanonical="" services="" documentationCenter="" title="Upload data to HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+
+
 
 #Upload data to HDInsight
 
@@ -45,7 +47,7 @@ Windows Azure PowerShell is a powerful scripting environment that you can use to
 
 **To upload a local file to Blob storage**
 
-1. Run Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 2. Set the values of the first five variables in the following script:
 
 		$subscriptionName = "<WindowsAzureSubscriptionName>"
@@ -216,26 +218,40 @@ Sqoop is a tool designed to transfer data between Hadoop and relational database
 
 Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password, and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications][sqldatabase-howto]. To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com][whatismyip].
 
-1. Sign in to the [Management Portal][azure-management-portal].
-2. Click **HDINSIGHT**. You will see a list of deployed Hadoop clusters.
-3. Click the Hadoop cluster where you want to upload data.
-4. Click **Connect** on the bottom of the page.
-7. Click **Open**.
-8. Enter your credentials, and then click **OK**.
-9. Click **Yes**.
-10. From the desktop, click **Hadoop Command Line**.
-12. Run the following commands:
+The following procedure uses PowerShell to submit a Sqoop job. This is only supported by version 1.2 or later HDInsight clusters.  Optionally, you can use Hadoop command line to run Sqoop commands.
 
-		cd %sqoop_home%\bin
-		sqoop import 
-			--connect "jdbc:sqlserver://s6ok0p9kft.database.windows.net;username=user1@s6ok0p9kft;password=Pass@word1;database=AdventureWorks2012" 
-			--table Sales.SalesOrderDetail 
-			--columns "SalesOrderID,SalesOrderDetailID,CarrierTrackingNumber,OrderQty,ProductID,SpecialOfferID,UnitPrice,UnitPriceDiscount,LineTotal" 
-			--target-dir /data/lineitemdata 
-			-m 1
-		hadoop fs -tail /data/lineitemdata/part-m-00000
+**To import data to HDInsight using Sqoop and PowerShell**
 
-	In the command, the SQL database server is *s6ok0p9kft*, username is *user1*, password is *Pass@word1*, and the database is *AdventureWorks2012*.  
+1. Open Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+2. Set the values of the first eight variables in the following script:
+
+		$subscriptionName = "<WindowsAzureSubscriptionName>"
+		$clusterName = "<HDInsightClusterName>"
+		
+		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
+		$sqlDatabaseUserName = "<SQLDatabaseDatabaseName>"
+		$sqlDatabasePassword = "<SQLDatabasePassword>"
+		$sqlDatabaseDatabaseName = "<SQLDatabaseDatabaseName>"
+		$tableName = "<SQLDatabaseTableName>"
+		
+		$hdfsOutputDir = "<OutputPath>"  # This is the HDFS path for the output file, for example "/lineItemData".
+		
+		Select-AzureSubscription $subscriptionName
+		Use-AzureHDInsightCluster $clusterName
+		
+		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "import --connect jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseDatabaseName --table $tableName --target-dir $hdfsOutputDir -m 1" 
+
+		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
+		Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 -Job $sqoopJob
+		
+		Write-Host "Standard Error" -BackgroundColor Green
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardError
+		Write-Host "Standard Output" -BackgroundColor Green
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
+
+3. Paste the script into the Windows Azure PowerShell console window to run it.
+		
+See [Get started with HDInsight][hdinsight-getting-started] for a PowerShell sample for retrieving the data file outputed to HDFS/WASB.
 
 Note: When specifying an escape character as delimiter with the arguments *--input-fields-terminated-by* and *--input-fields-terminated-by*, do not put quotes around the escape character.  For example. 
 
@@ -261,7 +277,8 @@ The following is a sample PowerShell script for submitting a MapReduce job:
 	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Subscription $subscriptionName -Cluster $clusterName  | Wait-AzureHDInsightJob -Subscription $subscriptionName -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -Subscription $subscriptionName -JobId $_.JobId -StandardError}
+	Select-AzureSubscription $subscriptionName
+	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName  | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 
 For more information on accessing the files stored in Blob storage, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 

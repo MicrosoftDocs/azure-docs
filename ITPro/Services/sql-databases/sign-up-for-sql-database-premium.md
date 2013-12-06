@@ -1,11 +1,13 @@
-﻿<properties linkid="manage-services-sql-databases-premium" urlDisplayName="Premium SQL Database" pageTitle="Sign up for Windows Azure Premium for SQL Database" metaKeywords="" metaDescription="Describes how to sign up for the Premium for SQL Database preview, request your Premium database quota, and then upgrade a database to Premium in Windows Azure SQL Database." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-services-sql-databases-premium" urlDisplayName="Premium SQL Database" pageTitle="Sign up for Windows Azure Premium for SQL Database" metaKeywords="" description="Describes how to sign up for the Premium for SQL Database preview, request your Premium database quota, and then upgrade a database to Premium in Windows Azure SQL Database." metaCanonical="" services="" documentationCenter="" title="Sign up for the preview of Premium for Windows Azure SQL Database" authors=""  solutions="" writer="karaman" manager="" editor="tysonn"  />
+
+
 
 
 
 #Sign up for the preview of Premium for Windows Azure SQL Database
 In this tutorial, you learn the steps required to participate in the preview of Premium for SQL Database.
 
-Windows Azure SQL Database has released a limited preview of a new service - Premium for SQL Database. By reserving a fixed amount of capacity for your SQL Database and its secondary replicas, Premium for SQL Database will deliver more predictable performance for cloud applications relative to existing SQL Database Web and Business Editions. 
+Windows Azure SQL Database has released a limited preview of a new service - Premium for SQL Database. Premium databases provide reserved resources for more predictable performance for cloud applications.
 
 [The feature described in this topic is available only in preview. This topic is pre-release documentation and is subject to change in future releases.]
 
@@ -13,7 +15,7 @@ Windows Azure SQL Database has released a limited preview of a new service - Pre
 
 * [Step 1: Sign-Up for the preview of Premium for SQL Datbase](#SignUp)
 * [Step 2: Request Premium database quota](#Quota)
-* [Step 3: Upgrade a database to Premium](#Upgrade)
+* [Step 3: Create a Premium database ](#Upgrade)
 
 <h2><a id="SignUp"></a>Step 1: Sign-Up for the Preview of Premium for SQL Database</h2>
 The first step to take advantage of this feature is to sign up your subscription for the Premium for SQL Database preview.
@@ -24,7 +26,7 @@ The first step to take advantage of this feature is to sign up your subscription
  
 	![Image1] []
 
-2. Click the **try it now** button associated with the **Premium for SQL Database** item in the preview features list.
+2. Find the **Premium for SQL Database** item in the preview features list and click the **try it now** button associated with the item.
 
 	![Image2] []
 
@@ -32,9 +34,9 @@ The first step to take advantage of this feature is to sign up your subscription
 
 	![Image3] []
 
-	Only active, paid Windows Azure subscriptions are eligible for the preview. You may sign up multiple subscriptions for the preview, but each subscription can be signed up only once. 
+	Only active, paid Windows Azure subscriptions are eligible for the preview. You may sign up multiple subscriptions, but each subscription can be signed up only once. 
 
-	Signing a subscription up for the Premium for SQL Database preview will not incur additional charges, but once activated and Premium quota granted, upgrading a database to Premium is subject to the pricing outlined in the [SQL Database Pricing Page](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
+	Signing a subscription up for the  preview will not incur additional charges, but once activated and Premium quota granted, creating or upgrading to a Premium database is subject to the pricing outlined in the [SQL Database Pricing Page](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
 
 	The current status of the sign up request is reflected in the preview features list.
 
@@ -42,15 +44,16 @@ The first step to take advantage of this feature is to sign up your subscription
 
 4. Requests will be approved based on current capacity and demand. You may wait up to 2 days for your subscription to be activated, with longer wait times indicating high demand or fulfilled public preview capacity.
 
-5. You will receive an email notification once your subscription is activated for the Premium for SQL Database preview. 
+5. You will receive an email notification once your subscription is activated for the preview. 
 
 
 <h2><a id="Quota"></a>Step 2: Request Premium database quota</h2>
-Once your subscription is activated for the preview, you need to request Premium database quota for each server on which you plan to upgrade a database. As capacity is limited initially, please only request quota for servers on which you plan to upgrade a database to Premium, and cancel any pending requests if they become unnecessary.
+Once your subscription is activated for the preview, you need to request Premium database quota for each server on which you plan to create a Premium database. As capacity is limited, please only request quota for servers on which you plan to create a Premium database, and cancel any unneeded pending requests.
 
-1. Sign in to the [Windows Azure Management Portal](https://manage.windowsazure.com) using your Microsoft account.
 
-**Note** – Account administrators, service administrators, and co-administrators of the subscription can request Premium database quota once the subscription is signed up for the preview.
+1.	Sign in to the [Windows Azure Management Portal](https://manage.windowsazure.com) using your Microsoft account.
+
+	**Note** – Account administrators, service administrators, and co-administrators of the subscription can request quota once the subscription is signed up for the preview.
 
 2.	Navigate to the **Servers** list in the **SQL Databases** extension.
 3.	Select the server for which you plan to request Premium database quota.
@@ -59,32 +62,44 @@ Once your subscription is activated for the preview, you need to request Premium
 
 	![Image6] []
 	
-6.	Confirm your request on the subsequent dialog.
 
-You may wait up to 5 days before being granted Premium database quota. Longer wait times may indicate high demand or fulfilled preview capacity.
 
-A few additional notes about Premium database quota requests:
-
-- Quota is not available to customers with free-trial subscriptions.
-- Quota is limited initially, and requests will be granted based on current demand and available capacity.
-- Only one quota request can be submitted for each logical server in the subscription.
-- Initially, quota is limited to one database per logical server.
-- Requesting database quota is free, however, upgrading a Web or Business edition database to Premium will significantly increase the cost of the database.
-7.	You can see the status of your quota request on the server’s **Quick Start** page.
+	Once your request is submitted, you may wait up to 5 days before being granted quota. Longer wait times may indicate high demand or fulfilled preview capacity.
+	
+	A few additional notes about Premium database quota requests:
+	
+	- Quota is not available to customers with free-trial subscriptions.
+	- Quota is limited initially, and requests will be granted based on current demand and available capacity.
+	- Microsoft may reclaim unused quota after 15 days.
+	- Only one quota request can be submitted for each logical server in the subscription.
+	- Initially, quota is limited to one database per logical server.
+	- Requesting database quota is free, however, creating a Premium edition database or upgrading an existing Web or Business edition database to Premium will increase the cost of the database.
+6.	You can see the status of your quota request on the server’s **Quick Start** page.
 
 	![Image7] []
 	
-8.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
-9.	Once granted, you can see a server’s remaining Premium database quota on the server’s **Quick Start** tab.
+7.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
+8.	Once granted, you can see a server’s remaining Premium database quota on the server’s **Quick Start** or **Dashboard** tab.
 
 	![Image8] []
 
-<h2><a id="Upgrade"></a>Step 3: Upgrade a database to Premium</h2>
+<h2><a id="Upgrade"></a>Step 3: Create a Premium database</h2>
 
-Once you have been granted quota, you can upgrade a Web or Business edition database to Premium to take advantage of reserved capacity and more predictable performance. For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
 
-	![Image9] []
+Once you have been granted quota, you can create a new Premium edition database or upgrade an existing Web or Business  database to Premium to take advantage of reserved capacity and more predictable performance. 
+
+![Image9] []
+
+
+
+![Image10] []
+
+
+For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
+
 	
+	
+**Note:** You can only change the Premium status or the reservation sizeof your database once in a 24 hour period.
 <h2><a id="NextSteps"></a>Next Steps</h2>
 For additional information about Premium databases, see:
 
@@ -101,6 +116,9 @@ For additional information about Premium databases, see:
 [Image6]: ../media/RequestQuota-Figure6.png
 [Image7]: ../media/PendingApproval-Figure7.png
 [Image8]: ../media/QuotaApproved-Figure8.png
-[Image9]: ../media/PremiumDatabase-Figure9a.png
+[Image9]: ../media/SpecifyDBSettings-Figure9.png
+[Image10]: ../media/PremiumDBSettings-Figure10.png
+
+
 
 

@@ -1,5 +1,4 @@
-<properties linkid="dev-php-how-to-cloud-services" urlDisplayName="PHP Cloud Services" pageTitle="How to create PHP web and worker roles" metaKeywords="Azure PHP cloud services, web role, worker role" description="Learn how to create PHP web and worker roles in Windows Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="bswan" editor="mollybos" manager="paulettm" title="How to create PHP web and worker roles"/>
-
+<properties linkid="develop-php-common-tasks-create-web-and-worker-roles" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors=""  solutions="" writer="bswan" manager="paulettm" editor="mollybos"  />
 
 #How to create PHP web and worker roles
 

@@ -1,4 +1,6 @@
-<properties linkid="itpro-windows-howto-howto-setup-hybrid-cluster-hpcpack" urlDisplayName="Set up a Hybrid Cluster" pageTitle="Set up a Hybrid Cluster with Microsoft HPC Pack - Windows Azure Tutorial" metaKeywords="Big Compute, Azure burst tutorial" metaDescription="A tutorial that shows you how to set up a small, hybrid HPC cluster with compute nodes in a Windows Azure cloud service." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="danlep" editor="mattshel" manager="jeffreyg"/>
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Set up a Hybrid Cluster with Microsoft HPC Pack" authors=""  solutions="" writer="danlep" manager="jeffreyg" editor="mattshel"  />
+
+
 
 #Set up a Hybrid Cluster with Microsoft HPC Pack
 This tutorial shows you how to use Microsoft HPC Pack 2012 with Service Pack 1 (SP1) and Windows Azure to set up a small, hybrid high performance computing (HPC) cluster. The cluster will consist of an on-premises head node (a computer running the Windows Server 2012 operating system and HPC Pack) and some compute nodes you deploy on-demand as worker role instances in a Windows Azure cloud service. You can then run compute jobs on the hybrid cluster.

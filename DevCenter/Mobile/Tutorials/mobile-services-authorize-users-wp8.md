@@ -1,10 +1,12 @@
-<properties linkid="mobile-services-authorize-users-dotnet" urldisplayname="Mobile Services" headerexpose="" pagetitle="Authorize users with Mobile Services" metakeywords="Authorize users with Mobile Services, mobile devices, Windows Azure, mobile, Windows 8, WinRT app, authorization" footerexpose="" metadescription="Authorize users with Windows Azure Mobile Services in your Windows Phone 8 apps." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-wp8" urlDisplayName="Authorize Users in Scripts (WP8)" pageTitle="Authorize users in scripts (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in scripts in your Windows Phone app with Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Use scripts to authorize users in Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 
 # Use scripts to authorize users in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a> 
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
 </div>	
 
 

@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-social-web-data" urlDisplayName="Hadoop Social Web Data" pageTitle="Analyzing Twitter Data with Hive - Windows Azure" metaKeywords="Azure Twitter Hadoop, Azure Hive query, Azure data analysis" metaDescription="A tutorial that teaches you to query and analyze data from Twitter using Apache Hadoop-based Services for Windows Azure and a Hive query in Excel." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="wenming"/>
+<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Data with HDInsight" pageTitle="Analyzing Twitter data with Hive - Windows Azure Services" metaKeywords="" description="In this tutorial you will query, explore, and analyze data from Twitter using the HDInsight Service for Windows Azure and a complex Hive example." metaCanonical="" services="" documentationCenter="" title="Analyzing Twitter Data with Hive" authors=""  solutions="" writer="wenming" manager="" editor=""  />
+
+
 
 
 

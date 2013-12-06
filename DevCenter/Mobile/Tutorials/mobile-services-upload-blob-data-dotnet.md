@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" writer="glenga" urlDisplayName="Upload images by using Mobile Services" pageTitle="Upload images to Windows Azure Storage by using Mobile Services" metaKeywords="" metaDescription="Learn how to use Mobile Services to upload images to Windows Azure Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" urlDisplayName="Upload Images" pageTitle="Upload Images to Windows Azure Blob Storage | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Windows Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Upload images to Windows Azure Storage by using Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 <div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="article-left-menu-windows-store" umb_chunkpath="devcenter/mobile" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
 

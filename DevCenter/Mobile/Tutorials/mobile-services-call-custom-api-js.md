@@ -1,4 +1,6 @@
-<properties linkid="mobile-services-call-custom-api-js" writer="glenga" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from the client - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="mobile-services-call-custom-api-js" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Store JS client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Store app that use Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Call a custom API from the client" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 

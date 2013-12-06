@@ -1,4 +1,6 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="starra" editor="tysonn" manager="cynthn" />
+<properties linkid="manage-services-recovery-hyperv-recovery-vault" urlDisplayName="Configure a Recovery Vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Hyper-V Recovery Manager service in Microsoft's Windows Azure cloud offering to provide a Hyper-V recovery environment." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Windows Azure Hyper-V Recovery Manager" authors=""  solutions="" writer="starra" manager="cynthn" editor="tysonn"  />
+
+
 
 
 

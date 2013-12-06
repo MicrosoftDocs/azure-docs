@@ -1,10 +1,12 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data" pageTitle="Get started with data (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to get started using data with Windows Azure Mobile Services." writer="glenga" metaCanonical="https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
 </div>	
 
 
@@ -98,7 +100,35 @@ To be able to store app data in the new mobile service, you must first create a 
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
-5. Click the **Columns** tab and verify that there is only a single **id** column, which is automatically created for you.
+5. Click the **Columns** tab. Verify that the following default columns are automatically created for you: 
+	
+	<table border="1" cellpadding="10">
+ 	<tr>
+ 	<th>Column Name</th>
+ 	<th>Type</th>
+ 	<th>Index</th>
+ 	</tr>
+ 	<tr>
+ 	<td>id</td>
+ 	<td>string</td>
+ 	<td>Indexed</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__createdAt</td>
+ 	<td>date</td>
+ 	<td>Indexed</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__updatedAt</td>
+ 	<td>date</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr>
+ 	<tr>
+ 	<td>__version</td>
+ 	<td>timestamp (MSSQL)</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr> 	
+ 	</table> 
 
   This is the minimum requirement for a table in Mobile Services. 
 

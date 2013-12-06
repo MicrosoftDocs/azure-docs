@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-hadoop-social-web-data" urlDisplayName="Hadoop Social Web Data" pageTitle="Hadoop social web data (.NET) - Windows Azure tutorial" metaKeywords="Azure Twitter Hadoop, Azure Hive query, Azure data Excel, Azure data analysis" metaDescription="A tutorial that teaches you to query and analyze data from Twitter using Apache Hadoop-based Services for Windows Azure and a Hive query in Excel." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Analyzing Twitter Movie Data with Hive" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Analyzing Twitter Movie Data with Hive 

@@ -86,9 +86,18 @@ This tutorial shows you how to use the PuTTY program to access the virtual machi
 
 	You can now work with the virtual machine just as you would with any other server.
 
+
 ## <a id="attachdisk"> </a>How to attach a data disk to the new virtual machine ##
 
 Your application may need to store data. To set this up, you attach a data disk to the virtual machine that you previously created. The easiest way to do this is to attach an empty data disk to the machine.
+
+**Note: Data Disk vs. Resource Disk**  
+Data Disks reside on Windows Azure Storage and can be used for persistent storage of files and application data.
+
+Each virtual machine created also has a temporary local *Resource Disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and temporary storage of data. It is also used to store page or swap files for the operating system.
+
+On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
+
 
 1. If you have not already done so, sign in to the Windows Azure Management Portal.
 
@@ -160,6 +169,34 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	The data disk is now ready to use as **/mnt/datadrive**.
 
+11. Add the new drive to /etc/fstab:
+
+	To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). To find the UUID of the new drive you can use the **blkid** utility:
+	
+	`sudo -i blkid`
+
+	The output will look similar to the following:
+
+		`/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
+		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
+		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
+
+	**Note:** blkid may not require sudo access in all cases, however, it may be easier to run with `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
+
+	**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+
+	Using a text editor, enter the information about the new file system at the end of the /etc/fstab file.  In this example we will use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/mnt/datadrive**:
+
+	`UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e    /mnt/datadrive    ext4    defaults    1    1`
+
+	If additional data drives or partitions are created you will need to enter them into /etc/fstab as well.
+
+	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/mnt/datadrive` created in the earlier steps: 
+
+		`sudo umount /mnt/datadrive`
+		`sudo mount /mnt/datadrive`
+
+	If the second command produces an error please check the /etc/fstab file for correct syntax.
 
 ##Next Steps 
 
