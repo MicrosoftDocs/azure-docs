@@ -10,7 +10,7 @@ Before you begin this article, you must have the following:
 
 - A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-- Install and configure HDInsight PowerShell. For the detailed instructions, see [Install and configure HDInsight PowerShell][hdinsight-configure-powershell].
+- Install and configure PowerShell for HDInsight. For the detailed instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 			
 	

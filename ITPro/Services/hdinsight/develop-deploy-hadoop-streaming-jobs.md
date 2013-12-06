@@ -1,14 +1,14 @@
 <properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy a Hadoop streaming program - Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, hadoop streaming, streaming" metaDescription="Learn how to develop and deploy a C# Hadoop streaming program." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Develop and deploy a Hadoop streaming job to HDInsight
-Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Windows Azure HDInsight, and to displaying the result on Excel.
+Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Windows Azure HDInsight and to retrieving the results.
 
 **Prerequisites:**
 
 Before you begin this tutorial, you must have the following:
 
 - Install Windows Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
-- Install Windows Azure HDInsight PowerShell on the emulator computer. For instructions, see [Install and configure Windows Azure HDInsight PowerShell][hdinsight-powershell]
+- Install Windows Azure HDInsight PowerShell on the emulator computer. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]
 - Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
@@ -220,7 +220,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory.
 
 **To run the MapReduce job using HDInsight PowerShell**
 
-1. Open Windows Azure PowerShell. For instructions, see [Install and configure HDInsight PowerShell][hdinsight-powershell]. 
+1. Open Windows Azure PowerShell. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]. 
 3. Run the following commands to set variables:
 
 		$clusterName = "http://localhost:50111"
@@ -547,7 +547,7 @@ The following PowerShell script performs the following tasks:
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3. Set the first four variables in the script. $serviceNameToken will be used for the HDInsight cluster name, the storage account name, and the Blob storage container name.  Because the service name must be between 3 and 24 characters, and the script append string with up to 10 character string to the names, you  must limit the string to 14 or less characters. $storageAccountName_Data and $containerName_Data are the storage account and container that are used for storing the data files and the applications. $location must match the data storage account location.
+3. Set the first four variables in the script. $serviceNameToken will be used for the HDInsight cluster name, the storage account name, and the Blob storage container name.  Because the service name must be between 3 and 24 characters, and the script append string with up to 10 character string to the names, you  must limit the string to 14 or less characters. You must use all lower case for the $serviceNameToken. $storageAccountName_Data and $containerName_Data are the storage account and container that are used for storing the data files and the applications. $location must match the data storage account location.
 4. Review the rest of the variables.
 5. Save the script file.
 6. Open Windows Azure PowerShell.
