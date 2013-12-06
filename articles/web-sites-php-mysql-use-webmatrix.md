@@ -184,50 +184,54 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 
 
-[install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
-[running-app]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
-[tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
-[NewWebSite1]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg
-[NewWebSite2]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite2.png
-[NewWebSite3]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite3.png
-[NewWebSite4]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite4.png
-[NewWebSite5]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite5.png
-[NewWebSite6]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite6.png
-[ConnectionString]: ./media/web-sites-php-mysql-use-webmatrix/ConnectionString.png
-[InstallWebMatrix]: ./media/web-sites-php-mysql-use-webmatrix/InstallWebMatrix.png
-[download-site]: ./media/web-sites-php-mysql-use-webmatrix/download-site-1.png
-[site-from-template]: ./media/web-sites-php-mysql-use-webmatrix/site-from-template.png
-[site-from-template-2]: ./media/web-sites-php-mysql-use-webmatrix/site-from-template-2.png
-[edit_addexisting]: ./media/web-sites-php-mysql-use-webmatrix/edit_addexisting.png
-[edit_run]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
-[edit_publish]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
-[OpenRemoteView]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
-[Remote_editIndex]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
-[Remote_run]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png
-
-
-
-
-
-
-
-
-
-
-
-
-
+[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
+[running-app]: ../Media/tasklist_app_windows.png
+[tasklist-sqlazure-download]: http://go.microsoft.com/fwlink/?LinkId=252504
+[NewWebSite1]: ../Media/NewWebSite1.jpg
+[NewWebSite2]: ../Media/NewWebSite2.png
+[NewWebSite3_SQL]: ../Media/NewWebSite3_SQL.png
+[NewWebSite4_SQL]: ../Media/NewWebSite4_SQL.png
+[NewWebSite5]: ../Media/NewWebSite5.png
+[NewWebSite6_SQL]: ../Media/NewWebSite6_SQL.png
+[NewWebSite7]: ../Media/NewWebSite7.png
+[ConnectionString]: ../Media/ConnectionString.png
+[InstallWebMatrix]: ../Media/InstallWebMatrix.png
+[download-site]: ../Media/download-site-1.png
+[site-from-template]: ../Media/site-from-template.png
+[site-from-template-2]: ../Media/site-from-template-2.png
+[edit_addexisting]: ../Media/edit_addexisting.png
+[edit_run]: ../Media/edit_run.png
+[edit_publish]: ../Media/edit_publish.png
+[OpenRemoteView]: ../Media/OpenRemoteView.png
+[Remote_editIndex]: ../Media/Remote_editIndex.png
+[Remote_run]: ../Media/Remote_run.png
+[install-webmatrix]: ../Media/install-webmatrix.png
+[download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
+[new-website]: ../../Shared/Media/new_website.jpg
+[custom-create]: ../../Shared/Media/custom_create.jpg
+[website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
+[database-settings]: ../Media/database_settings.jpg
+[create-server]: ../Media/create_server.jpg
+[linked-resources]: ../Media/linked_resources.jpg
+[connection-string]: ../Media/connection_string.jpg
+[download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
+[webmatrix-templates]: ../../Shared/Media/webmatrix_templates.jpg
+[webmatrix-php-template]: ../../Shared/Media/webmatrix_php_template.jpg
+[webmatrix-php-emptysite]: ../../Shared/Media/webmatrix_php_emptysite.jpg
+[webmatrix-files]: ../../Shared/Media/webmatrix_files.jpg
+[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_delete_indexphp.jpg
+[webmatrix-add-existing]: ../../Shared/Media/webmatrix_add_existing.jpg
+[webmatrix-launchinbrowser]: ../Media/launch-in-browser.png
+[webmatrix-publish]: ../../Shared/Media/webmatrix_publish.jpg
+[webmatrix-import-pub-settings]: ../../Shared/Media/webmatrix_import_pub_settings.jpg
+[webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
+[webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
 [preview-portal]: https://manage.windowsazure.com
-
-
-
-
-
-
-
-
-
-
-
-
-
+[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+[php-site-from-template]: ../../Shared/Media/php_site_from_template.png
+[php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
+[go-to-dashboard]: ../Media/go_to_dashboard.png
+[download-publish-profile]: ../Media/download-publish-profile.png
+[site-in-webmatrix]: ../Media/site-in-webmatrix.png
+[add-existing-files]: ../Media/add-existing-files.png
+[publish]: ../Media/publish.png
