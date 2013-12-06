@@ -22,11 +22,12 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
+
 ##Prerequisites
 
 1. [Download][tasklist-mysql-download] the Tasklist application files. The Tasklist application is a simple PHP application that allows you to add, mark complete, and delete items from a task list. Task list items are stored in a MySQL database. The application consists of these files:
 
-	* **additem.php**: Adds an item to the list.
+	* *additem.php*: Adds an item to the list.
 	* **createtable.php**: Creates the MySQL table for the application. This file will only be called once.
 	* **deleteitem.php**: Deletes an item.
 	* **getitems.php**: Gets all items in the database.
