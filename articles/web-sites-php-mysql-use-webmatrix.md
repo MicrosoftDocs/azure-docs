@@ -1,4 +1,6 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" />
+<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix" authors=""  solutions="" writer="" manager="" editor="mollybos"  />
+
+
 
 
 
@@ -64,12 +66,12 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Create new MySQL database][NewWebSite4]
 
-	When the web site has been created you will see the text **Creating Web Site ‘[SITENAME]’ succeeded**.
+	When the web site has been created you will see the text **Creating Web Site ???[SITENAME]??? succeeded**.
 
 	Next, you need to get the MySQL connection information.
 
 
-6. Click the name of the web site displayed in the list of web sites to open the web site’s Quick Start page.
+6. Click the name of the web site displayed in the list of web sites to open the web site???s Quick Start page.
 
 	![Open web site dashboard][NewWebSite5]
 
