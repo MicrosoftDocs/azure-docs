@@ -150,7 +150,7 @@ This has the effect of adding a new application path to the `system.applicationH
 
 <h3><a id="deploy"></a>Site extension deployment</h3>
 
-To install your site extension, you can use FTP to copy all the files of your web app to the "\SiteExtensions\<your-extension-name>" folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
+To install your site extension, you can use FTP to copy all the files of your web app to the "\SiteExtensions\your-extension-name" folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
 
 Next, in the Windows Azure Web Sites Portal, go to the **Configure** tab for the web site that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
 
