@@ -3,7 +3,7 @@
 
 #Run the HDInsight samples
 
-A set of samples are provided to help you get started with Windows Azure HDInsight. These samples are made available on each of the HDInsight clusters that you create. Running these samples will familiarize you with Windows Azure HDInsight PowerShell.
+A set of samples are provided to help you get started with Windows Azure HDInsight. These samples are made available on each of the HDInsight clusters that you create. Running these samples will familiarize you with Windows Azure PowerShell HDInsight cmdlets.
 
 MapReduce programs can also be run programmatically from an application using the Microsoft .NET API for HDInsight. For more information on using the HDInsight APIs for job submission, see [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically].
 
@@ -20,7 +20,7 @@ Much additional documentation exists on the web for Hadoop-related technologies 
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell and the HDInsight PowerShell Tools, and have configured them for use with your account. For instructions on how to do this, see [Install and configure HDInsight PowerShell](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
 
 ## The samples ##
 
