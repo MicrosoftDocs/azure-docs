@@ -1,4 +1,4 @@
-<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-windowsdotnet" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial" metaKeywords="" description="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications." metaCanonical="" services=",," documentationCenter="" title="Use Notification Hubs to send breaking news" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-windowsdotnet" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial" metaKeywords="" description="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications." metaCanonical="" services="mobile-services,service-bus,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
 
 
 

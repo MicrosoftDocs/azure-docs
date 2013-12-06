@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-monitor-hdinsight" urlDisplayName="Monitor" pageTitle="Monitor HDInsight | Windows Azure" metaKeywords="" description="Learn how to monitor an HDInsight cluster and view Hadoop job history through the Windows Azure Management Portal." metaCanonical="" services="" documentationCenter="" title="How to Monitor HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="mollybos"  />
+<properties linkid="manage-services-hdinsight-howto-monitor-hdinsight" urlDisplayName="Monitor" pageTitle="Monitor HDInsight | Windows Azure" metaKeywords="" description="Learn how to monitor an HDInsight cluster and view Hadoop job history through the Windows Azure Management Portal." metaCanonical="" services="hdinsight" documentationCenter="" title="How to Monitor HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="mollybos"  />
 
 
 
