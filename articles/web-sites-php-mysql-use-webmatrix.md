@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" />
+﻿<properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP web site with MySQL and WebMatrix - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP web site that stores data in MySQL." metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" title="Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix" />
 
 
 
@@ -20,7 +20,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 ![Windows Azure PHP Web Site][running-app]
 
-<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Prerequisites
 
@@ -40,7 +40,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	This step is only necessary if you want to test your application locally.
 
-<h2><a id="CreateWebsite"></a>Create a Windows Azure Web Site and MySQL database</h2>
+##<a id="CreateWebsite"></a>Create a Windows Azure Web Site and MySQL database
 
 1. Login to the [Management Portal][preview-portal].
 1. Click the **+ New** icon on the bottom left of the portal.
@@ -184,49 +184,49 @@ You've seen how to create and deploy a web site from WebMatrix to Windows Azure.
 
 
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
-[running-app]: ../Media/tasklist_app_windows.png
+[running-app]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
 [tasklist-mysql-download]: http://go.microsoft.com/fwlink/?LinkId=252506
-[NewWebSite1]: ../Media/NewWebSite1.jpg
-[NewWebSite2]: ../Media/NewWebSite2.png
-[NewWebSite3]: ../Media/NewWebSite3.png
-[NewWebSite4]: ../Media/NewWebSite4.png
-[NewWebSite5]: ../Media/NewWebSite5.png
-[NewWebSite6]: ../Media/NewWebSite6.png
-[ConnectionString]: ../Media/ConnectionString.png
-[InstallWebMatrix]: ../Media/InstallWebMatrix.png
-[download-site]: ../Media/download-site-1.png
-[site-from-template]: ../Media/site-from-template.png
-[site-from-template-2]: ../Media/site-from-template-2.png
-[edit_addexisting]: ../Media/edit_addexisting.png
-[edit_run]: ../Media/edit_run.png
-[edit_publish]: ../Media/edit_publish.png
-[OpenRemoteView]: ../Media/OpenRemoteView.png
-[Remote_editIndex]: ../Media/Remote_editIndex.png
-[Remote_run]: ../Media/Remote_run.png
-[install-webmatrix]: ../Media/install-webmatrix.png
-[download-publish-profile]: ../../Shared/Media/download_publish_profile.jpg
-[webmatrix-templates]: ../../Shared/Media/webmatrix_templates.jpg
-[webmatrix-php-template]: ../../Shared/Media/webmatrix_php_template.jpg
-[webmatrix-php-emptysite]: ../../Shared/Media/webmatrix_php_emptysite.jpg
-[webmatrix-files]: ../../Shared/Media/webmatrix_files.jpg
-[webmatrix-delete-indexphp]: ../../Shared/Media/webmatrix_delete_indexphp.jpg
-[webmatrix-add-existing]: ../../Shared/Media/webmatrix_add_existing.jpg
-[webmatrix-launchinbrowser]: ../Media/launch-in-browser.png
-[webmatrix-publish]: ../../Shared/Media/webmatrix_publish.jpg
-[webmatrix-import-pub-settings]: ../../Shared/Media/webmatrix_import_pub_settings.jpg
-[webmatrix-pubcompat-continue]: ../../Shared/Media/webmatrix_pubcompat_continue.jpg
-[webmatirx-pubpreview]: ../../Shared/Media/webmatrix_pubpreview.jpg
+[NewWebSite1]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg
+[NewWebSite2]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite2.png
+[NewWebSite3]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite3.png
+[NewWebSite4]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite4.png
+[NewWebSite5]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite5.png
+[NewWebSite6]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite6.png
+[ConnectionString]: ./media/web-sites-php-mysql-use-webmatrix/ConnectionString.png
+[InstallWebMatrix]: ./media/web-sites-php-mysql-use-webmatrix/InstallWebMatrix.png
+[download-site]: ./media/web-sites-php-mysql-use-webmatrix/download-site-1.png
+[site-from-template]: ./media/web-sites-php-mysql-use-webmatrix/site-from-template.png
+[site-from-template-2]: ./media/web-sites-php-mysql-use-webmatrix/site-from-template-2.png
+[edit_addexisting]: ./media/web-sites-php-mysql-use-webmatrix/edit_addexisting.png
+[edit_run]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
+[edit_publish]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
+[OpenRemoteView]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
+[Remote_editIndex]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
+[Remote_run]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png
+
+
+
+
+
+
+
+
+
+
+
+
+
 [preview-portal]: https://manage.windowsazure.com
-[php-site-from-template]: ../../Shared/Media/php_site_from_template.png
-[php-empty-site-template-installed]: ../../Shared/Media/php_empty_site_template_installed.png
-[new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../Media/custom_create.jpg
-[website-details]: ../../Shared/Media/website_details.jpg
-[new-mysql-db]: ../Media/new_mysql_db.jpg
-[go-to-dashboard]: ../Media/go_to_dashboard.jpg
-[download-publish-profile]: ../Media/download-publish-profile.png
-[site-in-webmatrix]: ../Media/site-in-webmatrix.png
-[add-existing-files]: ../Media/add-existing-files.png
-[publish]: ../Media/publish.png
-[configure-tab]: ../Media/configure-tab.png
-[connection-string]: ../Media/connection-string.png
+
+
+
+
+
+
+
+
+
+
+
+
+
