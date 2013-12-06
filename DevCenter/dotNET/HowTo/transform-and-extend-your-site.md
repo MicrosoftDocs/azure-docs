@@ -71,7 +71,7 @@ The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web 
 
 ![TransformSite_SolEx][]
 
-The only special logic needed for file I/O is to indicate where the wwwroot directory of the site is located.  As the following code example shows, the environment variable "HOME" indicates the site root path, and the wwwroot path can be constructed by appending "site\wwwroot":
+The only special logic needed for file I/O is to indicate where the wwwroot directory of the site is located. As the following code example shows, the environment variable "HOME" indicates the site root path, and the wwwroot path can be constructed by appending "site\wwwroot":
 
 
 	/// <summary>
