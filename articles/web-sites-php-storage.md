@@ -17,17 +17,14 @@ You will build a simple Tasklist web application in PHP. A screenshot of the com
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-
 ##Installing the Windows Azure client libraries
 
 To install the PHP Client Libraries for Windows Azure via Composer, follow these steps:
 
 1. [Install Git][install-git]
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>On Windows, you will also need to add the Git executable to your PATH environment variable.</p>
-	</div>
+> WACOM.NOTE
+> On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
