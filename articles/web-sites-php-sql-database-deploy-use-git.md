@@ -1,4 +1,4 @@
-<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" metaDescription="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" title="Create a PHP web site with a SQL Database and deploy using Git"/>
 
 
 
@@ -21,7 +21,7 @@ By following this tutorial, you will build a simple registration web application
 
 ![Windows Azure PHP Web Site][running-app]
 
-<div chunk="../../Shared/Chunks/create-account-and-websites-note.md" />
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##Create a Windows Azure Web Site and set up Git publishing
 
@@ -48,9 +48,9 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Create new SQL Database server][create-server]
 
-	When the web site has been created you will see the text **Creation of Web Site ‘[SITENAME]’ completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
 
-6. Click the name of the web site displayed in the list of web sites to open the web site’s Quick Start dashboard.
+6. Click the name of the web site displayed in the list of web sites to open the web site???s Quick Start dashboard.
 
 	![Open web site dashboard][go-to-dashboard]
 
@@ -293,20 +293,20 @@ To publish changes to application, follow these steps:
 [install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
-[running-app]: ../Media/running_app_3.png
-[new-website]: ../../Shared/Media/new_website.jpg
-[custom-create]: ../../Shared/Media/custom_create.png
-[website-details-sqlazure]: ../Media/website_details_sqlazure.jpg
-[database-settings]: ../Media/database_settings.jpg
-[create-server]: ../Media/create_server.jpg
-[go-to-dashboard]: ../../Shared/Media/go_to_dashboard.png
-[setup-git-publishing]: ../../Shared/Media/setup_git_publishing.png
-[credentials]: ../../Shared/Media/git-deployment-credentials.png
-[creating-repo]: ../Media/creating_repo.jpg
-[push-files]: ../Media/push_files.jpg
-[git-instructions]: ../../Shared/Media/git-instructions.png
-[linked-resources]: ../Media/linked_resources.jpg
-[connection-string]: ../Media/connection_string.jpg
+[running-app]: ./media/web-sites-php-sql-database-deploy-use-git/running_app_3.png
+[new-website]: ./media/web-sites-php-sql-database-deploy-use-git/new_website.jpg
+[custom-create]: ./media/web-sites-php-sql-database-deploy-use-git/custom_create.png
+[website-details-sqlazure]: ./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg
+[database-settings]: ./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg
+[create-server]: ./media/web-sites-php-sql-database-deploy-use-git/create_server.jpg
+[go-to-dashboard]: ./media/web-sites-php-sql-database-deploy-use-git/go_to_dashboard.png
+[setup-git-publishing]: ./media/web-sites-php-sql-database-deploy-use-git/setup_git_publishing.png
+[credentials]: ./media/web-sites-php-sql-database-deploy-use-git/git-deployment-credentials.png
+
+
+[git-instructions]: ./media/web-sites-php-sql-database-deploy-use-git/git-instructions.png
+[linked-resources]: ./media/web-sites-php-sql-database-deploy-use-git/linked_resources.jpg
+[connection-string]: ./media/web-sites-php-sql-database-deploy-use-git/connection_string.jpg
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
-[where-is-code]: ../../Shared/Media/where_is_code.png
+[where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/where_is_code.png
