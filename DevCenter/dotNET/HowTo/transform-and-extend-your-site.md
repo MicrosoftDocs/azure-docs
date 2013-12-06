@@ -63,13 +63,13 @@ PHP Manager is a site extension that allows site administrators to easily view a
 	
 The following image shows the home page of the PHP Manager web site:
 
-![TransformSite_PHP_UI][]
+![TransformSitePHPUI][]
 
 As you can see, a site extension is just like a regular web application, but with an additional ApplicationHost.xdt file placed in the root folder of the site (more details about the ApplicationHost.xdt file are available in the next section of this article).
 
 The PHP Manager extension was created using the Visual Studio ASP.NET MVC 4 Web Application template. The following view from Solution Explorer shows the structure of the PHP Manager site extension.
 
-![TransformSite_SolEx][]
+![TransformSiteSolEx][]
 
 The only special logic needed for file I/O is to indicate where the wwwroot directory of the site is located. As the following code example shows, the environment variable "HOME" indicates the site root path, and the wwwroot path can be constructed by appending "site\wwwroot":
 
@@ -154,11 +154,11 @@ To install your site extension, you can use FTP to copy all the files of your we
 
 Next, in the Windows Azure Web Sites Portal, go to the **Configure** tab for the web site that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
 
-![TransformSite_appSettings][]
+![TransformSiteappSettings][]
 
 Finally, in the Windows Azure Portal, restart your web site to enable your extension.
 
-![TransformSite_Restart][]
+![TransformSiteRestart][]
 
 You should be able to see your site extension at:
 
@@ -168,7 +168,7 @@ You should be able to see your site extension at:
 Note that the URL looks just like the URL for your site, except that it uses HTTPS and contains ".scm". 
 
 <!-- IMAGES -->
-[TransformSite_PHP_UI]: ../media/TransformSite_PHP_UI.png
-[TransformSite_SolEx]: ../media/TransformSite_SolEx.png
-[TransformSite_appSettings]: ../media/TransformSite_appSettings.png
-[TransformSite_Restart]: ../media/TransformSite_Restart.png
+[TransformSitePHPUI]: ../media/TransformSitePHPUI.png
+[TransformSiteSolEx]: ../media/TransformSiteSolEx.png
+[TransformSiteappSettings]: ../media/TransformSiteappSettings.png
+[TransformSiteRestart]: ../media/TransformSiteRestart.png
