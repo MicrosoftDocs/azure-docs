@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-using-client-library" urlDisplayName="Using the Hadoop .NET SDK" pageTitle="How to use the Hadoop .NET SDK with HDInsight - Windows Azure guidance" metaKeywords="hdinsight hadoop .net sdk, hadoop .net sdk, hadoop .net sdk azure" metaDescription="Learn how to use the Hadoop .NET SDK with the HDInsight Service." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-sdk" urlDisplayName="HDInsight SDK" pageTitle="How to use the HDInsight .NET libraries - Windows Azure Services" metaKeywords="" description="Learn how to get the HDInsight NuGet packages and use them from your .NET application." metaCanonical="" services="hdinsight" documentationCenter="" title="Use the Hadoop .NET SDK with HDInsight" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

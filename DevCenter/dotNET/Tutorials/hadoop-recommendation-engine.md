@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-hadoop-recommendation-engine" urlDisplayName="Hadoop Recommendation Engine" pageTitle="Hadoop recommendation engine (.NET) - Windows Azure tutorials" metaKeywords="Azure Apache Mahout, Azure recommendation example, Azure recommendation tutorial, Azure recommendation engine" metaDescription="A tutorial that teaches how to use the Apache Mahout recommendation engine with Windows Azure to create song suggestions based on listening habits." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Simple recommendation engine using Apache Mahout" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Simple recommendation engine using Apache Mahout 

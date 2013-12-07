@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-how-to-guides-multiple-clients-single-service" writer="krisragh" urldisplayname="Multiple Clients" pagetitle="Target multiple clients from a single mobile service | Mobile Services Tutorials" metakeywords="mobile services, multiple clients" metadescription="Learn how to use a single mobile service back-end from multiple client apps that target different mobile platforms, including Windows Store and Windows Phone." umbraconavihide="0" disquscomments="1"></properties>
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Considerations for supporting multiple clients from a single mobile service" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+
+
 
 # Considerations for supporting multiple clients from a single mobile service
  

@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-push-notifications-to-users-# android #" writer="ricksal" urlDisplayName="Push Notifications to Users" pageTitle="Push Notifications to app users - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to app users in Android apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+
+
 
 # Push notifications to users by using Mobile Services
 

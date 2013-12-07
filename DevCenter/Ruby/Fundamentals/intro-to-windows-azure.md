@@ -1,4 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Intro to Windows Azure" metaKeywords="" metaDescription="" linkid="develop-ruby-fundamentals-intro-to-windows-azure" urlDisplayName="Intro to Windows Azure" headerExpose="" footerExpose="" disqusComments="1" />
+<properties linkid="dev-ruby-fundamentals-intro-to-windows-azure" urlDisplayName="Intro to Windows Azure" pageTitle="Intro to Windows Azure (Ruby) - Windows Azure fundamentals" metaKeywords="Windows Azure introduction, Azure basics, Azure overview, Microsoft cloud" description="An introduction to the fundamentals of Windows Azure. Learn about a variety of ways you can use this application platform in the cloud." metaCanonical="http://www.windowsazure.com/en-us/develop/net/fundamentals/intro-to-windows-azure/" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="Ruby" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 <div chunk="../../Shared/Chunks/intro-to-windows-azure.md" />

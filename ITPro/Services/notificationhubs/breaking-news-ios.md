@@ -1,4 +1,6 @@
-<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" writer="ricksal" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-ios" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,service-bus,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+
+
 
 
 # Use Notification Hubs to send breaking news

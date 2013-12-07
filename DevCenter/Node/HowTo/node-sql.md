@@ -1,4 +1,6 @@
-<properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Windows Azure feature guide" metaKeywords="" metaDescription="Learn how to use Windows Azure SQL Database from Node.js." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Windows Azure feature guide" metaKeywords="" description="Learn how to use Windows Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="Node.js" title="How to Access Windows Azure SQL Database from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

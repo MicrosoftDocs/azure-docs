@@ -1,4 +1,6 @@
-﻿<properties linkid="develop-media-services-how-to-create-encrypted-asset" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage  – Windows Azure" metaKeywords="" metaDescription="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage,– Windows Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors=""  solutions="" writer="migree" manager="" editor=""  />
+
+
 
 
 

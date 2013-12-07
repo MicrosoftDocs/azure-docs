@@ -1,4 +1,6 @@
-<properties linkid="develop-net" urlDisplayName="Cloud Services" pageTitle="Cloud Services - Windows Azure service management" metaKeywords="Azure cloud services" metaDescription="Find topics about cloud services in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="develop-net" urlDisplayName="Cloud Services" pageTitle="Cloud Services - Windows Azure service management" metaKeywords="Azure cloud services" description="Find topics about cloud services in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Cloud services management articles" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Cloud services management articles

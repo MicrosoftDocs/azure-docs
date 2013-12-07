@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-using-pig" urlDisplayName="Use Pig" pageTitle="Use Pig with HDInsight - Windows Azure tutorial" metaKeywords="using pig, pig hdinsight, pig azure, powershell" metaDescription="Learn how to use Pig as an alternative to Java to writing scripts to execute a MapReduce job on big data in HDInsight. " metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Pig with HDInsight" pageTitle="Use Pig with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Pig with HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+
+
 
 # Use Pig with HDInsight #
 

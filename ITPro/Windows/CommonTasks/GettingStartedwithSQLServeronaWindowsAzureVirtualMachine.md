@@ -1,4 +1,6 @@
-<properties linkid="manage-windows-common-tasks-sql-server-on-a-vm" urlDisplayName="Get started with SQL Server" pageTitle="Get started with SQL Server on a virtual machine in Windows Azure" metaKeywords="Azure virtual machines, Azure gallery, Azure SQL Server images, Azure Windows images, Azure VM" metaDescription="Learn about Windows Azure virtual machines, including the Windows Server and SQL Server images available in the Windows Azure gallery." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="selcint" editor="tyson" manager="clairt"/>
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Getting started with SQL Server on a Windows Azure virtual machine" authors=""  solutions="" writer="selcint" manager="clairt" editor="tyson"  />
+
+
 
 
 # Getting started with SQL Server on a Windows Azure virtual machine

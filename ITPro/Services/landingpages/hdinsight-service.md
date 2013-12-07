@@ -1,4 +1,6 @@
-<properties linkid="hdinsight-landing" urlDisplayName="HDInsight Service" pageTitle="HDInsight Service" metaKeywords="SQL databases Windows Auzure, SQL databases Azure, SQL Azure, SQL Server Azure" metaDescription="Find topics about using SQL Databases in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="develop-net" urlDisplayName="HDInsight" pageTitle="HDInsight - Windows Azure Services" metaKeywords="" description="Find resources for using HDInsight, Microsoft's 100% Apache compatible Hadoop distribution." metaCanonical="" services="" documentationCenter="" title="HDInsight articles" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # HDInsight articles

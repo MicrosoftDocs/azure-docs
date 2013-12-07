@@ -1,4 +1,6 @@
-﻿<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) - Windows Azure feature guide" metaKeywords="Azure blob Python, Azure blob service Python" metaDescription="Learn how to upload, list, download, and delete blobs in Windows Azure using the Python API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) - Windows Azure feature guide" metaKeywords="Azure blob Python, Azure blob service Python" description="Learn how to upload, list, download, and delete blobs in Windows Azure using the Python API." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Blob Storage Service from Python" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # How to Use the Blob Storage Service from Python

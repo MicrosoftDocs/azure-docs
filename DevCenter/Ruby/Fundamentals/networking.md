@@ -1,1 +1,3 @@
-<properties linkid="develop-ruby-fundamentals-networking" urlDisplayName="Networking" pageTitle="Networking (Ruby) - Windows Azure fundamentals" metaKeywords="Azure virtual network, Azure connect, Azure traffic manager" metaDescription="An introduction to Windows Azure networking." metaCanonical="http://www.windowsazure.com/en-us/develop/net/fundamentals/networking/" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="develop-ruby-fundamentals-networking" urlDisplayName="Networking" pageTitle="Windows Azure Ruby Fundamentals - Networking" metaKeywords="" description="" metaCanonical="https://www.windowsazure.com/en-us/develop/net/fundamentals/networking/" services="virtual-network" documentationCenter="Ruby" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+

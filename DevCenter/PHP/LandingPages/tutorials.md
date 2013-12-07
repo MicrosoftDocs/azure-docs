@@ -1,4 +1,6 @@
-<properties linkid="devnav-php-tutorials" urlDisplayName="Tutorials" pageTitle="Windows Azure PHP tutorials" metaKeywords="PHP tutorials Windows Azure, PHP tutorials Azure, Azure PHP tutorials, Azure PHP" metaDescription="Find tutorials about using PHP with Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-php-tutorials" urlDisplayName="Tutorials" pageTitle="Windows Azure PHP tutorials" metaKeywords="PHP tutorials Windows Azure, PHP tutorials Azure, Azure PHP tutorials, Azure PHP" description="Find tutorials about using PHP with Windows Azure." metaCanonical="" services="" documentationCenter="" title="PHP Developer Center - Tutorials" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #PHP Developer Center - Tutorials

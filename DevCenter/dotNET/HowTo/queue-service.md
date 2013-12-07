@@ -1,4 +1,6 @@
-<properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure Queue Service messages .NET" metaDescription="Learn how to use Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples in C# using .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="dev-net-2-how-to-queue-service" urlDisplayName="Queue Service (2.0)" pageTitle="How to use the queue storage service - Windows Azure" metaKeywords="Get started Azure queue, Azure asynchronous processing, Azure queue, Azure queue storage, Azure queue .NET, Azure queue storage .NET, Azure queue C#, Azure queue storage C#" description="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" services="storage" documentationCenter=".NET" title="How to use the Queue Storage Service" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

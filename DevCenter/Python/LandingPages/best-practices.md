@@ -1,4 +1,6 @@
-<properties linkid="devnav-python-bestpractices" urlDisplayName="Best Practices" pageTitle="Windows Azure Python best practices" metaKeywords="Windows Azure best practices, Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-python-bestpractices" urlDisplayName="Best Practices" pageTitle="Windows Azure Python best practices" metaKeywords="Windows Azure best practices, Azure best practices" description="Find topics about best practices in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" services="" documentationCenter="" title="Python Developer Center - Best Practices" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #Python Developer Center - Best Practices

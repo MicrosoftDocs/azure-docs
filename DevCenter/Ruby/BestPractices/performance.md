@@ -1,4 +1,6 @@
-<properties linkid="develop-ruby-best-practices-performance" urlDisplayName="Performance" headerExpose="" pageTitle="Windows Azure Ruby Best Practices - Performance" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
+<properties linkid="develop-ruby-performance" urlDisplayName="Performance" pageTitle="Performance best practices (Ruby) - Windows Azure" metaKeywords="zure performance, Windows Azure performance, Azure design, Azure SQL Database performance" description="Learn about best practices for performance in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/performance/" services="sql-database,storage,service-bus,virtual-network" documentationCenter="Ruby" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

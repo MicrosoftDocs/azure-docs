@@ -1,4 +1,6 @@
-<properties linkid="devnav-php-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure PHP feature guides" metaKeywords="Azure PHP" metaDescription="Find topics about using Windows Azure services and features in PHP." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-php-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure PHP feature guides" metaKeywords="Azure PHP" description="Find topics about using Windows Azure services and features in PHP." metaCanonical="" services="" documentationCenter="" title="PHP Developer Center - How To Guides" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # PHP Developer Center - How To Guides #

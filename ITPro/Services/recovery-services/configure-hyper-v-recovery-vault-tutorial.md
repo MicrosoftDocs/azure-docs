@@ -1,4 +1,6 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="hyper-v recovery, disaster recovery" metaDescription="Windows Azure Hyper-V Recovery Manager can help you protect important services by coordinating the replication and recovery of System Center 2012 private clouds at a secondary location." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="raynew" editor="tysonn" manager="cfreeman" />
+<properties linkid="manage-services-recovery-hyperv-recovery-vault" urlDisplayName="Configure a Recovery Vault" pageTitle="Configure Windows Azure Recovery Services to provide a Hyper-V recovery environment" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Hyper-V Recovery Manager service in Microsoft's Windows Azure cloud offering to provide a Hyper-V recovery environment." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Windows Azure Hyper-V Recovery Manager" authors=""  solutions="" writer="starra" manager="cynthn" editor="tysonn"  />
+
+
 
 
 
@@ -47,7 +49,7 @@
 	</UL></LI>
 	
 	<P>To learn more about network mapping read <a href="http://go.microsoft.com/fwlink/?LinkId=324817">Prepare for network mapping</a> in the Planning Guide for Hyper-V Recovery Manager.</P>
-</UL>
+	</UL>
 
 
 <h2><a id="tutorial"></a>Tutorial steps</h2> 
@@ -148,7 +150,7 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 3. In **Name**, enter a friendly name to identify the vault.
 
-4. In **Region**, select the geographic region for the vault.  
+4. In **Region**, select the geographic region for the vault. 
 5. In **Subscription**, type in your subscription details.
 
 5. Click **Create vault**. 
@@ -202,7 +204,7 @@ Install the Hyper-V Recovery Manager Provider on each VMM server you want to reg
 2. Select **Synchronize cloud data with the vault** to synchronize the data on all private clouds located on the VMM server with the Hyper-V Recovery Manager vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can publish each cloud individually to synchronize it, before you configure cloud protection settings.  
 3. Click **Register** to complete the process. 
 
-	![Internet Settings](../media/RS_PublishCloudSetup.png)
+![Internet Settings](../media/RS_PublishCloudSetup.png)
 
 <P>At this stage, metadata from the VMM server is retrieved by Hyper-V Recovery Manager, in order to orchestrate failover and recovery. After a server has been successfully registered its friendly name will be displayed on the <B>Resources</B> tab of the Servers page in the vault.</P>
 
@@ -372,7 +374,7 @@ Note the following:
 
 
 
-
+	
 
 
 <h2><a id="jobsdashboard"></a>Step 8:Monitoring</h2>

@@ -1,4 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle=" How to Deliver Media Assets - Windows Azure" metaKeywords="" metaDescription="Learn about options for delivering media assets that have been uploaded to Media Services in Windows Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Windows Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Windows Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors=""  solutions="" writer="migree" manager="" editor=""  />
+
+
 
 
 

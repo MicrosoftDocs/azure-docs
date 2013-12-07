@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Android) - Windows Azure Mobile Services" writer="glenga"  metaKeywords="Windows Azure Android data, Azure mobile services data, " metaDescription="Learn how to store and access data from your Windows Azure Mobile Services Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Windows Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="" metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 

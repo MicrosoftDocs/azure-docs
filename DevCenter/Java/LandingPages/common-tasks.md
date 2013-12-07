@@ -1,4 +1,6 @@
-<properties linkid="devnav-java-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Java Common Tasks" metaKeywords="Azure Java" metaDescription="Find topics about using Java in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-java-commontasks" urlDisplayName="Common Tasks" pageTitle="Windows Azure Java Common Tasks" metaKeywords="Azure Java" description="Find topics about using Java in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Java Developer Center - Common Tasks" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Java Developer Center - Common Tasks

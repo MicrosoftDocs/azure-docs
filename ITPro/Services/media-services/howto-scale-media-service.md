@@ -1,4 +1,6 @@
-<properties linkid="manage-services-how-to-scale-a-media-service" urlDisplayName="How to scale" pageTitle="How to scale a media service - Windows Azure" metaKeywords="Azure link resource, scaling media service" metaDescription="Learn how to scale a media service in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Windows Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors=""  solutions="" writer="migree" manager="" editor=""  />
+
+
 
 
 

@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-command-prompt-administration" urlDisplayName="Command prompt administration" pageTitle="Automate mobile services with command-line tools" metaKeywords="Windows Azure Mobile Services, command prompt, command line tool, mobile services" metaDescription="Learn how to use the Windows Azure command-line tool to automate the creation of management of Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1"  writer="glenga" />
+<properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Windows Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Windows Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="" title="Automate mobile services with command-line tools" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 

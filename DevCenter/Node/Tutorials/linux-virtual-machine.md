@@ -1,4 +1,6 @@
-<properties linkid="develop-nodejs-tutorials-linux-virtual-machine" urlDisplayName="Linux VM" pageTitle="Create a Linux Virtual Machine - Windows Azure Node.js" metaKeywords="" metaDescription="Learn how to create a Linux Virtual machine from which you can run Node.js applications in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-nodejs-tutorials-linux-virtual-machine" urlDisplayName="Linux Virtual Machine" pageTitle="Windows Azure Node.js Dev Center - Tutorials - Linux Virtual Machine" metaKeywords="" description="" metaCanonical="http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/" services="virtual-machines" documentationCenter="Node.js" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 
