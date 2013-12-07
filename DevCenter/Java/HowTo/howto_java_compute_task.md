@@ -36,8 +36,8 @@ The following is an example of the Java application monitoring the compute-inten
 
 1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
-3. In the **Virtual machine image select** dialog, select **Java Platform, Standard Edition 7 for WS 2012**.
-Note that **Java Platform, Standard Edition 6 for WS 2012** is available in case you have legacy applications that are not yet ready to run in Java Standard Edition 7.
+3. In the **Virtual machine image select** dialog, select **JDK 7 (Preview) Windows Server 2012**.
+Note that **JDK 6 (Preview) Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
 4. Click **Next**.
 4. In the **Virtual machine configuration** dialog:
     1. Specify a name for the virtual machine.
