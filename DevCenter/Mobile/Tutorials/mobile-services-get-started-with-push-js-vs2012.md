@@ -93,7 +93,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
         	    registrationsTable.read({
             	    success: function(registrations) {
                 	    registrations.forEach(function(registration) {
-                    	    push.wns.sendToastText04(registration.uri, {
+                    	    push.wns.sendToastText04(registration.handle, {
                         	    text1: item.text
                     	    }, {
                         	    success: function(pushResponse) {
@@ -184,7 +184,7 @@ Consider finding out more about the following Mobile Services topics:
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: ./mobile-services-get-started-with-data-js-vs11.md
+[Get started with data]: ./mobile-services-get-started-with-data-js-vs2013.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-js.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
 [Push notifications to app users]: ./mobile-services-push-notifications-to-app-users-js.md

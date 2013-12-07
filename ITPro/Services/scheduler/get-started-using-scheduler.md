@@ -1,7 +1,7 @@
-<properties linkid="some-link" urlDisplayName="Display name" pageTitle="Page title here: 65 char total | Windows Azure" metaKeywords="not needed" metaDescription="Abstract text for the search results page. No more than 160 characters including spaces." umbracoNaviHide="0" disqusComments="1" writer="alias" editor="alias" manager="alias" />
+<properties linkid="get-started-with-scheduler" urlDisplayName="Get started with Scheduler" pageTitle="Get started using Scheduler | Windows Azure" metaKeywords="scheduler" metaDescription="TBD" umbracoNaviHide="0" disqusComments="1" writer="krisragh" editor="mattshel" manager="carolz" />
 
 
-# Heading 1: Article title
+# Get started with Scheduler
 
 (TODO: provide a short description of the article.)
 
