@@ -3,7 +3,6 @@
 
 
 
-
 # How to use the iOS client library for Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
   <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
@@ -34,7 +33,7 @@ This guide shows you how to perform common scenarios using the iOS client for Wi
 	- [Customize data type serialization]
 - [Next steps][]-->
 
-<div chunk="../chunks/mobile-services-concepts.md" />
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
@@ -480,16 +479,16 @@ For more information see, New topic about processing headers in the server-side.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-iOS.md
-[Validate and modify data in Mobile Services by using server scripts]: ../tutorials/mobile-services-validate-and-modify-data-ios.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
+[Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-iOS.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[KeyChain]: http://go.microsoft.com/fwlink/p/?LinkId=301953
+
 [Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx
-[Use scripts to authorize users]: ../tutorials/mobile-services-authorize-users-ios.md
+[Use scripts to authorize users]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Dynamic schema]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx

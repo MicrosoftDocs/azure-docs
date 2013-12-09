@@ -1,7 +1,6 @@
 <properties linkid="register-for-facebook-auth" urlDisplayName="Mobile Services" pageTitle="Work with server scripts in Mobile Services" metaKeywords="server scripts, mobile devices, Windows Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
 
 
-
 # Work with server scripts in Mobile Services
  
 This article provides detailed information about and examples of how to work with server scripts in Windows Azure Mobile Services. This topic is divided into these sections:
@@ -79,10 +78,10 @@ A table script function always takes three arguments.
 
 Here are the canonical main-function signatures for the table operations: 
 
-+ [Insert][insert function]: `function insert (item, user, request) { … }`
-+ [Update][update function]: `function update (item, user, request) { … }`
-+ [Delete][delete function]: `function del (id, user, request) { … }`
-+ [Read][read function]: `function read (query, user, request) { … }`
++ [Insert][insert function]: `function insert (item, user, request) { ??? }`
++ [Update][update function]: `function update (item, user, request) { ??? }`
++ [Delete][delete function]: `function del (id, user, request) { ??? }`
++ [Read][read function]: `function read (query, user, request) { ??? }`
 
 <div class="dev-callout"><strong>Note</strong>
 <p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
@@ -96,7 +95,7 @@ You can define server scripts that are registered to a table operation in one of
 
 + In the [Windows Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
-	![1][]
+	![1][1]
 	
 	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
 
@@ -168,7 +167,7 @@ In this example, the request is rejected when the inserted item does not have a 
 
 By default in a table operation, the **execute** function writes responses automatically. However, you can pass two optional parameters to the execute function that override its behavior on success and/or on error.
 
-By passing in a **success** handler when you call execute, you can modify the results of a query before you write them to the response. The following example calls `execute({ success: function(results) { … })` to perform additional work after data is read from the database but before the response is written:
+By passing in a **success** handler when you call execute, you can modify the results of a query before you write them to the response. The following example calls `execute({ success: function(results) { ??? })` to perform additional work after data is read from the database but before the response is written:
 
 	function read(query, user, request) {
 	    request.execute({
@@ -299,7 +298,7 @@ You can define server scripts that are registered to HTTP methods in a custom AP
 
 + In the [Windows Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
-	![3][]
+	![3][3]
 	
 	Access permissions to custom API methods are assigned in the Permissions tab. To see how this custom API was created, see [Call a custom API from the client].  
 
@@ -416,7 +415,7 @@ You define scheduled jobs in one of the following ways:
 
 + In the [Windows Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
 
-	![2][]
+	![2][2]
 
 	For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
 
@@ -543,7 +542,7 @@ Note that this code also retrieves Twitter consumer key values stored in the **I
 
 In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
 
-![4][]
+![4][4]
 
 Note that this directory structure is the same as the git repository when using source control. 
 
@@ -707,7 +706,7 @@ The collections of data types on the client and in a Mobile Services database ta
 
 The transformation from client schema into JSON varies across platforms.  JSON.NET is used in Windows Store and Windows Phone clients. The Android client uses the gson library.  The iOS client uses the NSJSONSerialization class. The default serialization behavior of each of these libraries is used, except that date objects are converted to JSON strings that contain the date that's encoded by using ISO 8601.
 
-When you are writing server scripts that use [insert], [update], [read] or [delete] functions, you can access the JavaScript representation of your data. Mobile Services uses the Node.js’s deserialization function ([JSON.parse](http://es5.github.io/#x15.12)) to transform JSON on the wire into JavaScript objects. However Mobile Services does  a transformation to extract **Date** objects from ISO 8601 strings.
+When you are writing server scripts that use [insert], [update], [read] or [delete] functions, you can access the JavaScript representation of your data. Mobile Services uses the Node.js???s deserialization function ([JSON.parse](http://es5.github.io/#x15.12)) to transform JSON on the wire into JavaScript objects. However Mobile Services does  a transformation to extract **Date** objects from ISO 8601 strings.
 
 When you use the [tables object] or the [mssql object], or just let your table scripts execute, the deserialized JavaScript objects are inserted into your SQL database. In that process, object properties are mapped to T-SQL types:
 
@@ -942,10 +941,10 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [How to: Work with app settings]: #app-settings
 
 <!-- Images. -->
-[1]: ../Media/mobile-insert-script-users.png
-[2]: ../Media/mobile-schedule-job-script.png
-[3]: ../Media/mobile-custom-api-script.png
-[4]: ../Media/mobile-source-local-cli.png
+
+
+
+
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
