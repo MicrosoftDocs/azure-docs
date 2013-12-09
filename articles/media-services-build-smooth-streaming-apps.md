@@ -231,7 +231,7 @@ The finished the code behind file shall look like this:
 
 You have completed lesson1.  In this lesson, you use a MediaElement control to playback Smooth Streaming content.  In the next lesson, you will add a slider to control the progress of the Smooth Streaming content.
 
- 
+???
 #Lesson 2: Add a Slider Bar to Control the Media Progress
 In lesson 1, you created a Windows Store application with a MediaElement XAML control to playback Smooth Streaming media content.  It comes some basic media functions like start, stop and pause.  In this lesson, you will add a slider bar control to the application.
 
@@ -271,7 +271,7 @@ This lesson contains the following procedures:
 	
 5.	Inside the **MainPage** constructor, modify the two RegisterByteStreamHandler methods to add the forth parameters:
 
-		// Registers Smooth Streaming byte-stream handler for “.ism” extension and, 
+		// Registers Smooth Streaming byte-stream handler for ???.ism??? extension and, 
 		// "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
 		// http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
 		extensions.RegisterByteStreamHandler(
@@ -989,5 +989,5 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 - [How to build a Smooth Streaming Windows 8 JavaScript application with advanced features](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Smooth Streaming Technical Overview](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
-[PlayerApplication]: ../Media/SSClientWin8-1.png
-[CodeViewPic]: ../Media/SSClientWin8-2.png
+[PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
+[CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
