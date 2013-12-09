@@ -42,7 +42,7 @@ include:
 -   Forwarding customer inquiries
 - Email notifications from your application
 
-For more information, see [http://sendgrid.com][].
+For more information, see <http://sendgrid.com>.
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
@@ -51,7 +51,7 @@ For more information, see [http://sendgrid.com][].
 ## <a name="bkmk_HowToUseJavax"> </a>How to: Use the javax.mail libraries
 
 Obtain the javax.mail libraries, for example from
-[http://www.oracle.com/technetwork/java/javamail][] and import them into
+<http://www.oracle.com/technetwork/java/javamail> and import them into
 your code. At a high-level, the process for using the javax.mail library
 to send email using SMTP is to do the following:
 
