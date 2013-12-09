@@ -587,7 +587,7 @@ You must also call the adapter any time you modify the *ToDoItem* table if you w
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
-Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider???s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
 Three steps are required to enable authentication in your app:
 
@@ -828,8 +828,8 @@ The Javadocs reference for the Android client API is at [http://dl.windowsazure.
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: ./mobile-services-get-started-with-users-XXXXX.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
