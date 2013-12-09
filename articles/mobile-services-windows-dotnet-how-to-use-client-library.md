@@ -1,5 +1,4 @@
-<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET ClientLibrary" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
-
+<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
 
  
 
@@ -42,7 +41,7 @@ This guide shows you how to perform common scenarios using a .NET client for Win
 	- [Customize serialization]
 - [Next steps]
 	
-<div chunk="../chunks/mobile-services-concepts.md" />
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
 
@@ -192,7 +191,7 @@ You can specify which set of properties to include in the results by adding a `S
 					.Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 			
-All the functions described so far are additive, so we can just keep calling them and we’ll each time affect more of the query. One more example:
+All the functions described so far are additive, so we can just keep calling them and we???ll each time affect more of the query. One more example:
 
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Where(todoItem => todoItem.Complete == false)
@@ -436,7 +435,7 @@ Finally, imagine that your table has many fields, but you only want to display s
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Windows Store][Windows Store authentication]/[Windows Phone][Windows Phone authentication])
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider???s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
 To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app, 
@@ -692,11 +691,11 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Caching the authentication token]: #caching
 
 <!-- Images. -->
-[7]: ../Media/mobile-add-nuget-package-dotnet.png
-[8]: ../Media/mobile-dashboard-tab.png
+
+
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Windows Store quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/
 [Windows Phone quickstart tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-wp8/
@@ -708,11 +707,11 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Get started with data]: ../Tutorials/mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ../Tutorials/mobile-services-get-started-with-users-dotnet.md
-[Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-dotnet.md
-[Refine queries with paging]: ../Tutorials/mobile-services-paging-data-dotnet.md
-[Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-dotnet.md
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [LoginAsync method]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
