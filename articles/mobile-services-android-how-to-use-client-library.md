@@ -49,7 +49,7 @@ The samples are written in Java and require the [Mobile Services SDK]. This tuto
 	- [Customize serialization]
 - [Next steps][]
 
-<div chunk="../chunks/mobile-services-concepts.md" />
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 
 <h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
@@ -587,7 +587,7 @@ You must also call the adapter any time you modify the *ToDoItem* table if you w
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
-Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
 Three steps are required to enable authentication in your app:
 
@@ -809,27 +809,27 @@ The Javadocs reference for the Android client API is at [http://dl.windowsazure.
 [Setup and Prerequisites]: #setup
 
 <!-- Images. -->
-[0]: ../Media/mobile-quickstart-startup-android.png
-[1]: ../../Shared/Media/plus-new.png
-[2]: ../Media/mobile-create.png
-[3]: ../Media/mobile-create-page1.png
-[4]: ../Media/mobile-create-page2.png
-[5]: ../Media/mobile-data-tab-empty.png
-[6]: ../Media/mobile-create-todoitem-table.png
-[7]: ../Media/mobile-add-reference-android.png
-[8]: ../Media/mobile-dashboard-tab.png
-[9]: ../Media/mobile-todoitem-data-browse.png
-[10]: ../Media/mobile-data-sample-download-android.png
-[11]: ../Media/mobile-add-android-properties.png
-[12]: ../Media/mobile-eclipse-project.png
-[13]: ../Media/mobile-quickstart-startup-android.png
-[14]: ../Media/mobile-services-import-android-workspace.png
-[15]: ../Media/mobile-services-import-android-project.png
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-android.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: ./mobile-services-get-started-with-users-XXXXX.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
