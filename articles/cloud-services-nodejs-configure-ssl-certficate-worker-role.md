@@ -32,7 +32,7 @@ world' service using the Windows Azure PowerShell using these steps:
 
 	![Windows Azure PowerShell icon][powershell-menu]
 
-	<div chunk="../Chunks/install-dev-tools.md" />
+	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2.  Create a new service, using **New-AzureServiceProject** cmdlet.
 
@@ -164,23 +164,23 @@ connect to it using HTTPS.
   [Step 4: Modify the Service Definition File]: #step4
   [Step 5: Connect to the Role Instance by Using HTTPS]: #step5
   [**Windows Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
-  [add-certificate-dialog]: ../Media/add-certificate.png
-  [add-certificate]: ../Media/no-certificates.png
-  [cloud-services]: ../Media/cloud-services.png
-  [0]: ../../Shared/Media/azure-powershell-menu.png
-  [1]: ../Media/enable-ssl-01.png
-  [2]: ../Media/enable-ssl-02-worker.png
-  [3]: ../Media/enable-ssl-03-worker.png
+  
+  
+  
+  
+  [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
+  [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
+  [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [4]: ../Media/enable-ssl-04.png
-  [5]: ../Media/enable-ssl-05.png
+  
+  
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
-  [6]: ../Media/enable-ssl-03.png
-  [site-url]: ../Media/site-url.png
-  [8]: ../Media/enable-ssl-08.png
+  
+  [site-url]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/site-url.png
+  [8]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-08.png
   [How to Configure an SSL Certificate on an HTTPS Endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
-  [powershell-menu]: ../../Shared/Media/azure-powershell-start.png
-  [cert-wizard]: ../Media/certificateimport.png
-  [key-protection]: ../Media/exportable.png
+  [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
+  
+  
   [Configuring SSL for a Node.js Application in a Windows Azure Web Role]: /en-us/develop/nodejs/common-tasks/enable-ssl/
   

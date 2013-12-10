@@ -93,9 +93,9 @@ deployment by swapping VIPs with the deployment in staging.
   [Step 1: Stage an Application]: #step1
   [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-[cloud-service]: ../../Shared/Media/staging-cloud-service-running.png
-[cloud-service-dashboard]: ../../Shared/Media/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ../../Shared/Media/cloud-service-staging-url.png
-  [vip-swap-dialog]: ../../Shared/Media/vip-swap-dialog.png
+[cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
+[cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
   [How to Deploy a Service Upgrade to Production by Swapping VIPs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx
   [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx

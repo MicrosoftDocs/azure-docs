@@ -77,5 +77,5 @@ Now that you understand how to use Node.js modules with Windows Azure, learn how
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/
 [Publishing with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [Build and deploy a Node.js application to a Windows Azure Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
-[https://npmjs.org/doc/install.html]: https://npmjs.org/doc/install.html
-[https://npmjs.org/doc/shrinkwrap.html]: https://npmjs.org/doc/shrinkwrap.html
+
+
