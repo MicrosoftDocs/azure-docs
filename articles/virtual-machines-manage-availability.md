@@ -4,4 +4,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/manage-vm-availability.md" />
+[WACOM.INCLUDE [manage-vm-availability](../includes/manage-vm-availability.md)]

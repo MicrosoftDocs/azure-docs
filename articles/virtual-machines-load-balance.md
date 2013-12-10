@@ -4,4 +4,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/load-balancing-vms.md" />
+[WACOM.INCLUDE [load-balancing-vms](../includes/load-balancing-vms.md)]
