@@ -27,11 +27,11 @@ For more information on blobs, see the [Next Steps](#next-steps) section.
 * [Next Steps](#NextSteps)
 
 
-<div chunk="../../Shared/Chunks/howto-blob-storage.md" />
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account.md" />
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="CreateRubyApp"></a>Create a Ruby Application
 
@@ -145,7 +145,7 @@ Finally, to delete a blob, use the **delete\_blob()** method. The following exam
 
 ## <a id="NextSteps"></a>Next Steps
 
-Now that you’ve learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
+Now that you???ve learned the basics of blob storage, follow these links to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
 -   Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
