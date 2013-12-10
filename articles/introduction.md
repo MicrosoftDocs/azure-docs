@@ -4,4 +4,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/intro-to-windows-azure.md" />
+[WACOM.INCLUDE [intro-to-windows-azure](../includes/intro-to-windows-azure.md)]

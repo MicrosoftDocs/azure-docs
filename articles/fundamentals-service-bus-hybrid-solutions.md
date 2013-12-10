@@ -6,4 +6,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/hybrid-solutions.md" />
+[WACOM.INCLUDE [hybrid-solutions](../includes/hybrid-solutions.md)]

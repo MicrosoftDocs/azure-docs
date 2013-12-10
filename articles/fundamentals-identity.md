@@ -6,4 +6,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/identity.md" />
+[WACOM.INCLUDE [identity](../includes/identity.md)]

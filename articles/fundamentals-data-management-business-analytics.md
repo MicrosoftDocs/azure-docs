@@ -6,4 +6,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/cloud-storage.md" />
+[WACOM.INCLUDE [cloud-storage](../includes/cloud-storage.md)]

@@ -2,4 +2,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/application-model.md" />
+[WACOM.INCLUDE [application-model](../includes/application-model.md)]
