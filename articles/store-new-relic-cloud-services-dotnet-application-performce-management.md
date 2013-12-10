@@ -68,43 +68,43 @@ To sign up for New Relic directly from the Windows Azure Store, follow these thr
 1. Open your Visual Studio solution, or create a new one by selecting
    **File > New > Project**.
 
-	![Visual Studio](../media/NewRelicAzureNuget01.png)
+	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
 2. If you don't already have a Windows Azure Cloud Service Project in your
    solution, add one by right-clicking your app in the Solution Explorer and
    selecting **Add Windows Azure Cloud Service Project**.
 
-	![Create cloud service](../media/NewRelicAzureNuget02.png)
+	![Create cloud service](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png)
 
 3. Open the Package Manager console by selecting **Tools > Library Package Manager > 
    Package Manager Console**. Set your project to be the Default Project at the
    top of the Package Manager Console window.
 
-	![Package manager console](../media/NewRelicAzureNuget04.png)
+	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
 4. On the Package Manager command prompt, type `Install-Package
    NewRelicWindowsAzure` and press **Enter**.
 
-	![install in package manager](../media/NewRelicAzureNuget06.png)
+	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
 5. At the license key prompt, enter the license key you received from the Windows Azure Store.
 
-	![enter license key](../media/NewRelicAzureNuget07.png)
+	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
 
 6. Optional: At the application name prompt, enter your app's name as it will
    appear in New Relic's dashboard. Or, use your solution name as the default.
 
-	![enter application name](../media/NewRelicAzureNuget08.png)
+	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
 
 7. From the Solution Explorer, right-click your Windows Azure Cloud Service Project, and select **Publish**.
 
-	![public the cloud project](../media/NewRelicAzureNuget09.png)
+	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
 **Note:** If this is your first time deploying this app to Windows Azure, you will be prompted to enter your 
 Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to a Windows Azure Web Site</a>.
 
-![publish settings](../media/NewRelicAzureNuget10.png)
+![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
 ### Step 3. Check out your application's performance in New Relic.
 
@@ -116,7 +116,7 @@ To view your New Relic dashboard:
 
 	The **Monitoring > Overview** dashboard automatically appears.
 
-	![New Relic monitoring dashboard](../media/NewRelic_app.png)
+	![New Relic monitoring dashboard](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png)
 
 	After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
 
@@ -170,7 +170,7 @@ In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#func
 
 Below is an example of the Applications Overview dashboard when you select the Browser view.
 
-![Package manager console](../media/NewRelic_app_browser.png)
+![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app_browser.png)
 
 ## Next steps
 

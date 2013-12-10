@@ -28,7 +28,7 @@ The following is an example of the .NET application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
-<div chunk="../../Shared/Chunks/create-account-and-vms-note.md" />
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 <h2>To create a virtual machine</h2>
 
@@ -550,11 +550,11 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 <h2>Alternative to creating and deleting the queue with TSPSolver</h2>
 Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Windows Azure Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages. 
 
-[solver_output]: ../media/WA_dotNetTSPSolver.png
-[client_output]: ../media/WA_dotNetTSPClient.png
-[create_service_bus]: ../media/ServiceBusCreateNew.png
-[create_namespace_dialog]: ../media/CreateNameSpaceDialog.png
-[available_namespaces]: ../media/AvailableNamespaces.png
-[click_create]: ../media/ClickCreate.png
-[namespace_list]: ../media/NamespaceList.png
-[access_key_button]: ../media/AccessKey.png
+[solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
+[client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
+[create_service_bus]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
+[create_namespace_dialog]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png
+[available_namespaces]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AvailableNamespaces.png
+[click_create]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ClickCreate.png
+[namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
+[access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png

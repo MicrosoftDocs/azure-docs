@@ -51,7 +51,7 @@ running instances of a Windows Azure role over two days. The number of
 instances changes automatically over time in response to a set of
 autoscaling rules.
 
-![diagram of sample autoscaling][]
+![diagram of sample autoscaling][diagram of sample autoscaling]
 
 The block uses two types of rules to define the autoscaling behavior for
 your application:
@@ -145,7 +145,7 @@ the autoscaling rule definitions and autoscaling service information.
 The project now also includes a readme file that contains important
 information about the Autoscaling Application Block:
 
-![files configured by autoscaling NuGet package][]
+![files configured by autoscaling NuGet package][files configured by autoscaling NuGet package]
 
 ### Set the Target Framework to .NET Framework 4
 
@@ -158,7 +158,7 @@ target framework:
 2.  In the **Application** tab of the Properties window, make sure
     Target framework is set to **.NET Framework 4**.
 
-    ![image][]
+    ![image][image]
 
 ### Add Namespace References
 
@@ -199,7 +199,7 @@ to the output folder. To do this:
 2.  Within the Properties pane, set the **Copy to Output Directory**
     value to **Copy always**.
 
-    ![Set Copy to Output Directory value][]
+    ![Set Copy to Output Directory value][Set Copy to Output Directory value]
 
 The following code sample shows an example service model in a
 **services.xml** file:
@@ -412,7 +412,7 @@ system.
 2.  In the **Blocks** menu, click **Add Autoscaling Settings**:  
     ![image][6]
 
-3.  Expand the **Autoscaling Settings** and then click the ellipsis (…)
+3.  Expand the **Autoscaling Settings** and then click the ellipsis (...)
     next to the **Data Points Store Storage Account**, add the **Account
     name** and **Account key** of the Windows Azure storage account
     where the block will store the data points that it collects (see
@@ -461,7 +461,7 @@ behavior.
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
-          …
+          ...
           <system.diagnostics>
             <sources>
               <sourcename="Autoscaling General" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" />
@@ -546,20 +546,20 @@ autoscaling scenarios:
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
-  [image]: ../../../DevCenter/dotNet/Media/autoscaling03.png
+  
   [Set Copy to Output Directory value]: ../../../DevCenter/dotNet/Media/autoscaling04.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [1]: ../../../DevCenter/dotNet/Media/autoscaling05.png
-  [2]: ../../../DevCenter/dotNet/Media/autoscaling06.png
-  [3]: ../../../DevCenter/dotNet/Media/autoscaling07.png
-  [4]: ../../../DevCenter/dotNet/Media/autoscaling08.png
-  [5]: ../../../DevCenter/dotNet/Media/autoscaling09.png
+  [1]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png
+  [2]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png
+  [3]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png
+  [4]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png
+  [5]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png
   [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
-  [6]: ../../../DevCenter/dotNET/Media/autoscaling10.png
-  [7]: ../../../DevCenter/dotNET/Media/autoscaling11.png
-  [8]: ../../../DevCenter/dotNET/Media/autoscaling12.png
-  [9]: ../../../DevCenter/dotNET/Media/autoscaling13.png
-  [10]: ../../../DevCenter/dotNET/Media/autoscaling14.png
+  [6]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png
+  [7]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png
+  [8]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png
+  [9]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png
+  [10]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png
   [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
   [Implementing Throttling Behavior]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
   [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
