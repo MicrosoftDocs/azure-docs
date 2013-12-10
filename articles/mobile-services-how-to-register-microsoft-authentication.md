@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-authentication" urlDisplayName="Register for Microsoft Authentication" pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" metaDescription="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-authentication" urlDisplayName="Register for Microsoft Authentication" pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" />
 
 # Register your apps to use a Microsoft Account login
 

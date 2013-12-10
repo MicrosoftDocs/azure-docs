@@ -1,15 +1,12 @@
 <properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Windows Azure" metaKeywords="" description="Learn how to use the Windows Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors=""  solutions="" writer="migree" manager="" editor=""  />
 
 
-
-
-
-<h1><a name="encode-asset"/><span class="short header">How to: Encode an Asset</span></h1>
+#How to: Encode an Asset
 This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
 
 For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
 
-<h2>Encoding to MP4</h2>
+##Encoding to MP4
 The following method uploads a single asset and creates a job to encode the asset to MP4 using the "H264 Broadband 720p" preset which will create a single MP4 using H264 encoding at 720p resolution:
 <pre><code>
 	static IJob CreateEncodingJob(string inputMediaFilePath, string outputFolder)
@@ -153,7 +150,7 @@ For more information about processing assets, see:
 <li><a href="http://msdn.microsoft.com/en-us/library/jj129574.aspx">Process Assets with the Media Services REST API</a></li>
 </ul>
 
-<h2>Next Steps</h2>
+##Next Steps
 Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409) topic.
 
 [Windows Azure Marketplace]: https://datamarket.azure.com/
