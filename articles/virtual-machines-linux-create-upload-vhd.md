@@ -91,11 +91,11 @@ You must complete specific configuration steps in the operating system for the v
 
 	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
 
-	![Open Hyper-V settings] (../media/settings.png)
+	![Open Hyper-V settings] (./media/virtual-machines-linux-create-upload-vhd/settings.png)
 
 	c) In the **Hardware** pane, click **IDE Controller 1**.
 
-	![Add DVD drive with install media] (../media/installiso.png)
+	![Add DVD drive with install media] (./media/virtual-machines-linux-create-upload-vhd/installiso.png)
 
 	d) In the **IDE Controller** box, click **DVD Drive**, and then click **Add**.
 
@@ -211,7 +211,7 @@ You must complete specific configuration steps in the operating system for the v
 
 20.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent –force –deprovision
+		waagent ???force ???deprovision
 		export HISTSIZE=0
 		logout
 
@@ -273,7 +273,7 @@ You must complete specific configuration steps in the operating system for the v
 
 	a) Open the /etc/grub.d/00_header file.
 
-	b) In the function **make_timeout()**, search for **if [“\${recordfail}” = 1 ]; then**
+	b) In the function **make_timeout()**, search for **if [???\${recordfail}??? = 1 ]; then**
 
 	c) Change the statement below this line to **set timeout=5**.
 
@@ -306,7 +306,7 @@ You must complete specific configuration steps in the operating system for the v
 
 11.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent –force –deprovision
+		waagent ???force ???deprovision
 		export HISTSIZE=0
 		logout
 
@@ -390,7 +390,7 @@ You must complete specific configuration steps in the operating system for the v
 
 11.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent –force –deprovision
+		waagent ???force ???deprovision
 		export HISTSIZE=0
 		logout
 
@@ -478,7 +478,7 @@ You must complete specific configuration steps in the operating system for the v
 
 13.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent –force –deprovision
+		waagent ???force ???deprovision
 		export HISTSIZE=0
 		logout
 
@@ -497,15 +497,15 @@ A storage account represents the highest level of the namespace for accessing th
 
 2. On the command bar, click **New**.
 
-	![Create storage account] (../media/create.png)
+	![Create storage account] (./media/virtual-machines-linux-create-upload-vhd/create.png)
 
 3. Click **Storage Account**, and then click **Quick Create**.
 
-	![Quick create a storage account] (../media/storage-quick-create.png)
+	![Quick create a storage account] (./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
 
 4. Fill out the fields as follows:
 
-	![Enter storage account details] (../media/storage-create-account.png)
+	![Enter storage account details] (./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
 
 - Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
 	
@@ -517,7 +517,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 	The account is now listed under **Storage Accounts**.
 
-	![Storage account successfully created] (../media/Storagenewaccount.png)
+	![Storage account successfully created] (./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
 
 
 ## <a id="#connect"> </a>Step 3: Prepare the connection to Windows Azure ##

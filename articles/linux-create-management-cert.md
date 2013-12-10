@@ -24,20 +24,20 @@ We have created an easy way for you to create a management certificate for Windo
 
 This web site will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
 
-![linuxcredentials](../media/linuxcredentials.png)
+![linuxcredentials](./media/linux-create-management-cert/linuxcredentials.png)
 
 Make sure you save this file in safe place as you will not be able to recover it and will need to generate a new management certificate. (There is a limit for the total number of certificates that you can use in the system. See the appropriate section on this web site to confirm this.) You can then use this certificate in multiple ways:
 
 ###In Visual Studio###
 
-![VSpublish](../media/VSpublish.png)
+![VSpublish](./media/linux-create-management-cert/VSpublish.png)
 
 
 ###In the Linux Windows Azure Command Line###
 
 You can import the certificate so that you can use it by running the Windows Azure account import command:
 
-![cmdlinepublish](../media/cmdlinepublish.png)
+![cmdlinepublish](./media/linux-create-management-cert/cmdlinepublish.png)
 
 With any other partner or software where you need the tool you will need to extract the management certificate from within the file itself and Base 64 decode it. Some partners such as ScaleXtreme and SUSE Studio will consume the file directly in their current form. 
 
@@ -50,7 +50,7 @@ You will need to extract from that file the base 64 encoded content between the 
 	  <PublishProfile
 	    PublishMethod="AzureServiceManagementAPI"
 	    Url="https://management.core.windows.net/"
-	    ManagementCertificate="xxxxx”>
+	    ManagementCertificate="xxxxx???>
 	    <Subscription
 	      Id="8a4a0a51-728e-482e-8daa-c477f03c541d"
 	      Name="hjereztest" />
@@ -59,7 +59,7 @@ You will need to extract from that file the base 64 encoded content between the 
 	
 You will need to copy that into a file and then decode it using a base 64 decoder in Linux you can use:
 
-	Base64 –d [encodedfile] > [decodedfile].pfx
+	Base64 ???d [encodedfile] > [decodedfile].pfx
 
 This will provide you a pfx file that you can either convert to other formats using openssl  to extract the private key if needed:
 
@@ -129,7 +129,7 @@ You will then need to merge your subscription ID and the base64 encoded pfx into
 		  <PublishProfile
 		    PublishMethod="AzureServiceManagementAPI"
 		    Url="https://management.core.windows.net/"
-		    ManagementCertificate="xxxxx”>
+		    ManagementCertificate="xxxxx???>
 		    <Subscription
 		      Id="8a4a0a51-728e-482e-8daa-c477f03c541d"
 		      Name="hjereztest" />

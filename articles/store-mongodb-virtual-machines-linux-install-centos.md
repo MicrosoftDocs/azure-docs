@@ -19,18 +19,18 @@ You will learn:
 
 ##Create a virtual machine running CentOS Linux
 
-<div chunk="../../../shared/chunks/create-and-configure-centos-vm-in-portal.md" />
+[WACOM.INCLUDE [create-and-configure-centos-vm-in-portal](../includes/create-and-configure-centos-vm-in-portal.md)]
 
 ## Attach a data disk
 
-<div chunk="../../../shared/chunks/attach-data-disk-centos-vm-in-portal.md" />
+[WACOM.INCLUDE [attach-data-disk-centos-vm-in-portal](../includes/attach-data-disk-centos-vm-in-portal.md)]
 
 ##Install and run MongoDB on the virtual machine
 
-<div chunk="../../../shared/chunks/install-and-run-mongo-on-centos-vm.md" />
+[WACOM.INCLUDE [install-and-run-mongo-on-centos-vm](../includes/install-and-run-mongo-on-centos-vm.md)]
 
 ##Summary
 
 In this tutorial you learned how to create a Linux virtual machine and remotely connect to it using SSH or PuTTY. You also learned how to install and configure MongoDB on the Linux virtual machine. For more information on MongoDB, see the [MongoDB Documentation](http://www.mongodb.org/display/DOCS/Home).
 
-[AzurePreviewPortal]: http://manage.windowsazure.com
+

@@ -17,11 +17,11 @@ In this tutorial, you will learn:
 
 ##Create a Virtual Machine Running OpenSUSE Linux
 
-<div chunk="../../../shared/chunks/create-and-configure-opensuse-vm-in-portal.md" />
+[WACOM.INCLUDE [create-and-configure-opensuse-vm-in-portal](../includes/create-and-configure-opensuse-vm-in-portal.md)]
 
 ##Install and Run MySQL on the Virtual Machine
 
-<div chunk="../../../shared/chunks/install-and-run-mysql-on-opensuse-vm.md" />
+[WACOM.INCLUDE [install-and-run-mysql-on-opensuse-vm](../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ##Summary
 
