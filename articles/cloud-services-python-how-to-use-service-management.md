@@ -314,7 +314,7 @@ You can delete a storage service by passing the storage service name to the **de
 
 ## <a name="CreateAffinityGroup"> </a>How to: Create an affinity group
 
-An affinity group is a logical grouping of Azure services that tells Windows Azure to locate the services for optimized performance. For example, you might create an affinity group in the “West US” location, then create a [cloud service](#CreateCloudService) in that affinity group. If you then create a storage service in the same affinity group, Windows Azure knows to put it in the “West US” location and optimize within the data center for the best performance with the cloud services in the same affinity group.
+An affinity group is a logical grouping of Azure services that tells Windows Azure to locate the services for optimized performance. For example, you might create an affinity group in the ???West US??? location, then create a [cloud service](#CreateCloudService) in that affinity group. If you then create a storage service in the same affinity group, Windows Azure knows to put it in the ???West US??? location and optimize within the data center for the best performance with the cloud services in the same affinity group.
 
 To create an affinity group, you need a name, label (automatically encoded to base64), and location. You can optionally provide a description:
 
@@ -513,8 +513,8 @@ Now that you've learned the basics of service management, follow these links to 
 [Next Steps]: #NextSteps
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-[win-azure-account]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[storage-account]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
+
+
 [download-SDK-Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
 [cloud service]: http://www.windowsazure.com/en-us/manage/services/cloud-services/what-is-a-cloud-service/
 [service package]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx

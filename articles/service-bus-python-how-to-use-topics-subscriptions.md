@@ -26,7 +26,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 -   [Next Steps](#Next_Steps)
 
 
-<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
 
@@ -249,14 +249,14 @@ links to learn more.
   [How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
   [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
-  [1]: #Next_Steps
+  
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  
+  
+  
+  
+  
+  
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

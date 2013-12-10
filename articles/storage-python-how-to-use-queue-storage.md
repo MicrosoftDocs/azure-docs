@@ -24,10 +24,10 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
  [How To: Delete a Queue][]   
  [Next Steps][]
 
-<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
-<div chunk="../../Shared/Chunks/create-storage-account.md" />
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
@@ -129,7 +129,7 @@ To delete a queue and all the messages contained in it, call the
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you’ve learned the basics of queue storage, follow these links
+Now that you???ve learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
