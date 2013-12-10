@@ -1,4 +1,6 @@
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="15208" umbversionid="853660c7-e1ba-4373-b5e6-cc66ad55b2e5" ismacro="true" umb_chunkpath="devcenter/dotnet" umb_macroalias="AzureChunkDisplayer" umb_chunkname="article-left-menu" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
+<properties linkid="" urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Architecture Overview" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 <h1 id="menu-dotnet-architecture">Architecture</h1>
 <p class="subheading">Learn how to design applications and implement common design patterns in Windows Azure.</p>
 <h2><a id="overviews"></a>Application architecture overviews</h2>
