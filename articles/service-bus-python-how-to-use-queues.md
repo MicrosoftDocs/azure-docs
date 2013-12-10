@@ -20,7 +20,7 @@ covered include **creating queues, sending and receiving messages**, and
 -   [How to: Handle Application Crashes and Unreadable Messages][]
 -   [Next Steps][]
 
-<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
 
@@ -54,7 +54,7 @@ To send a message to a Service Bus queue, your application will call the
 **send\_queue\_message** method on the **ServiceBusService** object.
 
 The following example demonstrates how to send a test message to the
-queue named ‘taskqueue’ using **send\_queue\_message**:
+queue named ???taskqueue??? using **send\_queue\_message**:
 
 	msg = Message('Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -134,7 +134,7 @@ delivery attempts.
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you’ve learned the basics of Service Bus queues, follow these
+Now that you???ve learned the basics of Service Bus queues, follow these
 links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
@@ -149,9 +149,9 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [image]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  
+  
+  
+  
+  
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx

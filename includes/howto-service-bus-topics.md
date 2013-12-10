@@ -1,4 +1,4 @@
-##<a name="what-are-service-bus-topics"></a>What are Service Bus Topics and Subscriptions
+<h2><a name="what-are-service-bus-topics"></a>What are Service Bus Topics and Subscriptions</h2>
 
 Service Bus topics and subscriptions support a **publish/subscribe
 messaging communication** model. When using topics and subscriptions,
@@ -25,7 +25,7 @@ Service Bus topics and subscriptions enable you to scale to process a
 very large number of messages across a very large number of users and
 applications.
 
-##<a name="create-a-service-namespace"></a>Create a Service Namespace
+<h2><a name="create-a-service-namespace"></a>Create a Service Namespace</h2>
 
 To begin using Service Bus topics and subscriptions in Windows Azure,
 you must first create a service namespace. A service namespace provides
@@ -61,7 +61,7 @@ To create a service namespace:
 	![][6]
 
 
-##<a name="obtain-default-credentials"></a>Obtain the Default Management Credentials for the Namespace
+<h2><a name="obtain-default-credentials"></a>Obtain the Default Management Credentials for the Namespace</h2>
 
 In order to perform management operations, such as creating a topic or
 subscription, on the new namespace, you need to obtain the management
@@ -79,7 +79,7 @@ credentials for the namespace.
 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace. 
 
-  [Topic Concepts]: ./Media/sb-topics-01.png
+  [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png

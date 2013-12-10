@@ -20,11 +20,11 @@ This guide will show you how to perform common scenarios using the Windows Azure
 * [How to: Delete a Blob container](#DeleteContainer)
 * [Next steps](#NextSteps)
 
-<div chunk="../../Shared/Chunks/howto-blob-storage.md" />
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 <h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account.md" />
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
@@ -34,7 +34,7 @@ In this guide, you will use service features which can be called within a PHP ap
 
 <h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
 
-<div chunk="../../Shared/Chunks/get-client-libraries.md" />
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>Configure your application to access the Blob service</h2>
 

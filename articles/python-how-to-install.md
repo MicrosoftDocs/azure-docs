@@ -52,29 +52,29 @@ For Windows you can use the provided [WebPI installer] from the main Python Deve
 
 **Note:** On Windows Server, in order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off)
 
-![how-to-install-python-webpi-1.png][] 
+![how-to-install-python-webpi-1.png][how-to-install-python-webpi-1.png] 
 
 The WebPI installer provides everything you need to Python Azure apps as well specific support for Django apps:
 
 
 
-![how-to-install-Python-webpi-2.png][]
+![how-to-install-Python-webpi-2.png][how-to-install-Python-webpi-2.png]
 
 
 Once finished, you should see this screen confirming your install choices:
 
-![how-to-install-python-webpi-3.png][]
+![how-to-install-python-webpi-3.png][how-to-install-python-webpi-3.png]
 
 
 After installation is complete, type python at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:
 
-![how-to-install-python-win-run.png][]
+![how-to-install-python-win-run.png][how-to-install-python-win-run.png]
 
 While this release is focused primarily on Web Apps with Django, feel free to browse the [Python Package Index (PyPI)][] for a rich selection of other software.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
 
 To see what Python packages are installed in **site-packages** enter the following to find its location:
 
-![how-to-install-python-win-site.png][]
+![how-to-install-python-win-site.png][how-to-install-python-win-site.png]
 
 This will give a list what's been installed on your system.
 
@@ -87,7 +87,7 @@ After the installation you should have Python, Django, the Client Libraries avai
 
 Python Tools for Visual Studio is a free/OSS plugin from Microsoft which turns VS into a full-fledged Python IDE:
 
-![how-to-install-python-ptvs.png][]
+![how-to-install-python-ptvs.png][how-to-install-python-ptvs.png]
 
 Using Python Tools for Visual Studio is optional, but is recommended as it gives you Python and Django Project/Solution support, debugging, profiling, Template editing and Intellisense, deployment to cloud, etc.  This add-in  works with your existing VS2010 install.  If you don't have VS2010, WebPI will install the free Integrated Shell + PTVS which essentially give you a **completely free** "VS Python Express" IDE.  For more information, see [Python Tools for Visual Studio on CodePlex][].  
 
@@ -95,9 +95,9 @@ Note: While the PTVS plug-in is small, the Integrated Shell will increases your 
 
 ## Windows Uninstall
 
-The “Windows Azure SDK for Python – June 2012” WebPI product is not an application in the typical sense.  It’s actually a collection of distinct products such as 32-bit Python 2.7, Windows Azure client APIs for Python, Django, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, and you’ll need to remove programs it installs individually from the Windows Control Panel.  
+The ???Windows Azure SDK for Python ??? June 2012??? WebPI product is not an application in the typical sense.  It???s actually a collection of distinct products such as 32-bit Python 2.7, Windows Azure client APIs for Python, Django, etc. which are bundled together.  A consequence of this is it has no conventional uninstaller of its own, and you???ll need to remove programs it installs individually from the Windows Control Panel.  
 
-If you ever wish to reinstall “Windows Azure SDK for Python”, you’ll simply need to open a PowerShell command prompt as an administrator and run the following command:
+If you ever wish to reinstall ???Windows Azure SDK for Python???, you???ll simply need to open a PowerShell command prompt as an administrator and run the following command:
 
 	rm -force "HKLM:\SOFTWARE\Microsoft\Windows Azure SDK for Python - June 2012"
 
@@ -107,7 +107,7 @@ and then rerun WebPI.
 
 Python is most likely already installed on your Dev machine.  You can check by entering:
 
-![how-to-install-python-linux-run.png][]
+![how-to-install-python-linux-run.png][how-to-install-python-linux-run.png]
 
 Here we see that this Azure Suse VM has CPython 2.7.2 installed which is fine for running the Windows Azure tutorials and Django samples. If you need to upgrade, follow your OS's recommended package upgrade instructions.  Note however, that in general it's better to leave the system Python alone (others may depend on that version) and install the newer version via [Virtualenv][].
 
@@ -121,7 +121,7 @@ The command above will silently prompt for the root password. Type it and press 
 
 You should now see the client libraries installed under **site-packages**.  On MacOS:
 
-![MacOS site-packages][]
+![MacOS site-packages][MacOS site-packages]
 
 When developing from mac/linux, there are two main scenarios supported for this release:
 
@@ -178,11 +178,11 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 
 [How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 
-[how-to-install-python-webpi-1.png]: ../Media/how-to-install-python-webpi-1.png 
-[how-to-install-Python-webpi-2.png]: ../Media/how-to-install-Python-webpi-2.png
-[how-to-install-Python-webpi-3.png]: ../Media/how-to-install-Python-webpi-3.png
-[how-to-install-Python-ptvs.png]: ../Media/how-to-install-Python-ptvs.png
-[how-to-install-python-win-site.png]: ../Media/how-to-install-python-win-site.png 
-[how-to-install-python-win-run.png]: ../Media/how-to-install-python-win-run.png 
-[how-to-install-python-linux-run.png]: ../Media/how-to-install-python-linux-run.png
+
+
+
+
+
+
+
 [MacOS site-packages]: ../Media/how-to-install-python-mac-site.png 
