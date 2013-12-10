@@ -1,11 +1,6 @@
 <properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
 
 
-
-
-
-
-
 # How to use an HTML/JavaScript client for Windows Azure Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -38,7 +33,7 @@ This guide shows you how to perform common scenarios using an HTML/JavaScript cl
 - [How to: Use cross-origin resource sharing]
 - [Next steps]
 
-<div chunk="../chunks/mobile-services-concepts.md" />
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="create-client"></a><span class="short-header">Create the Mobile Services Client</span>How to: Create the Mobile Services Client</h2>
 
@@ -85,7 +80,7 @@ This request would normally be translated roughly into the following SQL query o
 			FROM TodoItem 			
 			WHERE ISNULL(complete, 0) = 0
 
-The object which is passed to the `where` method can have an arbitrary number of parameters, and they’ll all be interpreted as AND clauses to the query. For example, the line below:
+The object which is passed to the `where` method can have an arbitrary number of parameters, and they???ll all be interpreted as AND clauses to the query. For example, the line below:
 
 			query.where({
 			   complete: false,
@@ -144,7 +139,7 @@ The body of the function is translated into an OData boolean expression which is
 		    });
 
 
-If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters – the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
+If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters ??? the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
 					
 			 query.where(function (name, level) {
 			    return this.assignee == name && this.difficulty == level;
@@ -230,7 +225,7 @@ You can specify which set of properties to include in the results by adding a `s
 Here the parameters to the select function are the names of the table's columns that you want to return. 
 
 
-All the functions described so far are additive, so we can just keep calling them and we’ll each time affect more of the query. One more example:
+All the functions described so far are additive, so we can just keep calling them and we???ll each time affect more of the query. One more example:
 
 
 		    query.where({
@@ -388,7 +383,7 @@ In a Windows Store app, the results of a query can be used to create a [WinJS.Bi
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider???s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
 To have Mobile Services manage the authentication process in your Windows Store or HTML5 app, 
@@ -533,7 +528,7 @@ Like so:
 You can use promises in a number of different ways. You can chain promise operations by calling `then` or `done` on the promise that is returned by the previous `then` function. Use `then` for an intermediate stage of the operation (for example `.then().then()`), and `done` for the final stage of the operation (for example `.then().then().done()`).  You can chain multiple `then` functions, because `then` returns a promise. You cannot chain more than one `done` method, because it returns undefined. [Learn more about the  differences between then and done].
 	
  			todoItemTable.insert({
- 			   text: ’foo’
+ 			   text: ???foo???
  			}).then(function (inserted) {
  			   inserted.newField = 123;
  			   return todoItemTable.update(inserted);
@@ -603,19 +598,19 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: ../tutorials/mobile-services-get-started-html.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-html
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-html.md
-[Get started with authentication Windows Store]: ../tutorials/mobile-services-get-started-with-users-js.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
+[Get started with authentication Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-users-js
 [then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
 [Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
 [how to handle errors in promises]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700337.aspx
-[WL.login]: http://msdn.microsoft.com/en-us/library/live/hh550845.aspx
+
 [sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
 [localStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
-[WinJS.Binding.List]: http://msdn.microsoft.com/en-us/library/windows/apps/Hh700774.aspx
+
 [ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
 [Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx
 [Windows Store JavaScript quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
@@ -623,10 +618,10 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
 [Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
 [You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/
-[Get started with data]: ../Tutorials/mobile-services-get-started-with-data-html.md
-[Validate and modify data with scripts]: ../Tutorials/mobile-services-validate-and-modify-data-html.md
-[Refine queries with paging]: ../Tutorials/mobile-services-paging-data-html.md
-[Authorize users with scripts]: ../Tutorials/mobile-services-authorize-users-html.md
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
 [login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
 [Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set

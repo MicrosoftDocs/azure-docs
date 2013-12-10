@@ -1,9 +1,5 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-microsoft-authentication" urlDisplayName="Register for Microsoft Authentication" pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" metaDescription="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
 # Register your apps to use a Microsoft Account login
 
 This topic shows you how to register your apps to be able to use Live Connect as an authentication provider for Windows Azure Mobile Services. 
@@ -35,16 +31,16 @@ You are now ready to use a Microsoft Account for authentication in your app by p
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-live-connect-add-app.png
-[2]: ../Media/mobile-live-connect-app-api-settings.png
+[1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
+[2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-live-connect-app-api-settings.png
 <!-- URLs. -->
-[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-register-for-single-sign-in.md
+[Single sign-on for Windows Store apps by using Live Connect]: /en-us/develop/mobile/how-to-guides/register-for-single-sign-on/
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: ./mobile-services-get-started.md
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[Get started with push notifications]: ./mobile-services-get-started-with-push-dotnet.md
-[Authorize users with scripts]: ./mobile-services-authorize-users-dotnet.md
-[JavaScript and HTML]: ./mobile-services-get-started-with-users-js.md
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
+
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
