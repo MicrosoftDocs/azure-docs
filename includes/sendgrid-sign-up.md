@@ -60,7 +60,7 @@ For more information on getting started with SendGrid, see [SendGrid Getting Sta
 
 [command-bar-new]: ./media/sendgrid-sign-up/sendgrid_BAR_NEW.PNG
 [sendgrid-store]: ./media/sendgrid-sign-up/sendgrid_offerings_store.png
-[store-screen-1]: ../media/sendgrid_store_scrn1.png
+
 [store-screen-2]: ./media/sendgrid-sign-up/sendgrid_store_scrn2.png
 [store-screen-3]: ./media/sendgrid-sign-up/sendgrid_store_scrn3.png
 [sendgrid-purchasing-message]: ./media/sendgrid-sign-up/sendgrid_purchasing_message.png
