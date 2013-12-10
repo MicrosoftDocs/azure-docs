@@ -24,6 +24,9 @@ In addition to command-specific optional parameters documented here, there are t
 * [Commands to manage your web sites](#Commands_to_manage_your_web_sites)
 * [Commands to manage Windows Azure Mobile Services](#Commands_to_manage_mobile_services)
 * [Manage tool local settings](#Manage_tool_local_settings)
+* [Commands to manage Service Bus](#Commands_to_manage_service_bus)
+* [Commands to manage SQL Databases](#Commands_to_manage_sql)
+* [Commands to manage your Virtual Networks](#Commands_to_manage_vnet)
 
 ##<a name="Manage_your_account_information_and_publish_settings"></a>Manage your account information and publish settings
 Your Windows Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Windows Azure portal in a publish settings file as described here. The publish settings file can then be imported as a persistent local config setting that the tool will use for subsequent operations. You only need to import your publish settings once.
@@ -65,6 +68,26 @@ This command removes the stored publish settings that have been imported. Use th
 	Clearing account info.
 	info:   OK
 
+**account list [options]**
+
+List the imported subscriptions
+
+	~$ azure account list
+	info:    Executing command account list
+	data:    Name                                    Id
+	       Current
+	data:    --------------------------------------  -------------------------------
+	-----  -------
+	data:    Forums Subscription                     8679c8be-3b05-49d9-b8fb  true
+	data:    Evangelism Team Subscription            9e672699-1055-41ae-9c36  false
+	data:    MSOpenTech-Prod                         c13e6a92-706e-4cf5-94b6  false
+
+**account set [options] <subscription>**
+
+Set the current subscription
+
+###Commands to manage your affinity groups
+
 **account affinity-group list [options]**
 
 This command lists your Windows Azure affinity groups.
@@ -78,6 +101,81 @@ Affinity groups can be set when a group of virtual machines spans multiple physi
 	data:   535EBAED-BF8B-4B18-A2E9-8755FB9D733F  opentec  West US
 	info:   account affinity-group list command OK
 
+**account affinity-group create [options] <name>**
+
+This command creates a new affinity group
+
+	~$ azure account affinity-group create opentec -l "West US"
+	info:    Executing command account affinity-group create
+	+ Creating affinity group
+	info:    account affinity-group create command OK
+
+**account affinity-group show [options] <name>**
+
+This command shows the details of the affinity group
+
+	~$ azure account affinity-group show opentec
+	info:    Executing command account affinity-group show
+	+ Getting affinity groups
+	data:    $ xmlns "http://schemas.microsoft.com/windowsazure"
+	data:    $ xmlns:i "http://www.w3.org/2001/XMLSchema-instance"
+	data:    Name "opentec"
+	data:    Label "b3BlbnRlYw=="
+	data:    Description $ i:nil "true"
+	data:    Location "West US"
+	data:    HostedServices ""
+	data:    StorageServices ""
+	data:    Capabilities Capability 0 "PersistentVMRole"
+	data:    Capabilities Capability 1 "HighMemory"
+	info:    account affinity-group show command OK
+
+**account affinity-group delete [options] <name>**
+
+This command deletes the specified affinity group
+
+	~$ azure account affinity-group delete opentec
+	info:    Executing command account affinity-group delete
+	Delete affinity group opentec? [y/n] y
+	+ Deleting affinity group
+	info:    account affinity-group delete command OK
+
+###Commands to manage your account environment
+
+**account env list [options]**
+
+List of the account environments
+
+	C:\windows\system32>azure account env list
+	info:    Executing command account env list
+	data:    Name
+	data:    ---------------
+	data:    AzureCloud
+	data:    AzureChinaCloud
+	info:    account env list command OK
+
+**account env show [options] [environment]**
+
+Show account environment details
+
+	~$ azure account env show
+	info:    Executing command account env show
+	Environment name: AzureCloud
+	data:    Environment publishingProfile  http://go.microsoft.com/fwlink/?LinkId=2544
+	data:    Environment portal  http://go.microsoft.com/fwlink/?LinkId=2544
+	info:    account env show command OK
+
+**account env add [options] [environment]**
+
+This command adds an environment to the account
+
+**account env set [options] [environment]**
+
+This command sets the account environment
+
+**account env delete [options] [environment]**
+
+This command deletes the specified environment from the account
+
 ##<a name="Commands_to_manage_your_Azure_virtual_machines"></a>Commands to manage your Windows Azure virtual machines
 The following diagram shows how Windows Azure virtual machines are hosted in the production deployment environment of a Windows Azure cloud service.
  
@@ -85,30 +183,34 @@ The following diagram shows how Windows Azure virtual machines are hosted in the
 
 **create-new** creates the drive in blob storage (that is, e:\ in the diagram); **attach** attaches an already created but unattached disk to a virtual machine.
 
-**vm create &lt;dns-prefix> &lt;image> &lt;userName> [password] [optional parameters]**
+**vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
 This command creates a new Windows Azure virtual machine. By default, each virtual machine is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
 
 Note that the vm create command, like the Windows Azure portal, only creates virtual machines in the production deployment environment. There is currently no option for creating a virtual machine in the staging deployment environment of a cloud service. Note that a Windows Azure storage account is created by this command if one does not already exist for your subscription.
 
-When you create a new virtual machine, you will need to specify the physical location (that is, data center) where the virtual machine will reside. You can specify a location through the --location parameter, or you can specify an affinity group through the --affinity-group parameter. If neither is provided, you are prompted to provide one from a list of valid locations.
+You can specify a location through the --location parameter, or you can specify an affinity group through the --affinity-group parameter. If neither is provided, you are prompted to provide one from a list of valid locations.
 
 The supplied password must be 8-123 characters long and meet the password complexity requirements of the operating system that you are using for this virtual machine.
 
-If you anticipate the need to use SSH to manage a deployed Linux virtual machine (as is usually the case), you must enable SSH via the -s option when you create the virtual machine. It is not possible enable SSH after the virtual machine has been created.
+If you anticipate the need to use SSH to manage a deployed Linux virtual machine (as is usually the case), you must enable SSH via the -e option when you create the virtual machine. It is not possible enable SSH after the virtual machine has been created.
 
 Windows virtual machines can enable RDP later by adding port 3389 as an endpoint.
 
 The following optional parameters are supported for this command:
 
-**-c** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
-**--vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
-**-u --blob-url** Specify the blob storage URL from which to create the virtual machine system disk. <br />
-**--vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
+**-c, --connect** create the virtual machine inside an already created deployment in a hosting service. If -vmname is not used with this option, the name of the new virtual machine will be generated automatically.<br />
+**-n, --vm-name** Specify the name of the virtual machine. This parameter takes hosting service name by default. If -vmname is not specified, the name for the new virtual machine is generated as &lt;service-name>&lt;id>, where &lt;id> is the number of existing virtual machines in the service plus 1 For example, if you use this command to add a new virtual machine to a hosting service MyService that has one existing virtual machine, the new virtual machine is named MyService2.<br /> 
+**-u, --blob-url** Specify the blob storage URL from which to create the virtual machine system disk. <br />
+**-z, --vm-size** Specify the size of the virtual machine. Valid values are "extrasmall", "small", "medium", "large", "extralarge". The default value is "small". <br />
 **-r** Adds RDP connectivity to a Windows virtual machine. <br />
-**-s** Adds SSH connectivity to a Linux virtual machine. This option can be used only when the virtual machine is created. <br />
-**--location** specifies the location (for example, "North Central US"). <br />
-**--affinity-group** specifies the affinity group.<br />
+**-e, --ssh** Adds SSH connectivity to a Windows virtual machine. <br />
+**-t, --ssh-cert** Specifies the SSh certificate. <br />
+**-s** The subscription <br />
+**-o, --community** The specified image is a community image <br />
+**-w** The virtual network name <br/>
+**-l, --location** specifies the location (for example, "North Central US"). <br />
+**-a, --affinity-group** specifies the affinity group.<br />
 **-w, --virtual-network-name** Specify the virtual network on which to add the new vitual machine. Virtual networks can be set up and managed from the Windows Azure portal.<br />
 **-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
 
@@ -119,11 +221,11 @@ In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image 
 	Enter VM 'my-vm-name' password: ************                                     
 	info:   vm create command OK
 
-**vm create-from &lt;dns-prefix> &lt;role-file>**
+**vm create-from &lt;dns-name> &lt;role-file>**
 
 This command creates a new Windows Azure virtual machine from a JSON role file.
 
-	~$ azure vm create-from example.json
+	~$ azure vm create-from my-vm example.json
 	info:   OK
 
 **vm list [options]**
@@ -204,7 +306,7 @@ This command restarts a Windows Azure virtual machine.
 
 **vm shutdown [options] &lt;name>**
 
-This command shuts down a Windows Azure virtual machine.
+This command shuts down a Windows Azure virtual machine. You may use the -p option to specify that the compute resource not be released on shutdown.
 
 ```
 ~$ azure vm shutdown my-vm
@@ -224,6 +326,16 @@ A virtual machine image cannot be captured while the virtual machine state unles
 	+ Capturing VM
 	info:   vm capture command OK
 
+**vm export [options] &lt;vm-name> &lt;file-path>**
+
+This command exports a Windows Azure virtual machine image to a file
+
+	~$ azure vm export "myvm" "C:\"
+	info:    Executing command vm export
+	+ Getting virtual machines
+	+ Exporting the VM
+	info:   vm export command OK
+
 ##<a name="Commands_to_manage_your_Azure_virtual_machine_endpoints"></a>Commands to manage your Windows Azure virtual machine endpoints
 The following diagram shows the architecture of a typical deployment of multiple instances of a virtual machine. Note that in this example port 3389 is open on each virtual machine (for RDP access), and there is also an internal IP address (for example, 168.55.11.1) on each virtual machine that is used by the load balancer to route traffic to the virtual machine. This internal IP address can also be used for communication between virtual machines.
 
@@ -233,7 +345,7 @@ External requests to virtual machines go through a load balancer. Because of thi
 
 **vm endpoint create &lt;vm-name> &lt;lb-port> [vm-port]**
 
-This command creates a virtual machine endpoint.
+This command creates a virtual machine endpoint. You may also use -u or --enable-direct-server-return to specify whether to enable direct server return on this endpoint, disabled by default.
 
 	~$ azure vm endpoint create my-vm 8888 8888
 	azure vm endpoint create my-vm 8888 8888
@@ -242,6 +354,10 @@ This command creates a virtual machine endpoint.
 	+ Reading network configuration
 	+ Updating network configuration
 	info:   vm endpoint create command OK
+
+**vm endpoint create-multiple [options] &lt;vm-name> &lt;lb-port>[:&lt;vm-port>[:&lt;protocol>[:&lt;lb-set-name>[:&lt;prob-protocol>:&lt;lb-prob-port>[:&lt;prob-path>]]]]] ]{1-*}**
+
+Create multiple vm endpoints. You may also use -u or --enable-direct-server-return to specify whether to enable direct server return on this endpoint, disabled by default.
 
 **vm endpoint delete &lt;vm-name> &lt;lb-port>**
 
@@ -263,6 +379,41 @@ This command lists all virtual machine endpoints. The -json option specifies tha
 	data:   Name  External Port  Local Port                                        
 	data:   ----  -------------  ----------
 	data:   ssh   22             22
+
+**vm endpoint update [options] <vm-name> <endpoint-name>**
+
+This command updates a vm endpoint to new values using these options.
+
+    -n, --endpoint-name <name>          the new endpoint name
+    -t, --lb-port <port>                the new load balancer port
+    -t, --vm-port <port>                the new local port port
+    -o, --endpoint-protocol <protocol>  the new transport layer protocol for port (tcp or udp) 
+
+**vm endpoint show [options] &lt;vm-name>**
+
+This command shows the details of the endpoints on a vm
+
+	~$ azure vm endpoint show "mycouchvm"
+	info:    Executing command vm endpoint show
+	+ Getting virtual machines
+	data:    Network Endpoints 0 LoadBalancedEndpointSetName "CouchDB_EP-5984"
+	data:    Network Endpoints 0 LocalPort "5984"
+	data:    Network Endpoints 0 Name "CouchDB_EP"
+	data:    Network Endpoints 0 Port "5984"
+	data:    Network Endpoints 0 Protocol "tcp"
+	data:    Network Endpoints 0 Vip "168.61.9.97"
+	data:    Network Endpoints 1 LoadBalancedEndpointSetName "CouchEP_2-2020"
+	data:    Network Endpoints 1 LocalPort "2020"
+	data:    Network Endpoints 1 Name "CouchEP_2"
+	data:    Network Endpoints 1 Port "2020"
+	data:    Network Endpoints 1 Protocol "tcp"
+	data:    Network Endpoints 1 Vip "168.61.9.97"
+	data:    Network Endpoints 2 LocalPort "3389"
+	data:    Network Endpoints 2 Name "RemoteDesktop"
+	data:    Network Endpoints 2 Port "3389"
+	data:    Network Endpoints 2 Protocol "tcp"
+	data:    Network Endpoints 2 Vip "168.61.9.97"
+	info:    vm endpoint show command OK
 
 ##<a name="Commands_to_manage_your_Azure_virtual_machine_images"></a>Commands to manage your Windows Azure virtual machine images
 
@@ -405,6 +556,15 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 	info:   http://account.blob.core.azure.com/disks/test.vhd is uploaded successfully
 	info:   vm disk create command OK
 
+**vm disk upload [options] &lt;source-path> &lt;blob-url> &lt;storage-account-key>**
+
+This command allows you to upload a vm disk
+
+	~$ azure vm disk upload “http://sourcestorage.blob.core.windows.net/vhds/sample.vhd” “http://destinationstorage.blob.core.windows.net/vhds/sample.vhd” “DESTINATIONSTORAGEACCOUNTKEY”
+	info:   Executing command vm disk upload                                                      
+	info:   Uploading 12351.5 KB
+	info:   vm disk upload command OK
+
 **vm disk attach &lt;vm-name> &lt;disk-image-name>**
 
 This command attaches an existing disk in blob storage to an existing virtual machine deployed in a cloud service.
@@ -432,6 +592,41 @@ This command detaches a data disk attached to a Windows Azure virtual machine. &
 ##<a name="Commands_to_manage_your_Azure_cloud_services"></a>Commands to manage your Windows Azure cloud services
 
 Windows Azure cloud services are applications and services hosted on web roles and worker roles. The following commands can be used to manage Windows Azure cloud services.
+
+**service create [options] &lt;serviceName>**
+
+This command creates a new cloud service
+
+	~$ azure service create newservicemsopentech
+	info:    Executing command service create
+	+ Getting locations
+	help:    Location:
+	  1) East Asia
+	  2) Southeast Asia
+	  3) North Europe
+	  4) West Europe
+	  5) East US
+	  6) West US
+	  : 6
+	+ Creating cloud service
+	data:    Cloud service name newservicemsopentech
+	info:    service create command OK
+
+**service show [options] &lt;serviceName>**
+
+This command shows the details of a Windows Azure cloud service
+
+	~$ azure service show newservicemsopentech
+	info:    Executing command service show
+	+ Getting cloud service
+	data:    Name newservicemsopentech
+	data:    Url https://management.core.windows.net/9e672699-1055-41ae-9c36-e85152f2e352/services/hostedservices/newservicemsopentech
+	data:    Properties location West US
+	data:    Properties label newservicemsopentech
+	data:    Properties status Created
+	data:    Properties dateCreated
+	data:    Properties dateLastModified
+	info:    service show command OK
 
 **service list [options]**
 
@@ -508,6 +703,27 @@ This command lists your web sites.
 	data:   myphpsite       Running  myphpsite.antdf0.antares.windows.net     
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
+
+**site set [options] [name]**
+
+This command will set configuration options for your web site [name]
+
+	~$ azure site set
+	info:    Executing command site set
+	Web site name: mydemosite
+	+ Getting sites
+	+ Updating site config information
+	info:    site set command OK
+
+**site deploymentscript [options]**
+
+This command will generate a custom deployment script
+
+	~$ azure site deploymentscript --node
+	info:    Executing command site deploymentscript
+	info:    Generating deployment script for node.js Web Site
+	info:    Generated deployment script files
+	info:    site deploymentscript command OK
 
 **site create [options] [name]**
 
@@ -603,6 +819,220 @@ This command stops a web site.
 	info:   Stopping site mysite
 	info:   Site mysite has been stopped
 	info:   site stop command OK
+
+**site location list [options]**
+
+This command lists your Web Site locations
+
+	~$ azure site location list
+	info:    Executing command site location list
+	+ Getting locations
+	data:    Name
+	data:    ----------------
+	data:    West Europe
+	data:    West US
+	data:    North Central US
+	data:    North Europe
+	data:    East Asia
+	data:    East US
+	info:    site location list command OK
+
+###Commands to manage your Web Site application settings
+
+**site appsetting list [options] [name]**
+
+This command lists the app setting added to the website
+
+	~$ azure site appsetting list
+	info:    Executing command site appsetting list
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site config information
+	data:    Name  Value
+	data:    ----  -----
+	data:    test  value
+	info:    site appsetting list command OK
+
+**site appsetting add [options] &lt;keyvaluepair> [name]**
+
+This command adds an app setting to your website as a key value pair
+
+	~$ azure site appsetting add test=value
+	info:    Executing command site appsetting add
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site config information
+	+ Updating site config information
+	info:    site appsetting add command OK
+
+**site appsetting delete [options] &lt;key> [name]**
+
+This command delete the specified app setting from the website
+
+	~$ azure site appsetting delete test
+	info:    Executing command site appsetting delete
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site config information
+	Delete application setting test? [y/n] y
+	+ Updating site config information
+	info:    site appsetting delete command OK
+
+**site appsetting show [options] &lt;key> [name]**
+
+This command displays details of the specified app setting
+
+	~$ azure site appsetting show test
+	info:    Executing command site appsetting show
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site config information
+	data:    Value:  value
+	info:    site appsetting show command OK
+
+###Commands to manage your Web Site certificates
+
+**site cert list [options] [name]**
+
+This command displays a list of the website certs
+
+	~$ azure site cert list
+	info:    Executing command site cert list
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site information
+	data:    Subject                       Expiration Date	                  Thumbprint
+	data:    ----------------------------  -----------------------------------------
+	----------------  ----------------------------------------
+	data:    *.msopentech.com              Fri Nov 28 2014 09:49:57 GMT-0800 (Pacific Standard Time)  A40E82D3DC0286D1F58650E570ECF8224F69A148
+	data:    msopentech.azurewebsites.net  Fri Jun 19 2015 11:57:32 GMT-0700 (Pacific Daylight Time)  CE1CD6538852BF7A5DC32001C2E26A29B541F0E8
+	info:    site cert list command OK
+
+**site cert add [options] &lt;certificate-path> [name]**
+
+**site cert delete [options] &lt;thumbprint> [name]**
+
+**site cert show [options] &lt;thumbprint> [name]**
+
+This command shows the cert details
+
+	~$ azure site cert show CE1CD65852B38DC32001C2E0E8F7A526A29B541F
+	info:    Executing command site cert show
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site information
+	data:    Certificate hostNames 0=msopentech.azurewebsites.net
+	data:    Certificate expirationDate
+	data:    Certificate friendlyName msopentech.azurewebsites.net
+	data:    Certificate issueDate
+	data:    Certificate issuer CN=MSIT Machine Auth CA 2, DC=redmond, DC=corp, DC=microsoft, DC=com
+	data:    Certificate subjectName msopentech.azurewebsites.net
+	data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
+	info:    site cert show command OK
+
+###Commands to manage your Web Site connection strings
+
+**site connectionstring list [options] [name]**
+
+**site connectionstring add [options] &lt;connectionname> &lt;value> &lt;type> [name]**
+
+**site connectionstring delete [options] &lt;connectionname> [name]**
+
+**site connectionstring show [options] &lt;connectionname> [name]**
+
+###Commands to manage your Web Site default documents
+
+**site defaultdocument list [options] [name]**
+
+**site defaultdocument add [options] &lt;document> [name]**
+
+**site defaultdocument delete [options] &lt;document> [name]**
+
+###Commands to manage your Web Site deployments
+
+**site deployment list [options] [name]**
+
+**site deployment show [options] &lt;commitId> [name]**
+
+**site deployment redeploy [options] &lt;commitId> [name]**
+
+**site deployment github [options] [name]**
+
+**site deployment user set [options] [username] [pass]**
+
+###Commands to manage your Web Site domains
+
+**site domain list [options] [name]**
+
+**site domain add [options] &lt;dn> [name]**
+
+**site domain delete [options] &lt;dn> [name]**
+
+###Commands to manage your Web Site handler mappings
+
+**site handler list [options] [name]**
+
+**site handler add [options] &lt;extension> &lt;processor> [name]**
+
+**site handler delete [options] &lt;extension> [name]**
+
+###Commands to manage your Web Site diagnostics
+
+**site log download [options] [name]**
+
+Download a .zip file of your website diagnostics
+
+	~$ azure site log download
+	info:    Executing command site log download
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site information
+	+ Downloading diagnostic log to diagnostics.zip
+	info:    site log download command OK
+
+**site log tail [options] [name]**
+
+This command connects your terminal to the log-streaming service
+
+	~$ azure site log tail
+	info:    Executing command site log tail
+	Web site name: mydemosite
+	+ Getting sites
+	+ Getting site information
+	2013-11-19T17:24:17  Welcome, you are now connected to log-streaming service.
+
+**site log set [options] [name]**
+
+This command configures the diagnistic options
+
+	~$ azure site log set -a
+	info:    Executing command site log set
+	+ Getting output options
+	help:    Output:
+	  1) file
+	  2) storage
+	  : 1
+	Web site name: mydemosite
+	+ Getting locations
+	+ Getting sites
+	+ Getting site information
+	+ Getting diagnostic settings
+	+ Updating diagnostic settings
+	info:    site log set command OK
+
+###Commands to manage your Web Site repositories
+
+**site repository branch [options] &lt;branch> [name]**
+
+**site repository delete [options] [name]**
+
+**site repository sync [options] [name]**
+
+###Commands to manage your Web Site scaling
+
+**site scale mode [options] &lt;mode> [name]**
+
+**site scale instances [options] &lt;instances> [name]**
 
 
 ##<a name="Commands_to_manage_mobile_services"></a>Commands to manage Windows Azure Mobile Services
@@ -858,7 +1288,6 @@ This command creates a table.
 This command supports the following additional option:
 
 + **-p `<permissions>`** or **--permissions `<permissions>`**: Comma-delimited list of `<operation>`=`<permission>` pairs, where `<operation>` is `insert`, `read`, `update`, or `delete` and `<permissions>` is `public`, `application` (default), `user`, or `admin`.
-+ **--integerId**: The new table will be created with an id column of type integer instead of string.
 
 **mobile data read [options] [servicename] [tablename] [query]**
 
@@ -1109,3 +1538,422 @@ This command changes a config setting.
 	~$ azure config set defaultStorageAccount myname
 	info:   Setting 'defaultStorageAccount' to value 'myname'
 	info:   Changes saved.
+
+##<a name ="Commands_to_manage_service_bus"></a>Commands to manage Service Bus
+
+Use these commands to manage your Service Bus account
+
+**sb namespace create &lt;name> &lt;location>**
+
+Creates a new Service Bus namespace
+
+	~$ azure sb namespace create mysbnamespacea-test "West US"
+	info:    Executing command sb namespace create
+	+ Creating namespace mysbnamespacea-test in region West US
+	data:    Name: mysbnamespacea-test
+	data:    Region: West US
+	data:    DefaultKey: fBu8nQ9svPIesFfMFVhCFD+/sY0rRbifWMoRpYy0Ynk=
+	data:    Status: Activating
+	data:    CreatedAt: 2013-11-14T16:23:29.32Z
+	data:    AcsManagementEndpoint: https://mysbnamespacea-test-sb.accesscontrol.windows.net/
+	data:    ServiceBusEndpoint: https://mysbnamespacea-test.servicebus.windows.net/
+	
+	data:    ConnectionString: Endpoint=sb://mysbnamespacea-test.servicebus.windows.
+	net/;SharedSecretIssuer=owner;SharedSecretValue=fBu8nQ9svPIesFfMFVhCFD+/sY0rRbif
+	WMoRpYy0Ynk=
+	data:    SubscriptionId: 8679c8be3b0549d9b8fb4bd232a48931
+	data:    Enabled: true
+	data:    _: [object Object]
+	info:    sb namespace create command OK
+
+**sb namespace show &lt;name>**
+
+Display details about a specific namespace
+
+	~$ azure sb namespace show mysbnamespacea-test
+	info:    Executing command sb namespace show
+	+ Getting namespace
+	data:    Name: mysbnamespacea-test
+	data:    Region: West US
+	data:    DefaultKey: fBu8nQ9svPIesFfMFVhCFD+/sY0rRbifWMoRpYy0Ynk=
+	data:    Status: Active
+	data:    CreatedAt: 2013-11-14T16:23:29.32Z
+	data:    AcsManagementEndpoint: https://mysbnamespacea-test-sb.accesscontrol.windows.net/
+	data:    ServiceBusEndpoint: https://mysbnamespacea-test.servicebus.windows.net/
+	
+	data:    ConnectionString: Endpoint=sb://mysbnamespacea-test.servicebus.windows.
+	net/;SharedSecretIssuer=owner;SharedSecretValue=fBu8nQ9svPIesFfMFVhCFD+/sY0rRbif
+	WMoRpYy0Ynk=
+	data:    SubscriptionId: 8679c8be3b0549d9b8fb4bd232a48931
+	data:    Enabled: true
+	data:    UpdatedAt: 2013-11-14T16:25:37.85Z
+	info:    sb namespace show command OK
+
+**sb namespace list**
+
+List all namespaces created for your account
+
+	~$ azure sb namespace list
+	info:    Executing command sb namespace list
+	+ Getting namespaces
+	data:    Name                 Region   Status
+	data:    -------------------  -------  ------
+	data:    mysbnamespacea-test  West US  Active
+	info:    sb namespace list command OK
+
+**sb namespace delete &lt;name>**
+
+Remove a namespace
+
+	~$ azure sb namespace delete mysbnamespacea-test
+	info:    Executing command sb namespace delete
+	Delete namespace mysbnamespacea-test? [y/n] y
+	+ Deleting namespace mysbnamespacea-test
+	info:    sb namespace delete command OK
+
+**sb namespace location list**
+
+Display a list of all available namespace locations
+
+	~$ azure sb namespace location list
+	info:    Executing command sb namespace location list
+	+ Getting locations
+	data:    Name              Code
+	data:    ----------------  ----------------
+	data:    East Asia         East Asia
+	data:    West Europe       West Europe
+	data:    North Europe      North Europe
+	data:    East US           East US
+	data:    Southeast Asia    Southeast Asia
+	data:    North Central US  North Central US
+	data:    West US           West US
+	data:    South Central US  South Central US
+	info:    sb namespace location list command OK
+
+**sb namespace verify &lt;name>**
+
+Check whether the namespace is available
+
+##<a name ="Commands_to_manage_sql"></a>Commands to manage SQL Databases
+
+Use these commands to manage your Azure SQL Databases
+
+###Commands to manage SQL Servers
+
+Use these commands to manage your SQL Servers
+
+**sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
+
+Create a new database server
+
+	~$ azure sql server create test T3stte$t "West US"
+	info:    Executing command sql server create
+	+ Creating SQL Server
+	data:    Server Name i1qwc540ts
+	info:    sql server create command OK
+
+**sql server show &lt;name>**
+
+Display server details
+
+	~$ azure sql server show xclfgcndfg
+	info:    Executing command sql server show
+	+ Getting SQL server
+	data:    SQL Server Name xclfgcndfg
+	data:    SQL Server AdministratorLogin msopentechforums
+	data:    SQL Server Location West US
+	data:    SQL Server FullyQualifiedDomainName xclfgcndfg.database.windows.net
+	info:    sql server show command OK
+
+**sql server list**
+
+Get the list of servers
+
+	~$ azure sql server list
+	info:    Executing command sql server list
+	+ Getting SQL server
+	data:    Name        Location
+	data:    ----------  --------
+	data:    xclfgcndfg  West US
+	info:    sql server list command OK
+
+**sql server delete &lt;name>**
+
+Deletes a server 
+
+	~$ azure sql server delete i1qwc540ts
+	info:    Executing command sql server delete
+	Delete server i1qwc540ts? [y/n] y
+	+ Removing SQL Server
+	info:    sql server delete command OK
+
+###Commands to manage SQL Databases
+
+Use these commands to manage your SQL Databases
+
+**sql db create [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
+
+Creates a new database instance
+
+	~$ azure sql db create fr8aelne00 newdb test
+	info:    Executing command sql db create
+	Administrator password: ********
+	+ Creating SQL Server Database
+	info:    sql db create command OK
+
+**sql db show [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
+
+Display database details
+
+	C:\windows\system32>azure sql db show fr8aelne00 newdb test
+	info:    Executing command sql db show
+	Administrator password: ********
+	+ Getting SQL server databases
+	data:    Database _ ContentRootElement=m:properties, id=https://fr8aelne00.datab
+	ase.windows.net/v1/ManagementService.svc/Server2('fr8aelne00')/Databases(4), ter
+	m=Microsoft.SqlServer.Management.Server.Domain.Database, scheme=http://schemas.m
+	icrosoft.com/ado/2007/08/dataservices/scheme, link=[rel=edit, title=Database, hr
+	ef=Databases(4), rel=http://schemas.microsoft.com/ado/2007/08/dataservices/relat
+	ed/Server, type=application/atom+xml;type=entry, title=Server, href=Databases(4)
+	/Server, rel=http://schemas.microsoft.com/ado/2007/08/dataservices/related/Servi
+	ceObjective, type=application/atom+xml;type=entry, title=ServiceObjective, href=
+	Databases(4)/ServiceObjective, rel=http://schemas.microsoft.com/ado/2007/08/data
+	services/related/DatabaseMetrics, type=application/atom+xml;type=entry, title=Da
+	tabaseMetrics, href=Databases(4)/DatabaseMetrics, rel=http://schemas.microsoft.c
+	om/ado/2007/08/dataservices/related/DatabaseCopies, type=application/atom+xml;ty
+	pe=feed, title=DatabaseCopies, href=Databases(4)/DatabaseCopies], title=, update
+	d=2013-11-18T19:48:27Z, name=
+	data:    Database Id 4
+	data:    Database Name newdb
+	data:    Database ServiceObjectiveId 910b4fcb-8a29-4c3e-958f-f7ba794388b2
+	data:    Database AssignedServiceObjectiveId 910b4fcb-8a29-4c3e-958f-f7ba794388b2
+	data:    Database ServiceObjectiveAssignmentState 1
+	data:    Database ServiceObjectiveAssignmentStateDescription Complete
+	data:    Database ServiceObjectiveAssignmentErrorCode
+	data:    Database ServiceObjectiveAssignmentErrorDescription
+	data:    Database ServiceObjectiveAssignmentSuccessDate
+	data:    Database Edition Web
+	data:    Database MaxSizeGB 1
+	data:    Database MaxSizeBytes 1073741824
+	data:    Database CollationName SQL_Latin1_General_CP1_CI_AS
+	data:    Database CreationDate
+	data:    Database RecoveryPeriodStartDate
+	data:    Database IsSystemObject
+	data:    Database Status 1
+	data:    Database IsFederationRoot
+	data:    Database SizeMB -1
+	data:    Database IsRecursiveTriggersOn
+	data:    Database IsReadOnly
+	data:    Database IsFederationMember
+	data:    Database IsQueryStoreOn
+	data:    Database IsQueryStoreReadOnly
+	data:    Database QueryStoreMaxSizeMB
+	data:    Database QueryStoreFlushPeriodSeconds
+	data:    Database QueryStoreIntervalLengthMinutes
+	data:    Database QueryStoreClearAll
+	data:    Database QueryStoreStaleQueryThresholdDays
+	info:    sql db show command OK
+
+**sql db list [options] &lt;serverName> &lt;administratorPassword>**
+
+List the databases
+
+	~$ azure sql db list fr8aelne00 test
+	info:    Executing command sql db list
+	Administrator password: ********
+	+ Getting SQL server databases
+	data:    Name    Edition  Collation                     MaxSizeInGB
+	data:    ------  -------  ----------------------------  -----------
+	data:    master  Web      SQL_Latin1_General_CP1_CI_AS  5
+	info:    sql db list command OK
+
+**sql db delete [options] &lt;serverName> &lt;databaseName> &lt;administratorPassword>**
+
+Deletes a database 
+
+	~$ azure sql db delete fr8aelne00 newdb test
+	info:    Executing command sql db delete
+	Administrator password: ********
+	Delete database newdb? [y/n] y
+	+ Getting SQL server databases
+	+ Removing database
+	info:    sql db delete command OK
+
+###Commands to manage your SQL Server firewall rules
+
+Use these commands to manage your SQL Server firewall rules
+
+**sql firewallrule create [options] &lt;serverName> &lt;ruleName> &lt;startIPAddress> &lt;endIPAddress>**
+
+Create a new firewall rule for a SQL Server
+
+	~$ azure sql firewallrule create fr8aelne00 allowed 131.107.0.0 131.107.255.255
+	info:    Executing command sql firewallrule create
+	+ Creating Firewall Rule
+	info:    sql firewallrule create command OK
+
+**sql firewallrule show [options] &lt;serverName> &lt;ruleName>**
+
+Show firewall rule details
+
+	~$ azure sql firewallrule show fr8aelne00 allowed
+	info:    Executing command sql firewallrule show
+	+ Getting firewall rule
+	data:    Firewall rule Name allowed
+	data:    Firewall rule Type Microsoft.SqlAzure.FirewallRule
+	data:    Firewall rule State Normal
+	data:    Firewall rule SelfLink https://management.core.windows.net/9e672699-105
+	5-41ae-9c36-e85152f2e352/services/sqlservers/servers/fr8aelne00/firewallrules/allowed
+	data:    Firewall rule ParentLink https://management.core.windows.net/9e672699-1
+	055-41ae-9c36-e85152f2e352/services/sqlservers/servers/fr8aelne00
+	data:    Firewall rule StartIPAddress 131.107.0.0
+	data:    Firewall rule EndIPAddress 131.107.255.255
+	info:    sql firewallrule show command OK
+
+**sql firewallrule list [options] &lt;serverName>**
+
+List the firewall rules
+
+	~$ azure sql firewallrule list fr8aelne00
+	info:    Executing command sql firewallrule list
+	\data:    Name     Start IP address  End IP address
+	data:    -------  ----------------  ---------------
+	data:    allowed  131.107.0.0       131.107.255.255
+	+
+	info:    sql firewallrule list command OK
+
+**sql firewallrule delete [options] &lt;serverName> &lt;ruleName>**
+
+This command will delete a firewall rule
+
+	~$ azure sql firewallrule delete fr8aelne00 allowed
+	info:    Executing command sql firewallrule delete
+	Delete rule allowed? [y/n] y
+	+ Removing firewall rule
+	info:    sql firewallrule delete command OK
+
+##<a name ="Commands_to_manage_vnet"></a>Commands to manage your Virtual Networks
+
+Use these commands to manage your Virtual Networks
+
+**network vnet create [options] &lt;location>**
+
+Create a new Virtual Network
+
+	~$ azure network vnet create vnet1 --location "West US" -v
+	info:    Executing command network vnet create
+	info:    Using default address space start IP: 10.0.0.0
+	info:    Using default address space cidr: 8
+	info:    Using default subnet start IP: 10.0.0.0
+	info:    Using default subnet cidr: 11
+	verbose: Address Space [Starting IP/CIDR (Max VM Count)]: 10.0.0.0/8 (16777216)
+	verbose: Subnet [Starting IP/CIDR (Max VM Count)]: 10.0.0.0/11 (2097152)
+	verbose: Fetching Network Configuration
+	verbose: Fetching or creating affinity group
+	verbose: Fetching Affinity Groups
+	verbose: Fetching Locations
+	verbose: Creating new affinity group AG1
+	info:    Using affinity group AG1
+	verbose: Updating Network Configuration
+	info:    network vnet create command OK
+
+**network vnet show &lt;name>**
+
+Show details of a Virtual Network
+
+	~$ azure network vnet show vnet1
+	info:    Executing command network vnet show
+	+ Fetching Virtual Networks
+	data:    Name "vnet1"
+	data:    Id "25786fbe-08e8-4e7e-b1de-b98b7e586c7a"
+	data:    AffinityGroup "AG1"
+	data:    State "Created"
+	data:    AddressSpace AddressPrefixes 0 "10.0.0.0/8"
+	data:    Subnets 0 Name "subnet-1"
+	data:    Subnets 0 AddressPrefix "10.0.0.0/11"
+	info:    network vnet show command OK
+
+**vnet list**
+
+List all existing Virtual Networks
+
+	~$ azure network vnet list
+	info:    Executing command network vnet list
+	+ Fetching Virtual Networks
+	data:    Name        Status   AffinityGroup
+	data:    ----------  -------  -------------
+	data:    vnet1      Created  AG1
+	data:    vnet2      Created  AG1
+	data:    vnet3      Created  AG1
+	data:    vnet4      Created  AG1
+	info:    network vnet list command OK
+
+**network vnet show &lt;name>**
+
+Show details of the specified Virtual Network
+
+	~$ azure network vnet show opentechvn1
+	info:    Executing command network vnet show
+	+ Fetching Virtual Networks
+	data:    Name "opentechvn1"
+	data:    Id "cab41cb0-396a-413b-83a1-302f0f1c867d"
+	data:    AffinityGroup "AG-CLI-456f89eaa7fae2b3"
+	data:    State "Created"
+	data:    AddressSpace AddressPrefixes 0 "10.100.23.255/27"
+	data:    Subnets 0 Name "frontend"
+	data:    Subnets 0 AddressPrefix "10.100.23.224/29"
+	info:    network vnet show command OK
+
+**network vnet delete &lt;name>**
+
+Deletes the specified Virtual Network
+
+	~$ azure network vnet delete opentechvn1
+	info:    Executing command network vnet delete
+	+ Fetching Network Configuration
+	Delete the virtual network opentechvn1 ?  (y/n) y
+	+ Deleting the virtual network opentechvn1
+	info:    network vnet delete command OK
+
+**network export [file-path]**
+
+For advanced network configuration, you can export your network configuration locally. Note that the exported network configuration includes DNS server settings, virtual network settings, local network site settings, and other settings.
+
+**network import [file-path]**
+
+Import a local network configuration.
+
+**network dnsserver register [options] &lt;dnsIP>**
+
+Register a DNS server that you plan to use for name resolution in your network configuration
+
+	~$ azure network dnsserver register 98.138.253.109 --dns-id FrontEndDnsServer
+	info:    Executing command network dnsserver register
+	+ Fetching Network Configuration
+	+ Updating Network Configuration
+	info:    network dnsserver register command OK
+
+**network dnsserver list**
+
+List all the DNS servers registered in your network configuration
+
+	~$ azure network dnsserver list
+	info:    Executing command network dnsserver list
+	+ Fetching Network Configuration
+	data:    DNS Server ID         DNS Server IP
+	data:    --------------------  --------------
+	data:    DNS-bb39b4ac34d66a86  44.55.22.11
+	data:    FrontEndDnsServer     98.138.253.109
+	info:    network dnsserver list command OK
+
+**network dnsserver unregister [options] &lt;dnsIP>**
+
+Removes a DNS server entry from the network configuration
+
+	~$ azure network dnsserver unregister 77.88.99.11
+	info:    Executing command network dnsserver unregister
+	+ Fetching Network Configuration
+	Delete the DNS server entry dns-4 ( 77.88.99.11 ) %s ? (y/n) y
+	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
+	info:    network dnsserver unregister command OK
+
