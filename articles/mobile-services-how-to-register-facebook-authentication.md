@@ -1,9 +1,5 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Windows Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Windows Azure Mobile Services app." metaCanonical="" services="" documentationCenter="" title="Register your apps for Facebook authentication with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
 # Register your apps for Facebook authentication with Mobile Services
 
 This topic shows you how to register your apps to be able to use Facebook to authenticate with Windows Azure Mobile Services. 
@@ -45,15 +41,15 @@ You are now ready to use a Facebook login for authentication in your app by prov
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ../Media/mobile-services-facebook-developer-register.png
-[1]: ../Media/mobile-services-facebook-add-app.png
-[2]: ../Media/mobile-services-facebook-new-app-dialog.png
-[3]: ../Media/mobile-services-facebook-configure-app.png
-[4]: ../Media/mobile-services-facebook-completed.png
+[0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+[1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
+[2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
+[3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
+[4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
 
 <!-- URLs. -->
-[facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
+
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

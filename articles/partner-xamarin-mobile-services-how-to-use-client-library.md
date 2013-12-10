@@ -1,7 +1,4 @@
-<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Xamarin, iOS, Android, .NET client" metaDescription="Learn how to use the Xamarin Component client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="xamarin" />
- 
-
-
+<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Xamarin, iOS, Android, .NET client" metaDescription="Learn how to use the Xamarin Component client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="xamarin" /> 
 
 # How to use the Xamarin Component client for Windows Azure Mobile Services
 
@@ -35,7 +32,7 @@ This guide shows you how to perform common scenarios using the Xamarin Component
 - [How to: Design unit tests]
 - [Next steps]
 	
-<div chunk="../chunks/mobile-services-concepts.md" />
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 <h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
 
@@ -184,7 +181,7 @@ You can specify which set of properties to include in the results by adding a `S
 					.Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 			
-All the functions described so far are additive, so we can just keep calling them and we’ll each time affect more of the query. One more example:
+All the functions described so far are additive, so we can just keep calling them and we???ll each time affect more of the query. One more example:
 
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Where(todoItem => todoItem.Complete == false)
@@ -257,7 +254,7 @@ If you attempt to delete an item without the "Id" field already set, there is no
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider’s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider???s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
 To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app, 
@@ -462,8 +459,8 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Caching the authentication token]: #caching
 
 <!-- URLs. -->
-[Get started with Mobile Services iOS]: ../tutorials/mobile-services-get-started-xamarin-ios.md
-[Get started with Mobile Services Android]: ../tutorials/mobile-services-get-started-xamarin-android.md
+[Get started with Mobile Services iOS]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with Mobile Services Android]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
 [Xamarin download]: http://xamarin.com/download/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Xamarin.iOS quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -474,18 +471,18 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Xamarin.Android authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Xamarin.Auth component]: https://components.xamarin.com/view/xamarin.auth
-[ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Get started with data iOS]: ../Tutorials/mobile-services-get-started-with-data-xamarin-ios.md
-[Get started with data Android]: ../Tutorials/mobile-services-get-started-with-data-xamarin-android.md
-[Get started with authentication iOS]: ../Tutorials/mobile-services-get-started-with-users-xamarin-ios.md
-[Get started with authentication Android]: ../Tutorials/mobile-services-get-started-with-users-xamarin-android.md
-[Validate and modify data with scripts ios]: ../Tutorials/mobile-services-validate-and-modify-data-xamarin-ios.md
-[Validate and modify data with scripts android]: ../Tutorials/mobile-services-validate-and-modify-data-xamarin-android.md
-[Refine queries with paging iOS]: ../Tutorials/mobile-services-paging-data-xamarin-ios.md
-[Refine queries with paging Android]: ../Tutorials/mobile-services-paging-data-xamarin-android.md
-[Authorize users with scripts iOS]: ../Tutorials/mobile-services-authorize-users-xamarin-ios.md
-[Authorize users with scripts Android]: ../Tutorials/mobile-services-authorize-users-xamarin-android.md
+[Get started with data iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with data Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication iOS]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with authentication Android]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Validate and modify data with scripts ios]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+[Validate and modify data with scripts android]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+[Refine queries with paging iOS]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Refine queries with paging Android]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+[Authorize users with scripts iOS]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Authorize users with scripts Android]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 [LoginAsync method]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx

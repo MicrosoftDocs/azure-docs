@@ -1,11 +1,5 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-twitter-authentication" urlDisplayName="Register for Twitter Authentication" pageTitle="Register for Twitter authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Twitter authentication, application authenticate, authenticate mobile services, Mobile Services Twitter" description="Learn how to use Twitter authentication with your Windows Azure Mobile Services application." metaCanonical="" services="" documentationCenter="" title="Register your apps for Twitter login with Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
 
-
-
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
 #Register your apps for Twitter login with Mobile Services
 
 This topic shows you how to register your apps to be able to use Twitter to authenticate with Windows Azure Mobile Services.
@@ -49,15 +43,15 @@ You are now ready to use a Twitter login for authentication in your app by provi
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-twitter-developers.png
-[2]: ../Media/mobile-services-twitter-register-app1.png
-[3]: ../Media/mobile-services-twitter-register-app2.png
-[4]: ../Media/mobile-services-twitter-app-details.png
-[5]: ../Media/mobile-services-twitter-register-settings.png
+[1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
+[2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
+[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
+[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
+[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
-[twitter.com]: http://go.microsoft.com/fwlink/p/?LinkId=268287
+
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

@@ -1,11 +1,5 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-google-authentication" urlDisplayName="Register for Google Authentication" pageTitle="Register for Google authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure authentication, Google application authenticate, authenticate mobile services" description="Learn how to register your apps to use Google to authenticate with Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Register your apps for Google login with Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
 
-
-
-
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
 # Register your apps for Google login with Mobile Services
 
 This topic shows you how to register your apps to be able to use Google to authenticate with Windows Azure Mobile Services.
@@ -43,15 +37,15 @@ You are now ready to use a Google login for authentication in your app by provid
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ../Media/mobile-services-google-developers.png
-[2]: ../Media/mobile-services-google-create-client.png
-[3]: ../Media/mobile-services-google-create-client2.png
-[4]: ../Media/mobile-services-google-create-client3.png
-[5]: ../Media/mobile-services-google-app-details.png
+[1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-developers.png
+[2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
+[3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
+[4]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
+[5]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-app-details.png
 
 <!-- URLs. -->
-[accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
-[Get started with authentication]: ./mobile-services-get-started-with-users-dotnet.md
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

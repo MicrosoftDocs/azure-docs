@@ -1,7 +1,5 @@
 <properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Considerations for supporting multiple clients from a single mobile service" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
 
-
-
 # Considerations for supporting multiple clients from a single mobile service
  
 One of the major benefits of using Windows Azure Mobile Services to support mobile app development is the ability to use a single backend service that supports an app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms. For more information, see [Tutorials and resources].
