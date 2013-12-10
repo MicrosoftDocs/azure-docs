@@ -267,11 +267,11 @@ Now that you've learned the basics of collecting performance counters, follow th
   [Enabling Diagnostics in Windows Azure]: https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/
   [How to use the Table Storage Service]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
   [Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
-  [C#]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/
+  
   [Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/
   [Python]: http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/
   [PHP]: http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/
-  [Node.js]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/table-services/
+  
   [Building Elastic and Resilient Cloud Apps]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Azure Diagnostics Manager]: http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx

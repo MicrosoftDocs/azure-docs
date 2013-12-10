@@ -4,4 +4,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/publishing-with-git.md" />
+[WACOM.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]

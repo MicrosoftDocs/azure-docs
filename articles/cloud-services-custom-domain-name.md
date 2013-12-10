@@ -3,4 +3,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/custom-dns.md" />
+[WACOM.INCLUDE [custom-dns](../includes/custom-dns.md)]

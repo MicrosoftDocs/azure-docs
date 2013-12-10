@@ -5,9 +5,9 @@
 
 # Continuous delivery to Windows Azure using Visual Studio Online
 
-Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft’s popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
+Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft's popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
 
-This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don’t already have Visual Studio 2013, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
+This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don't already have Visual Studio 2013, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 To set up a cloud service to automatically build and deploy to Windows Azure by using Visual Studio Online, follow these steps:
 
@@ -71,7 +71,7 @@ Note the options to include or exclude specific changes when you check in. If de
 3. In the OAuth pop-up dialog, choose **Accept** to authorize Windows Azure to configure your team project in TFS.<br/>
 ![][12]
 
-4. When authorization succeeds, you see a dropdown containing a list of your Visual Studio Online team projects.  Select the name of team project that you created in the previous steps, and choose the wizard’s checkmark button.<br/>
+4. When authorization succeeds, you see a dropdown containing a list of your Visual Studio Online team projects.  Select the name of team project that you created in the previous steps, and choose the wizard's checkmark button.<br/>
 ![][13]
 
 5. When your project is linked, you will see some instructions for checking in changes to your Visual Studio Online team project.  On your next check-in, Visual Studio Online will build and deploy your project to Windows Azure.  Try this now by clicking the **Check In from Visual Studio** link, and then the **Launch Visual Studio** link. (or the equivalent **Visual Studio** button in the command-bar).<br/>
@@ -79,7 +79,7 @@ Note the options to include or exclude specific changes when you check in. If de
 
 <h2><a name="step4"> </a><span class="short-header">Trigger a rebuild</span>Step 4: Trigger a rebuild and redeploy your project</h2>
 
-1. In Visual Studio’s Team Explorer, click the **Source Control Explorer** link.<br/>
+1. In Visual Studio's Team Explorer, click the **Source Control Explorer** link.<br/>
 ![][15]
 
 2. Navigate to your solution file and open it.<br/>
@@ -171,39 +171,39 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
 [Step 5: Redeploy an earlier build (optional)]: #step5
 [Step 6: Change the Production deployment (cloud services only)]: #step6
-[0]: ../../../DevCenter/dotNet/Media/tfs0.PNG
-[1]: ../../../DevCenter/dotNet/Media/tfs1.png
-[2]: ../../../DevCenter/dotNet/Media/tfs2.png
-[3]: ../../../DevCenter/dotNet/Media/tfs3.png
-[4]: ../../../DevCenter/dotNet/Media/tfs4.png
-[5]: ../../../DevCenter/dotNet/Media/tfs5.png
-[6]: ../../../DevCenter/dotNet/Media/tfs6.png
-[7]: ../../../DevCenter/dotNet/Media/tfs7.png
-[8]: ../../../DevCenter/dotNet/Media/tfs8.png
-[9]: ../../../DevCenter/dotNet/Media/tfs9.png
-[10]: ../../../DevCenter/dotNet/Media/tfs10.png
-[11]: ../../../DevCenter/dotNet/Media/tfs11.png
-[12]: ../../../DevCenter/dotNet/Media/tfs12.png
-[13]: ../../../DevCenter/dotNet/Media/tfs13.png
-[14]: ../../../DevCenter/dotNet/Media/tfs14.png
-[15]: ../../../DevCenter/dotNet/Media/tfs15.png
-[16]: ../../../DevCenter/dotNet/Media/tfs16.png
-[17]: ../../../DevCenter/dotNet/Media/tfs17.png
-[18]: ../../../DevCenter/dotNet/Media/tfs18.png
-[19]: ../../../DevCenter/dotNet/Media/tfs19.png
-[20]: ../../../DevCenter/dotNet/Media/tfs20.png
-[21]: ../../../DevCenter/dotNet/Media/tfs21.png
-[22]: ../../../DevCenter/dotNet/Media/tfs22.png
-[23]: ../../../DevCenter/dotNet/Media/tfs23.png
-[24]: ../../../DevCenter/dotNet/Media/tfs24.png
-[25]: ../../../DevCenter/dotNet/Media/tfs25.png
-[26]: ../../../DevCenter/dotNet/Media/tfs26.png
-[27]: ../../../DevCenter/dotNet/Media/tfs27.png
-[28]: ../../../DevCenter/dotNet/Media/tfs28.png
-[29]: ../../../DevCenter/dotNet/Media/tfs29.png
-[30]: ../../../DevCenter/dotNet/Media/tfs30.png
-[31]: ../../../DevCenter/dotNet/Media/tfs31.png
-[32]: ../../../DevCenter/dotNet/Media/tfs32.png
-[33]: ../../../DevCenter/dotNet/Media/tfs33.png
-[34]: ../../../DevCenter/dotNet/Media/tfs34.png
-[35]: ../../../DevCenter/dotNet/Media/tfs35.png
+[0]: ./media/cloud-services-continous-delivery-use-tfs/tfs0.PNG
+[1]: ./media/cloud-services-continous-delivery-use-tfs/tfs1.png
+[2]: ./media/cloud-services-continous-delivery-use-tfs/tfs2.png
+
+
+[5]: ./media/cloud-services-continous-delivery-use-tfs/tfs5.png
+[6]: ./media/cloud-services-continous-delivery-use-tfs/tfs6.png
+[7]: ./media/cloud-services-continous-delivery-use-tfs/tfs7.png
+[8]: ./media/cloud-services-continous-delivery-use-tfs/tfs8.png
+[9]: ./media/cloud-services-continous-delivery-use-tfs/tfs9.png
+[10]: ./media/cloud-services-continous-delivery-use-tfs/tfs10.png
+[11]: ./media/cloud-services-continous-delivery-use-tfs/tfs11.png
+[12]: ./media/cloud-services-continous-delivery-use-tfs/tfs12.png
+[13]: ./media/cloud-services-continous-delivery-use-tfs/tfs13.png
+[14]: ./media/cloud-services-continous-delivery-use-tfs/tfs14.png
+[15]: ./media/cloud-services-continous-delivery-use-tfs/tfs15.png
+[16]: ./media/cloud-services-continous-delivery-use-tfs/tfs16.png
+[17]: ./media/cloud-services-continous-delivery-use-tfs/tfs17.png
+[18]: ./media/cloud-services-continous-delivery-use-tfs/tfs18.png
+[19]: ./media/cloud-services-continous-delivery-use-tfs/tfs19.png
+[20]: ./media/cloud-services-continous-delivery-use-tfs/tfs20.png
+[21]: ./media/cloud-services-continous-delivery-use-tfs/tfs21.png
+[22]: ./media/cloud-services-continous-delivery-use-tfs/tfs22.png
+[23]: ./media/cloud-services-continous-delivery-use-tfs/tfs23.png
+[24]: ./media/cloud-services-continous-delivery-use-tfs/tfs24.png
+[25]: ./media/cloud-services-continous-delivery-use-tfs/tfs25.png
+[26]: ./media/cloud-services-continous-delivery-use-tfs/tfs26.png
+[27]: ./media/cloud-services-continous-delivery-use-tfs/tfs27.png
+[28]: ./media/cloud-services-continous-delivery-use-tfs/tfs28.png
+[29]: ./media/cloud-services-continous-delivery-use-tfs/tfs29.png
+[30]: ./media/cloud-services-continous-delivery-use-tfs/tfs30.png
+[31]: ./media/cloud-services-continous-delivery-use-tfs/tfs31.png
+[32]: ./media/cloud-services-continous-delivery-use-tfs/tfs32.png
+[33]: ./media/cloud-services-continous-delivery-use-tfs/tfs33.png
+[34]: ./media/cloud-services-continous-delivery-use-tfs/tfs34.png
+[35]: ./media/cloud-services-continous-delivery-use-tfs/tfs35.png
