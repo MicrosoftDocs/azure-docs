@@ -264,7 +264,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 1:** continuous deployment to the staging
     environment of a service:
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
+        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     This is typically followed up by test run verification and a VIP
     swap. The VIP swap can be done via the Windows Azure Management
@@ -273,7 +273,7 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 2:** continuous deployment to the production
     environment of a dedicated test service
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 –environment Production –enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
+        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Production -enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
 
     **Remote Desktop:**
 
@@ -319,7 +319,7 @@ Template workflow activities in Visual Studio TFS Team Build.
 
     Upgrade Deployment can be disabled in the script
     ($enableDeploymentUpgrade = 0) or by passing
-    –enableDeploymentUpgrade 0 as a parameter, which will alter the
+    -enableDeploymentUpgrade 0 as a parameter, which will alter the
     script behavior to first delete any existing deployment and then
     create a new deployment.
 
@@ -372,7 +372,7 @@ piped into the standard build output.
 
     The corresponding XAML looks like this:
 
-        <Activity  … />
+        <Activity  _ />
           <x:Members>
             <x:Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
             <x:Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
@@ -592,7 +592,7 @@ function Publish()
 	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue 
     if ($a[0] -ne $null)
     {
-        Write-Output "$(Get-Date –f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
+        Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
     }
     #check for existing deployment and then either upgrade, delete + deploy, or cancel according to $alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
 	if ($deployment.Name -ne $null)
@@ -605,12 +605,12 @@ function Publish()
                 {
                     1  #Update deployment inplace (usually faster, cheaper, won't destroy VIP)
                     {
-                        Write-Output "$(Get-Date –f $timeStampFormat) - Deployment exists in $servicename.  Upgrading deployment."
+                        Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Upgrading deployment."
 				        UpgradeDeployment
                     }
                     0  #Delete then create new deployment
                     {
-                        Write-Output "$(Get-Date –f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
+                        Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
 				        DeleteDeployment
                         CreateNewDeployment
                         
@@ -619,7 +619,7 @@ function Publish()
 			}
 	        0
 			{
-				Write-Output "$(Get-Date –f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
+				Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
 				exit
 			}
 	    } #switch ($alwaysDeleteExistingDeployments)
@@ -631,7 +631,7 @@ function Publish()
 function CreateNewDeployment()
 {
 	write-progress -id 3 -activity "Creating New Deployment" -Status "In progress"
-	Write-Output "$(Get-Date –f $timeStampFormat) - Creating New Deployment: In progress"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
 
 	$opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
 	    
@@ -639,7 +639,7 @@ function CreateNewDeployment()
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Creating New Deployment" -completed -Status "Complete"
-	Write-Output "$(Get-Date –f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
     
 	StartInstances
 }
@@ -647,7 +647,7 @@ function CreateNewDeployment()
 function UpgradeDeployment()
 {
 	write-progress -id 3 -activity "Upgrading Deployment" -Status "In progress"
-	Write-Output "$(Get-Date –f $timeStampFormat) - Upgrading Deployment: In progress"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: In progress"
 
     # perform Update-Deployment
 	$setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
@@ -656,27 +656,27 @@ function UpgradeDeployment()
     $completeDeploymentID = $completeDeployment.deploymentid
     
     write-progress -id 3 -activity "Upgrading Deployment" -completed -Status "Complete"
-	Write-Output "$(Get-Date –f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
 }
 
 function DeleteDeployment()
 {
 
 	write-progress -id 2 -activity "Deleting Deployment" -Status "In progress"
-	Write-Output "$(Get-Date –f $timeStampFormat) - Deleting Deployment: In progress"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: In progress"
 
     #WARNING - always deletes with force
 	$removeDeployment = Remove-AzureDeployment -Slot $slot -ServiceName $serviceName -Force
 
 	write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
-	Write-Output "$(Get-Date –f $timeStampFormat) - Deleting Deployment: Complete"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
 	
 }
 
 function StartInstances()
 {
 	write-progress -id 4 -activity "Starting Instances" -status "In progress"
-	Write-Output "$(Get-Date –f $timeStampFormat) - Starting Instances: In progress"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: In progress"
 
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $runstatus = $deployment.Status
@@ -699,7 +699,7 @@ function StartInstances()
 			if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
 			{
 				$oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
-				Write-Output "$(Get-Date –f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
+				Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
 			}
 
 			write-progress -id (4 + $i) -activity "Starting Instance '$instanceName'" -status "$instanceStatus"
@@ -720,7 +720,7 @@ function StartInstances()
 		if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
 		{
 			$oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
-			Write-Output "$(Get-Date –f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
+			Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
 		}
 
 		$i = $i + 1
@@ -730,7 +730,7 @@ function StartInstances()
 	$opstat = $deployment.Status 
 	
 	write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
-	Write-Output "$(Get-Date –f $timeStampFormat) - Starting Instances: $opstat"
+	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
 }
 
 function AllInstancesRunning($roleInstanceList)
@@ -761,16 +761,16 @@ $subscriptionid = $subscription.subscriptionid
 $slot = $environment
 
 #main driver - publish & write progress to activity log
-Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy script started."
-Write-Output "$(Get-Date –f $timeStampFormat) - Preparing deployment of $deploymentLabel for $subscriptionname with Subscription ID $subscriptionid."
+Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script started."
+Write-Output "$(Get-Date -f $timeStampFormat) - Preparing deployment of $deploymentLabel for $subscriptionname with Subscription ID $subscriptionid."
 
 Publish
 
 $deployment = Get-AzureDeployment -slot $slot -serviceName $servicename
 $deploymentUrl = $deployment.Url
 
-Write-Output "$(Get-Date –f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
-Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy script finished."
+Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $deploymentUrl."
+Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
 
   [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ./team-foundation-service.md
@@ -787,13 +787,13 @@ Write-Output "$(Get-Date –f $timeStampFormat) - Azure Cloud Service deploy scr
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
-  [0]: ../../../DevCenter/dotNet/Media/tfs-01.png
-  [2]: ../../../DevCenter/dotNet/Media/tfs-02.png
+  [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01.png
+  [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Windows Azure PowerShell Cmdlets]: http://go.microsoft.com/fwlink/?LinkId=256262
   [the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
   [end of this article]: #script
-  [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
-  [3]: ../media/common-task-tfs-03.png
-  [4]: ../media/common-task-tfs-04.png
-  [5]: ../media/common-task-tfs-05.png
-  [6]: ../media/common-task-tfs-06.png
+  
+  [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
+  [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
+  [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
+  [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
