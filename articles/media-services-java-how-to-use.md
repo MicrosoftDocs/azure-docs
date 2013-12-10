@@ -22,7 +22,7 @@ Windows Azure Media Services form an extensible media platform that integrates t
 
 The following diagram illustrates the basic Media Services architecture.
 
-![Media Services Architecture][]
+![Media Services Architecture][Media Services Architecture]
 
 ###Media Services Feature Support
 The current release of Media Services provides the following feature set for developing media applications in the cloud. For information on future releases, see [Media Services Upcoming Releases:  Planned Feature Support][].
