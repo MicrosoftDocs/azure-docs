@@ -1,8 +1,7 @@
-﻿<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Windows Azure" metaKeywords="" metaDescription="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" />
+﻿<properties linkid="develop-media-services-how-to-guides-deliver-streaming-content" urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="How to Deliver Streaming Content from Media Services – Windows Azure" metaKeywords="" description="Learn how to deliver streaming content from Media Services using a direct URL. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="migree" title="How to: Deliver streaming content" />
 
 
-
-<h1>How to: Deliver streaming content</h1>
+#How to: Deliver streaming content
 
 This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Deliver an Asset by Download](http://go.microsoft.com/fwlink/?LinkID=301734&clcid=0x409).
 
