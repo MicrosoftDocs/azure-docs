@@ -4,4 +4,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/cdn.md" />
+[WACOM.INCLUDE [cdn](../includes/cdn.md)]
