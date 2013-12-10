@@ -100,7 +100,7 @@ For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that yo
 ####Android devices
 Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
 
-<h2>Next Steps</h2>
+##Next Steps
 Now that you have an overview of Media Services, go to the [Setting Up Your Computer for Media Services](http://go.microsoft.com/fwlink/?LinkId=301751) topic.
 
 
