@@ -22,12 +22,12 @@ The plugin supports loading and playback of on-demand Smooth Streaming content w
 - On-demand Smooth Streaming playback (Play, Pause, Seek, Stop)
 - Live Smooth Streaming playback (Play)
 - Live DVR functions (Pause, Seek, DVR Playback, Go-to-Live)
-- Support for video codecs – H.264
-- Support for Audio codecs – AAC
+- Support for video codecs ??? H.264
+- Support for Audio codecs ??? AAC
 - Multiple audio language switching with OSMF built-in APIs
 - Max playback quality selection with OSMF built-in APIs
 - Sidecar closed captions with OSMF captions plugin
-- Adobe® Flash® Player 10.2 or higher.
+- Adobe?? Flash?? Player 10.2 or higher.
 - This version only supports OSMF 2.0.
 
 The following are unsupported features:
@@ -53,7 +53,7 @@ OSMF plugins can be loaded statically (at compile time) or dynamically (at run-t
 For more information on static and dynamic loading, see the official [OSMF plugin page](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
 ###SS for OSMF Static Loading
-The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the “MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc” static plugin.
+The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the ???MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc??? static plugin.
 
 <pre><code>
 package 
@@ -170,7 +170,7 @@ package
 		
 		private function loadMediaSource(sourceURL : String):void 
 		{
-			// Take an URL of SmoothStreamingSource’s manifest and add it to the page.
+			// Take an URL of SmoothStreamingSource???s manifest and add it to the page.
 			
 			var resource:URLResource= new URLResource( sourceURL );
 			
@@ -190,7 +190,7 @@ package
 
 ###SS for OSMF Dynamic Loading
 
-The code snippet below shows how to load the SS plugin for OSMF dynamically and play a basic video using the OSMF MediaFactory class. Before including the SS for OSMF code, copy the “MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf” dynamic plugin to the project folder if you want to load using FILE protocol, or copy under a web server for HTTP load. There is no need to include “MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc” in the project references.
+The code snippet below shows how to load the SS plugin for OSMF dynamically and play a basic video using the OSMF MediaFactory class. Before including the SS for OSMF code, copy the ???MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf??? dynamic plugin to the project folder if you want to load using FILE protocol, or copy under a web server for HTTP load. There is no need to include ???MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc??? in the project references.
 
 <pre><code>
 package 
@@ -310,7 +310,7 @@ package
 		
 		private function loadMediaSource(sourceURL : String):void 
 		{
-			// Take an URL of SmoothStreamingSource’s manifest and add it to the page.
+			// Take an URL of SmoothStreamingSource???s manifest and add it to the page.
 			
 			var resource:URLResource= new URLResource( sourceURL );
 			
@@ -327,7 +327,7 @@ package
 </code></pre>
 
 ##Strobe Media  Playback with the SS ODMF Dynamic Plugin
-The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy “MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf” under a web server for HTTP load using the following steps:
+The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy ???MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf??? under a web server for HTTP load using the following steps:
 
 1.	Browse the [Strobe Media Playback setup page](http://osmf.org/dev/2.0gm/setup.html). 
 2.	Set the src to a Smooth Streaming source, (e.g. http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
@@ -383,7 +383,7 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 		</html>
 
 
-6. 	Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash® Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
-7. 	Enjoy Smooth Streaming content inside Adobe® Flash® Player.
+6. 	Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash?? Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
+7. 	Enjoy Smooth Streaming content inside Adobe?? Flash?? Player.
 
 For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
