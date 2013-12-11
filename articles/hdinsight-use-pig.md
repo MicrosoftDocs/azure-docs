@@ -7,7 +7,7 @@
 
 [Apache *Pig*][apachepig-home] provides a scripting language to execute *MapReduce* jobs as an alternative to writing Java code. In this tutorial, you will use PowerShell to run some Pig Latin statements to analyze an Apache log4j log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
 
-Pig’s scripting language is called *Pig Latin*. Pig Latin statements follow this general flow:   
+Pig???s scripting language is called *Pig Latin*. Pig Latin statements follow this general flow:   
 
 - **Load**: Read data to be manipulated from the file system
 - **Transform**: Manipulate the data 
@@ -82,7 +82,7 @@ HDInsight uses a Windows Azure Blob storage container as the default file system
 
 To access files, use the following syntax: 
 
-		wasb[s]://[[<containername>@]<storageaccountname>.blob.core.windows.net]/<path>/<filename>
+		wasb
 
 For example:
 
@@ -276,7 +276,7 @@ While Pig allows you to perform data analysis, other languages included with HDI
 * [Use Hive with HDInsight][hdinsight-using-hive]
 
 
-[sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
+
 [piglatin-manual-1]: http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html
 [piglatin-manual-2]: http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html
 [apachepig-home]: http://pig.apache.org/
@@ -286,12 +286,12 @@ While Pig allows you to perform data analysis, other languages included with HDI
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-using-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
 [hdinsight-using-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-using-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 
-[image-hdi-log4j-sample]: ../media/HDI.wholesamplefile.png
-[image-hdi-pig-data-transformation]: ../media/HDI.DataTransformation.gif
-[image-hdi-pig-powershell]: ../media/hdi.pig.powershell.png  
+[image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
+[image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
+[image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png  
