@@ -3,4 +3,4 @@
 
 
 
-<div chunk="../../../Shared/chunks/CreateVirtualMachineLinuxTutorial.md" />
+[WACOM.INCLUDE [CreateVirtualMachineLinuxTutorial](../includes/CreateVirtualMachineLinuxTutorial.md)]
