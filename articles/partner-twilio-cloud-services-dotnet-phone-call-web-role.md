@@ -172,8 +172,8 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 [twilio_api]: http://www.twilio.com/voice/api
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-[twilio_dotnet_basic_form]: ../media/WA_twilio_dotnet_basic_form.png
-[twilio_dotnet_basic_form_output]: ../media/WA_twilio_dotnet_basic_form_output.png
+[twilio_dotnet_basic_form]: ../media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
+[twilio_dotnet_basic_form_output]: ../media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png
 
 [twiml]: http://www.twilio.com/docs/api/twiml
 
