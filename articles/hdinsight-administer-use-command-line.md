@@ -35,7 +35,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 3.	Open **Command Prompt** (or *Windows Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
 4.	Run the following command in the command prompt window.
 
-		npm install ???g azure-cli
+		npm install -g azure-cli
 
 	<div class="dev-callout">??
 	<b>Note</b>??
@@ -52,7 +52,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 5.	Run the following command to verify the installation:
 
-		azure hdinsight ???h
+		azure hdinsight -h
 
 	You can use the *-h* switch at different levels to display the help information.  For example:
 		
@@ -131,13 +131,13 @@ If you have already had a storage account but do not know the account name and a
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
 
 
-The *azure hdinsight cluster create* command creates the container if it doesn???t exist. If you choose to create the container beforehand, you can use the following command:
+The *azure hdinsight cluster create* command creates the container if it doesn't exist. If you choose to create the container beforehand, you can use the following command:
 
-	azure storage container create ???-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+	azure storage container create --account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
 		
 Once you have the storage account and the blob container prepared, you are ready to create a cluster: 
 
-	azure hdinsight cluster create ???-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+	azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
 ![HDI.CLIClusterCreation][image-cli-clustercreation]
 

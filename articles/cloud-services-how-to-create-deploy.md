@@ -51,7 +51,7 @@ Three cloud service features require special configurations before you export a 
 
 <h2><a id="begin"></a>Before you begin</h2>
 
-- If you haven???t installed the Windows Azure SDK, click **Install Azure SDK** to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
+- If you haven't installed the Windows Azure SDK, click **Install Azure SDK** to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
 - If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can upload the certificates to Windows Azure as you create and deploy the cloud service. For information about creating certificates, see [How to Configure an SSL Certificate on an HTTPS Endpoint](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx).
 

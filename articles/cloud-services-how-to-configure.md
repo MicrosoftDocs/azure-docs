@@ -80,7 +80,7 @@ On the **Configure** page for your cloud service, you can enable Remote Desktop 
 
 <div class="dev-callout"> 
 <b>Note</b> 
-<p>If your cloud service consists of two or more connected Windows Server-based virtual machines, you don???t have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.</p> 
+<p>If your cloud service consists of two or more connected Windows Server-based virtual machines, you don't have to configure remote access, as these virtual machines are configured automatically for Remote Desktop.</p> 
 </div>
 
 

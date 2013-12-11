@@ -6,7 +6,7 @@
 
 This tutorial gets you started using the Microsoft HDInsight Emulator for Windows Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Windows Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Windows Azure HDInsight?](http://www.windowsazure.com/en-us/manage/services/hdinsight/howto-hadoop-version/ "HDInsight components and versions"). 
 
-HDInsight Emulator provides a local development environment for the Windows Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. But, in HDInsight, the default file system is Windows Azure Blob storage (WASB, aka Windows Azure Storage - Blobs), so eventually, you will want to develop your jobs using WASB. You can get started developing against WASB by using the Windows Azure Storage Emulator ??? probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storage ??? again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data.
+HDInsight Emulator provides a local development environment for the Windows Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. But, in HDInsight, the default file system is Windows Azure Blob storage (WASB, aka Windows Azure Storage - Blobs), so eventually, you will want to develop your jobs using WASB. You can get started developing against WASB by using the Windows Azure Storage Emulator - probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storage - again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data.
 
 <div class="dev-callout">??
 <b>Note</b>??
@@ -170,7 +170,7 @@ Generating and importing the data to HDFS is done using the PowerShell script im
 
 3. Run the following command to generate and import data to HDFS:
 
-		powershell ???File importdata.ps1 w3c -ExecutionPolicy unrestricted 
+		powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted 
 
 	If you want to load data into WASB instead, see [Connect to Windows Azure Blob storage](#blobstorage).
 
@@ -407,7 +407,7 @@ The samples currently contain all of the required binaries, so building is not r
 1. Open Hadoop command line.
 2. Run the following command:
 
-		powershell ???F buildsamples.ps1
+		powershell -F buildsamples.ps1
 
 
 
@@ -578,7 +578,7 @@ Here is a sample for submitting a Hadoop job:
 
 	$creds = Get-Credential (hadoop as username, password can be anything)
 	$hdinsightJob = <JobDefinition>
-	Start-AzureHDInsightJob ???Cluster http://localhost:50111 ???Credential $creds ???JobDefinition $hdinsightJob
+	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
 You will get a prompt when calling Get-Credential. You must use **hadoop** as the username. The password can be any string. The cluster name is always **http://localhost:50111**.
 

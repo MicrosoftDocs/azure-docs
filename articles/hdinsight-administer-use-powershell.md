@@ -71,8 +71,8 @@ PowerShell can not create a Blob container during the HDInsight provision proces
 	$containerName="<ContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureStorageContext ???StorageAccountName $storageAccountName 
-	                                       ???StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName 
+	                                       -StorageAccountKey $storageAccountKey  
 	
 	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext
@@ -150,7 +150,7 @@ The following PowerShell script retrieves the MapReduce job output from the last
 	# Create the storage account context object
 	Select-AzureSubscription $subscriptionName
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-	$storageContext = New-AzureStorageContext ???StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey  
+	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
 	# Download the output to local computer
 	Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force

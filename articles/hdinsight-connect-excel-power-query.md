@@ -5,7 +5,7 @@
 
 #Connect Excel to Windows Azure HDInsight with Power Query
 
-One key feature of Microsoft???s big data solution is the integration of  Microsoft Business Intelligence (BI) components with HDInsight Hadoop clusters. A primary example of this integration is the ability to connect Excel to the Windows Azure storage account containing the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. This article walks you through how to set up and use Power Query from Excel to query data associated with an HDInsight cluster. 
+One key feature of Microsoft's big data solution is the integration of  Microsoft Business Intelligence (BI) components with HDInsight Hadoop clusters. A primary example of this integration is the ability to connect Excel to the Windows Azure storage account containing the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. This article walks you through how to set up and use Power Query from Excel to query data associated with an HDInsight cluster. 
 
 **Prerequisites**
 
