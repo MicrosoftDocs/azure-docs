@@ -2,7 +2,6 @@
 
 
 
-
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
@@ -152,7 +151,7 @@ In this simple example a user receives a push notification with the data that wa
 [Get started with data]: ./mobile-services-get-started-with-data-js.md
 [Get started with authentication]: ./mobile-services-get-started-with-users-js.md
 [Get started with push notifications]: ./mobile-services-get-started-with-push-js.md
-[Push notifications to app users]: ./mobile-services-push-notifications-to-app-users-js.md
+[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: ./mobile-services-authorize-users-js.md
 [JavaScript and HTML]: ./mobile-services-get-started-with-push-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/

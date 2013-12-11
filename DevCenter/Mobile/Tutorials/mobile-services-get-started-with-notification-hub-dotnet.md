@@ -1,5 +1,4 @@
-﻿<properties linkid="develop-mobile-tutorials-get-started-with-notification-hubs-dotnet" writer="glenga" urlDisplayName="Get Started with Notification Hubs" pageTitle="Get started with Notification Hubs - Mobile Services" metaKeywords="" metaDescription="Learn how to use Notification Hubs with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
-
+<properties linkid="develop-mobile-tutorials-get-started-with-notification-hubs-dotnet" writer="glenga" urlDisplayName="Get Started with Notification Hubs" pageTitle="Get started with Notification Hubs - Mobile Services" metaKeywords="" metaDescription="Learn how to use Notification Hubs with Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
 # Get started with notification hubs in Mobile Services
@@ -364,7 +363,7 @@ mobile-configure-notification-hub
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
-[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
+[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet
 [Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
 [JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-push-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/

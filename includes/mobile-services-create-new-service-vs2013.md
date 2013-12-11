@@ -1,3 +1,5 @@
+
+
 The following steps create a new mobile service in Windows Azure and add code to your project that enables access to this new service. Before you can create the mobile service, you must import the publishsettings file from your Windows Azure subscription into Visual Studio. This enables Visual Studio to connect to Windows Azure on your behalf. When you create a new mobile service, you must specify a Windows Azure SQL Database that is used by the mobile service to store app data. 
 
 
@@ -31,8 +33,7 @@ The following steps create a new mobile service in Windows Azure and add code to
 
   ![create service from VS 2013 part 2](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
 
-> WACOM.NOTE
-> As part of this tutorial, you create a new free SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. You can only have one free database instance. If you already have a database in the same region as the new mobile service, you can instead choose the existing database. When you choose an existing database, make sure that you supply correct login credentials. If you supply incorrect login credentials, the mobile service is created in an unhealthy state.
+	<div class="dev-callout"><strong>Note</strong> <p>As part of this tutorial, you create a new free SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. You can only have one free database instance. If you already have a database in the same region as the new mobile service, you can instead choose the existing database. When you choose an existing database, make sure that you supply correct login credentials. If you supply incorrect login credentials, the mobile service is created in an unhealthy state.</p></div>
 
    After the mobile service is created, a reference to the Mobile Services client library is added to the project and your project source code is updated.
 

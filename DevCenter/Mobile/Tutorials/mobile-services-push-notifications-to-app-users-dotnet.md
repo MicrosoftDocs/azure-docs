@@ -1,7 +1,6 @@
 <properties linkid="develop-mobile-tutorials-push-notifications-to-users-dotnet" writer="glenga" urlDisplayName="Push Notifications to Users" pageTitle="Push Notifications to app users - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to app users in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
 
 
-
 # Push notifications to users by using Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/push-notifications-to-users-ios" title="iOS">iOS</a>
@@ -211,9 +210,9 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/#create-new-service
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: ../HowTo/mobile-services-client-dotnet.md
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
