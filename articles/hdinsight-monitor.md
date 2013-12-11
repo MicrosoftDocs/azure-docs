@@ -16,11 +16,11 @@ In this topic, you will learn how to monitor an HDInsight cluster.
 
 To monitor the health of an HDInsight cluster and the Hadoop jobs running on the cluster, you can connect to the HDInsight Dashboard, and click the Monitor Cluster tile.
 
-![HDI.TileMonitorCluster](../media/HDI.TileMonitorCluster.PNG "Monitor Cluster")
+![HDI.TileMonitorCluster](./media/hdinsight-monitor/HDI.TileMonitorCluster.PNG "Monitor Cluster")
 
 The Monitor page looks like:
 
-![HDI.MonitorPage](../media/HDI.MonitorPage.PNG "Monitor page")
+![HDI.MonitorPage](./media/hdinsight-monitor/HDI.MonitorPage.PNG "Monitor page")
 
 
 On the right, it shows both Namenode and job tracker are up running, and the 4 data nodes are running in the healthy state.
@@ -30,11 +30,11 @@ On the left, it shows the map reduce metrics for the past 30 minutes. You can ch
 ##<a id="jobhistory"></a> How to: View Hadoop job history
 To view Hadoop job history, connect to HDInsight Dashboard, and then click the Job History tile. 
 
-![HDI.TileJobHistory](../media/HDI.TileJobHistory.PNG "Job History")
+![HDI.TileJobHistory](./media/hdinsight-monitor/HDI.TileJobHistory.PNG "Job History")
 
 The tile shows the number of jobs that have been ran; for example, the previous image indicates job history is available for 6 jobs.  The job history page looks like the following:
 
-![HDI.JobHistoryPage](../media/HDI.JobHistoryPage.PNG "Job history page")
+![HDI.JobHistoryPage](./media/hdinsight-monitor/HDI.JobHistoryPage.PNG "Job history page")
 
 
 ## See Also
