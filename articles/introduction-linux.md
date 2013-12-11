@@ -20,7 +20,7 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 
 <h2><a id="authentication"></a>Authentication: Usernames, Passwords and SSH Keys </h2>
 
-When creating a Linux virtual machine using the Windows Azure Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Windows Azure is subject to the following constraint: names of system accounts already present in the virtual machine are not allowed - root for example.  If you don’t provide the SSH public key, you will be able to log in to the virtual machine using the specified username and password. If you elect to upload an SSH public key in the Management Portal, password-based authentication will be disabled and you will be required to use the corresponding SSH private key to authenticate with the virtual machine and log in.
+When creating a Linux virtual machine using the Windows Azure Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Windows Azure is subject to the following constraint: names of system accounts already present in the virtual machine are not allowed - root for example.  If you don???t provide the SSH public key, you will be able to log in to the virtual machine using the specified username and password. If you elect to upload an SSH public key in the Management Portal, password-based authentication will be disabled and you will be required to use the corresponding SSH private key to authenticate with the virtual machine and log in.
 
 <h2><a id="keygeneration"></a>SSH Key Generation </h2>
 
@@ -44,15 +44,15 @@ The current version of the Management Portal only accepts SSH public keys that a
 
 5. Connect to the Linux virtual machine using ssh.
 
-		ssh –i  myPrivateKey.key –p port  username@servicename.cloudapp.net
+		ssh ???i  myPrivateKey.key ???p port  username@servicename.cloudapp.net
 
-	You will be prompted to accept the fingerprint of the host’s public key the first time you log in.
+	You will be prompted to accept the fingerprint of the host???s public key the first time you log in.
 
 6. You may optionally copy myPrivateKey.key to ~/.ssh/id_rsa so that your openssh client can automatically pick this up without the use of the -i option.
 
 <h2><a id="superuserprivileges"></a>Obtaining Superuser Privileges Using Sudo</h2> 
 
-The user account that is specified during virtual machine instance deployment on Windows Azure is a privileged account. This account is configured by the Windows Azure Linux Agent to be able to elevate privileges to root (superuser account) using the sudo tool. Once you’re logged in using this user account, you will be able to run commands as root using “sudo command”. You can optionally obtain a root shell using **sudo -s**.
+The user account that is specified during virtual machine instance deployment on Windows Azure is a privileged account. This account is configured by the Windows Azure Linux Agent to be able to elevate privileges to root (superuser account) using the sudo tool. Once you???re logged in using this user account, you will be able to run commands as root using ???sudo command???. You can optionally obtain a root shell using **sudo -s**.
 
 <h2><a id="firewallconfiguration"></a>Firewall Configuration </h2>
 

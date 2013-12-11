@@ -8,7 +8,7 @@ Contact the partners listed on this page for assistance in delivering your Linux
 
 ##Bitnami
 
-[![Bitnami](../media/bitnami.png) ](http://bitnami.org/azure/get-started)
+[![Bitnami](./media/cloud-services-linux-partners/bitnami.png) ](http://bitnami.org/azure/get-started)
 
 [http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
 
@@ -17,7 +17,7 @@ BitNami provides fully configured images of popular web applications that can be
 
 ##Opscode Chef
 
-[![Opscode](../media/opscode.png)](http://www.opscode.com/partners/microsoft) 
+[![Opscode](./media/cloud-services-linux-partners/opscode.png)](http://www.opscode.com/partners/microsoft) 
 
 [www.opscode.com/partners/microsoft](http://www.opscode.com/partners/microsoft)
 	 
@@ -25,7 +25,7 @@ Opscode is the company behind Chef, the rapidly growing cloud infrastructure aut
 
 ##RightScale
 
-[![Rightscale](../media/rightscale-tagline-white-bg.png)](http://www.rightscale.com/microsoft-azure)
+[![Rightscale](./media/cloud-services-linux-partners/rightscale-tagline-white-bg.png)](http://www.rightscale.com/microsoft-azure)
 
 [www.rightscale.com/microsoft-azure](http://www.rightscale.com/microsoft-azure)
 
@@ -33,7 +33,7 @@ RightScale® Inc., cloud management enables organizations to easily deploy and m
 
 ##ScaleXtreme
 
-[![ScaleXtreme](../media/scaleXtreme.png) ](http://www.scalextreme.com/partners-windows-azure)
+[![ScaleXtreme](./media/cloud-services-linux-partners/scaleXtreme.png) ](http://www.scalextreme.com/partners-windows-azure)
 
 [www.scalextreme.com/partners-windows-azure](http://www.scalextreme.com/partners-windows-azure)
  
@@ -44,7 +44,7 @@ ScaleXtreme gives customers the power to build, launch, monitor, patch, and mana
 
 ##SUSE Studio
 
-[![SUSE](../media/suse.png) ](http://www.susestudio.com)
+[![SUSE](./media/cloud-services-linux-partners/suse.png) ](http://www.susestudio.com)
 
 [www.susestudio.com](http://www.susestudio.com)
 
@@ -53,7 +53,7 @@ SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to 
 
 ##Ubuntu Juju
 
-[![Juju](../media/juju.png)](http://www.ubuntu.com/cloud/azure)
+[![Juju](./media/cloud-services-linux-partners/juju.png)](http://www.ubuntu.com/cloud/azure)
 
 [http://www.ubuntu.com/cloud/azure](http://www.ubuntu.com/cloud/azure)
 

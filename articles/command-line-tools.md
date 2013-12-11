@@ -3,4 +3,4 @@
 
 
 
-<div chunk="../../../shared/chunks/command-line-tools.md" />
+[WACOM.INCLUDE [command-line-tools](../includes/command-line-tools.md)]

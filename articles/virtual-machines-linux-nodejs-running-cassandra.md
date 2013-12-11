@@ -31,13 +31,13 @@ There are two deployment models that are feasible for Cassandra application envi
 
 ## <a id="composite"> </a> Composite Deployment ##
 
-The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can’t be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
+The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can???t be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
 
-![Composite deployment diagram](../Media/cassandra-linux1.png)
+![Composite deployment diagram](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
 
 ##<a id="deployment"> </a>Windows Azure Virtual Machine Deployment##
 
-![Virtual machine deployment](../Media/cassandra-linux2.png)
+![Virtual machine deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
 
 In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Machines behind a load balancer that is configured to allow Thrift traffic. Azure hosted PaaS application accesses the cluster using language specific Thrift libraries. There are libraries for languages including Java, C#, Node.js, Python and C++. The self-contained Virtual Machines deployment shown in the second diagram consumes data by applications running inside another cloud service hosted on Virtual Machines. 
 
@@ -45,7 +45,7 @@ In the above diagrams a 4-node Cassandra cluster is deployed inside Virtual Mach
 
 During the Virtual Machines preview release, in order for the Linux VMs to be part of the same virtual network, all the machines need to be deployed to the same cloud service. Typical sequence for creating a cluster is: 
 
-![Sequence diagram for creating a cluster](../Media/cassandra-linux4.png)
+![Sequence diagram for creating a cluster](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux4.png)
 
 **Step 1: Generate SSH Key pair**
 
@@ -71,7 +71,7 @@ Then, enter the following information on the VM Configuration screen:
 	<tr>
 		<td>New User Name</td>
 		<td>localadmin</td>
-		<td>“admin” is a reserved user name in Ubuntu 12.xx</td>
+		<td>???admin??? is a reserved user name in Ubuntu 12.xx</td>
 	</tr>
 	<tr>
 		<td>New Password</td>
@@ -111,8 +111,8 @@ Enter the following information on the VM Mode screen:
 	</tr>
 	<tr>
 		<td>Standalone Virtual VM</td>
-		<td>“check” the radio box</td>
-		<td>This is for the first VM for subsequent VMs, we will use “Connect to Existing VM” option</td>
+		<td>???check??? the radio box</td>
+		<td>This is for the first VM for subsequent VMs, we will use ???Connect to Existing VM??? option</td>
 	</tr>
 	<tr>
 		<td>DNS Name</td>
@@ -131,19 +131,19 @@ Enter the following information on the VM Mode screen:
 	</tr>
 </table>
 
-Repeat the above process for all the virtual machines that will be part of the Cassandra cluster.  At this point all the machines will be part of the same network and can ping each other.  If the ping doesn’t work, check the VM’s firewall (e.g. iptables) configuration to make sure that ICMP is allowed. Be sure to disable ICMP once network connectivity is successfully tested to reduce the attack vector. 
+Repeat the above process for all the virtual machines that will be part of the Cassandra cluster.  At this point all the machines will be part of the same network and can ping each other.  If the ping doesn???t work, check the VM???s firewall (e.g. iptables) configuration to make sure that ICMP is allowed. Be sure to disable ICMP once network connectivity is successfully tested to reduce the attack vector. 
 
 **Step 3:  Add  a Load Balanced Thrift Endpont** 
 
 After step 1 and step 2, each VM should have SSH endpoint already defined. Now let us add the load balanced Thrift endpoint with a public port of 9160. Here is sequence:
 
-a.	From the details view of the first VM, click “Add Endpoint”
+a.	From the details view of the first VM, click ???Add Endpoint???
 
-b.	On the “Add endpoint to virtual machine” screen, select “Add endpoint” radio button
+b.	On the ???Add endpoint to virtual machine??? screen, select ???Add endpoint??? radio button
 
 c.	Click right arrow 
 
-d.	On the “Specify endpoint details”  screen enter the following
+d.	On the ???Specify endpoint details???  screen enter the following
 <table>
 	<tr>
 		<th >Field Name</th>
@@ -171,13 +171,13 @@ d.	On the “Specify endpoint details”  screen enter the following
 		<td>Unless you changed this in cassandra.yaml</td>
 	</tr>
 </table>
-After the above work, the first VM will display cassandra endpoint with LOAD BALANCED field as “NO”. Ignore this for the moment as this will change to “YES” once we add this endpoint to the subsequent VMs
+After the above work, the first VM will display cassandra endpoint with LOAD BALANCED field as ???NO???. Ignore this for the moment as this will change to ???YES??? once we add this endpoint to the subsequent VMs
 
-e.	Now select the second VM and add endpoint by repeating the above process with only minor difference that you will select “Load-balance traffic on an existing endpoint” and use “cassandra-960” from the drop down box.  At this stage, the endpoint mapping to both the VMs will change the status from LOAD BALANCED status “NO” to “YES”. 
+e.	Now select the second VM and add endpoint by repeating the above process with only minor difference that you will select ???Load-balance traffic on an existing endpoint??? and use ???cassandra-960??? from the drop down box.  At this stage, the endpoint mapping to both the VMs will change the status from LOAD BALANCED status ???NO??? to ???YES???. 
 
-Repeat “e” for the subsequent nodes in the cluster. 
+Repeat ???e??? for the subsequent nodes in the cluster. 
 
-Now that we have the VMs ready, it is time to set up Cassandra on each of the VMs. Since Cassandra is not a standard part of many Linux distributions, let’s resort to a manual deployment process.  
+Now that we have the VMs ready, it is time to set up Cassandra on each of the VMs. Since Cassandra is not a standard part of many Linux distributions, let???s resort to a manual deployment process.  
 
 [Please note that we are using a manual approach for the software installation on each VM. However, the process can be expedited by setting up a fully functioning Cassandra VM, capture it as the base image and create additional instances from this base image. The instructions for capturing the Linux image are located at [How to Capture an Image of a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/capture-an-image/).] 
 
@@ -195,7 +195,7 @@ Cassandra requires Java Virtual Machine and hence install the latest JRE using t
 
 1.	Login using SSH to the Linux (Ubuntu) VM instance.
 
-2.	Use wget to download Cassandra bits from the mirror suggested at (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] to “~/downloads” directory as apache-cassandra-bin.tar.gz. Please note that the version number is not included in the downloaded file to make sure that the publication remains agnostic of the version.
+2.	Use wget to download Cassandra bits from the mirror suggested at (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] to ???~/downloads??? directory as apache-cassandra-bin.tar.gz. Please note that the version number is not included in the downloaded file to make sure that the publication remains agnostic of the version.
 
 3.	Unzip the tar ball into the default login directory by executing the following command: 
 	
@@ -204,8 +204,8 @@ The above will expand the archive into apache-cassandra- [version] directory.
 
 4. Create the following two default directories for holding logs and data:
 
-		$ sudo chown -R [user]:[group] /var/lib/cassandra
-		$ sudo chown -R [user]:[group] /var/log/cassandra
+		$ sudo chown -R /var/lib/cassandra
+		$ sudo chown -R /var/log/cassandra
 5.	Grant write permissions to the user identity under which  Cassandra will run	
 
 		a.	sudo chown -R <user>:<group> /var/lib/cassandra
@@ -215,30 +215,30 @@ The above will expand the archive into apache-cassandra- [version] directory.
 
 		$ ./cassandra
 
-The above will start the Cassandra node as a background process. Use “cassandra –f” to start the process in the foreground mode.
+The above will start the Cassandra node as a background process. Use ???cassandra ???f??? to start the process in the foreground mode.
 
 The log should may show mx4j error. Cassandra will function fine without mx4j but it is necessary for managing the Cassandra installation.  Kill Cassandra process before the next step.
 
 **Step 3: Install mx4j**
 
 	a)	Download mx4j: wget [http://sourceforge.net/projects/mx4j/files/MX4J%20Binary/3.0.2/mx4j-3.0.2.tar.gz/download](http://sourceforge.net/projects/mx4j/files/MX4J%20Binary/3.0.2/mx4j-3.0.2.tar.gz/download) -O mx4j.tar.gz
-	b)	tar –zxvf mx4j.tar.gz
+	b)	tar ???zxvf mx4j.tar.gz
 	c)	cp mx4j-23.0.2/lib/*.jar ~/apache-cassandra-<version>/lib
-	d)	rm –rf mx4j-23.0.2
+	d)	rm ???rf mx4j-23.0.2
 	e)	rm mx4j.tar.gz
 Restart Cassandra process at this stage
 
 **Step 4: Test Cassandra Installation**
 
-Execute the following command from Cassandra’s bin directory for connecting using thrift client:
+Execute the following command from Cassandra???s bin directory for connecting using thrift client:
 
-	cassandra-cli –h localhost –p 9160
+	cassandra-cli ???h localhost ???p 9160
 
 **Step 5: Enable Cassandra for External Connections**
 
 By default Cassandra is only set up to listen on the loop back address and hence for external connections this change is mandatory. 
 
-Edit  “conf/cassandra.yaml” to change the **listen\_address** and **rpc\_address** to the IP address or hostname of the server so that the current node will be visible to the other nodes as well as to the external load balancers.
+Edit  ???conf/cassandra.yaml??? to change the **listen\_address** and **rpc\_address** to the IP address or hostname of the server so that the current node will be visible to the other nodes as well as to the external load balancers.
 
 Repeat Step 1 through 5 for all the nodes in the cluster.
 
@@ -250,7 +250,7 @@ Edit cassandra.yaml to change the following properties in all the VMs:
 
 **a)	cluster_name**
 
-Default cluster name is set to ‘Test Cluster’; change it to something that reflects your application.  Example:  ‘AppStore’ . If you had already started the cluster with “Test Cluster” for testing during the installation, you will get a cluster name mismatch error. To fix this error, delete all the files under /var/lib/cassandra/data/system directory.
+Default cluster name is set to ???Test Cluster???; change it to something that reflects your application.  Example:  ???AppStore??? . If you had already started the cluster with ???Test Cluster??? for testing during the installation, you will get a cluster name mismatch error. To fix this error, delete all the files under /var/lib/cassandra/data/system directory.
 
 **b)	seeds**
 
@@ -263,7 +263,7 @@ Restart Cassandra on all the nodes to apply the above changes.
 
 **Step 7: Test the multi-node Cluster**
 
-Nodetool installed into the Cassandra’s bin directory will help with cluster operations. We will use nodetool to verify the cluster setup through the following command format: 
+Nodetool installed into the Cassandra???s bin directory will help with cluster operations. We will use nodetool to verify the cluster setup through the following command format: 
 
 	$ bin/nodetool -h <hostname> -p 7199 ring
 
@@ -322,7 +322,7 @@ If the configuration is correct, it should display the information as shown belo
 	</tr>
 </table>
 
-At this stage, the cluster is ready for Thrift clients through the cloud service URL (DNS name given during creation of the first VM) created during the “Deploy Linux Cluster” task. 
+At this stage, the cluster is ready for Thrift clients through the cloud service URL (DNS name given during creation of the first VM) created during the ???Deploy Linux Cluster??? task. 
 
 ##<a id="task3"> </a>Task 3: Access Cassandra Cluster from Node.js##
 
@@ -339,7 +339,7 @@ b)	We will use source from GitHub to compile and install; before we can clone th
 c)	Clone Node repo
 
 	git clone git://github.com/joyent/node.git
-d)	The above will create the directory with name “node”. Execute the following command sequence to compile install node.js:
+d)	The above will create the directory with name ???node???. Execute the following command sequence to compile install node.js:
 
 	cd node
 	./configure
@@ -358,7 +358,7 @@ e)	Install NPM from stable binaries by executing the following command
 
 Cassandra storage uses the concepts of KEYSPACE and COLUMNFAMILY which can be approximately compared to DATABASE and TABLE structures in the RDBMS parlance. The KEYSAPCE will contain a set of COLUMNFAMILY definitions. Each COLUMNFAMILY will contain a set of rows and in turn each row contains several columns as shown in the composite view below:
 
-![Rows and columns](../Media/cassandra-linux3.png)
+![Rows and columns](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png)
 
 We will use the previously deployed Cassandra cluster to demonstrate node.js access by creating and querying the above data structures.  We will create a simple node.js script that performs the basic preparation of the cluster for storing customer data. The techniques shown in the script can easily be used in a node.js web application or web services. Please keep in mind that the snippets are only meant to show how the stuff works and for real world solutions, the code shown has a lot of room (e.g. security, logging, scalability, etc.) for improvement. 
 
@@ -392,7 +392,7 @@ In preparation for storing the customer data, we need to first create a KEYSPACE
 	   con.shutdown();
 	} 
 	
-createKeysapce function takes a callback function as the argument which is meant to execute the COLUMNFAMILY creation function as KEYSPACE is a prerequisite for column family creation.  Note that we need to connect to “system” KEYSPACE for application KEYSPACE definition.  [Cassandra Query Language (CQL)](http://cassandra.apache.org/doc/cql/CQL.html) is consistently used in interacting with the cluster throughout these snippets. Since the CQL composed in the above script didn’t have any parameter markers we are using a blank parameter collection (“[]”) when PooledConnection.execute() method. 
+createKeysapce function takes a callback function as the argument which is meant to execute the COLUMNFAMILY creation function as KEYSPACE is a prerequisite for column family creation.  Note that we need to connect to ???system??? KEYSPACE for application KEYSPACE definition.  [Cassandra Query Language (CQL)](http://cassandra.apache.org/doc/cql/CQL.html) is consistently used in interacting with the cluster throughout these snippets. Since the CQL composed in the above script didn???t have any parameter markers we are using a blank parameter collection (???[]???) when PooledConnection.execute() method. 
 
 Upon successful key space creation, the function createColumnFamily(),  shown in the following snippet, will be executed to create the necessary COLUMNFAMILY definitions:
 
