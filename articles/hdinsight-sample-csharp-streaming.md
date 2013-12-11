@@ -72,8 +72,8 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 		Select-AzureSubscription $subscriptionName
               
 		# Blob storage container and account name
-		$storageAccountKey = Get-AzureStorageKey –StorageAccountName $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey 
+		$storageAccountKey = Get-AzureStorageKey ???StorageAccountName $storageAccountName | %{ $_.Primary }
+		$storageContext = New-AzureStorageContext ???StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey 
  
 		# Retrieve the output
 		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
@@ -177,8 +177,8 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 [pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
 [wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
 [10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
-[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
-[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
+
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+

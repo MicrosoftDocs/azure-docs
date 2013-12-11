@@ -57,7 +57,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 4. Run the following command to create a MapReduce job definition"
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
-		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" –Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
+		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" ???Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final argument,  */example/data/10GB-sort-input*, specifies the output directory to which the results are saved (which contains the input for the following sort stage).
 
@@ -82,7 +82,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 3. Run the following command to define the MapReduce job: 	 
 
 		# Create a MapReduce job definition for the TeraSort MapReduce program
-		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile “/example/jars/hadoop-examples.jar” -ClassName "terasort" –Arguments "-Dmapred.map.tasks=50", “-Dmapred.reduce.tasks=25”, “/example/data/10GB-sort-input”, “/example/data/10GB-sort-output” 
+		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile ???/example/jars/hadoop-examples.jar??? -ClassName "terasort" ???Arguments "-Dmapred.map.tasks=50", ???-Dmapred.reduce.tasks=25???, ???/example/data/10GB-sort-input???, ???/example/data/10GB-sort-output??? 
 
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final two arguments specify the input and output directories. 
 
@@ -107,7 +107,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 3. Run the following command to define the MapReduce job: 
 
 		#	Create a MapReduce job definition for the TeraValidate MapReduce program
-		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile “/example/jars/hadoop-examples.jar” -ClassName "teravalidate" –Arguments "-Dmapred.map.tasks=50", “-Dmapred.reduce.tasks=25”, “/example/data/10GB-sort-output”, “/example/data/10GB-sort-validate” 
+		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile ???/example/jars/hadoop-examples.jar??? -ClassName "teravalidate" ???Arguments "-Dmapred.map.tasks=50", ???-Dmapred.reduce.tasks=25???, ???/example/data/10GB-sort-output???, ???/example/data/10GB-sort-validate??? 
 
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. he *"-Dmapred.reduce.tasks=25"* argument specifies that 25 reduce tasks will be created to execute the job. The final two arguments specify the input and output directories.  
  
@@ -417,8 +417,8 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 [pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
 [wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
 [cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
-[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
-[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
+
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 

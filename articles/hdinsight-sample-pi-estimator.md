@@ -47,7 +47,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 4. Run the following command to create a MapReduce definition:	
 
-		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" –Arguments “16”, “10000000” 
+		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" ???Arguments ???16???, ???10000000??? 
 
 	The first argument indicates how many maps to create (default is 16). The second argument indicates how many samples are generated per map (10 million by default). So this program uses 10*10 million = 160 million random points to make its estimate of Pi. 
 
@@ -58,7 +58,7 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 		$piJob = $piEstimatorJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName
 	
 		# Wait for the job to complete.  
-		$piJob | Wait-AzureHDInsightJob –Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
+		$piJob | Wait-AzureHDInsightJob ???Subscription $subscriptionName -WaitTimeoutInSeconds 3600  
 
 6. Run the following command to retrieve the MapReduce job standard output:
 
@@ -435,9 +435,9 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 [10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
 [wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
 [cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
-[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
-[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
+
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
  
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+

@@ -6,14 +6,14 @@
 
 The Windows Azure Media Services iOS Media Player Framework library makes it easy for iPod, iPhone, and iPad developers to create rich, dynamic client applications that create and mix video and audio streams together on the fly. For example, applications that display sports content can easily insert advertisements wherever they choose and control how often those advertisements appear even when the main content is rewound. Educational applications can use the same functionality, for example, to create content in which the main lectures have asides, or sidebars, before returning to the main content.
 
-Typically it???s relatively complex work to build an application that can create content streams that result from an interaction between the application and its user ??? normally, you must create the entire stream from scratch and store it, in advance, on the server. Using the iOS Media Player Framework, you can build client applications that can do all of this without having control over or modifying the main content stream. You can:
+Typically it's relatively complex work to build an application that can create content streams that result from an interaction between the application and its user - normally, you must create the entire stream from scratch and store it, in advance, on the server. Using the iOS Media Player Framework, you can build client applications that can do all of this without having control over or modifying the main content stream. You can:
 
 - Schedule content streams in advance on the client device.
 - Schedule pre-roll advertisements or inserts.
 - Schedule post-roll advertisements or inserts.
 - Schedule mid-roll advertisements or inserts and create ad pods.
 - Control whether the mid-roll advertisement or insert plays each time the content timeline is rewound or whether it only plays once and then removes itself from the timeline.
-- Dynamically insert content directly into the timeline as a result of any event, whether the user pushed a button or the application received a notification from a service ??? for example, a news content program could send notifications of breaking news and the application could ???pause??? the main content to dynamically load a breaking news stream. 
+- Dynamically insert content directly into the timeline as a result of any event, whether the user pushed a button or the application received a notification from a service - for example, a news content program could send notifications of breaking news and the application could "pause" the main content to dynamically load a breaking news stream. 
 
 Combining these features with the media playing facilities of iOS devices makes it possible to build very rich media experiences in a very short time with fewer resources.
 
@@ -43,7 +43,7 @@ There are two .xib files define our player interface. (The following discussion 
 ![Sample Player Address Bar](http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png)
 
 * The **Media URL** is the URL used to load a media stream. The application has a prepulated list of media URLs that you can use by using URL selection buttons. Alternatively, you can enter your own Http Live Streaming (HLS) content URL. This media content will be used as the first main content. 
-**Note: please don???t leave this URL empty.**
+**Note: please don't leave this URL empty.**
 
 * The **URL Selection** buttons enable you to select alternate URLs from the media URL list.
 
@@ -53,13 +53,13 @@ There are two .xib files define our player interface. (The following discussion 
 
 * The **Seek bar** projects the entire playback timeline. When you seek, please press and hold, drag to the position you want, and release the seek button on seek bar. 
 
-**Note**: When the viewer seeks into an advertisement, a new seek bar appears with advertisement???s duration. The Main seek bar only presents the main content???s duration (that is, an advertisement has a duration of 0 in main seek bar).
+**Note**: When the viewer seeks into an advertisement, a new seek bar appears with advertisement's duration. The Main seek bar only presents the main content's duration (that is, an advertisement has a duration of 0 in main seek bar).
 
 * The **Player time** control shows two times (`Label:playerTime`), such as 00:23/02:10. In this case, 00:23 would be the current playback time and 02:10 would be the total duration of the media. 
 
 * **SkipFroward and SkipBackward button**s  do not currently work as expected; an updated version will be released soon.
 
-* Pressing the **Schedule Now button** while main content playing inserts an advertisement (you can define the ad source url in code-behind). Note: In the current version, you can???t schedule an advertisement while the other advertisement is playing. 
+* Pressing the **Schedule Now button** while main content playing inserts an advertisement (you can define the ad source url in code-behind). Note: In the current version, you can't schedule an advertisement while the other advertisement is playing. 
 
 ### How to Schedule the Main Content
 Scheduled a content clip from 0 second to 80 seconds:
@@ -105,8 +105,8 @@ In the current release, only a **pauseTimeline=false** advertisement is supporte
 
 Here are some key points:
 * All **LinearTime.duration** needs to be 0 when scheduling an advertisement.
-* When **clipEndMediaTime** is longer than the duration of the advertisement, the advertisement ends after it is finished and no exception is thrown. You are advised to verify whether advertisement natural duration is within the render time (**clipEndMediaTime**) so you don???t lose an ad opportunity. 
-* Pre-roll, mid-roll, and post-roll advertisements are supported. Pre-roll can only be scheduled at the very beginning of all content. For instance, you can???t schedule a pre-roll for the second content in a rough cut editing (RCE) scenario. 
+* When **clipEndMediaTime** is longer than the duration of the advertisement, the advertisement ends after it is finished and no exception is thrown. You are advised to verify whether advertisement natural duration is within the render time (**clipEndMediaTime**) so you don't lose an ad opportunity. 
+* Pre-roll, mid-roll, and post-roll advertisements are supported. Pre-roll can only be scheduled at the very beginning of all content. For instance, you can't schedule a pre-roll for the second content in a rough cut editing (RCE) scenario. 
 * Sticky ads and play-once ads are supported and can be used in conjunction with either pre-roll, mid-roll or post-roll advertisement.
 * Advertisement format can be either .Mp4 or HLS.
 
