@@ -1,4 +1,4 @@
-﻿<properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Windows Azure" metaKeywords="" metaDescription="Learn how to create and manage your Service Bus entities using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Windows Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors=""  solutions=""/>
 
 
 
@@ -109,8 +109,8 @@ You can use the portal to change the status of a Service Bus entity. This is app
 [.NET Developer Center]: http://go.microsoft.com/fwlink/?LinkID=262187
 [Creating Applications that Use Service Bus Topics and Subscriptions]: http://go.microsoft.com/fwlink/?LinkId=264293
 [Queues, Topics, and Subscriptions]: http://go.microsoft.com/fwlink/?LinkId=264291
-[1]: ../../Shared/Media/QueueQuickCreate.png
-[2]: ../../Shared/Media/AddQueue1.png
-[3]: ../../Shared/Media/ConfigureQueue.png
-[4]: ../../Shared/Media/DeleteEntity.png
-[5]: ../../Shared/Media/DisableEnable.png
+[1]: ./media/service-bus-manage-message-entities/QueueQuickCreate.png
+[2]: ./media/service-bus-manage-message-entities/AddQueue1.png
+[3]: ./media/service-bus-manage-message-entities/ConfigureQueue.png
+[4]: ./media/service-bus-manage-message-entities/DeleteEntity.png
+[5]: ./media/service-bus-manage-message-entities/DisableEnable.png
