@@ -289,4 +289,4 @@ The errors a user can encounter in Windows Azure PowerShell or in the Windows Az
 
 
 
-[image-hdi-error-message]: ../media/HDI.Debug.ErrorMessages.Portal.png
+[image-hdi-error-message]: ./media/hdinsight-debug-jobs/HDI.Debug.ErrorMessages.Portal.png
