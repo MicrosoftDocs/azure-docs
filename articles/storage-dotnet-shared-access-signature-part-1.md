@@ -12,18 +12,18 @@ A shared access signature provides delegated access to resources in your storage
 
 ## When Should You Use a Shared Access Signature? ##
 
-You can use a SAS when you want to provide access to resources in your storage account to a client that can’t be trusted with the account key. Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it. Exposing either of your account keys opens your account to the possibility of malicious or negligent use. Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.
+You can use a SAS when you want to provide access to resources in your storage account to a client that can???t be trusted with the account key. Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it. Exposing either of your account keys opens your account to the possibility of malicious or negligent use. Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.
 
 A common scenario where a SAS is useful is a service where users read and write their own data to your storage account. In a scenario where a storage account stores user data, there are two typical design patterns:
 
 
 1\. Clients upload and download data via a front-end proxy service, which performs authentication. This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.
 
-![sas-storage-fe-proxy-service][]
+![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
 2\.	A lightweight service authenticates the client as needed and then generates a SAS. Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
 
-![sas-storage-provider-service][]
+![sas-storage-provider-service][sas-storage-provider-service]
 
 Many real-world services may use a hybrid of these two approaches, depending on the scenario involved, with some data processed and validated via the front-end proxy while other data is saved and/or read directly using SAS.
 
@@ -173,7 +173,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 A shared access signature can take one of two forms:
 
 - **Ad hoc SAS:** When you create an ad hoc SAS, the start time, expiry time, and permissions for the SAS are all specified on the SAS URI (or implied, in the case where start time is omitted). This type of SAS may be created on a container, blob, table, or queue.
-- **SAS with stored access policy:** A stored access policy is defined on a resource container – a blob container, table, or queue – and can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints – the start time, expiry time, and permissions – defined for the stored access policy.
+- **SAS with stored access policy:** A stored access policy is defined on a resource container ??? a blob container, table, or queue ??? and can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints ??? the start time, expiry time, and permissions ??? defined for the stored access policy.
 
 The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with. If a SAS is published publically, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
 
@@ -187,7 +187,7 @@ The difference between the two forms is important for one key scenario: revocati
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
 
 - If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your storage account.
-- If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application’s functionality may be hindered.  
+- If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application???s functionality may be hindered.  
 
 The following recommendations for using shared access signatures will help balance these risks:
 
@@ -195,11 +195,11 @@ The following recommendations for using shared access signatures will help balan
 2. **Reference stored access policies where possible.** Stored access policies give you the option to revoke permissions without having to regenerate the storage account keys.  Set the expiration on these to be a very long time (or infinite)  and make sure that it is regularly updated to move it farther into the future.
 3. **Use near-term expiration times on an ad hoc SAS.** In this way, even if a SAS is compromised unknowingly, it will only be viable for a short time duration. This practice is especially important if you cannot reference a stored access policy. This practice also helps limit the amount of data that can be written to a blob by limiting the time available to upload to it.
 4. **Have clients automatically renew the SAS if necessary.** Clients should renew the SAS well before the expected expiration, in order to allow time for retries if the service providing the SAS is unavailable.  If your SAS is meant to be used for a small number of immediate, short-lived operations, which are expected to be completed within the expiration time given, then this may not be necessary, as the SAS is not expected be renewed.  However, if you have client that is routinely making requests via SAS, then the possibility of expiration comes into play.  The key consideration is to balance the need for the SAS to be short-lived (as stated above) with the need to ensure that the client is requesting renewal early enough to avoid disruption due to the SAS expiring prior to successful renewal.
-5. **Be careful with SAS start time.** If you set the start time for a SAS to **now**, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes.  In general, set the start time to be at least 15 minutes ago, or don’t set it at all, which will make it valid immediately in all cases.  The same generally applies to expiry time as well – remember that you may observe up to 15 minutes of clock skew in either direction on any request.  Note for clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour, and any policies specifying longer term than that will fail.
+5. **Be careful with SAS start time.** If you set the start time for a SAS to **now**, then due to clock skew (differences in current time according to different machines), failures may be observed intermittently for the first few minutes.  In general, set the start time to be at least 15 minutes ago, or don???t set it at all, which will make it valid immediately in all cases.  The same generally applies to expiry time as well ??? remember that you may observe up to 15 minutes of clock skew in either direction on any request.  Note for clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour, and any policies specifying longer term than that will fail.
 6.	**Be specific with the resource to be accessed.** A typical security best practice is to provide a user with the minimum required privileges.  If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities.  This also helps mitigate the threat of the SAS being compromised, as the SAS has less power in the hands of an attacker.
-7.	**Understand that your account will be billed for any usage, including that done with SAS.** If you provide write access to a blob, a user may choose to upload a 200GB blob.  If you’ve given them read access as well, they may choose do download it 10 times, incurring 2TB in egress costs for you.  Again, provide limited permissions, to help mitigate the potential of malicious users.  Use short-lived SAS to reduce this threat (but be mindful of clock skew on the end time).
+7.	**Understand that your account will be billed for any usage, including that done with SAS.** If you provide write access to a blob, a user may choose to upload a 200GB blob.  If you???ve given them read access as well, they may choose do download it 10 times, incurring 2TB in egress costs for you.  Again, provide limited permissions, to help mitigate the potential of malicious users.  Use short-lived SAS to reduce this threat (but be mindful of clock skew on the end time).
 8.	**Validate data written using SAS.** When a client application writes data to your storage account, keep in mind that there can be problems with that data. If your application requires that that data be validated or authorized before it is ready to use, you should perform this validation after the data is written and before it is used by your application. This practice also protects against corrupt or malicious data being written to your account, either by a user who properly acquired the SAS, or by a user exploiting a leaked SAS.
-9. **Don’t always use SAS.** Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of SAS.  For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing. Also, sometimes it's simpler to manage access in other ways. For example, if you want to make all blobs in a container publically readable, you can make the container Public, rather than providing a SAS to every client for access.
+9. **Don???t always use SAS.** Sometimes the risks associated with a particular operation against your storage account outweigh the benefits of SAS.  For such operations, create a middle-tier service that writes to your storage account after performing business rule validation, authentication, and auditing. Also, sometimes it's simpler to manage access in other ways. For example, if you want to make all blobs in a container publically readable, you can make the container Public, rather than providing a SAS to every client for access.
 10.	**Use Storage Analytics to monitor your application.** You can use logging and metrics to observe any spike in authentication failures due to an outage in your SAS provider service or or to the inadvertent removal of a stored access policy. See the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) for additional information.
 
 ## Conclusion ##
@@ -216,5 +216,5 @@ Shared access signatures are useful for providing limited permissions to your st
 
 [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
-[sas-storage-fe-proxy-service]: ../../../../DevCenter/dotNET/Media/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ../../../../DevCenter/dotNET//Media/sas-storage-provider-service.png
+
+
