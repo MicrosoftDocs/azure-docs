@@ -163,7 +163,7 @@ In this section you will learn how to upload files to Hadoop cluster programmati
 
 While the application is open in Visual Studio, press **F5** to run the application. A console window should open and display the steps executed by the application as data is uploaded, stored into a Hive table, and finally queried. Once the application is complete and the query results have been returned, press any key to terminate the application.
 
-![HDI.HadoopSDKOutput](../media/HDI.HadoopSDKOutput.PNG "Console Application")
+![HDI.HadoopSDKOutput](./media/hdinsight-use-hadoop-dotnet-sdk/HDI.HadoopSDKOutput.PNG "Console Application")
 
 <div class="dev-callout">
 <strong>Note</strong>

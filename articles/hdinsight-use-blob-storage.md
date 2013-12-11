@@ -10,9 +10,9 @@
 
 Windows Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Windows Azure Blob storage for storing data. Blob storage is a robust, general purpose Windows Azure storage solution. Blob storage provides a full-featured HDFS interface for a seamless experience by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data. Blob storage is not just a low-cost solution; storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Windows Azure Blob storage.</p> 
+<div class="dev-callout">??
+<b>Note</b>??
+<p>Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Windows Azure Blob storage.</p>??
 </div>
 
 For information on provisioning an HDInsight cluster, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
@@ -28,7 +28,7 @@ For information on provisioning an HDInsight cluster, see [Get Started with Wind
 ##<a id="architecture"></a>HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
-![HDI.ASVArch](../Media/HDI.ASVArch.png "HDInsight Storage Architecture")
+![HDI.ASVArch](./media/hdinsight-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture")
   
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed using the fully qualified URI. For example: 
 
@@ -36,7 +36,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 In addition, HDInsight provides the ability to access data stored in Blob storage. The syntax to access Blob storage is:
 
-	WASB[s]://[<container>@]<accountname>.blob.core.windows.net/<path>
+	WASB
 
 
 Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, user must specify a Blob storage container used as the default file system. 
@@ -47,15 +47,15 @@ Other than the Blob storage container designated as the default file system, you
 * **Container in the same storage account:** Because the account name and key are stored in the *core-site.xml*, you have full access to the files in the container.
 * **Container in a different storage account with the *public container* or the *public blob* access level:** You have read-only permission to the files in the container.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.</p> 
+	<div class="dev-callout">??
+	<b>Note</b>??
+	<p>Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.</p>??
 	</div>
 
 * **Container in a different storage account with the *private* access levels:** you must add those containers during the provision process.
 
 
-Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the “/” character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob’s key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the “/” character in the key name, it has the appearance of a file path.
+Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the ???/??? character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob???s key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the ???/??? character in the key name, it has the appearance of a file path.
 
 
 
@@ -94,11 +94,11 @@ When provisioning an HDInsight cluster from Windows Azure Management Portal, the
 
 Using the quick create option, you can choose an existing storage account. The provision process creates a new container with the same name as the HDInsight cluster name. This container is used as the default file system.
 
-![HDI.QuickCreate](../Media/HDI.QuickCreateCluster.png "HDInsight Cluster Quick Create")
+![HDI.QuickCreate](./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png "HDInsight Cluster Quick Create")
  
 Using the custom create, you can either choose an existing Blob storage container or create a new container to be provisioned as the default file system. The new container has the same name as the HDInsight cluster name.
 
-![HDI.CustomCreateStorageAccount](../Media/HDI.CustomCreateStorageAccount.png "Custom Create Storage Account")
+![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png "Custom Create Storage Account")
 
 
 
@@ -149,7 +149,7 @@ The example command will not only create the new directory *newdirectory* but, i
 
 The URI scheme for accessing files in Blob storage is: 
 
-	WASB[S]://[<container>@]<accountname>.blob.core.windows.net/<path>
+	WASB
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with *WASBS*. We recommend using *WASBS* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 	
@@ -159,7 +159,7 @@ The &lt;accountname&gt; identifies the storage account name. A fully qualified d
 	
 If neither the container nor the accountname has been specified, then the default file system is used.
 	
-The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A “/” inside a blob key is interpreted as a directory separator. Thus, if a blob key is *input/log1.txt*, then it is the file *log1.txt* inside the directory *input*.
+The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A ???/??? inside a blob key is interpreted as a directory separator. Thus, if a blob key is *input/log1.txt*, then it is the file *log1.txt* inside the directory *input*.
 
 For example:
 
@@ -169,7 +169,7 @@ refers to the *file log1.txt* in the directory *input* on the Blob storage conta
 	
 	wasbs://myaccount.blob.core.windows.net/result.txt
 	
-refers to the file *result.txt* on the read-only WASB file system in the root container at the location *myaccount.blob.core.windows.net* that gets accessed through SSL. Note that *wasb://myaccount.blob.core.windows.net/output/result.txt* results in an exception, because Blob storage does not allow “/” inside path names in the root container to avoid ambiguities between paths and folder names. 
+refers to the file *result.txt* on the read-only WASB file system in the root container at the location *myaccount.blob.core.windows.net* that gets accessed through SSL. Note that *wasb://myaccount.blob.core.windows.net/output/result.txt* results in an exception, because Blob storage does not allow ???/??? inside path names in the root container to avoid ambiguities between paths and folder names. 
 	
 	wasb:///output/result.txt 
 	
@@ -194,6 +194,6 @@ To learn more, see the following articles:
 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/

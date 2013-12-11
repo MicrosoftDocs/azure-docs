@@ -37,9 +37,9 @@ AzCopy is a command line utility which is designed to simplify the task of trans
 
 The AzCopy syntax is:
 
-	AzCopy <Source> <Destination> [filePattern [filePattern…]] [Options]
+	AzCopy <Source> <Destination> [filePattern [filePattern???]] [Options]
 
-For more information, see [AzCopy – Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
+For more information, see [AzCopy ??? Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
 
 ##<a id="powershell"></a>Upload data to Blob storage using Windows Azure PowerShell##
 
@@ -69,7 +69,7 @@ Windows Azure PowerShell is a powerful scripting environment that you can use to
 		
 3. Paste the script into the Windows Azure PowerShell console window to run it.
 
-Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob’s key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path. In the previous script, you can give the file a folder structure by setting the $blobname variable. For example *$blobname="myfolder/myfile.txt"*.
+Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob???s key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path. In the previous script, you can give the file a folder structure by setting the $blobname variable. For example *$blobname="myfolder/myfile.txt"*.
 
 Using Windows Azure Explorer tools, you may notice some 0 byte files. These files serve two purposes:
 
@@ -266,7 +266,7 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 
 Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *WASB://*. To secure the connection, use *WASBS://*. The scheme for accessing data in Blob storage is:
 
-	WASB[S]://[<container>@]<accountname>.blob.core.windows.net/<path>
+	WASB
 
 The following is a sample PowerShell script for submitting a MapReduce job:
 
@@ -291,7 +291,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 * [Use Pig with HDInsight][hdinsight-pig]
 
 
-[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+
 
 [azure-management-portal]: https://manage.windowsazure.com
 [azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
@@ -303,7 +303,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
 [hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
@@ -314,7 +314,7 @@ Now that you understand how to get data into HDInsight, use the following articl
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html
 
 [whatismyip]: http://www.whatismyip.com
-[image-azure-storage-explorer]: ../media/HDI.AzureStorageExplorer.png
-[image-ase-addaccount]: ../media/HDI.ASEAddAccount.png
-[image-ase-blob]: ../media/HDI.ASEBlob.png
+[image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
+[image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
+[image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 

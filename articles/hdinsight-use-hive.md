@@ -72,7 +72,7 @@ In this article, you use a log4j sample file distributed with the HDInsight clus
 
 To access files, use the following syntax: 
 
-		wasb[s]://[[<containername>@]<storageaccountname>.blob.core.windows.net]/<path>/<filename>
+		wasb
 
 For example:
 
@@ -198,7 +198,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 You can use the same command to run a HiveQL file:
 
-	Invoke-Hive –File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
+	Invoke-Hive ???File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
 
 		
 ##<a id="nextsteps"></a>Next steps
@@ -208,7 +208,7 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 * [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/) 
+* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)??
 * [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
@@ -216,19 +216,19 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
-[sample-log]: http://go.microsoft.com/fwlink/?LinkID=286223
+
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
-[hdinsight-admin-powershell]: /en-use/manage/services/hdinsight/administer-hdinsight-using-powershell/
+
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
-[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/
-[azure-storage-explorer]: http://azurestorageexplorer.codeplex.com/ 
 
-[image-hdi-hive-powershell]: ../media/HDI.HIVE.PowerShell.png 
+
+
+[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 
