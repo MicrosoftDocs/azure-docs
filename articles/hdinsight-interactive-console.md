@@ -46,17 +46,17 @@ In this section, you use the JavaScript console to run the WordCount sample that
 5. Enter your credential, and then click **Log On**.
 6. From the HDInsight portal, click **Samples**.
 
-	![HDI.Tiles.Samples](../media/HDI.TileSamples.PNG "Samples")
+	![HDI.Tiles.Samples](./media/hdinsight-interactive-console/HDI.TileSamples.PNG "Samples")
 
 7. From the **Hadoop Sample Gallery** page , click on the **WordCount**  tile. 
 8. Click **WordCount.js** from the upper right, and save the file  to a local directory, for example the ../downloads folder.
 
-	![HDI.JsConsole.WordCountDownloads](../media/HDI.JsConsole.WordCountDownloads.PNG "Wordcount Downloads")
+	![HDI.JsConsole.WordCountDownloads](./media/hdinsight-interactive-console/HDI.JsConsole.WordCountDownloads.PNG "Wordcount Downloads")
 
 9. Click **Windows Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
 10. Click **Interactive Cluster** to bring up the JavaScript console. 
 	
-	![HDI.Tiles.InteractiveConsole](../media/HDI.TileInteractiveConsole.PNG "Interactive Console")
+	![HDI.Tiles.InteractiveConsole](./media/hdinsight-interactive-console/HDI.TileInteractiveConsole.PNG "Interactive Console")
 11. Click **JavaScript** on the upper right.
 12. Run the following command:
 
@@ -67,7 +67,7 @@ In this section, you use the JavaScript console to run the WordCount sample that
 	- **Source:** _..\downloads\Wordcount.js
  	- **Destination:** ./WordCount.js/ 	
 
-	![HDI.JsConsole.UploadJs](../media/HDI.JsConsole.UploadJs.PNG "Upload WordCoount.js")
+	![HDI.JsConsole.UploadJs](./media/hdinsight-interactive-console/HDI.JsConsole.UploadJs.PNG "Upload WordCoount.js")
 
 	Browse the location of the WordCount.js file. The full local path will be required. The single dot at the start of the destination path is needed as part of the relative address in HDFS.
 
@@ -79,7 +79,7 @@ In this section, you use the JavaScript console to run the WordCount sample that
 		#ls
 		#cat WordCount.js
 
-	![HDI.JsConsole.JsCode](../media/HDI.JsConsole.JsCode.PNG "MapReduce program")
+	![HDI.JsConsole.JsCode](./media/hdinsight-interactive-console/HDI.JsConsole.JsCode.PNG "MapReduce program")
 
 	Note that the JavaScript map function removes capital letters from the text using the "toLowerCase()" method before counting the number of occurences of a word in the reduce function. 
 	
@@ -139,7 +139,7 @@ In the last section, you ran a MapReduce job to retrieve the top 10 words from a
 
 		graph.bar(data)
 		
-	![HDI.JsConsole.BarGraphTop10Words](../media/HDI.JsConsole.BarGraphTop10Words.PNG "Plot Top Ten Words")
+	![HDI.JsConsole.BarGraphTop10Words](./media/hdinsight-interactive-console/HDI.JsConsole.BarGraphTop10Words.PNG "Plot Top Ten Words")
 
 
 ##<a name="createhivetable"></a>Use the Hive Console to Export the Results to a Hive Table
@@ -171,7 +171,7 @@ This section introduces you to the Hive interactive console. You will create a H
 
 5. Click **EVALUATE**.
 	
-	![HDI.Hive.ShowDescribeTable](../media/HDI.Hive.ShowDescribeTable.PNG "Hive Table Confirmation")
+	![HDI.Hive.ShowDescribeTable](./media/hdinsight-interactive-console/HDI.Hive.ShowDescribeTable.PNG "Hive Table Confirmation")
 
 ##<a name="queryhivetable"></a>Use the Hive Console to Query the Data in the Hive Table
 
