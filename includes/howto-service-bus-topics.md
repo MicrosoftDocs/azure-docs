@@ -79,7 +79,7 @@ credentials for the namespace.
 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace. 
 
-  [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
+  [Topic Concepts]: ./media/howto-service-bus-topics/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
