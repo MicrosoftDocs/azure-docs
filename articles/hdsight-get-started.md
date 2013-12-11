@@ -75,7 +75,7 @@ Your Windows Azure subscription information is used by the cmdlets to connect to
 
 4. When prompted, download and save the publishing profile and note the path and name of the publishsettings file. This information is required when you run the Import-AzurePublishSettingsFile cmdlet to import the settings. The default location and file name format is:
 	
-		C:\Users\<UserProfile>\Desktop\[MySubscription-???]-downloadDate-credentials.publishsettings
+		C:\Users\<UserProfile>\Desktop\[MySubscription-...]-downloadDate-credentials.publishsettings
 
 6.	From the Windows Azure PowerShell window, run the following command to import the publishsettings file:
 
@@ -330,7 +330,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName StorageAccountKey $storageAccountKey  
 
 	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
 

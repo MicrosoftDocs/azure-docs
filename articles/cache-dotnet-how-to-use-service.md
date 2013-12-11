@@ -69,9 +69,9 @@ To create a cache, first sign in to the [Management Portal][].
 
 Click **New**, **Data Services**, **Cache Preview**, **Quick Create**.
 
-![NewCacheMenu][]
+![NewCacheMenu][NewCacheMenu]
 
-![QuickCreate][]
+![QuickCreate][QuickCreate]
 
 In **Endpoint**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
@@ -98,7 +98,7 @@ Once the new cache options are configured, click **Create a New Cache**. It can 
 
 The **Configure** tab for Cache in the Management Portal is where you configure the options for your cache. Each cache has a **default** named cache, and the Standard and Premium cache offerings support up to nine additional named caches, for a total of ten. Each named cache has its own set of options which allow you to configure your cache in a highly flexible manner.
 
-![NamedCaches][]
+![NamedCaches][NamedCaches]
 
 To create a named cache, type the name of the new cache into the **Name** box, specify the desired options, click **Save**, and click **Yes** to confirm. To cancel any changes, click **Discard**.
 
@@ -145,13 +145,13 @@ A cache created using the Cache Service (Preview) is accessible from Windows Azu
 
 To configure a client application using the Cache NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
-![NuGetPackageMenu][]
+![NuGetPackageMenu][NuGetPackageMenu]
 
 Select **Windows Azure Caching**, click **Install**, and then click I Accept.
 
 >If **Windows Azure Caching** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
-![NuGetPackage][]
+![NuGetPackage][NuGetPackage]
 
 The NuGet package does several things: it adds the required configuration to the config file of the application, and it adds the required assembly references. For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.
 
@@ -198,11 +198,11 @@ After the configuration is added, replace the following two items in the newly a
 
 1. Replace **[Cache role name or Service Endpoint]** with the endpoint, which is displayed on the Dashboard in the Management Portal.
 
-	![Endpoint][]
+	![Endpoint][Endpoint]
 
 2. Uncomment the securityProperties section, and replace **[Authentication Key]** with the authentication key, which can be found in the Management Portal by clicking **Manage Keys** from the cache dashboard.
 
-	![AccessKeys][]
+	![AccessKeys][AccessKeys]
 
 >These settings must be configured properly or clients will not be able to access the cache.
 
@@ -315,7 +315,7 @@ if it does not exist, or replaces the object if it does exist.
 
 By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time (min)** setting on the Configure tab for Cache in the Management Portal.
 
-![NamedCaches][]
+![NamedCaches][NamedCaches]
 
 There are three types of **Expiry Policy**: **Never**, **Absolute**, and **Sliding**. These configure how **Time (min)** is used to determine expiration. The default **Expiration Type** is **Absolute**, which means that the countdown timer for an item's expiration begins when the item is placed into the cache. Once the specified amount of time has elapsed for an item, the item expires. If **Sliding** is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access. If **Never** is specified, then **Time (min)** must be set to **0**, and items will not expire, and will remain valid as long as they are in the cache.
 
@@ -425,13 +425,13 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Session State in the Cache]: #store-session
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [NewCacheMenu]: ../../Media/CacheServiceNewCacheMenu.png
-  [QuickCreate]: ../../Media/CacheServiceQuickCreate.png
-  [Endpoint]: ../../Media/CacheServiceEndpoint.png
-  [AccessKeys]: ../../Media/CacheServiceManageAccessKeys.png
-  [NuGetPackage]: ../../Media/CacheServiceManageNuGetPackage.png
-  [NuGetPackageMenu]: ../../Media/CacheServiceManageNuGetPackagesMenu.png
-  [NamedCaches]: ../../Media/CacheServiceNamedCaches.jpg
+  
+  
+  
+  
+  
+  
+  
   
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
