@@ -46,7 +46,7 @@ For more information, see <http://sendgrid.com>.
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+<div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
 
 ## <a name="bkmk_HowToUseJavax"> </a>How to: Use the javax.mail libraries
 
@@ -74,7 +74,7 @@ to send email using SMTP is to do the following:
            	  properties.put("mail.smtp.host", SMTP_HOST_NAME);
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
-           	  // ...
+           	  // …
 
 2.  Extend the <span class="auto-style1">javax.mail.Authenticator</span>
     class, and in your implementation of the
@@ -169,7 +169,7 @@ see [Filter Settings][].
         	{\"enable\":1,\"text/html\": 
 			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
 
--   Another example of a filter is click tracking. Let's say that your
+-   Another example of a filter is click tracking. Let’s say that your
     email text contains a hyperlink, such as the following, and you want
     to track the click rate:
 
@@ -214,7 +214,7 @@ details, see the [SendGrid API documentation][].
 
 ## <a name="bkmk_NextSteps"> </a>Next steps
 
-Now that you've learned the basics of the SendGrid Email service, follow
+Now that you’ve learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * Sample that demonstrates using SendGrid in a Windows Azure deployment: [How to Send Email Using SendGrid from Java in a Windows Azure Deployment](/en-us/develop/java/how-to-guides/sendgrid-sample/)
@@ -232,13 +232,13 @@ these links to learn more.
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #bkmk_HowToUseFilters
   [How to: Update Email Properties]: #bkmk_HowToUpdateEmail
   [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
-  
-  
-  
-  
-  
+  [http://sendgrid.com]: http://sendgrid.com
+  [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
+  [http://www.sendgrid.com/azure.html]: http://www.sendgrid.com/azure.html
+  [http://sendgrid.com/features]: http://sendgrid.com/features
+  [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
   [Filter Settings]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [SendGrid API documentation]: http://sendgrid.com/docs/API_Reference/index.html
-  
+  [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
   [cloud-based email service]: http://sendgrid.com/solutions
   [transactional email delivery]: http://sendgrid.com/transactional-email
