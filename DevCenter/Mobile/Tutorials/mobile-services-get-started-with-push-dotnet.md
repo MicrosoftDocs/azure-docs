@@ -1,7 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" writer="glenga" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" metaDescription="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
 
 
-
 # Get started with push notifications in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
@@ -163,7 +162,7 @@ In this simple example a user receives a push notification with the data that wa
 [Get started with data]: ../tutorials/mobile-services-get-started-with-data-dotnet.md
 [Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-dotnet.md
 [Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-dotnet.md
-[Push notifications to app users]: ../tutorials/mobile-services-push-notifications-to-app-users-dotnet.md
+[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet
 [Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
 [JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-push-js.md
 [WindowsAzure.com]: http://www.windowsazure.com/

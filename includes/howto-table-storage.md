@@ -32,14 +32,13 @@ The Table service contains the following components:
     OData protocol. For more information, see [OData.org][]
 
 -   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. The total capacity of a storage account for all blob, table, and queue
-    data is 200TB for storage accounts created on or after June 8th, 2012; for storage accounts created before that date, total capacity is 100TB. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+    through a storage account. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 -   **Table**: A table is a collection of entities. Tables don't enforce
     a schema on entities, which means a single table can contain
-    entities that have different sets of properties. An account can
-    contain many tables, the size of which is only limited by the 100TB
-    storage account limit.
+    entities that have different sets of properties. The number of tables that a 
+	storage account can contain is limited only by the 
+    storage account capacity limit.
 
 -   **Entity**: An entity is a set of properties, similar to a database
     row. An entity can be up to 1MB in size.
@@ -53,6 +52,5 @@ The Table service contains the following components:
 
 
   
-[Table1]: media/howto-table-storage/table1.png
-[OData.org]: http://www.odata.org/
-  
+  [Table1]: ./media/storage-java-how-to-use-table-storage/table1.png
+  [OData.org]: http://www.odata.org/
