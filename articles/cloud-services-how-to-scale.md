@@ -57,8 +57,8 @@ On the Scale page, you can manually increase or decrease the number of running i
 
 On the Scale page, you can configure your cloud service to automatically increase or decrease the number of instances or Virtual Machines that are used by your application. You can configure scaling based on the following parameters:
 
-- [Average CPU usage](#averagecpu) ??? If the average percentage of CPU usage goes above or below specified thresholds, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.
-- [Queue messages](#queuemessages) ??? If the number of messages in a queue goes above or below a specified threshold, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.
+- [Average CPU usage](#averagecpu) - If the average percentage of CPU usage goes above or below specified thresholds, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.
+- [Queue messages](#queuemessages) - If the number of messages in a queue goes above or below a specified threshold, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.
 
 <h3><a id="averagecpu"></a>Average CPU usage</h3>
 
