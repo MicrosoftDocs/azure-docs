@@ -23,9 +23,9 @@ Before you begin this article, you must have the following:
 HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>Currently, only the Europe North and the US West and the US East region can host HDInsight clusters.</p> 
+<div class="dev-callout">??
+<b>Note</b>??
+<p>Currently, only the Europe North and the US West and the US East region can host HDInsight clusters.</p>??
 </div>
 
 This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
@@ -114,9 +114,9 @@ This session describes the procedure for creating an HDInsight cluster using the
 
 It can take several minutes to provision a cluster.  When the provision process is completed successfully, the status column for the cluster will show **Running**.
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p> 
+<div class="dev-callout">??
+<b>Important</b>??
+<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p>??
 </div>
 
 
@@ -202,8 +202,8 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 		$containerName="<ContainerName>"
 
 		# Create a storage context object
-		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName 
-		                                       –StorageAccountKey $storageAccountKey  
+		$destContext = New-AzureStorageContext ???StorageAccountName $storageAccountName 
+		                                       ???StorageAccountKey $storageAccountKey  
 		 
 		# Create a Blob storage container
 		New-AzureStorageContainer -Name $containerName -Context $destContext
@@ -263,7 +263,7 @@ You can also provision cluster and configure it to connect to more than one Azur
 		$hiveCreds = Get-Credential -Message "Hive metastore"
 		
 		# Create a Blob storage container
-		#$dest1Context = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default  
+		#$dest1Context = New-AzureStorageContext ???StorageAccountName $storageAccountName_Default ???StorageAccountKey $storageAccountKey_Default  
 		#New-AzureStorageContainer -Name $containerName_Default -Context $dest1Context
 		
 		# Create a new HDInsight cluster
@@ -408,10 +408,10 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 3.	Open **Command Prompt** (or *Windows Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
 4.	Run the following command in the command prompt window.
 
-		npm install –g azure-cli
+		npm install ???g azure-cli
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
+	<div class="dev-callout">??
+	<b>Note</b>??
 	<p>If you get an error saying the NPM command is not found, verify the following paths are in the PATH environment variable:
 	
 		C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm
@@ -420,12 +420,12 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 		C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm
 	
-	</p> 
+	</p>??
 	</div>
 
 5.	Run the following command to verify the installation:
 
-		azure hdinsight –h
+		azure hdinsight ???h
 
 	You can use the *-h* switch at different levels to display the help information.  For example:
 		
@@ -442,9 +442,9 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
 
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p> 
+<div class="dev-callout">??
+<b>Important</b>??
+<p>The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>??
 </div>
 
 
@@ -489,9 +489,9 @@ If you have already had a storage account but do not know the account name and a
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts][azure-manage-storageaccount].
 
-The *azure hdinsight cluster create* command creates the container if it doesn’t exist. If you choose to create the container beforehand, you can use the following command:
+The *azure hdinsight cluster create* command creates the container if it doesn???t exist. If you choose to create the container beforehand, you can use the following command:
 
-	azure storage container create –-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
+	azure storage container create ???-account-name <StorageAccountName> --account-key <StorageAccountKey> [ContainerName]
 		
 Once you have the storage account and the blob container prepared, you are ready to create a cluster.
 
@@ -499,7 +499,7 @@ Once you have the storage account and the blob container prepared, you are ready
 
 - From the command prompt window, run the following command:
 
-		azure hdinsight cluster create –-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
+		azure hdinsight cluster create ???-clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
 	![HDI.CLIClusterCreation][image-cli-clustercreation]
 
@@ -702,14 +702,14 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
-[image-customprovision-page1]: ../media/HDI.CustomProvision.Page1.png 
-[image-customprovision-page2]: ../media/HDI.CustomProvision.Page2.png 
-[image-customprovision-page3]: ../media/HDI.CustomProvision.Page3.png 
-[image-customprovision-page4]: ../media/HDI.CustomProvision.Page4.png 
+[image-customprovision-page1]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page1.png 
+[image-customprovision-page2]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page2.png 
+[image-customprovision-page3]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page3.png 
+[image-customprovision-page4]: ./media/hdinsight-provision-clusters/HDI.CustomProvision.Page4.png 
 
-[image-cli-account-download-import]: ../media/HDI.CLIAccountDownloadImport.png
-[image-cli-clustercreation]: ..\media\HDI.CLIClusterCreation.png
-[image-cli-clustercreation-config]: ..\media\HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ..\media\HDI.CLIListClusters.png "List and show clusters"
+[image-cli-account-download-import]: ./media/hdinsight-provision-clusters/HDI.CLIAccountDownloadImport.png
+[image-cli-clustercreation]: ./media/hdinsight-provision-clusters/HDI.CLIClusterCreation.png
+[image-cli-clustercreation-config]: ./media/hdinsight-provision-clusters/HDI.CLIClusterCreationConfig.png
+[image-cli-clusterlisting]: ./media/hdinsight-provision-clusters/HDI.CLIListClusters.png "List and show clusters"
 
-[image-hdi-ps-provision]: ..\media\HDI.ps.provision.png
+[image-hdi-ps-provision]: ./media/hdinsight-provision-clusters/HDI.ps.provision.png
