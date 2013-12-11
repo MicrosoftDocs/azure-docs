@@ -1,8 +1,6 @@
 <properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Media Services" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
-
-
 #How to Use Media Services
 
 This guide shows you how to start programming with Windows Azure Media Services. The guide consists of a set of articles and includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, a setup guide for development, and topics that show how to accomplish typical programming tasks. The scenarios demonstrated include: uploading assets, encrypting assets, encoding assets, and delivering assets.The samples are written in C# and use the Media Services SDK for .NET. For more information on Windows Azure Media Services, refer to the [Next Steps][] topic.
@@ -13,7 +11,7 @@ To start programming with the Media Services REST API or the Media Services SDK,
 
 The most up-to-date Media Services SDK documentation is located [here](http://msdn.microsoft.com/en-us/library/hh973613.aspx). 
 
-<h2><a name="what-are"></a><span class="short header">What are Media Services?</span></h2> 
+##<a name="what-are"></a><span class="short header">What are Media Services?</span>
 Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
@@ -104,9 +102,6 @@ Several Microsoft partners ship SDKs for the Android platform that add the capab
 Now that you have an overview of Media Services, go to the [Setting Up Your Computer for Media Services](http://go.microsoft.com/fwlink/?LinkId=301751) topic.
 
 
-<!-- Reusable paths. -->
-
-  <!-- Anchors. -->
   [What Are Media Services?]: #what-are
   [Media Services Client Development]: #media-client
   [Setting Up a Windows Azure Account for Media Services]: #setup-account
@@ -124,7 +119,6 @@ Now that you have an overview of Media Services, go to the [Setting Up Your Comp
   [How to: Enable Windows Azure CDN]: #enable-cdn
   [Next Steps]: #next-steps
 
-  <!-- URLs. -->
   [Building Applications with the Windows Azure Media Services REST API]: http://go.microsoft.com/fwlink/?linkid=252967
   [Open Data Protocol]: http://odata.org/
   [WCF Data Services 5.0 for OData v3]: http://www.microsoft.com/download/en/details.aspx?id=29306
@@ -145,11 +139,7 @@ Now that you have an overview of Media Services, go to the [Setting Up Your Comp
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
 
-  <!-- Email. -->
-  
-
-  <!-- Images. -->
-  [Media Services Architecture]: ../Media/wams-01.png
-  [Visual Studio Project Setup]: ../Media/wams-02.png
+  [Media Services Architecture]: ./media/wams-01.png
+  [Visual Studio Project Setup]: ./media/wams-02.png
 
 

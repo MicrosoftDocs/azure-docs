@@ -57,9 +57,9 @@ For more information, see [Install and configure PowerShell for HDInsight][hdins
 
 Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
 
-<div class="dev-callout"> 
-<b>Important</b> 
-<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p> 
+<div class="dev-callout">??
+<b>Important</b>??
+<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>??
 </div>
 
 **To download and import publishsettings**
@@ -75,7 +75,7 @@ Your Windows Azure subscription information is used by the cmdlets to connect to
 
 4. When prompted, download and save the publishing profile and note the path and name of the publishsettings file. This information is required when you run the Import-AzurePublishSettingsFile cmdlet to import the settings. The default location and file name format is:
 	
-		C:\Users\<UserProfile>\Desktop\[MySubscription-…]-downloadDate-credentials.publishsettings
+		C:\Users\<UserProfile>\Desktop\[MySubscription-???]-downloadDate-credentials.publishsettings
 
 6.	From the Windows Azure PowerShell window, run the following command to import the publishsettings file:
 
@@ -160,9 +160,9 @@ For the detailed instructions, see
 	<tr><td>Password (cluster admin)</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. This can only be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.</p> 
+	<div class="dev-callout">??
+	<b>Note</b>??
+	<p>Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.</p>??
 	</div>
 
 	The HDInsight cluster location will be the same as the storage account.
@@ -208,7 +208,7 @@ Running a MapReduce job requires the following elements:
 
 The URI scheme for accessing files in Blob storage is:
 
-	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
+	WASB
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
@@ -330,7 +330,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext ???StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey  
 
 	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
 
@@ -429,14 +429,14 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [apache-hadoop]: http://hadoop.apache.org/
 
 [powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+
 [powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
-[image-hdi-storageaccount-quickcreate]: ../media/HDI.StorageAccount.QuickCreate.png
-[image-hdi-clusterstatus]: ../media/HDI.ClusterStatus.png
-[image-hdi-quickcreatecluster]: ../media/HDI.QuickCreateCluster.png
-[image-hdi-wordcountdiagram]: ../media/HDI.WordCountDiagram.gif
-[image-hdi-gettingstarted-mrjoboutput]: ../media/HDI.GettingStarted.MRJobOutput.png
-[image-hdi-gettingstarted-runmrjob]: ../media/HDI.GettingStarted.RunMRJob.png
-[image-hdi-gettingstarted-powerquery-importdata]: ../media/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ../media/HDI.GettingStarted.PowerQuery.ImportData2.png
-[image-hdi-gettingstarted-powerquery-importdata3]: ../media/HDI.GettingStarted.PowerQuery.ImportData3.png
+[image-hdi-storageaccount-quickcreate]: ./media/hdsight-get-started/HDI.StorageAccount.QuickCreate.png
+[image-hdi-clusterstatus]: ./media/hdsight-get-started/HDI.ClusterStatus.png
+[image-hdi-quickcreatecluster]: ./media/hdsight-get-started/HDI.QuickCreateCluster.png
+[image-hdi-wordcountdiagram]: ./media/hdsight-get-started/HDI.WordCountDiagram.gif
+[image-hdi-gettingstarted-mrjoboutput]: ./media/hdsight-get-started/HDI.GettingStarted.MRJobOutput.png
+[image-hdi-gettingstarted-runmrjob]: ./media/hdsight-get-started/HDI.GettingStarted.RunMRJob.png
+[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
+[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+[image-hdi-gettingstarted-powerquery-importdata3]: ./media/hdsight-get-started/HDI.GettingStarted.PowerQuery.ImportData3.png
