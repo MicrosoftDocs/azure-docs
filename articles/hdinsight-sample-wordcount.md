@@ -79,7 +79,7 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 		# Create the storage account context object
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext ???StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey  
 
 	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
 
@@ -194,12 +194,12 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 * [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
-[getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+
 [10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
 [pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
 [cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
-[scoop]: /en-us/manage/services/hdinsight/howto-run-samples/sample-sqoop-import-export/
-[mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
+
+
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
  
@@ -208,6 +208,6 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 
 [powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
 
-[image-hdi-sample-wordcount-output]: ../media/HDI.Sample.WordCount.Output.png
+[image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
 

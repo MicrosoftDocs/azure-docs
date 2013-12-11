@@ -83,7 +83,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext ???StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey  
 
 	The Select-AzureSubscription is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
 
@@ -591,7 +591,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 
 [powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
 
-[image-hdi-gettingstarted-runmrjob]: ../media/HDI.GettingStarted.RunMRJob.png 
-[image-hdi-gettingstarted-mrjoboutput]: ../media/HDI.GettingStarted.MRJobOutput.png
+[image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png 
+[image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
