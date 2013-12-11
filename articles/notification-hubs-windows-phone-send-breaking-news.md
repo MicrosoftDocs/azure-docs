@@ -1,7 +1,7 @@
-<properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="Operating System Functionality Available to Applications on Windows Azure Web Sites" pageTitle="Operating System Functionality Available to Applications on Windows Azure Web Sites" metaKeywords="" description="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access." metaCanonical="" services="" documentationCenter="" title="Use Notification Hubs to send breaking news" authors=""  solutions="" writer="glenga" manager="" editor=""  /># Use Notification Hubs to send breaking news<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#">Windows Store C#</a>
-		<a href="/en-us/manage/services/notification-hubs/breaking-news-wp8" title="Windows Phone" class="current">Windows Phone</a>
-		<a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS">iOS</a>
+<properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="Operating System Functionality Available to Applications on Windows Azure Web Sites" pageTitle="Operating System Functionality Available to Applications on Windows Azure Web Sites" metaKeywords="" description="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access." metaCanonical="" services="notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="" solutions="" writer="glenga" manager="" editor=""  />
+
+# Use Notification Hubs to send breaking news<div class="dev-center-tutorial-selector sublanding"> 
+    	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/breaking-news-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS">iOS</a>
 </div>
 
 This topic shows you how to use Windows Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone app. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
@@ -179,7 +179,7 @@ The app is now complete and can store a set of categories in the device local st
 
 <h2><a name="send"></a><span class="short-header">Send notifications</span>Send notifications from your back-end</h2>
 
-<div chunk="../chunks/notification-hubs-back-end.md" />
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ##<a name="test-app"></a>Run the app and generate notifications
 
@@ -228,21 +228,21 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[1]: ../media/notification-hub-breakingnews-win1.png
-[13]: ../media/notification-hub-create-console-app.png
-[14]: ../media/notification-hub-windows-toast-2.png
-[15]: ../media/notification-hub-scheduler1.png
-[16]: ../media/notification-hub-scheduler2.png
-[19]: ../media/notification-hub-windows-reg-2.png
+[1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews-win1.png
+
+[14]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-windows-toast-2.png
+
+
+[19]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
 [Use Notification Hubs to broadcast localized breaking news]: ./breakingnews-localized-wp8.md 
-[Notify users with Notification Hubs]: ./tutorial-notify-users-mobileservices.md
-[Mobile Service]: ../../../DevCenter/Mobile/Tutorials/mobile-services-get-started.md
+[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users/
+[Mobile Service]: /en-us/develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
-[WindowsAzure.com]: http://www.windowsazure.com/
+
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 
 
