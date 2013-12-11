@@ -44,7 +44,7 @@ For more information, see [http://sendgrid.com][].
 
 <h2><a name="createaccount"></a><span  class="short-header">Create a SendGrid account</span>Create a SendGrid account</h2>
 
-<div chunk="../../Shared/Chunks/sendgrid-sign-up.md" />
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="reference"></a><span  class="short-header">Reference the SendGrid .NET class library</span>Reference the SendGrid .NET class library</h2>
 
@@ -70,7 +70,7 @@ To install the SendGrid NuGet package in your application, do the following:
 3.  Search for **SendGrid** and select the **SendGrid** item in the
     results list.
 
-    ![SendGrid NuGet package][]
+    ![SendGrid NuGet package][SendGrid NuGet package]
 
 4.  Click **Install** to complete the installation, and then close this
     dialog.
@@ -275,7 +275,7 @@ details, see the [SendGrid API documentation][].
 
 <h2><a name="nextsteps"></a><span  class="short-header">Next steps</span>Next steps</h2>
 
-Now that you’ve learned the basics of the SendGrid Email service, follow
+Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 * SendGrid C\# library repo: [sendgrid-csharp][]
@@ -291,17 +291,17 @@ these links to learn more.
   [How to: Add an Attachment]: #addattachment
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
   [How to: Use Additional SendGrid Services]: #useservices
-  [http://sendgrid.com]: http://sendgrid.com/
-  [1]: http://sendgrid.com
+  
+  
   [special offer]: http://www.sendgrid.com/azure.html
-  [http://docs.sendgrid.com/documentation/get-started/]: http://docs.sendgrid.com/documentation/get-started/
-  [http://sendgrid.com/features]: http://sendgrid.com/features
-  [http://www.nuget.org]: http://www.nuget.org
+  
+  
+  
   [SendGrid NuGet package]: ../../../DevCenter/dotNet/Media/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
   [SendGrid API documentation]: http://docs.sendgrid.com/documentation/api/
-  [http://sendgrid.com/azure.html]: http://sendgrid.com/azure.html
+  
   [cloud-based email service]: http://sendgrid.com/solutions
   [transactional email delivery]: http://sendgrid.com/transactional-email

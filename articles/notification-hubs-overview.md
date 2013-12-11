@@ -56,5 +56,5 @@ Notification hubs use a full multiplatform, scaled-out push notification infrast
 
 ![][1]
 
-  [0]: ../Media/SBPushNotifications1.gif
-  [1]: ../Media/SBPushNotifications2.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif

@@ -11,7 +11,7 @@ samples are written in C\# and use the .NET API. The scenarios covered
 include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next Steps] section. </span>
 
-<div chunk="../../shared/chunks/howto-service-bus-queues.md" />
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
@@ -306,12 +306,12 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [5]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
-  [6]: ../../../DevCenter/dotNet/Media/sb-queues-13.png
-  [7]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
+  
+  
+  
+  
+  
+  
+  [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx

@@ -82,9 +82,9 @@ This step will output information similar to the following:
 
 6. The final step sets the reply URL for your application. The reply URL is where responses are sent following authentication attempts. Type the following commands and press enter:
 
-		$replyUrl = New-MsolServicePrincipalAddresses –Address "https://localhost/OrgIdFederationSample" 
+		$replyUrl = New-MsolServicePrincipalAddresses -Address "https://localhost/OrgIdFederationSample" 
 
-		Set-MsolServicePrincipal –AppPrincipalId "7829c758-2bef-43df-a685-717089474505" –Addresses $replyUrl 
+		Set-MsolServicePrincipal -AppPrincipalId "7829c758-2bef-43df-a685-717089474505" -Addresses $replyUrl 
 	
 The web application has now been provisioned in the directory and it can be used for web single sign-on by company employees.
 

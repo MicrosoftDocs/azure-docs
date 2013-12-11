@@ -76,7 +76,7 @@ Perform the following steps for the specific development environment you are usi
    Package Manager Console**. Set your project to be the Default Project at the
    top of the Package Manager Console window.
 
-	![Package manager console](../media/NewRelicAzureNuget04.png)
+	![Package manager console](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
 3. On the Package Manager command prompt, use the following command to install the package:
 
@@ -89,7 +89,7 @@ Perform the following steps for the specific development environment you are usi
 <!--5. Optional: At the application name prompt, enter your app's name as it will
    appear in New Relic's dashboard. Or, use your solution name as the default.
 
-	![enter application name](../media/NewRelicAzureNuget08.png)-->
+	![enter application name](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget08.png)-->
 
 **WebMatrix**
 
@@ -173,7 +173,7 @@ To view your New Relic dashboard:
 
 	The **Monitoring > Overview** dashboard automatically appears.
 
-	![New Relic monitoring dashboard](../media/NewRelic_app.png)
+	![New Relic monitoring dashboard](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app.png)
 
 	After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
 
@@ -227,7 +227,7 @@ In addition to the <a href="https://newrelic.com/docs/site/the-new-relic-ui#func
 
 Below is an example of the Applications Overview dashboard when you select the Browser view.
 
-![Package manager console](../media/NewRelic_app_browser.png)
+![Package manager console](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app_browser.png)
 
 ## Next steps
 
@@ -242,14 +242,14 @@ Overview of the New Relic UI, setting user rights and profiles, using standard f
 browsers to load your webpages, where they come from, and what browsers they use
  * [Finding Help](https://newrelic.com/docs/site/finding-help): Resources available through New Relic's online Help Center
 
-[managementportal]: https:manage.windowsazure.com
+
 [webmatrixwebsite]: http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/
 [vswebsite]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
 
-[wmnugetbutton]: ../media/nrwmnugetbutton.png
-[wmnugetgallery]: ../media/nrwmnugetgallery.png
-[appsettings]: ../media/nrappsettings.png
-[newrelicconf]: ../media/nrwmlicensekey.png
-[vslicensekey]: ../media/nrvslicensekey.png
-[add-on]: ../media/nraddon.png
-[custom]: ../media/nrcustom.png
+[wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
+[wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png
+
+[newrelicconf]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmlicensekey.png
+[vslicensekey]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrvslicensekey.png
+[add-on]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nraddon.png
+[custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png

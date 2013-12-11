@@ -89,7 +89,7 @@ Notice that you did not specify a server name. SQL Database auto-generates the s
 
 After the database is created, click on it to open its dashboard. The dashboard provides connection strings that you can copy and use in application code. It also shows the management URL that you'll need to specify if you are connecting to the database from Management Studio or other administrative tool.
 
-![Image1] []
+![Image1] [Image1]
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
@@ -97,7 +97,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
-   ![Image2] []
+   ![Image2] [Image2]
 
 2. Click **Configure**. 
 
@@ -111,7 +111,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 6. Click the checkmark next to the rule to save it.
 
-    ![Image3] []
+    ![Image3] [Image3]
 
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
@@ -253,9 +253,9 @@ following resources to learn more about SQL Database.
   [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   
-  [Image1]: ../media/SQLDbDashboard.png
-  [Image2]: ../media/SQLDbFirewall.png
-  [Image3]: ../media/SQLDbIPRange.png
+  
+  
+  
 
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx

@@ -14,7 +14,7 @@ messages from a subscription**, and **deleting topics and
 subscriptions**. For more information on topics and subscriptions, see
 the [Next Steps][] section. </span>
 
-<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 <h2><span class="short-header">Configure the Application</span>Configure the Application to Use Service Bus</h2>
 
@@ -405,17 +405,17 @@ links to learn more.
   [How to: Receive Messages from a Subscription]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [How to: Delete Topics and Subscriptions]: #delete-topics
-  [1]: #next-steps
+  
   [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ../../../DevCenter/dotNet/Media/sb-queues-13.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [5]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [6]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
-  [7]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  
+  
+  
+  
+  
+  
+  [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  
   [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Service Bus Brokered Messaging .NET Tutorial]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx

@@ -26,7 +26,7 @@ enterprise network to the public cloud, without having to open up a
 firewall connection or requiring intrusive changes to a corporate
 network infrastructure.
 
-![Relay Concepts][]
+![Relay Concepts][Relay Concepts]
 
 The Service Bus relay allows you to host WCF services within your
 existing enterprise environment. You can then delegate listening for
@@ -354,13 +354,13 @@ follow these links to learn more.
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Relay Concepts]: ../../../DevCenter/dotNet/Media/sb-relay-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ../../../DevCenter/dotNet/Media/sb-queues-13.png
-  [1]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [2]: ../../../DevCenter/dotNet/Media/sb-queues-09.png
-  [3]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [4]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [5]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-13.png
-  [6]: ../../../DevCenter/dotNet/Media/getting-started-multi-tier-27.png
+  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
+  [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
+  [2]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png
+  [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-06.png
+  
+  [5]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png
+  [6]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
   [Building a Service for the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
   [Building a Service Bus Client Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
   [Windows Azure Samples]: http://code.msdn.microsoft.com/windowsazure

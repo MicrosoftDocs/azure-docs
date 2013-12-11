@@ -34,11 +34,11 @@ to the [Next steps][] section.
 -   [How to: Delete a queue][]
 -   [Next steps][]
 
-<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 <h2><a name="create-account"></a><span  class="short-header">Create an account</span>Create a Windows Azure Storage account</h2>
 
-<div chunk="../../Shared/Chunks/create-storage-account.md" />
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a name="setup-connection-string"></a><span  class="short-header">Setup a connection string</span>Setup a Windows Azure Storage Connection String</h2>
 
@@ -65,16 +65,16 @@ configuration:
 1.  Within the Solution Explorer of Visual Studio, in the **Roles**
     folder of your Windows Azure Deployment Project, right-click your
     web role or worker role and click **Properties**.  
-    ![Blob5][]
+    ![Blob5][Blob5]
 
 2.  Click the **Settings** tab and press the **Add Setting** button.  
-    ![Blob6][]
+    ![Blob6][Blob6]
 
     A new **Setting1** entry will then show up in the settings grid.
 
 3.  In the **Type** drop-down of the new **Setting1** entry, choose
     **Connection String**.  
-    ![Blob7][]
+    ![Blob7][Blob7]
 
 4.  Click the **...** button at the right end of the **Setting1** entry.
     The **Storage Account Connection String** dialog will open.
@@ -85,12 +85,12 @@ configuration:
     option. Enter the **Primary Access Key** value copied from the
     earlier step in this tutorial if you wish to store queue data in the
     storage account we created earlier on Windows Azure.   
-    ![Blob8][]
+    ![Blob8][Blob8]
 
 6.  Change the entry **Name** from **Setting1** to a "friendlier" name
     like **StorageConnectionString**. You will reference this
     connection string later in the code in this guide.  
-    ![Blob9][]
+    ![Blob9][Blob9]
 	
 ### Configuring your connection string using .NET configuration
 
@@ -392,11 +392,11 @@ to learn how to do more complex storage tasks.
   [How To: Delete a Queue]: #delete-queue
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
-  [Blob5]: ../../../DevCenter/dotNet/Media/blob5.png
-  [Blob6]: ../../../DevCenter/dotNet/Media/blob6.png
-  [Blob7]: ../../../DevCenter/dotNet/Media/blob7.png
-  [Blob8]: ../../../DevCenter/dotNet/Media/blob8.png
-  [Blob9]: ../../../DevCenter/dotNet/Media/blob9.png
+  
+  
+  
+  
+  
   [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
