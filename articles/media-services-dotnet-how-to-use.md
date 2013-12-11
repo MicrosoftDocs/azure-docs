@@ -139,7 +139,7 @@ Now that you have an overview of Media Services, go to the [Setting Up Your Comp
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Supported File Types for Media Services]: http://msdn.microsoft.com/en-us/library/hh973634
 
-  [Media Services Architecture]: ./media/wams-01.png
-  [Visual Studio Project Setup]: ./media/wams-02.png
+  [Media Services Architecture]: ./media/media-services-dotnet-how-to-use/wams-01.png
+  [Visual Studio Project Setup]: ./media/media-services-dotnet-how-to-use/wams-02.png
 
 
