@@ -50,3 +50,4 @@ The Blob service contains the following components:
 
 
   [Understanding Block Blobs and Page Blobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[Blob1]: ./media/blob1.jpg
