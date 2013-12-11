@@ -52,4 +52,5 @@ The Table service contains the following components:
 
 
   
-  
+  [Table1]: .media/table1.png
+  [OData.org]: http://www.odata.org/
