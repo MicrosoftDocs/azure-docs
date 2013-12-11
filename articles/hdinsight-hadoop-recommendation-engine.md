@@ -4,7 +4,7 @@
 
 # Simple recommendation engine using Apache Mahout 
 
-Apache Mahout™ is a machine learning library built for use in scalable machine learning applications. Recommender engines are one of the most popular types of machine learning applications in use today and have many obvious marketing applications.
+Apache Mahout??? is a machine learning library built for use in scalable machine learning applications. Recommender engines are one of the most popular types of machine learning applications in use today and have many obvious marketing applications.
 
 Apache Mahout provides a built-in implementation for Item-based Collaborative Filtering. This approach is widely used to conduct recommendation data mining. Item-based collaborative filtering was developed by Amazon.com. The idea here is that data on user preferences that exhibit correlations between item preferences can be use to infer the tastes of future users from a similar group.
 
@@ -31,7 +31,7 @@ This tutorial assumes that you have gotten setup with Windows Azure and the HDin
 
 This example deals with the way in which users express a preference for certain songs. The assumption is that the number of times a user listens to a song provides a measure of that user's preference for that song. Patterns detected in the preference data can be used to predict future user preferences based on some of their expressed musical preferences. You can view a sample of this dataset in the **Description** section of the [Echo Nest Taste Profile Subset](http://labrosa.ee.columbia.edu/millionsong/tasteprofile) web page:
 
-![The Echo Nest Taste Profile Subset](../media/the-echo-nest-taste-profile-subset.png) 
+![The Echo Nest Taste Profile Subset](./media/hdinsight-hadoop-recommendation-engine/the-echo-nest-taste-profile-subset.png) 
 
 ###Sample data from the Million Song Dataset
 
@@ -44,7 +44,7 @@ If you do not have Visual Studio 2010 installed, please skip this step and go to
 
 Start by launching Visual Studio 2010. In Visual Studio, select **File -> New -> Project**. In the **Installed Templates** pane, inside the **Visual C#** node, select the **Window** category, and then select **Console Application** from the list. Name the project "ConvertToMahoutInput" and click the **OK** button.
 
-![creating a console application](../media/creating-a-console-application.png)
+![creating a console application](./media/hdinsight-hadoop-recommendation-engine/creating-a-console-application.png)
 
 ###Creating a console application
 
@@ -137,7 +137,7 @@ Start by launching Visual Studio 2010. In Visual Studio, select **File -> New ->
 
 	When running the utility, include a command line argument with the location of **train\_triplets.txt**. To do so, right-click the **ConvertToMahoutInput** project node in **Solution Explorer** and select **Properties**. On the project properties page, select the **Debug** tab on the left side, and add the path of &lt;localpath&gt;train\_triplets.txt to the **Command line arguments** text box:
 
-	![setting command line arguments](../media/setting-command-line-arguments.png)
+	![setting command line arguments](./media/hdinsight-hadoop-recommendation-engine/setting-command-line-arguments.png)
 
 ###Setting the Command line argument
 
@@ -147,7 +147,7 @@ Start by launching Visual Studio 2010. In Visual Studio, select **File -> New ->
 
 - Open the HDInsight cluster portal, and click the **Remote Desktop** icon.
 
-	![The Manage Cluster Icon](../media/the-manage-cluster-icon.png "The Manage Cluster Icon")
+	![The Manage Cluster Icon](./media/hdinsight-hadoop-recommendation-engine/the-manage-cluster-icon.png "The Manage Cluster Icon")
 
 ###The Remote Desktop icon
 
@@ -157,7 +157,7 @@ HDInsight does not include Mahout by default. But since it is part of the Hadoop
 
 2. Then Copy it onto the cluster by selecting the local zip file and press control-v to copy, then paste it in to your Hadoop Cluster.
 
-	![The Manage Cluster Icon](../media/uploading-mahout.PNG "The Manage Cluster Icon")
+	![The Manage Cluster Icon](./media/hdinsight-hadoop-recommendation-engine/uploading-mahout.PNG "The Manage Cluster Icon")
 
 ###Copying Mahout to the Headnode
 
@@ -180,7 +180,7 @@ It is the most convenient to download everything as one <a href="https://github.
 
 At this point you should open a Hadoop terminal window and navitate to the folder that contains users.txt and mInput.txt.  
 
-![The Manage Cluster Icon](../media/mahout-commandwindow.PNG "Mahout command window Icon")
+![The Manage Cluster Icon](./media/hdinsight-hadoop-recommendation-engine/mahout-commandwindow.PNG "Mahout command window Icon")
 
 ###Hadoop Command Window
 
@@ -224,4 +224,4 @@ Recommender engines provide important functionality for many modern social netwo
 
 While this article demonstrates using the Hadoop command line, you can also perform tasks using the HDInsight Interactive Console. For more information, see [Guidance: HDInsight Interactive JavaScript and Hive Consoles][interactive-console].
 
-[interactive-console]: /en-us/manage/services/hdinsight/interactive-javascript-and-hive-consoles/
+

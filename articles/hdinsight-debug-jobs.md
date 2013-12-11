@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-debug-jobs" urlDisplayName="HDInsight Administration" pageTitle="Debug HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" metaDescription="Learn how to debug the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-debug-jobs" urlDisplayName="HDInsight Administration" pageTitle="Debug HDInsight - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to debug the Windows Azure HDInsight service." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" title="Debug HDInsight: error messages" />
 
 # Debug HDInsight: error messages
 

@@ -5,7 +5,7 @@
 # Introduction to Windows Azure HDInsight
 
 ##Overview
-Windows Azure HDInsight is a service that deploys and provisions Apache™ Hadoop® clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.
+Windows Azure HDInsight is a service that deploys and provisions Apache??? Hadoop?? clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.
 
 ###Big data  
 Data is described as "big data" to indicate that it is being collected in ever escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts. Big data collection does not provide value to an enterprise on its own. For big data to provide value in the form of actionable intelligence or insight, not only must the right questions be asked and data relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way, often in combination with data from various other sources that establish perspective and context in what is now referred to as a mashup.
@@ -48,7 +48,7 @@ This topic describes the Hadoop ecosystem supported by HDInsight, the main use s
 
 HDInsight offers a framework implementing Microsoft's cloud-based solution for handling big data. This federated ecosystem manages and analyses large data amounts, exploiting the parallel processing capabilities of the MapReduce programming model. The Apache-compatible Hadoop technologies that can be used with HDInsight are itemized and briefly described in this section.
 
-HDInsight provides implementations of Hive and Pig to integrate data processing and warehousing capabilities.  Microsoft’s big data solution  integrates with Microsoft's BI tools, such as SQL Server Analysis Services, Reporting Services, PowerPivot, and Excel. This enables you to perform a straightforward BI on data stored and managed by HDInsight in Blob storage. 
+HDInsight provides implementations of Hive and Pig to integrate data processing and warehousing capabilities.  Microsoft???s big data solution  integrates with Microsoft's BI tools, such as SQL Server Analysis Services, Reporting Services, PowerPivot, and Excel. This enables you to perform a straightforward BI on data stored and managed by HDInsight in Blob storage. 
 
 Other Apache-compatible technologies and sister technologies that are part of the Hadoop ecosystem and have been built to run on top of Hadoop clusters can also be downloaded are used with HDInsight. These include open source technologies such as Sqoop which integrate HDFS with relational data stores. 
 
@@ -66,7 +66,7 @@ Sqoop is tool that transfers bulk data between Hadoop and relational databases s
 
 ###Business intelligence tools and connectors
 
-Familiar business intelligence (BI) tools—such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services—retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver.
+Familiar business intelligence (BI) tools???such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services???retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 
  * Microsoft Power Query for Excel can be downloaded from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=286689).
 
