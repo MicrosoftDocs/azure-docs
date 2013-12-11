@@ -49,7 +49,7 @@ an X.509 v3 certificate to register your servers with backup vaults.  The certif
 makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5.5.7.3.2 -len 2048 -e 01/01/2016 CertificateName.cer</code></li>
 </ol>
 <p>
-If you will be registering a different server than the one you used to make the certificate, you need to export the .pfx file (that contains the private key), copy it to the other server and import it to that server’s Personal certificate store. 
+If you will be registering a different server than the one you used to make the certificate, you need to export the .pfx file (that contains the private key), copy it to the other server and import it to that server's Personal certificate store. 
 </p>
 <p>
 For step-by-step instructions on the vault certificate upload process and more information on exporting and importing .pfx files, see <a href="http://go.microsoft.com/fwlink/p/?LinkID=294662">Manage vault certificates</a>.</p> 
@@ -59,11 +59,11 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
-	<div chunk="../../Shared/Chunks/disclaimer.md"/>
+	[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Backup Vault**, and then click **Quick Create**.
 
-	![New backup vault](../media/RS_howtobackup1.png)
+	![New backup vault](./media/backup-configure-vault/RS_howtobackup1.png)
 
 3. In **Name**, enter a friendly name to identify the backup vault.
 
@@ -76,14 +76,14 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 	It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the backup vault has been created, a message will tell you that the vault has been successfully created and it will be listed in the resources for Recovery Services as **Online**. 
 
-	![Backup vault creation](../media/RS_howtobackup2.png)
+	![Backup vault creation](./media/backup-configure-vault/RS_howtobackup2.png)
 
 <h2><a id="upload"></a>Upload a certificate</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault that will be identified by the certificate and then click **Manage certificate**.
 	
-	![Manage certificate](../media/RS_howtoupload1.png)
+	![Manage certificate](./media/backup-configure-vault/RS_howtoupload1.png)
 
 3. In the **Manage Certificate** dialog click Browse Your Computer to locate the .cer file to use with this backup vault.
 <h2><a id="download"></a>Download and install a backup agent</h2>
@@ -93,7 +93,7 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 3. Click **Install Agent** 
 	
-	![Install Agent](../media/RS_howtodownload1.png)
+	![Install Agent](./media/backup-configure-vault/RS_howtodownload1.png)
 4. You will be presented with a dialog where you can choose which agent to download:
 	* Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager
 	* Agent for Windows Server 2012 Essentials
@@ -112,13 +112,13 @@ Once the agent is installed you can use the appropriate local management interfa
 	* **Delete**. Deletes the current backup vault. If a backup vault is no longer being used, you can delete it to free up storage space. **Delete** is only enabled after all registered servers have been deleted from the vault. 
 
 3. Click **Protected Items** to view the items that have been backed up from the servers. This list is for information purposes only.  
-![Protected Items](../media/RS_protecteditems.png)
+![Protected Items](./media/backup-configure-vault/RS_protecteditems.png)
 
 4. Click **Servers** to view the names of the servers that are register to this vault. From here you can perform the following tasks:
 	* **Allow Re-register**. When this option is selected for a server you can use the Registration Wizard in the agent to register the server with the backup vault a second time. You might need to re-register due to an error in the certificate or if a server had to be rebuilt. Re-registration is allowed only once per server name.
 	* **Delete**. Deletes a server from the backup vault. All of the stored data associated with the server is deleted immediately.
 
-		![Deleted Server](../media/RS_deletedserver.png)
+		![Deleted Server](./media/backup-configure-vault/RS_deletedserver.png)
 <h2><a id="next"></a>Next steps</h2>
 
 - To learn more about Windows Azure Backup, see [Windows Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425). 

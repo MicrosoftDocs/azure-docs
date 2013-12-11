@@ -12,8 +12,8 @@
 <h2><a id="about"></a>About this tutorial</h2>
 <P>This tutorial provides a quick walkthrough for Hyper-V Recovery Manager deployment. For more detailed information read the following:</P>
 <UL>
-<LI><a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Hyper-V Recovery Manager</a>—Provides detailed information about the planning steps you should complete before a starting a full deployment.</LI>
-<LI><a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Hyper-V Recovery Manager</a>—Provides step-by-step instructions for a full deployment.</LI>
+<LI><a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Hyper-V Recovery Manager</a> - Provides detailed information about the planning steps you should complete before a starting a full deployment.</LI>
+<LI><a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Hyper-V Recovery Manager</a> - Provides step-by-step instructions for a full deployment.</LI>
 </UL>
 </div>
 
@@ -25,12 +25,12 @@
 <h3><a id="HVRMPrereq"></a>Hyper-V Recovery Manager prerequisites</h3>
 
 <UL>
-<LI><b>Azure account</b>—You'll need an Azure account with the Windows Azure Recovery Services feature enabled. If you don't have an account or the feature isn't registered, see the <a href="http://aka.ms/try-azure">Windows Azure free trial</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Hyper-V Recovery Manager Pricing Details</a>.</LI>
-<LI><b>.cer certificate</b>—You'll need to upload a management certificate (.cer) containing the public key to the Hyper-V Recovery vault, in order to register VMM servers in the vault. Note the following:<UL>
+<LI><b>Azure account</b> - You'll need an Azure account with the Windows Azure Recovery Services feature enabled. If you don't have an account or the feature isn't registered, see the <a href="http://aka.ms/try-azure">Windows Azure free trial</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Hyper-V Recovery Manager Pricing Details</a>.</LI>
+<LI><b>.cer certificate</b> - You'll need to upload a management certificate (.cer) containing the public key to the Hyper-V Recovery vault, in order to register VMM servers in the vault. Note the following:<UL>
 	<LI>For tutorial purposes you can use a self-signed certificate that you create using the Makecert.exe tool. For a full deployment you can use any valid SSL certificate that complies with the certificate prerequisites described in <a href=" http://go.microsoft.com/fwlink/?LinkId=386485">Prerequisites and Support</a> in the Planning Guide.</LI>
 	<LI>Each vault has only a single .cer certificate associated with it at any time. You can upload a new certificate to overwrite an existing one as required.</LI>
 </UL></LI>
-<LI><b>.pfx file</b>—The .cer certificate must be exported as a .pfx file (containing the private key) You then import it on each VMM server that contains virtual machines you want to protect. When you install the Hyper-V Recovery Manager Provider agent on each VMM server, you select the .pfx file in order to register the VMM server with the vault.</LI>
+<LI><b>.pfx file</b> - The .cer certificate must be exported as a .pfx file (containing the private key) You then import it on each VMM server that contains virtual machines you want to protect. When you install the Hyper-V Recovery Manager Provider agent on each VMM server, you select the .pfx file in order to register the VMM server with the vault.</LI>
 
 </UL>
 
@@ -56,15 +56,15 @@
 
 After verifying the prerequisites, do the following:
 <UL>
-<LI><a href="#createcert">Obtain and configure certificates</a>—Obtain a .cer certificate, export it as a .pfx file, and import the .pfx file to VMM servers.</LI>
-<LI><a href="#vault">Step 1: Create a vault</a>—Create a Hyper-V Recovery Manager vault in Windows Azure.</LI>
-<LI><a href="#upload">Step 2: Upload the certificate</a>—Upload the management certificate to the vault.</LI>
-<LI><a href="#download">Step 3: Download and install the Provider</a>—Download and install the Hyper-V Recovery Manager Provider on VMM servers you want to protect. Then register the VMM servers with the vault.</LI>
-<LI><a href="#clouds">Step 4: Configure cloud protection</a>—Configure protection settings for VMM clouds.</LI>
-<LI><a href="#networks">Step 5: Configure network mapping</a>—Map VM networks from source VMM servers to target VMM servers.</LI>
-<LI><a href="#virtualmachines">Step 6: Enable protection for virtual machines</a>—Enable protection for Hyper-V virtual machines located in the VMM clouds.</LI>
-<LI><a href="#recovery plans">Step 7: Configure and run recovery plans</a>—Create and customize recovery plans that group together virtual machines for failover. Then run the recovery plan.</LI>
-<LI><a href="#jobs">Step 8: Monitor</a>—Monitor settings, status, and progress using the <b>Jobs</b> and <b>Dashboard</b> tabs.</LI>
+<LI><a href="#createcert">Obtain and configure certificates</a> - Obtain a .cer certificate, export it as a .pfx file, and import the .pfx file to VMM servers.</LI>
+<LI><a href="#vault">Step 1: Create a vault</a> - Create a Hyper-V Recovery Manager vault in Windows Azure.</LI>
+<LI><a href="#upload">Step 2: Upload the certificate</a> - Upload the management certificate to the vault.</LI>
+<LI><a href="#download">Step 3: Download and install the Provider</a> - Download and install the Hyper-V Recovery Manager Provider on VMM servers you want to protect. Then register the VMM servers with the vault.</LI>
+<LI><a href="#clouds">Step 4: Configure cloud protection</a> - Configure protection settings for VMM clouds.</LI>
+<LI><a href="#networks">Step 5: Configure network mapping</a> - Map VM networks from source VMM servers to target VMM servers.</LI>
+<LI><a href="#virtualmachines">Step 6: Enable protection for virtual machines</a> - Enable protection for Hyper-V virtual machines located in the VMM clouds.</LI>
+<LI><a href="#recovery plans">Step 7: Configure and run recovery plans</a> - Create and customize recovery plans that group together virtual machines for failover. Then run the recovery plan.</LI>
+<LI><a href="#jobs">Step 8: Monitor</a> - Monitor settings, status, and progress using the <b>Jobs</b> and <b>Dashboard</b> tabs.</LI>
 </UL>
 
 
@@ -73,9 +73,9 @@ After verifying the prerequisites, do the following:
 
 Obtain and configure certificates as follows:
 <OL>
-<LI><a href="#obtaincert">Obtain a certificate for the walkthrough</a>—Obtain a certificate using the MakeCert tool, or use an existing certificate that complies with the <a href="http://go.microsoft.com/fwlink/?LinkId=321294">certificate requirements</a>.</LI>
-<LI><a href="#exportcert">Export the certificate in .pfx format</a>—On the server on which the certificate resides or was created, export the .cer file as a .pfx file (with the private key). </LI>
-<LI><a href="#importcert">Import the .pfx certificate to VMM servers</a>—After export of the .pfx file is complete, import it to the Personal certificate store on each VMM server that you want to register with the vault.</LI>
+<LI><a href="#obtaincert">Obtain a certificate for the walkthrough</a> - Obtain a certificate using the MakeCert tool, or use an existing certificate that complies with the <a href="http://go.microsoft.com/fwlink/?LinkId=321294">certificate requirements</a>.</LI>
+<LI><a href="#exportcert">Export the certificate in .pfx format</a> - On the server on which the certificate resides or was created, export the .cer file as a .pfx file (with the private key). </LI>
+<LI><a href="#importcert">Import the .pfx certificate to VMM servers</a> - After export of the .pfx file is complete, import it to the Personal certificate store on each VMM server that you want to register with the vault.</LI>
 </OL>
 
 
@@ -107,7 +107,7 @@ makecert.exe -r -pe -n CN=CertificateName -ss my -sr localmachine -eku 1.3.6.1.5
 <li>In the details pane, click the certificate you want to manage.</li>
 <li>On the <b>Action</b> menu, point to <b>All Tasks</b>, and then click <b>Export</b>. The Certificate Export Wizard appears. Click <b>Next</b>.</li>
 <li>On the <b>Export Private Key</b> page, click <b>Yes</b> to export the private key. Click <b>Next</b>. Note that this is only required if you want to export the private key to other servers after the installation.</li>
-<li>On the <b>Export File Format</b> page, select <b>Personal Information Exchange – PKCS #12 (.PFX)</b>. Click <b>Next</b>.</li>
+<li>On the <b>Export File Format</b> page, select <b>Personal Information Exchange  -  PKCS #12 (.PFX)</b>. Click <b>Next</b>.</li>
 <li>On the <b>Password</b> page, type and confirm the password that is used to encrypt the private key. Click <b>Next</b>.</li>
 <li>Follow the pages of the wizard to export the certificate in .pfx format.</li>
 </ol>
@@ -137,16 +137,16 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
-	<div chunk="../../Shared/Chunks/disclaimer.md"/>
+	[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 
 2. Click **Data Services**, and then click **Recovery Services**.  
 
-	![Preview Program](../media/RS_PreviewProgram.png)
+	![Preview Program](./media/hyper-v-recovery-manager-configure-vault/RS_PreviewProgram.png)
 
 3. Click **Recovery Services**, click **Create New**,  point to **Hyper-V Recovery Manager Vault**, and then click **Quick Create**.
 	
-	![New vault](../media/RS_hvvault.png)
+	![New vault](./media/hyper-v-recovery-manager-configure-vault/RS_hvvault.png)
 
 3. In **Name**, enter a friendly name to identify the vault.
 
@@ -163,16 +163,16 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 2. In the **Recovery Services** page, open the required vault.
 3. Click the Quick Start icon to open the Quick Start page.
 
-	![Quick Start Icon](../media/RS_QuickStartIcon.png)
+	![Quick Start Icon](./media/hyper-v-recovery-manager-configure-vault/RS_QuickStartIcon.png)
 
 2. Click **Manage Certificate**.
 
-	![Quick Start](../media/RS_QuickStart.png)
+	![Quick Start](./media/hyper-v-recovery-manager-configure-vault/RS_QuickStart.png)
 
 3. In the **Manage Certificate** dialog box, click **Browse For File** to locate the .cer file you want to upload to the vault.
 
 
-	![Manage Certificate](../media/RS_ManageCert.png)
+	![Manage Certificate](./media/hyper-v-recovery-manager-configure-vault/RS_ManageCert.png)
 
 
 <a name="download"></a> <h2>Step 3: Download and install the Provider</h2>
@@ -180,31 +180,31 @@ Install the Hyper-V Recovery Manager Provider on each VMM server you want to reg
 
 1. On the **Quick Start** page, click **Download Provider** to obtain the Provider installation .exe file. Run this file on the VMM server to begin Provider Setup.
 
-	![Download Agent](../media/RS_installwiz.png)
+	![Download Agent](./media/hyper-v-recovery-manager-configure-vault/RS_installwiz.png)
 
 2. Follow the steps to complete the Provider installation.
 
-	![Setup Complete](../media/RS_SetupComplete.png)
+	![Setup Complete](./media/hyper-v-recovery-manager-configure-vault/RS_SetupComplete.png)
 
 3. After the Provider installation is complete, follow the wizard steps to register the VMM server with the vault.
 4. On the Internet Connection page, specify how the Provider running on the VMM server connects to the Internet. The Provider can use the default Internet connection settings on the server, or click <b>Use a proxy server for Internet requests</b> to use custom settings.
 	
-	![Internet Settings](../media/RS_ProviderProxy.png)
+	![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/RS_ProviderProxy.png)
 
 	If you want to use custom settings during this walkthrough, read the information in <a href="http://go.microsoft.com/fwlink/?LinkId=378266">Step 2: Install the Provider and register the VMM servers</a> of the Deployment guide.
 
 
 5. On the Certificate Registration page, select the .pfx file that corresponds to the .cer you uploaded to the vault. 
 
-	![Certificate Register](../media/RS_CertReg1.png)
+	![Certificate Register](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg1.png)
 
-	![Certificate Vault](../media/RS_CertReg2.png)
+	![Certificate Vault](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg2.png)
 
 1. On the VMM Server page, specify a friendly name for the VMM server. This name is used to identify the server in the Hyper-V Recovery Manager console.
 2. Select **Synchronize cloud data with the vault** to synchronize the data on all private clouds located on the VMM server with the Hyper-V Recovery Manager vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can publish each cloud individually to synchronize it, before you configure cloud protection settings.  
 3. Click **Register** to complete the process. 
 
-![Internet Settings](../media/RS_PublishCloudSetup.png)
+![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/RS_PublishCloudSetup.png)
 
 <P>At this stage, metadata from the VMM server is retrieved by Hyper-V Recovery Manager, in order to orchestrate failover and recovery. After a server has been successfully registered its friendly name will be displayed on the <B>Resources</B> tab of the Servers page in the vault.</P>
 
@@ -219,11 +219,11 @@ After VMM servers are registered, you can configure cloud protection settings. I
 2. in the **VMs and Services** pane, open the cloud you want to publish.
 3. On the **General** page of the cloud properties, to publish the cloud, select **Send configuration data about this cloud to the Windows Azure Hyper-V Recovery Manager**.
 
-![Clouds](../media/RS_PublishCloud.png)
+![Clouds](./media/hyper-v-recovery-manager-configure-vault/RS_PublishCloud.png)
 
 After a cloud is published it's displayed in the vault.
 
-![Clouds](../media/RS_Clouds.png)
+![Clouds](./media/hyper-v-recovery-manager-configure-vault/RS_Clouds.png)
 
 <h3><a id="configureclouds"></a>Configure clouds</h3>
 
@@ -232,7 +232,7 @@ To configure clouds for protection, do the following:
 1. On the Quick Start page, click **Configure Protection Settings**.
 2. On the **Protected Items** tab, select the cloud that you want to configure and go to the **Configuration** tab.
 
-	![Cloud Configuration](../media/RS_CloudConfig.png)
+	![Cloud Configuration](./media/hyper-v-recovery-manager-configure-vault/RS_CloudConfig.png)
 
 
 3. In **Target Location**, specify the VMM server that manages the cloud you want to use for recovery.
@@ -244,8 +244,8 @@ To configure clouds for protection, do the following:
 9. In **Authentication**, specify how traffic is authenticated between the primary and recovery Hyper-V host servers. Unless you have a working Kerberos environment configured, we recommend you select HTTPS for the purpose of this walkthrough. With HTTPS selected the host servers will authenticate each other using a server certificate, and traffic will be encrypted. Hyper-V Recovery Manager configures certificates to be used for HTTPS authentication automatically. No manual configuration is required. Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.
 10. In **Port**, leave the default setting. This value sets the port number on which the source and target Hyper-V host computers listen for replication traffic. 
 11. In **Initial Replication Settings**, specify how the initial replication of data from source to target locations will be handled, before regular replication starts. 
-	- **Over the network**—Copying data over the network can be time-consuming and resource-intensive. We recommend that you use this option if the cloud contains virtual machines with relatively small virtual hard disks, and if the primary VMM server is connected to the secondary VMM server over a connection with wide bandwidth. You can specify that the copy should start immediately, or select a time. If you use network replication, we recommend that you schedule it during off-peak hours.
-	- **Offline**—This method specifies that the initial replication will be performed using external media. It's useful if you want to avoid degradation in network performance, or for geographically remote locations. To use this method you specify the export location on the source cloud, and the import location on the target cloud. When you enable protection for a virtual machine, the virtual hard disk is copied to the specified export location. You send it to the target site, and copy it to the import location. The system copies the imported information to the replica virtual machines. For a complete list of offline replication prerequisites, see <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Step 3: Configure protection settings for VMM clouds</a> in the Deployment Guide.
+	- **Over the network** - Copying data over the network can be time-consuming and resource-intensive. We recommend that you use this option if the cloud contains virtual machines with relatively small virtual hard disks, and if the primary VMM server is connected to the secondary VMM server over a connection with wide bandwidth. You can specify that the copy should start immediately, or select a time. If you use network replication, we recommend that you schedule it during off-peak hours.
+	- **Offline** - This method specifies that the initial replication will be performed using external media. It's useful if you want to avoid degradation in network performance, or for geographically remote locations. To use this method you specify the export location on the source cloud, and the import location on the target cloud. When you enable protection for a virtual machine, the virtual hard disk is copied to the specified export location. You send it to the target site, and copy it to the import location. The system copies the imported information to the replica virtual machines. For a complete list of offline replication prerequisites, see <a href="http://go.microsoft.com/fwlink/?LinkId=323469">Step 3: Configure protection settings for VMM clouds</a> in the Deployment Guide.
 
 <h4><a id="cloudsettingd"></a>Settings after configuring protection</h4>
 After you configure a cloud, all clusters and host servers that are configured in the source and target clouds are configured for replication. Specifically, the following are configured:
@@ -257,7 +257,7 @@ After you configure a cloud, all clusters and host servers that are configured i
 Cloud settings can be modified on the **Configure** tab. Note that:
 
 - We recommend that you select a target cloud that meets recovery requirements for the virtual machines you'll protect. 
-- A cloud can only belong to a single cloud pair — either as a primary or a target cloud.
+- A cloud can only belong to a single cloud pair  -  either as a primary or a target cloud.
 - After saving the cloud configuration, a job will be created, and can be monitored on the **Jobs** tab. After saving the configuration, to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.
 
 
@@ -278,10 +278,10 @@ To map networks, do the following:
 The list of source VM networks and their associated target VM networks is displayed. A blank value is shown for networks that are not mapped.
 6. Select an unmapped entry in the source and target list,  and click **Map**. The service detects the VM networks on the target server and displays them.  
 
-	![Manage certificate](../media/RS_networks.png)
+	![Manage certificate](./media/hyper-v-recovery-manager-configure-vault/RS_networks.png)
 
 7. On the Select a Target Network page, select the target VM network you want to use on the target VMM server.
-![Target Network](../media/RS_TargetNetwork.png) 
+![Target Network](./media/hyper-v-recovery-manager-configure-vault/RS_TargetNetwork.png) 
 
 8. Click the information icons next to the source and target network names to view the subnets and type for each network.
 
@@ -303,7 +303,7 @@ Network mappings can be modified or removed on the **Networks** tab. Note the fo
 <p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. You enable protection in the VMM console, by right-clicking each virtual machine you want to protect and selecting <b>Enable Recovery</b>.</p>
 
 <p>After protection is enabled, you can see the virtual machine in the virtual machines list of the cloud. You can view progress of the enable protection action in the <B>Jobs</B> tab.</p>
-![Virtual Machines](../media/RS_Clouds.png)
+![Virtual Machines](./media/hyper-v-recovery-manager-configure-vault/RS_Clouds.png)
 
 <P>Three jobs are created when you enable protection of virtual machines. The Enable Protection job runs. Then after the initial replication completes two more Finalize Protection jobs run. The virtual machine is ready for failover only after these three jobs have completed successfully.</P>
 
@@ -313,11 +313,11 @@ A recovery plan gathers virtual machines together into groups so that they can b
 1. On the Quick Start page, click **Create Recovery Plan**.
 2. On the Specify the Recovery Page Name and Target page, type in a name and the source and target VMM servers. If you are deploying Hyper-V Recovery Manager on a single VMM server then the source and target server will be the same. The source VMM server must contain virtual machines with protection enabled.
 
-	![Create Recovery Plan](../media/RS_RecoveryPlan1.png)
+	![Create Recovery Plan](./media/hyper-v-recovery-manager-configure-vault/RS_RecoveryPlan1.png)
 3. In the Select Virtual Machines page, select virtual machines to add to the recovery plan. These are added to the recovery plan default group (Group 1).
 4. Click the check mark to create the recovery plan. Recovery plans you create can be deleted on the <b>Recovery Plans</b> tab.
 
-	![Recovery Plan VMs](../media/RS_RecoveryPlan2.png)
+	![Recovery Plan VMs](./media/hyper-v-recovery-manager-configure-vault/RS_RecoveryPlan2.png)
 
 
 After creating a recovery plan, you can perform the following actions:
@@ -351,9 +351,9 @@ Run a test failover for a recovery plan as follows:
 <LI>To initiate the failover, click the <b>Test Failover</b> button.</LI>
 <LI>On the Confirm Test Failover page, specify how virtual machines should be connected to networks after the test failover, as follows:</LI>
 <UL>
-<LI><b>None</b>—Select this setting to specify that VM networks should not be used in the test failover. Use this option if you want to test individual virtual machines rather than your network configuration. It also provides a quick glance of how test failover functionality works. Test virtual machines will not be connected to networks after a failover.</LI>
-<LI><b>Use existing</b>—Use this option if you have already created and isolated a VM network to use for test failover. After the failover all test virtual machines used in the test failover will be connected to the network specified in <b>VM Network</b>.</LI>
-<LI><b>Create automatically</b>—Select this setting to specify that Hyper-V Recovery Manager should automatically create a VM network based on the setting you specify in Logical Network, and its related network sites. Use this option if the recovery plan uses more than one VM network. In the case of Windows Network Virtualization networks, this option can be used to automatically create VM networks with the same settings (subnets and IP address pools) of those in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</LI>
+<LI><b>None</b> - Select this setting to specify that VM networks should not be used in the test failover. Use this option if you want to test individual virtual machines rather than your network configuration. It also provides a quick glance of how test failover functionality works. Test virtual machines will not be connected to networks after a failover.</LI>
+<LI><b>Use existing</b> - Use this option if you have already created and isolated a VM network to use for test failover. After the failover all test virtual machines used in the test failover will be connected to the network specified in <b>VM Network</b>.</LI>
+<LI><b>Create automatically</b> - Select this setting to specify that Hyper-V Recovery Manager should automatically create a VM network based on the setting you specify in Logical Network, and its related network sites. Use this option if the recovery plan uses more than one VM network. In the case of Windows Network Virtualization networks, this option can be used to automatically create VM networks with the same settings (subnets and IP address pools) of those in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.</LI>
 </UL>
 </OL>
 
@@ -387,7 +387,7 @@ On the **Jobs** tab, you can do the following tasks:
 
 
 
-- **Run a job query**— You can run a query to retrieve jobs that match specified criteria. You can filter for jobs using the following parameters:
+- **Run a job query** -  You can run a query to retrieve jobs that match specified criteria. You can filter for jobs using the following parameters:
 
 - 	Find jobs that ran on a specific VMM server.
 - 	Find jobs that were performed on a cloud, virtual machine, network, recovery plan in a cloud, or on all of these.
@@ -395,25 +395,25 @@ On the **Jobs** tab, you can do the following tasks:
 
 Note that a query can return a maximum of 200 jobs, so we recommend you narrow query parameters to return less than the maximum.
 
-- **Get job details**—You can click on a job in the **Jobs** list in order to get more details. The details include the job name, its status, when it started and how long it lasted. On the Job details tab you can export the job details to an Excel spreadsheet, or attempt to restart a failed, skipped, or cancelled job. 
-- **Export Jobs**—You can export the results of a job query to an Excel spreadsheet.
-- **Restart**—You can restart jobs that failed to attempt to run them again.
-- **Error Details**—For failed jobs you can click <b>Error Details</b> to get a list of errors for the job. Possible causes and recommendations are displayed for each error. The error description can be copied to the clipboard for troubleshooting.
+- **Get job details** - You can click on a job in the **Jobs** list in order to get more details. The details include the job name, its status, when it started and how long it lasted. On the Job details tab you can export the job details to an Excel spreadsheet, or attempt to restart a failed, skipped, or cancelled job. 
+- **Export Jobs** - You can export the results of a job query to an Excel spreadsheet.
+- **Restart** - You can restart jobs that failed to attempt to run them again.
+- **Error Details** - For failed jobs you can click <b>Error Details</b> to get a list of errors for the job. Possible causes and recommendations are displayed for each error. The error description can be copied to the clipboard for troubleshooting.
 
 
 >The **Jobs** tab provides the following information:
 <UL>
-<LI><b>Name</b>—The job name</LI>
-<LI><b>Item</b>—The name of the cloud, recovery plan, VMM server, or virtual machine on which the job ran.</LI>
-<LI><b>Status</b>—Job status - completed, canceled, failed, or other</LI>
-<LI><b>Type</b>—Job type</LI>
-<LI><b>Started At</b>—When the job started</LI>
-<LI><b>Task Time</b>—The job duration</LI>
+<LI><b>Name</b> - The job name</LI>
+<LI><b>Item</b> - The name of the cloud, recovery plan, VMM server, or virtual machine on which the job ran.</LI>
+<LI><b>Status</b> - Job status - completed, canceled, failed, or other</LI>
+<LI><b>Type</b> - Job type</LI>
+<LI><b>Started At</b> - When the job started</LI>
+<LI><b>Task Time</b> - The job duration</LI>
 </UL>
 
 	
 
-![Jobs tab](../media/RS_Jobs.png)
+![Jobs tab](./media/hyper-v-recovery-manager-configure-vault/RS_Jobs.png)
 
 
 
@@ -444,22 +444,22 @@ On the **Dashboard** tab you can do the following tasks:
 
 
 
-- **Download Provider**—Download the Hyper-V Recovery Manager provider for installation on a VMM server.
-- **Manage Certificate**—Modify settings for the certificate associated with the vault.
-- **Delete—**Delete a vault.
-- **Resynchronize virtual machines**—If Hyper-V Recovery Manager detects that any primary and recovery virtual machines are not synchronized as expected, you can view a list of the relevant virtual machines and select any that you want to attempt to resynchronize from the Dashboard. 
+- **Download Provider** - Download the Hyper-V Recovery Manager provider for installation on a VMM server.
+- **Manage Certificate** - Modify settings for the certificate associated with the vault.
+- **Delete - **Delete a vault.
+- **Resynchronize virtual machines** - If Hyper-V Recovery Manager detects that any primary and recovery virtual machines are not synchronized as expected, you can view a list of the relevant virtual machines and select any that you want to attempt to resynchronize from the Dashboard. 
 
 
 The **Dashboard** tab provides the following information:
 <UL>
-<LI><b>Usage Overview</b>—Shows the number of virtual machines that have protection managed by Hyper-V Recovery Manager.</LI>
-<LI><b>Quick Glance</b>—Displays crucial configuration information for recovery services and the Hyper-V Recovery Manager vault. It tells you whether the vault is online, which certificate is assigned to it, when the certificate expires, and subscription details for the service.</LI>
-<LI><b>Recent Jobs</b>—Shows jobs that have succeeded or failed in the last 24 hours, or jobs that are in progress or waiting for action.</LI>
-<LI><b>Issues</b>—The dashboard shows information about issues with VMM server connections, and issues with cloud configuration settings or synchronization of virtual machine replication. You can get more details of an issue, view jobs associated with the issue, or try to resynchronize virtual machines.</LI>
+<LI><b>Usage Overview</b> - Shows the number of virtual machines that have protection managed by Hyper-V Recovery Manager.</LI>
+<LI><b>Quick Glance</b> - Displays crucial configuration information for recovery services and the Hyper-V Recovery Manager vault. It tells you whether the vault is online, which certificate is assigned to it, when the certificate expires, and subscription details for the service.</LI>
+<LI><b>Recent Jobs</b> - Shows jobs that have succeeded or failed in the last 24 hours, or jobs that are in progress or waiting for action.</LI>
+<LI><b>Issues</b> - The dashboard shows information about issues with VMM server connections, and issues with cloud configuration settings or synchronization of virtual machine replication. You can get more details of an issue, view jobs associated with the issue, or try to resynchronize virtual machines.</LI>
 </UL>
 
 
-![Dashboard](../media/RS_Dashboard.png)
+![Dashboard](./media/hyper-v-recovery-manager-configure-vault/RS_Dashboard.png)
 
 <h2><a id="next"></a>Next steps</h2>
 <UL>
