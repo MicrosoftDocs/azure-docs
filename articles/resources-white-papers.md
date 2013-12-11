@@ -6,4 +6,4 @@
   <properties linkid="dev-net-white-papers" urlDisplayName="White Papers" headerExpose="" pageTitle="White Papers on Windows Azure" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
 
 
- <div chunk="../../Shared/Chunks/white-papers.md" />
+ [WACOM.INCLUDE [white-papers](../includes/white-papers.md)]

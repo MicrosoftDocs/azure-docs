@@ -5,4 +5,4 @@
 
 
 
-<div chunk="../../Shared/Chunks/training-kit.md" />
+[WACOM.INCLUDE [training-kit](../includes/training-kit.md)]
