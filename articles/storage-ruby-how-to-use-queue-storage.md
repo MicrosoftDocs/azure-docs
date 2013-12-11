@@ -15,9 +15,9 @@ Steps](#next-steps) section.
 
 ## Table of Contents
 
-* [What is the Queue Storage?](#what-is)
+* [What is Queue Storage?](#what-is)
 * [Concepts](#concepts)
-* [Create a Windows Azure Storage Account](#create-a-windows-azure-storage-account)
+* [Create a Windows Azure Storage Account](#CreateAccount)
 * [Create a Ruby Application](#create-a-ruby-application)
 * [Configure Your Application to Access Storage](#configure-your-application-to-access-storage)
 * [Setup a Windows Azure Storage Connection](#setup-a-windows-azure-storage-connection)
@@ -31,11 +31,11 @@ Steps](#next-steps) section.
 * [How To: Delete a Queue](#how-to-delete-a-queue)
 * [Next Steps](#next-steps)
 
-<div chunk="../../Shared/Chunks/howto-queue-storage.md" />
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
+## <a id="CreateAccount"></a>Create a Windows Azure storage account
 
-<div chunk="../../Shared/Chunks/create-storage-account.md" />
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
@@ -94,7 +94,7 @@ To insert a message into a queue, use the **create_message()** method to create 
 
 	azure_queue_service.create_message("test-queue", "test message")
 
-## <a id="how-to-peek-at-the-next message"></a>How To: Peek at the Next Message
+## <a id="how-to-peek-at-the-next-message"></a>How To: Peek at the Next Message
 
 You can peek at the message in the front of a queue without removing it from the queue by calling the **peek\_messages()** method. By default, **peek\_messages()** peeks at a single message. You can also specify how many messages you want to peek.
 

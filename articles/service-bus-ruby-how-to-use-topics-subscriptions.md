@@ -23,7 +23,7 @@ This guide will show you how to use Service Bus topics and subscriptions from Ru
 * [How to Delete Topics and Subscriptions](#how-to-delete-topics-and-subscriptions)
 * [Next Steps](#NextSteps)
 
-<div chunk="../../shared/chunks/howto-service-bus-topics.md" />
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
@@ -141,7 +141,7 @@ The following example demonstrates how to send five test messages to "test-topic
 
 Service Bus topics support a maximum message size of 256 MB (the header, which includes the standard and custom application properties, can have a maximum size of 64 MB). There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
-## <a id="how-to-receive-messages-from-a-subscriptio"></a>How to Receive Messages from a Subscription
+## <a id="how-to-receive-messages-from-a-subscription"></a>How to Receive Messages from a Subscription
 
 Messages are received from a subscription using the **receive\_subscription\_message()** method on the **Azure::ServiceBusService** object. By default, messages are read(peak) and locked without deleting it from the subscription. You can read and delete the message from the subscription by setting the **peek\_lock** option to **false**.
 

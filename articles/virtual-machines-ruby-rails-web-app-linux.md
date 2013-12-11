@@ -277,7 +277,7 @@ To learn how to use the Windows Azure SDK for Ruby to access Windows Azure servi
 
 [vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
 [unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/web-app-with-capistrano/
-[sql-rails]: /en-us/develop/ruby/howto/sql-rails/
+
 [rails-guides]: http://guides.rubyonrails.org/
 [blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
 [tables]: /en-us/develop/ruby/how-to-guides/table-service/
@@ -285,13 +285,13 @@ To learn how to use the Windows Azure SDK for Ruby to access Windows Azure servi
 
 [ruby-vm-endpoint]: 
 [ruby-http-endpoint-details]: 
-[blog-rails]: ../media/blograilslocal.png
-[blog-rails-cloud]: ../media/blograilscloud.png 
-[default-rails]: ../media/basicrailslocal.png
-[default-rails-cloud]: ../media/basicrailscloud.png
-[vmlist]: ../media/vmlist.png
-[endpoints]: ../media/endpoints.png
-[new-endpoint]: ../media/newendpoint.png
+[blog-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
+[blog-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png 
+[default-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
+[default-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
+[vmlist]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
+[endpoints]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
+[new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [management-portal]: https://manage.windowsazure.com/
 [sqlite3]: http://www.sqlite.org/

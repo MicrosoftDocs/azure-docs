@@ -388,22 +388,22 @@ To learn how to use the Windows Azure SDK for Ruby to access Windows Azure servi
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 [vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-[unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/unicorn-nginx-capistrano/
-[sql-rails]: /en-us/develop/ruby/howto/sql-rails/
+
+
 [rails-guides]: http://guides.rubyonrails.org/
 [blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
 [tables]: /en-us/develop/ruby/how-to-guides/table-service/
 [cdn-howto]: /en-us/develop/ruby/app-services/
 [ruby-vm]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
  
-[blog-rails]: ../media/blograilslocal.png
-[blog-rails-cloud]: ../media/blograilscloud.png 
-[default-rails]: ../media/basicrailslocal.png
-[default-rails-cloud]: ../media/basicrailscloud.png
-[vmlist]: ../media/vmlist.png
-[endpoints]: ../media/endpoints.png
-[new-endpoint]: ../media/newendpoint80.png
-[nginx-welcome]: ../media/welcomenginx.png
+[blog-rails]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/blograilslocal.png
+[blog-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/blograilscloud.png 
+[default-rails]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/basicrailslocal.png
+[default-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/basicrailscloud.png
+[vmlist]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/vmlist.png
+[endpoints]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/endpoints.png
+[new-endpoint]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/newendpoint80.png
+[nginx-welcome]: ./media/virtual-machines-ruby-deploy-capistro-host-nginx-unicorn/welcomenginx.png
 
 [management-portal]: https://manage.windowsazure.com/
 [sqlite3]: http://www.sqlite.org/
