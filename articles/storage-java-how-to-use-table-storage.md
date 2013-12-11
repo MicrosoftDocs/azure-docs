@@ -1,10 +1,6 @@
 <properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Windows Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
-
-
-
-
 # How to use the Table storage service from Java
 
 This guide will show you how to perform common scenarios using the
@@ -36,7 +32,7 @@ tables, see the [Next steps](#NextSteps) section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-<h2><a name="CreateAccount"></a>Create a Windows Azure storage account</h2>
+##<a name="CreateAccount"></a>Create a Windows Azure storage account
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
