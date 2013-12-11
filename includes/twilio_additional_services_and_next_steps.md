@@ -2,10 +2,10 @@
 In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Windows Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
 
 <h2><a id="NextSteps"></a><span class="short-header">Next steps</span>Next steps</h2>
-Now that you???ve learned the basics of the Twilio service, follow these links to learn more:
+Now that you've learned the basics of the Twilio service, follow these links to learn more:
 
 * [Twilio Security Guidelines] [twilio_security_guidelines]
-* [Twilio HowTo???s and Example Code] [twilio_howtos]
+* [Twilio HowTos and Example Code] [twilio_howtos]
 * [Twilio Quickstart Tutorials][twilio_quickstarts] 
 * [Twilio on GitHub] [twilio_on_github]
 * [Talk to Twilio Support] [twilio_support]
