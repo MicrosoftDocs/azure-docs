@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What version of Hadoop is in Windows Azure HDInsight?" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" metaDescription="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What version of Hadoop is in Windows Azure HDInsight?" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" title="What version of Hadoop is in Windows Azure HDInsight"/>
 
 
 #What version of Hadoop is in Windows Azure HDInsight?
