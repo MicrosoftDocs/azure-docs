@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pagetitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler"/>
+<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler"/>
 
 # Testing the Performance of a Cloud Service Locally in the Windows Azure Compute Emulator Using the Visual Studio Profiler
 
