@@ -115,7 +115,7 @@ The following is an example valid consent request URL:
 
 In the sample application, the "Register" link contains a similar URL for consent request, as shown below:
 
-![login](/media/devcenter/dotnet/login.png)
+![login](/media/active-directory-dotnet-integrate-multitent-cloud-applications/login.png)
 
 
 <div class="dev-callout"><strong>Note</strong><p>When you test your unpublished application, you will go through a consent experience that is similar to your customers. However, the authorization page for an unpublished application looks different than the authorization page for a published application. A published application displays your app name, logo, and publisher details, whereas an unpublished application does not.</p></div>
