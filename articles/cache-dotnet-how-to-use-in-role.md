@@ -81,23 +81,23 @@ To use caching on role instances, you need to configure a cache cluster, and the
 
 To configure a **Co-located Role** cache cluster, select the role in which you wish to host the cache cluster. Right-click the role properties in **Solution Explorer** and choose **Properties**.
 
-![RoleCache1][]
+![RoleCache1][RoleCache1]
 
 Switch to the **Caching** tab, check the **Enable Caching** checkbox, and specify the desired caching options. When caching is enabled in a **Worker Role** or **ASP.NET Web Role**, the default configuration is **Co-located Role** caching with 30% of the memory of the role instances allocated for caching. A default cache is automatically configured, and additional named caches can be created if desired, and these caches will share the allocated memory.
 
-![RoleCache2][]
+![RoleCache2][RoleCache2]
 
 To configure a **Dedicated Role** cache cluster, add a **Cache Worker Role** to your project.
 
-![RoleCache7][]
+![RoleCache7][RoleCache7]
 
 When a **Cache Worker Role** is added to a project, the default configuration is **Dedicated Role** caching.
 
-![RoleCache8][]
+![RoleCache8][RoleCache8]
 
 Once caching is enabled, the cache cluster storage account can be configured. In-Role Cache requires a Windows Azure storage account. This storage account is used to hold configuration data about the cache cluster that is accessed from all virtual machines that make up the cache cluster. This storage account is specified on the **Caching** tab of the cache cluster role property page, just above the **Named Cache Settings**.
 
-![RoleCache10][]
+![RoleCache10][RoleCache10]
 
 >If this storage account is not configured the roles will fail to start. 
 
@@ -107,11 +107,11 @@ The size of the cache is determined by a combination of the VM size of the role,
 
 To configure the virtual machine size and the number of role instances, right-click the role properties in **Solution Explorer** and choose **Properties**.
 
-![RoleCache1][]
+![RoleCache1][RoleCache1]
 
 Switch to the **Configuration** tab. The default **Instance count** is 1, and the default **VM size** is **Small**.
 
-![RoleCache3][]
+![RoleCache3][RoleCache3]
 
 The total memory for the VM sizes is as follows: 
 
@@ -131,13 +131,13 @@ Once the cache cluster is configured, you can configure the cache clients to all
 
 To access a In-Role Cache cache, the clients must be within the same deployment. If the cache cluster is a dedicated role cache cluster, then the clients are other roles in the deployment. If the cache cluster is a co-located role cache cluster, then the clients could be either  the other roles in the deployment, or the roles themselves that host the cache cluster. A NuGet package is provided that can be used to configure each client role that accesses the cache. To configure a role to access a cache cluster using the Caching NuGet package, right-click the role project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
-![RoleCache4][]
+![RoleCache4][RoleCache4]
 
 Select **In-Role Cache**, click **Install**, and then click **I Accept**.
 
 >If **In-Role Cache** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
-![RoleCache5][]
+![RoleCache5][RoleCache5]
 
 The NuGet package does several things: it adds the required configuration to the config file of the role, it adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Windows Azure application, and it adds the required assembly references.
 
@@ -284,7 +284,7 @@ if it does not exist, or replaces the object if it does exist.
 
 By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time to Live (min)** setting in the role properties of the role that hosts the cache cluster.
 
-![RoleCache6][]
+![RoleCache6][RoleCache6]
 
 There are three types of **Expiration Type**: **None**, **Absolute**, and **Sliding Window**. These configure how **Time to Live (min)** is used to determine expiration. The default **Expiration Type** is **Absolute**, which means that the countdown timer for an item's expiration begins when the item is placed into the cache. Once the specified amount of time has elapsed for an item, the item expires. If **Sliding Window** is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access. If **None** is specified, then **Time to Live (min)** must be set to **0**, and items will not expire, and will remain valid as long as they are in the cache.
 
@@ -395,25 +395,25 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Session State in the Cache]: #store-session
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
-  [Cache1]: ../../Media/cache1.png
-  [Cache2]: ../../Media/cache2.png
-  [Cache3]: ../../Media/cache3.png
-  [Cache4]: ../../Media/cache4.png
-  [Cache5]: ../../Media/cache5.png
-  [RoleCache1]: ../../Media/cache8.png
-  [RoleCache2]: ../../Media/cache9.png
-  [RoleCache3]: ../../Media/cache10.png
-  [RoleCache4]: ../../Media/cache11.png
-  [RoleCache5]: ../../Media/cache12.png
-  [RoleCache6]: ../../Media/cache13.png
-  [RoleCache7]: ../../Media/cache14.png
-  [RoleCache8]: ../../Media/cache15.png
-  [RoleCache9]: ../../Media/cache16.png
-  [RoleCache10]: ../../Media/cache17.png
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
-  [Cache6]: ../../../DevCenter/dotNet/Media/cache6.png
-  [Cache7]: ../../../DevCenter/dotNet/Media/cache7.png
+  
+  
   [Session State Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
   [Windows Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
   [Output Cache Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx

@@ -20,7 +20,7 @@ This topic provides an overview of some aspects of using Linux virtual machines 
 
 <h2><a id="authentication"></a>Authentication: Usernames, Passwords and SSH Keys </h2>
 
-When creating a Linux virtual machine using the Windows Azure Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Windows Azure is subject to the following constraint: names of system accounts already present in the virtual machine are not allowed - root for example.  If you don???t provide the SSH public key, you will be able to log in to the virtual machine using the specified username and password. If you elect to upload an SSH public key in the Management Portal, password-based authentication will be disabled and you will be required to use the corresponding SSH private key to authenticate with the virtual machine and log in.
+When creating a Linux virtual machine using the Windows Azure Management Portal, you are asked to provide a username, password and (optionally) an SSH public key. The choice of a username for deploying a Linux virtual machine on Windows Azure is subject to the following constraint: names of system accounts already present in the virtual machine are not allowed - root for example.  If you don't provide the SSH public key, you will be able to log in to the virtual machine using the specified username and password. If you elect to upload an SSH public key in the Management Portal, password-based authentication will be disabled and you will be required to use the corresponding SSH private key to authenticate with the virtual machine and log in.
 
 <h2><a id="keygeneration"></a>SSH Key Generation </h2>
 
