@@ -231,7 +231,7 @@ The finished the code behind file shall look like this:
 
 You have completed lesson1.  In this lesson, you use a MediaElement control to playback Smooth Streaming content.  In the next lesson, you will add a slider to control the progress of the Smooth Streaming content.
 
-???
+
 #Lesson 2: Add a Slider Bar to Control the Media Progress
 In lesson 1, you created a Windows Store application with a MediaElement XAML control to playback Smooth Streaming media content.  It comes some basic media functions like start, stop and pause.  In this lesson, you will add a slider bar control to the application.
 
