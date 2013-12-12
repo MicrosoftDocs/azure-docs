@@ -7,7 +7,7 @@
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9751405">Security Best Practices For Developing Windows Azure Applications</a>
         </td>
-        <td style="width: 400px;">This paper focuses on the security challenges and recommended approaches to design and develop more secure applications for Microsoft???s Windows Azure platform.</td>
+        <td style="width: 400px;">This paper focuses on the security challenges and recommended approaches to design and develop more secure applications for Microsoft's Windows Azure platform.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -19,7 +19,7 @@
         <td style="width: 200px;">
           <a href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Single Sign-On from Active Directory to a Windows Azure Application Whitepaper</a>
         </td>
-        <td style="width: 400px;">This paper contains step-by-step instructions for using Windows?? Identity Foundation, Windows Azure, and Active Directory Federation Services (AD FS) 2.0 for achieving SSO across web applications that are deployed both on premises and in the cloud.</td>
+        <td style="width: 400px;">This paper contains step-by-step instructions for using Windows Identity Foundation, Windows Azure, and Active Directory Federation Services (AD FS) 2.0 for achieving SSO across web applications that are deployed both on premises and in the cloud.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -31,7 +31,7 @@
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9751403">A Developer's Guide to Service Bus for the Windows Azure AppFabric</a>
         </td>
-        <td style="width: 400px;">This paper focuses on how you can use the Service Bus to overcome some of the most common Internet connectivity challenges inherent in today???s world.</td>
+        <td style="width: 400px;">This paper focuses on how you can use the Service Bus to overcome some of the most common Internet connectivity challenges inherent in today's world.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
@@ -95,15 +95,15 @@
       </tr>
       <tr>
         <td style="width: 200px;">
-          <a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Windows Azure and ISVs ??? A Guide for Decision Makers</a>
+          <a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Windows Azure and ISVs - A Guide for Decision Makers</a>
         </td>
-        <td style="width: 400px;">This paper discusses how using the cloud has the potential to increase an ISV???s revenues and decrease its costs.</td>
+        <td style="width: 400px;">This paper discusses how using the cloud has the potential to increase an ISV's revenues and decrease its costs.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9751401">Cloud Optimization - A framework for making business decisions about cloud computing</a>
         </td>
-        <td style="width: 400px;">This paper discusses how cloud computing provides organizations with new ways to deploy and maintain enterprise applications ??? allowing for greater flexibility and reduced complexity.</td>
+        <td style="width: 400px;">This paper discusses how cloud computing provides organizations with new ways to deploy and maintain enterprise applications - allowing for greater flexibility and reduced complexity.</td>
       </tr>
       <tr>
         <td style="width: 200px;">
