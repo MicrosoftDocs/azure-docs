@@ -1,5 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, create storage account, create account" metaDescription="Learn about storage account concepts." 
-linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts" metaKeywords="Windows Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts"/>
 
 
 <h1 id="storageaccountconcepts">Storage Account Concepts</h1>
