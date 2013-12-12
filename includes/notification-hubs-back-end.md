@@ -12,7 +12,7 @@ Skip steps 1-3 if you created a console app when you completed [Get started with
 
 1. In Visual Studio create a new Visual C# console application: 
 
-   ![][13]
+   	![][13]
 
 2. In the Visual Studio main menu, click **Tools**, **Library Package Manager**, and **Package Manager Console**, then in the console window type the following and press **Enter**:
 
@@ -97,11 +97,11 @@ To send a notification using a Mobile Service do the following:
 
 2. Click the **Scheduler** tab, then click **Create**.
 
-   ![][15]
+   	![][15]
 
 3. In **Create new job**, type a name, select **On demand**, and then click the check to accept.
 
-   ![][16]
+   	![][16]
 
 4. After the job is created, click the job name and then in the **Script** tab insert the following script inside the scheduled job function: 
 

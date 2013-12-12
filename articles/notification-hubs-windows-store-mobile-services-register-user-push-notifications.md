@@ -2,7 +2,7 @@
 # Register the current user for push notifications by using a mobile service
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-mobile-services-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios/" title="iOS">iOS</a>
+    <a href="/en-us/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS">iOS</a>
 </div>
 
 This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by Windows Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
@@ -19,9 +19,9 @@ This topic shows you how to request push notification registration with Windows 
 
 4. Select the app that you registered in [Notify users with Notification Hubs], click **Next**, and then click **Associate**.
 
-   ![][2]
+   	![][2]
 
-   This adds the required Windows Store registration information to the application manifest.  
+   	This adds the required Windows Store registration information to the application manifest.  
 
 	<div class="dev-callout"><b>Note</b>
 	<p>This reuses the Windows Store registration from the Notification Hubs tutorial app with this Mobile Services app. This may prevent the Notification Hubs tutorial app from receiving notifications</p>
@@ -31,7 +31,7 @@ This topic shows you how to request push notification registration with Windows 
 
 6. Scroll down to **All Image Assets** and click **Badge Logo**. In **Notifications**, set **Toast capable** to **Yes**:
 
-   ![][3]
+   	![][3]
 
 	This enables this Mobile Services tutorial app to receive toast notifications.
 
@@ -49,7 +49,7 @@ This topic shows you how to request push notification registration with Windows 
             public string ExpirationTime { get; set; }
         }
 
-  These classes will hold the request body and the registration ID returned when the custom API is called, respectively.
+	These classes will hold the request body and the registration ID returned when the custom API is called, respectively.
 
 8. In the **MainPage** class, add the following method:
 

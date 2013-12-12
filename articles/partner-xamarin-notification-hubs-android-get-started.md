@@ -34,8 +34,8 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
-   ![][1]   
-
+   	![][1]   
+	
 	<div class="dev-callout"><b>Note</b>
 	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
     </div>
@@ -48,15 +48,15 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 4. Click **API Access**, and then click **Create new Server key...** 
 
-   ![][2]
+   	![][2]
 
 5. In **Configure Server Key for API Project**, click **Create**.
 
-   ![][3]
+   	![][3]
 
 6. Make a note of the **API key** value.
 
-   ![][4] 
+   	![][4] 
 
 Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
 
@@ -66,27 +66,27 @@ Next, you will use this API key value to enable your notification hub to authent
 
 2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
-   ![][7]
+   	![][7]
 
 3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
-   ![][8]
+   	![][8]
 
 4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click **Configure** at the top.
 
-   ![][9]
+   	![][9]
 
 5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
 
-   ![][10]
+   	![][10]
 
 6. Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
 
-   ![][11]
+   	![][11]
 
 7. Select the **Dashboard** tab at the top, then click **Connection Information**. Take note of the two connection strings.
 
-   ![][12]
+   	![][12]
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
 
@@ -96,12 +96,12 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 1. In Xamarin Studio (or Visual Studio), create a new Android project (File, New, Solution, Android Application).
 
-   ![][13]   
-   ![][14]
+   	![][13]   
+   	![][14]
 
 2. Open the project properties by right clicking on your new project in the Solution view, and choosing **Options**. Select the **Android Application** item in the **Build** section.
 
-   ![][15]
+   	![][15]
 
 3. Set the **Minimum Android version** to API Level 8.
 
@@ -326,11 +326,11 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
 1. From **Tools**, click **Open Android Emulator Manager**, select your device, and then click **Edit**.
 
-   ![][18]
+   	![][18]
 
 2. Select **Google APIs** in **Target**, then click **OK**.
 
-   ![][19]
+   	![][19]
 
 3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and run the app.
 
@@ -348,7 +348,7 @@ To send notifications using a .NET app:
 
 1. Create a new Visual C# console application: 
 
-   ![][20]
+   	![][20]
 
 2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
@@ -375,7 +375,7 @@ To send notifications using a .NET app:
 
 5. Press the F5 key to run the app. You should receive a toast notification.
 
-   ![][21]
+   	![][21]
 
 To send a notification using a Mobile Service, follow [Get started with Mobile Services], then:
 
@@ -383,11 +383,11 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 2. Select the tab **Scheduler** on the top.
 
-   ![][22]
+   	![][22]
 
 3. Create a new scheduled job, insert a name, and select **On demand**.
 
-   ![][23]
+   	![][23]
 
 4. When the job is created, click the job name. Then click the tab **Script** in the top bar.
 
