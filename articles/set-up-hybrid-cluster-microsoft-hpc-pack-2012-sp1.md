@@ -173,7 +173,7 @@ To use HPC Cluster Manager to deploy Windows Azure nodes and to submit jobs, you
 
 	<div class="dev-callout"> 
 	<strong>Note</strong> 
-	<p>HPC Pack services use installation credentials only to deploy on???premises compute nodes. </p> 
+	<p>HPC Pack services use installation credentials only to deploy on-premises compute nodes. </p> 
 	</div>
 
 7. In the **Deployment To-do List**, click **Configure the naming of new nodes**. 
@@ -284,7 +284,7 @@ You can use the HPC Pack **clusrun** command to run a command or application on 
 
 <h2 id="BKMK_RunJob">Run a test job</h2>
 
-You can submit a test job that runs on the hybrid cluster. This example is a simple ???parametric sweep??? job (a type of intrinsically parallel computation) which runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100. 
+You can submit a test job that runs on the hybrid cluster. This example is a simple "parametric sweep" job (a type of intrinsically parallel computation) which runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100. 
 
 1. In HPC Cluster Manager, in **Job Management**, in the **Actions** pane, click **New Parametric Sweep Job**.
 

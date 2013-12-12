@@ -57,7 +57,7 @@ Use the following command to point Package Manager to the location on your machi
 
 This command will automatically add all required references to your project. If you do not want to use the Package Manager Console, you can also add the WCF Data Services NuGet folder on your local machine to the list of Package Sources and then add the reference through the UI as described in [Managing NuGet Packages Using the Dialog](http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog).
 
-When you have referenced the WCF Data Services NuGet package, change the code in your button???s **Click** event:
+When you have referenced the WCF Data Services NuGet package, change the code in your button's **Click** event:
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);

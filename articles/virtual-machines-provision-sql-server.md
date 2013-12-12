@@ -134,7 +134,7 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 5. On the **Specify the details of the endpoint** page, provide the following information.
 
 - In the **NAME** box, provide a name for the endpoint.
-- In the **PROTOCOL** box, select **TCP**. You may type SQL Server???s default listening port **1433** in the **Private Port** box. Similarly, you may type **57500** in the **PUBLIC PORT** box. Note that many organizations select different port numbers to avoid malicious security attacks.
+- In the **PROTOCOL** box, select **TCP**. You may type SQL Server's default listening port **1433** in the **Private Port** box. Similarly, you may type **57500** in the **PUBLIC PORT** box. Note that many organizations select different port numbers to avoid malicious security attacks.
 
 
 	![Endpoint screen] [Image30]

@@ -12,7 +12,7 @@ Multi-factor or two-factor authentication is a method of authentication that req
 * Something you have (a trusted device that is not easily duplicated, like a phone)
 * Something you are (biometrics)
 
-The security of multi-factor authentication lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user???s password, it is useless without also having possession of the trusted device. Conversely, if the user happens to lose the device, the finder of that device won???t be able to use it unless he or she also knows the user???s password.
+The security of multi-factor authentication lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device. Conversely, if the user happens to lose the device, the finder of that device won't be able to use it unless he or she also knows the user's password.
 Windows Azure Multi-Factor Authentication is the multi-factor authentication service that requires users to also verify sign-ins using a mobile app, phone call or text message. It is available to use with Windows Azure Active Directory, to secure on-premise resources with the Windows Azure Multi-Factor Authentication Server, and with custom applications and directories using the SDK. 
 
 ![Windows Azure Multi-Factor Authentication](./media/multi-factor-authentication/WAMFA1.png)
@@ -26,7 +26,7 @@ Enable Multi-Factor Authentication for Windows Azure AD identities, and users wi
 Enable Multi-Factor Authentication for your on-premise resources such as IIS and Active Directory using the Windows Azure Multi-Factor Authentication Server.  The Windows Azure Multi-Factor Authentication Server allows the administrator integrate with IIS authentication to secure Microsoft IIS web applications, RADIUS authentication, LDAP authentication, and Windows authentication.  [Learn more](http://technet.microsoft.com/en-us/library/dn249467.aspx)
 <h3>Securing custom applications</h3>
 
-An SDK enables direct integration with your cloud services. Build Active Authentication phone call and text message verification into your application???s sign-in or transaction processes and leverage your application???s existing user database. [Learn more](http://msdn.microsoft.com/en-us/library/windowsazure/dn422962.aspx)
+An SDK enables direct integration with your cloud services. Build Active Authentication phone call and text message verification into your application's sign-in or transaction processes and leverage your application's existing user database. [Learn more](http://msdn.microsoft.com/en-us/library/windowsazure/dn422962.aspx)
 
 **Additional Resources**
 
