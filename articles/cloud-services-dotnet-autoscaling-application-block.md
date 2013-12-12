@@ -542,13 +542,14 @@ autoscaling scenarios:
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [diagram of sample autoscaling]: ../../../DevCenter/dotNET/Media/autoscaling01.png
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
-  [files configured by autoscaling NuGet package]: ../../../DevCenter/dotNet/Media/auotscaling02.png
-  
-  [Set Copy to Output Directory value]: ../../../DevCenter/dotNet/Media/autoscaling04.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
+
+  [diagram of sample autoscaling]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling01.png
+  [files configured by autoscaling NuGet package]: ./media/cloud-services-dotnet-autoscaling-application-block/auotscaling02.png
+  [image]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
+  [Set Copy to Output Directory value]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling04.png
   [1]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png
   [2]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png
   [3]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png
