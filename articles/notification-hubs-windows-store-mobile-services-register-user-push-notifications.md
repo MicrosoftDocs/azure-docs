@@ -23,7 +23,7 @@ This topic shows you how to request push notification registration with Windows 
 
    This adds the required Windows Store registration information to the application manifest.  
 
-  	<div class="dev-callout"><b>Note</b>
+	<div class="dev-callout"><b>Note</b>
 	<p>This reuses the Windows Store registration from the Notification Hubs tutorial app with this Mobile Services app. This may prevent the Notification Hubs tutorial app from receiving notifications</p>
 	</div>
 
