@@ -1,14 +1,10 @@
-<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Windows Azure Storage with a Jenkins Continuous Integration Solution" metaKeywords="" description="This tutorial show how to use the Windows Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Windows Azure Storage with a Jenkins Continuous Integration solution" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
-
-
-
-
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Windows Azure Storage with a Jenkins Continuous Integration Solution" metaKeywords="" description="This tutorial show how to use the Windows Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Windows Azure Storage with a Jenkins Continuous Integration solution" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
 
 #Using Windows Azure Storage with a Jenkins Continuous Integration solution
 
 *By [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-The following information shows how to use the Windows Azure Blob service as a repository of build artifacts created by a Jenkins Continuous Integration (CI) solution. One of the scenarios where you would find this useful is when you’re coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. 
+The following information shows how to use the Windows Azure Blob service as a repository of build artifacts created by a Jenkins Continuous Integration (CI) solution. One of the scenarios where you would find this useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive. 
 
 In this tutorial you will be using the Windows Azure Storage Plugin for Jenkins CI made available by Microsoft Open Technologies, Inc.
 
@@ -43,12 +39,12 @@ You will need the following to use the Blob service with your Jenkins CI solutio
 
 - A Jenkins Continuous Integration solution.
 
-    If you currently don’t have a Jenkins CI solution, you can run a Jenkins CI solution using the following technique:
+    If you currently don't have a Jenkins CI solution, you can run a Jenkins CI solution using the following technique:
 
     1. On a Java-enabled machine, download jenkins.war from <http://jenkins-ci.org>.
     2. At a command prompt that is opened to the folder that contains jenkins.war, run:
 
-        `java –jar jenkins.war`
+        `java -jar jenkins.war`
 
     3. In your browser, open `http://localhost:8080/`. This will open the Jenkins dashboard, which you will use to install and configure the Windows Azure Storage plugin.
 
@@ -56,13 +52,13 @@ You will need the following to use the Blob service with your Jenkins CI solutio
 
 - A Windows Azure account. You can sign up for a Windows Azure account at <http://www.windowsazure.com>.
 
-- A Windows Azure storage account. If you don’t already have a storage account, you can create one using the steps at [How to Create a Storage Account][].
+- A Windows Azure storage account. If you don't already have a storage account, you can create one using the steps at [How to Create a Storage Account][].
 
 - Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 
 <h2><a name="howtouse"></a><span class="short header">How to use Blob service</span>How to use the Blob service with Jenkins CI</h2>
 
-To use the Blob service with Jenkins, you’ll need to install the Windows Azure Storage plugin, configure the plugin to use your storage account, and then create a post-build action that uploads your build artifacts to your storage account. These steps are described in the following sections.
+To use the Blob service with Jenkins, you'll need to install the Windows Azure Storage plugin, configure the plugin to use your storage account, and then create a post-build action that uploads your build artifacts to your storage account. These steps are described in the following sections.
 
 <h2><a name="howtoinstall"></a><span class="short header">How to install</span>How to install the Windows Azure Storage plugin</h2>
 
@@ -87,7 +83,7 @@ To use the Blob service with Jenkins, you’ll need to install the Windows Azure
 
 <h2><a name="howtocreatepostbuild"></a><span class="short header">How to create post-build action</span>How to create a post-build action that uploads your build artifacts to your storage account</h2>
 
-For instruction purposes, first we’ll need to create a job that will create several files, and then add in the post-build action to upload the files to your storage account.
+For instruction purposes, first we'll need to create a job that will create several files, and then add in the post-build action to upload the files to your storage account.
 
 1. Within the Jenkins dashboard, click **New Job**.
 2. Name the job **MyJob**, click **Build a free-style software project**, and then click **OK**.
@@ -108,7 +104,7 @@ For instruction purposes, first we’ll need to create a job that will create se
     
     Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Jenkins. Click that link to learn the environment variable names and descriptions. Note that environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
 
-8. Click **Make container public** for this example. (If you want to use a private container, you’ll need to create a shared access signature to allow access. That is beyond the scope of this topic. You can learn more about shared access signatures at [Creating a Shared Access Signature](http://go.microsoft.com/fwlink/?LinkId=279889).)
+8. Click **Make container public** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this topic. You can learn more about shared access signatures at [Creating a Shared Access Signature](http://go.microsoft.com/fwlink/?LinkId=279889).)
 9. For **List of Artifacts to upload**, enter **text/*.txt**.
 10. For **Common virtual path for uploaded artifacts**, enter **${BUILD\_ID}/${BUILD\_NUMBER}**.
 11. Click **Save** to save your settings.

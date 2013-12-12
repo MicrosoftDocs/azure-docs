@@ -1,7 +1,4 @@
-<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
-
-
-
+<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
 
 # On-Premises Application with Blob Storage
 
@@ -34,11 +31,11 @@ HTML file that displays the image in your browser.
     **FileInputStream** constructor in the example to use a different
     image path and file name.
 
-<div chunk="../../Shared/Chunks/create-account-note.md" />
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <a name="bkmk_uploadfile"> </a>To use Windows Azure blob storage to upload a file
 
-A step-by-step procedure is presented here; if you’d like to skip ahead,
+A step-by-step procedure is presented here; if you'd like to skip ahead,
 the entire code is presented later in this topic.
 
 Begin the code by including imports for the Windows Azure core storage
@@ -102,13 +99,13 @@ Assign a value to the **serviceClient** variable.
 
     serviceClient = account.createCloudBlobClient();
 
-Assign a value to the **container** variable. We’ll get a reference to a
-container namedgettingstarted.
+Assign a value to the **container** variable. We'll get a reference to a
+container named **gettingstarted**.
 
     // Container name must be lower case.
     container = serviceClient.getContainerReference("gettingstarted");
 
-Create the container. This method will create the container if doesn’t
+Create the container. This method will create the container if doesn't
 exist (and return **true**). If the container does exist, it will return
 **false**. An alternative to **createIfNotExist** is the **create**
 method (which will return an error if the container already exists).
@@ -225,7 +222,7 @@ Although you added only one image in this sample, if you added more,
 this code would iterate all of them.
 
 For simplicity, this example assumes each uploaded blob is an image. If
-you’ve updated blobs other than images, or page blobs instead of block
+you've updated blobs other than images, or page blobs instead of block
 blobs, adjust the code as needed.
 
     // Enumerate the uploaded blobs.
@@ -363,7 +360,7 @@ your source code is secure.
 ## <a name="bkmk_deletecontainer"> </a>To delete a container
 
 Because you are charged for storage, you may want to delete the
-gettingstartedcontainer after you are done experimenting with this
+**gettingstarted** container after you are done experimenting with this
 example. To delete a container, use the **CloudBlobContainer.delete**
 method:
 
@@ -374,7 +371,7 @@ To call the **CloudBlobContainer.delete** method, the process of
 initializing **CloudStorageAccount**, **ClodBlobClient**,
 **CloudBlobContainer** objects is the same as shown for the
 **createIfNotExist** method. The following is a complete example that
-deletes the container namedgettingstarted.
+deletes the container named **gettingstarted**.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;
