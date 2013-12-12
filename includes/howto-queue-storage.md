@@ -33,4 +33,4 @@ The Queue service contains the following components:
 
 -   **Message:** A message, in any format, of up to 64KB.
 
-
+[Queue1]: ./media/howto-queue-storage/queue1.png

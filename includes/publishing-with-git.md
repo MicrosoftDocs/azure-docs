@@ -262,19 +262,17 @@ The following are errors or problems commonly encountered when using Git to publ
 [Git Documentation]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
+[git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
+[git-instructions]: ./media/publishing-with-git/git-instructions.png
+[portal-deployment-credentials]: ./media/publishing-with-git/git-deployment-credentials.png
 
-
-
-
-
+[git-ChooseARepositoryToDeploy]: ./media/publishing-with-git/git-ChooseARepositoryToDeploy.png
 [hello-git]: ./media/publishing-with-git/git-hello-git.png
 [yay]: ./media/publishing-with-git/git-yay.png
-
-
-
-
-
-
+[git-githubdeployed]: ./media/publishing-with-git/git-GitHubDeployed.png
+[git-GitHubDeployed-Updated]: ./media/publishing-with-git/git-GitHubDeployed-Updated.png
+[git-DisconnectFromGitHub]: ./media/publishing-with-git/git-DisconnectFromGitHub.png
+[git-DeploymentTrigger]: ./media/publishing-with-git/git-DeploymentTrigger.png
 [Create a Repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
