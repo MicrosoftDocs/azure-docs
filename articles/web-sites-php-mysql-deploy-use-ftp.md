@@ -244,7 +244,7 @@ After uploading both `index.php` and `createtable.php`, browse to **http://[site
  
 
 [install-php]: http://www.php.net/manual/en/install.php
-
+[install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php

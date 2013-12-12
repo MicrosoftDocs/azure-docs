@@ -54,11 +54,11 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![launch dashboard][10]
 
-7. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site???s welcome page.
+7. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
 
 	![site URL][11] 
 
-3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site???s login page.
+3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web site's login page.
 
 	![login to WordPress][12]
 
