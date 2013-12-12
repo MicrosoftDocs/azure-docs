@@ -53,22 +53,22 @@ If Node.js is installed on your system, use the following command to install the
 This will install the xplat-cli and required dependencies. At the end of the installation, you should see something similar to the following:
 
 	azure-cli@0.7.0 ..\node_modules\azure-cli
-	├── easy-table@0.0.1
-	├── eyes@0.1.8
-	├── xmlbuilder@0.4.2
-	├── colors@0.6.1
-	├── node-uuid@1.2.0
-	├── async@0.2.7
-	├── underscore@1.4.4
-	├── tunnel@0.0.2
-	├── omelette@0.1.0
-	├── github@0.1.6
-	├── commander@1.0.4 (keypress@0.1.0)
-	├── xml2js@0.1.14 (sax@0.5.4)
-	├── streamline@0.4.5
-	├── winston@0.6.2 (cycle@1.0.2, stack-trace@0.0.7, async@0.1.22, pkginfo@0.2.3, request@2.9.203)
-	├── kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
-	└── azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
+	????????? easy-table@0.0.1
+	????????? eyes@0.1.8
+	????????? xmlbuilder@0.4.2
+	????????? colors@0.6.1
+	????????? node-uuid@1.2.0
+	????????? async@0.2.7
+	????????? underscore@1.4.4
+	????????? tunnel@0.0.2
+	????????? omelette@0.1.0
+	????????? github@0.1.6
+	????????? commander@1.0.4 (keypress@0.1.0)
+	????????? xml2js@0.1.14 (sax@0.5.4)
+	????????? streamline@0.4.5
+	????????? winston@0.6.2 (cycle@1.0.2, stack-trace@0.0.7, async@0.1.22, pkginfo@0.2.3, request@2.9.203)
+	????????? kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
+	????????? azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
 <div class="dev-callout">
 <b>Note</b>
@@ -330,13 +330,13 @@ If you are writing a script that relies on the exit status, please verify that t
 
 * For more information on Windows Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
 
-[nodejs-org]: http://nodejs.org/
-[install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
-[download-wpi]: http://www.microsoft.com/web/downloads/platform.aspx
+
+
+
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
-[reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
-[windowsazuredotcom]: http://www.windowsazure.com
+
+
 [Windows Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
