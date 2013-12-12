@@ -1,4 +1,4 @@
-<properties pageTitle="" title="" description="" documentationCenter="" services="" solutions="" authors="" writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
+<properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
 **Note**: This article creates a virtual machine that is not connected to a virtual network. If you want your virtual machine to use a virtual network so you can connect to your virtual machines directly by hostname or set up 
 cross-premises connections, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).

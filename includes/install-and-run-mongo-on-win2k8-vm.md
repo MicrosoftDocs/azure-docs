@@ -1,5 +1,3 @@
-<properties pageTitle="" title="" description="" documentationCenter="" services="" solutions="" authors="" writer="kathydav" editor="tysonn" manager="jeffreyg" />
-
 Follow these steps to install and run MongoDB on a virtual machine running Windows Server 2008 R2.
 
 <div class="dev-callout">
