@@ -353,7 +353,7 @@ Follow these steps to create a Windows Azure Web Site:
 
 	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
 
-5. Click the name of the web site displayed in the list of web sites to open the web site???s **QUICKSTART** dashboard.
+5. Click the name of the web site displayed in the list of web sites to open the web site's **QUICKSTART** dashboard.
 
 	![Open web site dashboard][go-to-dashboard]
 

@@ -10,11 +10,11 @@
 
 - Generating a shared access signature on a container
 - Generating a shared access signature on a blob
-- Creating a stored access policy to manage signatures on a container???s resources
+- Creating a stored access policy to manage signatures on a container's resources
 - Testing the shared access signatures from a client application
 
 # About this Tutorial #
-In this tutorial, we???ll focus on creating shared access signatures for containers and blobs by creating two console applications. The first console application generates shared access signatures on a container and on a blob. This application has knowledge of the storage account keys. The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application. This application uses the shared access signatures only to authenticate its access to the container and blob resources ??? it does not have knowledge of the account keys.
+In this tutorial, we'll focus on creating shared access signatures for containers and blobs by creating two console applications. The first console application generates shared access signatures on a container and on a blob. This application has knowledge of the storage account keys. The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application. This application uses the shared access signatures only to authenticate its access to the container and blob resources ??? it does not have knowledge of the account keys.
 
 # Part 1: Create a Console Application to Generate Shared Access Signatures #
 
@@ -45,7 +45,7 @@ Edit the app.config file so that it contains a configuration setting with a conn
 
 ## Generate a Shared Access Signature URI for a Container ##
 
-To begin with, we???ll add a method to generate a shared access signature on a new container. In this case the signature is not associated with a stored access policy, so it carries on the URI the information indicating its expiry time and the permissions that it grants.
+To begin with, we'll add a method to generate a shared access signature on a new container. In this case the signature is not associated with a stored access policy, so it carries on the URI the information indicating its expiry time and the permissions that it grants.
 
 First, add code to the **Main()** method to authenticate access to your storage account and create a new container:
 
@@ -98,7 +98,7 @@ Once you have run the code, the shared access signature that you created on the 
 
 ## Generate a Shared Access Signature URI for a Blob ##
 
-Next, we???ll write similar code to create a new blob within the container and generate a shared access signature for it. This shared access signature is not associated with a stored access policy, so it includes the start time, expiry time, and permission information on the URI.
+Next, we'll write similar code to create a new blob within the container and generate a shared access signature for it. This shared access signature is not associated with a stored access policy, so it includes the start time, expiry time, and permission information on the URI.
 
 Add a new method that creates a new blob and write some text to it, then generates a shared access signature and returns the signature URI:
 
@@ -145,11 +145,11 @@ https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02
 
 ## Create a Stored Access Policy on the Container ##
 
-Now let???s create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.
+Now let's create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.
 
 In the previous examples, we specified the start time (implicitly or explicitly), the expiry time, and the permissions on the shared access signature URI itself. In the following examples, we will specify these on the stored access policy and not on the shared access signature. Doing so enables us to change these constraints without reissuing the shared access signature.
 
-Note that it???s possible to one or more of the constraints on the shared access signature and the remainder on the stored access policy. However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can???t specify permissions on the shared access signature and also specify them on the stored access policy.
+Note that it's possible to one or more of the constraints on the shared access signature and the remainder on the stored access policy. However, you can only specify the start time, expiry time, and permissions in one place or the other; for example, you can't specify permissions on the shared access signature and also specify them on the stored access policy.
 
 Add a new method that creates a new stored access policy and returns the name of the policy:
 
@@ -180,7 +180,7 @@ At the bottom of the **Main()** method, before the call to **Console.ReadLine()*
 
 ## Generate a Shared Access Signature URI on the Container That Uses an Access Policy ##
 
-Next, we???ll create another shared access signature on the container that we created earlier, but this time we???ll associate the signature with the access policy that we created in the previous example.
+Next, we'll create another shared access signature on the container that we created earlier, but this time we'll associate the signature with the access policy that we created in the previous example.
 
 Add a new method to generate another shared access signature on the container:
 
@@ -202,7 +202,7 @@ At the bottom of the **Main()** method, before the call to **Console.ReadLine()*
 
 ## Generate a Shared Access Signature URI on the Blob That Uses an Access Policy ##
 
-Finally, we???ll add a similar method to create another blob and generate a shared access signature that???s associated with an access policy.
+Finally, we'll add a similar method to create another blob and generate a shared access signature that's associated with an access policy.
 
 Add a new method to create a blob and generate a shared access signature:
 
@@ -279,7 +279,7 @@ When you run the GenerateSharedAccessSignatures console application, you'll see 
 
 # Part 2: Create a Console Application to Test the Shared Access Signatures #
 
-To test the shared access signatures created in the previous examples, we???ll create a second console application that uses the signatures to perform operations on the container and on a blob.
+To test the shared access signatures created in the previous examples, we'll create a second console application that uses the signatures to perform operations on the container and on a blob.
 
 Note that if more than four hours have passed since you completed the first part of the tutorial, the signatures you generated where the expiry time was set to four hours will no longer be valid. Similarly, the signatures associated with the stored access policy expire after 10 hours. If one or both of these intervals have passed, you should run the code in the first console application to generate fresh shared access signatures for use in the second part of the tutorial.
 
@@ -303,7 +303,7 @@ In the body of the **Main()** method, add the following constants, and update th
     
 ## Add a Method to Try Container Operations Using a Shared Access Signature ##
 
-Next, we???ll add a method that tests some representative container operations using a shared access signature on the container. Note that the shared access signature is used to return a reference to the container, authenticating access to the container based on the signature alone.
+Next, we'll add a method that tests some representative container operations using a shared access signature on the container. Note that the shared access signature is used to return a reference to the container, authenticating access to the container based on the signature alone.
 
 Add the following method to Program.cs:
 
@@ -419,7 +419,7 @@ Update the **Main()** method to call **UseContainerSAS()** with both of the shar
 
 ## Add a Method to Try Blob Operations Using a Shared Access Signature ##
 
-Finally, we???ll add a method that tests some representative blob operations using a shared access signature on the blob. In this case we use the constructor **CloudBlockBlob(String)**, passing in the shared access signature, to return a reference to the blob. No other authentication is required; it???s based on the signature alone.
+Finally, we'll add a method that tests some representative blob operations using a shared access signature on the blob. In this case we use the constructor **CloudBlockBlob(String)**, passing in the shared access signature, to return a reference to the blob. No other authentication is required; it's based on the signature alone.
 
 Add the following method to Program.cs:
 

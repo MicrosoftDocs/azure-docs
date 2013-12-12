@@ -174,7 +174,7 @@ container is private and requires the use of the access key to download blobs fr
 
 
 If you want to make the files in the container public so that they can be accessed without requiring the access key, you can set the
-container???s access level to **blob** or **container**. Setting the access level to **blob** allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. Setting the access level to **container** allows anonymous read access to blob content and metadata as well as container metadata. The following example demonstrates setting the access level to **blob**: 
+container's access level to **blob** or **container**. Setting the access level to **blob** allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. Setting the access level to **container** allows anonymous read access to blob content and metadata as well as container metadata. The following example demonstrates setting the access level to **blob**: 
 
     blobService.createContainerIfNotExists(containerName
 		, {publicAccessLevel : 'blob'}
@@ -269,7 +269,7 @@ Finally, to delete a blob, call **deleteBlob**. The following example deletes th
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you???ve learned the basics of blob storage, follow these links
+Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].

@@ -28,7 +28,7 @@ Use the QUICK START or DASHBOARD tabs for your newly created web site to configu
 
 ![](./media/web-sites-python-configure/configure-python-git.png)
 
-Once Git publishing is set up, a Git repository will be created and associated with your web site.  The repository???s URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web site content to Windows Azure Web Sites.
+Once Git publishing is set up, a Git repository will be created and associated with your web site.  The repository's URL will be displayed and can henceforth be used to push data from the local development environment to the cloud. To publish applications via Git, make sure a Git client is also installed and use the instructions provided to push your web site content to Windows Azure Web Sites.
 
 ## Web Site Content
 

@@ -66,24 +66,25 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 
 		$subscriptionName = "<SubscriptionName>"   
 		$storageAccountName = "<StorageAccountName>" 
-		$containerName = "<ContainerName>"
+		$containerName = "<ContainerName>
+      "
 
-		# Select the current subscription
-		Select-AzureSubscription $subscriptionName
-              
-		# Blob storage container and account name
-		$storageAccountKey = Get-AzureStorageKey ???StorageAccountName $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext ???StorageAccountName $storageAccountName ???StorageAccountKey $storageAccountKey 
- 
-		# Retrieve the output
-		Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force 
+      # Select the current subscription
+      Select-AzureSubscription $subscriptionName
 
-		# The number of words in the text is:
-		cat ./example/data/StreamingOutput/wc.txt/part-00000
+      # Blob storage container and account name
+      $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{ $_.Primary }
+      $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-	Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
-	
-<h2><a id="java-code"></a>The C# code for Hadoop Streaming</h2>
+      # Retrieve the output
+      Get-AzureStorageBlobContent -Container $containerName -Blob "example/data/StreamingOutput/wc.txt/part-00000" -Context $storageContext -Force
+
+      # The number of words in the text is:
+      cat ./example/data/StreamingOutput/wc.txt/part-00000
+
+      Note that the output files of a MapReduce job are immutable. So if you rerun this sample you will need to change the name of the output file.
+
+      <h2><a id="java-code"></a>The C# code for Hadoop Streaming</h2>
 
 The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and wc.exe application as the reduce interface to count the number of words that are streamed from a document. Both the mapper and reducer read characters, line by line, from the standard input stream (stdin) and write to the standard output stream (stdout). 
 

@@ -5,7 +5,7 @@ This guide provides prescriptive guidance on the best practices and techniques t
 Note that there are many advantages to using Windows Azure: performance is only one of them. The recommendations in this paper focus primarily on performance. There are other scenarios where performance is not as critical: for example, you may wish to take advantage of off-loading physical hardware management to Windows Azure, or the ???pay as you go??? feature may be particularly attractive. This paper does not attempt to evaluate scenarios where performance is a lesser priority. 
 
 ## Overview ##
- Performance can be defined as [???the amount of useful work accomplished??? compared to the time and resources used."](http://go.microsoft.com/fwlink/?LinkId=252650) 
+ Performance can be defined as ["the amount of useful work accomplished??? compared to the time and resources used."](http://go.microsoft.com/fwlink/?LinkId=252650) 
 
 
 The definition has two sides to it: metrics and resources. Performance metrics are numbers that must be achieved in order to satisfy business requirements. They include things like response time, throughput, availability, etc. Performance also includes the level of resource usage required to reach a given level of performance metrics. Since cost is almost always a business requirement, and resources cost money, performance implies using resources as efficiently as possible. 
@@ -25,9 +25,9 @@ It is important to build a model of your application's most important customer s
 
 Full end-to-end performance testing is a critical step during application design and deployment. Windows Azure applications consist of many parts, which may include custom-built components as well as those provided by Microsoft. Microsoft cannot performance test every possible combination of these components. Therefore, fully and properly performance testing your application is a critical step of any deployment. 
 
-Based on the application model you built, next you should carry out proof of concept testing of your application as soon as possible, and load test it to validate the application architecture, to make sure that your application meets performance requirements in terms of scalability and latency. It is extremely important to validate your initial architecture and assumptions. You don???t want to find out that your application is unable to sustain the expected load when it goes live! Visual Studio provides facilities for carrying out load testing, described in [Visual Studio Load Test in Windows Azure Overview](http://go.microsoft.com/fwlink/?LinkId=252657). 
+Based on the application model you built, next you should carry out proof of concept testing of your application as soon as possible, and load test it to validate the application architecture, to make sure that your application meets performance requirements in terms of scalability and latency. It is extremely important to validate your initial architecture and assumptions. You don't want to find out that your application is unable to sustain the expected load when it goes live! Visual Studio provides facilities for carrying out load testing, described in [Visual Studio Load Test in Windows Azure Overview](http://go.microsoft.com/fwlink/?LinkId=252657). 
 
-### What???s Different about Performance in Windows Azure ###
+### What's Different about Performance in Windows Azure ###
 
 The most dramatic performance improvements achievable in Windows Azure applications come from the scaling out and partitioning of resources. Building scalable applications in Windows Azure requires leveraging the scale-out of resources by their physical partitioning: SQL databases, storage, compute nodes, etc. This partitioning enables parallel execution of application tasks, and is thus the basis for high performance, because Windows Azure has the resources of an entire data center available, and handles the physical partitioning for you. To achieve this level of overall performance requires the use of proper scale-out design patterns. 
 
@@ -46,7 +46,7 @@ The chapter after that deals with performance factors that pertain to any Window
 You must consider the following scenario-dependent areas when designing a Windows Azure application, or migrating an on-premises application to Windows Azure: 
 
 - Resource scale out and partitioning: this is the fundamental mechanism for achieving parallelism, and thus high performance. 
-* Data architecture: what kind of data storage to use for the different parts of your application???s data 
+* Data architecture: what kind of data storage to use for the different parts of your application's data 
 * Individual Windows Azure Service Optimizations 
 
 Windows Azure gains its maximum performance advantage from being able to scale out and partition resources, which enables massive parallelization of activities. This is pretty obvious when thinking about a massive Windows Azure SQL database, but it is also true of any resource that can become a bottleneck. 
@@ -93,7 +93,7 @@ Blob data such as images or documents should not be stored in a SQL database, bu
 
 ##### Moving SQL Tables into Windows Azure Table Storage #####
 
-In deciding whether to use Windows Azure Table Storage, you must look at cost and performance. Table Storage is much more economical than the same data stored in a SQL database. However you must carefully consider to what extent the data makes use of SQL???s relational features such as joins, filtering, queries, etc. If the data makes little use of such features then it is a good candidate for storage in a Windows Azure Table. 
+In deciding whether to use Windows Azure Table Storage, you must look at cost and performance. Table Storage is much more economical than the same data stored in a SQL database. However you must carefully consider to what extent the data makes use of SQL's relational features such as joins, filtering, queries, etc. If the data makes little use of such features then it is a good candidate for storage in a Windows Azure Table. 
 
 One common design pattern where you can consider Table Storage involves a table with many rows, such as the Customers table in the common AdventureWorks sample database, where a number of columns are not used by a majority of Customers, but only by a small subset of Customers. It is a common design pattern to split the columns off into a second table (perhaps named CustomerMiscellany), with an optional 1-to-0 relationship between Customer and the second table. You could consider moving the second table to Table Storage. You would have to assess whether the size of the table, and the access patterns, made this cost-effective. 
 
@@ -107,7 +107,7 @@ For more discussion of Table Storage, see:
 
 #### Data Partitioning ####
 
-One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database???s built-in sharding available via Federations. 
+One of the most frequently partitioned resources is data. If you are creating a Windows Azure Cloud Service, then you should consider the use of SQL Database's built-in sharding available via Federations. 
 
 For an overview of SQL Database Federations, see [Federations in SQL Database]( http://go.microsoft.com/fwlink/?LinkId=252668).  
 
@@ -123,7 +123,7 @@ In order to decide what to federate on, you need to examine your database schema
 
 For example, in the well-known AdventureWorks sample database, one possible aggregate is the set {Customer, Order, OrderLine, and possibly a few more}. Another possible aggregate is {Supplier, Product, OrderLine, Order}. 
 
-Each aggregate is a candidate for federating. You must evaluate where you expect growth in size, and also examine your application???s work load: queries that ???align well??? with the federating scheme, i.e. which don???t require data from more than one federation member, will run well. Those that don???t align well will require logic in the application layer, because SQL Database does not currently support cross-database joins. 
+Each aggregate is a candidate for federating. You must evaluate where you expect growth in size, and also examine your application's work load: queries that ???align well??? with the federating scheme, i.e. which don't require data from more than one federation member, will run well. Those that don't align well will require logic in the application layer, because SQL Database does not currently support cross-database joins. 
 
 To see an example of a design analysis that examines the AdventureWorks database in order to federate it, and shows you step-by-step the considerations involved in the design, see [Scale-First Approach to Database Design with Federations: Part 1 ??? Picking Federations and Picking the Federation Key](http://go.microsoft.com/fwlink/?LinkId=252671). 
 
@@ -141,7 +141,7 @@ There are a number of samples that show ways of partitioning data. If you decide
 
 ##### Partitioning Other Resources #####
 
-You can partition other resources besides SQL Database. For example you might wish to partition application servers and dedicate them to specific databases. Let???s assume your application contained N app servers, and also N databases. If each app server is allowed to access each database, that will consume N squared database connections which in some cases may hit a hard Windows Azure limit. But if you restrict each app server to only a few databases, then you will significantly reduce the number of connections used. 
+You can partition other resources besides SQL Database. For example you might wish to partition application servers and dedicate them to specific databases. Let's assume your application contained N app servers, and also N databases. If each app server is allowed to access each database, that will consume N squared database connections which in some cases may hit a hard Windows Azure limit. But if you restrict each app server to only a few databases, then you will significantly reduce the number of connections used. 
 
 Depending on your application you may be able to apply similar reasoning to other resources. 
 
@@ -214,11 +214,11 @@ Many of the individual Windows Azure services have features and settings that ca
 
 ##### Windows Azure Drives #####
 
-You can simulate an existing application???s hard drive usage by a Windows Azure Drive, which is backed by a Windows Blob and is thus persistent across individual machine failure. 
+You can simulate an existing application's hard drive usage by a Windows Azure Drive, which is backed by a Windows Blob and is thus persistent across individual machine failure. 
 
 ##### Local Storage #####
 
-Although it isn???t persistent across machine failure, it can be used to hold frequently accessed information, or to hold intermediate results that will be used elsewhere. This is cost effective since there is no charge for its use. 
+Although it isn't persistent across machine failure, it can be used to hold frequently accessed information, or to hold intermediate results that will be used elsewhere. This is cost effective since there is no charge for its use. 
 
 ##### Windows Azure Access Control Service (ACS) #####
 
@@ -228,7 +228,7 @@ The two main factors affecting ACS resource usage, and thus performance, are the
 
 Serialization is not an obvious part of performance optimization, but reducing network traffic can be significant, in some application scenarios. For an example of how serialization sizes can vary depending on the protocol, see the reductions demonstrated in [Windows Azure Web Applications and Serialization]( http://go.microsoft.com/fwlink/?LinkId=252749). 
 
-If the amount of data being moved is a performance issue, then use the smallest available serialization available. In the event that serialization performance isn???t sufficient, consider using custom or non-Microsoft third party serialization formats. As always, proof of concept testing is key. 
+If the amount of data being moved is a performance issue, then use the smallest available serialization available. In the event that serialization performance isn't sufficient, consider using custom or non-Microsoft third party serialization formats. As always, proof of concept testing is key. 
 
 
 ### Windows Azure Web Sites using mySQL ###
@@ -286,7 +286,7 @@ Windows Azure dramatically reduces the effort involved in capacity planning beca
 * Table storage 
 * Queues etc. 
 
-And because of Windows Azure???s scalability, the initial capacity decisions are not cast in stone: it is relatively easy to scale up (or down) Windows Azure resources. Even so, it is important to do accurate capacity planning, since that will ensure that when the application goes live there is not a period of trial and error regarding capacity. 
+And because of Windows Azure's scalability, the initial capacity decisions are not cast in stone: it is relatively easy to scale up (or down) Windows Azure resources. Even so, it is important to do accurate capacity planning, since that will ensure that when the application goes live there is not a period of trial and error regarding capacity. 
 
 For applications whose resource needs fluctuate dramatically over time, consider using [The Autoscaling Application Block](http://go.microsoft.com/fwlink/?LinkId=252873). This Block allows you to set rules for the scaling up and down of role instances. There are two kinds of rules defined: 
 
@@ -320,7 +320,7 @@ You can also use the SET STATISTICS Transact-SQL command, and use SQL Server Man
 Two topics about Dynamic Management Views are: 
 
 * [Monitoring SQL Database Using Dynamic Management Views](http://go.microsoft.com/fwlink/?LinkId=236195) 
-* [Useful DMV???s for SQL Database to analyze if you miss SQL Profiler](http://go.microsoft.com/fwlink/?LinkId=252879) 
+* [Useful DMV's for SQL Database to analyze if you miss SQL Profiler](http://go.microsoft.com/fwlink/?LinkId=252879) 
 
 ### Analysis Resources and Tools ###
 

@@ -9,7 +9,7 @@ can best protect your cloud applications.
 
 ##Overview
 
-An application???s security is a function of its surface. The more surface
+An application's security is a function of its surface. The more surface
 that the application exposes the greater the security concerns. For
 example, an application that runs as an unattended batch process exposes
 less, from a security perspective, than a publically available web site.
@@ -27,7 +27,7 @@ via their endpoints over the wire.
 In cloud applications more responsibility lays on the shoulders of the
 application developers to design, develop, and maintain their cloud
 applications to high security standards to keep attackers at bay.
-Consider the following diagram (from J.D. Meier???s [Windows Azure Security
+Consider the following diagram (from J.D. Meier's [Windows Azure Security
 Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)): notice how the infrastructure part is being addressed by the
 cloud provider--in our case by Windows Azure--leaving more security work
 to the application developers:
@@ -51,7 +51,7 @@ addressed:
     elevation of privileges threats.
 
 For a complete list of threats, attacks, vulnerabilities, and
-countermeasures refer to patterns & practices??? [Cheat Sheet: Web
+countermeasures refer to patterns & practices' [Cheat Sheet: Web
 Application Security Frame](http://msdn.microsoft.com/en-us/library/ff649461.aspx) and [Security Guidance for Applications Index](http://msdn.microsoft.com/en-us/library/ff650760.aspx).
 
 In the cloud, authentication and access control mechanisms are very
@@ -70,7 +70,7 @@ Service or ACS)).
 
 A threat is a potential bad outcome that you want to avoid such as the
 disclosure of sensitive information or a service becoming unavailable.
-It is common practice to classify threats by using the acronym ???STRIDE???:
+It is common practice to classify threats by using the acronym "STRIDE":
 
 -   **S**poofing or identity theft
 -   **T**ampering with data
@@ -92,7 +92,7 @@ attacks can lead to an identity spoof threat being realized. To make it
 simple consider threats, vulnerabilities, and attacks as bad things.
 Consider the following diagrams as a balcony view of the bad things
 related to a Web application deployed to Windows Azure (from J.D.
-Meier???s [Windows Azure Security Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
+Meier's [Windows Azure Security Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)):
 
 ![Threats Vulnerabilities and Attacks][02]
 
@@ -106,7 +106,7 @@ authentication mechanism may lead to an identity spoof and, as a result,
 information disclosure, data tampering, elevated privileges operations,
 or even shutting down the service altogether. Consider the following
 questions that may point to potential vulnerabilities in your cloud
-app???s identity and access implementation:
+app's identity and access implementation:
 
 -   Are you sending credentials in clear over the wire to your Windows
     Azure services?
@@ -132,7 +132,7 @@ own. Consider the following prominent identity and access technologies:
 included with the .NET Framework 4.5 (it is also available as separate
 download for .NET 3.5/4.0). WIF does the heavy lifting for handling
 protocols such as WS-Federation and WS-Trust and tokens handling such as
-Security Assertion Markup Language (SAML) so you don???t need to write
+Security Assertion Markup Language (SAML) so you don't need to write
 very complex security-related code in your application. The following
 resources provide in-depth information about WIF:
 
@@ -153,7 +153,7 @@ information about Windows Azure AD Access Control:
 
 -   [Access Control Service 2.0](http://msdn.microsoft.com/library/gg429786.aspx) 
 -   [Scenarios and Solutions Using ACS](http://msdn.microsoft.com/en-us/library/gg185920.aspx)
--   [ACS How To???s](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
+-   [ACS How To's](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
 -   [A Guide to Claims-Based Identity and Access Control](http://msdn.microsoft.com/en-us/library/ff423674.aspx)
 -   [Identity Developer Training Kit](http://www.microsoft.com/en-us/download/details.aspx?id=14347)
 -   [MSDN-hosted Identity Developer Training Course](http://msdn.microsoft.com/en-us/IdentityTrainingCourse)
@@ -205,7 +205,7 @@ application.
 -   **ASP.NET Web App to REST WCF Service Using Shared SWT Token.** In
     this scenario you have distributed application with front end
     ASP.NET web app and downstream REST service and you want to flow end
-    user???s context through physical tiers.
+    user's context through physical tiers.
 -   **Role-Based Access Control (RBAC) Authorization In Claims-Aware
     Applications and Services.** In this scenario you want to implement
     authorization logic in your app based on roles.
@@ -363,10 +363,10 @@ It is important to note that in order to implement this scenario, the
 application needs to use web browser control to collect end user
 credentials. This makes it unsuitable for scenarios in which the REST
 service is accessed from an ASP.NET web app. It is only suitable for
-scenarios in which the REST service is being accessed by the user???s
+scenarios in which the REST service is being accessed by the user's
 client application, such as a Windows Phone 7 app or a rich desktop
 client. The key reason for popping the web browser control is that
-Internet identities don???t natively support active profile scenarios (web
+Internet identities don't natively support active profile scenarios (web
 services scenario). Internet identities mainly support passive profile
 scenarios (web apps) that rely on browser redirects: this is where web
 browser control comes handy.
@@ -390,8 +390,8 @@ Refer to the following resources to implement this scenario:
 
 In this scenario you have a distributed application with a front-end
 ASP.NET web app and a downstream REST service and you want to maintain
-the end user???s context across physical tiers. This is sometimes needed
-when implementing authorization logic or logging based on the end user???s
+the end user's context across physical tiers. This is sometimes needed
+when implementing authorization logic or logging based on the end user's
 identity in the downstream REST service.
 
 Configure Windows Azure AD Access Control to issue SWT token. The SWT
@@ -406,10 +406,10 @@ several caveats:
     support the WS-Federation protocol that relies on browser redirects
     vs. implementing it yourself.
 -   When implementing a SWT custom token handler, make sure the
-    bootstrap token is being addressed to make sure it???s retained.
-    Otherwise you won???t be able to share it and send it to the
+    bootstrap token is being addressed to make sure it's retained.
+    Otherwise you won't be able to share it and send it to the
     downstream REST service.
--   You don???t have to use WIF on a REST service; rather, you can parse
+-   You don't have to use WIF on a REST service; rather, you can parse
     the token ???manually??? since there is no need to handle redirects in
     this case.
 
@@ -427,7 +427,7 @@ Refer to the following resources to implement this scenario:
 
 In this scenario you need to implement authorization in your web
 application or service based on user roles: user with required roles get
-access and those that don???t have required roles are denied. Simply put,
+access and those that don't have required roles are denied. Simply put,
 your application needs to answer simple question ??? is the user in role
 X?
 
@@ -452,7 +452,7 @@ IsInRole method call is succesful.
 ![][09]
 
 **WIF ClaimsAuthenticationManager**. In this implementation use
-ClaimsAuthenticationManager as WIF???s extensibility point. Using this
+ClaimsAuthenticationManager as WIF's extensibility point. Using this
 approach you transform any arbitrary incoming claims to a role claim
 type at the application. The complexity of the transformation is only
 limited by the code you write.
@@ -494,7 +494,7 @@ control outlined in previous section.
 Use ClaimsAuthorizationManager as the WIF extensibility point.
 ClaimsAuthorizationManager allows external access check calls so that
 your application code looks cleaner and more maintainable than when
-access checks implemented in the application???s code.
+access checks implemented in the application's code.
 
 ![][13]
 
@@ -517,7 +517,7 @@ from your own application, use the shared hash that is available through
 Windows Azure portal when you configure and manage your storage service
 accounts. When you want to give someone else access to the blobs and
 containers in your storage service account use Shared Access Signatures
-URL???s.
+URL's.
 
 Pay special attention to securely managing the information to avoid its
 exposure; also, pay special attention to the lifetime of the Shared
@@ -558,7 +558,7 @@ Refer to the following resources to solve this scenario:
 The Service Bus and Windows Azure AD Access Control have a special
 relationship in that each Service Bus service namespace is paired with a
 matching Access Control service namespace of the same name, with the
-suffix ??????sb???. The reason for this special relationship is in the way
+suffix "-sb". The reason for this special relationship is in the way
 that Service Bus and Access Control manage their mutual trust
 relationship and the associated cryptographic secrets. Refer to the
 resources listed below for more details.
@@ -605,7 +605,7 @@ In this scenario you are building an application that consumes datasets
 in your Marketplace subscription. You are the user of the application.
 The application can be deployed either to Windows Azure, on-premises, or Marketplace.
 
-Use the shared key that???s available through your Marketplace
+Use the shared key that's available through your Marketplace
 subscription. You obtain the shared key using the Marketplace portal.
 
 ![][18]
@@ -658,17 +658,17 @@ for these technologies when designing and deploying your application.
 
 The following are key security knobs of WIF. The information below is a
 digest from [WIF Design Considerations](http://msdn.microsoft.com/en-us/library/ee517298.aspx) and [Windows Identity Foundation
-(WIF) Security for ASP.NET Web Applications ??? Threats & Countermeasures](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
+(WIF) Security for ASP.NET Web Applications - Threats & Countermeasures](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
 .
 
 -   **IssuerNameRegistry**. Specifies trusted Security Token Services
-    (STS???s). Make sure only trusted STS are listed.
--   **cookieHandler requireSsl=???true???**. Specifies whether session
+    (STS's). Make sure only trusted STS are listed.
+-   **cookieHandler requireSsl="true"**. Specifies whether session
     cookies transferred over the SSL protocol.
--   **wsFederation???s requireHttps=???true???**. Specifies whether the
+-   **wsFederation's requireHttps="true"**. Specifies whether the
     federation protocol communication with identity provider performed
     over SSL protocol.
--   **tokenReplayDetection enabled="true???**. Specifies whether token
+-   **tokenReplayDetection enabled="true"**. Specifies whether token
     replay detection feature is enabled. Be aware that this feature
     creates server affinity as it manages local copies of used tokens.
 -   **audienceUris**. Specifies intended audience of the token. If your
@@ -689,7 +689,7 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
     management portal to set aggressive token expiration.
 -   **Data validation when using the Error URL feature**. Windows Azure
     AD Access Control Error URL feature requires anonymous access to the
-    app???s page where it sends error messages. Assume all data coming to
+    app's page where it sends error messages. Assume all data coming to
     this page as dangerous from untrusted source.
 -   **Encrypting tokens for highly sensitive scenarios**. To mitigate
     threat of information disclosure that available in the token
@@ -744,7 +744,7 @@ Guidelines](http://msdn.microsoft.com/en-us/library/gg185962.aspx) and [Certific
     are symmetric key, password, and an X.509 certificate. You will
     start receiving exception when the credentials are expired.
 -   **WS-Federation identity provider signing and encryption
-    certificates**. Query for WS-Federation identity provider???s
+    certificates**. Query for WS-Federation identity provider's
     certificate validity to avoid denial of service. WS-Federation
     identity provider certificate is available through its metadata.
     When configuring WS-Federation identity provider, such as AD FS, the
@@ -769,9 +769,9 @@ application is hosted on Windows Azure Virtual Machines.
 
 -   [Identity Developer Training Kit](http://go.microsoft.com/fwlink/?LinkId=214555)
 -   [MSDN-hosted Identity Developer Training Course](http://go.microsoft.com/fwlink/?LinkId=214561)
--   [A Guide to Claims???based Identity and Access Control](http://go.microsoft.com/fwlink/?LinkId=214562)
+-   [A Guide to Claims-based Identity and Access Control](http://go.microsoft.com/fwlink/?LinkId=214562)
 -   [Access Control Service](http://msdn.microsoft.com/en-us/library/windowsazure/gg429786.aspx)
--   [ACS How To???s](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
+-   [ACS How To's](http://msdn.microsoft.com/en-us/library/windowsazure/gg185939.aspx)
 -   [Secure Windows Azure Web Role ASP.NET Web Application Using Access Control Service v2.0](http://social.technet.microsoft.com/wiki/contents/articles/2590.aspx)
 -   [Windows Azure AD Access Control Service (ACS) Academy Videos](http://social.technet.microsoft.com/wiki/contents/articles/2777.aspx)
 -   [Microsoft Security Development Lifecycle](http://www.microsoft.com/security/sdl/default.aspx)

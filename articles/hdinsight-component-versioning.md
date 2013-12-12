@@ -42,7 +42,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 
 ## Select a version when provisioning an HDInsight cluster
 
-When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsight .NET SDK, you can choose a version using the ???Version??? parameter.
+When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsight .NET SDK, you can choose a version using the -Version- parameter.
 
 If you use the **Quick Create** option, you will get the 2.1 version. If you use the **Custom Create** option from the Windows Azure Portal, you can choose the version of the cluster you will deploy from the HDInsight Version drop-down on the **Cluster Details** page.
 
@@ -60,7 +60,7 @@ The following table lists the versions of HDInsight currently available, the cor
 </table>
 
 ### A note on support for each version 
-A ???Support Window??? refers to the period of time an HDInsight cluster version is supported by Microsoft Customer Support and bound by this SLA.  An HDInsight cluster is outside the Support Window if its version has a Support Expiration Date past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
+A "Support Window" refers to the period of time an HDInsight cluster version is supported by Microsoft Customer Support and bound by this SLA.  An HDInsight cluster is outside the Support Window if its version has a Support Expiration Date past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
 
 - Formula 1:  Add 180 days to the date HDInsight version X was released
 - Formula 2: Add 90 days to the date HDInsight version X+1 (the subsequent version after X) is made available in the Windows Azure Management Portal.
@@ -73,7 +73,7 @@ A ???Support Window??? refers to the period of time an HDInsight cluster version
 
 * The Hadoop distribution in Windows Azure HDInsight version 1.6 is based on the [Hortonworks Data Platform 1.1.0][hdp-1-1-0]. 
 
-* The component versions associated with HDInsight cluster versions may change in future updates to HDInsight. One way to determine the available components and to verify which versions are being used for a cluster is to login to a cluster using remote desktop and examine the contents of the ???C:\apps\dist\??? directory directly.
+* The component versions associated with HDInsight cluster versions may change in future updates to HDInsight. One way to determine the available components and to verify which versions are being used for a cluster is to login to a cluster using remote desktop and examine the contents of the "C:\apps\dist\" directory directly.
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/HDI.Versioning.VersionScreen.png
 

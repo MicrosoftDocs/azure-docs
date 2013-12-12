@@ -42,7 +42,7 @@ include:
 
 -   Storing a huge amount of structured data (many TB) that is
     automatically scaled to meet throughput demands
--   Storing datasets that don???t require complex joins, foreign keys, or
+-   Storing datasets that don't require complex joins, foreign keys, or
     stored procedures and can be denormalized for fast access
 -   Quickly querying data such as user profiles using a clustered index
 
@@ -68,7 +68,7 @@ The Table service contains the following components:
     contents in a storage account cannot exceed 100TB.
 
 -   **Table**: A table is an unlimited collection of entities. Tables
-    don???t enforce a schema on entities, which means a single table can
+    don't enforce a schema on entities, which means a single table can
     contain entities that have different sets of properties. An account
     can contain many tables.
 
@@ -79,7 +79,7 @@ The Table service contains the following components:
     include up to 252 properties to store data. Each entity also has
     three system properties that specify a partition key, a row key, and
     a timestamp. Entities with the same partition key can be queried
-    more quickly, and inserted/updated in atomic operations. An entity???s
+    more quickly, and inserted/updated in atomic operations. An entity's
     row key is its unique identifier within a partition.
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
@@ -201,7 +201,7 @@ properties and their data types. Note that for every entity you must
 specify a **PartitionKey** and **RowKey**. These are the unique
 identifiers of your entities, and are values that can be queried much
 faster than your other properties. The system uses **PartitionKey** to
-automatically distribute the table???s entities over many storage nodes.
+automatically distribute the table's entities over many storage nodes.
 Entities with the same **PartitionKey** are stored on the same node. The
 **RowKey** is the unique ID of the entity within the partition it
 belongs to. To add an entity to your table, pass the entity object to
@@ -244,7 +244,7 @@ The following example demonstrates updating an entity using **updateEntity**:
 		}
 	});
     
-With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn???t exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
 ## <a name="change-entities"> </a>How to Work with Groups of Entities
 
@@ -396,7 +396,7 @@ The following code deletes a table from a storage account.
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you???ve learned the basics of table storage, follow these links
+Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].

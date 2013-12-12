@@ -31,7 +31,7 @@ There are two deployment models that are feasible for Cassandra application envi
 
 ## <a id="composite"> </a> Composite Deployment ##
 
-The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can???t be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
+The goal of a composite deployment is to maximize the usage of PaaS while keeping the virtual machine footprint to an absolute minimum in an effort to save on the overhead imposed by the infrastructure management of the virtual machines. Due to the server management overhead, only deploy those components that require stateful behavior that can't be modified easily due to various reasons including the time-to-market, lack of visibility into source code, and low level access to the OS. 
 
 ![Composite deployment diagram](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
 
@@ -131,7 +131,7 @@ Enter the following information on the VM Mode screen:
 	</tr>
 </table>
 
-Repeat the above process for all the virtual machines that will be part of the Cassandra cluster.  At this point all the machines will be part of the same network and can ping each other.  If the ping doesn???t work, check the VM???s firewall (e.g. iptables) configuration to make sure that ICMP is allowed. Be sure to disable ICMP once network connectivity is successfully tested to reduce the attack vector. 
+Repeat the above process for all the virtual machines that will be part of the Cassandra cluster.  At this point all the machines will be part of the same network and can ping each other.  If the ping doesn't work, check the VM's firewall (e.g. iptables) configuration to make sure that ICMP is allowed. Be sure to disable ICMP once network connectivity is successfully tested to reduce the attack vector. 
 
 **Step 3:  Add  a Load Balanced Thrift Endpont** 
 
@@ -177,7 +177,7 @@ e.	Now select the second VM and add endpoint by repeating the above process with
 
 Repeat ???e??? for the subsequent nodes in the cluster. 
 
-Now that we have the VMs ready, it is time to set up Cassandra on each of the VMs. Since Cassandra is not a standard part of many Linux distributions, let???s resort to a manual deployment process.  
+Now that we have the VMs ready, it is time to set up Cassandra on each of the VMs. Since Cassandra is not a standard part of many Linux distributions, let's resort to a manual deployment process.  
 
 [Please note that we are using a manual approach for the software installation on each VM. However, the process can be expedited by setting up a fully functioning Cassandra VM, capture it as the base image and create additional instances from this base image. The instructions for capturing the Linux image are located at [How to Capture an Image of a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/capture-an-image/).] 
 
@@ -230,7 +230,7 @@ Restart Cassandra process at this stage
 
 **Step 4: Test Cassandra Installation**
 
-Execute the following command from Cassandra???s bin directory for connecting using thrift client:
+Execute the following command from Cassandra's bin directory for connecting using thrift client:
 
 	cassandra-cli ???h localhost ???p 9160
 
@@ -263,7 +263,7 @@ Restart Cassandra on all the nodes to apply the above changes.
 
 **Step 7: Test the multi-node Cluster**
 
-Nodetool installed into the Cassandra???s bin directory will help with cluster operations. We will use nodetool to verify the cluster setup through the following command format: 
+Nodetool installed into the Cassandra's bin directory will help with cluster operations. We will use nodetool to verify the cluster setup through the following command format: 
 
 	$ bin/nodetool -h <hostname> -p 7199 ring
 
@@ -392,7 +392,7 @@ In preparation for storing the customer data, we need to first create a KEYSPACE
 	   con.shutdown();
 	} 
 	
-createKeysapce function takes a callback function as the argument which is meant to execute the COLUMNFAMILY creation function as KEYSPACE is a prerequisite for column family creation.  Note that we need to connect to ???system??? KEYSPACE for application KEYSPACE definition.  [Cassandra Query Language (CQL)](http://cassandra.apache.org/doc/cql/CQL.html) is consistently used in interacting with the cluster throughout these snippets. Since the CQL composed in the above script didn???t have any parameter markers we are using a blank parameter collection (???[]???) when PooledConnection.execute() method. 
+createKeysapce function takes a callback function as the argument which is meant to execute the COLUMNFAMILY creation function as KEYSPACE is a prerequisite for column family creation.  Note that we need to connect to "system" KEYSPACE for application KEYSPACE definition.  [Cassandra Query Language (CQL)](http://cassandra.apache.org/doc/cql/CQL.html) is consistently used in interacting with the cluster throughout these snippets. Since the CQL composed in the above script didn't have any parameter markers we are using a blank parameter collection (???[]???) when PooledConnection.execute() method. 
 
 Upon successful key space creation, the function createColumnFamily(),  shown in the following snippet, will be executed to create the necessary COLUMNFAMILY definitions:
 

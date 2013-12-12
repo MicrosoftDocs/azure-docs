@@ -71,7 +71,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 	Next, you need to get the MySQL connection information.
 
 
-6. Click the name of the web site displayed in the list of web sites to open the web site???s Quick Start page.
+6. Click the name of the web site displayed in the list of web sites to open the web site's Quick Start page.
 
 	![Open web site dashboard][NewWebSite5]
 

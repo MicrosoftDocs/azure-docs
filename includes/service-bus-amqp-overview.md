@@ -5,7 +5,7 @@
 
 ## Introduction: What is AMQP 1.0 and why is it important?
 
-Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor???s messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of "lock-in" to that vendor, since porting an application to a different product requires re-coding all the connected applications. 
+Traditionally, message-oriented middleware products have used proprietary protocols for communication between client applications and brokers. This means that once you've selected a particular vendor's messaging broker, you must use that vendor's libraries to connect your client applications to that broker. This results in a degree of "lock-in" to that vendor, since porting an application to a different product requires re-coding all the connected applications. 
 
 Furthermore, connecting messaging brokers from different vendors is tricky and typically requires application-level bridging to move messages from one system to another, and to translate between their proprietary message formats. This is a common requirement; for example, when providing a new unified interface to older disparate systems, or integrating IT systems following a merger.
 

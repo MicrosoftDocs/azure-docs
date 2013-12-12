@@ -31,7 +31,7 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 ###Install the libPusher library
 
-The [libPusher][] library let???s you access Pusher from iOS. 
+The [libPusher][] library let's you access Pusher from iOS. 
 
 1. Download the libPusher library [from here][libPusherDownload].
 
@@ -39,7 +39,7 @@ The [libPusher][] library let???s you access Pusher from iOS.
 
 3. In Finder, unzip the downloaded zip file, select the **libPusher-combined.a** and **/headers** folders, and drag these items into the **libPusher** group in your project.
 
-4. Check **Copy items into destination group???s folder**, then click **Finish**
+4. Check **Copy items into destination group's folder**, then click **Finish**
 	
 	![][add-files-to-group]
 
@@ -369,7 +369,7 @@ Congratulations, you have successfully configured your mobile service app to syn
 
 ## <a name="nextsteps"> </a>Next Steps
 
-Now that you???ve seen how easy it is to use the Pusher service with Mobile Services, follow these links to learn more about Pusher.
+Now that you've seen how easy it is to use the Pusher service with Mobile Services, follow these links to learn more about Pusher.
 
 -   Pusher API documentation: <http://pusher.com/docs>
 -   Pusher tutorials: <http://pusher.com/tutorials>

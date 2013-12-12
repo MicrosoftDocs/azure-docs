@@ -25,7 +25,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="update-app"></a><span class="short-header">Update the app </span>Update the app to call the custom API</h2>
 
-1. Create a button, so you can click it to call the custom API. Drag a **Round Rect Button** from the **Object Library** located at the bottom of the **Utilities** pane, and place it below or next to the text field. Double-click to add the text **???All???**. 
+1. Create a button, so you can click it to call the custom API. Drag a **Round Rect Button** from the **Object Library** located at the bottom of the **Utilities** pane, and place it below or next to the text field. Double-click to add the text **"All"**. 
 
 	This adds a new button **"All"**.
 
@@ -50,7 +50,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	This filters the items so that completed items are not returned by the query.
 
-3. Now it???s time to connect this object to the view controller source code. **Control-click** the new **"All"** button, and drag the mouse over to before the `@end` line in **QSTodoListViewController.h**. Connect the object to a new **Action** named `onCompleteAll` in **QSTodoListViewController**. Xcode will automatically insert the following line before the `@end` line:
+3. Now it's time to connect this object to the view controller source code. **Control-click** the new **"All"** button, and drag the mouse over to before the `@end` line in **QSTodoListViewController.h**. Connect the object to a new **Action** named `onCompleteAll` in **QSTodoListViewController**. Xcode will automatically insert the following line before the `@end` line:
 
 		   - (IBAction)onCompleteAll:(id)sender;
 
@@ -89,7 +89,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 		- (void) completeAll:(MSAPIBlock)completion;
 
-6. Add the corresponding implementation of `completeAll` in **QSTodoService.m** before the `@end` line. iOS is similar to JavaScript in that it doesn???t support JSON serialization of arbitrary types. As such, it has quite a simple API for invoking custom APIs as well, consisting of the `invokeAPI` method. 
+6. Add the corresponding implementation of `completeAll` in **QSTodoService.m** before the `@end` line. iOS is similar to JavaScript in that it doesn't support JSON serialization of arbitrary types. As such, it has quite a simple API for invoking custom APIs as well, consisting of the `invokeAPI` method. 
 
 		- (void) completeAll:(MSAPIBlock)completion
 		{

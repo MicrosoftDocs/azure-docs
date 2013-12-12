@@ -181,7 +181,7 @@ Now that you've successfully run your app on the built-in Django server, you can
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 
-Now that you???ve learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>

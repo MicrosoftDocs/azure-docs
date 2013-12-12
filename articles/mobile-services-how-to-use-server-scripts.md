@@ -78,10 +78,10 @@ A table script function always takes three arguments.
 
 Here are the canonical main-function signatures for the table operations: 
 
-+ [Insert][insert function]: `function insert (item, user, request) { ??? }`
-+ [Update][update function]: `function update (item, user, request) { ??? }`
-+ [Delete][delete function]: `function del (id, user, request) { ??? }`
-+ [Read][read function]: `function read (query, user, request) { ??? }`
++ [Insert][insert function]: `function insert (item, user, request) { ... }`
++ [Update][update function]: `function update (item, user, request) { ... }`
++ [Delete][delete function]: `function del (id, user, request) { ... }`
++ [Read][read function]: `function read (query, user, request) { ... }`
 
 <div class="dev-callout"><strong>Note</strong>
 <p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
@@ -167,7 +167,7 @@ In this example, the request is rejected when the inserted item does not have a 
 
 By default in a table operation, the **execute** function writes responses automatically. However, you can pass two optional parameters to the execute function that override its behavior on success and/or on error.
 
-By passing in a **success** handler when you call execute, you can modify the results of a query before you write them to the response. The following example calls `execute({ success: function(results) { ??? })` to perform additional work after data is read from the database but before the response is written:
+By passing in a **success** handler when you call execute, you can modify the results of a query before you write them to the response. The following example calls `execute({ success: function(results) { ... })` to perform additional work after data is read from the database but before the response is written:
 
 	function read(query, user, request) {
 	    request.execute({
@@ -706,7 +706,7 @@ The collections of data types on the client and in a Mobile Services database ta
 
 The transformation from client schema into JSON varies across platforms.  JSON.NET is used in Windows Store and Windows Phone clients. The Android client uses the gson library.  The iOS client uses the NSJSONSerialization class. The default serialization behavior of each of these libraries is used, except that date objects are converted to JSON strings that contain the date that's encoded by using ISO 8601.
 
-When you are writing server scripts that use [insert], [update], [read] or [delete] functions, you can access the JavaScript representation of your data. Mobile Services uses the Node.js???s deserialization function ([JSON.parse](http://es5.github.io/#x15.12)) to transform JSON on the wire into JavaScript objects. However Mobile Services does  a transformation to extract **Date** objects from ISO 8601 strings.
+When you are writing server scripts that use [insert], [update], [read] or [delete] functions, you can access the JavaScript representation of your data. Mobile Services uses the Node.js's deserialization function ([JSON.parse](http://es5.github.io/#x15.12)) to transform JSON on the wire into JavaScript objects. However Mobile Services does  a transformation to extract **Date** objects from ISO 8601 strings.
 
 When you use the [tables object] or the [mssql object], or just let your table scripts execute, the deserialized JavaScript objects are inserted into your SQL database. In that process, object properties are mapped to T-SQL types:
 

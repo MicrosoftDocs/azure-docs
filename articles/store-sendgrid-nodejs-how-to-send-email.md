@@ -252,7 +252,7 @@ details, see the [SendGrid API documentation][].
 
 ## <a name="nextsteps"> </a>Next Steps
 
-Now that you???ve learned the basics of the SendGrid Email service, follow
+Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
