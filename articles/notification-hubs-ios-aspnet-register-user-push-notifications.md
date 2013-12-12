@@ -2,7 +2,7 @@
 # Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/register-users-with-aspnet-ios" title="iOS" class="current">iOS</a>
+    <a href="/en-us/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
@@ -19,24 +19,24 @@ This topic shows you how to request push notification registration with Windows 
 	
 	At this point, your storyboard looks like the following:
 	
-   ![][0] 
+   	![][0] 
     
 2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 
-   ![][1]
+   	![][1]
 
-   Your BreakingNewsViewController.h file should now contain the following code:
+   	Your BreakingNewsViewController.h file should now contain the following code:
 			
-			@property (weak, nonatomic) IBOutlet UILabel *installationId;
-			@property (weak, nonatomic) IBOutlet UITextField *User;
-			@property (weak, nonatomic) IBOutlet UITextField *Password;
-			
-			- (IBAction)login:(id)sender;
+		@property (weak, nonatomic) IBOutlet UILabel *installationId;
+		@property (weak, nonatomic) IBOutlet UITextField *User;
+		@property (weak, nonatomic) IBOutlet UITextField *Password;
+		
+		- (IBAction)login:(id)sender;
 
 5. Create a class named **DeviceInfo**, and copy the following code into the interface section of the file DeviceInfo.h:
 
-			@property (readonly, nonatomic) NSString* installationId;
-			@property (nonatomic) NSData* deviceToken;
+		@property (readonly, nonatomic) NSString* installationId;
+		@property (nonatomic) NSData* deviceToken;
 
 6. Copy the following code in the implementation section of the DeviceInfo.m file:
 		
@@ -72,19 +72,19 @@ This topic shows you how to request push notification registration with Windows 
 
 7. In PushToUserAppDelegate.h, add the following property singleton:
 
-			@property (strong, nonatomic) DeviceInfo* deviceInfo;
+		@property (strong, nonatomic) DeviceInfo* deviceInfo;
 
 8. In the **didFinishLaunchingWithOptions** method in PushToUserAppDelegate.m, add the following code:
 	
-			self.deviceInfo = [[DeviceInfo alloc] init];
-			
-		    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+		self.deviceInfo = [[DeviceInfo alloc] init];
+		
+		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
 	The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present is you have already completed the [Get Started with Notification Hubs] tutorial.
 	
 9. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
 
-			self.deviceInfo.deviceToken = deviceToken;
+		self.deviceInfo.deviceToken = deviceToken;
 
 	This sets the device token for the request. 
 	
@@ -94,34 +94,34 @@ This topic shows you how to request push notification registration with Windows 
 	
 10.	In the PushToUserAppDelegate.m file, add the following handler method:
 	
-			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-			    NSLog(@"%@", userInfo);
-			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-			                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-			                          @"OK" otherButtonTitles:nil, nil];
-			    [alert show];
-			}
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+		    NSLog(@"%@", userInfo);
+		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+		                          [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
+		                          @"OK" otherButtonTitles:nil, nil];
+		    [alert show];
+		}
 
 	 This method displays an alert in the UI when your app receives notifications while it is running.
 
 9. Open the PushToUserViewController.m file, and return the keyboard in the following implementation:
 	
-			- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-			    if (theTextField == self.User || theTextField == self.Password) {
-			        [theTextField resignFirstResponder];
-			    }
-			    return YES;
-			}
+		- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+		    if (theTextField == self.User || theTextField == self.Password) {
+		        [theTextField resignFirstResponder];
+		    }
+		    return YES;
+		}
 	
 9. In the **viewDidLoad** method in the PushToUserViewController.m file, initialize the installationId label as follows:
 				
-			DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
-    		Self.installationId.text = deviceInfo.installationId;
+		DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
+		Self.installationId.text = deviceInfo.installationId;
     		
 10. Add the following properties in interface in PushToUserViewController.m:
     
-    		@property (readonly) NSOperationQueue* downloadQueue;
-			- (NSString*)base64forData:(NSData*)theData;
+		@property (readonly) NSOperationQueue* downloadQueue;
+		- (NSString*)base64forData:(NSData*)theData;
 			
 11. Then, add the following implementation:
 		

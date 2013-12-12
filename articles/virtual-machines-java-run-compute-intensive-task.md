@@ -491,8 +491,8 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
  If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
 
-    > WACOM.NOTE 
-    > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
+> WACOM.NOTE
+> The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
  
 ### How to run the monitoring client application
 1. Log on to your machine where you will run the client application. This does not need to be the same machine running the **TSPSolver** application, although it can be.

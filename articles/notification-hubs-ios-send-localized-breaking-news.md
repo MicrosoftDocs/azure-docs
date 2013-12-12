@@ -42,19 +42,19 @@ Note: one way to send localized notifications is to create multiple versions of 
 
 At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
 
-		{
-			"News_English": "...",
-			"News_French": "...",
-			"News_Mandarin": "..."
-		}
+	{
+		"News_English": "...",
+		"News_French": "...",
+		"News_Mandarin": "..."
+	}
 
 Then we will ensure that devices register with a template that refers to the correct property. For instance,  an iOS app that wants to register for French news will register the following:
 
-		{
-			aps:{
-				alert: "$(News_French)"
-			}
+	{
+		aps:{
+			alert: "$(News_French)"
 		}
+	}
 
 Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article. A reference for the template expression language is in our [How To: Service Bus Notification Hubs (iOS Apps)].
 

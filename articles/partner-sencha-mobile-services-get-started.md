@@ -11,7 +11,7 @@ A screenshot from the completed app is shown below:
 ![][0]
 
 
-##About this Tutorial
+##About this tutorial
 
 This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework. It expands upon the Mobile Services quickstart project by showing how to connect a Sencha Touch application with a Windows Azure cloud-based service.
 
@@ -25,13 +25,13 @@ This tutorial is intended for intermediate to advanced web application developer
 
 - Java Runtime Environment (JRE) or Java Development Kit (JDK) (required for Android apps) 
 
-##Generating your Touch Application
+##Generate your Touch application
 
 Generating a Sencha Touch template application is a simple task using Sencha Cmd and is a great way to get an application up and running very quickly.
 
 From the directory where you installed the Touch framework, issue the following command:
 
-		$ sencha generate app Basic /path/to/application
+	$ sencha generate app Basic /path/to/application
 
 This generates a template Touch application with an application name of 'Basic'. To launch your application, simply point your browser to the directory /path/to/application and you should be presented with the standard Touch sample application.
 
@@ -39,7 +39,7 @@ This generates a template Touch application with an application name of 'Basic'.
 
 The extension for Windows Azure is installed either manually or as a Sencha Package. The method you use is totally up to you.
 
-###Manual Installation
+###Manual installation
 
 In most Touch applications, if you wish to add an external library of classes, you simply download the package, unpack it in your application directory and configure the Touch loader with the location of the library. 
 
@@ -56,7 +56,7 @@ You can manually add the Windows Azure extensions to your application using the 
     This creates an **azure** directory containing the entire package source, examples and documentation. The source will reside in the **azure/src** directory.
 
 
-###Installation as a Sencha Package
+###Installation as a Sencha package
 
 <div class="dev-callout"><b>Note</b>
 <p>You can only use this method when you have generated your application using the <code>sencha generate app</code> command.</p>
@@ -85,7 +85,7 @@ Both **sencha app build** and **sencha app refresh** will both now perform the s
 
 Whichever command you run, Sencha Cmd will download and expand the package to your "packages" folder. After this you will find a "packages/touch-azure" folder in your workspace.
 
-##Including and Configuring Azure
+##Include and configure Azure
 
 **Filename**: app.js 
 
@@ -119,7 +119,7 @@ Now that the Windows Azure extension has been downloaded and installed in your a
 
 	While you can pass the configuration object directly to the init method, we suggest creating a Sencha application configuration property called **azure** and placing all the appropriate information there. You can then pass this property value to the Ext.Azure.init method.
 
-	When you create a mobile service in Windows Azure (see [Getting Started with Azure](#!/guide/getting_started)) an application key and URL are assigned to that service. This information must be provided to your Azure package so it can connect to your service.
+	When you create a mobile service in Windows Azure (see [Getting Started with Azure](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)) an application key and URL are assigned to that service. This information must be provided to your Azure package so it can connect to your service.
 
 	This example shows a very simple Azure configuration and initialization supplying only the application key and URL:
 
@@ -147,11 +147,11 @@ Now that the Windows Azure extension has been downloaded and installed in your a
 
 Congratulations! Your application should now have access to your mobile service.
 
-##Building the ToDo App
+##Build the ToDo app
 
 Now that we have configured your application to include the Windows Azure extension, and provided it with your mobile service credentials, we can move on to creating a Touch application which utilizes your mobile service for viewing and editing your ToDo list data stored in the service.
 
-###1. Configuring the Azure data proxy
+###Configure the Azure data proxy
 
 **Filename:** app/model/TodoItem.js
 
@@ -198,7 +198,7 @@ The Azure proxy will automatically set all HTTP headers with the appropriate CRU
 	});
 
 
-###2. Storing your ToDo Items 
+###Store your ToDo items 
 
 **Filename**: app/store/TodoItems.js
 
@@ -224,7 +224,7 @@ We also have some additional configuration options for the store such as specify
 	});
 
 
-###3. Viewing and Editing your ToDo Items
+###View and edit your ToDo items
 
 **Filename**: app/view/DataItem.js
 
@@ -302,7 +302,7 @@ The view below is comprised of a ListItem which defines how each record will be 
 	});
 
 
-###4. Creating Your Primary View
+###Create your primary view
 
 **Filename**: app/view/Main.js
 
@@ -369,7 +369,7 @@ Now that we have defined the layout of an individual ToDo list item (above) we w
     	}
 	});
 
-###5. Making Everything Work Together
+###Make everything work together
 
 **Filename**: app/controller/Main.js
 
@@ -526,7 +526,7 @@ The final step in our application is to respond to button presses (delete, save,
     	}
 	});
 
-###Putting It All Together
+###Put it all together
 
 **Filename**: app.js
 
@@ -609,7 +609,7 @@ Our final step is to finish editing the main application file, and provide infor
 	});
 
 
-###Running the Example Application
+###Run the example application
 
 You now have finished putting together all the pieces of this sample ToDo List application which utilizes your mobile service. 
 

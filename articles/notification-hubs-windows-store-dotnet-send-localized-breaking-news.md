@@ -40,21 +40,21 @@ Note: one way to send localized notifications is to create multiple versions of 
 
 At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
 
-		{
-			"News_English": "...",
-			"News_French": "...",
-			"News_Mandarin": "..."
-		}
+	{
+		"News_English": "...",
+		"News_French": "...",
+		"News_Mandarin": "..."
+	}
 
 Then we will ensure that devices register with a template that refers to the correct property. For instance, a Windows Store app that wants to receive a simple toast message will register for the following template:
 
-		<toast>
-		  <visual>
-		    <binding template=\"ToastText01\">
-		      <text id=\"1\">$(News_English)</text>
-		    </binding>
-		  </visual>
-		</toast>
+	<toast>
+	  <visual>
+	    <binding template=\"ToastText01\">
+	      <text id=\"1\">$(News_English)</text>
+	    </binding>
+	  </visual>
+	</toast>
 
 
 
@@ -73,34 +73,34 @@ In your Windows Store app:
 
 Change your MainPage.xaml to include a locale combobox:
 
-		<Grid Margin="120, 58, 120, 80"  
-				Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  TextWrapping="Wrap" Text="Breaking News" FontSize="42" VerticalAlignment="Top"/>
-            <ComboBox Name="Locale" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Grid.Row="1" Grid.Column="0">
-                <x:String>English</x:String>
-                <x:String>French</x:String>
-                <x:String>Mandarin</x:String>
-            </ComboBox>
-            <ToggleSwitch Header="World" Name="WorldToggle" Grid.Row="2" Grid.Column="0"/>
-            <ToggleSwitch Header="Politics" Name="PoliticsToggle" Grid.Row="3" Grid.Column="0"/>
-            <ToggleSwitch Header="Business" Name="BusinessToggle" Grid.Row="4" Grid.Column="0"/>
-            <ToggleSwitch Header="Technology" Name="TechnologyToggle" Grid.Row="2" Grid.Column="1"/>
-            <ToggleSwitch Header="Science" Name="ScienceToggle" Grid.Row="3" Grid.Column="1"/>
-            <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="4" Grid.Column="1"/>
-            <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
-        </Grid>
+	<Grid Margin="120, 58, 120, 80"  
+			Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  TextWrapping="Wrap" Text="Breaking News" FontSize="42" VerticalAlignment="Top"/>
+        <ComboBox Name="Locale" HorizontalAlignment="Left" VerticalAlignment="Center" Width="200" Grid.Row="1" Grid.Column="0">
+            <x:String>English</x:String>
+            <x:String>French</x:String>
+            <x:String>Mandarin</x:String>
+        </ComboBox>
+        <ToggleSwitch Header="World" Name="WorldToggle" Grid.Row="2" Grid.Column="0"/>
+        <ToggleSwitch Header="Politics" Name="PoliticsToggle" Grid.Row="3" Grid.Column="0"/>
+        <ToggleSwitch Header="Business" Name="BusinessToggle" Grid.Row="4" Grid.Column="0"/>
+        <ToggleSwitch Header="Technology" Name="TechnologyToggle" Grid.Row="2" Grid.Column="1"/>
+        <ToggleSwitch Header="Science" Name="ScienceToggle" Grid.Row="3" Grid.Column="1"/>
+        <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="4" Grid.Column="1"/>
+        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
+    </Grid>
 
 <h2><a name="building-client"></a><span class="building app">App ui</span>Building the Windows Store client app</h2>
 

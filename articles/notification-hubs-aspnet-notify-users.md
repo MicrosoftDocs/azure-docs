@@ -133,9 +133,9 @@ The next step is to add the registration logic for notification hubs to the ASP.
 
 4. In the left pane, select the **Online** category, search for `WindowsAzure.ServiceBus`, click **Install** on the **Windows Azure Service Bus** package, then accept the license agreement. 
 
-  ![][2]
+  	![][2]
 
-  This adds the Microsoft.ServiceBus.dll assembly to your project.
+  	This adds the Microsoft.ServiceBus.dll assembly to your project.
 
 5. In Solution Explorer, right-click the **Controllers** folder, click **Add**, click **Controller...**, then type `RegisterController` for **Controller name**, choose **Empty API controller**, and click **Add**.
 

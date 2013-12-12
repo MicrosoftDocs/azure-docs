@@ -400,9 +400,9 @@ to learn how to do more complex storage tasks.
   [How To: Delete blobs]: #delete-blobs
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs-20/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs-20/blob6.png
-  
-  
-  
+  [Blob7]: ./media/storage-dotnet-how-to-use-blobs-20/blob7.png
+  [Blob8]: ./media/storage-dotnet-how-to-use-blobs-20/blob8.png
+  [Blob9]: ./media/storage-dotnet-how-to-use-blobs-20/blob9.png
   
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

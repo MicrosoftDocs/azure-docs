@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-guides-service-bus-amqp" urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Windows Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerexpose="" description="Learn how to use the Java Message Service (JMS) with Windows Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0" authors=""  solutions="" documentationCenter="Java" writer="waltpo" manager="" editor="mollybos" />
+<properties linkid="develop-java-how-to-guides-service-bus-amqp" urldisplayname="Service Bus AMQP" headerexpose="" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Windows Azure" metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" footerexpose="" description="Learn how to use the Java Message Service (JMS) with Windows Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." umbraconavihide="0" disquscomments="1" metaCanonical="" title="How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0" authors=""  solutions="" documentationCenter="Java" writer="sethm" manager="dwrede" editor="mattshel" />
 
 
 # How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0
@@ -15,311 +15,334 @@ This How-To Guide explains how to use the Service Bus brokered messaging feature
 
 # Getting started with Service Bus
 
-
-*    **_Creating a Windows Azure account_**
-*    **_Create a Service Bus queue via the portal_**
-
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled “[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)”
 
 ## Downloading the AMQP 1.0 JMS client library
 
-The Apache Qpid JMS AMQP 1.0 client library is available for download from: [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-SNAPSHOT/0.19/qpid-amqp-1-0-SNAPSHOT.zip](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-SNAPSHOT/0.19/qpid-amqp-1-0-SNAPSHOT.zip)
+For information about where to download the latest version of the Apache Qpid JMS AMQP 1.0 client library, visit [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
-This zip archive contains the following eight files:
+You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 distribution archive to the Java CLASSPATH when building and running JMS applications with Service Bus:
 
-*    geronimo-jms_1.1_spec-1.0.jar
-*    qpid-amqp-1-0-client-0.19-sources.jar
-*    qpid-amqp-1-0-client-0.19.jar
-*    qpid-amqp-1-0-client-jms-0.19-sources.jar
-*    qpid-amqp-1-0-client-jms-0.19.jar
-*    qpid-amqp-1-0-common-0.19-sources.jar
-*    qpid-amqp-1-0-common-0.19.jar
-*    svnversion
-
-The following four JAR files need to be added to the Java CLASSPATH when building and running JMS applications with Service Bus:
-*    geronimo-jms_1.1_spec-1.0.jar
-*    qpid-amqp-1-0-client-0.19.jar
-*    qpid-amqp-1-0-client-jms-0.19.jar
-*    qpid-amqp-1-0-common-0.19.jar
+*    geronimo-jms\_1.1\_spec-1.0.jar
+*    qpid-amqp-1-0-client-[version].jar
+*    qpid-amqp-1-0-client-jms-[version].jar
+*    qpid-amqp-1-0-common-[version].jar
 
 ## Coding Java applications
 
-## 
+### ***Java Naming and Directory Interface (JNDI)***
+JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS objects are resolved using JNDI: ConnectionFactory and Destination. JNDI uses a provider model into which you can plug different directory services to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a simple properties file-based JNDI Provider that is configured using a properties file of the following format:
 
-## ***Java Naming and Directory Interface (JNDI)***
+	# servicebus.properties – sample JNDI configuration
+	
+	# Register a ConnectionFactory in JNDI using the form:
+	# connectionfactory.[jndi_name] = [ConnectionURL]
+	connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+	
+	# Register some queues in JNDI using the form
+	# queue.[jndi_name] = [physical_name]
+	# topic.[jndi_name] = [physical_name]
+	queue.QUEUE = queue1
 
-JMS uses the Java Naming and Directory Interface (JNDI) to create a separation between logical names and physical names. Two types of JMS object that are resolved using JNDI, namely ConnectionFactory and Destination. JNDI uses a provider model in to which different directory services can be plugged in to handle name resolution duties. The Apache Qpid JMS AMQP 1.0 library comes with a very simple properties file based JNDI Provider that is configured using a simple text file.
 
-The Qpid Properties File JNDI Provider is configured using a properties file of the following format:
+<p><strong>Configuring the ConnectionFactory</strong></p>
 
-<pre><code>
-\# servicebus.properties – sample JNDI configuration
+The entry used to define a **ConnectionFactory** in the Qpid Properties File JNDI Provider is of the following format:
 
-\# Register a ConnectionFactory in JNDI using the form:
-\# connectionfactory.[jndi_name] = [ConnectionURL]
-
-connectionfactory.SBConnectionFactory = \
-  amqps://
-
-\# Register some queues in JNDI using the form
-\# queue.[jndi_name] = [physical_name]
-queue.SendToEntity = queue1
-</code></pre>
-
-### **Configuring the ConnectionFactory**
-
-The entry used to define a ConnectionFactory in the Qpid Properties File JNDI Provider is of the following format:
-<pre><code>
-connectionfactory.[jndi_name] = [ConnectionURL]
-</pre></code>
+	connectionfactory.[jndi_name] = [ConnectionURL]
 
 Where [jndi_name] and [ConnectionURL] have the following meanings:
 
-[jndi_name]-The logical name of the ConnectionFactory. This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.
+<table>
+  <tr>
+    <td>[jndi_name]</td>
+    <td>The logical name of the ConnectionFactory. This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.</td>
+  </tr>
+  <tr>
+    <td>[ConnectionURL]</td>
+    <td>A URL that provides the JMS library with the information required to the AMQP broker.</td>
+  </tr>
+</table>
 
-[ConnectionURL]-A URL that provides the JMS library with the information required to the AMQP broker.
+The format of the **ConnectionURL** is as follows:
 
+	amqps://[username]:[password]@[namespace].servicebus.windows.net
 
+Where [namespace], [username] and [password] have the following meanings:
 
-The format of the ConnectionURL is as follows:
-<pre><code>
-amqps://
-</pre></code>
-Where the [username], [password] and [namespace] variables have the following meanings:
+<table>
+  <tr>
+    <td>[namespace]</td>
+    <td>The Service Bus namespace obtained from the Windows Azure Management Portal.</td>
+  </tr>
+  <tr>
+    <td>[username]</td>
+    <td>The Service Bus issuer name obtained from the Windows Azure Management Portal.</td>
+  </tr>
+  <tr>
+    <td>[password]</td>
+    <td>URL encoded form of the Service Bus issuer key obtained from the Windows Azure Management Portal.</td>
+  </tr>
+</table>
 
-[username]-The Service Bus issuer name obtained from the Windows Azure Management Portal.
+**Note**: You must URL-encode the password manually. A useful URL-encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
-[password]-URL encoded form of the Service Bus issuer key obtained from the Windows Azure Management Portal.
+For example, if the information obtained from the Windows Azure Management portal is as follows:
 
+<table>
+  <tr>
+    <td>Namespace:</td>
+    <td>foo.servicebus.windows.net</td>
+  </tr>
+  <tr>
+    <td>Issuer name:</td>
+    <td>owner</td>
+  </tr>
+  <tr>
+    <td>Issuer key:</td>
+    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
+  </tr>
+</table>
 
+Then in order to define a **ConnectionFactory** named “SBCF”, the configuration string appears as follows:
 
-Notes:
-*    This URL encoding must be done manually.
-*    A useful URL encoding utility is available at: [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)
+	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
 
-[namespace]-The Service Bus namespace obtained from the Windows Azure Management Portal.
+<p><strong>Configuring Destinations</strong></p>
 
+The entry used to define a destination in the Qpid Properties File JNDI Provider is of the following format:
 
-So, for example, if the information obtained from the Service Bus portal is as follows:
+	queue.[jndi_name] = [physical_name]
+or
 
-Namespace-foo.servicebus.windows.net
+	topic.[jndi_name] = [physical_name]
 
-Issuer name-owner
+Where [jndi\_name] and [physical\_name] have the following meanings:
 
-Issuer key-j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=
+<table>
+  <tr>
+    <td>[jndi_name]</td>
+    <td>The logical name of the destination. This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.</td>
+  </tr>
+  <tr>
+    <td>[physical_name]</td>
+    <td>The name of the Service Bus entity to which the application sends or receives messages.</td>
+  </tr>
+</table>
 
-Then in order to define a ConnectionFactory named “SBConnectionFactory” the configuration string would be as follows:
-<pre><code>
-connectionfactory.SBConnectionFactory = \
-amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
-</pre></code>
+**Note**: When receiving from a Service Bus topic subscription, the physical name specified in JNDI should be the name of the topic. The subscription name is provided when the durable subscription is created in the JMS application code. The [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx) provides more details on working with Service Bus topic subscriptions from JMS.
 
-### **Configuring Destinations**
+### Writing the JMS application
 
-The entry used to define a Destination in the Qpid Properties File JNDI Provider is of the following format:
+There are no special APIs or options required when using JMS with Service Bus. However, there are a few restrictions that will be covered later. As with any JMS application, the first thing required is configuration of the JNDI environment, to be able to resolve a **ConnectionFactory** and destinations.
 
-queue.[jndi_name] = [physical_name]
+<p><strong>Configuring the JNDI InitialContext</strong></p>
 
-Where [jndi_name] and [physical_name] have the following meanings:
+The JNDI environment is configured by passing a hashtable of configuration information into the constructor of the javax.naming.InitialContext class. The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL. The following code shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named **servicebus.properties**.
 
-[jndi_name]-The logical name of the Destination. This is the name that will be resolved in the Java application using the JNDI IntialContext.lookup() method.
+	Hashtable<String, String> env = new Hashtable<String, String>(); 
+	env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
+	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
+	InitialContext context = new InitialContext(env); 
 
-[physical_name]-The name of the Service Bus entity to which the application wishes to send or receive messages.
+### A simple JMS application using a Service Bus Queue
 
+The following example program sends JMS TextMessages to a Service Bus queue with the JNDI logical name of QUEUE, and receives the messages back.
 
+	// SimpleSenderReceiver.java
+	
+	import javax.jms.*;
+	import javax.naming.Context;
+	import javax.naming.InitialContext;
+	import java.io.BufferedReader;
+	import java.io.InputStreamReader;
+	import java.util.Hashtable;
+	import java.util.Random;
+	
+	public class SimpleSenderReceiver implements MessageListener {
+	    private static boolean runReceiver = true;
+	    private Connection connection;
+	    private Session sendSession;
+	    private Session receiveSession;
+	    private MessageProducer sender;
+	    private MessageConsumer receiver;
+	    private static Random randomGenerator = new Random();
+	
+	    public SimpleSenderReceiver() throws Exception {
+	        // Configure JNDI environment
+	        Hashtable<String, String> env = new Hashtable<String, String>();
+	        env.put(Context.INITIAL_CONTEXT_FACTORY, 
+                    "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
+	        env.put(Context.PROVIDER_URL, "servicebus.properties");
+	        Context context = new InitialContext(env);
+	
+	        // Lookup ConnectionFactory and Queue
+	        ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
+	        Destination queue = (Destination) context.lookup("QUEUE");
+	
+	        // Create Connection
+	        connection = cf.createConnection();
+	
+	        // Create sender-side Session and MessageProducer
+	        sendSession = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+	        sender = sendSession.createProducer(queue);
+	
+	        if (runReceiver) {
+	            // Create receiver-side Session, MessageConsumer,and MessageListener
+	            receiveSession = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
+	            receiver = receiveSession.createConsumer(queue);
+	            receiver.setMessageListener(this);
+	            connection.start();
+	        }
+	    }
+	
+	    public static void main(String[] args) {
+	        try {
+	
+	            if ((args.length > 0) && args[0].equalsIgnoreCase("sendonly")) {
+	                runReceiver = false;
+	            }
+	
+	            SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
+	            System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
+	            BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
+	
+	            while (true) {
+	                String s = commandLine.readLine();
+	                if (s.equalsIgnoreCase("exit")) {
+	                    simpleSenderReceiver.close();
+	                    System.exit(0);
+	                } else {
+	                    simpleSenderReceiver.sendMessage();
+	                }
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	
+	    private void sendMessage() throws JMSException {
+	        TextMessage message = sendSession.createTextMessage();
+	        message.setText("Test AMQP message from JMS");
+	        long randomMessageID = randomGenerator.nextLong() >>>1;
+	        message.setJMSMessageID("ID:" + randomMessageID);
+	        sender.send(message);
+	        System.out.println("Sent message with JMSMessageID = " + message.getJMSMessageID());
+	    }
+	
+	    public void close() throws JMSException {
+	        connection.close();
+	    }
+	
+	    public void onMessage(Message message) {
+	        try {
+	            System.out.println("Received message with JMSMessageID = " + message.getJMSMessageID());
+	            message.acknowledge();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	}	
 
-Notes:
-*    This can be a Service Bus Queue, Topic or Subscription. Messages can be sent to Queues and Topics and received from Queues and Subscriptions.
-*    When receiving from a Subscription the format of the [physical_name] is [topic_name]/subscriptions/[subscription_name]. So if an application was to receive messages from a subscription named “hardware” on a topic “orders” then the [physical_name] would be “orders/subscriptions/hardware.”
-
-Note that regardless of whether the application is interacting with a Queue, Topic or a Subscription, the properties file entry is always of the form “queue.[jndi_name] = [physical_name]” never “topic.[jndi_name] = [physical_name]” or “subscription.[jndi_name] = [physical_name].”
-
-So, to define a logical JMS Destination named “orders,” that mapped to a Service Bus Queue named “purchase_orders,” the entry in the properties file would be as follows:
-
-queue.orders = purchase_orders
-
-
-## **Writing the JMS application**
-
-There are no special APIs or options required when using JMS with Service Bus. However there are a few restrictions that will be covered later. Like any JMS application, the first thing required is configuration of the JNDI environment so as to be able to resolve a ConnectionFactory and Destinations.
-
-### **Configuring the JNDI InitialContext**
-
-The JNDI environment is configured by passing in a hashtable of configuration information into the constructor of the javax.naming.InitialContext class. The two required elements in the hashtable are the class name of the Initial Context Factory and the Provider URL. The code snippet below shows how to configure the JNDI environment to use the Qpid properties file based JNDI Provider with a properties file named “servicebus.properties.”
-
-<pre><code>
-    Hashtable<String, String> env = new Hashtable<String, String>(); 
-    env.put(Context.INITIAL_CONTEXT_FACTORY,
-            "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-    env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-    InitialContext context = new InitialContext(env); 
-</pre></code>
-
-## **A simple JMS application using a Service Bus Queue**
-
-The following simple example program sends JMS BytesMessages to a Service Bus Queue with the JNDI logical name of QUEUE and receives the messages back.
-
-<pre><code>
-// SimpleSenderReceiver.java
-
-import javax.jms.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.Hashtable;
-
-public class SimpleSenderReceiver implements MessageListener {
-    private Connection connection;
-    private Session sendSession;
-    private Session receiveSession;
-    private MessageProducer sender;
-    private MessageConsumer receiver;
-    private static boolean runReceiver = true;
-    public static void main(String[] args) {
-        try {
-            if ( (args.length > 0) && args[0].equalsIgnoreCase("sendonly") )
-                runReceiver = false;
-            SimpleSenderReceiver simpleSenderReceiver = new
-                    SimpleSenderReceiver();
-            System.out.println("Press [enter] to send a message." +
-                    " Type 'exit' + [enter] to quit.");
-            BufferedReader commandLine = new
-                    java.io.BufferedReader(new InputStreamReader(System.in));
-            while (true) {
-                String s = commandLine.readLine();
-                if (s.equalsIgnoreCase("exit")) {
-                    simpleSenderReceiver.close();
-                    System.exit(0);
-                } else
-                    simpleSenderReceiver.sendMessage();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public SimpleSenderReceiver() throws Exception {
-        // Configure JNDI environment
-        Hashtable<String, String> env = new Hashtable<String, String>();
-        env.put(Context.INITIAL_CONTEXT_FACTORY,
-        "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
-        env.put(Context.PROVIDER_URL, "servicebus.properties");
-        Context context = new InitialContext(env);
-
-        // Lookup ConnectionFactory and Queue
-        ConnectionFactory cf = (ConnectionFactory) context.lookup
-                ("SBCONNECTIONFACTORY");
-        Destination queue = (Destination) context.lookup("QUEUE");
-
-        // Create Connection
-        connection = cf.createConnection();
-
-        // Create sender-side Session and MessageProducer
-        sendSession = connection.createSession(false,
-                Session.AUTO_ACKNOWLEDGE);
-
-        sender = sendSession.createProducer(queue);
-        if (runReceiver)
-        {
-            // Create receiver-side Session, MessageConsumer,
-            // and MessageListener
-            receiveSession = connection.createSession(false,
-                Session.CLIENT_ACKNOWLEDGE);
-            receiver = receiveSession.createConsumer(queue);
-            receiver.setMessageListener(this);
-            connection.start();
-        }
-    }
-
-    public void close() throws JMSException {
-        connection.close();
-    }
-
-    public void onMessage(Message message) {
-        try {
-            System.out.println("Received message with JMSMessageID = " +
-                    message.getJMSMessageID());
-            message.acknowledge();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void sendMessage() throws JMSException {
-        TextMessage message = sendSession.createTextMessage();
-        message.setText("Test AMQP message from JMS");
-        sender.send(message);
-        System.out.println("Sent message with JMSMessageID = " + message
-                .getJMSMessageID());
-    }
-}
-</pre></code>
-## **Running the application**
+### Running the application
 
 Running the application produces output of the form:
 
-<pre><code>
-\> java SimpleSenderReceiver 
+	> java SimpleSenderReceiver
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+	
+	Sent message with JMSMessageID = ID:2867600614942270318
+	Received message with JMSMessageID = ID:2867600614942270318
+	
+	Sent message with JMSMessageID = ID:7578408152750301483
+	Received message with JMSMessageID = ID:7578408152750301483
+	
+	Sent message with JMSMessageID = ID:956102171969368961
+	Received message with JMSMessageID = ID:956102171969368961
+	exit
 
-Press [enter] to send a message. Type 'exit' + [enter] to quit.
+##Cross-platform messaging between JMS and .NET
 
-Sent message with JMSMessageID = ID:307c84b6-23a2-45ae-93ba-074f4e882b0c
-Received message with JMSMessageID = ID:307c84b6-23a2-45ae-93ba-074f4e882b0c
+This guide showed how to send and receive messages to and from Service Bus using JMS. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
-Sent message with JMSMessageID = ID:92f13538-9ed7-417c-81e3-bf13f205637b
-Received message with JMSMessageID = ID:92f13538-9ed7-417c-81e3-bf13f205637b
+Using the sample JMS application described above and a similar .NET application taken from a companion guide, [How to use AMQP 1.0 with the .NET Service Bus .NET API](http://aka.ms/lym3vk), you can exchange messages between .NET and Java. 
 
-Sent message with JMSMessageID = ID:ccbecfed-f83d-46ca-aab5-cb379961474b
-Received message with JMSMessageID = ID:ccbecfed-f83d-46ca-aab5-cb379961474b
+For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
 
-exit
-</pre></code>
-# **Cross-platform messaging between JMS and .NET**
+### JMS to .NET
 
-So far this guide has shown how to send messages to Service Bus using JMS and also how to receive those messages using JMS. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components built using different languages with messages exchanged messages reliably and at full-fidelity.
+To demonstrate JMS to .NET messaging:
 
-Using the sample JMS application described above and a similar .NET application taken from a companion guide (How to use AMQP 1.0 with the .NET Service Bus .NET API), it’s possible to exchange messages between .NET and Java. 
+* Start the .NET sample application without any command-line arguments.
+* Start the Java sample application with the “sendonly” command-line argument. In this mode, the application will not receive messages from the queue, it will only send.
+* Press **Enter** a few times in the Java application console, which will cause messages to be sent.
+* These messages are received by the .NET application.
 
-To show JMS to .NET:
-*    Start the above Java sample with the “sendonly” command line argument. In this mode the application will not receive messages from the queue, it will only send.
-*    Start the .NET sample app without any command line arguments.
-*    Press ‘enter’ a few times in the Java application console which will cause messages to be sent.
-*    These messages will be received by the .NET application.
+<p><strong>Output from JMS application</strong></p>
 
-To show .NET to JMS:
-*    Start the above Java sample app without any command line arguments.
-*    Start the .NET sample with the “sendonly” command line argument. In this mode the application will not receive messages from the queue, it will only send.
-*    Press ‘enter’ a few times in the .NET application console which will cause messages to be sent.
-*    These messages will be received by the Java application.
+	> java SimpleSenderReceiver sendonly
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+	Sent message with JMSMessageID = ID:4364096528752411591
+	Sent message with JMSMessageID = ID:459252991689389983
+	Sent message with JMSMessageID = ID:1565011046230456854
+	exit
 
-More information on the details of cross-platform messaging using Service Bus and AMQP 1.0 can be found in the Service Bus AMQP Preview Developers Guide.
+<p><strong>Output from .NET application</strong></p>
 
-# **Unsupported features and restrictions**
+	> SimpleSenderReceiver.exe	
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+	Received message with MessageID = 4364096528752411591
+	Received message with MessageID = 459252991689389983
+	Received message with MessageID = 1565011046230456854
+	exit
 
-There are several JMS features that are not currently supported with this preview release of AMQP 1.0 support in Service Bus, namely:
-*    Only one MessageProducer or MessageConsumer is allowed per Session. If you need to create multiple MessageProducers or MessageConsumers in an application then create dedicated Sessions for each of them.
-*    The Topic programming model, i.e., TopicConnection, TopicSession, TopicPublisher, TopicSubscriber is not supported. Use the generic Connection, Session, MessageProducer, MessageConsumer APIs with Service Bus Queues, Topics and Subscriptions.
-*    MessageSelectors are not supported.
-*    Temporary destinations, i.e., TemporaryQueue, TemporaryTopic are not supported, along with the QueueRequestor and TopicRequestor APIs that use them.
-*    Transacted sessions
-*    Distributed transactions
+### .NET to JMS
 
-# **Summary**
+To demonstrate .NET to JMS messaging:
 
-This How-To Guide has shown how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0. The AMQP 1.0 support is available in preview today and is expected to transition to General Availability (GA) in the first half of 2013.
+* Start the .NET sample application with the “sendonly” command-line argument. In this mode, the application will not receive messages from the queue, it will only send.
+* Start the Java sample application without any command-line arguments.
+* Press **Enter** a few times in the .NET application console, which will cause messages to be sent.
+* These messages are received by the Java application.
 
-The Service Bus AMQP 1.0 support can also be used from other languages including .NET, C, Python, and PHP. Components built using these different languages can exchange messages reliably and at full-fidelity using the AMQP 1.0 in Service Bus. Further information is provided in the Service Bus AMQP 1.0 Preview Developers Guide.
+<p><strong>Output from .NET application</strong></p>
 
-# **Important Notice**
-
-Support for the AMQP 1.0 protocol in the Windows Azure Service Bus (“AMQP Preview”) is provided as a Preview feature, and is governed by the [Windows Azure Preview terms of use](http://www.windowsazure.com/en-us/support/legal/preview-terms-of-use/). Specifically, note that:
-
-1.  The Service Bus SLA does not apply to the AMQP Preview;
-2.  Messages or other data that are placed into Service Bus using the AMQP protocol may not be preserved during the AMQP Preview or at the end of the AMQP Preview;
-3.  We may make breaking changes to AMPQ related APIs or protocols during or at the end of the AMQP Preview.
+	> SimpleSenderReceiver.exe sendonly
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+	exit
 
 
-# **Further information**
-*    AMQP 1.0 support in Windows Azure Service Bus [link to article previously submitted]
-*    How to use AMQP 1.0 with the .NET Service Bus .NET API [link to sister article]
-*    Service Bus AMQP Preview Developers Guide[ included in the Service Bus AMQP Preview NuGet package]
+<p><strong>Output from JMS application</strong></p>
+
+	> java SimpleSenderReceiver	
+	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+	exit
+
+##Unsupported features and restrictions
+
+The following restrictions exist when using JMS over AMQP 1.0 with Service Bus, namely:
+
+* Only one **MessageProducer** or **MessageConsumer** is allowed per **Session**. If you need to create multiple **MessageProducers** or **MessageConsumers** in an application, create a dedicated **Session** for each of them.
+* Volatile topic subscriptions are not currently supported.
+* **MessageSelectors** are not currently supported.
+* Temporary destinations, i.e., **TemporaryQueue**, **TemporaryTopic** are not currently supported, along with the **QueueRequestor** and **TopicRequestor** APIs that use them.
+* Transacted sessions and distributed transactions are not supported.
+
+##Summary
+
+This how-to guide showed how to use Service Bus brokered messaging features (queues and publish/subscribe topics) from Java using the popular JMS API and AMQP 1.0.
+
+You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, Python, and PHP. Components built using these different languages can exchange messages reliably and at full fidelity using the AMQP 1.0 support in Service Bus. For more information, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+
+##Further information
+
+* [AMQP 1.0 support in Windows Azure Service Bus](http://aka.ms/pgr3dp)
+* [How to use AMQP 1.0 with the Service Bus .NET API](http://aka.ms/lym3vk)
+* [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
+* [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
