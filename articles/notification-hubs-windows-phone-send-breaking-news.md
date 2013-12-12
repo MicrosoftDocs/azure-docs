@@ -1,6 +1,7 @@
 <properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="Operating System Functionality Available to Applications on Windows Azure Web Sites" pageTitle="Operating System Functionality Available to Applications on Windows Azure Web Sites" metaKeywords="" description="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access." metaCanonical="" services="notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="" solutions="" writer="glenga" manager="" editor=""  />
 
-# Use Notification Hubs to send breaking news<div class="dev-center-tutorial-selector sublanding"> 
+# Use Notification Hubs to send breaking news
+<div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/en-us/manage/services/notification-hubs/breaking-news-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/breaking-news-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/breaking-news-ios" title="iOS">iOS</a>
 </div>
 
