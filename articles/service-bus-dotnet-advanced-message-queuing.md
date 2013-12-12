@@ -17,7 +17,7 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 
 <h2><span class="short-header">Getting Started</span>Getting Started with Service Bus</h2>
 
-This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled ???[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)???
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)"
 
 <h2><span class="short-header">Downloading the SDK</span>Downloading the Service Bus SDK.</h2>
 
@@ -27,7 +27,7 @@ AMQP 1.0 support is available in Service Bus SDK version 2.1 or later. You can d
 
 By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string as described in the next section. Other than this change, application code remains basically unchanged when using AMQP 1.0.
 
-In the current release there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section ???Unsupported features and restrictions.??? Some of the advanced configuration settings also have a different meaning when using AMQP. None of these settings are used in this short how-to guide but more details are available in the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+In the current release there are a few API features that are not supported when using AMQP. These unsupported features are listed later in the section "Unsupported features and restrictions." Some of the advanced configuration settings also have a different meaning when using AMQP. None of these settings are used in this short how-to guide but more details are available in the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
 
 ### Configuration via App.config
 
@@ -52,11 +52,11 @@ The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Servic
 
 Where [namespace], [issuer name], and [issuer key] are obtained from the Windows Azure Management Portal. For more information, see [How to Use Service Bus Queues][].
 
-When using AMQP, the connection string is appended with ???;TransportType=Amqp???, which tells the client library to make its connection to Service Bus using AMQP 1.0.
+When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
 ### Configuring the Entity Name
 
-This sample application uses the ???EntityName??? setting in the **appSettings** section of the App.config file to configure the name of the queue with which the application exchanges messages.
+This sample application uses the "EntityName" setting in the **appSettings** section of the App.config file to configure the name of the queue with which the application exchanges messages.
 
 ### A simple .NET application using a Service Bus Queue
 
@@ -209,7 +209,7 @@ Running the application produces output of the form:
 
 This guide showed how to send messages to Service Bus using .NET and also how to receive those messages using .NET. However, one of the key benefits of AMQP 1.0 is that it enables applications to be built from components written in different languages, with messages exchanged reliably and at full fidelity.
 
-Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3), it???s possible to exchange messages between .NET and Java. 
+Using the sample .NET application described above and a similar Java application taken from a companion guide, [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3), it's possible to exchange messages between .NET and Java. 
 
 For more information about the details of cross-platform messaging using Service Bus and AMQP 1.0, see the [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
 
@@ -218,7 +218,7 @@ For more information about the details of cross-platform messaging using Service
 To demonstrate JMS to .NET messaging:
 
 * Start the .NET sample application without any command-line arguments.
-* Start the Java sample application with the ???sendonly??? command-line argument. In this mode, the application will not receive messages from the queue, it will only send.
+* Start the Java sample application with the "sendonly" command-line argument. In this mode, the application will not receive messages from the queue, it will only send.
 * Press **Enter** a few times in the Java application console, which will cause messages to be sent.
 * These messages are received by the .NET application.
 
@@ -244,7 +244,7 @@ To demonstrate JMS to .NET messaging:
 
 To demonstrate .NET to JMS messaging:
 
-* Start the .NET sample application with the ???sendonly??? command line argument. In this mode, the application will not receive messages from the queue, it will only send.
+* Start the .NET sample application with the "sendonly" command line argument. In this mode, the application will not receive messages from the queue, it will only send.
 * Start the Java sample application without any command line arguments.
 * Press **Enter** a few times in the .NET application console, which will cause messages to be sent.
 * These messages are received by the Java application.
