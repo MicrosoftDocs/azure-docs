@@ -2,7 +2,7 @@
 # Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/register-users-mobile-services-dotnet/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios/" title="iOS">iOS</a>
+    <a href="/en-us/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS">iOS</a>
 </div>
 
 This topic shows you how to request push notification registration with Windows Azure Notification Hubs when registration is performed by ASP.NET Web API. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
@@ -17,9 +17,9 @@ This topic shows you how to request push notification registration with Windows 
 
 4. In the left pane, select the **Online** category, search for `json.net`, click **Install** on the **Json.NET** package, then accept the license agreement. 
 
-  ![][0]
+  	![][0]
 
-  This adds the third-party Newtonsoft.Json.dll assembly to your project.
+  	This adds the third-party Newtonsoft.Json.dll assembly to your project.
 
 3. In Solution Explorer, right-click the project, click **Add** and then **Class**, then type `LocalStorageManager` and click **Add**.
 

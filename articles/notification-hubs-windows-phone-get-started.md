@@ -27,27 +27,27 @@ Completing this tutorial is a prerequisite for all other notification hubs tutor
 
 2. Click **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
-   ![][7]
+   	![][7]
 
 3. Type a name for your notification hub, select your desired region, then click **Create a new Notification Hub**.
 
-   ![][8]
+   	![][8]
 
 4. Click the namespace you just created (usually ***notification hub name*-ns**), then click the **Configure** tab at the top.
 
-   ![][9]
+   	![][9]
 
 5. Click the tab **Notification Hubs** at the top, then click on the notification hub you just created.
 
-   ![][10]
+   	![][10]
 
 6. Click **Connection Information** at the bottom. Take note of the two connection strings.
 
-   ![][12]
+   	![][12]
 
 7. Click the **Configure** tab, and then click the **Enable unauthenticated push notifications** checkbox in the **Windows Phone notifications settings** section.
 
-   ![][15]
+   	![][15]
 
 You now have the connection strings required to register your Windows Phone 8 app and send notifications.
 
@@ -59,7 +59,7 @@ You now have the connection strings required to register your Windows Phone 8 ap
 
 1. In Visual Studio, create a new Windows Phone 8 application.
 
-   ![][13]
+   	![][13]
 
 1. Add a reference to the Windows Azure Messaging library for Windows Store using the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>. In the Visual Studio menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
@@ -97,9 +97,9 @@ You now have the connection strings required to register your Windows Phone 8 ap
     
 4. In Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
-   ![][14]
+   	![][14]
 
-   This ensures that your app can receive push notifications.
+   	This ensures that your app can receive push notifications.
 	
 5. Press the F5 key to run the app.
 
@@ -111,7 +111,7 @@ To send notifications using a .NET app:
 
 1. Create a new Visual C# console application: 
 
-   ![][213]
+   	![][213]
 
 2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 

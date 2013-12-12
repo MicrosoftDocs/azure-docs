@@ -29,45 +29,45 @@ To send push notifications to Windows Store apps from Mobile Services, you must 
 
 1. If you have not already registered your app, navigate to the [Submit an app page] in the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
 
-   ![][0]
+   	![][0]
 
 2. Type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
 
-   ![][1]
+   	![][1]
 
-   This creates a new Windows Store registration for your app.
+   	This creates a new Windows Store registration for your app.
 
 3. In Visual Studio 2012 Express for Windows 8, create a new Visual C# Windows Store project using the **Blank App** template.
 
-   ![][2]
+   	![][2]
 
 4. In Solution Explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
 
-   ![][3]
+   	![][3]
 
-   The **Associate Your App with the Windows Store** wizard appears.
+   	The **Associate Your App with the Windows Store** wizard appears.
 
 5. In the wizard, click **Sign in** and then log in with your Microsoft account.
 
 6. Click the app that you registered in step 2, click **Next**, and then click **Associate**.
 
-   ![][4]
+   	![][4]
 
-   This adds the required Windows Store registration information to the application manifest.    
+   	This adds the required Windows Store registration information to the application manifest.    
 
 7. Back in the Windows Dev Center page for your new app, click **Services**. 
 
-   ![][5] 
+   	![][5] 
 
 8. In the **Services** page, click **Live Services site** under **Windows Azure Mobile Services**.
 
-   ![][17]
+   	![][17]
 
 9. Click **Authenticating your service** and make a note of the values of **Client secret** and **Package security identifier (SID)**. 
 
-   ![][6]
+   	![][6]
 
-    <div class="dev-callout"><b>Security Note</b>
+ 	<div class="dev-callout"><b>Security Note</b>
 	<p>The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.</p>
     </div>
 
@@ -77,27 +77,27 @@ To send push notifications to Windows Store apps from Mobile Services, you must 
 
 2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
-   ![][7]
+   	![][7]
 
 3. Type a name for your notification hub, select your desired Region, and then click **Create a new Notification Hub**.
 
-   ![][8]
+   	![][8]
 
 4. Click the namespace you just created (usually ***notification hub name*-ns**), then click the **Configure** tab at the top.
 
-   ![][9]
+   	![][9]
 
 5. Select the tab **Notification Hubs** at the top, and then click the notification hub you just created.
 
-   ![][10]
+   	![][10]
 
 6. Select the tab **Configure** at the top, enter the **Client secret** and **Package SID** values you obtained from WNS in the previous section, and then click **Save**.
 
-   ![][11]
+   	![][11]
 
 7. Select the tab **Dashboard** at the top, and then click **Connection Information**. Take note of the two connection strings.
 
-   ![][12]
+   	![][12]
 
 Your notification hub is now configured to work with WNS, and you have the connection strings to register your app and send notifications.
 
@@ -145,7 +145,7 @@ Your notification hub is now configured to work with WNS, and you have the conne
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
    
-   ![][19]
+   	![][19]
 
 <h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
 
@@ -157,13 +157,13 @@ To send notifications using a .NET app:
 
 2. Scroll down to **All Image Assets** and click **Badge Logo**. In **Notifications**, set **Toast capable** to **Yes**:
 
-   ![][18]
+   	![][18]
 
-   From the **File** menu, click **Save All**.
+   	From the **File** menu, click **Save All**.
 
 3. Now create a new Visual C# console application: 
 
-   ![][13]
+   	![][13]
 
 4. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then click **Library Package Manager**, then click **Package Manager Console**. Then, in the console window type the following:
 
@@ -184,7 +184,7 @@ To send notifications using a .NET app:
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   Make sure to insert the name of your hub and the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." Note that this is the connection string with **Full** access, not **Listen** access.
+   	Make sure to insert the name of your hub and the connection string called **DefaultFullSharedAccessSignature** that you obtained in the section "Configure your Notification Hub." Note that this is the connection string with **Full** access, not **Listen** access.
 
 7. Then add the following lines in the `Main` method:
 
@@ -193,7 +193,7 @@ To send notifications using a .NET app:
 
 8. Press the **F5** key to run the app. You should receive a toast notification.
 
-   ![][14]
+   	![][14]
 
 You can find all the possible payloads on MSDN in the [toast catalog], [tile catalog], and [badge overview].
 
@@ -203,11 +203,11 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 2. Select the tab **Scheduler** on the top.
 
-   ![][15]
+   	![][15]
 
 3. Create a new scheduled job, insert a name, and then click **On demand**.
 
-   ![][16]
+   	![][16]
 
 4. When the job is created, click the job name. Then click the **Script** tab in the top bar.
 
