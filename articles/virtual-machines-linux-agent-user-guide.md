@@ -197,7 +197,7 @@ If a path to an executable program is specified, the program is invoked when the
 Type: Boolean  
 Default: y
 
-This allows the user to enable or disable the provisioning functionality in the agent. Valid values are ???y??? or ???n???. If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Windows Azure provisioning API is ignored.
+This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Windows Azure provisioning API is ignored.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -220,14 +220,14 @@ The encryption type for the fresh key pair is configurable by the Provisioning.S
 Type: String  
 Default: rsa
 
-This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are ???rsa???, ???dsa??? and ???ecdsa???. Note that ???putty.exe??? on Windows does not support ???ecdsa???. So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use ???rsa??? or ???dsa???.
+This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine. The typically supported values are "rsa", "dsa" and "ecdsa". Note that "putty.exe" on Windows does not support "ecdsa". So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use "rsa" or "dsa".
 
 **Provisioning.MonitorHostName:**
 
 Type: Boolean  
 Default: y
 
-If set, waagent will monitor the Linux virtual machine for hostname changes (as returned by the ???hostname??? command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking will be restarted in the virtual machine. This will result in brief loss of Internet connectivity.
+If set, waagent will monitor the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change. In order to push the name change to the DNS servers, networking will be restarted in the virtual machine. This will result in brief loss of Internet connectivity.
 
 **ResourceDisk.Format:**
 
@@ -313,7 +313,7 @@ This can be used to specify an alternate path for the openssl binary to use for 
 	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
 	    <ApplicationSettings>
 	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="???" />
+	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />

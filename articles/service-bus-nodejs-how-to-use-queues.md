@@ -92,7 +92,7 @@ By calling **createQueueIfNotExists** on the **ServiceBusService**
 object, the specified queue will be returned (if it exists,) or a new
 queue with the specified name will be created. The following code uses
 **createQueueIfNotExists** to create or connect to the queue named
-???myqueue???:
+"myqueue":
 
     serviceBusService.createQueueIfNotExists('myqueue', function(error){
         if(!error){
@@ -146,7 +146,7 @@ passing a string value as the message and any required standard
 properties will be populated by default values.
 
 The following example demonstrates how to send a test message to the
-queue named ???myqueue??? using **sendQueueMessage**:
+queue named "myqueue" using **sendQueueMessage**:
 
     var message = {
         body: 'Test message',

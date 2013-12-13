@@ -2,10 +2,10 @@
 
 This guide provides prescriptive guidance on the best practices and techniques that should be followed to optimize Windows Azure application performance. 
 
-Note that there are many advantages to using Windows Azure: performance is only one of them. The recommendations in this paper focus primarily on performance. There are other scenarios where performance is not as critical: for example, you may wish to take advantage of off-loading physical hardware management to Windows Azure, or the ???pay as you go??? feature may be particularly attractive. This paper does not attempt to evaluate scenarios where performance is a lesser priority. 
+Note that there are many advantages to using Windows Azure: performance is only one of them. The recommendations in this paper focus primarily on performance. There are other scenarios where performance is not as critical: for example, you may wish to take advantage of off-loading physical hardware management to Windows Azure, or the "pay as you go" feature may be particularly attractive. This paper does not attempt to evaluate scenarios where performance is a lesser priority. 
 
 ## Overview ##
- Performance can be defined as ["the amount of useful work accomplished??? compared to the time and resources used."](http://go.microsoft.com/fwlink/?LinkId=252650) 
+ Performance can be defined as ["the amount of useful work accomplished" compared to the time and resources used."](http://go.microsoft.com/fwlink/?LinkId=252650) 
 
 
 The definition has two sides to it: metrics and resources. Performance metrics are numbers that must be achieved in order to satisfy business requirements. They include things like response time, throughput, availability, etc. Performance also includes the level of resource usage required to reach a given level of performance metrics. Since cost is almost always a business requirement, and resources cost money, performance implies using resources as efficiently as possible. 
@@ -60,14 +60,14 @@ Windows Azure offers the following choices for data storage, and making the corr
 * Windows Azure Drives 
 * Windows Azure queues 
 * Windows Azure Service Bus Brokered Messaging 
-* ???Big Data??? storage solutions such as Hadoop 
+* "Big Data" storage solutions such as Hadoop 
 
 Since specifics vary, we will discuss how to do these in terms of the following scenarios: 
 
 * Windows Azure Cloud Service using a SQL database 
 * Windows Azure Cloud Service heavily using storage queues 
 * Windows Azure Web Site using MySQL as a backend database 
-* ???Big Data??? applications 
+* "Big Data" applications 
 * Applications using a MySQL backend database 
 
 ### Scenario: SQL Database in a Cloud Service ###
@@ -123,13 +123,13 @@ In order to decide what to federate on, you need to examine your database schema
 
 For example, in the well-known AdventureWorks sample database, one possible aggregate is the set {Customer, Order, OrderLine, and possibly a few more}. Another possible aggregate is {Supplier, Product, OrderLine, Order}. 
 
-Each aggregate is a candidate for federating. You must evaluate where you expect growth in size, and also examine your application's work load: queries that ???align well??? with the federating scheme, i.e. which don't require data from more than one federation member, will run well. Those that don't align well will require logic in the application layer, because SQL Database does not currently support cross-database joins. 
+Each aggregate is a candidate for federating. You must evaluate where you expect growth in size, and also examine your application's work load: queries that "align well" with the federating scheme, i.e. which don't require data from more than one federation member, will run well. Those that don't align well will require logic in the application layer, because SQL Database does not currently support cross-database joins. 
 
-To see an example of a design analysis that examines the AdventureWorks database in order to federate it, and shows you step-by-step the considerations involved in the design, see [Scale-First Approach to Database Design with Federations: Part 1 ??? Picking Federations and Picking the Federation Key](http://go.microsoft.com/fwlink/?LinkId=252671). 
+To see an example of a design analysis that examines the AdventureWorks database in order to federate it, and shows you step-by-step the considerations involved in the design, see [Scale-First Approach to Database Design with Federations: Part 1 - Picking Federations and Picking the Federation Key](http://go.microsoft.com/fwlink/?LinkId=252671). 
 
 Once you decide which tables to federate, you must add the primary key of the aggregate root table as a column to each of the related tables. 
 
-After deciding what tables to federate on, another issue is the location of reference tables, as well as other database objects. There is a thorough discussion of this subject at [Scale-First Approach to Database Design with Federations: Part 2 ??? Annotating and Deploying Schema for Federations](http://go.microsoft.com/fwlink/?LinkId=252672). Doing more advanced queries is described in [Part 2]( http://go.microsoft.com/fwlink/?LinkId=252673). 
+After deciding what tables to federate on, another issue is the location of reference tables, as well as other database objects. There is a thorough discussion of this subject at [Scale-First Approach to Database Design with Federations: Part 2 - Annotating and Deploying Schema for Federations](http://go.microsoft.com/fwlink/?LinkId=252672). Doing more advanced queries is described in [Part 2]( http://go.microsoft.com/fwlink/?LinkId=252673). 
 
                                             
 ##### Do-It-Yourself Partitioning #####
@@ -160,15 +160,15 @@ Windows Azure Queues are used to pass messages, temporally decouple subsystems, 
 
 Windows Azure has two alternative queue technologies: Windows Azure Storage Queues, and Service Bus. 
 
-Windows Azure Storage Queues provide features such as large queue size, progress tracking, and more. Service Bus provides features such as publish/subscribe, full integration with Windows Communication Foundation (???WCF???), automatic duplicate detection, guaranteed first-in first-out (???FIFO???) delivery, and more. 
+Windows Azure Storage Queues provide features such as large queue size, progress tracking, and more. Service Bus provides features such as publish/subscribe, full integration with Windows Communication Foundation ("WCF"), automatic duplicate detection, guaranteed first-in first-out ("FIFO") delivery, and more. 
 
-For a more complete and detailed comparison of the two technologies, see [Windows Azure Queues and Windows Azure Service Bus Queues ??? Compared and Contrasted]( http://go.microsoft.com/fwlink/?LinkId=252682). 
+For a more complete and detailed comparison of the two technologies, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted]( http://go.microsoft.com/fwlink/?LinkId=252682). 
 
 For a discussion of Service Bus performance, see [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](http://go.microsoft.com/fwlink/?LinkID=252683). 
 
-#### Scenario: ???Big Data??? Applications ####
+#### Scenario: "Big Data" Applications ####
 
-???Big Data??? is often found as a by-product of another system or application. Examples include: 
+"Big Data" is often found as a by-product of another system or application. Examples include: 
 
 * Web logs 
 
@@ -178,7 +178,7 @@ For a discussion of Service Bus performance, see [Best Practices for Performance
 
 * Click-data and other information left by people traversing the Internet 
 
-???Big Data??? can be identified by the following criteria: 
+"Big Data" can be identified by the following criteria: 
 
 * Size (typically, hundreds of terabytes or larger) 
 
@@ -272,14 +272,14 @@ Your application MUST be able to handle dropped connections. Dropped connections
 
 ### Throttling ###
 
-In the service world, resources can be very granular and you pay only for what you use. However, for all resources there is a minimum guarantee of size, speed, or throughput ??? important if you need more than a certain size database, for example ??? but also in some cases are outer limits to a service that is important. Because Windows Azure applications run in a shared environment with other applications, Windows Azure applies a number of resource throttles that you must take into account. If you exceed the throttle limit for a resource, a further request for that resource will result in an exception. 
+In the service world, resources can be very granular and you pay only for what you use. However, for all resources there is a minimum guarantee of size, speed, or throughput - important if you need more than a certain size database, for example - but also in some cases are outer limits to a service that is important. Because Windows Azure applications run in a shared environment with other applications, Windows Azure applies a number of resource throttles that you must take into account. If you exceed the throttle limit for a resource, a further request for that resource will result in an exception. 
 
 ### Physical Capacity ###
 
 One necessary piece of performance planning is capacity planning: if you fail to provide enough storage of various kinds, your application may fail to run at all. Likewise inadequate memory or processor capacity can dramatically slow the execution of your application. 
 
 
-Windows Azure dramatically reduces the effort involved in capacity planning because many old activities ??? particularly obtaining and provisioning computers -- have changed dramatically. In Windows Azure, capacity planning no longer focuses on the physical elements of computing, but instead works at a higher level of abstraction, asking rather, how many of the following are needed: 
+Windows Azure dramatically reduces the effort involved in capacity planning because many old activities - particularly obtaining and provisioning computers -- have changed dramatically. In Windows Azure, capacity planning no longer focuses on the physical elements of computing, but instead works at a higher level of abstraction, asking rather, how many of the following are needed: 
 
 * Compute nodes 
 * Blob storage 
@@ -336,4 +336,4 @@ Other Resources
 * [Storage](http://go.microsoft.com/fwlink/?LinkId=246933) 
 * [Networking]( http://go.microsoft.com/fwlink/?LinkId=252882) 
 * [Service Bus]( http://go.microsoft.com/fwlink/?LinkId=246934) 
-* [Windows Azure Planning ??? A Post-decision Guide to Integrate Windows Azure in Your Environment]( http://go.microsoft.com/fwlink/?LinkId=252884) 
+* [Windows Azure Planning - A Post-decision Guide to Integrate Windows Azure in Your Environment]( http://go.microsoft.com/fwlink/?LinkId=252884) 

@@ -46,7 +46,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Create new SQL Database server][create-server]
 
-	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site "[SITENAME]" completed successfully**. Now, you can enable Git publishing.
 
 6. Click the name of the web site displayed in the list of web sites to open the web site's Quick Start dashboard.
 

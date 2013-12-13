@@ -14,7 +14,7 @@
 - Testing the shared access signatures from a client application
 
 # About this Tutorial #
-In this tutorial, we'll focus on creating shared access signatures for containers and blobs by creating two console applications. The first console application generates shared access signatures on a container and on a blob. This application has knowledge of the storage account keys. The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application. This application uses the shared access signatures only to authenticate its access to the container and blob resources ??? it does not have knowledge of the account keys.
+In this tutorial, we'll focus on creating shared access signatures for containers and blobs by creating two console applications. The first console application generates shared access signatures on a container and on a blob. This application has knowledge of the storage account keys. The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application. This application uses the shared access signatures only to authenticate its access to the container and blob resources - it does not have knowledge of the account keys.
 
 # Part 1: Create a Console Application to Generate Shared Access Signatures #
 
@@ -61,7 +61,7 @@ First, add code to the **Main()** method to authenticate access to your storage 
 	    CloudBlobContainer container = blobClient.GetContainerReference("sascontainer");
 	    container.CreateIfNotExists();
 	    
-	    //Insert calls to the methods created below here???
+	    //Insert calls to the methods created below here...
 	    
 	    //Require user input before closing the console window.
 	    Console.ReadLine();

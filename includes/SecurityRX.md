@@ -264,7 +264,7 @@ deployed to Windows Azure or on-premises. The service is being accessed
 as a downstream service by a web application or even by another web
 service. You need to control access to it using application specific
 identity. Think of it in terms of the type of app pool account that you
-used in IIS ??? although the technology is different, the approaches are
+used in IIS - although the technology is different, the approaches are
 similar in that the service is accessed using an application scope
 account vs. end user account.
 
@@ -322,7 +322,7 @@ In this scenario your WCF (REST) service may be deployed to Windows
 Azure or on-premises. The service is accessed as a downstream service by
 a web application or by another web service. You need to control access
 to it using an application-specific identity Think of it in terms of the
-type of app pool account that you used in IIS ??? although the technology
+type of app pool account that you used in IIS - although the technology
 is different, the approaches are similar in that the service is accessed
 using an application scope account vs. end user account.
 
@@ -330,7 +330,7 @@ Use the Service Identity feature in Windows Azure AD Access Control.
 Configure Windows Azure AD Access Control to issue Simple Web Token
 (SWT) tokens. To handle the SWT token on the REST service side, you can
 either implement a custom token handler and plug it into the WIF
-pipeline, or you can parse it ???manually??? without using the WIF
+pipeline, or you can parse it "manually" without using the WIF
 infrastructure.
 
 Consider the following diagram (WIF is optional):
@@ -356,7 +356,7 @@ Internet identity, such as Live ID / Microsoft Account or Facebook.
 
 Use Windows Azure AD Access Control to issue SWT tokens. To handle the
 SWT token on the REST service side, you can implement a custom token
-handler and plug it into a WIF pipeline, or you can parse it ???manually???
+handler and plug it into a WIF pipeline, or you can parse it "manually"
 without using the WIF infrastructure.
 
 It is important to note that in order to implement this scenario, the
@@ -410,7 +410,7 @@ several caveats:
     Otherwise you won't be able to share it and send it to the
     downstream REST service.
 -   You don't have to use WIF on a REST service; rather, you can parse
-    the token ???manually??? since there is no need to handle redirects in
+    the token "manually" since there is no need to handle redirects in
     this case.
 
 ![ASP.NET Web Application][08]
@@ -428,14 +428,14 @@ Refer to the following resources to implement this scenario:
 In this scenario you need to implement authorization in your web
 application or service based on user roles: user with required roles get
 access and those that don't have required roles are denied. Simply put,
-your application needs to answer simple question ??? is the user in role
+your application needs to answer simple question - is the user in role
 X?
 
 There are several ways to solve this scenario. You can use Windows Azure
 AD Access Control, WIF Claims Authentication Manager,
 samlSecurityTokenRequirement mapping, or Customer Role Manager.
 
-WIF is used in all cases. WIF supports the IPrincipal.IsInRole(???MyRole???)
+WIF is used in all cases. WIF supports the IPrincipal.IsInRole("MyRole")
 method. In most of the cases the key is to make sure there is role type
 claim with URI of
 http://schemas.microsoft.com/ws/2008/06/identity/claims/role in the

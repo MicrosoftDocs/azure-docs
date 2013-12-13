@@ -88,7 +88,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 6. Open your Xamarin.Android project in Xamarin Studio (or Visual Studio). 
 
-7. Right click the project **References** folder, and choose **Edit References???**
+7. Right click the project **References** folder, and choose **Edit References...**
 
 8. Go to the **.Net Assembly** tab, browse to your project's **_external** folder, select the **PushSharp.Client.MonoForAndroid.dll** we built earlier and click **Add**. Click OK to close the dialog. 
 

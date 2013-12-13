@@ -47,7 +47,7 @@ A screenshot of the completed application will be similar as below (the added ta
 Here are the steps for creating the app:
 
 -   Create a default Django Project named 'TableserviceSample' 
-- 	From the command line, cd into a directory where you???d like to store your code, then run the following command: 
+- 	From the command line, cd into a directory where you'd like to store your code, then run the following command: 
 
 		django-admin.py startproject TableserviceSample
 
@@ -113,7 +113,7 @@ Add the following code to **views.py** just after the windowsazure import, and r
 	account_key = 'yourkey'
 
 ## Create TableService
-Add following code after ???account_name ??????
+Add following code after -account_name ..."
 
 	table_service = TableService(account_name=account_name, account_key=account_key)
 	table_service.create_table('mytasks')

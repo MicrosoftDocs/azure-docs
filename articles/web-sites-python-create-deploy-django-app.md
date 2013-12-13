@@ -5,7 +5,7 @@
 
 # Creating Web Sites with Django
 
-In this tutorial we'll describe how to get started running Python on Windows Azure Web Sites.  Windows Azure Web Sites provide limited free hosting and rapid deployment ??? and now you can use Python!  As your app grows you can switch to paid hosting, and you can also integrate with all of the other Windows Azure services.  
+In this tutorial we'll describe how to get started running Python on Windows Azure Web Sites.  Windows Azure Web Sites provide limited free hosting and rapid deployment - and now you can use Python!  As your app grows you can switch to paid hosting, and you can also integrate with all of the other Windows Azure services.  
 
 We'll show you how to deploy an application built using the Django web framework.  We'll walk through the steps of deploying your application and any required libraries, including Django.  We'll put this all into a Git repository which makes it quick and simple to push updates to your web site.  And finally we'll configure the newly created site via Windows Azure so that it runs your Python application.  
 
@@ -15,7 +15,7 @@ This tutorial uses Python 2.7 and Django 1.4.  You can either get these on your 
 
 **Note**: Windows Azure web sites now come with Python 2.7 and wfastcgi handler pre-installed.  However, web frameworks such as Django are not included.  You can still use a different Python interpreter if you prefer.  You just need to include it in the Git repository and configure the web site to use that interpreter instead of the Python 2.7 interpreter already installed.
 
-You'll also need to install Git for pushing the site to Windows Azure ??? we recommend [msysgit](http://code.google.com/p/msysgit/).  There are also other deployment options available but this tutorial will cover using Git.  Once you have Python, Django, and Git installed you'll have everything you need to get going.
+You'll also need to install Git for pushing the site to Windows Azure - we recommend [msysgit](http://code.google.com/p/msysgit/).  There are also other deployment options available but this tutorial will cover using Git.  Once you have Python, Django, and Git installed you'll have everything you need to get going.
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
@@ -25,11 +25,11 @@ The first step in creating your app is to create the web site via the Windows Az
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-003.png)
 
-The site will be quickly set up.  Next, we want to add support for publishing via Git.  This can be done by clicking on the ???Set up deployment from source control???.
+The site will be quickly set up.  Next, we want to add support for publishing via Git.  This can be done by clicking on the "Set up deployment from source control".
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-004.png)
 
-Next, we want to add support for publishing via Git.  This can be done by clicking on the ???Set up deployment from source control??? link.
+Next, we want to add support for publishing via Git.  This can be done by clicking on the "Set up deployment from source control" link.
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-005.png)
 
@@ -61,7 +61,7 @@ This copies all the libraries located in site-packages, including Django.  If th
 
 ![](./media/web-sites-python-create-deploy-django-app/django-ws-008.png)
  
-Next we'll create our initial Django application.  You can do this just as you???d create any other Django application from the command line or you can use [Python Tools for Visual Studio](http://pytools.codeplex.com/) to create the project.  We'll show you both of the options here.
+Next we'll create our initial Django application.  You can do this just as you'd create any other Django application from the command line or you can use [Python Tools for Visual Studio](http://pytools.codeplex.com/) to create the project.  We'll show you both of the options here.
 
 **Option 1:** 
 To create the new project from the command line you just need to run this command which will create the Django application into the DjangoApplication folder:
@@ -94,7 +94,7 @@ After doing the push you'll see the Windows Azure portal refresh and display the
 
 We need to configure the web site to know about our Django project and to use the wfastcgi handler.  To do this we can click on the Configure tab along the top of the screen where we'll want to scroll down to the bottom half of the page which contains app settings and handler mappings.  
 
-All of the settings that are set here will turn into environment variables during the actual request.  This means that we can use this to configure the DJANGO\_SETTINGS\_MODULE environment variable as well as PYTHONPATH and WSGI\_HANDLER.  If your application has other configuration values you could assign these here and pick them up out of the environment.  Sometimes you'll want to set something which is a path to a file in your web site, for example we'll want to do this for PYTHONPATH.  When running as a Windows Azure web site your web site will live in ???D:\home\site\wwwroot\??? so you can use that in any location where you need a full path to a file on disk.
+All of the settings that are set here will turn into environment variables during the actual request.  This means that we can use this to configure the DJANGO\_SETTINGS\_MODULE environment variable as well as PYTHONPATH and WSGI\_HANDLER.  If your application has other configuration values you could assign these here and pick them up out of the environment.  Sometimes you'll want to set something which is a path to a file in your web site, for example we'll want to do this for PYTHONPATH.  When running as a Windows Azure web site your web site will live in "D:\home\site\wwwroot\" so you can use that in any location where you need a full path to a file on disk.
 
 For setting up a Django application we need to set three environment variables.  The first is DJANGO\_SETTINGS\_MODULE which provides the module name of the Django application which will be used to configure everything.  The second is the PYTHONPATH environment variable so that we can find the package which the settings module lives in.  The third is WSGI\_HANDLER.  It's a module/package name, followed by the attribute in the module to be used; for example mypackage.mymodule.handler.  Add parentheses to indicate that the attribute should be called.  So for these variables we will set them up as:
                 
@@ -128,6 +128,6 @@ Likely your app will have additional dependencies beyond Python and Django.  If 
 
 You then need to update the site-packages directory by copying from C:\Python27\Lib\site-packages into your local site-packages directory.
 
-Then do ???git status??? to see the newly added files, and ???git add??? followed by ???git commit??? to commit the to the repo.  Finally you can do a ???git push??? which will deploy the updated web site to Windows Azure.
+Then do "git status" to see the newly added files, and "git add" followed by "git commit" to commit the to the repo.  Finally you can do a "git push" which will deploy the updated web site to Windows Azure.
 
 Likewise you can go into the DjangoApplication directory and use manage.py as you would typically to start adding new applications to your Django project.  

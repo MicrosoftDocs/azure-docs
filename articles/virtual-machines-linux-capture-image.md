@@ -12,7 +12,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 2. In the SSH window, type the following command, and then enter the password for the account that you created on the virtual machine:
 
-	`sudo waagent ???deprovision`
+	`sudo waagent -deprovision`
 
 	![Deprovision the virtual machine][Deprovision the virtual machine]
 
@@ -38,7 +38,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 8.	In **Image Name**, enter the name for the new image.
 
-9.	All Linux images must be deprovisioned by running the waagent command with the ???deprovision option. Click **I have run the de-provision command on the Virtual Machine** to indicate that the operating system is prepared to be an image.
+9.	All Linux images must be deprovisioned by running the waagent command with the -deprovision option. Click **I have run the de-provision command on the Virtual Machine** to indicate that the operating system is prepared to be an image.
 
 10.	Click the check mark to capture the image.
 
