@@ -49,13 +49,13 @@ Because notification registration must only be completed after a client has been
 
    	![][1]
 
-   This displays the **Create a new custom API** dialog.
+   	This displays the **Create a new custom API** dialog.
 
 3. Type <em>register_notifications</em> in **API name**, select **Only Authenticated Users** for **POST Permissions**, then click the check button.
 
    	![][2]
 
-  This creates the API that requires users to be authenticated before calling by using the HTTP POST method. We don't need to set the other HTTP methods because we won't implement them.
+  	This creates the API that requires users to be authenticated before calling by using the HTTP POST method. We don't need to set the other HTTP methods because we won't implement them.
 
 4. Click the new **register_notifications** entry in the API table.
 
@@ -158,7 +158,7 @@ The final step is to add code that sends notifications in the mobile service. Th
    
   	![][5]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code:
 

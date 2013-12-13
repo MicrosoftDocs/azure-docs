@@ -51,7 +51,7 @@ Complete the following steps to send cross-platform notifications using template
    
   	![][3]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code:
 
