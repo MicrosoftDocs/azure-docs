@@ -95,15 +95,15 @@ Now that you've learned how to configure PHP in Windows Azure Web Sites, follow 
 [PHP Developer Center Tutorials]: https://www.windowsazure.com/en-us/develop/php/tutorials/
 [How to Configure Web Sites]: https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
-[select-php-version]: ./media/web-sites-php-configure-web-sites/select-php-version.png
+[select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [List of php.ini directives]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
-[configure]: ./media/web-sites-php-configure-web-sites/configure.png
-[app-settings]: ./media/web-sites-php-configure-web-sites/app-settings.png
-[save-button]: ./media/web-sites-php-configure-web-sites/save-button.png
+[configure]: ./media/web-sites-php-configure/configure.png
+[app-settings]: ./media/web-sites-php-configure/app-settings.png
+[save-button]: ./media/web-sites-php-configure/save-button.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[handler-mappings]: ./media/web-sites-php-configure-web-sites/handler-mappings.png
+[handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [Configure, monitor, and scale your web sites in Windows Azure]: http://www.windowsazure.com/en-us/manage/services/web-sites/
 [Download the Windows Azure SDK for PHP]: http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
