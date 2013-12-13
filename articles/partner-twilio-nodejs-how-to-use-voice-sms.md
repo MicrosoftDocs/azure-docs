@@ -54,7 +54,7 @@ In order to make authenticated requests against the Twilio back end, we need our
 
 Select your node.js website, and click the "CONFIGURE" link.  If you scroll down a bit, you will see an area where you can set configuration properties for your application.  Enter your Twilio account credentials ([found on your Twilio dashboard][twilio_dashboard]) as shown - make sure to name them "TWILIO_ACCOUNT_SID" and "TWILIO_AUTH_TOKEN", respectively:
 
-![Azure admin console](./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png)
+![Azure admin console][azure-admin-console]
 
 Once you have configured these variables, restart your application in the Azure console.
 
@@ -231,6 +231,7 @@ We hope you love hacking node.js and Twilio on Azure!
 [docs]: http://twilio.github.io/twilio-node/
 [votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
+[azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
 
 

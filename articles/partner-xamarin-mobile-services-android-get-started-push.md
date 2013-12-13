@@ -76,7 +76,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 	.. and open the project file:
 	
-	**  PushSharp.ClientSample.MonoForAndroid.Gcm.csproj **
+	**PushSharp.ClientSample.MonoForAndroid.Gcm.csproj**
 
 3. Build the MonoForAndroid PushSharp client sample in **Release** mode.
 

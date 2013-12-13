@@ -406,7 +406,7 @@ links to learn more.
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [How to: Delete Topics and Subscriptions]: #delete-topics
   
-  [Topic Concepts]: ../../../DevCenter/dotNet/Media/sb-topics-01.png
+  [Topic Concepts]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   
   

@@ -40,16 +40,16 @@ communicate with the Service Bus REST services.
     result in the following output:
 
         azure@0.7.0 node_modules\azure
-		????????? dateformat@1.0.2-1.2.3
-		????????? xmlbuilder@0.4.2
-		????????? node-uuid@1.2.0
-		????????? mime@1.2.9
-		????????? underscore@1.4.4
-		????????? validator@0.4.28
-		????????? tunnel@0.0.2
-		????????? wns@0.5.3
-		????????? xml2js@0.2.6 (sax@0.4.2)
-		????????? request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
+		|-- dateformat@1.0.2-1.2.3
+		|-- xmlbuilder@0.4.2
+		|-- node-uuid@1.2.0
+		|-- mime@1.2.9
+		|-- underscore@1.4.4
+		|-- validator@0.4.28
+		|-- tunnel@0.0.2
+		|-- wns@0.5.3
+		|-- xml2js@0.2.6 (sax@0.4.2)
+		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
 3.  You can manually run the **ls** or **dir** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -203,20 +203,20 @@ links to learn more.
   [How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
   [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
-  
-  [Topic Concepts]: ../../dotNet/Media/sb-topics-01.png
+  [1]: #Next_Steps
+  [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  
-  
-  
-  
-  
-  
+  [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+  [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
+  [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
+  [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
+  [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Windows Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
-  
+  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
-[Previous Management Portal]: ../../Shared/Media/previous-portal.png
+[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
