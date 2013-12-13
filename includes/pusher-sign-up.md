@@ -54,15 +54,14 @@ For more information on getting started with Pusher, see [Understanding Pusher][
 
 <!--images-->
 
-
-
-
-
-
-
-
-
-
+[command-bar-new]: ./media/pusher-sign-up/1-command-bar-new.png
+[pusher-store]: ./media/pusher-sign-up/2-pusher-store.png
+[store-screen-1]: ./media/pusher-sign-up/3-pusher-store-screen-1.png
+[store-screen-2]: ./media/pusher-sign-up/4-pusher-store-screen-2.png
+[store-screen-3]: ./media/pusher-sign-up/5-pusher-store-screen-3.png
+[pusher-add-on-dashboard]: ./media/pusher-sign-up/6-pusher-add-on-dashboard.png
+[pusher-connection-info-button]: ./media/pusher-sign-up/7-pusher-connection-info-button.png
+[pusher-connection-info]: ./media/pusher-sign-up/8-pusher-connection-info.png
 
 <!--Links-->
 

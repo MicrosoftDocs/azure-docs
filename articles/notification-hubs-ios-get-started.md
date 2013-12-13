@@ -73,37 +73,36 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    	![][108]
    
 
-   This generates your app ID and requests that you submit the information. Click **Submit**.
+   	This generates your app ID and requests that you submit the information. Click **Submit**.
    
-   	![][109] 
+	![][109] 
    
-   Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
+   	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
    
-   	![][110]
-
+	![][110]
+	
     <div class="dev-callout"><b>Note</b>
 	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <b>MobileServices.Quickstart</b>, you must also update the bundle identifier value in your Xcode project.</p>
     </div>
 
 3. Locate the app ID that you just created, and click on its row. 
 
-   	![][111]
+	![][111]
    
-   Clicking on the app ID will display details about the app and the app ID:
+	Clicking on the app ID will display details about the app and the app ID:
    
-   	![][112] 
+	![][112] 
    
-   	![][113]
+	![][113]
 
 4. Click **Edit**, then scroll to the bottom of the screen and click **Create Certificate...** under the section **Development Push SSL Certificate**.
 
    	![][114] 
 
-   This displays the "Add iOS Certificate" assistant.
+	This displays the "Add iOS Certificate" assistant.
    
-   	![][115] 
-
-
+	![][115] 
+	
     <div class="dev-callout"><b>Note</b>
 	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
     </div>
@@ -118,8 +117,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
   	![][119]  
   
-
-   This downloads the signing certificate and saves it to your computer in your **Downloads** folder. 
+	This downloads the signing certificate and saves it to your computer in your **Downloads** folder. 
 
   	![][9] 
 
@@ -129,9 +127,9 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
-   This installs the new certificate in the Keychain, as shown below:
+	This installs the new certificate in the Keychain, as shown below:
 
-   ![][10]
+	![][10]
 
     <div class="dev-callout"><b>Note</b>
 	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
@@ -167,7 +165,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
    
    	![][126]
 	
-  This creates a new provisioning profile.
+	This creates a new provisioning profile.
 
 7. In Xcode, open the Organizer, select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and import the provisioning profile you just created.
 
@@ -177,7 +175,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 
    	![][18]
 
-  Make a note of the file name and location of the exported certificate.
+	Make a note of the file name and location of the exported certificate.
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
 
@@ -267,13 +265,13 @@ To send notifications using a .NET app:
 
 1. Create a new Visual C# console application: 
 
-   	![][213]
+	![][213]
 
 2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
         Install-Package WindowsAzure.ServiceBus
 
-    and press Enter.
+	and press Enter.
 
 2. Open the file Program.cs and add the following using statement:
 

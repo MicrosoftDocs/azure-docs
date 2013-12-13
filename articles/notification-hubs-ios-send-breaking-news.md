@@ -30,11 +30,11 @@ The first step is to add the UI elements to your existing storyboard that enable
 	
 	Your storyboard should look as follows:
 	
-   ![][3]
+	![][3]
     
 3. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 
-   	![][4]
+	![][4]
 
 4. Create an Action for your button called "subscribe". Your BreakingNewsViewController.h should contain the following:
 			
