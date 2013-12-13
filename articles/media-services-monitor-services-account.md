@@ -33,7 +33,7 @@ You can monitor the number of queued encoding jobs, failed encoding tasks, activ
 
       **Minimal** - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the Blob, Table, and Queue services.
 
-      **Verbose** – In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Windows Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations. 
+      **Verbose** ??? In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Windows Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations. 
 
       **Off** - Turns off monitoring. Existing monitoring data is persisted through the end of the retention period.
 
@@ -45,6 +45,6 @@ Metrics are stored in the storage account in four tables named $MetricsTransacti
 
 
 <!-- Images -->
-[dashboard]: ../media/media-services-dashboard.png
-[storage_options_scoped]: ../media/storagemonitoringoptions_scoped.png
-[monitoring]: ../media/WAMS_Monitor.png
+[dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
+[storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
+
