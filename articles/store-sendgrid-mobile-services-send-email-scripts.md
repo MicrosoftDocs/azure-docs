@@ -98,7 +98,7 @@ Congratulations, you have successfully configured your mobile service to send em
 
 ## <a name="nextsteps"> </a>Next Steps
 
-Now that you???ve seen how easy it is to use the SendGrid email service with Mobile Services, follow
+Now that you've seen how easy it is to use the SendGrid email service with Mobile Services, follow
 these links to learn more about SendGrid.
 
 -   SendGrid API documentation:

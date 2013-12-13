@@ -111,7 +111,7 @@ In the event that the application crashes after processing the message but befor
 
 ## <a id="next-steps"></a>Next Steps
 
-Now that you???ve learned the basics of Service Bus queues, follow these links to learn more.
+Now that you've learned the basics of Service Bus queues, follow these links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
