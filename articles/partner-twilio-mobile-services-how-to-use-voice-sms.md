@@ -30,7 +30,7 @@ The following is a list of Twilio verbs.  Learn about the other verbs and capabi
 * **&lt;Hangup&gt;**: Ends a call.
 * **&lt;Play&gt;**: Plays an audio file.
 * **&lt;Pause&gt;**: Waits silently for a specified number of seconds.
-* **&lt;Record&gt;**: Records the caller???s voice and returns a URL of a file that contains the recording.
+* **&lt;Record&gt;**: Records the caller’s voice and returns a URL of a file that contains the recording.
 * **&lt;Redirect&gt;**: Transfers control of a call or SMS to the TwiML at a different URL.
 * **&lt;Reject&gt;**: Rejects an incoming call to your Twilio number without billing you
 * **&lt;Say&gt;**: Converts text to speech that is made on a call.
@@ -51,9 +51,9 @@ When your application calls the Twilio API, one of the API parameters is the URL
 For more information about Twilio verbs, their attributes, and TwiML, see [TwiML][twiml]. For additional information about the Twilio API, see [Twilio API][twilio_api].
 
 <h2><a id="CreateAccount"></a>Create a Twilio Account</h2>
-When you???re ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. You can start with a free account, and upgrade your account later.
+When you’re ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. You can start with a free account, and upgrade your account later.
 
-When you sign up for a Twilio account, you???ll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
+When you sign up for a Twilio account, you’ll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 <h2><a id="VerifyPhoneNumbers"></a>Verify Phone Numbers</h2>
 Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls, the phone number must be verified as an outbound caller ID with Twilio. Similarly, if you want a phone number to receive SMS messages, the receiving phone number must be verified with Twilio. For information on how to verify a phone number, see [Manage numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
@@ -70,49 +70,49 @@ To use the Twilio node.js library in your Mobile Service, you need leverage Mobi
 
 Once you have set up source control for your Mobile Service, open Configure tab on your Mobile Service dashboard, locate and copy the Git URL
 
-Paste this URL into a browser and replace the repository name with */KuduExec/index.html*
+Paste this URL into a browser and replace the repository name with */DebugConsole/index.html*
 
 For example, change:
 
-	https://twilioSample.scm.azure-mobile.net/twilioSample.git
+    https://twilioSample.scm.azure-mobile.net/twilioSample.git
 
 to:
 
-	https://twilioSample.scm.azure-mobile.net/KuduExec/index.html
+    https://twilioSample.scm.azure-mobile.net/DebugConsole/index.html
 
 When prompted, enter the credentials you used when setting up the source control for the service.  Once logged in you will see the Azure Mobile Service console.  
 
 ![Mobile Service Console](./media/partner-twilio-mobile-services-how-to-use-voice-sms/twilio-kuduconsole.png)
 
-In the console, change the directory to the api folder:
+In the console, change the directory to the scripts folder:
 
-	cd site\wwwroot\App_Data\config\scripts\api
+    cd site\wwwroot\App_Data\config\scripts
 
 Once in the api folder you can install the Twilio node module be executing the following command:
 
-	npm install twilio
+    npm install twilio
 
-Now you can reference and use the Twilio library in your custom API scripts.
+Now you can reference and use the Twilio library in your custom API and table scripts.
 
 <h2><a id="howto_make_call"></a>How to: Make an outgoing call</h2>
 The following script shows how to initiate an outgoing call from your Mobile Service using the **makeCall** function. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
-    
-	var twilio = require('twilio');
+
+    var twilio = require('twilio');
 
     exports.post = function(request, response) {
 
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
-		client.makeCall({
-			to:'+16515556677', 
-	    	from: '+14506667788',
-    		url: 'http://www.example.com/twiml.php' 
+        client.makeCall({
+            to:'+16515556677', 
+            from: '+14506667788',
+            url: 'http://www.example.com/twiml.php' 
 
-		}, function(err, responseData) {
-
-	    	console.log(responseData.from); 
-		});
-	};
+        }, function(err, responseData) {
+            console.log(responseData.from); 
+            response.send(200, '');
+        });
+    };
 
 For more information about the parameters passed in to the **client.makeCall** function, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
@@ -136,20 +136,18 @@ The following code shows how to send an SMS message using the **sendSms**  funct
             // The "error" variable will contain error information, if any.
             // If the request was successful, this value will be "false"
             if (!error) {
-        
                 console.log('Success! The SID for this SMS message is: ' + message.sid);
                 console.log('Message sent on: ' + message.dateCreated);
             }
             else {
                 console.log('Oops! There was an error.');
             }
+            response.send(200, { error : error } );
         });
-
-	    response.send(200, "{error:" + error + "}");    
     };
 
 
-<h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own web site</h2>
+<h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML responses from your own web site</h2>
 
 When your application initiates a call to the Twilio API - for example, via the client.InitiateOutboundCall method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in How to: Make an outgoing call uses the Twilio-provided URL http://twimlets.com/message to return the response.
 
@@ -158,45 +156,42 @@ When your application initiates a call to the Twilio API - for example, via the 
 <p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
 </div>
 
-Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you???ll be hosting the URL from an ASP.NET generic handler.
+Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.
 
 The following script results in a TwiML response that says Hello World on the call.
 
     var twilio = require('twilio');
 
     exports.post = function(request, response) {
-
-		var resp = new twilio.TwimlResponse();
-    	resp.say({voice:'woman'}, 'ahoy hoy! Testing Twilio and node.js');
-
-    	response.writeHead(200, 'Content-Type':'text/xml'});
-
-	};
+        var resp = new twilio.TwimlResponse();
+        resp.say({voice:'woman'}, 'ahoy hoy! Testing Twilio and node.js');
+        response.set('Content-Type', 'text/xml');
+        response.send(200, resp.toString());
+    };
 
 For more information about TwiML, see [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
 
 Once you have set up a way to provide TwiML responses, you can pass that URL into the **client.makeCall** method as shown in the following code sample:
     
-	var twilio = require('twilio');
+    var twilio = require('twilio');
 
     exports.post = function(request, response) {
 
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
-		client.makeCall({
-			to:'+16515556677', 
-	    	from: '+14506667788',
-    		url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall' 
+        client.makeCall({
+            to:'+16515556677', 
+            from: '+14506667788',
+            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall' 
 
-		}, function(err, responseData) {
+        }, function(err, responseData) {
 
-	    	console.log(responseData.from); 
-		});
-	};
-
+            console.log(responseData.from);
+            response.send(200, '');
+        });
+    };
 
 [WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
-
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
