@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Queues" authors=""  solutions="" writer="" manager="" editor=""  />
+﻿<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Queues" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -92,7 +92,7 @@ By calling **createQueueIfNotExists** on the **ServiceBusService**
 object, the specified queue will be returned (if it exists,) or a new
 queue with the specified name will be created. The following code uses
 **createQueueIfNotExists** to create or connect to the queue named
-???myqueue???:
+'myqueue':
 
     serviceBusService.createQueueIfNotExists('myqueue', function(error){
         if(!error){
@@ -146,7 +146,7 @@ passing a string value as the message and any required standard
 properties will be populated by default values.
 
 The following example demonstrates how to send a test message to the
-queue named ???myqueue??? using **sendQueueMessage**:
+queue named 'myqueue' using **sendQueueMessage**:
 
     var message = {
         body: 'Test message',
@@ -262,17 +262,10 @@ links to learn more.
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  
-  
-  
-  
-  
   [Node.js Cloud Service]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-[Previous Management Portal]: ../../Shared/Media/previous-portal.png
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/

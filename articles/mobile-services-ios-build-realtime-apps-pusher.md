@@ -31,7 +31,7 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 ###Install the libPusher library
 
-The [libPusher][] library lets you access Pusher from iOS. 
+The [libPusher][] library let's you access Pusher from iOS. 
 
 1. Download the libPusher library [from here][libPusherDownload].
 
