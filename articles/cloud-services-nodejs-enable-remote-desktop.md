@@ -68,7 +68,7 @@ the role instance.
     ![The instances page][3]
 
 2.  When you click **Connect**, the web browser prompts you to save an
-    .rdp file. If you???re using Internet Explorer, click **Open**.
+    .rdp file. If you're using Internet Explorer, click **Open**.
 
     ![prompt to open or save the .rdp file][4]
 
