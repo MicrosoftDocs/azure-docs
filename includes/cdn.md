@@ -15,7 +15,7 @@ This task includes the following steps:
 
 The benefits of using CDN to cache Windows Azure data include:
 
--   Better performance and user experience for end users who are far from a content source, and are using applications where many ???internet trips??? are required to load content
+-   Better performance and user experience for end users who are far from a content source, and are using applications where many "internet trips" are required to load content
 -   Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
 
 Existing CDN customers can now use the Windows Azure CDN in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].

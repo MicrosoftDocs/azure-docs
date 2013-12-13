@@ -30,46 +30,46 @@ The first step is to add the UI elements to your existing storyboard that enable
 	
 	Your storyboard should look as follows:
 	
-   ![][3]
+	![][3]
     
 3. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 
-   ![][4]
+	![][4]
 
 4. Create an Action for your button called "subscribe". Your BreakingNewsViewController.h should contain the following:
 			
-			@property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
-			@property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
-			@property (weak, nonatomic) IBOutlet UISwitch *BusinessSwitch;
-			@property (weak, nonatomic) IBOutlet UISwitch *TechnologySwitch;
-			@property (weak, nonatomic) IBOutlet UISwitch *ScienceSwitch;
-			@property (weak, nonatomic) IBOutlet UISwitch *SportsSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *PoliticsSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *BusinessSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *TechnologySwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *ScienceSwitch;
+		@property (weak, nonatomic) IBOutlet UISwitch *SportsSwitch;
 
-			- (IBAction)subscribe:(id)sender;
+		- (IBAction)subscribe:(id)sender;
 
 5. Create a new class called `Notifications`. Copy the following code in the interface section of the file Notifications.h:
 
-			- (void)storeCategoriesAndSubscribeWithCategories:(NSArray*) categories completion: (void (^)(NSError* error))completion;
-			- (void)subscribeWithCategories:(NSSet*) categories completion:(void (^)(NSError *))completion;
+		- (void)storeCategoriesAndSubscribeWithCategories:(NSArray*) categories completion: (void (^)(NSError* error))completion;
+		- (void)subscribeWithCategories:(NSSet*) categories completion:(void (^)(NSError *))completion;
 
 6. Add the following import directive to Notifications.m:
 
-			#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+		#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
 
 7. Copy the following code in the implementation section of the file Notifications.m:
 		
-			- (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
-			    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-			    [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
-			    
-			    [self subscribeWithCategories:categories completion:completion];
-			}
+		- (void)storeCategoriesAndSubscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion {
+		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+		    [defaults setValue:[categories allObjects] forKey:@"BreakingNewsCategories"];
+		    
+		    [self subscribeWithCategories:categories completion:completion];
+		}
 
-			- (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion{
-			    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string with listen access>" notificationHubPath:@"<hub name>"];
-			    
-			    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-			}
+		- (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion{
+		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string with listen access>" notificationHubPath:@"<hub name>"];
+		    
+		    [hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
+		}
  
 	This class uses local storage to store the categories of news that this device has to receive. Also, it contains methods to register these categories.
 
@@ -81,57 +81,57 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 8. In the BreakingNewsAppDelegate.h file, add the following property:
 
-			@property (nonatomic) Notifications* notifications;
+		@property (nonatomic) Notifications* notifications;
 
 	This creates a singleton instance of the Notification class in the AppDelegate.
 	
 9. In the **didFinishLaunchingWithOptions** method in BreakingNewsAppDelegate.m, add the following code before **registerForRemoteNotificationTypes**:
 	
-			self.notifications = [[Notifications alloc] init];
+		self.notifications = [[Notifications alloc] init];
 					   
 	The initializes the Notification singleton. 
 
 10. In the **didRegisterForRemoteNotificationsWithDeviceToken** method in BreakingNewsAppDelegate.m, remove the call to **registerNativeWithDeviceToken** and add the following code:
 	
-			self.notifications.deviceToken = deviceToken;
+		self.notifications.deviceToken = deviceToken;
 
 	Note that at this point there should be no other code in the **didRegisterForRemoteNotificationsWithDeviceToken** method. 
 
 11.	Add the following method in BreakingNewsAppDelegate.m:
 
-			- (void)application:(UIApplication *)application didReceiveRemoteNotification:
-				(NSDictionary *)userInfo {
-			    NSLog(@"%@", userInfo);
-			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-			    [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
-			    [alert show];
-		    }
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:
+			(NSDictionary *)userInfo {
+		    NSLog(@"%@", userInfo);
+		    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+		    [[userInfo objectForKey:@"aps"] valueForKey:@"alert"] delegate:nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];
+		    [alert show];
+	    }
 
 	This method handles notifications received when the app is running by displaying a simple **UIAlert**.
 
 9. In BreakingNewsViewController.m, copy the following code into the XCode-generated **subscribe** method:
 
-			NSMutableArray* categories = [[NSMutableArray alloc] init];
-		    
-		    if (self.WorldSwitch.isOn) [categories addObject:@"World"];
-		    if (self.PoliticsSwitch.isOn) [categories addObject:@"Politics"];
-		    if (self.BusinessSwitch.isOn) [categories addObject:@"Business"];
-		    if (self.TechnologySwitch.isOn) [categories addObject:@"Technology"];
-		    if (self.ScienceSwitch.isOn) [categories addObject:@"Science"];
-		    if (self.SportsSwitch.isOn) [categories addObject:@"Sports"];
-		    
-		    Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
-		    
-		    [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
-		        if (!error) {
-		            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-		                                  @"Subscribed!" delegate:nil cancelButtonTitle:
-		                                  @"OK" otherButtonTitles:nil, nil];
-		            [alert show];
-		        } else {
-		            NSLog(@"Error subscribing: %@", error);
-		        }
-		    }];
+		NSMutableArray* categories = [[NSMutableArray alloc] init];
+	    
+	    if (self.WorldSwitch.isOn) [categories addObject:@"World"];
+	    if (self.PoliticsSwitch.isOn) [categories addObject:@"Politics"];
+	    if (self.BusinessSwitch.isOn) [categories addObject:@"Business"];
+	    if (self.TechnologySwitch.isOn) [categories addObject:@"Technology"];
+	    if (self.ScienceSwitch.isOn) [categories addObject:@"Science"];
+	    if (self.SportsSwitch.isOn) [categories addObject:@"Sports"];
+	    
+	    Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
+	    
+	    [notifications storeCategoriesAndSubscribeWithCategories:categories completion: ^(NSError* error) {
+	        if (!error) {
+	            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+	                                  @"Subscribed!" delegate:nil cancelButtonTitle:
+	                                  @"OK" otherButtonTitles:nil, nil];
+	            [alert show];
+	        } else {
+	            NSLog(@"Error subscribing: %@", error);
+	        }
+	    }];
 	
 	This method creates an **NSMutableArray** of categories and uses the **Notifications** class to store the list in the local storage and registers the corresponding tags with your notification hub. When categories are changed, the registration is recreated with the new categories.
 

@@ -43,19 +43,19 @@ Because notification registration must only be completed after a client has been
 
 2. Still in the Management Portal, click **Mobile Services**, and then click your app.
 
-   ![][0]
+   	![][0]
 
 2. Click the **API** tab, and then click **Create a custom API**.
 
-   ![][1]
+   	![][1]
 
-   This displays the **Create a new custom API** dialog.
+   	This displays the **Create a new custom API** dialog.
 
 3. Type <em>register_notifications</em> in **API name**, select **Only Authenticated Users** for **POST Permissions**, then click the check button.
 
-   ![][2]
+   	![][2]
 
-  This creates the API that requires users to be authenticated before calling by using the HTTP POST method. We don't need to set the other HTTP methods because we won't implement them.
+  	This creates the API that requires users to be authenticated before calling by using the HTTP POST method. We don't need to set the other HTTP methods because we won't implement them.
 
 4. Click the new **register_notifications** entry in the API table.
 
@@ -152,13 +152,13 @@ The final step is to add code that sends notifications in the mobile service. Th
 
 1. Back in the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][4]
+   	![][4]
 
 2. In **todoitem**, click the **Script** tab and select **Insert**.
    
-  ![][5]
+  	![][5]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code:
 
@@ -198,7 +198,7 @@ The final step is to add code that sends notifications in the mobile service. Th
 		
 4. Update the script to replace _`<NOTIFICATION_HUB_NAME>`_ and _`<FULL_SAS_CONNECTION_STRING>`_ with values for your notification hub, then click **Save**.
 
-   This registers a new insert script, which uses Notification Hubs to send a push notification (the inserted text) to the channel provided in the insert request.
+   	This registers a new insert script, which uses Notification Hubs to send a push notification (the inserted text) to the channel provided in the insert request.
 
 	<div class="dev-callout"><b>Note</b>
 		<p>Make sure to use the <strong>DefaultFullSharedAccessSignature</strong> for <em><code>&lt;FULL_SAS_CONNECTION_STRING&gt;</code></em>. This claim provides your insert script with full access, including the ability to send notifications to registered clients.</p>

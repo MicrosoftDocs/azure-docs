@@ -319,7 +319,7 @@ To make your application store data into the cloud you need to first create a st
 
 	![Fill in web site details][storage-quick-create-details]
 
-	When the storage account has been created you will see the text **Creation of Storage Account ???[NAME]??? completed successfully**.
+	When the storage account has been created you will see the text **Creation of Storage Account '[NAME]' completed successfully**.
 
 4. Ensure the **Storage** tab is selected and then select the storage account you just created from the list.
 
@@ -351,9 +351,9 @@ Follow these steps to create a Windows Azure Web Site:
 
 	![Fill in web site details][website-quick-create-details]
 
-	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. Now, you can enable Git publishing.
 
-5. Click the name of the web site displayed in the list of web sites to open the web site???s **QUICKSTART** dashboard.
+5. Click the name of the web site displayed in the list of web sites to open the web site's **QUICKSTART** dashboard.
 
 	![Open web site dashboard][go-to-dashboard]
 

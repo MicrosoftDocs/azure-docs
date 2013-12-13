@@ -5,7 +5,7 @@ running inside a Microsoft data center. When you create an application
 and run it on Windows Azure, the code and configuration together is
 called a Windows Azure hosted service. Hosted services are easy to
 manage, scale up and down, reconfigure, and update with new versions of
-your application???s code. This article focuses on the Windows Azure
+your application's code. This article focuses on the Windows Azure
 hosted service application model.<a id="compare" name="compare"></a>
 
 ## Table of Contents<a id="_GoBack" name="_GoBack"></a>
@@ -24,7 +24,7 @@ hosted service application model.<a id="compare" name="compare"></a>
 
 When you deploy your application as a hosted service, Windows Azure
 creates one or more virtual machines (VMs) that contain your
-application???s code, and boots the VMs on physical machines residing in
+application's code, and boots the VMs on physical machines residing in
 one of the Windows Azure data centers. As client requests to your hosted
 application enter the data center, a load balancer distributes these
 requests equally to the VMs. While your application is hosted in Windows
@@ -39,7 +39,7 @@ Azure, it gets three key benefits:
     hardware failure, then Windows Azure will also detect this and
     automatically create a new VM on another working physical machine
     and run your code from there. NOTE: In order for your application to
-    get Microsoft???s Service Level Agreement of 99.95% available, you
+    get Microsoft's Service Level Agreement of 99.95% available, you
     must have at least two VMs running your application code. This
     allows one VM to process client requests while Windows Azure moves
     your code from a failed VM to a new, good VM.
@@ -174,7 +174,7 @@ When creating a hosted service, you select a sub-region indicating the
 location in which you want your code to execute.
 
 To achieve high availability and scalability, it is critically important
-that your application???s data be kept in a central repository accessible
+that your application's data be kept in a central repository accessible
 to multiple role instances. To help with this, Windows Azure offers
 several storage options such as blobs, tables, and SQL Database. Please see
 the [Data Storage Offerings in Windows Azure][] article for more
@@ -218,9 +218,9 @@ may need only one Report Generator instance. The flexibility of
 role-based deployments in Windows Azure enables you to easily adapt your
 application to your business needs.
 
-It???s common to have the role instances within your hosted service
+It's common to have the role instances within your hosted service
 communicate with each other. For example, the web site role accepts a
-customer???s order but then it offloads the order processing to the Order
+customer's order but then it offloads the order processing to the Order
 Processing role instances. The best way to pass work form one set of
 role instances to another set of instances is using the queuing
 technology provided by Windows Azure, either the Queue Service or
@@ -445,7 +445,7 @@ more useful items available to you:
     your web service supports SSL. Any certificates need to be uploaded
     to Windows Azure. For more information, see [Managing Certificates
     in Windows Azure][]. This XML setting installs previously-uploaded
-    certificates into the role instance???s certificate store so that they
+    certificates into the role instance's certificate store so that they
     are usable by your application code.
 
 -   **Configuration Setting Names**. For values that you want your
@@ -496,18 +496,18 @@ file:
     your application code. This OS is known as the *guest OS*, and each
     new version includes the latest security patches and updates
     available at the time the guest OS is released. If you set the
-    osVersion attribute value to ???\*???, then Windows Azure automatically
+    osVersion attribute value to "\*", then Windows Azure automatically
     updates the guest OS on each of your role instances as new guest OS
     versions become available. However, you can opt out of automatic
     updates by selecting a specific guest OS version. For example,
     setting the osVersion attribute to a value of
-    ???WA-GUEST-OS-2.8\_201109-01??? causes all your role instances to get
+    "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get
     what is described on this web page:
     [http://msdn.microsoft.com/en-us/library/hh560567.aspx][]. For more
     information about guest OS versions, see [Managing Upgrades to the
     Windows Azure Guests OS].
 
--   **Instances**. This element???s value indicates the number of role
+-   **Instances**. This element's value indicates the number of role
     instances you want provisioned running the code for a particular
     role. Since you can upload a new CSCFG file to Windows Azure
     (without redeploying your application), it is trivially simple to
@@ -586,8 +586,8 @@ article.<a id="Ref" name="Ref"></a>
   
   [Windows Azure Pricing]: http://www.windowsazure.com/en-us/pricing/calculator/
   [Managing Certificates in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-  
-  
+  [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/en-us/library/hh560567.aspx]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
   [Managing Upgrades to the Windows Azure Guests OS]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg

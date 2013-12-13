@@ -17,7 +17,7 @@ Complete the following steps to send cross-platform notifications using template
 	
 1. Log into the [Windows Azure Management Portal][Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][0]
+   	![][0]
 
 2. Click the **API** tab, then click the **register_notifications** entry in the API table.
 
@@ -45,13 +45,13 @@ Complete the following steps to send cross-platform notifications using template
 
 3. Click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][2]
+   	![][2]
 
 2. In **todoitem**, click the **Script** tab, select **Insert**, and then replace the existing **insert** function with the following code:
    
-  ![][3]
+  	![][3]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code:
 

@@ -22,15 +22,15 @@ It is always a good practice to validate the length of data that is submitted by
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][1]
+   	![][1]
 
 3. Click **Script**, then select the **Insert** operation.
 
-   ![][2]
+   	![][2]
 
 4. Replace the existing script with the following function, and then click **Save**.
 

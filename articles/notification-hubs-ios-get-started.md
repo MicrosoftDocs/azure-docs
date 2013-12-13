@@ -42,15 +42,15 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
 
-  ![][5]
+  	![][5]
 
 3. Select your **User Email Address**, type **Common Name** and **CA Email Address** values, make sure that **Saved to disk** is selected, and then click **Continue**.
 
-  ![][6]
+  	![][6]
 
 4. Type a name for the Certificate Signing Request (CSR) file in **Save As**, select the location in **Where**, then click **Save**.
 
-  ![][7]
+  	![][7]
   
   This saves the CSR file in the selected location; the default location is in the desktop. Remember the location chosen for this file.
 
@@ -62,66 +62,64 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
 
-   ![][105] 
+   	![][105] 
 
 2. Type a name for your app in **Description**, and a value for **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**.
 
-   ![][106]
+   	![][106]
 
-   ![][107] 
+   	![][107] 
 
-   ![][108]
+   	![][108]
    
 
-   This generates your app ID and requests that you submit the information. Click **Submit**.
+   	This generates your app ID and requests that you submit the information. Click **Submit**.
    
-   ![][109] 
+	![][109] 
    
-   Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
+   	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
    
-   ![][110]
-
+	![][110]
+	
     <div class="dev-callout"><b>Note</b>
 	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <b>MobileServices.Quickstart</b>, you must also update the bundle identifier value in your Xcode project.</p>
     </div>
 
 3. Locate the app ID that you just created, and click on its row. 
 
-   ![][111]
+	![][111]
    
-   Clicking on the app ID will display details about the app and the app ID:
+	Clicking on the app ID will display details about the app and the app ID:
    
-   ![][112] 
+	![][112] 
    
-   ![][113]
+	![][113]
 
 4. Click **Edit**, then scroll to the bottom of the screen and click **Create Certificate...** under the section **Development Push SSL Certificate**.
 
-   ![][114] 
+   	![][114] 
 
-   This displays the "Add iOS Certificate" assistant.
+	This displays the "Add iOS Certificate" assistant.
    
-   ![][115] 
-
-
+	![][115] 
+	
     <div class="dev-callout"><b>Note</b>
 	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
     </div>
 
 5. Click **Choose File**, browse to the location in which you saved the CSR file that you created in the first task, and then click **Generate**. 
 
-  ![][116]
+  	![][116]
   
 6. After the certificate is created by the portal, click **Download**, and then click **Done**.
  
-  ![][118]
+  	![][118]
 
-  ![][119]  
+  	![][119]  
   
+	This downloads the signing certificate and saves it to your computer in your **Downloads** folder. 
 
-   This downloads the signing certificate and saves it to your computer in your **Downloads** folder. 
-
-  ![][9] 
+  	![][9] 
 
     <div class="dev-callout"><b>Note</b>
 	<p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
@@ -129,9 +127,9 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
-   This installs the new certificate in the Keychain, as shown below:
+	This installs the new certificate in the Keychain, as shown below:
 
-   ![][10]
+	![][10]
 
     <div class="dev-callout"><b>Note</b>
 	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
@@ -143,31 +141,31 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
  
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This displays the **Add iOS Provisioning Profile** Wizard.
 
-   ![][120]
+   	![][120]
 
 2. Select **iOS App Development** under **Development** as the provisioning profile type, and click **Continue**.
 
-   ![][121]
+   	![][121]
 
 3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**.
 
-   ![][122]
+   	![][122]
 
 4. In the **Select certificates** screen, select the certificate you created earlier, and click **Continue**.
   
-   ![][123]
+   	![][123]
 
 5. Next, select the **Devices** to use for testing, and click **Continue**.
 
-   ![][124]
+   	![][124]
 
 6. Finally, choose a name for the profile in **Profile Name**, click **Generate**, and click **Done**.
 
-   ![][125]
+   	![][125]
    
-   ![][126]
+   	![][126]
 	
-  This creates a new provisioning profile.
+	This creates a new provisioning profile.
 
 7. In Xcode, open the Organizer, select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and import the provisioning profile you just created.
 
@@ -175,9 +173,9 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 
 9. In Keychain Access, right-click the new certificate, click **Export**, type a name for your certificate, select the **.p12** format, and then click **Save**.
 
-   ![][18]
+   	![][18]
 
-  Make a note of the file name and location of the exported certificate.
+	Make a note of the file name and location of the exported certificate.
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
 
@@ -187,27 +185,27 @@ This ensures that the Xcode project uses the new profile for code signing. Next,
 
 2. Click on **App Services**, then **Service Bus**, then **Notification Hub**, then **Quick Create**.
 
-   ![][27]
+   	![][27]
 
 3. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
-   ![][28]
+   	![][28]
 
 4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click the **Configure** tab at the top.
 
-   ![][29]
+   	![][29]
 
 5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
 
-   ![][210]
+   	![][210]
 
 6. Select the **Configure** tab at the top, and then click **Upload** for the Apple notification settings. Then select the **.p12** certificate you exported earlier, and the password for the certificate. Make sure to select whether you want to use the **Production** (if you want to send push notifications to users that purchased your app from the store) or the **Sandbox** (during development) push service.
 
-   ![][211]
+   	![][211]
 
 7. Click the **Dashboard** tab at the top, and then click **Connection Information**. Take note of the two connection strings.
 
-   ![][212]
+   	![][212]
 
 Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send notifications.
 
@@ -215,15 +213,15 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 1. In XCode, create a new iOS project and select the **Single View Application** template.
 
-   ![][31]
+   	![][31]
 
 2. Under **Targets**, click your project name, then  expand **Code Signing Identity**, then under **Debug** select the provisioning profile.
 
-   ![][32]
+   	![][32]
 
 3. Download the Windows Azure Mobile SDK for iOS. Open the .zip file and drag the folder WindowsAzureMessaging.framework into the Framework folder in your XCode project. Select **Copy items in destination group's folder**, then click **OK**.
 
-   ![][33]
+   	![][33]
 
 4. In your AppDelegate.h file add the following import directive:
 
@@ -267,13 +265,13 @@ To send notifications using a .NET app:
 
 1. Create a new Visual C# console application: 
 
-   ![][213]
+	![][213]
 
 2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
         Install-Package WindowsAzure.ServiceBus
 
-    and press Enter.
+	and press Enter.
 
 2. Open the file Program.cs and add the following using statement:
 
@@ -303,11 +301,11 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 2. Select the tab **Scheduler** on the top.
 
-   ![][215]
+   	![][215]
 
 3. Create a new scheduled job, insert a name, and select **On demand**.
 
-   ![][216]
+   	![][216]
 
 4. When the job is created, click the job name. Then click the tab **Script** in the top bar.
 
