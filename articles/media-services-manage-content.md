@@ -86,10 +86,10 @@ Currently you can perform the following content operations directly from the por
 
 
 <!-- Images -->
-[portaloverview]: ../media/media-services-content-page.png
-[publishedcontent]: ../media/media-services-upload-content-published.png
-[uploadcontent]: ../media/UploadContent.png
-[status]: ../media/Status.png
-[statuscomplete]: ../media/StatusComplete.png
-[portaluploadcomplete]: ../media/PortalViewUploadComplete.png
-[encoder]: ../media/EncoderDialog2.png
+[portaloverview]: ./media/media-services-manage-content/media-services-content-page.png
+[publishedcontent]: ./media/media-services-manage-content/media-services-upload-content-published.png
+[uploadcontent]: ./media/media-services-manage-content/UploadContent.png
+[status]: ./media/media-services-manage-content/Status.png
+
+
+[encoder]: ./media/media-services-manage-content/EncoderDialog2.png

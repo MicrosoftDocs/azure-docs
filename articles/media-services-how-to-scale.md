@@ -6,7 +6,7 @@
 
 #How to Scale a Media Service  
 
-<div chunk="../../Shared/Chunks/disclaimer.md" />
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 
 You can scale Media Services by specifying the number of **On-Demand Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with. 
@@ -22,11 +22,11 @@ To change the number of on-demand streaming reserved units, do the following:
 
 2. Select the ORIGINS page. Then, click on the origin that you want to modify.
 
- ![Origin page] (../media/media-services-origin-page.png)
+ ![Origin page] (./media/media-services-how-to-scale/media-services-origin-page.png)
 
 3. To specify the number of reserved units, select the SCALE tab and move the **reserved capacity** slider.
 
- ![Scale page] (../media/media-services-origin-scale.png)
+ ![Scale page] (./media/media-services-how-to-scale/media-services-origin-scale.png)
 
 4. Press the SAVE button to save your changes.
 
@@ -48,7 +48,7 @@ To change the number of encoding reserved units, do the following:
 
 2. Select the PROCESSORS page. 
 
- ![Processors page] (../media/media-services-encoding-scale.png) 
+ ![Processors page] (./media/media-services-how-to-scale/media-services-encoding-scale.png) 
 
 4. Press the SAVE button to save your changes.
 
