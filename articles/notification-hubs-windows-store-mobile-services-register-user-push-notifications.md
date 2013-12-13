@@ -11,9 +11,9 @@ This topic shows you how to request push notification registration with Windows 
 
 2. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
 
-  ![][1]
+  	![][1]
 
-   This displays the **Associate Your App with the Windows Store** Wizard.
+   	This displays the **Associate Your App with the Windows Store** Wizard.
 
 3. In the wizard, click **Sign in** and then login with your Microsoft account.
 

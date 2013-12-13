@@ -3,14 +3,14 @@
 
 # Build Real-time Apps with Mobile Services and Pusher
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/build-realtime-apps-with-pusher-ios/" title="iOS" class="current">iOS</a> 
+	<a href="" title="iOS" class="current">iOS</a> 
 </div>
 
 This topic shows you how can add real-time functionality to your Windows Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
 
 The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, sometimes an app needs frequent real-time notifications. Real-time notifications can be added to your mobile service using the Pusher API. In this tutorial, we use Pusher with Mobile Services to keep a Todo list synchronized when changes are made in any running instance of the app. 
 
-Pusher is a cloud-based service that, like Mobile Services, makes building real-time apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that's just the start! For more information, see [http://pusher.com][].
+Pusher is a cloud-based service that, like Mobile Services, makes building real-time apps incredibly easy. You can use Pusher to quickly build live polls, chat rooms, multi-player games, collaborative apps, to broadcast live data and content, and that's just the start! For more information, see [http://pusher.com](http://pusher.com).
 
 This tutorial walks you through these basic steps to add realtime collaboration to the Todo list application:
 
@@ -21,17 +21,17 @@ This tutorial walks you through these basic steps to add realtime collaboration 
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services][].
 
-<h2><a name="sign-up"></a>Create a new Pusher account</h2>
+## <a name="sign-up"></a>Create a new Pusher account
 
 [WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
-<a name="update-app"></a><h2>Update your app</h2>
+## <a name="update-app"></a>Update your app
 
 Now that you have your Pusher account set up, the next step is to modify the iOS app code for the new functionality.
 
 ###Install the libPusher library
 
-The [libPusher][] library let's you access Pusher from iOS. 
+The [libPusher][] library lets you access Pusher from iOS. 
 
 1. Download the libPusher library [from here][libPusherDownload].
 
