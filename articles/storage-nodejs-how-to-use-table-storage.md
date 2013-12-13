@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+﻿<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -42,7 +42,7 @@ include:
 
 -   Storing a huge amount of structured data (many TB) that is
     automatically scaled to meet throughput demands
--   Storing datasets that don???t require complex joins, foreign keys, or
+-   Storing datasets that don't require complex joins, foreign keys, or
     stored procedures and can be denormalized for fast access
 -   Quickly querying data such as user profiles using a clustered index
 
@@ -68,7 +68,7 @@ The Table service contains the following components:
     contents in a storage account cannot exceed 100TB.
 
 -   **Table**: A table is an unlimited collection of entities. Tables
-    don???t enforce a schema on entities, which means a single table can
+    don't enforce a schema on entities, which means a single table can
     contain entities that have different sets of properties. An account
     can contain many tables.
 
@@ -79,7 +79,7 @@ The Table service contains the following components:
     include up to 252 properties to store data. Each entity also has
     three system properties that specify a partition key, a row key, and
     a timestamp. Entities with the same partition key can be queried
-    more quickly, and inserted/updated in atomic operations. An entity???s
+    more quickly, and inserted/updated in atomic operations. An entity's
     row key is its unique identifier within a partition.
 
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
@@ -201,7 +201,7 @@ properties and their data types. Note that for every entity you must
 specify a **PartitionKey** and **RowKey**. These are the unique
 identifiers of your entities, and are values that can be queried much
 faster than your other properties. The system uses **PartitionKey** to
-automatically distribute the table???s entities over many storage nodes.
+automatically distribute the table's entities over many storage nodes.
 Entities with the same **PartitionKey** are stored on the same node. The
 **RowKey** is the unique ID of the entity within the partition it
 belongs to. To add an entity to your table, pass the entity object to
@@ -244,7 +244,7 @@ The following example demonstrates updating an entity using **updateEntity**:
 		}
 	});
     
-With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn???t exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With **updateEntity** and **mergeEntity**, if the entity that is being updated doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
 ## <a name="change-entities"> </a>How to Work with Groups of Entities
 
@@ -396,7 +396,7 @@ The following code deletes a table from a storage account.
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you???ve learned the basics of table storage, follow these links
+Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
@@ -420,8 +420,8 @@ to learn how to do more complex storage tasks.
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  
-  
+  [Table1]: ./media/storage-nodejs-how-to-use-table-storage/table1.png
+  [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com
 
