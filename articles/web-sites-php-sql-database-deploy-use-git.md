@@ -6,10 +6,8 @@
 
 This tutorial shows you how to create a PHP Windows Azure Web Site with a Windows Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database web site running in Windows Azure.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.</p> 
-</div>
+> WACOM.NOTE
+> You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
 
 
 You will learn:
@@ -130,10 +128,8 @@ To run the application locally, follow the steps below. Note that these steps as
 		echo "<h3>Table created.</h3>";
 		?>
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.</p> 
-	</div>
+	> WACOM.NOTE
+        > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
 
 4. Open a web browser and browse to **http://localhost/registration/createtable.php**. This will create the `registration_tbl` table in the database.
 
@@ -186,10 +182,8 @@ To run the application locally, follow the steps below. Note that these steps as
 			die(var_dump($e));
 		}
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.</p> 
-	</div>
+	> WACOM.NOTE
+	> Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 7. Following the database connection code, add code for inserting registration information into the database.
 
@@ -246,16 +240,14 @@ After you have tested your application locally, you can publish it to your Windo
 	$pwd = "<your password>";
 	$db = "<value of DATABASE>";
 
-<div class="dev-callout">
-<b>Note</b>
-<p>In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.</p>
+> WACOM.NOTE
+> In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.
 </div>
 
 Now, you are ready to set up Git publishing and publish the application.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>These are the same steps noted at the end of the Create a Windows Azure Web Site and Set up Git Publishing section above.</p>
+> WACOM.NOTE
+> These are the same steps noted at the end of the Create a Windows Azure Web Site and Set up Git Publishing section above.
 </div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:

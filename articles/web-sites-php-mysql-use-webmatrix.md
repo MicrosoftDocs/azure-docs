@@ -53,10 +53,8 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Custom Create a new Web Site][NewWebSite2]
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>You cannot create a MySQL Database for a web site after creating the web site. You must create a web site and a MySQL database as described in the steps below.</p> 
-	</div>
+	> WACOM.NOTE
+	> You cannot create a MySQL Database for a web site after creating the web site. You must create a web site and a MySQL database as described in the steps below.
 
 1. Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your web site in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
@@ -66,7 +64,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Create new MySQL database][NewWebSite4]
 
-	When the web site has been created you will see the text **Creating Web Site ???[SITENAME]??? succeeded**.
+	When the web site has been created you will see the text **Creating Web Site '[SITENAME]' succeeded**.
 
 	Next, you need to get the MySQL connection information.
 

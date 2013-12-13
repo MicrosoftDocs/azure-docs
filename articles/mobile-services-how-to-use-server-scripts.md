@@ -941,10 +941,10 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [How to: Work with app settings]: #app-settings
 
 <!-- Images. -->
-
-
-
-
+[1]: ./media/mobile-services-how-to-use-server-scripts/mobile-insert-script-users.png
+[2]: ./media/mobile-services-how-to-use-server-scripts/mobile-schedule-job-script.png
+[3]: ./media/mobile-services-how-to-use-server-scripts/mobile-custom-api-script.png
+[4]: ./media/mobile-services-how-to-use-server-scripts/mobile-source-local-cli.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
