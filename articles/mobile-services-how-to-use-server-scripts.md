@@ -95,7 +95,7 @@ You can define server scripts that are registered to a table operation in one of
 
 + In the [Windows Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
-	![1][1]
+	![1][]
 	
 	To learn how to do this, see [Validate and modify data in Mobile Services by using server scripts].  
 
@@ -298,7 +298,7 @@ You can define server scripts that are registered to HTTP methods in a custom AP
 
 + In the [Windows Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
-	![3][3]
+	![2][]
 	
 	Access permissions to custom API methods are assigned in the Permissions tab. To see how this custom API was created, see [Call a custom API from the client].  
 
@@ -415,7 +415,7 @@ You define scheduled jobs in one of the following ways:
 
 + In the [Windows Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
 
-	![2][2]
+	![3][]
 
 	For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
 
@@ -542,7 +542,7 @@ Note that this code also retrieves Twitter consumer key values stored in the **I
 
 In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
 
-![4][4]
+![4][]
 
 Note that this directory structure is the same as the git repository when using source control. 
 
@@ -940,11 +940,10 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [How to: Send and receive data as XML]: #api-return-xml
 [How to: Work with app settings]: #app-settings
 
-<!-- Images. -->
-[1]: ./media/mobile-services-how-to-use-server-scripts/mobile-insert-script-users.png
-[2]: ./media/mobile-services-how-to-use-server-scripts/mobile-schedule-job-script.png
-[3]: ./media/mobile-services-how-to-use-server-scripts/mobile-custom-api-script.png
-[4]: ./media/mobile-services-how-to-use-server-scripts/mobile-source-local-cli.png
+[1]: ./media/mobile-services-how-to-use-server-scripts/1-mobile-insert-script-users.png
+[2]: ./media/mobile-services-how-to-use-server-scripts/2-mobile-custom-api-script.png
+[3]: ./media/mobile-services-how-to-use-server-scripts/3-mobile-schedule-job-script.png
+[4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx
