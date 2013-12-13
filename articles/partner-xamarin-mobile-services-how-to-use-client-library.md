@@ -181,7 +181,7 @@ You can specify which set of properties to include in the results by adding a `S
 					.Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 			
-All the functions described so far are additive, so we can just keep calling them and we???ll each time affect more of the query. One more example:
+All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query. One more example:
 
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Where(todoItem => todoItem.Complete == false)
@@ -254,7 +254,7 @@ If you attempt to delete an item without the "Id" field already set, there is no
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider???s web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
 To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app, 
