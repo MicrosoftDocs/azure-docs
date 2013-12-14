@@ -26,15 +26,15 @@ It is always a good practice to validate the length of data that is submitted by
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][1]
+   	![][1]
 
 3. Click **Script**, then select the **Insert** operation.
 
-   ![][2]
+   	![][2]
 
 4. Replace the existing script with the following function, and then click **Save**.
 
@@ -60,13 +60,13 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
 
-   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
+   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
 
 3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
     
         [self logErrorIfNotNil:error]; 
 
-   After this line of code, replace the remainder of the completion block with the following code:
+   	After this line of code, replace the remainder of the completion block with the following code:
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -97,13 +97,13 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   This logs the error to the output window and displays it to the user. 
+   	This logs the error to the output window and displays it to the user. 
 
 4. Rebuild and start the app. 
 
-   ![][4]
+   	![][4]
 
-  Notice that error is handled and the error messaged is displayed to the user.
+  	Notice that error is handled and the error messaged is displayed to the user.
 
 <!--## <a name="add-timestamp"></a>Add a timestamp
 
@@ -128,11 +128,11 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
 2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
 
-   Notice that the new timestamp does not appear in the app UI.
+   	Notice that the new timestamp does not appear in the app UI.
 
 3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
    
-   Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
 Next, you need to update the iOS app to display this new column.
 
@@ -166,7 +166,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	      
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
-   This displays the new **CreatedAt** property in a text box. 
+   	This displays the new **CreatedAt** property in a text box. 
 	
 6. Press the **F5** key to run the app. 
 
@@ -186,11 +186,11 @@ The Mobile Service client will ignore any data in a response that it cannot seri
             ListItems.ItemsSource = items;
         }
 
-   This method updates the query to also filter out items that do not have a timestamp value.
+   	This method updates the query to also filter out items that do not have a timestamp value.
 	
 8. Press the **F5** key to run the app.
 
-   Notice that all items created without timestamp value disappear from the UI.
+   	Notice that all items created without timestamp value disappear from the UI.
 
 You have completed this working with data tutorial.-->
 

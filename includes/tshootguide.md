@@ -70,7 +70,7 @@ concentrate your efforts in these three main areas:
     to endure the failure of dependent services or infrastructure*.
 -   Tracing, Logging and Monitoring - *Each component service must have the proper
     debugging, tracing, event, and error logging.*
--   Debug errors where you can ??? *Before promoting for production, but
+-   Debug errors where you can - *Before promoting for production, but
     also at the component and network level when running.*
 
 Designing an application with these ideas in mind allows the application
@@ -290,7 +290,7 @@ determine where problems are occurring.
 For debugging Node.JS applications, you can use the Node-Inspector tool
 which is available on [GitHub](https://github.com/dannycoates/node-inspector). Node-Inspector can be run locally on your
 development machine using the Windows Azure storage emulator. For more
-information see Jim Wang???s blog: [Debugging Node in the Windows Azure Emulator].
+information see Jim Wang's blog: [Debugging Node in the Windows Azure Emulator].
 
 If you are debugging your application on Azure, install the full version
 of IISNode from [GitHub](https://github.com/windowsazure/iisnode/downloads) on your web role, worker role, or VM instance. As
@@ -333,7 +333,7 @@ configuration file to point to Fiddler:
 Open the ServiceConfiguration.cscfg file and change the connection
 string to:
 
-	Value=???UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://ipv4.fiddler???
+	Value="UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://ipv4.fiddler"
 
 -   Launch Fiddler.
 -   Launch your service. Fiddler should trace any storage requests.
@@ -375,7 +375,7 @@ requests are captured.
 
 <h2><a id="Cloudservices"></a>Windows Azure Cloud Services</h2>
 
-Because of the distributed nature of Windows Azure Cloud Services, it???s
+Because of the distributed nature of Windows Azure Cloud Services, it's
 important to defend your application by making calls asynchronously and
 handling retries for transient failures, as described previously.
 
@@ -383,7 +383,7 @@ The debugging technique used for Windows Azure Cloud Services depends on the typ
 
 Some new debugging features have been added to the Windows Azure SDK 1.7 including making it easier to find stack traces when exceptions occur and improvements in Remote Desktop connectivity. Stack traces are now included in the Windows Event Log, making it easier to see exactly what went wrong. In addition Remote Desktop connectivity has been improved. If your role is cycling or aborted you will be able to use Remote Desktop to connect to the problematic role and investigate the problem. 
 
-The windows Azure Portal provides access to monitoring data that helps IT professionals and developers anticpate and diagnose problems in Windows Azure Cloud Services. By default values such as ???CPU Percentage???, ???Data In???, ???Data Out???, ???Disk Read Throughput??? and ???Disk Write Throughput??? are collected by the host VM. There is no configuration needed to enable these metrics for role instances and there is no cost impact to customers. Additional performance information can also be collected. To collect verbose diagnostic information you must have a valid diagnostics connection string as this information will be stored in Windows Azure Storage and will therefore incurr additional storage costs. When user enables verbose monitoring, the portal will remotely configure role instances to collect the default set of performance counters. 
+The windows Azure Portal provides access to monitoring data that helps IT professionals and developers anticpate and diagnose problems in Windows Azure Cloud Services. By default values such as "CPU Percentage", "Data In", "Data Out", "Disk Read Throughput" and "Disk Write Throughput" are collected by the host VM. There is no configuration needed to enable these metrics for role instances and there is no cost impact to customers. Additional performance information can also be collected. To collect verbose diagnostic information you must have a valid diagnostics connection string as this information will be stored in Windows Azure Storage and will therefore incurr additional storage costs. When user enables verbose monitoring, the portal will remotely configure role instances to collect the default set of performance counters. 
 
 ###Windows Azure Diagnostics 
 
@@ -486,13 +486,13 @@ tracing or logging work.
 
 - Storage status and error codes: [http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/dd179382.aspx)
 
-- Storage analytics: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx) (see the three ???for more information??? links at the bottom.)
+- Storage analytics: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-analytics.aspx) (see the three "for more information" links at the bottom.)
 
 - Overview of retry policies in the Windows Azure Storage Client Library: [http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/03/overview-of-retry-policies-in-the-windows-azure-storage-client-library.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/03/overview-of-retry-policies-in-the-windows-azure-storage-client-library.aspx)
 
 - How to get the most out of Windows Azure Tables: [http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx)
 
-	- See these sections: Best Practices; Tips for Programming Windows Azure; and Timeouts and ServerBusy ??? Is it normal?
+	- See these sections: Best Practices; Tips for Programming Windows Azure; and Timeouts and ServerBusy - Is it normal?
 
 - Protecting your Blobs against application errors: [http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/30/protecting-your-blobs-against-application-errors.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/04/30/protecting-your-blobs-against-application-errors.aspx)
 
@@ -535,7 +535,7 @@ and generate detailed logs of the results, including any error messages.
 
 ###Service Bus Relay
 
-The Service Bus ???relay??? service runs in the cloud and supports a
+The Service Bus "relay" service runs in the cloud and supports a
 variety of different transport protocols and Web services standards,
 including SOAP, WS-\*, and REST. You can use the Service Bus relay as a
 delegate to listen for incoming sessions and requests sent to a WCF
@@ -553,7 +553,7 @@ connection issues.
 ###Service Bus Queues and Topics
 
 Service Bus queues and topics provide brokered messaging
-functionality???messages are pushed to the Service Bus queue or topic
+functionality-messages are pushed to the Service Bus queue or topic
 where they are reliably retained until the receiver is ready to consume
 them. Message senders and receivers do not have to be online at the same
 time; the messaging infrastructure reliably stores messages until the
@@ -561,16 +561,16 @@ consuming party is ready to receive them. The messaging API can
 encounter a variety of errors that might impact your application. These
 can be broadly grouped into the following categories:
 
--   User error???for example, a code indicating an argument was invalid.
+-   User error-for example, a code indicating an argument was invalid.
     Recommended action: Try to fix the code before proceeding.
--   Setup/configuration error???for example, a queue or topic associated
+-   Setup/configuration error-for example, a queue or topic associated
     with the action does not exist or has been deleted. Recommended
     action: Review your configuration and change it if necessary.
--   Transient error???for example, a response indicating that the service
+-   Transient error-for example, a response indicating that the service
     was not able to process the request at the current time. Recommended
     action: Retry the operation or notify users. For more information,
     see [Handling Transient Communication Errors].
--   Other errors???for example, timeout errors or errors indicating that a
+-   Other errors-for example, timeout errors or errors indicating that a
     message lock was lost. Recommended action: You generally do not
     handle these exceptions to perform cleanups or aborts. They might be
     used for tracing.
@@ -591,8 +591,8 @@ article [Best Practices for Leveraging Windows Azure Service Bus Brokered Messag
 Another area to focus on when developing an application that uses
 brokered messaging is to ensure you implement reliable message receiving
 logic that can accurately and efficiently handle anomalies in messages.
-The ???Implementing Reliable Message Receive Loops??? section of the [Best Practices for Leveraging Windows Azure Service Bus Brokered Messaging API] article describes a number of techniques for using the **PeekLock** receive mode, which is the mode that supports multiple message
-deliveries if the message isn???t delivered successfully on the first try.
+The "Implementing Reliable Message Receive Loops" section of the [Best Practices for Leveraging Windows Azure Service Bus Brokered Messaging API] article describes a number of techniques for using the **PeekLock** receive mode, which is the mode that supports multiple message
+deliveries if the message isn't delivered successfully on the first try.
 The article recommends best practices that will help ensure your
 application does not process duplicate messages. It also helps avoid
 problems that can occur due to lock timeouts, and improve overall
@@ -666,12 +666,12 @@ administrator, who can grant you proper access to the server and
 database. Service administrators can also reset their own passwords
 using the Windows Azure Management Portal.
 
-SQL Database queries can fail for various reasons ??? a malformed query,
+SQL Database queries can fail for various reasons - a malformed query,
 network issues, and so on. Some errors are transient, meaning the
 problem often goes away by itself. For this subset of errors, it makes
 sense to retry the query after a short interval. If the query still
 fails after several retries, you would report an error. Of course, not
-all errors are transient. SQL Error 102, ???Incorrect syntax,??? won???t go
+all errors are transient. SQL Error 102, "Incorrect syntax," won't go
 away no matter how many times you submit the same query. In short,
 implementing robust retry logic requires some thought. A tabular data
 stream (TDS) error token is sent prior to disconnecting users, when

@@ -396,23 +396,18 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+   [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
+  [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role//cache9.png
+  [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role//cache10.png
+  [RoleCache4]: ./media/cache-dotnet-how-to-use-in-role//cache11.png
+  [RoleCache5]: ./media/cache-dotnet-how-to-use-in-role//cache12.png
+  [RoleCache6]: ./media/cache-dotnet-how-to-use-in-role//cache13.png
+  [RoleCache7]: ./media/cache-dotnet-how-to-use-in-role//cache14.png
+  [RoleCache8]: ./media/cache-dotnet-how-to-use-in-role//cache15.png
+  [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role//cache17.png
   
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
-  
   
   [Session State Provider for In-Role Cache]: http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx
   [Windows Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20

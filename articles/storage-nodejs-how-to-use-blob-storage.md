@@ -49,14 +49,16 @@ privately for internal application storage.
 
 The Blob service contains the following components:
 
-![Blob1][Blob1]
+![Blob1][]
 
 -   **URL format:** Blobs are addressable using the following URL
-    format:   
-    http://storageaccount.blob.core.windows.net/container/blob  
+    format:
+   
+    	http://storageaccount.blob.core.windows.net/container/blob  
       
-    The following URL addresses one of the blobs in the diagram:  
-    http://sally.blob.core.windows.net/movies/MOV1.AVI
+    The following URL addresses one of the blobs in the diagram: 
+ 
+	    http://sally.blob.core.windows.net/movies/MOV1.AVI
 
 -   **Storage Account:** All access to Windows Azure Storage is done
     through a storage account. This is the highest level of the
@@ -121,16 +123,16 @@ communicate with the storage REST services.
     result in the following output:
 
         azure@0.7.5 node_modules\azure
-		????????? dateformat@1.0.2-1.2.3
-		????????? xmlbuilder@0.4.2
-		????????? node-uuid@1.2.0
-		????????? mime@1.2.9
-		????????? underscore@1.4.4
-		????????? validator@1.1.1
-		????????? tunnel@0.0.2
-		????????? wns@0.5.3
-		????????? xml2js@0.2.7 (sax@0.5.2)
-		????????? request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+		├── dateformat@1.0.2-1.2.3
+		├── xmlbuilder@0.4.2
+		├── node-uuid@1.2.0
+		├── mime@1.2.9
+		├── underscore@1.4.4
+		├── validator@1.1.1
+		├── tunnel@0.0.2
+		├── wns@0.5.3
+		├── xml2js@0.2.7 (sax@0.5.2)
+		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -174,7 +176,7 @@ container is private and requires the use of the access key to download blobs fr
 
 
 If you want to make the files in the container public so that they can be accessed without requiring the access key, you can set the
-container???s access level to **blob** or **container**. Setting the access level to **blob** allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. Setting the access level to **container** allows anonymous read access to blob content and metadata as well as container metadata. The following example demonstrates setting the access level to **blob**: 
+container's access level to **blob** or **container**. Setting the access level to **blob** allows anonymous read access to blob content and metadata within this container, but not to container metadata such as listing all blobs within a container. Setting the access level to **container** allows anonymous read access to blob content and metadata as well as container metadata. The following example demonstrates setting the access level to **blob**: 
 
     blobService.createContainerIfNotExists(containerName
 		, {publicAccessLevel : 'blob'}
@@ -269,7 +271,7 @@ Finally, to delete a blob, call **deleteBlob**. The following example deletes th
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you???ve learned the basics of blob storage, follow these links
+Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
@@ -296,7 +298,7 @@ to learn how to do more complex storage tasks.
 
   [plus-new]: ./media/storage-nodejs-how-to-use-blob-storage/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-blob-storage/quick-storage.png
-  
+  [Blob1]: ./media/storage-nodejs-how-to-use-blob-storage/blob1.jpg
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"

@@ -22,7 +22,7 @@ It is always a good practice to validate the length of data that is submitted by
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   	![][0]
+	![][0]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
@@ -87,7 +87,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 5. Rebuild and start the app. 
 
-   ![][4]
+	![][4]
 
   Notice that error is handled and the error messaged is displayed to the user.
 

@@ -271,7 +271,7 @@ This lesson contains the following procedures:
 	
 5.	Inside the **MainPage** constructor, modify the two RegisterByteStreamHandler methods to add the forth parameters:
 
-		// Registers Smooth Streaming byte-stream handler for ???.ism??? extension and, 
+		// Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
 		// "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
 		// http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
 		extensions.RegisterByteStreamHandler(

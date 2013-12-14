@@ -63,7 +63,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	![Fill in SQL Database settings][NewWebSite4_SQL]
 
-	When the web site has been created you will see the text **Creating Web Site ???[SITENAME]??? succeeded**. Next, you will get the database connection information.
+	When the web site has been created you will see the text **Creating Web Site "[SITENAME]" succeeded**. Next, you will get the database connection information.
 
 5. Click **LINKED RESOURCES**, then the database's name.
 

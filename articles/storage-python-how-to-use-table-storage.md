@@ -56,7 +56,7 @@ property names and values. Note that for every entity you must
 specify a **PartitionKey** and **RowKey**. These are the unique
 identifiers of your entities, and are values that can be queried much
 faster than your other properties. The system uses **PartitionKey** to
-automatically distribute the table???s entities over many storage nodes.
+automatically distribute the table's entities over many storage nodes.
 Entities with the same **PartitionKey** are stored on the same node. The
 **RowKey** is the unique ID of the entity within the partition it
 belongs to.
@@ -84,7 +84,7 @@ with an updated version.
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-If the entity that is being updated doesn???t exist, then the update
+If the entity that is being updated doesn't exist, then the update
 operation will fail. If you want to store an entity
 regardless of whether it already existed before, use **insert\_or\_replace_entity**. 
 In the following example, the first call will replace the existing entity. The second call will insert a new entity, since no entity with the specified **PartitionKey** and **RowKey** exists in the table.
@@ -161,7 +161,7 @@ The following code deletes a table from a storage account.
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you???ve learned the basics of table storage, follow these links
+Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]

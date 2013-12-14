@@ -240,11 +240,11 @@ To connect to the Database Engine from another computer, you must create at leas
 
 1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.
 
-2. Right-click the **Security** folder, point to **New**, and select **Login???**.
+2. Right-click the **Security** folder, point to **New**, and select **Login...**.
 
     ![New Login] [Image23]
 
-3. In the **Login ??? New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
+3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
 
 4. Select **SQL Server authentication**.
 

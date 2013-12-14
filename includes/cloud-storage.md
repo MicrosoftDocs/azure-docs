@@ -14,7 +14,7 @@ Managing and analyzing data in the cloud is just as important as it is anywhere 
 
 ## <a name="blob"></a>Blob Storage
 
-The word "blob" is short for "Binary Large OBject", and it describes exactly what a blob is: a collection of binary information. Yet even though they???re simple, blobs are quite useful. [Figure 1](#Fig1) illustrates the basics of Windows Azure Blob Storage.
+The word "blob" is short for "Binary Large OBject", and it describes exactly what a blob is: a collection of binary information. Yet even though they're simple, blobs are quite useful. [Figure 1](#Fig1) illustrates the basics of Windows Azure Blob Storage.
 
 <a name="Fig1"></a>![Diagram of Blobs][blobs]
  
@@ -38,7 +38,7 @@ Whether you choose block blobs or page blobs, applications can access blob data 
 - Using the Windows Azure Storage Client library, which provides a more developer-friendly interface on top of the raw RESTful blob access protocol. Once again, both Windows Azure applications and external applications can access blobs using this library.
 - Using Windows Azure drives, an option that lets a Windows Azure application treat a page blob as a local drive with an NTFS file system. To the application, the page blob looks like an ordinary Windows file system accessed using standard file I/O. In fact, reads and writes are sent to the underlying page blob that implements the Windows Azure Drive. 
 
-To guard against hardware failures and improve availability, every blob is replicated across three computers in a Windows Azure datacenter. Writing to a blob updates all three copies, so later reads won???t see inconsistent results. You can also specify that a blob's data should be copied to another Windows Azure datacenter in the same region but at least 500 miles away. This copying, called *geo-replication*, happens within a few minutes of an update to the blob, and it's useful for disaster recovery.
+To guard against hardware failures and improve availability, every blob is replicated across three computers in a Windows Azure datacenter. Writing to a blob updates all three copies, so later reads won't see inconsistent results. You can also specify that a blob's data should be copied to another Windows Azure datacenter in the same region but at least 500 miles away. This copying, called *geo-replication*, happens within a few minutes of an update to the blob, and it's useful for disaster recovery.
 
 Data in blobs can also be made available via the Windows Azure *Content Delivery Network (CDN)*. By caching copies of blob data at dozens of servers around the world, the CDN can speed up access to information that's accessed repeatedly. 
 
@@ -72,7 +72,7 @@ SQL Database doesn't give each customer its own physical instance of SQL Server.
 
 To an application, SQL Database looks much like SQL Server. Applications can issue SQL queries against relational tables, use T-SQL stored procedures, and execute transactions across multiple tables. And because applications access SQL Database using the Tabular Data Stream (TDS) protocol, the same protocol used to access SQL Server, they can work with data using Entity Framework, ADO.NET, JDBC, and other familiar data access interfaces. 
 
-But because SQL Database is a cloud service running in Windows Azure data centers, you don???t need to manage any of the system's physical aspects, such as disk usage. You also don't need to worry about updating software or handling other low-level administrative tasks. Each customer organization still controls its own databases, of course, including their schemas and user logins, but many of the mundane administrative tasks are done for you. 
+But because SQL Database is a cloud service running in Windows Azure data centers, you don't need to manage any of the system's physical aspects, such as disk usage. You also don't need to worry about updating software or handling other low-level administrative tasks. Each customer organization still controls its own databases, of course, including their schemas and user logins, but many of the mundane administrative tasks are done for you. 
 
 While SQL Database looks much like SQL Server to applications, it doesn't behave exactly the same as a DBMS running on a physical or virtual machine. Because it runs on shared hardware, its performance will vary with the load placed on that hardware by all of its customers. This means that the performance of, say, a stored procedure in SQL Database might vary from one day to the next. 
 
@@ -82,7 +82,7 @@ SQL Database can be used by applications running on Windows Azure or elsewhere, 
 
 Thinking about SQL Database raises an obvious (and important) issue: When should you run SQL Server in a VM, and when is SQL Database a better choice? As usual, there are trade-offs, and so which approach is better depends on your requirements. 
 
-One simple way to think about it is to view SQL Database as being for new applications, while SQL Server in a VM is a better choice when you???re moving an existing on-premises application to the cloud. It can also be useful to look at this decision in a more fine-grained way, however. For example, SQL Database is easier to use, since there???s minimal setup and administration. But running SQL Server in a VM can have more predictable performance - it's not a shared service - and it also supports larger non-federated databases than SQL Database. Still, SQL Database provides built-in replication of both data and processing, effectively giving you a high-availability DBMS with very little work. While SQL Server gives you more control and a somewhat broader set of options, SQL Database is simpler to set up and significantly less work to manage.
+One simple way to think about it is to view SQL Database as being for new applications, while SQL Server in a VM is a better choice when you're moving an existing on-premises application to the cloud. It can also be useful to look at this decision in a more fine-grained way, however. For example, SQL Database is easier to use, since there's minimal setup and administration. But running SQL Server in a VM can have more predictable performance - it's not a shared service - and it also supports larger non-federated databases than SQL Database. Still, SQL Database provides built-in replication of both data and processing, effectively giving you a high-availability DBMS with very little work. While SQL Server gives you more control and a somewhat broader set of options, SQL Database is simpler to set up and significantly less work to manage.
 
 Finally, it's important to point out that SQL Database isn't the only PaaS data service available on Windows Azure. Microsoft partners provide other options as well. For example, ClearDB offers a MySQL PaaS offering, while Cloudant sells a NoSQL option. PaaS data services are the right solution in many situations, and so this approach to data management is an important part of Windows Azure.
 
@@ -112,7 +112,7 @@ Before a user can see a report, someone defines what that report should look lik
 
 Next, a user of the application accesses the report (step 3). The application passes this request to the SSRS VM (step 4), which contacts SQL Database or other data sources to get the data it needs (step 5). SSRS uses this data and the relevant RDL files to render the report (step 6), then returns the report to the application (step 7), which displays it to the user (step 8).
 
-Embedding a report in an application, the scenario shown here, isn???t the only option. It's also possible to view reports in Report Manager on the VM, SharePoint on the VM, or in other ways. Reports can also be combined, with one report containing a link to another.
+Embedding a report in an application, the scenario shown here, isn't the only option. It's also possible to view reports in Report Manager on the VM, SharePoint on the VM, or in other ways. Reports can also be combined, with one report containing a link to another.
 
 SSRS on a Windows Azure VM gives you full functionality as a reporting solution in the cloud. Reports can use any data source supported by SSRS. Applications and reports can include embedded code or assemblies to support custom behaviors. Report execution and rendering are fast because report server content and engine run together on the same virtual server.
 
@@ -122,7 +122,7 @@ SSRS on a Windows Azure VM gives you full functionality as a reporting solution 
 
 Relational data is useful in many situations, but it's not always the right choice. If your application needs fast, simple access to very large amounts of loosely structured data, for instance, a relational database might not work well. A NoSQL technology is likely to be a better option.
 
-Windows Azure Table Storage is an example of this kind of NoSQL approach. Despite its name, Table Storage doesn???t support standard relational tables. Instead, it provides what's known as a *key/value store*, associating a set of data with a particular key, then letting an application access that data by providing the key. [Figure 6](#Fig6) illustrates the basics.
+Windows Azure Table Storage is an example of this kind of NoSQL approach. Despite its name, Table Storage doesn't support standard relational tables. Instead, it provides what's known as a *key/value store*, associating a set of data with a particular key, then letting an application access that data by providing the key. [Figure 6](#Fig6) illustrates the basics.
 
 <a name="Fig6"></a>![Diagram of table storage][SQL-tblstor]
  
@@ -172,7 +172,7 @@ Microsoft also provides a HiveQL driver for Excel. Using an Excel add-in, busine
 
 Big data analysis is important, and so Hadoop is also important. By providing Hadoop as a managed service on Windows Azure, along with links to familiar tools such as Excel, Microsoft aims at making this technology accessible to a broader set of users.
 
-More broadly, data of all kinds is important. This is why Windows Azure includes a range of options for data management and business analytics. Whatever application you're trying to create, it???s likely that you'll find something in this cloud platform that will work for you.
+More broadly, data of all kinds is important. This is why Windows Azure includes a range of options for data management and business analytics. Whatever application you're trying to create, it's likely that you'll find something in this cloud platform that will work for you.
 
 [blobs]: ./media/cloud-storage/Data_01_Blobs.png
 [SQLSvr-vm]: ./media/cloud-storage/Data_02_SQLSvrVM.png

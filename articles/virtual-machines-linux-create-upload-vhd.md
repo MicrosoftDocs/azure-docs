@@ -211,7 +211,7 @@ You must complete specific configuration steps in the operating system for the v
 
 20.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent ???force ???deprovision
+		waagent -force -deprovision
 		export HISTSIZE=0
 		logout
 
@@ -273,7 +273,7 @@ You must complete specific configuration steps in the operating system for the v
 
 	a) Open the /etc/grub.d/00_header file.
 
-	b) In the function **make_timeout()**, search for **if [???\${recordfail}??? = 1 ]; then**
+	b) In the function **make_timeout()**, search for **if ["\${recordfail}" = 1 ]; then**
 
 	c) Change the statement below this line to **set timeout=5**.
 
@@ -306,7 +306,7 @@ You must complete specific configuration steps in the operating system for the v
 
 11.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent ???force ???deprovision
+		waagent -force -deprovision
 		export HISTSIZE=0
 		logout
 
@@ -390,7 +390,7 @@ You must complete specific configuration steps in the operating system for the v
 
 11.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent ???force ???deprovision
+		waagent -force -deprovision
 		export HISTSIZE=0
 		logout
 
@@ -478,7 +478,7 @@ You must complete specific configuration steps in the operating system for the v
 
 13.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
 
-		waagent ???force ???deprovision
+		waagent -force -deprovision
 		export HISTSIZE=0
 		logout
 

@@ -44,15 +44,15 @@ The current version of the Management Portal only accepts SSH public keys that a
 
 5. Connect to the Linux virtual machine using ssh.
 
-		ssh ???i  myPrivateKey.key ???p port  username@servicename.cloudapp.net
+		ssh -i  myPrivateKey.key -p port  username@servicename.cloudapp.net
 
-	You will be prompted to accept the fingerprint of the host???s public key the first time you log in.
+	You will be prompted to accept the fingerprint of the host's public key the first time you log in.
 
 6. You may optionally copy myPrivateKey.key to ~/.ssh/id_rsa so that your openssh client can automatically pick this up without the use of the -i option.
 
 <h2><a id="superuserprivileges"></a>Obtaining Superuser Privileges Using Sudo</h2> 
 
-The user account that is specified during virtual machine instance deployment on Windows Azure is a privileged account. This account is configured by the Windows Azure Linux Agent to be able to elevate privileges to root (superuser account) using the sudo tool. Once you???re logged in using this user account, you will be able to run commands as root using ???sudo command???. You can optionally obtain a root shell using **sudo -s**.
+The user account that is specified during virtual machine instance deployment on Windows Azure is a privileged account. This account is configured by the Windows Azure Linux Agent to be able to elevate privileges to root (superuser account) using the sudo tool. Once you're logged in using this user account, you will be able to run commands as root using "sudo command". You can optionally obtain a root shell using **sudo -s**.
 
 <h2><a id="firewallconfiguration"></a>Firewall Configuration </h2>
 

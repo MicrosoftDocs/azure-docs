@@ -7,7 +7,7 @@
 
 [Apache *Pig*][apachepig-home] provides a scripting language to execute *MapReduce* jobs as an alternative to writing Java code. In this tutorial, you will use PowerShell to run some Pig Latin statements to analyze an Apache log4j log file, and run various queries on the data to generate output. This tutorial demonstrates the advantages of Pig, and how it can be used to simplify MapReduce jobs. 
 
-Pig???s scripting language is called *Pig Latin*. Pig Latin statements follow this general flow:   
+Pig's scripting language is called *Pig Latin*. Pig Latin statements follow this general flow:   
 
 - **Load**: Read data to be manipulated from the file system
 - **Transform**: Manipulate the data 

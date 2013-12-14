@@ -198,7 +198,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 You can use the same command to run a HiveQL file:
 
-	Invoke-Hive ???File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
+	Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
 
 		
 ##<a id="nextsteps"></a>Next steps

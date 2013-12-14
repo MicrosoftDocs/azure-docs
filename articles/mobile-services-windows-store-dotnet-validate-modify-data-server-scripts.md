@@ -28,15 +28,15 @@ It is always a good practice to validate the length of data that is submitted by
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][1]
+   	![][1]
 
 3. Click **Script**, then select the **Insert** operation.
 
-   ![][2]
+   	![][2]
 
 4. Replace the existing script with the following function, and then click **Save**.
 
@@ -62,7 +62,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. Press the **F5** key to run the app, then type text longer than 10 characters in **Insert a TodoItem** and click **Save**.
 
-   Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.	
+   	Notice that the app raises an unhandled **MobileServiceInvalidOperationException** as a result of the 400 response (Bad Request) returned by the mobile service.	
 
 6. 	Open the file MainPage.xaml.cs, then add the following **using** statement:
 
@@ -90,7 +90,7 @@ Now that the mobile service is validating data and sending error responses, you 
             }
         }
 
-   This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
+   	This version of the method includes error handling for the **MobileServiceInvalidOperationException** that displays the error response in a popup.
 
 ## <a name="add-timestamp"></a>Add a timestamp
 
@@ -125,11 +125,11 @@ public DateTime createdAt { set; get; }
 
 2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
 
-   Notice that the new timestamp does not appear in the app UI.
+   	Notice that the new timestamp does not appear in the app UI.
 
 3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
    
-   Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
 Next, you need to update the Windows Store app to display this new column.
 
@@ -163,11 +163,11 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	      
         <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
 
-   This displays the new **CreatedAt** property in a text box. 
+   	This displays the new **CreatedAt** property in a text box. 
 	
 6. Press the **F5** key to run the app. 
 
-   Notice that the timestamp is only displayed for items inserted after you updated the insert script.
+   	Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
 7. Replace the existing **RefreshTodoItems** method with the following code:
 
@@ -183,11 +183,11 @@ The Mobile Service client will ignore any data in a response that it cannot seri
             ListItems.ItemsSource = items;
         }
 
-   This method updates the query to also filter out items that do not have a timestamp value.
+   	This method updates the query to also filter out items that do not have a timestamp value.
 	
 8. Press the **F5** key to run the app.
 
-   Notice that all items created without timestamp value disappear from the UI.
+   	Notice that all items created without timestamp value disappear from the UI.
 
 You have completed this working with data tutorial.
 

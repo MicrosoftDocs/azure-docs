@@ -109,7 +109,7 @@ before you deploy the service to Windows Azure. You can use the storage
 emulator to test storage locally before your application consumes
 Windows Azure storage services.
 
-If your application includes a web role, you can use the **???Launch**
+If your application includes a web role, you can use the **-Launch**
 parameter to open the web role in a browser.
 
 The following example runs the MyService application in the compute
@@ -608,7 +608,7 @@ After creating a server, you will need to create a firewall rule to make it acce
 
 To allow connections to a SQL Database server, you must create a firewall rule that specifies a range of IP addresses from which connections are allowed. The following example show how to use the **New-AzureSqlDatabaseServerFirewallRule** cmdlet to allow connections from IP address between `111.111.111.111` to `222.222.222.222`:
 
-	PS C:\> New-AzureSqlDatabaseServerFirewallRule ???RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.111 -EndIpAddress 222.222.222.222
+	PS C:\> New-AzureSqlDatabaseServerFirewallRule -RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.111 -EndIpAddress 222.222.222.222
 
 <div class="dev-callout"> 
 <b>Note</b> 
@@ -617,7 +617,7 @@ To allow connections to a SQL Database server, you must create a firewall rule t
 
 To update an existing rule, use the **Set-AzureSqlDatabaseServerFirewallRule** cmdlet:
 
-	PS C:\> Set-AzureSqlDatabaseServerFirewallRule ???RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.222 -EndIpAddress 222.222.222.111
+	PS C:\> Set-AzureSqlDatabaseServerFirewallRule -RuleName MyRule -ServerName t9qh586619 -StartIpAddress 111.111.111.222 -EndIpAddress 222.222.222.111
 
 To get a list of rules for a server, use the **Get-AzureSqlDatabaseServerFirewallRule** cmdlet:
 

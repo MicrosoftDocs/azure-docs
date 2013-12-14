@@ -14,7 +14,7 @@ To make recovery easier in case of an availability problem, you can prepare for 
 + **Back up your data in the Windows Azure mobile service SQL Database**
 	<br/>Your mobile service application data is stored in a Windows Azure SQL Database. We recommend that you back it up as prescribed in the [SQL Database business continuity guidance].
 + **Back up your mobile service scripts**
-	<br/>We recommend that you store your mobile service scripts in a source-control system such as [Team Foundation Service] or [GitHub] and not rely only on the copies in the mobile service itself. You can download the scripts via the Windows Azure portal, using the Mobile Services [source control feature], or [using the Windows Azure command-line tool]. Pay close attention to features labeled as ???preview??? in the portal, as recovery for those scripts is not guaranteed and you might need to recover them from your own source control original.
+	<br/>We recommend that you store your mobile service scripts in a source-control system such as [Team Foundation Service] or [GitHub] and not rely only on the copies in the mobile service itself. You can download the scripts via the Windows Azure portal, using the Mobile Services [source control feature], or [using the Windows Azure command-line tool]. Pay close attention to features labeled as "preview" in the portal, as recovery for those scripts is not guaranteed and you might need to recover them from your own source control original.
 + **Reserve a secondary mobile service**
 	<br/>In the event of an availability problem with your mobile service, you may have to redeploy it to an alternate Windows Azure region. To ensure capacity is available (for example under rare circumstances such as the loss of an entire region), we recommend that you create a secondary mobile service in your alternate region and set its mode the same as or higher than the mode of your primary service. (If your primary service is in shared mode, you can make the secondary service either shared or reserved. But if the primary is reserved, then the secondary must also be reserved.)
 
@@ -24,8 +24,8 @@ To make recovery easier in case of an availability problem, you can prepare for 
 These circumstances indicate a problem that might require a recovery operation:
 
 + Apps that are connected to your mobile service can't communicate with it for an extended period of time.
-+ Mobile service status is displayed as **???Unhealthy???** in the [Windows Azure portal].
-+ An **???Unhealthy???** banner appears at the top of every tab for your mobile service in the Windows Azure portal, and management operations produce error messages.
++ Mobile service status is displayed as **"Unhealthy"** in the [Windows Azure portal].
++ An **"Unhealthy"** banner appears at the top of every tab for your mobile service in the Windows Azure portal, and management operations produce error messages.
 + The [Windows Azure Service Dashboard] indicates an availability problem.
 
 <h2><a name="recover"></a><span class="short-header">Recover</span>Recover from a disaster</h2>
@@ -36,7 +36,7 @@ If you're prompted by the Service Dashboard, execute the following steps to rest
 
 To recover your mobile service after an outage:
 
-1. In the Windows Azure portal, ensure that the status of your service is reported as **???Unhealthy???**.
+1. In the Windows Azure portal, ensure that the status of your service is reported as **"Unhealthy"**.
 
 2. If you already reserved a secondary mobile service, you can skip this step.
 
@@ -68,7 +68,7 @@ To recover your mobile service after an outage:
 
 6. Make sure that your recovered service is communicating with your Windows Azure SQL Database. The recover command recovers the mobile service, but retains the connection to the original database. If the problem in the primary Windows Azure region also affects the database, the recovered service may still not be running correctly. You can use the Windows Azure Service Dashboard to examine the database status for a given region. If the original database is not working, you can recover it:
 	+ Recover your Windows Azure SQL Database to the Windows Azure region where you just recovered your mobile service, as described in [SQL Database business continuity guidance].
-	+ In the Windows Azure portal, on the **???Configure???** tab of your mobile service, choose ???Change database??? and then select the newly recovered database.
+	+ In the Windows Azure portal, on the **"Configure"** tab of your mobile service, choose "Change database" and then select the newly recovered database.
 
 Now you should be in a state where your mobile service has been recovered to a new Azure region and is now accepting traffic from your store apps using its original URL.
 

@@ -25,15 +25,15 @@ It is always a good practice to validate the length of data that is submitted by
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][1]
+   	![][1]
 
 3. Click **Script**, then select the **Insert** operation.
 
-   ![][2]
+   	![][2]
 
 4. Replace the existing script with the following function, and then click **Save**.
 
@@ -94,11 +94,11 @@ The previous tasks validated an insert and either accepted or rejected it. Now, 
 
 2. From the **Run** menu, then click **Run** to start the app, then type text (shorter than 10 characters) in the textbox and click **Add**.
 
-   Notice that the new timestamp does not appear in the app UI.
+   	Notice that the new timestamp does not appear in the app UI.
 
 3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
    
-   Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
   
 Next, you need to update the Android app to display this new column.
 
@@ -153,7 +153,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 			createdAtText = formatter.format(currentItem.getCreatedAt());
 		}
 
-   This generates a formatted date string when a timestamp value exists. 
+   	This generates a formatted date string when a timestamp value exists. 
 
 7. Locate the code `checkBox.setText(currentItem.getText());` and replace this line of code with the following:
 
@@ -163,7 +163,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	
 6. From the **Run** menu, then click **Run** to start the app. 
 
-   Notice that the timestamp is only displayed for items inserted after you updated the insert script.
+   	Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
 7. Replace the existing **RefreshItemsFromTable** method with the following code:
 
@@ -188,11 +188,11 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 					});
 		}
 
-   This method updates the query to also filter out items that do not have a timestamp value.
+   	This method updates the query to also filter out items that do not have a timestamp value.
 	
 8. From the **Run** menu, then click **Run** to start the app.
 
-   Notice that all items created without timestamp value disappear from the UI.
+   	Notice that all items created without timestamp value disappear from the UI.
 
 You have completed this working with data tutorial.
 

@@ -23,7 +23,7 @@ For security reasons, certificates and keys that are used in ACS are guaranteed 
 
 The high-level steps for rolling over a token signing (symmetric key or X.509 certificate) or token decryption certificate are:
 
-1.	Configure the new certificate or key in ACS as a ???secondary??? key, alongside the existing certificate or key that will expire.
+1.	Configure the new certificate or key in ACS as a "secondary" key, alongside the existing certificate or key that will expire.
 2.	Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
 3.	Partners should update the corresponding certificate or key for their relying parties or identity providers. For example, import the updated WS-Federation metadata for the ACS namespace that contains the new token signature validation certificate, or manually configure the symmetric key in the application config.
 4.	After all applications have been updated (or after a deadline has elapsed), mark the new certificate or key as primary in the ACS configuration. 
@@ -49,7 +49,7 @@ When a certificate or a key expires, ACS will fail issuing tokens preventing you
 - Use the Service identities section in the ACS Management Portal to manage credentials (certificates, keys or passwords) related to service identities. For more information about service identities, see [Service Identities](http://msdn.microsoft.com/en-us/library/gg185945.aspx).
 - Use the Management Service section in the ACS Management Portal to manage credentials (certificates, keys or passwords) related to the ACS Management Service accounts. For more information about the ACS Management Service, see [ACS Management Service](http://msdn.microsoft.com/en-us/library/gg185972.aspx).
 
-There are some certificate and key types that are not visible in the ACS management portal. Specifically for WS-Federation identity providers such as AD FS, you must proactively check the validity of the certificates that the identity providers use. Currently, certificates available through WS-Federation identity providers??? metadata are not visible on the ACS management portal. To verify the validity of the certificates you must use the management service to inspect the Effective and Expiration dates for the [IdentityProviderKey](http://msdn.microsoft.com/en-us/library/hh124084.aspx)???s StartDate and EndDate properties. When the certificate or a key expires, and therefore becomes invalid, ACS will start throwing exceptions [ACS Error Codes](http://msdn.microsoft.com/en-us/library/gg185949.aspx) specific to the certificate or key. Consult the sections below for specific error codes.
+There are some certificate and key types that are not visible in the ACS management portal. Specifically for WS-Federation identity providers such as AD FS, you must proactively check the validity of the certificates that the identity providers use. Currently, certificates available through WS-Federation identity providers' metadata are not visible on the ACS management portal. To verify the validity of the certificates you must use the management service to inspect the Effective and Expiration dates for the [IdentityProviderKey](http://msdn.microsoft.com/en-us/library/hh124084.aspx)'s StartDate and EndDate properties. When the certificate or a key expires, and therefore becomes invalid, ACS will start throwing exceptions [ACS Error Codes](http://msdn.microsoft.com/en-us/library/gg185949.aspx) specific to the certificate or key. Consult the sections below for specific error codes.
 
 You can update the certificates and keys programmatically using [ACS Management Service](http://msdn.microsoft.com/en-us/library/gg185972.aspx). Consider reviewing KeyManagement code sample available for download as part of the [Code Sample: Management Service](http://msdn.microsoft.com/en-us/library/gg185970.aspx).
 
@@ -99,7 +99,7 @@ You can manage token signing certificates via the Certificates and Key section o
 
     ![][ACS5]
 
-6. Under the Token Signing section, use the Add button to configure the new certificate in ACS as a ???secondary??? key, alongside the existing certificate that will expire.
+6. Under the Token Signing section, use the Add button to configure the new certificate in ACS as a "secondary" key, alongside the existing certificate that will expire.
 
 7. Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
 
@@ -156,7 +156,7 @@ You can manage token signing keys via the Certificates and Key section of the AC
 
     ![][ACS5]
 
-6. Under the Token Signing section, use the Add button to configure the new key in ACS as a ???secondary??? key, alongside the existing key that will expire.
+6. Under the Token Signing section, use the Add button to configure the new key in ACS as a "secondary" key, alongside the existing key that will expire.
 
 7. Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
 
@@ -264,7 +264,7 @@ You can manage token decryption certificates via the Certificates and Key sectio
 
     ![][ACS9]
 
-6. Under the Token decryption section, use the Add bu tton to configure the new certificate in ACS as a ???secondary??? key, alongside the existing certificate that will expire.
+6. Under the Token decryption section, use the Add bu tton to configure the new certificate in ACS as a "secondary" key, alongside the existing certificate that will expire.
 
 7. Notify the partners that use the service that they need to update their corresponding keys before a certain deadline.
 

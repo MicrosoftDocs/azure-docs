@@ -55,7 +55,7 @@ Other than the Blob storage container designated as the default file system, you
 * **Container in a different storage account with the *private* access levels:** you must add those containers during the provision process.
 
 
-Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the ???/??? character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob???s key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the ???/??? character in the key name, it has the appearance of a file path.
+Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.
 
 
 
@@ -159,7 +159,7 @@ The &lt;accountname&gt; identifies the storage account name. A fully qualified d
 	
 If neither the container nor the accountname has been specified, then the default file system is used.
 	
-The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A ???/??? inside a blob key is interpreted as a directory separator. Thus, if a blob key is *input/log1.txt*, then it is the file *log1.txt* inside the directory *input*.
+The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A "/" inside a blob key is interpreted as a directory separator. Thus, if a blob key is *input/log1.txt*, then it is the file *log1.txt* inside the directory *input*.
 
 For example:
 
@@ -169,7 +169,7 @@ refers to the *file log1.txt* in the directory *input* on the Blob storage conta
 	
 	wasbs://myaccount.blob.core.windows.net/result.txt
 	
-refers to the file *result.txt* on the read-only WASB file system in the root container at the location *myaccount.blob.core.windows.net* that gets accessed through SSL. Note that *wasb://myaccount.blob.core.windows.net/output/result.txt* results in an exception, because Blob storage does not allow ???/??? inside path names in the root container to avoid ambiguities between paths and folder names. 
+refers to the file *result.txt* on the read-only WASB file system in the root container at the location *myaccount.blob.core.windows.net* that gets accessed through SSL. Note that *wasb://myaccount.blob.core.windows.net/output/result.txt* results in an exception, because Blob storage does not allow "/" inside path names in the root container to avoid ambiguities between paths and folder names. 
 	
 	wasb:///output/result.txt 
 	

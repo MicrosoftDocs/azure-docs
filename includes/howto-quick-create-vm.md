@@ -20,11 +20,11 @@ You use the **Quick Create** method to quickly create a virtual machine in the M
 
 	4. Type the following information for the new virtual machine:
 
-	- **DNS Name** ??? the name that is used for both the virtual machine that is created and the cloud service that contains the virtual machine.
-	- **Image** ??? the platform image that is used to create the virtual machine. 
+	- **DNS Name** - the name that is used for both the virtual machine that is created and the cloud service that contains the virtual machine.
+	- **Image** - the platform image that is used to create the virtual machine. 
 	- **User Name** - the name of the account that you want to use to manage the virtual machine.
 	- **Account Password** - type and confirm a strong password for the account.
-	- **Location** ??? the region that contains the virtual machine. 
+	- **Location** - the region that contains the virtual machine. 
 
 5. Click the check mark to create the virtual machine.
 

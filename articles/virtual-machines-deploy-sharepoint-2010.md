@@ -9,9 +9,9 @@
 Microsoft SharePoint Server 2010 provides rich deployment flexibility, which can help organizations determine the right deployment scenarios to align with their business needs and objectives. Hosted and managed in the cloud, the Windows Azure Virtual Machines offering provides complete, reliable, and available infrastructure to support various on-demand application and database workloads, such as Microsoft SQL Server and SharePoint deployments.
 
 
-While Windows Azure Virtual Machines support multiple workloads, this paper focuses on SharePoint deployments. Windows Azure Virtual Machines enable organizations to create and manage their SharePoint infrastructure quickly???provisioning and accessing nearly any host universally. It allows full control and management over processors, RAM, CPU ranges, and other resources of SharePoint virtual machines (VMs).
+While Windows Azure Virtual Machines support multiple workloads, this paper focuses on SharePoint deployments. Windows Azure Virtual Machines enable organizations to create and manage their SharePoint infrastructure quickly-provisioning and accessing nearly any host universally. It allows full control and management over processors, RAM, CPU ranges, and other resources of SharePoint virtual machines (VMs).
 
-Windows Azure Virtual Machines mitigate the need for hardware, so organizations can turn attention from handling high upfront cost and complexity to building and managing infrastructure at scale. This means that they can innovate, experiment, and iterate in hours???as opposed to days and weeks with traditional deployments.
+Windows Azure Virtual Machines mitigate the need for hardware, so organizations can turn attention from handling high upfront cost and complexity to building and managing infrastructure at scale. This means that they can innovate, experiment, and iterate in hours-as opposed to days and weeks with traditional deployments.
 
 <h3>Who Should Read This Paper?</h3>
 
@@ -23,14 +23,14 @@ This paper explains how organizations can set up and deploy SharePoint within Wi
 
 <h2>Shift to Cloud Computing</h2>
 
-According to Gartner, cloud computing is defined as a ???style of computing where massively scalable IT-enabled capabilities are delivered ???as a service??? to external customers using Internet technologies.??? The significant words in this definition are scalable, service, and Internet. In short, cloud computing can be defined as IT services that are <strong>deployed and delivered over the Internet</strong> and are <strong>scalable on demand</strong>.
+According to Gartner, cloud computing is defined as a "style of computing where massively scalable IT-enabled capabilities are delivered 'as a service' to external customers using Internet technologies." The significant words in this definition are scalable, service, and Internet. In short, cloud computing can be defined as IT services that are <strong>deployed and delivered over the Internet</strong> and are <strong>scalable on demand</strong>.
 
-Undeniably, cloud computing represents a major shift happening in IT today. Yesterday, the conversation was about consolidation and cost. Today, it???s about the new class of benefits that cloud computing can deliver. It???s all about transforming the way IT serves organizations by harnessing a new breed of power. Cloud computing is fundamentally changing the world of IT, impacting every role???from service providers and system architects to developers and end users.
+Undeniably, cloud computing represents a major shift happening in IT today. Yesterday, the conversation was about consolidation and cost. Today, it's about the new class of benefits that cloud computing can deliver. It's all about transforming the way IT serves organizations by harnessing a new breed of power. Cloud computing is fundamentally changing the world of IT, impacting every role-from service providers and system architects to developers and end users.
 
 Research shows that agility, focus, and economics are three top drivers for cloud adoption:
 
 <ul>
-<li><p><strong>Agility</strong>: Cloud computing can speed an organization???s ability to capitalize on new opportunities and respond to changes in business demands.</p></li>
+<li><p><strong>Agility</strong>: Cloud computing can speed an organization's ability to capitalize on new opportunities and respond to changes in business demands.</p></li>
 <li><p><strong>Focus</strong>: Cloud computing enables IT departments to cut infrastructure costs dramatically. Infrastructure is abstracted and resources are pooled, so IT runs more like a utility than a collection of complicated services and systems. Plus, IT now can be transitioned to more innovative and strategic roles.</p></li>
 <li><p><strong>Economics</strong>: Cloud computing reduces the cost of delivering IT and increases the utilization and efficiency of the data center. Delivery costs go down because with cloud computing, applications and resources become self-service, and use of those resources becomes measurable in new and precise ways. Hardware utilization also increases because infrastructure resources (storage, compute, and network) are now pooled and abstracted.</p></li>
 </ul>
@@ -45,7 +45,7 @@ In simple terms, cloud computing is the abstraction of IT services. These servic
 <li><p><strong>Software as a Service</strong> (SaaS): Cloud services model where an application is delivered over the Internet and customers pay on a per-use basis (for example, Microsoft Office 365 or Microsoft CRM Online).</p></li>
 </ul>
 
-Figure 1 depicts the cloud services taxonomy and how it maps to the components in an IT infrastructure. With an on-premises model, the customer is responsible for managing the entire stack???ranging from network connectivity to applications. With IaaS, the lower levels of the stack are managed by a vendor, while the customer is responsible for managing the operating system through applications. With PaaS, a platform vendor provides and manages everything from network connectivity through runtime. The customer only needs to manage applications and data. (The Windows Azure offering best fits in this model.) Finally, with SaaS, a vendor provides the applications and abstracts all services from all underlying components.
+Figure 1 depicts the cloud services taxonomy and how it maps to the components in an IT infrastructure. With an on-premises model, the customer is responsible for managing the entire stack-ranging from network connectivity to applications. With IaaS, the lower levels of the stack are managed by a vendor, while the customer is responsible for managing the operating system through applications. With PaaS, a platform vendor provides and manages everything from network connectivity through runtime. The customer only needs to manage applications and data. (The Windows Azure offering best fits in this model.) Finally, with SaaS, a vendor provides the applications and abstracts all services from all underlying components.
 
 <p class="caption">Figure 1: Cloud services taxonomy</p>
 <p>![azure-sharepoint-wp-1](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-1.png)</p>
@@ -74,19 +74,19 @@ Windows Azure Virtual Machines is an easy, open and flexible, and powerful platf
 
 SharePoint 2010 flexibly supports most of the workloads in a Windows Azure Virtual Machines deployment. Windows Azure Virtual Machines are an optimal fit for FIS (SharePoint Server for Internet Sites) and development scenarios. Likewise, core SharePoint workloads are also supported. If an organization wants to manage and control its own SharePoint 2010 implementation while capitalizing on options for virtualization in the cloud, Windows Azure Virtual Machines are ideal for deployment.
 
-The Windows Azure Virtual Machines offering is hosted and managed in the cloud. It provides deployment flexibility and reduces cost by mitigating capital expenditures due to hardware procurement. With increased infrastructure agility, organizations can deploy SharePoint Server in hours???as opposed to days or weeks. Windows Azure Virtual Machines also enables organizations to deploy SharePoint workloads in the cloud using a ???pay-as-you-go??? model. As SharePoint workloads grow, an organization can rapidly expand infrastructure; then, when computing needs decline, it can return the resources that are no longer needed???thereby paying only for what is used.
+The Windows Azure Virtual Machines offering is hosted and managed in the cloud. It provides deployment flexibility and reduces cost by mitigating capital expenditures due to hardware procurement. With increased infrastructure agility, organizations can deploy SharePoint Server in hours-as opposed to days or weeks. Windows Azure Virtual Machines also enables organizations to deploy SharePoint workloads in the cloud using a "pay-as-you-go" model. As SharePoint workloads grow, an organization can rapidly expand infrastructure; then, when computing needs decline, it can return the resources that are no longer needed'thereby paying only for what is used.
 
 <h3>Shift in IT Focus</h3>
 
-Many organizations contract out the common components of their IT infrastructure and management, such as hardware, operating systems, security, data storage, and backup???while maintaining control of mission-critical applications, such as SharePoint Server. By delegating all non-mission-critical service layers of their IT platforms to a virtual provider, organizations can shift their IT focus to core, mission-critical SharePoint services and deliver business value with SharePoint projects, instead of spending more time on setting up infrastructure.
+Many organizations contract out the common components of their IT infrastructure and management, such as hardware, operating systems, security, data storage, and backup-while maintaining control of mission-critical applications, such as SharePoint Server. By delegating all non-mission-critical service layers of their IT platforms to a virtual provider, organizations can shift their IT focus to core, mission-critical SharePoint services and deliver business value with SharePoint projects, instead of spending more time on setting up infrastructure.
 
 <h3>Faster Deployment</h3>
 
-Supporting and deploying a large SharePoint infrastructure can hamper IT???s ability to move rapidly to support business requirements. The time that is required to build, test, and prepare SharePoint servers and farms and deploy them into a production environment can take weeks or even months, depending on the processes and constraints of the organization. Windows Azure Virtual Machines allow organizations to quickly deploy their SharePoint workloads without capital expenditures for hardware. In this way, organizations can capitalize on infrastructure agility to deploy in hours instead of days or weeks.
+Supporting and deploying a large SharePoint infrastructure can hamper IT's ability to move rapidly to support business requirements. The time that is required to build, test, and prepare SharePoint servers and farms and deploy them into a production environment can take weeks or even months, depending on the processes and constraints of the organization. Windows Azure Virtual Machines allow organizations to quickly deploy their SharePoint workloads without capital expenditures for hardware. In this way, organizations can capitalize on infrastructure agility to deploy in hours instead of days or weeks.
 
 <h3>Scalability</h3>
 
-Without the need to deploy, test, and prepare physical SharePoint servers and farms, organizations can expand and contract compute capacity on demand, at a moment???s notice. As SharePoint workload requirements grow, an organization can rapidly expand its infrastructure in the cloud. Likewise, when computing needs decrease, the organization can diminish resources, paying only for what it uses. Windows Azure Virtual Machines reduces upfront expenses and long-term commitments, enabling organizations to build and manage SharePoint infrastructures at scale. Again, this means that these organizations can innovate, experiment, and iterate in hours???as opposed to days and weeks with traditional deployments.
+Without the need to deploy, test, and prepare physical SharePoint servers and farms, organizations can expand and contract compute capacity on demand, at a moment's notice. As SharePoint workload requirements grow, an organization can rapidly expand its infrastructure in the cloud. Likewise, when computing needs decrease, the organization can diminish resources, paying only for what it uses. Windows Azure Virtual Machines reduces upfront expenses and long-term commitments, enabling organizations to build and manage SharePoint infrastructures at scale. Again, this means that these organizations can innovate, experiment, and iterate in hours-as opposed to days and weeks with traditional deployments.
 
 <h3>Metered Usage</h3>
 
@@ -94,7 +94,7 @@ Windows Azure Virtual Machines provide computing power, memory, and storage for 
 
 <h3>Flexibility</h3>
 
-Windows Azure Virtual Machines provide developers with the flexibility to pick their desired language or runtime environment, with official support for .NET, Node.js, Java, and PHP. Developers also can choose their tools, with support for Microsoft Visual Studio, WebMatrix, Eclipse, and text editors. Further, Microsoft delivers a low-cost, low-risk path to the cloud and offers cost-effective, easy provisioning and deployment for cloud reporting needs???providing access to business intelligence (BI) across devices and locations. Finally, with the Windows Azure offering, users not only can move VHDs to the cloud, but also can copy a VHD back down and run it locally or through another cloud provider, as long as they have the appropriate license.
+Windows Azure Virtual Machines provide developers with the flexibility to pick their desired language or runtime environment, with official support for .NET, Node.js, Java, and PHP. Developers also can choose their tools, with support for Microsoft Visual Studio, WebMatrix, Eclipse, and text editors. Further, Microsoft delivers a low-cost, low-risk path to the cloud and offers cost-effective, easy provisioning and deployment for cloud reporting needs-providing access to business intelligence (BI) across devices and locations. Finally, with the Windows Azure offering, users not only can move VHDs to the cloud, but also can copy a VHD back down and run it locally or through another cloud provider, as long as they have the appropriate license.
 
 <h2>Provisioning Process</h2>
 
@@ -185,7 +185,7 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 ![azure-sharepoint-wp-10](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-10.png)</li>
 <li>Build the SQL Server VM using any of the following options:
 <ul>
-<li>Create a SQL Server 2012 VM by following steps 1 to 7 above???except in <strong>step 3</strong>, use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Windows Azure</a>.
+<li>Create a SQL Server 2012 VM by following steps 1 to 7 above-except in <strong>step 3</strong>, use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Windows Azure</a>.
 <ul>
 <li>When you choose this option, the provisioning process keeps a copy of SQL Server 2012 setup files in the <em>C:\SQLServer_11.0_Full</em> directory path so that you can customize the installation. For example, you can convert the evaluation installation of SQL Server 2012 to a licensed version by using your license key.</li>
 </ul>
@@ -221,9 +221,9 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 <li>Configure SharePoint from the GUI.</li>
 <li>Configure SharePoint using Windows PowerShell. For more information, go to <a href="http://technet.microsoft.com/en-us/library/cc262839.aspx">Install SharePoint Server 2010 by Using Windows PowerShell</a>.
 <ul>
-<li>You also can use the CodePlex Project???s AutoSPInstaller, which consists of Windows PowerShell scripts, an XML input file, and a standard Microsoft Windows batch file. AutoSPInstaller provides a framework for a SharePoint 2010 installation script based on Windows PowerShell. For more information, go to <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.
+<li>You also can use the CodePlex Project's AutoSPInstaller, which consists of Windows PowerShell scripts, an XML input file, and a standard Microsoft Windows batch file. AutoSPInstaller provides a framework for a SharePoint 2010 installation script based on Windows PowerShell. For more information, go to <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.
 
-<strong>Note</strong>: Be sure to configure security on the Management Portal endpoint and set an inbound port on the VM???s Windows Firewall. Then, confirm that you can start a remote Windows PowerShell session to one of the SharePoint application servers by opening a Windows PowerShell session with Administrator credentials.
+<strong>Note</strong>: Be sure to configure security on the Management Portal endpoint and set an inbound port on the VM's Windows Firewall. Then, confirm that you can start a remote Windows PowerShell session to one of the SharePoint application servers by opening a Windows PowerShell session with Administrator credentials.
 </li>
 </ul>
 </li>
@@ -248,15 +248,15 @@ You also can create your own images and upload them to Windows Azure as a VHD fi
 
 <h2>Usage Scenarios</h2>
 
-This section discusses some leading customer scenarios for SharePoint deployments using Windows Azure Virtual Machines. Each scenario is divided into two parts???a brief description about the scenario followed by steps for getting started.
+This section discusses some leading customer scenarios for SharePoint deployments using Windows Azure Virtual Machines. Each scenario is divided into two parts-a brief description about the scenario followed by steps for getting started.
 
 <h3>Scenario 1: Simple SharePoint Development and Test Environment</h3>
 
 <h4>Description</h4>
 
-Organizations are looking for more agile ways to create SharePoint applications and set up SharePoint environments for onshore/offshore development and testing. Fundamentally, they want to shorten the time required to set up SharePoint application development projects, and decrease cost by increasing the use of their test environments. For example, an organization might want to perform on-demand load testing on SharePoint Server and execute user acceptance testing (UAT) with more concurrent users in different geographic locations. Similarly, integrating onshore/offshore teams is an increasingly important business need for many of today???s organizations.
+Organizations are looking for more agile ways to create SharePoint applications and set up SharePoint environments for onshore/offshore development and testing. Fundamentally, they want to shorten the time required to set up SharePoint application development projects, and decrease cost by increasing the use of their test environments. For example, an organization might want to perform on-demand load testing on SharePoint Server and execute user acceptance testing (UAT) with more concurrent users in different geographic locations. Similarly, integrating onshore/offshore teams is an increasingly important business need for many of today's organizations.
 
-This scenario explains how organizations can use preconfigured SharePoint farms for development and test workloads. A SharePoint deployment topology looks and feels exactly as it would in an on-premises virtualized deployment. Existing IT skills translate 1:1 to a Windows Azure Virtual Machines deployment, with the major benefit being an almost complete cost shift from capital expenditures to operational expenditures???no upfront physical server purchase is required. Organizations can eliminate the capital cost for server hardware and achieve flexibility by greatly reducing the provisioning time required to create, set up, or extend a SharePoint farm for a testing and development environment. IT can dynamically add and remove capacity to support the changing needs of testing and development. Plus, IT can focus more on delivering business value with SharePoint projects and less on managing infrastructure.
+This scenario explains how organizations can use preconfigured SharePoint farms for development and test workloads. A SharePoint deployment topology looks and feels exactly as it would in an on-premises virtualized deployment. Existing IT skills translate 1:1 to a Windows Azure Virtual Machines deployment, with the major benefit being an almost complete cost shift from capital expenditures to operational expenditures-no upfront physical server purchase is required. Organizations can eliminate the capital cost for server hardware and achieve flexibility by greatly reducing the provisioning time required to create, set up, or extend a SharePoint farm for a testing and development environment. IT can dynamically add and remove capacity to support the changing needs of testing and development. Plus, IT can focus more on delivering business value with SharePoint projects and less on managing infrastructure.
 
 To fully utilize load-testing machines, organizations can configure SharePoint virtualized development and test machines on Windows Azure with operating system support for Windows Sever 2008 R2. This enables development teams to create and test applications and easily migrate to on-premises or cloud production environments without code changes. The same frameworks and toolsets can be used on premises and in the cloud, allowing distributed team access to the same environment. Users also can access on-premises data and applications by establishing a direct VPN connection.
 
@@ -284,7 +284,7 @@ To implement a SharePoint development and testing environment on Windows Azure, 
 <ul>
 <li>Use the SharePoint 2010 Easy Setup Script to build a SharePoint developer machine. For more information, go to <a href="http://www.microsoft.com/en-us/download/details.aspx?id=23415">SharePoint 2010 Easy Setup Script</a>.</li>
 <li>Use Windows PowerShell. For more information, go to <a href="http://technet.microsoft.com/en-us/library/cc262839.aspx">Install SharePoint Server 2010 by Using Windows PowerShell</a>.</li>
-<li>Use the CodePlex Project???s AutoSPInstaller. For more information, go to <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
+<li>Use the CodePlex Project's AutoSPInstaller. For more information, go to <a href="http://autospinstaller.codeplex.com/">CodePlex: AutoSPInstaller</a>.</li>
 </ul>
 </li>
 <li>Install Visual Studio. For more information, go to <a href="http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx">Visual Studio Installation</a>.</li>
@@ -304,7 +304,7 @@ To implement a SharePoint development and testing environment on Windows Azure, 
 </li>
 <li><em>Deploy SharePoint applications and databases</em>:
 <ul>
-<li>Configure security on the Management Portal endpoint and set an inbound port in the VM???s Windows Firewall.</li>
+<li>Configure security on the Management Portal endpoint and set an inbound port in the VM's Windows Firewall.</li>
 <li>Deploy SharePoint applications and databases to Windows Azure Virtual Machines using the deployment packages and scripts created in step 3.</li>
 <li>Test deployed applications and databases.</li>
 </ul>
@@ -313,7 +313,7 @@ To implement a SharePoint development and testing environment on Windows Azure, 
 <ul>
 <li>Monitor the VMs using the Management Portal.</li>
 <li>Monitor the applications using Visual Studio and SQL Server Management Studio.</li>
-<li>You also can monitor and manage the VMs using on-premises management software, like Microsoft System Center ??? Operations Manager.</li>
+<li>You also can monitor and manage the VMs using on-premises management software, like Microsoft System Center - Operations Manager.</li>
 </ul>
 </li>
 </ol>
@@ -341,7 +341,7 @@ In this scenario, more front-end web servers for SharePoint Server must be added
 To implement a public-facing SharePoint farm on Windows Azure, follow these steps:
 
 <ol>
-<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Windows Azure Virtual Machines are similar???but not identical???to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Windows Azure Virtual Machines</a>. To deploy Active Directory in Windows Azure:
+<li><em>Deploy Active Directory</em>: The fundamental requirements for deploying Active Directory on Windows Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on-premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Windows Azure Virtual Machines</a>. To deploy Active Directory in Windows Azure:
 <ul>
 <li>Define and create a virtual network where the VMs can be assigned to specific subnets. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configure Virtual Networking</a>.</li>
 <li>Use the Management Portal to create and deploy the domain controller on a new VM on Windows Azure. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Deploying and Creating the Domain Controller</a>.
@@ -377,9 +377,9 @@ To implement a public-facing SharePoint farm on Windows Azure, follow these step
 
 <h4>Description</h4>
 
-Business intelligence is essential to gaining key insights and making rapid, sound decisions. As organizations transition from an on-premises approach, they do not want to make changes to the BI environment while deploying existing BI applications to the cloud. They want to host reports from SQL Server Analysis Services (SSAS) or SQL Server Reporting Services (SSRS) in a highly durable and available environment, while keeping full control of the BI application???all without spending much time and budget on maintenance.
+Business intelligence is essential to gaining key insights and making rapid, sound decisions. As organizations transition from an on-premises approach, they do not want to make changes to the BI environment while deploying existing BI applications to the cloud. They want to host reports from SQL Server Analysis Services (SSAS) or SQL Server Reporting Services (SSRS) in a highly durable and available environment, while keeping full control of the BI application-all without spending much time and budget on maintenance.
 
-This scenario describes how organizations can use Windows Azure Virtual Machines to host mission-critical BI applications. Organizations can deploy SharePoint farms in Windows Azure Virtual Machines and scale out the application server VM???s BI components, like SSRS or Excel Services. By scaling resource-intensive components in the cloud, they can better and more easily support specialized workloads. Note that SQL Server in Windows Azure Virtual Machines performs well, as it is easy to scale SQL Server instances, ranging from small to extra-large installations. This provides elasticity, enabling organizations to dynamically provision (expand) or deprovision (shrink) BI instances based on immediate workload requirements.
+This scenario describes how organizations can use Windows Azure Virtual Machines to host mission-critical BI applications. Organizations can deploy SharePoint farms in Windows Azure Virtual Machines and scale out the application server VM's BI components, like SSRS or Excel Services. By scaling resource-intensive components in the cloud, they can better and more easily support specialized workloads. Note that SQL Server in Windows Azure Virtual Machines performs well, as it is easy to scale SQL Server instances, ranging from small to extra-large installations. This provides elasticity, enabling organizations to dynamically provision (expand) or deprovision (shrink) BI instances based on immediate workload requirements.
 
 Migrating existing BI applications to Windows Azure provides better scaling. With the power of SSAS, SSRS, and SharePoint Server, organizations can create powerful BI and reporting applications and dashboards that scale up or down. These applications and dashboards also can be more securely integrated with on-premises data and applications. Windows Azure ensures data center compliance with support for ISO 27001. For more information, go to the <a href="/en-us/support/trust-center/compliance/">Windows Azure Trust Center</a>.
 
@@ -415,7 +415,7 @@ To scale out a BI environment on Windows Azure, follow these steps:
 </li>
 <li><em>Add the BI VM</em>:
 <ul>
-<li>Configure security on the Management Portal endpoint and set an inbound port in the VM???s Windows Firewall.</li>
+<li>Configure security on the Management Portal endpoint and set an inbound port in the VM's Windows Firewall.</li>
 <li>Add the newly created BI VM to the existing SharePoint or SQL Server farm.</li>
 </ul>
 </li>
@@ -423,7 +423,7 @@ To scale out a BI environment on Windows Azure, follow these steps:
 <ul>
 <li>Monitor the VMs using the Management Portal.</li>
 <li>Monitor the SharePoint farm using Central Administration.</li>
-<li>Monitor and manage the VMs using on-premises management software like Microsoft System Center ??? Operations Manager.</li>
+<li>Monitor and manage the VMs using on-premises management software like Microsoft System Center - Operations Manager.</li>
 </ul>
 </li>
 </ol>
@@ -433,7 +433,7 @@ To scale out a BI environment on Windows Azure, follow these steps:
 
 Increasingly, organizations want to create fully customized SharePoint websites in the cloud. They need a highly durable and available environment that offers full control to maintain complex applications running in the cloud, but they do not want to spend a large amount of time and budget.
 
-In this scenario, an organization can deploy its entire SharePoint farm in the cloud and dynamically scale all components to get additional capacity, or it can extend its on-premises deployment to the cloud to increase capacity and improve performance, when needed. The scenario focuses on organizations that want the full ???SharePoint experience??? for application development and enterprise content management. The more complex sites also can include enhanced reporting, Power View, PerformancePoint, PowerPivot, in-depth charts, and most other SharePoint site capabilities for end-to-end, full functionality.
+In this scenario, an organization can deploy its entire SharePoint farm in the cloud and dynamically scale all components to get additional capacity, or it can extend its on-premises deployment to the cloud to increase capacity and improve performance, when needed. The scenario focuses on organizations that want the full "SharePoint experience" for application development and enterprise content management. The more complex sites also can include enhanced reporting, Power View, PerformancePoint, PowerPivot, in-depth charts, and most other SharePoint site capabilities for end-to-end, full functionality.
 
 Organizations can use Windows Azure Virtual Machines to host customized applications and associated components on a cost-effective and highly secure cloud infrastructure. They also can use on-premises Microsoft System Center as a common management tool for on-premises and cloud applications.
 
@@ -449,7 +449,7 @@ To implement a completely customized SharePoint website on Windows Azure, an org
 The following steps show how to create a customized SharePoint farm environment from prebuilt images available in the image library. Note, however, that you also can upload SharePoint farm VMs to the image library, and authorized users can choose those VMs to build the required SharePoint farm on Windows Azure.
 
 <ol>
-<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Windows Azure Virtual Machines are similar???but not identical???to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Windows Azure Virtual Machines</a>. To deploy Active Directory in Windows Azure:</em>
+<li>Deploy Active Directory<em>: The fundamental requirements for deploying Active Directory on Windows Azure Virtual Machines are similar"but not identical"to deploying it on VMs (and, to some extent, physical machines) on premises. For more information about the differences, as well as guidelines and other considerations, go to <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj156090">Guidelines for Deploying Active Directory on Windows Azure Virtual Machines</a>. To deploy Active Directory in Windows Azure:</em>
 <ul>
 <li>Define and create a virtual network where the VMs can be assigned to specific subnets. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Configure Virtual Networking</a>.</li>
 <li>Use the Management Portal to create and deploy the domain controller on a new VM on Windows Azure. For more information, go to <a href="https://github.com/WindowsAzure-TrainingKit/HOL-DeployingActiveDirectory/blob/master/HOL.md">Deploying and Creating the Domain Controller</a>.
@@ -497,7 +497,7 @@ The following steps show how to create a customized SharePoint farm environment 
 </ol>
 
 <h2>Conclusion</h2>
-Cloud computing is transforming the way IT serves organizations. This is because cloud computing can harness a new class of benefits, including dramatically decreased cost coupled with increased IT focus, agility, and flexibility. Windows Azure is leading the way in cloud computing by delivering easy, open, flexible, and powerful virtual infrastructure. Windows Azure Virtual Machines mitigate the need for hardware, so organizations can reduce cost and complexity by building infrastructure at scale???with full control and streamlined management.
+Cloud computing is transforming the way IT serves organizations. This is because cloud computing can harness a new class of benefits, including dramatically decreased cost coupled with increased IT focus, agility, and flexibility. Windows Azure is leading the way in cloud computing by delivering easy, open, flexible, and powerful virtual infrastructure. Windows Azure Virtual Machines mitigate the need for hardware, so organizations can reduce cost and complexity by building infrastructure at scale-with full control and streamlined management.
 
 Windows Azure Virtual Machines provide a full continuum of SharePoint deployments. It is fully supported and tested to provide an optimal experience with other Microsoft applications. As such, organizations can easily set up and deploy SharePoint Server within Windows Azure, either to provision infrastructure for a new SharePoint deployment or to expand an existing one. As business workloads grow, organizations can rapidly expand their SharePoint infrastructure. Likewise, if workload needs decline, organizations can contract resources on demand, paying only for what they use. Windows Azure Virtual Machines deliver an exceptional infrastructure for a wide range of business requirements, as shown in the four SharePoint-based scenarios discussed in this paper.
 

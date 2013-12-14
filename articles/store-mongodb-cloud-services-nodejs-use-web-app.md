@@ -709,27 +709,27 @@ The following steps describe how to stop and delete your application.
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [MongoDB website]: http://www.mongodb.org/
-  [task list application screenshot]: ../Media/mongo_tutorial01.png
+  [task list application screenshot]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial01.png
   [Setup the Development Environment]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#setup
   [AzureMongoDeploymentCmdlets]: http://downloads.mongodb.org/azure/AzureMongoDeploymentCmdlets.msi
-  [Windows Azure Tools for MongoDB and Node.js Installer]: ../Media/mongo_tutorial02.png
-  [launch PowerShell environment]: ../../Shared/Media/azure-powershell-menu.png
-  [Get-AzureMongoDBBinaries output]: ../Media/mongo_tutorial01-1.png
-  [create directory]: ../Media/getting-started-6.png
-  [New-AzureService cmdlet response]: ../Media/mongo_tutorial06.png
-  [task list application]: ../Media/mongo_tutorial07.png
-  [Add-AzureMongoWorkerRole cmdlet response]: ../Media/mongo_tutorial08.png
-  [Join-AzureNodeRoleToMongoRole cmdlet response]: ../Media/mongo_tutorial09.png
-  [application running in emulator]: ../Media/mongo_tutorial10.png
-  [linstalling express module]: ../Media/mongo_tutorial11.png
-  [server.js snippet]: ../Media/mongo_tutorial12.png
+  [Windows Azure Tools for MongoDB and Node.js Installer]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial02.png
+  [launch PowerShell environment]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/azure-powershell-menu.png
+  [Get-AzureMongoDBBinaries output]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial01-1.png
+  [create directory]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/getting-started-6.png
+  [New-AzureService cmdlet response]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial06.png
+  [task list application]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial07.png
+  [Add-AzureMongoWorkerRole cmdlet response]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial08.png
+  [Join-AzureNodeRoleToMongoRole cmdlet response]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial09.png
+  [application running in emulator]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial10.png
+  [linstalling express module]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial11.png
+  [server.js snippet]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial12.png
   [1]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial13.png
   [2]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/node27.png
-  [screenshot of app running in emulator]: ../Media/mongo_tutorial14.png
+  [screenshot of app running in emulator]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial14.png
   [3]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial15.png
-  [home.js snippet]: ../Media/mongo_tutorial16.png
-  [home.js snippet 2]: ../Media/mongo_tutorial17.png
-  [screenshot of task list application in emulator]: ../Media/mongo_tutorial18.png
-  [task list application running in emulator]: ../Media/mongo_tutorial19.png
+  [home.js snippet]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial16.png
+  [home.js snippet 2]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial17.png
+  [screenshot of task list application in emulator]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial18.png
+  [task list application running in emulator]: ./media/store-mongodb-cloud-services-nodejs-use-web-app/mongo_tutorial19.png
   
   [Downloading the Windows Azure Publishing Settings]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/#download_publishing_settings
