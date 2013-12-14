@@ -54,7 +54,7 @@ After you have signed-up for the New Relic service, you need to install the New 
 3. Open a Git command-line tool, such as **GitBash** (Windows) or **Bash** (Unix Shell) and type the following command in the Git command prompt: 
 
 		$ git add .
-		$ git commit ???m "added newrelic module"
+		$ git commit -m "added newrelic module"
 		$ git push origin master
 		
 	This uploads the new `newrelic` module to your mobile service. 

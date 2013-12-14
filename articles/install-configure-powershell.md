@@ -100,7 +100,7 @@ the .publishsettings file. This information is required when you run the
 **Import-AzurePublishSettingsFile** cmdlet to import the settings. The default
 location and file name format is:
 
-	C:\\Users\&lt;UserProfile&gt;\\Download\\[*MySubscription*-???]-*downloadDate*-credentials.publishsettings
+	C:\\Users\&lt;UserProfile&gt;\\Download\\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. Type a command similar to the following, substituting your Windows account name and the path and file name for the placholders:
 

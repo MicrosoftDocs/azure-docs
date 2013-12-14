@@ -37,9 +37,9 @@ AzCopy is a command line utility which is designed to simplify the task of trans
 
 The AzCopy syntax is:
 
-	AzCopy <Source> <Destination> [filePattern [filePattern???]] [Options]
+	AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
-For more information, see [AzCopy ??? Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
+For more information, see [AzCopy - Uploading/Downloading files for Windows Azure Blobs][azure-azcopy]
 
 ##<a id="powershell"></a>Upload data to Blob storage using Windows Azure PowerShell##
 
@@ -69,7 +69,7 @@ Windows Azure PowerShell is a powerful scripting environment that you can use to
 		
 3. Paste the script into the Windows Azure PowerShell console window to run it.
 
-Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob???s key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path. In the previous script, you can give the file a folder structure by setting the $blobname variable. For example *$blobname="myfolder/myfile.txt"*.
+Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual "input" directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path. In the previous script, you can give the file a folder structure by setting the $blobname variable. For example *$blobname="myfolder/myfile.txt"*.
 
 Using Windows Azure Explorer tools, you may notice some 0 byte files. These files serve two purposes:
 

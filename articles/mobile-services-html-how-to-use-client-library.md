@@ -80,7 +80,7 @@ This request would normally be translated roughly into the following SQL query o
 			FROM TodoItem 			
 			WHERE ISNULL(complete, 0) = 0
 
-The object which is passed to the `where` method can have an arbitrary number of parameters, and they???ll all be interpreted as AND clauses to the query. For example, the line below:
+The object which is passed to the `where` method can have an arbitrary number of parameters, and they'll all be interpreted as AND clauses to the query. For example, the line below:
 
 			query.where({
 			   complete: false,
@@ -139,7 +139,7 @@ The body of the function is translated into an OData boolean expression which is
 		    });
 
 
-If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters ??? the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
+If passing in a function with parameters, any arguments after the `where` clause are bound to the function parameters in order. Any objects which come from the outside of the function scope MUST be passed as parameters - the function cannot capture any external variables. In the next two examples, the argument "david" is bound to the parameter `name` and in the first example, the argument "medium" is also bound to the parameter `level`. Also, the function must consist of a single `return` statement with a supported expression, like so:
 					
 			 query.where(function (name, level) {
 			    return this.assignee == name && this.difficulty == level;
@@ -225,7 +225,7 @@ You can specify which set of properties to include in the results by adding a `s
 Here the parameters to the select function are the names of the table's columns that you want to return. 
 
 
-All the functions described so far are additive, so we can just keep calling them and we???ll each time affect more of the query. One more example:
+All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query. One more example:
 
 
 		    query.where({
@@ -383,7 +383,7 @@ In a Windows Store app, the results of a query can be used to create a [WinJS.Bi
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
-Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider???s web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
+Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
 <h3>Server flow</h3>
 To have Mobile Services manage the authentication process in your Windows Store or HTML5 app, 
@@ -528,7 +528,7 @@ Like so:
 You can use promises in a number of different ways. You can chain promise operations by calling `then` or `done` on the promise that is returned by the previous `then` function. Use `then` for an intermediate stage of the operation (for example `.then().then()`), and `done` for the final stage of the operation (for example `.then().then().done()`).  You can chain multiple `then` functions, because `then` returns a promise. You cannot chain more than one `done` method, because it returns undefined. [Learn more about the  differences between then and done].
 	
  			todoItemTable.insert({
- 			   text: ???foo???
+ 			   text: "foo"
  			}).then(function (inserted) {
  			   inserted.newField = 123;
  			   return todoItemTable.update(inserted);

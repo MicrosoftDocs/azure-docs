@@ -333,7 +333,7 @@ You can disable consistent display mode in a view by setting *RequireConsistentD
     }
 <h2><a name="bkmk_mobilespeakersview"></a>Create a Mobile Speakers View</h2>
 
-As you just saw, the Speakers view is readable, but the links are small and are difficult to tap on a mobile device. In this section, you'll create a mobile-specific Speakers view that looks like a modern mobile application ??? it displays large, easy-to-tap links and contains a search box to quickly find speakers.
+As you just saw, the Speakers view is readable, but the links are small and are difficult to tap on a mobile device. In this section, you'll create a mobile-specific Speakers view that looks like a modern mobile application - it displays large, easy-to-tap links and contains a search box to quickly find speakers.
 
 1. Copy *AllSpeakers.cshtml* to *AllSpeakers.Mobile.cshtml.* Open the *AllSpeakers.Mobile.cshtml* file and remove the &lt;h2&gt; heading element.
 2. In the **&lt;ul&gt;** tag, add the data-role attribute and set its value to *listview*. Like other *data-** attributes, *data-role="listview"* makes the large list items easier to tap. This is what the completed markup looks like:

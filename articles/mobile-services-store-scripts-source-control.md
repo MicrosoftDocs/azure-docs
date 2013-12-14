@@ -150,7 +150,7 @@ Next, you will add the [node-uuid] Node.js module to your mobile service by usin
 5. As in the previous section, type the following command in the Git command prompt: 
 
 		$ git add .
-		$ git commit ???m "added node-uuid module"
+		$ git commit -m "added node-uuid module"
 		$ git push origin master
 		
 	This adds the new file, commits your changes, and pushes the new node-uuid module and changes to the todoitem.insert.js script to your mobile service.
