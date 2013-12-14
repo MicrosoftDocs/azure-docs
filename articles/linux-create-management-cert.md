@@ -50,7 +50,7 @@ You will need to extract from that file the base 64 encoded content between the 
 	  <PublishProfile
 	    PublishMethod="AzureServiceManagementAPI"
 	    Url="https://management.core.windows.net/"
-	    ManagementCertificate="xxxxx???>
+	    ManagementCertificate="xxxxx">
 	    <Subscription
 	      Id="8a4a0a51-728e-482e-8daa-c477f03c541d"
 	      Name="hjereztest" />
@@ -59,7 +59,7 @@ You will need to extract from that file the base 64 encoded content between the 
 	
 You will need to copy that into a file and then decode it using a base 64 decoder in Linux you can use:
 
-	Base64 ???d [encodedfile] > [decodedfile].pfx
+	Base64 -d [encodedfile] > [decodedfile].pfx
 
 This will provide you a pfx file that you can either convert to other formats using openssl  to extract the private key if needed:
 
@@ -129,7 +129,7 @@ You will then need to merge your subscription ID and the base64 encoded pfx into
 		  <PublishProfile
 		    PublishMethod="AzureServiceManagementAPI"
 		    Url="https://management.core.windows.net/"
-		    ManagementCertificate="xxxxx???>
+		    ManagementCertificate="xxxxx">
 		    <Subscription
 		      Id="8a4a0a51-728e-482e-8daa-c477f03c541d"
 		      Name="hjereztest" />
