@@ -203,20 +203,20 @@ links to learn more.
   [How to: Receive Messages from a Subscription]: #How_to_Receive_Messages_from_a_Subscription
   [How to: Handle Application Crashes and Unreadable Messages]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
-  
-  [Topic Concepts]: ../../dotNet/Media/sb-topics-01.png
+  [1]: #Next_Steps
+  [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  
-  
-  
-  
-  
-  
+  [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+  [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
+  [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
+  [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
+  [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Windows Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
-  
+  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
-[Previous Management Portal]: ../../Shared/Media/previous-portal.png
+[Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
