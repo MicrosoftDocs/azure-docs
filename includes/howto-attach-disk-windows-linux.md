@@ -50,7 +50,7 @@ For more information about using data disks, see [Manage disks and images](http:
 
 When you create a new data disk, you decide the size of the disk. After you attach an empty disk to a virtual machine, the disk will be offline. You must connect to the virtual machine, and then use Server Manager to initialize the disk before you can use it.
 
-**Note:** Windows Azure storage supports blobs up to 1TB in size, which accommodates a VHD with a maximum virtual size 999GB. When you enter ???1TB??? in Hyper-V for a new hard disk, the value represents the virtual size.  This yields a file that is oversized by 512 bytes.
+**Note:** Windows Azure storage supports blobs up to 1TB in size, which accommodates a VHD with a maximum virtual size 999GB. When you enter "1TB" in Hyper-V for a new hard disk, the value represents the virtual size.  This yields a file that is oversized by 512 bytes.
 
 1. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the data disk.
 
