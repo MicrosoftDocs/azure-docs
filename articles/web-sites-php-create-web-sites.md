@@ -22,7 +22,7 @@ To create a PHP web site using the Windows Azure Management Portal, do the follo
 1. Login to the [Windows Azure Management Portal].
 1. Click **New** at the bottom of the page, then click **Compute**, **Web Site**, and **Quick Create**. Provide a **URL** for your web site and select the **Region** for your web site. Finally, click **Create Web Site**.
 
-	![Select Quick Create web site](./media/web-sites-php-create-web-site/select-quickcreate-website.png)
+	![Select Quick Create web site](./media/web-sites-php-create-web-sites/select-quickcreate-website.png)
 
 <h2><a name="XplatTools"></a>Create a PHP web site using the Windows Azure Command Line Tools for Mac and Linux</h2>
 
