@@ -389,32 +389,32 @@ Azure, perform the following steps:
 -   [Cloud9 documentation][]
 
   [Cloud9 IDE]: http://cloud9ide.com/
-  [create new Cloud9 project]: ../Media/cloud9_create_project.png
+  [create new Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_create_project.png
   [create new project dialog -- Cloud9]: ../Media/cloud9_new_project.png
-  [start editing the Cloud9 project]: ../Media/cloud9_startediting.png
-  [create new file in the Cloud9 project]: ../Media/cloud9_filenew.png
-  [save the server.js file]: ../Media/cloud9_saveas.png
-  [run in the debugger]: ../Media/cloud9_debug.png
-  [output window]: ../Media/cloud9_output.png
-  [application running in browser]: ../Media/cloud9_debug_browser.png
+  [start editing the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_startediting.png
+  [create new file in the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_filenew.png
+  [save the server.js file]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png
+  [run in the debugger]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
+  [output window]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
+  [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
   
-  [create a new deployment]: ../Media/cloud9_createdeployment.png
-  [download publish settings]: ../Media/cloud9_choosetypeandcert.png
+  [create a new deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
+  [download publish settings]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
   [1]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_add_a_deploy_target.png
-  [create a new hosted service]: ../Media/cloud9_new_hosted_service_settings.png
-  [select a deployment]: ../Media/cloud9_select_deployment.png
-  [no web.config file found message.]: ../Media/cloud9_no_web_config.png
+  [create a new hosted service]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png
+  [select a deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png
+  [no web.config file found message.]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png
   [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [specify csdef file values]: ../Media/cloud9_createcsdef.png
-  [deployment status]: ../Media/cloud9_deployment_status.png
-  [Windows Azure production URL link]: ../Media/cloud9_production_url.png
-  [console output showing staging URL]: ../Media/cloud9_staging_console_output.png
+  [specify csdef file values]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png
+  [deployment status]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png
+  [Windows Azure production URL link]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_url.png
+  [console output showing staging URL]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_staging_console_output.png
   [Overview of Managing Deployments in Windows Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
-  [Link from deploy dialog to Windows Azure Management Portal]: ../Media/cloud9_portal_link.png
-  [Windows Azure Management Portal]: ../Media/cloud9_hosted_service_and_ribbon.png
-  [VIP SWAP]: ../Media/cloud9_portal_vipswap.png
-  [Production application running on Windows Azure]: ../Media/cloud9_production_on_azure.png
-  [Connect to an instance]: ../Media/connect.png
-  [delete the deployment]: ../Media/cloud9_deletedeployment.png
+  [Link from deploy dialog to Windows Azure Management Portal]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_link.png
+  [Windows Azure Management Portal]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_hosted_service_and_ribbon.png
+  [VIP SWAP]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_vipswap.png
+  [Production application running on Windows Azure]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_on_azure.png
+  [Connect to an instance]: ./media/cloud-services-nodejs-develop-deploy-cloud9/connect.png
+  [delete the deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deletedeployment.png
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409

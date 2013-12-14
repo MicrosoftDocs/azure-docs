@@ -426,12 +426,13 @@ follow these links to learn how to do more complex caching tasks.
   [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
   [Windows Azure Management Portal]: http://windows.azure.com/
   
-  
-  
-  
-  
-  
-  
+   [NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
+  [QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
+  [Endpoint]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
+  [AccessKeys]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
+  [NuGetPackage]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png
+  [NuGetPackageMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png
+  [NamedCaches]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg
   
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx

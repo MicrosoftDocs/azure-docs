@@ -178,7 +178,13 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 
 [How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 
-
+[how-to-install-python-webpi-1.png]: ./media/python-how-to-install/how-to-install-python-webpi-1.png 
+[how-to-install-Python-webpi-2.png]: media\python-how-to-install/how-to-install-Python-webpi-2.png
+[how-to-install-Python-webpi-3.png]: media\python-how-to-install/how-to-install-Python-webpi-3.png
+[how-to-install-Python-ptvs.png]: media\python-how-to-install/how-to-install-Python-ptvs.png
+[how-to-install-python-win-site.png]: media\python-how-to-install/how-to-install-python-win-site.png 
+[how-to-install-python-win-run.png]: media\python-how-to-install/how-to-install-python-win-run.png 
+[how-to-install-python-linux-run.png]: media\python-how-to-install/how-to-install-python-linux-run.png
 
 
 

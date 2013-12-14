@@ -63,6 +63,6 @@ In addition, you can view code that uses Windows Azure Media Services SDK to acc
   [Management Portal]: http://manage.windowsazure.com/
 
 <!-- Images. -->
-  [Media Services Quick Create]: ../media/wams-QuickCreate.png
-  [Media Services Page]: ../media/wams-mediaservices-page.png
+  [Media Services Quick Create]: ./media/media-services-create-account/wams-QuickCreate.png
+  [Media Services Page]: ./media/media-services-create-account/wams-mediaservices-page.png
 

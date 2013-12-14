@@ -53,6 +53,8 @@ For this to work, Traffic Manager must have a current picture of which instances
 
 Not every application is big enough or global enough to need Traffic Manager. For those that do, however, this can be a quite useful service.
 
+[01_Networking]: ./media/windows-azure-networking/Networking_01_Networking.png
+[03_TrafficManager]: ./media/windows-azure-networking/Networking_03_TrafficManager.png
 
 
 
