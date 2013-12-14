@@ -5,7 +5,7 @@ This guide provides prescriptive guidance on the best practices and techniques t
 Note that there are many advantages to using Windows Azure: performance is only one of them. The recommendations in this paper focus primarily on performance. There are other scenarios where performance is not as critical: for example, you may wish to take advantage of off-loading physical hardware management to Windows Azure, or the "pay as you go" feature may be particularly attractive. This paper does not attempt to evaluate scenarios where performance is a lesser priority. 
 
 ## Overview ##
- Performance can be defined as ["the amount of useful work accomplished" compared to the time and resources used."](http://go.microsoft.com/fwlink/?LinkId=252650) 
+ Performance can be defined as ["the amount of useful work accomplished' compared to the time and resources used."](http://go.microsoft.com/fwlink/?LinkId=252650) 
 
 
 The definition has two sides to it: metrics and resources. Performance metrics are numbers that must be achieved in order to satisfy business requirements. They include things like response time, throughput, availability, etc. Performance also includes the level of resource usage required to reach a given level of performance metrics. Since cost is almost always a business requirement, and resources cost money, performance implies using resources as efficiently as possible. 

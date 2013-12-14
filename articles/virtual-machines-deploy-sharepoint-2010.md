@@ -23,7 +23,7 @@ This paper explains how organizations can set up and deploy SharePoint within Wi
 
 <h2>Shift to Cloud Computing</h2>
 
-According to Gartner, cloud computing is defined as a "style of computing where massively scalable IT-enabled capabilities are delivered "as a service" to external customers using Internet technologies.- The significant words in this definition are scalable, service, and Internet. In short, cloud computing can be defined as IT services that are <strong>deployed and delivered over the Internet</strong> and are <strong>scalable on demand</strong>.
+According to Gartner, cloud computing is defined as a "style of computing where massively scalable IT-enabled capabilities are delivered 'as a service' to external customers using Internet technologies." The significant words in this definition are scalable, service, and Internet. In short, cloud computing can be defined as IT services that are <strong>deployed and delivered over the Internet</strong> and are <strong>scalable on demand</strong>.
 
 Undeniably, cloud computing represents a major shift happening in IT today. Yesterday, the conversation was about consolidation and cost. Today, it's about the new class of benefits that cloud computing can deliver. It's all about transforming the way IT serves organizations by harnessing a new breed of power. Cloud computing is fundamentally changing the world of IT, impacting every role-from service providers and system architects to developers and end users.
 

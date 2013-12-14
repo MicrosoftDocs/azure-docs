@@ -22,7 +22,7 @@ Twilio is powering the future of business communications, enabling developers to
 
 <h2><a id="Pricing"></a>Twilio Pricing and Special Offers</h2>
 
-Windows Azure customers receive a [special offer](http://www.twilio.com/azure): complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at: [http://ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
+Windows Azure customers receive a [special offer][http://www.twilio.com/azure]: complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at: [http://ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
 
 Twilio is a pay-as-you-go service. There are no set-up fees and you can close your account at any time. You can find more details at [Twilio Pricing][twilio_pricing].
 
@@ -34,7 +34,7 @@ Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML
 <h3><a id="Verbs"></a>Twilio Verbs</h3>
 The API makes use of Twilio verbs; for example, the **&lt;Say&gt;** verb instructs Twilio to audibly deliver a message on a call.
 
-The following is a list of Twilio verbs. Learn about the other verbs and capabilities via [Twilio Markup Language documentation](http://www.twilio.com/docs/api/twiml).
+The following is a list of Twilio verbs. Learn about the other verbs and capabilities via [Twilio Markup Language documentation][http://www.twilio.com/docs/api/twiml].
 
 * **&lt;Dial&gt;**: Connects the caller to another phone.
 * **&lt;Gather&gt;**: Collects numeric digits entered on the telephone keypad.

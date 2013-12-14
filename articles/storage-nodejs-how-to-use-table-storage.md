@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+﻿<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -420,8 +420,8 @@ to learn how to do more complex storage tasks.
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  
-  
+  [Table1]: ./media/storage-nodejs-how-to-use-table-storage/table1.png
+  [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com
 

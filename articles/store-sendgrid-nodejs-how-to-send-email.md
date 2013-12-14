@@ -40,7 +40,7 @@ include:
     customer responsiveness
 -   Generating reports to help identify trends
 -   Forwarding customer inquiries
-- Email notifications from your application
+-   Email notifications from your application
 
 For more information, see [http://sendgrid.com][].
 

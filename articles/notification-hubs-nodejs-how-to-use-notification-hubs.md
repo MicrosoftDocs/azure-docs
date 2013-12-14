@@ -37,31 +37,31 @@ communicate with the Service Bus REST services.
 1.  Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 
 2.  Type **npm install azure** in the command window, which should
-result in the following output:
+    result in the following output:
 
-azure@0.7.0 node_modules\azure
-├── dateformat@1.0.2-1.2.3
-├── xmlbuilder@0.4.2
-├── node-uuid@1.2.0
-├── mime@1.2.9
-├── underscore@1.4.4
-├── validator@0.4.28
-├── tunnel@0.0.2
-├── wns@0.5.3
-├── xml2js@0.2.6 (sax@0.4.2)
-└── request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
+        azure@0.7.0 node_modules\azure
+		|-- dateformat@1.0.2-1.2.3
+		|-- xmlbuilder@0.4.2
+		|-- node-uuid@1.2.0
+		|-- mime@1.2.9
+		|-- underscore@1.4.4
+		|-- validator@0.4.28
+		|-- tunnel@0.0.2
+		|-- wns@0.5.3
+		|-- xml2js@0.2.6 (sax@0.4.2)
+		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
 3.  You can manually run the **ls** or **dir** command to verify that a
-**node\_modules** folder was created. Inside that folder find the
-**azure** package, which contains the libraries you need to access
-Service Bus notification hubs.
+    **node\_modules** folder was created. Inside that folder find the
+    **azure** package, which contains the libraries you need to access
+    Service Bus notification hubs.
 
 ### Import the module
 
 Using a text editor, add the following to the top of
 the **server.js** file of the application:
 
-var azure = require('azure');
+    var azure = require('azure');
 
 ### Setup a Windows Azure Service Bus connection
 
@@ -70,7 +70,7 @@ following code creates a **NotificationHubService** object for the nofication hu
 top of the **server.js** file, after the statement to import the azure
 module:
 
-var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
 The connection **connectionstring** value can be obtained from the Windows Azure Management portal by performing the following steps:
 

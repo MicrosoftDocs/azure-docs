@@ -42,7 +42,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 
 ## Select a version when provisioning an HDInsight cluster
 
-When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsight .NET SDK, you can choose a version using the -Version- parameter.
+When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsight .NET SDK, you can choose a version using the "Version" parameter.
 
 If you use the **Quick Create** option, you will get the 2.1 version. If you use the **Custom Create** option from the Windows Azure Portal, you can choose the version of the cluster you will deploy from the HDInsight Version drop-down on the **Cluster Details** page.
 
