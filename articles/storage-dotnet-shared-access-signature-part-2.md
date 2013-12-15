@@ -528,5 +528,6 @@ Run the console application and observe the output to see which operations are p
 
 [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
-
+[sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.png
+[sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.png
 
