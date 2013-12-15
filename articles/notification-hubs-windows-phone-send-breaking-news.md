@@ -194,7 +194,7 @@ The app is now complete and can store a set of categories in the device local st
 
 	The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a dialog.
 
-	![][19]
+	![][2]
 
 4. Send a new notification from the backend in one of the following ways:
 
@@ -204,7 +204,7 @@ The app is now complete and can store a set of categories in the device local st
 
 	Notifications for the selected categories appear as toast notifications.
 
-	![][14]
+	![][3]
 
 You have completed this topic.
 
@@ -229,12 +229,11 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews-win1.png
+[1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
+[2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
+[3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png
 
-[14]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-windows-toast-2.png
 
-
-[19]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
