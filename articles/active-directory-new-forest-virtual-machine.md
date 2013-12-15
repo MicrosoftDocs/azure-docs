@@ -38,23 +38,23 @@ You can create the first VM either by using the Windows Azure management portal 
 <h3>To create a VM by using Windows Azure management portal</h3>
 1.	Click **New**, click **Compute**, click **Virtual Machine**, and click **From Gallery**. 
 
-	![Create VM From Gallery] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMFromGallery.png)
+	![Create VM From Gallery] [create-vm]
 
 2.	Select the image.
 
-	![VM Image] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMImageSelection.png)
+	![VM Image] [vm-image]
 
 3.	Type the name of the new VM, a user name and password, and select a version release date and size.
 
-	![VM Configuration] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfig.png)
+	![VM Configuration] [vm-configuration]
 
 4.	Select the virtual network and subnet and accept other default values.
 
-	![VM Subnet] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfigSubnet.png)
+	![VM Subnet] [vm-subnet]
 
 5.	Accept default endpoints and click the check mark to complete the wizard.
 
-	![VM Ports] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfigPorts.png)
+	![VM Ports] [vm-ports]
 
 <h3>To create a VM by using Windows Azure PowerShell</h3>
 
@@ -125,7 +125,7 @@ You can create the first VM either by using the Windows Azure management portal 
 
 		New-AzureVM -ServiceName $service -VMs $MyDC -AffinityGroup $AG -DnsSettings $myDNS -VNetName $vnet
 
-	If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName ???Service <i>service name</i>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
+	If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName -Service <i>service name</i>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
 
 <h2><a id="Step2"></a>Step 2: Attach additional disks to the VM</h2>
 
@@ -134,32 +134,32 @@ You can create the first VM either by using the Windows Azure management portal 
 
 2. Type the size of hard disk (in GB) you want, such as 30. 
 
-	![Specify disk size] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMAttachDisk.png)
+	![Specify disk size] [specify-disk-size]
 
 3.	Repeat steps 9 and 10 to attach a second disk.
 
 
 4.	Click the name of the VM and click **Connect**.
 
-	![Connect] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConnect.png)
+	![Connect] [connect]
 
 
 5.	Click **Open**.
 
-	![Open] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMOpenRDP.png)
+	![Open] [open]
 
-6.	In RDP connection dialog, click **Don???t ask me again for connections to this computer**, and click **Connect**.
+6.	In RDP connection dialog, click **Don't ask me again for connections to this computer**, and click **Connect**.
 
-	![Connect with RDP] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConnectRDP.png)
+	![Connect with RDP] [connect-rdp]
 
 7.	Type your credentials using the format <i>VM Name</i>\<i>AdminUserName</i>. If you provisioned the VM by using Windows Azure PowerShell, type <i>VM Name</i>\Administrator.
 
-	![Credentials] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMCreds.png)
+	![Credentials] [credentials]
 
 
 8. In Remote Desktop Connection, click **Yes**.
 
-	![Remote Desktop] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMRDPCert.png)
+	![Remote Desktop] [remote-desktop]
 
 
 
@@ -176,7 +176,7 @@ You can create the first VM either by using the Windows Azure management portal 
 2.	In Server Manager, click **Manage** and click **Add Roles and Features** to start the Add Roles Wizard. For more information about installing AD DS on Windows Server 2012, see [Install Active Directory Domain Services (Level 100)](http://technet.microsoft.com/en-us/library/hh472162.aspx).
 
 
-	![Add Role] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAddRole.png)
+	![Add Role] [add-role]
 
 
 3.	On the Before you begin page, click **Next**.
@@ -184,62 +184,62 @@ You can create the first VM either by using the Windows Azure management portal 
 
 4.	On the Select installation type page, click **Role-based or feature-based installation** and then click **Next**.
 
-	![Select Installation type] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectInstallationType.png)
+	![Select Installation type] [select-installation]
 
 
 5.	On the Select destination server page, click **Select a server from the server pool**, click the name of the server and then click **Next**.
 
-	![Select server] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectDestinationServer.png)
+	![Select server] [select-server]
 
 6.	On the Select server roles page, click **Active Directory Domain Services**, then on the Add Roles and Features Wizard dialog box, click **Add Features**, and then click **Next**.  
 
-	![Select Server Role] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectServerRole.png)
+	![Select Server Role] [select-server-role]
 
-	![Add tools] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAddTools.png)
+	![Add tools] [add-tools]
 
 
 7.	On the Select features page, select any additional features you want to install and click **Next**. 
 
-	![Select features] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectFeatures.png)
+	![Select features] [select-features]
 
 
 8.	On the Active Directory Domain Services page, review the information and then click **Next**.
 
 9.	On the Confirm installation selections page, click **Install**.
 
-	![Confirm Server Role] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCConfirmRole.png)
+	![Confirm Server Role] [confirm-server-role]
 
 10.	On the Results page, verify that the installation succeeded, and click **Promote this server to a domain controller** to start the Active Directory Domain Services Configuration Wizard.
 
-	![Promote] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPromote.png)
+	![Promote] [promote]
 	
 	Note: If you close Add Roles Wizard at this point without starting the Active Directory Domain Services Configuration Wizard, you can restart it by clicking Tasks in Server Manager.
 
 11.	On the Deployment Configuration page, click **Add a new forest** and then type the name of the root domain (for example, fabrikam.com) and click **Next**.
 
-	![New forest] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCNewForest.png)
+	![New forest] [new-forest]
 
 12.	On the Domain Controller Options page, type and confirm the Directory Services Restore Mode password, accept other default values and click **Next**.
 
-	![DC Options] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCOptions.png)
+	![DC Options] [dc-options]
 
 13.	On the DNS Options page (which appears only if you install a DNS server), click **Create DNS delegation** as needed and then click **Next**. If you do, provide credentials that have permission to create DNS delegation records in the parent DNS zone. If a DNS server that hosts the parent zone cannot be contacted, the **Create DNS delegation** option is not available.
 
 14.	On the Additional Options page, type a new NetBIOS name or verify the default NetBIOS name of the domain, and then click **Next**.
 
-	![Additional Options] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAdditionalOptions.png)
+	![Additional Options] [additional-options]
 
 15.	On the Paths page, type or browse to the locations for the Active Directory database, log files, and SYSVOL folder, and click **Next**. 	
 	
-	![Paths] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPaths.png)
+	![Paths] [paths]
 
 16.	On the Review Options page, confirm your selections, review the selections, and then click **Next**. 
 
-	![Review options] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCReviewOptions.png)
+	![Review options] [review-options]
 
 17.	On the Prerequisites Check page, confirm that prerequisite validation completed and then click **Install**. 
 
-	![Prerequisite check] (./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPrereqCheck.png)
+	![Prerequisite check] [prereq-check]
 
 18.	On the Results page, verify that the server was successfully configured as a domain controller. The server will be restarted automatically to complete the AD DS installation. 
 
@@ -271,7 +271,7 @@ You can create the first VM either by using the Windows Azure management portal 
 6.	Click **Local drives**, then click **Next**.
 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, then click **Next**.
-    ![Backup the DC](./media/active-directory-new-forest-virtual-machine/BackupDC.png)
+    ![Backup the DC] [backup-dc]
 
 8.	Confirm the settings you selected and then click **Backup**. 
 
@@ -317,7 +317,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 		
 		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
 
-If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName ???Service <i>service name</i>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VMs will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VMs are provisioned, you can log on to them.		
+If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName -Service <i>service name</i>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VMs will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VMs are provisioned, you can log on to them.		
 
 ## See Also
 
@@ -328,3 +328,30 @@ If you rerun the script, you need to supply a unique value for $service. You can
 -  [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
 
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](http://technet.microsoft.com/en-us/library/hh831734.aspx)
+
+[create-vm]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMFromGallery.png
+[vm-image]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMImageSelection.png
+[vm-configuration]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfig.png
+[vm-subnet]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfigSubnet.png
+[vm-ports]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfigPorts.png
+[specify-disk-size]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMAttachDisk.png
+[connect]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConnect.png
+[open]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMOpenRDP.png
+[connect-rdp]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConnectRDP.png
+[credentials]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMCreds.png
+[remote-desktop]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMRDPCert.png
+[add-role]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAddRole.png
+[select-installation]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectInstallationType.png
+[select-server]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectDestinationServer.png
+[select-server-role]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectServerRole.png
+[add-tools]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAddTools.png
+[select-features]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectFeatures.png
+[confirm-server-role]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCConfirmRole.png
+[promote]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPromote.png
+[new-forest]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCNewForest.png
+[dc-options]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCOptions.png
+[additional-options]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAdditionalOptions.png
+[paths]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPaths.png
+[review-options]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCReviewOptions.png
+[prereq-check]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPrereqCheck.png
+[backup-dc]: ./media/active-directory-new-forest-virtual-machine/BackupDC.png

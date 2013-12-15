@@ -180,7 +180,13 @@ For additional information on SQL Database and SQL Data Sync see:
 * [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 
-
+[Image1]: ./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.png
+[Image2]: ./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png
+[Image3]: ./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG
+[Image4]: ./media/sql-database-get-started-data-sync/NewSyncGroupHub-Figure4.png
+[Image5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
+[Image6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.png
+[Image7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.png
 
 
 
