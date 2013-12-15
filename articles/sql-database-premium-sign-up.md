@@ -106,6 +106,14 @@ For additional information about Premium databases, see:
 * [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927)
 * [Premium for SQL Database Guidance](http://go.microsoft.com/fwlink/p/?LinkId=313650)
 
+[Image1]: ./media/sql-database-premium-sign-up/AccountSignup-Figure1.png
+[Image2]: ./media/sql-database-premium-sign-up/AccountSignupButton-Figure2.png
+[Image3]: ./media/sql-database-premium-sign-up/Subscription-Figure3.png
+[Image4]: ./media/sql-database-premium-sign-up/Status-Figure4.png
+[Image5]: ./media/sql-database-premium-sign-up/QuickStart-Figure5.PNG
+[Image6]: ./media/sql-database-premium-sign-up/RequestQuota-Figure6.png
+[Image7]: ./media/sql-database-premium-sign-up/PendingApproval-Figure7.png
+[Image8]: ./media/sql-database-premium-sign-up/QuotaApproved-Figure8.png
 
 
 
