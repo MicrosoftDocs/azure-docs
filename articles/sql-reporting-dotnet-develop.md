@@ -272,13 +272,13 @@ Now you are familiar with SQL Reporting and how to integrate reports hosted by S
 [Tutorials (SSRS)]: http://msdn.microsoft.com/en-us/library/bb522859(v=sql.105)
 
 
-[ReportServerProperties]: ./media/sql-reporting-dotnet-develop.png
-[LoginDialog]: ./media/sql-reporting-dotnet-develop.png
-[VSNewProject]: ./media/sql-reporting-dotnet-develop.png
-[NewProjectDialog]: ./media/sql-reporting-dotnet-develop.png
-[NewAzureProjectDialog]: ./media/sql-reporting-dotnet-develop.png
-[SolutionExplorer]: ./media/sql-reporting-dotnet-develop.png
-[Toolbox]: ./media/sql-reporting-dotnet-developToolbox.png
+[ReportServerProperties]: ./media/sql-reporting-dotnet-develop/ReportProject_PropertiesDialog.png
+[LoginDialog]: ./media/sql-reporting-dotnet-develop/ReportProject_LoginDialog.png
+[VSNewProject]: ./media/sql-reporting-dotnet-develop/VS_NewProject.png
+[NewProjectDialog]: ./media/sql-reporting-dotnet-develop/VS_NewProjectDialog.png
+[NewAzureProjectDialog]: ./media/sql-reporting-dotnet-develop/VS_NewAzureProjectDialog.png
+[SolutionExplorer]: ./media/sql-reporting-dotnet-develop/SolutionExplorer.png
+[Toolbox]: ./media/sql-reporting-dotnet-develop/Toolbox.png
 [CmdPrompt]: ./media/sql-reporting-dotnet-develop/VS_CMDPrompt.png
 
 
