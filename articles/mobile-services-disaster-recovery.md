@@ -1,8 +1,5 @@
 <properties linkid="mobile-services-recovery-disaster" urlDisplayName="Recover your mobile service in the event of a disaster" pageTitle="Recover your mobile service in the event of a disaster - Windows Azure Mobile Services" metaKeywords="" description="Learn how to recover your mobile service in the event of a disaster." metaCanonical="" services="" documentationCenter="Mobile" title="Recover your mobile service in the event of a disaster" authors=""  solutions="" writer="yavorg" manager="" editor=""  />
 
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14798" ismacro="true" umb_chunkname="MobileArticleLeft" umb_chunkpath="devcenter/Menu" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
 # Recover your mobile service in the event of a disaster
 
 When you use Windows Azure Mobile Services to deploy an app, you can use its built-in features to ensure business continuity in the event of availability problems, such as server failures, network disruptions, data loss, and widespread facilities loss. By deploying your app using Windows Azure Mobile Services you are taking advantage of many fault tolerance and infrastructure capabilities that you would have to design, implement, and manage if you were to deploy a traditional on-premise solution. Windows Azure mitigates a large fraction of potential failures at a fraction of the cost.
@@ -24,8 +21,8 @@ To make recovery easier in case of an availability problem, you can prepare for 
 These circumstances indicate a problem that might require a recovery operation:
 
 + Apps that are connected to your mobile service can't communicate with it for an extended period of time.
-+ Mobile service status is displayed as **"Unhealthy"** in the [Windows Azure portal].
-+ An **"Unhealthy"** banner appears at the top of every tab for your mobile service in the Windows Azure portal, and management operations produce error messages.
++ Mobile service status is displayed as **Unhealthy** in the [Windows Azure portal].
++ An **Unhealthy** banner appears at the top of every tab for your mobile service in the Windows Azure portal, and management operations produce error messages.
 + The [Windows Azure Service Dashboard] indicates an availability problem.
 
 <h2><a name="recover"></a><span class="short-header">Recover</span>Recover from a disaster</h2>
@@ -36,7 +33,7 @@ If you're prompted by the Service Dashboard, execute the following steps to rest
 
 To recover your mobile service after an outage:
 
-1. In the Windows Azure portal, ensure that the status of your service is reported as **"Unhealthy"**.
+1. In the Windows Azure portal, ensure that the status of your service is reported as **Unhealthy**.
 
 2. If you already reserved a secondary mobile service, you can skip this step.
 

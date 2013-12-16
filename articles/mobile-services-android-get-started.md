@@ -36,11 +36,11 @@ In this section you will create a new Android app that is connected to your mobi
 
 2. In the quickstart tab, click **Android** under **Choose platform** and expand **Create a new Android app**.
 
-   ![][6]
+   	![][6]
 
-   This displays the three easy steps to create an Android app connected to your mobile service.
+   	This displays the three easy steps to create an Android app connected to your mobile service.
 
-  ![][7]
+  	![][7]
 
 3. If you haven't already done so, download and install the [Android Developer Tools][Android SDK] on your local computer or virtual machine.
 
@@ -48,7 +48,7 @@ In this section you will create a new Android app that is connected to your mobi
 
 5. Under **Download and run your app**, click **Download**. 
 
-  This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+  	This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 ## Run your Android app
 
@@ -58,15 +58,15 @@ The final stage of this tutorial is to build and run your new app.
 
 2. In Eclipse, click **File** then **Import**, expand **Android**, click **Existing Android Code into Workspace**, and then click **Next.** 
 
- ![][14]
+ 	![][14]
 
 3. Click **Browse**, browse to the location of the expanded project files, click **OK**, make sure that the TodoActivity project is checked, then click **Finish**. 
 
- ![][15]
+ 	![][15]
 
 	This imports the project files into the current workspace.
 
-   ![][8]
+   	![][8]
 
 4. From the **Run** menu, click **Run** to start the project in the Android emulator.
 
@@ -74,9 +74,9 @@ The final stage of this tutorial is to build and run your new app.
 
 5. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 
-   ![][10]
+   	![][10]
 
-   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+   	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 	<div class="dev-callout"><strong>Note</strong> 
    	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.java file.</p>
@@ -84,11 +84,11 @@ The final stage of this tutorial is to build and run your new app.
 
 6. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
-   ![][11]
+   	![][11]
 
-   This lets you browse the data inserted by the app into the table.
+   	This lets you browse the data inserted by the app into the table.
 
-   ![][12]
+   	![][12]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 

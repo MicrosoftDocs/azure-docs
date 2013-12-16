@@ -37,9 +37,9 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 2. In the left pane, select the **Online** category, select **Include Prerelease**, search for **WindowsAzure.Storage-Preview**, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
 
-  ![][2]
+  	![][2]
 
-  This adds the client library for Windows Azure storage services to the project.
+  	This adds the client library for Windows Azure storage services to the project.
 
 Next, you will update the quickstart app to capture and upload images.
 
@@ -55,7 +55,7 @@ In this section you will update the project from the [Get started with Mobile Se
 
    	![][5]
 
-   This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+   	This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
 
 2. Open the MainPage.xaml file and replace the **Grid** element named **ContentPanel** with the following code:
 
@@ -92,7 +92,7 @@ In this section you will update the project from the [Get started with Mobile Se
         </Grid>
 
 
-   This adds a new button to launch the [CameraCaptureTask] and adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
+   	This adds a new button to launch the [CameraCaptureTask] and adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
 
 3. Open the MainPage.xaml.cs project file and add the following **using** statements:
 	
@@ -205,13 +205,13 @@ The final step is to test the app and validate that uploads succeed.
 
 2. Enter some text in the textbox, then click **Capture Image**.
 
-   ![][6]
+   	![][6]
 
-  This displays the camera capture UI. 
+  	This displays the camera capture UI. 
 
 3. Click the image or the snapshot button on the phone to take a picture.
   
-   ![][7]
+   	![][7]
 
 4. Click **accept** to accept the image and exit the camera UI.
 

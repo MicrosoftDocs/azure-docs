@@ -153,7 +153,7 @@ When your application initiates a call to the Twilio API - for example, via the 
 
 <div class="dev-callout">
 <b>Note</b>
-<p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message](twimlet_message_url) to see an empty &lt;Response&gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet_message_url_hello_world) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
+<p>While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click <a href="http://twimlets.com/message">twimlet_message_url</a> to see an empty &lt;Response&gt; element; as another example, click <a href="http://twimlets.com/message?Message%5B0%5D=Hello%20World">twimlet_message_url_hello_world</a> to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.</p>
 </div>
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.

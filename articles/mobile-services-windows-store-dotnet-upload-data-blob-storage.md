@@ -1,11 +1,8 @@
 <properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" urlDisplayName="Upload Images" pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Windows Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Upload images to Windows Azure Storage by using Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
-
-<div class="umbMacroHolder" title="This is rendered content from macro" onresizestart="return false;" umbpageid="14799" ismacro="true" umb_chunkname="article-left-menu-windows-store" umb_chunkpath="devcenter/mobile" umb_macroalias="AzureChunkDisplayer" umb_hide="0" umb_modaltrigger="" umb_chunkurl="" umb_modalpopup="0"><!-- startUmbMacro --><span><strong>Azure Chunk Displayer</strong><br />No macro content available for WYSIWYG editing</span><!-- endUmbMacro --></div>
-
 # Upload images to Windows Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone 8</a>
+	<a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-wp8" title="Windows Phone 8">Windows Phone</a>
 <!--    <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
     <a href="/en-us/develop/mobile/tutorials/upload-images-to-storage-ios" title="iOS">iOS</a> -->
 
@@ -38,9 +35,9 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.Storage-Preview`, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
 
-  ![][2]
+  	![][2]
 
-  This adds the client library for Windows Azure storage services to the project.
+  	This adds the client library for Windows Azure storage services to the project.
 
 Next, you will update the quickstart app to capture and upload images.
 
@@ -54,7 +51,7 @@ Next, you will update the quickstart app to capture and upload images.
 
    	![][5]
 
-   This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
+   	This makes sure that your app can use a camera attached to the computer. Users will be requested to allow camera access the first time that the app is run.
 
 1. Open the MainPage.xaml file and replace the **StackPanel** element directly after the first **Task** element with the following code:
 
@@ -76,7 +73,7 @@ Next, you will update the quickstart app to capture and upload images.
                     MaxHeight="250"/>
         </StackPanel> 
 
-   This adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
+   	This adds an image to the **ItemTemplate** and sets its binding source as the URI of the uploaded image in the Blob Storage service.
 
 3. Open the MainPage.xaml.cs project file and add the following **using** statements:
 	
@@ -117,7 +114,7 @@ Next, you will update the quickstart app to capture and upload images.
 				.CaptureFileAsync(CameraCaptureUIMode.PhotoOrVideo);
         }
 
-  This code displays the camera UI to capture an image, and saves the image to a storage file.
+  	This code displays the camera UI to capture an image, and saves the image to a storage file.
 
 6. Replace the existing `InsertTodoItem` method with the following code:
  
@@ -173,13 +170,13 @@ The final step is to test the app and validate that uploads succeed.
 
 2. Enter text in the textbox under **Insert a TodoItem**, then click **Photo**.
 
-   ![][6]
+   	![][6]
 
-  This displays the camera capture UI. 
+  	This displays the camera capture UI. 
 
 3. Click the image to take a picture, then click **OK**.
   
-   ![][7]
+   	![][7]
 
 4. Click **Upload** to insert the new item and upload the image.
 

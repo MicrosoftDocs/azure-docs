@@ -31,9 +31,9 @@ The following steps create a new mobile service in Windows Azure and add code to
 
 6. In **Database**, select **&lt;Create a free SQL Database&gt;**, supply the **Server user name**, **Server password**, and **Server password confirmation** then click **Create**.
 
-  ![create service from VS 2013 part 2](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
+  	![create service from VS 2013 part 2](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
 
 	<div class="dev-callout"><strong>Note</strong> <p>As part of this tutorial, you create a new free SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. You can only have one free database instance. If you already have a database in the same region as the new mobile service, you can instead choose the existing database. When you choose an existing database, make sure that you supply correct login credentials. If you supply incorrect login credentials, the mobile service is created in an unhealthy state.</p></div>
 
-   After the mobile service is created, a reference to the Mobile Services client library is added to the project and your project source code is updated.
+   	After the mobile service is created, a reference to the Mobile Services client library is added to the project and your project source code is updated.
 
