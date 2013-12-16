@@ -34,11 +34,11 @@ To be able to authenticate users, you must register your app at the Live Connect
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   ![][4]
+   	![][4]
 
 2. Click the **Dashboard** tab and make a note of the **Site URL** value.
 
-   ![][5]
+   	![][5]
 
     You will use this value to define the redirect domain.
 
@@ -46,13 +46,13 @@ To be able to authenticate users, you must register your app at the Live Connect
 
 4. Click **Create application**, then type an **Application name** and click **I accept**.
 
-   ![][1] 
+   	![][1] 
 
-   This registers the application with Live Connect.
+   	This registers the application with Live Connect.
 
 5. Click **Application settings page**, then **API Settings** and make a note of the values of the **Client ID** and **Client secret**. 
 
-   ![][2]
+   	![][2]
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
@@ -62,7 +62,7 @@ To be able to authenticate users, you must register your app at the Live Connect
 
 7. Back in the Management Portal, click the **Identity** tab, enter the **Client secret** obtained from Live Connect, and then click **Save**.
 
-   ![][13]
+   	![][13]
 
 Both your mobile service and your app are now configured to work with Live Connect.
 
@@ -70,17 +70,17 @@ Both your mobile service and your app are now configured to work with Live Conne
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
-   ![][14]
+   	![][14]
 
 2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
 
-   ![][15]
+   	![][15]
 
 3. In Visual Studio 2012 Express for Windows Phone, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
 4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
    
-   This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+   	This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
@@ -90,9 +90,9 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Assemblies**, click **Extensions**, check **Microsoft.Live**, and then click **OK**. 
 
-   ![][16]
+   	![][16]
 
-  This adds a reference to the Live SDK to the project.
+  	This adds a reference to the Live SDK to the project.
 
 5. Open the project file mainpage.xaml.cs and add the following using statements:
 
@@ -149,7 +149,7 @@ Next, you will update the app to authenticate users with Live Connect before req
             RefreshTodoItems();
         }
 
-   This method calls the new **Authenticate** method. 
+   	This method calls the new **Authenticate** method. 
 
 9. Replace the MainPage constructor with the following code:
 
@@ -160,11 +160,11 @@ Next, you will update the app to authenticate users with Live Connect before req
             this.Loaded += MainPage_Loaded;
         }
 
-   This constructor also registers the handler for the Loaded event.
+   	This constructor also registers the handler for the Loaded event.
 		
 9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
 
-   After you are successfully logged-in, the app runs without errors, and you are able to query Mobile Services and make updates to data.
+   	After you are successfully logged-in, the app runs without errors, and you are able to query Mobile Services and make updates to data.
 
 ## <a name="next-steps"> </a>Next steps
 

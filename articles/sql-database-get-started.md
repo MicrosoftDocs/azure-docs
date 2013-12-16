@@ -831,7 +831,26 @@ There are other methods for moving an on-premise database to SQL Database. If yo
 * [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
 
 
-
+[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
+[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
+[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
+[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.png
+[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
+[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.png
+[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
+[Image8]: ./media/sql-database-get-started/8MainPageHome_SQLTut.PNG
+[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.png
+[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.png
+[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png
+[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png
+[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.png
+[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
+[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
+[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
+[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.png
+[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.png
+[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
+[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png
 
 
 

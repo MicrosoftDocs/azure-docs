@@ -12,25 +12,25 @@ This topic shows you how to register your apps to be able to use Facebook to aut
 
 2. (Optional) If you have not already registered, click **Register Now** button, accept the policy, provide any and then click **Done**. 
 
-   ![][0]
+   	![][0]
 
 3. Click **Apps**, then click **Create New App**.
 
-   ![][1]
+   	![][1]
 
 4. Choose a unique name for your app, select **OK**.
 
-   ![][2]
+   	![][2]
 
 	This registers the app with Facebook 
 
 5.  Under **Select how your app integrates with Facebook**, expand **Web Site with Facebook Login**, type the URL of your mobile service in **Site URL**, disable **Sandbox Mode**, and then click **Save Changes**.
 
-   ![][3]
+   	![][3]
 
 6. Make a note of the values of **App ID** and **App Secret**. 
 
-   ![][4]
+   	![][4]
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>

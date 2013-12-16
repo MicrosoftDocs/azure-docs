@@ -23,17 +23,17 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][0]
+   	![][0]
 
 2. Click the **API** tab, and then click **Create a custom API**.
 
-   ![][1]
+   	![][1]
 
    This displays the **Create a new custom API** dialog.
 
 3. Change **Get permission** to **Everyone**, type _tiles_ in **API name**, and then click the check button.
 
-   ![][2]
+   	![][2]
 
   This creates the new API with public GET access.
 
@@ -116,7 +116,7 @@ Next, you will modify the quickstart app to start periodic notifications that up
 
 2. Navigate to the Start screen, locate the live tile for the app, and notice that item data is now displayed in the tile.
 
- ![][4]
+ 	![][4]
 
 ## Next steps
 

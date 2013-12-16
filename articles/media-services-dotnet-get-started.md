@@ -34,7 +34,7 @@ The following prerequisites are required for the walkthrough and for development
 
 2. Add a reference to System.Configuration assembly.
 
-  To add references using the **Manage References** dialog, do the following. Right-click on the **References** node in **Solution Explorer** and select **Add Reference**. In the **Manage References** dialog, select the appropriate assemblies (in this case System.Configuration.)
+	To add references using the **Manage References** dialog, do the following. Right-click on 	the **References** node in **Solution Explorer** and select **Add Reference**. In the 	**Manage References** dialog, select the appropriate assemblies (in this case 	System.Configuration.)
 
 3. If you have not done so yet, add references to **Windows Azure SDK for .NET**.(Microsoft.WindowsAzure.StorageClient.dll), **Windows Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the <a href="http://nuget.org/packages/windowsazure.mediaservices">windowsazure.mediaservices Nuget</a> package. 
 
@@ -42,10 +42,8 @@ The following prerequisites are required for the walkthrough and for development
 
 4. Add an *appSettings* section to the **app.config** file, and set the values for your Windows Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
 
-    <div class="dev-callout"> 
-	<strong>Note</strong> 
-	<p>In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.</p> 
-	</div>
+	> WACOM.NOTE
+	>In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.
 
 	<pre><code>
 	&lt;configuration&gt;

@@ -24,19 +24,19 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, and then click **Create**.
 
-   ![][1]
+   	![][1]
 
-   This displays the **Create new table** dialog.
+   	This displays the **Create new table** dialog.
 
 3. Keeping the default **Anybody with the application key** setting for all permissions, type _Channel_ in **Table name**, and then click the check button.
 
-   ![][2]
+   	![][2]
 
-  This creates the **Channel** table, which stores the channel URIs used to send push notifications separate from item data.
+  	This creates the **Channel** table, which stores the channel URIs used to send push notifications separate from item data.
 
 Next, you will modify the push notifications app to store data in this new table instead of in the **TodoItem** table.
 
@@ -97,13 +97,13 @@ Next, you will modify the push notifications app to store data in this new table
 
 1. In the Management Portal, click the **Data** tab and then click the **Channel** table. 
 
-   ![][3]
+   	![][3]
 
 2. In **channel**, click the **Script** tab and select **Insert**.
    
-   ![][4]
+   	![][4]
 
-   This displays the function that is invoked when an insert occurs in the **Channel** table.
+   	This displays the function that is invoked when an insert occurs in the **Channel** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -121,11 +121,11 @@ Next, you will modify the push notifications app to store data in this new table
 	    	    }
 		    }
 
-   This script checks the **Channel** table for an existing channel with the same URI. The insert only proceeds if no matching channel was found. This prevents duplicate channel records.
+   	This script checks the **Channel** table for an existing channel with the same URI. The insert only proceeds if no matching channel was found. This prevents duplicate channel records.
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
-   ![][5]
+   	![][5]
 
 5. Replace the insert function with the following code, and then click **Save**:
 
@@ -163,19 +163,19 @@ Next, you will modify the push notifications app to store data in this new table
 
 3. Tap the tile named either **TodoList** or **hello push** to launch the app. 
 
-  ![][23]
+  	![][23]
 
 5. In the app, enter the text "hello push again" in the textbox, and then click **Save**.
 
-   ![][24]
+   	![][24]
 
-  This sends an insert request to the mobile service to store the added item.
+  	This sends an insert request to the mobile service to store the added item.
 
 6. Press the **Start** button to return to the start menu. 
 
-  ![][25]
+  	![][25]
 
-  Notice that the application received the push notification and that the title of the tile is now **hello push**.
+  	Notice that the application received the push notification and that the title of the tile is now **hello push**.
 
 9. (Optional) Run the app on two devices at the same time, and repeat the previous step. 
 
