@@ -18,7 +18,7 @@ Follow these steps to create a new mobile service.
 
 	![][3]
 
-    This displays the **Specify database settings** page.
+   	This displays the **Specify database settings** page.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
