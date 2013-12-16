@@ -12,13 +12,13 @@ This topic shows you how to register your apps to be able to use Live Connect as
 
 2. Click **Create application**, then type an **Application name** and click **I accept**.
 
-   ![][1] 
+   	![][1] 
 
-   This registers the application with Live Connect.
+   	This registers the application with Live Connect.
 
 10. Click **Application settings page**, then **API Settings** and make a note of the values of the **Client ID** and **Client secret**. 
 
-   ![][2]
+   	![][2]
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
