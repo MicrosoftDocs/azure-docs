@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Windows Azure Mobile Services" metaKeywords="Windows Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Windows Azure Mobile Services app." metaCanonical="" services="" documentationCenter="" title="Send email from Mobile Services with SendGrid" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Windows Azure Mobile Services" metaKeywords="Windows Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Windows Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -27,13 +27,13 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][1]
+   	![][1]
 
 3. In **todoitem**, click the **Script** tab and select **Insert**.
    
-   ![][2]
+   	![][2]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 4. Replace the insert function with the following code:
 
@@ -84,15 +84,15 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 1. In the client app project, run the quickstart application. 
 
-   This topic shows the Windows Store version of the quickstart,
+   	This topic shows the Windows Store version of the quickstart,
 
 2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
 
-   ![][3]
+   	![][3]
 
 3. Notice that you receive an email, such as one shown in the notification below. 
 
-   ![][4]
+   	![][4]
 
 Congratulations, you have successfully configured your mobile service to send email by using SendGrid.
 

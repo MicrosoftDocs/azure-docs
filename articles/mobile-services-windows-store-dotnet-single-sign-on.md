@@ -34,47 +34,47 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
 1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Submit an app page</a> at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
 
-   ![][0]
+   	![][0]
 
 2. Type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
 
-   ![][1]
+   	![][1]
 
-   This creates a new Windows Store registration for your app.
+   	This creates a new Windows Store registration for your app.
 
 3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services].
 
 4. In solution explorer, right-click the project, click **Store**, and then click **Associate App with the Store...**. 
 
-  ![][2]
+  	![][2]
 
-   This displays the **Associate Your App with the Windows Store** Wizard.
+   	This displays the **Associate Your App with the Windows Store** Wizard.
 
 5. In the wizard, click **Sign in** and then login with your Microsoft account.
 
 6. Select the app that you registered in step 2, click **Next**, and then click **Associate**.
 
-   ![][3]
+   	![][3]
 
-   This adds the required Windows Store registration information to the application manifest.    
+   	This adds the required Windows Store registration information to the application manifest.    
 
 7. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   ![][4]
+   	![][4]
 
 8. Click the **Dashboard** tab and make a note of the **Site URL** value.
 
-   ![][5]
+   	![][5]
 
     You will use this value to define the redirect domain.
 
 9. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center and click on your app in the **My applications** list.
 
-   ![][6] 
+   	![][6] 
 
 10. Click **Edit settings**, then **API Settings** and make a note of the values of **Client ID** and **Client secret**. 
 
-   ![][7]
+   	![][7]
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
@@ -84,7 +84,7 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
 16. Back in the Management Portal, click the **Identity** tab, enter the **Client secret** obtained from Windows Store, and click **Save**.
 
-   ![][13]
+   	![][13]
 
 Both your mobile service and your app are now configured to work with Live Connect.
 
@@ -92,17 +92,17 @@ Both your mobile service and your app are now configured to work with Live Conne
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
-   ![][14]
+   	![][14]
 
 2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
 
-   ![][15]
+   	![][15]
 
 3. In Visual Studio 2012 Express for Windows 8, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
 4. Press the F5 key to run this quickstart-based app; verify that an exception with a status code of 401 (Unauthorized) is raised. 
    
-   This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+   	This happens because the app is accessing Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users with Live Connect before requesting resources from the mobile service.
 
@@ -112,9 +112,9 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 2. In the **Project** menu in Visual Studio, click **Add Reference**, then expand **Windows**, click **Extensions**, check **Live SDK**, and then click **OK**. 
 
-  ![][16]
+  	![][16]
 
-  This adds a reference to the Live SDK to the project.
+  	This adds a reference to the Live SDK to the project.
 
 5. Open the project file MainPage.xaml.cs and add the following using statement:
 
