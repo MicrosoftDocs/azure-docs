@@ -4,9 +4,9 @@ To be able to store app data in the new mobile service, you must first create a 
 
 2. Click the **Data** tab, then click **+Create**.
 	
-   ![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
+   	![mobile-data-tab-empty](./media/mobile-services-create-new-service-data-2/mobile-data-tab-empty.png)
 
-   This displays the **Create new table** dialog.
+   	This displays the **Create new table** dialog.
 
 3. In **Table name** type _TodoItem_, then click the check button.
 
@@ -52,7 +52,7 @@ To be able to store app data in the new mobile service, you must first create a 
  	</table> 	
 		
 
-  This is the minimum requirement for a table in Mobile Services. 
+  	This is the minimum requirement for a table in Mobile Services. 
 
     <div class="dev-callout"><b>Note</b>
 	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
