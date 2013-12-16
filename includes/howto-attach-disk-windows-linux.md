@@ -179,20 +179,22 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 [logon]: /en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
 [logonlinux]: /en-us/manage/linux/how-to-guides/log-on-a-linux-vm/
-[Manage disks and images]:http://go.microsoft.com/fwlink/?LinkId=263439
-[Attach data disk]: ../media/attachexistingdiskwindows.png
-[Enter data disk details]: ../media/attachexistingdisk.png
-[Data disk successfully attached]: ../media/attachsuccess.png
-[Attach an empty disk]: ../media/attachdiskwindows.png
-[Attach a new empty disk]: ../media/attachnewdiskwindows.png
-[Empty data disk successfully attached]: ../media/attachemptysuccess.png
-[Open Server Manager]: ../media/servermanager.png
-[Initialize the disk]: ../media/initializedisk.png
-[Initialize the volume]: ../media/initializediskvolume.png
-[Volume successfully initialized]: ../media/initializesuccess.png
-[Get the disk messages]: ../media/diskmessages.png
-[Create new device]: ../media/diskpartition.png
-[Create partition]:../media/diskcylinder.png
-[List disk information]: ../media/diskinfo.png
-[Write the disk changes]: ../media/diskwrite.png
-[Create file system]: ../media/diskfilesystem.png
+[Manage disks and images]: http://go.microsoft.com/fwlink/?LinkId=263439
+
+[Attach a new empty disk]: ./media/howto-attach-disk-window-linux/AttachNewDiskWindows.png
+[Attach an empty disk]: ./media/howto-attach-disk-window-linux/AttachDiskWindows.png
+[Attach data disk]: ./media/howto-attach-disk-window-linux/AttachExistingDiskWindows.png
+[Create file system]: ./media/howto-attach-disk-window-linux/DiskFileSystem.png
+[Create new device]: ./media/howto-attach-disk-window-linux/DiskPartition.png
+[Create partition]: ./media/howto-attach-disk-window-linux/DiskCylinder.png
+[Data disk successfully attached]: ./media/howto-attach-disk-window-linux/AttachSuccess.png
+[Empty data disk successfully attached]: ./media/howto-attach-disk-window-linux/AttachEmptySuccess.png
+[Enter data disk details]: ./media/howto-attach-disk-window-linux/AttachExistingDisk.png
+[Get the disk messages]: ./media/howto-attach-disk-window-linux/DiskMessages.png
+[Initialize the disk]: ./media/howto-attach-disk-window-linux/InitializeDisk.png
+[Initialize the volume]: ./media/howto-attach-disk-window-linux/InitializeDiskVolume.png
+[List disk information]: ./media/howto-attach-disk-window-linux/DiskInfo.png
+[Open Server Manager]: ./media/howto-attach-disk-window-linux/ServerManager.png
+[Volume successfully initialized]: ./media/howto-attach-disk-window-linux/InitializeSuccess.png
+[Write the disk changes]: ./media/howto-attach-disk-window-linux/DiskWrite.png
+

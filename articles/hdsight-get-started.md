@@ -57,10 +57,8 @@ For more information, see [Install and configure PowerShell for HDInsight][hdins
 
 Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
 
-<div class="dev-callout">??
-<b>Important</b>??
-<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>??
-</div>
+> WACOM.NOTE
+> The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
 **To download and import publishsettings**
 
@@ -160,10 +158,8 @@ For the detailed instructions, see
 	<tr><td>Password (cluster admin)</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. This can only be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
-	<div class="dev-callout">??
-	<b>Note</b>??
-	<p>Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.</p>??
-	</div>
+	> WACOM.NOTE
+        > Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
 	The HDInsight cluster location will be the same as the storage account.
 	</td></tr>
@@ -208,7 +204,7 @@ Running a MapReduce job requires the following elements:
 
 The URI scheme for accessing files in Blob storage is:
 
-	WASB
+	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
@@ -330,7 +326,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
 
