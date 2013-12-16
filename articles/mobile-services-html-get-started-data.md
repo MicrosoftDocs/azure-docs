@@ -48,7 +48,7 @@ This tutorial is built on the [GetStartedWithData app], which is an HTML5 app. T
 
 2. In an HTML editor, open the downloaded project and examine the app.js file.
 
-   Notice that added items are stored in an in-memory **Array** object (**staticItems**). Refresh the page, and the data disappears. It is not persisted.
+   	Notice that added items are stored in an in-memory **Array** object (**staticItems**). Refresh the page, and the data disappears. It is not persisted.
 
 3. Launch one of the following command files from the **server** subfolder.
 
@@ -66,9 +66,9 @@ This tutorial is built on the [GetStartedWithData app], which is an HTML5 app. T
 
 5. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
 
-   ![][0]  
+   	![][0]  
 
-   Notice that the saved text is added to the **staticItems** array, and the page is refreshed to display the new item.
+   	Notice that the saved text is added to the **staticItems** array, and the page is refreshed to display the new item.
 
 <h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
 
@@ -82,15 +82,15 @@ To be able to store app data in the new mobile service, you must first create a 
 
 2. Click the **Data** tab, then click **+Create**.
 
-   ![][5]
+   	![][5]
 
-   This displays the **Create new table** dialog.
+   	This displays the **Create new table** dialog.
 
 3. In **Table name** type _TodoItem_, then click the check button.
 
-  ![][6]
+  	![][6]
 
-  This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table.
+  	This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table.
 
     <div class="dev-callout"> 
 	<b>Note</b> 
@@ -129,7 +129,7 @@ To be able to store app data in the new mobile service, you must first create a 
  	</tr> 	
  	</table> 
 
-  This is the minimum requirement for a table in Mobile Services. 
+  	This is the minimum requirement for a table in Mobile Services. 
 
     <div class="dev-callout"><b>Note</b>
 	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
@@ -137,7 +137,7 @@ To be able to store app data in the new mobile service, you must first create a 
 
 6. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
 
-  ![][11]
+  	![][11]
 
 	<div class="dev-callout"><b>Note</b>
 		<p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
@@ -153,9 +153,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
-   ![][8]
+   	![][8]
 
-  You will need these values when accessing the mobile service from your app code.
+  	You will need these values when accessing the mobile service from your app code.
 
 1. In your web editor, open the index.html project file and add the following to the script references for the page:
 
@@ -168,7 +168,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 	    var MobileServiceClient = WindowsAzure.MobileServiceClient,
 			client = new MobileServiceClient('AppUrl', 'AppKey'),   		    
 
-  This creates a new instance of MobileServiceClient that is used to access your mobile service.
+  	This creates a new instance of MobileServiceClient that is used to access your mobile service.
 
 6. Comment-out the following lines of code:
 
@@ -181,7 +181,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
         todoItemTable = MobileServiceClient.getTable('todoitem');
 
-   This code creates a proxy object (**todoItemTable**) for the SQL Database **TodoItem**. 
+   	This code creates a proxy object (**todoItemTable**) for the SQL Database **TodoItem**. 
 
 7. Replace the **$('#add-item').submit** event handler with the following code:
 
@@ -197,7 +197,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 		});
 
 
-  This code inserts a new item into the table.
+  	This code inserts a new item into the table.
 
 8. Replace the **refreshTodoItems** method with the following code:
 
@@ -235,7 +235,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 				.then(refreshTodoItems);
 		});
  
-   This sends an item update to the mobile service when text is changed or when the box is checked.
+   	This sends an item update to the mobile service when text is changed or when the box is checked.
 
 10. Replace the **$(document.body).on('click', '.item-delete')** event handler with the following code:
 
@@ -257,19 +257,19 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
 2. As before, type text in **Enter new task**, and then click **Add**. 
 
-   This sends a new item as an insert to the mobile service.
+   	This sends a new item as an insert to the mobile service.
 
 3. In the [Management Portal], click **Mobile Services**, and then click your mobile service.
 
 4. Click the **Data** tab, then click **Browse**.
 
-   ![][9]
+   	![][9]
   
-   Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
+   	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
 
 5. In the app, check one of the items in the list, then go back to the Browse tab in the portal and click **Refresh**. 
 
-  Notice that the complete value has changed from **false** to **true**.
+  	Notice that the complete value has changed from **false** to **true**.
 
 6. In the app.js project file, locate the **RefreshTodoItems** method and replace the line of code that defines `query` with the following:
 
@@ -277,7 +277,7 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 
 7. Load the page again, check another one of the items in the list.
 
-   Notice that the checked item now disappears from the list. Each update results in a round-trip to the mobile service, which now returns filtered data.
+   	Notice that the checked item now disappears from the list. Each update results in a round-trip to the mobile service, which now returns filtered data.
 
 This concludes the **Get started with data** tutorial.
 
