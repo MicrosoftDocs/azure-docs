@@ -91,7 +91,7 @@ In this tutorial you will learn:
 
 7.	Once your virtual network has been created, you can continue with the following tutorials:
 
-	- <a href="/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/">Add a Virtual Machine to a Virtual Network</a> ??? Use this basic tutorial to install a virtual machine to your virtual network.
+	- <a href="/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/">Add a Virtual Machine to a Virtual Network</a> - Use this basic tutorial to install a virtual machine to your virtual network.
 
 	- For more information about virtual machines and installation options, see <a href="/en-us/manage/windows/how-to-guides/custom-create-a-vm/">How to Create a Custom Virtual Machine</a> and <a href="/en-us/manage/windows/">Windows Azure Virtual Machines</a>.
 

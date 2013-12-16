@@ -8,9 +8,9 @@ This tutorial gets you started using the Microsoft HDInsight Emulator for Window
 
 HDInsight Emulator provides a local development environment for the Windows Azure HDInsight. If you are familiar with Hadoop, you can get started with the Emulator using HDFS. But, in HDInsight, the default file system is Windows Azure Blob storage (WASB, aka Windows Azure Storage - Blobs), so eventually, you will want to develop your jobs using WASB. You can get started developing against WASB by using the Windows Azure Storage Emulator - probably only want to use a small subset of your data (no config changes required in the HDInsight Emulator, just a different storage account name). Then, you test your jobs locally against Windows  Azure Storage - again, only using a subset of your data (requires a config change in the HDInsight Emulator). Finally, you are ready to move the compute portion of your job to HDInsight and run a job against production data.
 
-<div class="dev-callout">??
-<b>Note</b>??
-<p>The HDInsight Emulator can use only a single node deployment. </p>??
+<div class="dev-callout">
+<b>Note</b>
+<p>The HDInsight Emulator can use only a single node deployment. </p>
 </div>
 
 For a tutorial using HDInsight, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
@@ -40,14 +40,14 @@ Before you begin this tutorial, you must have the following:
 
 The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform Installer.  
 
-<div class="dev-callout">??
-<b>Note</b>??
+<div class="dev-callout">
+<b>Note</b>
 <p>If you have had Microsoft HDInsight Developer Preview installed, you must uninstall the following two components from Control Panel/Program and Features first.</p>
 
 <ul>
 <li>HDInsight Developer Preview</li>
 <li>Hortonworks Data Platform Developer Preview</li>
-</ul>??
+</ul>
 </div>
 
 **To install HDInsight Emulator**
@@ -427,8 +427,8 @@ It is possible to configure a local cluster in the HDInsight Emulator to use Win
 
 The Windows Azure Storage emulator comes with [Windows Azure SDK for .NET][azure-sdk]. The storage emulator don't start automatically. You must manually start it.  The application name is *Windows Azure Storage Emulator*. To start/stop the emulators, right-click the blue Windows Azure icon in the Windows System Tray, and then click Show Storage Emulator UI.
 
-<div class="dev-callout">??
-<b>Note</b>??
+<div class="dev-callout">
+<b>Note</b>
 <p>You might get the following error message when you start the storage emulator:</p>
 
 <pre><code>
@@ -453,8 +453,8 @@ For example:
 
 	hadoop fs -ls wasb://myContainer@storageemulator
 
-<div class="dev-callout">??
-<b>Note</b>??
+<div class="dev-callout">
+<b>Note</b>
 <p>If you get the following error message:</p>
 
 <pre><code>ls: No FileSystem for scheme: wasb</code></pre>

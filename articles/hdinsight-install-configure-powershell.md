@@ -4,10 +4,8 @@
 
 You can use Windows PowerShell to perform a variety of tasks in Windows Azure HDInsight. HDInsight cmdlets are part of [Windows Azure PowerShell][powershell-download]. For information on installing and configuring Windows Azure PowerShell, see [Install and configure Windows Azure PowerShell][powershell-how-to-install].  
 
-<div class="dev-callout">??
-<b>Note</b>??
-<p>HDinsight cmdlets are integrated into Windows Azure PowerShell starting from version 0.7.2. If you have previous version of HDInsight cmdlets installed, you must uninstall them before installing Windows Azure PowerShell.</p>??
-</div>
+> WACOM.NOTE
+> HDinsight cmdlets are integrated into Windows Azure PowerShell starting from version 0.7.2. If you have previous version of HDInsight cmdlets installed, you must uninstall them before installing Windows Azure PowerShell.
 
 ##<a id="seealso"></a>See also
 

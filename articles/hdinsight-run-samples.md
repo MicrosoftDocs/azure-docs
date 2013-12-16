@@ -28,10 +28,10 @@ Much additional documentation exists on the web for Hadoop-related technologies 
 
 HDInsight ships with the following samples.
 
-- [**The Pi Estimator Sample**]tutorial shows how to run a MapReduce program with HDInsight that uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi.
-- [**The WordCount Sample**]tutorial shows how to use an HDInsight cluster to run a MapReduce program that counts word occurrences in a text file.
-- [**The 10-GB Graysort Sample**]tutorial shows how to run a general purpose GraySort on a 10 GB file using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm the data has been properly sorted.
-- [**The C# Streaming Sample**]tutorial shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface. 
+- [**The Pi Estimator Sample**][pi-estimator] This tutorial shows how to run a MapReduce program with HDInsight that uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi.
+- [**The WordCount Sample**][wordcount] This tutorial shows how to use an HDInsight cluster to run a MapReduce program that counts word occurrences in a text file.
+- [**The 10-GB Graysort Sample**][10gb-graysort] This tutorial shows how to run a general purpose GraySort on a 10 GB file using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm the data has been properly sorted.
+- [**The C# Streaming Sample**][cs-streaming] This tutorial shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface. 
 
 
 ## How to run the samples ##
@@ -55,10 +55,10 @@ From this article and the articles on each of the samples, you learned how to ru
 
 [hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
 [pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-
-
-
-
+[pi-estimator]: /en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/
+[10gb-graysort]: /en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/
+[wordcount]: /en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/
+[cs-streaming]: /en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/
 
 [submit-jobs-programmatically]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-resources]: /en-us/manage/services/hdinsight/introduction-hdinsight/
