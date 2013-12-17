@@ -29,7 +29,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
         		            .Take(3)
                 		    .ToListAsync();
 
-   This query returns the top three items that are not marked as completed. 
+   	This query returns the top three items that are not marked as completed. 
 
 5. Rebuild and start the app. 
    
@@ -43,9 +43,9 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 		                    .Take(3)
 		                    .ToListAsync();
 
-   This time, set the **Skip** value to 3. 
+   	This time, set the **Skip** value to 3. 
 
-   This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
+   	This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
     <div class="dev-callout"><b>Note</b>
     <p>This tutorial uses a simplified scenario by setting hard-coded paging values for the <strong>Skip</strong> and <strong>Take</strong> properties. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the <strong>IncludeTotalCount</strong> method to get the total count of all items available on the server, along with the paged data.</p>

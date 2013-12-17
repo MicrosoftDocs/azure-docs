@@ -10,23 +10,23 @@ This topic shows you how to register your apps to be able to use Google to authe
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
-   ![][1]   
+   	![][1]   
 
 2. Click **API Access** and then click **Create an OAuth 2.0 client ID...**.
 
-   ![][2]
+   	![][2]
 
 3. Under **Branding Information**, type your **Product name**, then click **Next**.  
 
-   ![][3]
+   	![][3]
 
 4. Under **Client ID Settings**, select **Web application**, type your mobile service URL in **Your site or hostname**, click **more options**, replace the generated URL in **Authorized Redirect URIs** with the URL of your mobile service appended with the path _/login/google_, and then click **Create client ID**.
 
-   ![][4]
+   	![][4]
 
 6. Under **Client ID for web applications**, make a note of the values of **Client ID** and **Client secret**. 
 
-   ![][5]
+   	![][5]
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>The client secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>

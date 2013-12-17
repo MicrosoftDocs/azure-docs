@@ -44,7 +44,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 					});
 		}
 
-  This query returns the top three items that are not marked as completed.
+  	This query returns the top three items that are not marked as completed.
 
 5. Rebuild and start the app. 
    
@@ -52,7 +52,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 6. (Optional) View the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler]. 
 
-   Notice that the `top(3)` method was translated into the query option `$top=3` in the query URI.
+   	Notice that the `top(3)` method was translated into the query option `$top=3` in the query URI.
 
 7. Update the **RefreshTodoItems** method once more with the following code:
             
@@ -77,7 +77,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 					});
 		}
 
-   This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
+   	This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
     <div class="dev-callout"><b>Note</b>
     <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>top</strong> and <strong>skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages. You can also call the  <strong>includeInlineCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
@@ -85,7 +85,7 @@ This tutorial builds on the steps and the sample app from the previous tutorial 
 
 8. (Optional) Again view the URI of the request sent to the mobile service. 
 
-   Notice that the `skip(3)` method was translated into the query option `$skip=3` in the query URI.
+   	Notice that the `skip(3)` method was translated into the query option `$skip=3` in the query URI.
 
 ## <a name="next-steps"> </a>Next Steps
 

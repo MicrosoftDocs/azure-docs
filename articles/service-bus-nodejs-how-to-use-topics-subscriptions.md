@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Topics/Subscriptions" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-nodejs-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Node.js) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Node.js" description="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Topics/Subscriptions" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -175,20 +175,19 @@ The most flexible type of filter supported by subscriptions is the
 **SqlFilter**, which implements a subset of SQL92. SQL filters operate
 on the properties of the messages that are published to the topic. For
 more details about the expressions that can be used with a SQL filter,
-review the [SqlFilter.SqlExpression][] syntax.
+review the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
 Filters can be added to a subscription by using the **createRule**
 method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Since the default filter is applied automatically to all new
+> WACOM.NOTE
+
+> Since the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
 <strong>MatchAll</strong> will override any other filters you may specify. You can
 remove the default rule by using the <strong>deleteRule</strong> method of the
-<strong>ServiceBusService</strong> object.</p>
-</div>
+<strong>ServiceBusService</strong> object.
 
 The example below creates a subscription named 'HighMessages' with a
 **SqlFilter** that only selects messages that have a custom

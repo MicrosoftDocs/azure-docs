@@ -34,13 +34,7 @@ Before you begin this tutorial, you must have the following:
 
 ##<a id="setup"></a> Set up local environment for running PowerShell
 
-In this tutorial, you will use *PowerShell Tools for Windows Azure HDInsight* to run a MapReduce job. It requires the following configuration steps:
-
-* Install the Windows Azure module for Windows PowerShell.
-* Install PowerShell Tools for Windows Azure HDInsight.
-* Configure connectivity to your Windows Azure account.
-
-For more information, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer](web-platform-installer). Click Run when prompted, click Install, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight](powershell-install-configure).
 
 **To install Windows Azure PowerShell**
 
@@ -57,8 +51,10 @@ For more information, see [Install and configure PowerShell for HDInsight][hdins
 
 Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
 
-> WACOM.NOTE
-> The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
+<div class="dev-callout">??
+<b>Important</b>??
+<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>??
+</div>
 
 **To download and import publishsettings**
 
@@ -414,7 +410,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 [hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
 
-
+[web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&amp;clcid=0x409/
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/

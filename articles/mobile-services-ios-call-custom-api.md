@@ -1,4 +1,4 @@
-<properties linkid="manage-services-media-services" urlDisplayName="Media Services" pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Call a custom API from the client" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+<properties linkid="manage-services-media-services" urlDisplayName="Media Services" pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Call a custom API from the client" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
 
 
 # Call a custom API from the client
@@ -112,7 +112,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 4. Tap the **All** button. An alert box is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
 
-  ![][4]
+  	![][4]
 
 
 ## Next steps
@@ -144,8 +144,8 @@ Now that you have created a custom API and called it from your iOS app, consider
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: ../tutorials/mobile-services-get-started-with-users-ios.md
-[Get started with push notifications]: ../tutorials/mobile-services-get-started-with-push-ios.md
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
 
-[Define a custom API that supports periodic notifications]: ../tutorials/mobile-services-create-pull-notifications-ios.md
+[Define a custom API that supports periodic notifications]: ./en-us/develop/mobile/tutorials/create-pull-notifications-ios
 [Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control

@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-call-custom-api-android" writer="ricksal" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from the client - Windows Azure Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Call a custom API from the client" />
+<properties linkid="mobile-services-call-custom-api-android" writer="ricksal" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from an Android client | Mobile Dev Center" metaKeywords="" description="Learn how to define a custom API and then call it from an Android app that uses Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Call a custom API from the client" />
 
 # Call a custom API from the client
 
@@ -121,7 +121,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 4. Click the **Complete All** button.
 
-  ![][4]
+  	![][4]
 
 	A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
 

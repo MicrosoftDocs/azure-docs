@@ -304,7 +304,7 @@ links to learn more.
   [How to: Send Messages to a Queue]: #send-messages
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
+  [Queue Concepts]: ./media/service-bus-dotnet-how-to-use-queues/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   
   

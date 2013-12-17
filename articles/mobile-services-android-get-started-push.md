@@ -65,7 +65,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
-   ![][1]   
+   	![][1]   
 
 	<div class="dev-callout"><b>Note</b>
 	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
@@ -80,7 +80,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 4. Click **API Access**, and then click **Create new Server key...** 
 
-   ![][2]
+   	![][2]
 
 5. In **Configure Server Key for API Project**, click **Create**.
 
@@ -96,11 +96,11 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][18]
+   	![][18]
 
 2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
 
-   ![][19]
+   	![][19]
 
 You mobile service is now configured to work with GCM to send push notifications.
 
@@ -251,13 +251,13 @@ Your app is now updated to support push notifications.
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][21]
+   	![][21]
 
 2. In **todoitem**, click the **Script** tab and select **Insert**.
    
-  ![][22]
+  	![][22]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+   	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -277,7 +277,7 @@ Your app is now updated to support push notifications.
 			});
 		}
 
-   This registers a new insert script, which uses the [gcm object] to send a push notification (the inserted text) to the device provided in the insert request. 
+   	This registers a new insert script, which uses the [gcm object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
 <h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
 
@@ -289,7 +289,7 @@ Your app is now updated to support push notifications.
 
 	![][23]
 
-  This targets the project for the Google APIs.
+  	This targets the project for the Google APIs.
 
 2. From **Window**, select **Android Virtual Device Manager**, select your device, click **Edit**.
 
@@ -297,7 +297,7 @@ Your app is now updated to support push notifications.
 
 3. Select **Google APIs** in **Target**, then click OK.
 
-   ![][25]
+   	![][25]
 
 	This targets the AVD to use Google APIs.
 
@@ -305,11 +305,11 @@ Your app is now updated to support push notifications.
 
 5. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the **Add** button.
 
-  ![][26]
+  	![][26]
 
 6. You will see a black notification box appear briefly in the lower part of the screen. 
 
-  ![][28]
+  	![][28]
 
 <!--7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
 

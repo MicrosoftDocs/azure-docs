@@ -31,11 +31,11 @@ To be able to authenticate users, you must register your app with an identity pr
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   ![][4]
+   	![][4]
 
 2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
-   ![][5]
+   	![][5]
 
     You may need to provide this value to the identity provider when you register your app.
 
@@ -54,7 +54,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
 
-   ![][13]
+   	![][13]
 
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
@@ -62,17 +62,17 @@ Both your mobile service and your app are now configured to work with your chose
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
-   ![][14]
+   	![][14]
 
 2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
 
-   ![][15]
+   	![][15]
 
 3. In Xcode, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
 4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
    
-   This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
+   	This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
@@ -103,7 +103,7 @@ Next, you will update the app to authenticate users before requesting resources 
 		
 3. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
-   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ## <a name="next-steps"></a>Next steps
 

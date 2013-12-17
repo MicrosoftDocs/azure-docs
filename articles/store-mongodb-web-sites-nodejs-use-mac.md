@@ -78,17 +78,17 @@ In this section you will create a new Node application and use npm to add module
     The output of this command should appear similar to the following:
 
 		express@3.3.4 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
-		????????? methods@0.0.1
-		????????? fresh@0.1.0
-		????????? cookie-signature@1.0.1
-		????????? range-parser@0.0.4
-		????????? buffer-crc32@0.2.1
-		????????? cookie@0.1.0
-		????????? debug@0.7.2
-		????????? mkdirp@0.3.5
-		????????? commander@1.2.0 (keypress@0.1.0)
-		????????? send@0.1.3 (mime@1.2.9)
-		????????? connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14) 
+		├── methods@0.0.1
+		├── fresh@0.1.0
+		├── cookie-signature@1.0.1
+		├── range-parser@0.0.4
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.3 (mime@1.2.9)
+		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14) 
  
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -135,26 +135,26 @@ The **package.json** file is one of the files created by the **express** command
     The output of this command should appear similar to the following:
 
 		express@3.3.4 node_modules\express
-		????????? methods@0.0.1
-		????????? fresh@0.1.0
-		????????? range-parser@0.0.4
-		????????? cookie-signature@1.0.1
-		????????? buffer-crc32@0.2.1
-		????????? cookie@0.1.0
-		????????? debug@0.7.2
-		????????? mkdirp@0.3.5
-		????????? commander@1.2.0 (keypress@0.1.0)
-		????????? send@0.1.3 (mime@1.2.9)
-		????????? connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
+		├── methods@0.0.1
+		├── fresh@0.1.0
+		├── range-parser@0.0.4
+		├── cookie-signature@1.0.1
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.3 (mime@1.2.9)
+		└── connect@2.8.4 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, formidable@1.0.14)
 
 		jade@0.33.0 node_modules\jade
-		????????? character-parser@1.0.2
-		????????? mkdirp@0.3.5
-		????????? commander@1.2.0 (keypress@0.1.0)
-		????????? with@1.1.0 (uglify-js@2.3.6)
-		????????? constantinople@1.0.1 (uglify-js@2.3.6)
-		????????? transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
-		????????? monocle@0.1.48 (readdirp@0.2.5)
+		├── character-parser@1.0.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── with@1.1.0 (uglify-js@2.3.6)
+		├── constantinople@1.0.1 (uglify-js@2.3.6)
+		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		└── monocle@0.1.48 (readdirp@0.2.5)
 
 	This installs all of the default modules that Express needs.
 
@@ -165,14 +165,14 @@ The **package.json** file is one of the files created by the **express** command
 	The output of this command should appear similar to the following:
 
 		mongoose@3.6.15 node_modules\mongoose
-		????????? regexp-clone@0.0.1
-		????????? sliced@0.0.3
-		????????? muri@0.3.1
-		????????? hooks@0.2.1
-		????????? mpath@0.1.1
-		????????? ms@0.1.0
-		????????? mpromise@0.2.1 (sliced@0.0.4)
-		????????? mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
+		├── regexp-clone@0.0.1
+		├── sliced@0.0.3
+		├── muri@0.3.1
+		├── hooks@0.2.1
+		├── mpath@0.1.1
+		├── ms@0.1.0
+		├── mpromise@0.2.1 (sliced@0.0.4)
+		└── mongodb@1.3.11 (bson@0.1.9, kerberos@0.0.3)
 
     <div class="dev-callout">
 	<strong>Note</strong>
@@ -504,15 +504,15 @@ To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Crea
 [Publishing to Windows Azure Web Sites with Git]    
 
 
-
-
-
-
-
+[node]: http://nodejs.org
+[MongoDB]: http://www.mongodb.org
+[Git]: http://git-scm.com
+[Express]: http://expressjs.com
+[Mongoose]: http://mongoosejs.com
 [for free]: /en-us/pricing/free-trial
 [Git remote]: http://git-scm.com/docs/git-remote
-
-
+[azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
+[iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Windows Azure Developer Center]: /en-us/develop/nodejs/
 [Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
@@ -520,7 +520,7 @@ To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Crea
 [Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
 [Node.js Web Application with the Windows Azure Table Service]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
 [node-mongo-finished]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
-
+[node-mongo-express-results]: ./media/store-mongodb-web-sites-nodejs-use-mac/express_output.png
 [node-mongo-add-item]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_add_item.png
 [node-mongo-list-items]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_items.png
 [download-publishing-settings]: ./media/store-mongodb-web-sites-nodejs-use-mac/azure-account-download-cli.png

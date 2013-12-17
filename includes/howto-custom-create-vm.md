@@ -30,8 +30,8 @@ Each virtual machine is associated with a cloud service, either by itself or wit
 
 11. In **Cloud Service**, do one of the following:
 	
-	- If this is the first or only virtual machine in the cloud service, select **Create a New Cloud Service**. Then, in **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service.
-	- If this virtual machine is being added to a cloud service, select it in the list.
+- If this is the first or only virtual machine in the cloud service, select **Create a New Cloud Service**. Then, in **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service.
+- If this virtual machine is being added to a cloud service, select it in the list.
 
 	**Note**: For more information about placing virtual machines in the same cloud service, see [How to connect virtual machines in a cloud service](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 

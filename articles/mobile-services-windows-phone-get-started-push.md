@@ -67,7 +67,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 	       await registrationsTable.InsertAsync(registration);
         }
 
-   This code acquires and stores a channel for a push notification subscription and binds it to the app's default tile.
+   	This code acquires and stores a channel for a push notification subscription and binds it to the app's default tile.
 
 	<div class="dev-callout"><b>Note</b>
 		<p>In this this tutorial, the mobile service sends a flip Tile notification to the device. When you send a toast notification, you must instead call the <strong>BindToShellToast</strong> method on the channel. To support both toast and tile notifications, call both <strong>BindToShellTile</strong> and  <strong>BindToShellToast</strong> </p>
@@ -77,14 +77,14 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
         AcquirePushChannel();
 
-   This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
+   	This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
 
 
 5.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
-   ![][1]
+   	![][1]
 
-   This makes sure that your app can receive push notifications.
+   	This makes sure that your app can receive push notifications.
 
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert scripts in the Management Portal</h2>
 
@@ -92,7 +92,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
-   ![][10]
+   	![][10]
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -132,25 +132,25 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 3. Tap and hold on the app icon, and then select **pin to start** from the context menu.
 
-  ![][2]
+  	![][2]
 
-  This pins a tile named **TodoList** to the start menu.
+  	This pins a tile named **TodoList** to the start menu.
 
 4. Tap the tile named **TodoList** to launch the app. 
 
-  ![][3]
+  	![][3]
 
 5. In the app, enter the text "hello push" in the textbox, and then click **Save**.
 
-   ![][4]
+   	![][4]
 
-  This sends an insert request to the mobile service to store the added item.
+  	This sends an insert request to the mobile service to store the added item.
 
 6. Press the **Start** button to return to the start menu. 
 
-  ![][5]
+  	![][5]
 
-  Notice that the application received the push notification and that the title of the tile is now **hello push**.
+  	Notice that the application received the push notification and that the title of the tile is now **hello push**.
 
 ## <a name="next-steps"> </a>Next steps
 

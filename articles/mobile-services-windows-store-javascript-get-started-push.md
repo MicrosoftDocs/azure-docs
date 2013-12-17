@@ -47,11 +47,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
 
-   ![][13]
+   	![][13]
 
-   Note that after the insert completes, the app receives a push notification from WNS.
+   	Note that after the insert completes, the app receives a push notification from WNS.
 
-   ![][14]
+   	![][14]
 
 ## <a name="next-steps"> </a>Next steps
 

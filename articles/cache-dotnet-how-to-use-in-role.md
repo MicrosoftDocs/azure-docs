@@ -397,14 +397,14 @@ follow these links to learn how to do more complex caching tasks.
   [Windows Azure Management Portal]: http://windows.azure.com/
   
    [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
-  [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role//cache9.png
-  [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role//cache10.png
-  [RoleCache4]: ./media/cache-dotnet-how-to-use-in-role//cache11.png
-  [RoleCache5]: ./media/cache-dotnet-how-to-use-in-role//cache12.png
-  [RoleCache6]: ./media/cache-dotnet-how-to-use-in-role//cache13.png
-  [RoleCache7]: ./media/cache-dotnet-how-to-use-in-role//cache14.png
-  [RoleCache8]: ./media/cache-dotnet-how-to-use-in-role//cache15.png
-  [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role//cache17.png
+  [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
+  [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
+  [RoleCache4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
+  [RoleCache5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
+  [RoleCache6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
+  [RoleCache7]: ./media/cache-dotnet-how-to-use-in-role/cache14.png
+  [RoleCache8]: ./media/cache-dotnet-how-to-use-in-role/cache15.png
+  [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
   
   [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-wp8" urlDisplayName="Authorize Users in Scripts (WP8)" pageTitle="Authorize users in scripts (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in scripts in your Windows Phone app with Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Use scripts to authorize users in Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-wp8" urlDisplayName="Authorize Users in Scripts (Windows Phone)" pageTitle="Authorize users in scripts (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in scripts in your Windows Phone app with Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Use scripts to authorize users in Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -23,15 +23,15 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][1]
+   	![][1]
 
 3. Click **Script**, then select the **Insert** operation.
 
-   ![][2]
+   	![][2]
 
 4. Replace the existing script with the following function, and then click **Save**.
 
@@ -54,7 +54,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
            request.execute();
         }
 
-   This script filters the returned TodoItem objects so that each user only receives the items that they inserted.
+   	This script filters the returned TodoItem objects so that each user only receives the items that they inserted.
 
 ## Test the app
 
@@ -62,13 +62,13 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 2. Press the F5 key to run the app, then log-on with your chosen identity provider. 
 
-   Notice that this time, although there are items already in the TodoItem table from previous tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
+   	Notice that this time, although there are items already in the TodoItem table from previous tutorials, no items are returned. This happens because previous items were inserted without the userId column and now have null values.
 
 3. In the app, enter text in the textbox and then click **Save**.
 
-   ![][3]
+   	![][3]
 
-   This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service.
+   	This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service.
 
 5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item now has an associated userId value.
 
