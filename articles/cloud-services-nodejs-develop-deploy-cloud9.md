@@ -21,7 +21,7 @@ In this tutorial you will learn how to:
 environment. One of the features Cloud9 supports for Node.js projects is
 that you can directly deploy to Windows Azure from within the IDE.
 Cloud9 also integrates with the GitHub and BitBucket repository
-services, so it???s easy to share your project with others.
+services, so it's easy to share your project with others.
 
 Using Cloud9, you can develop and deploy an application to Windows Azure
 from many modern browsers and operating systems, without having to
@@ -34,8 +34,7 @@ To use Cloud9, you first need to visit their web site and [register for a
 subscription][Cloud9 IDE]. You can sign in with either an existing
 GitHub or BitBucket account, or create a Cloud9 account. A free
 subscription offering is available, as well as a paid offering which
-provides more features. For more information, see [Cloud 9 IDE][Cloud9
-IDE].
+provides more features. For more information, see [Cloud9 IDE][].
 
 ## Create a Node.js Project
 
@@ -47,7 +46,7 @@ IDE].
 2.  In the **Create a new project** dialog, enter a project name,
     access, and project type. Click **Create** to create the project.
 
-    ![create new project dialog -- Cloud9][create new project dialog -- Cloud9]
+    ![create new project dialog Cloud9][create new project dialog Cloud9]
 
     <div class="dev-callout">
 	<strong>Note</strong>
@@ -176,7 +175,7 @@ trial by following these steps:
     service* is the container in which your application is hosted when
     it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
-    ![create a new deployment][1]
+    ![create a new deployment][create a new deployment]
 
 5.  You will be prompted for the name of the new hosted service and
     configuration options such as the number of instances, host OS, and
@@ -215,16 +214,16 @@ trial by following these steps:
 3.  Click **Deploy** to begin deployment.
 
 4.  If this is the first time you have deployed this project to Windows
-    Azure, you will receive an error of **???No web.config found???**.
+    Azure, you will receive an error of **'No web.config found'**.
     Select **Yes** to create the file. This will add a
-    ???Web.cloud.config??? file to your project.
+    'Web.cloud.config' file to your project.
 
     ![no web.config file found message.][no web.config file found message.]
 
 5.  If this is the first time you have deployed this project to Windows
-    Azure, you will receive an error of **???No ???csdef??? file present???**.
+    Azure, you will receive an error of **'No 'csdef' file present'**.
     Select **Yes** to create the .csdef file. This will add a
-    ???ServiceDefinition.csdef??? file to your project.
+    'ServiceDefinition.csdef' file to your project.
     ServiceDefinition.csdef is a Windows Azure-specific files necessary
     for publishing your application. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
@@ -390,7 +389,7 @@ Azure, perform the following steps:
 
   [Cloud9 IDE]: http://cloud9ide.com/
   [create new Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_create_project.png
-  [create new project dialog -- Cloud9]: ../Media/cloud9_new_project.png
+  [create new project dialog Cloud9]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_project.png
   [start editing the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_startediting.png
   [create new file in the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_filenew.png
   [save the server.js file]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png
@@ -399,9 +398,10 @@ Azure, perform the following steps:
   [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
   
   [create a new deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
+  
   [download publish settings]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [1]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_add_a_deploy_target.png
+  [1]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud-services-nodejs-develop-deploy-cloud9/cloud9_add_a_deploy_target.png
   [create a new hosted service]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png
   [select a deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png
   [no web.config file found message.]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png
