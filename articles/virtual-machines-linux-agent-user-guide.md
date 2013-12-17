@@ -92,9 +92,9 @@ The agent's log file is kept at /var/log/waagent.log.
 
 ###Commands
 
-- -help: Lists the supported commands and flags.
+- help: Lists the supported commands and flags.
 
-- -install: Manual installation of the agent
+- install: Manual installation of the agent
  * Checks the system for required dependencies
 
  * Creates the SysV init script (/etc/init.d/waagent), the logrotate configuration file (/etc/logrotate.d/waagent and configures the image to run the init script on boot
@@ -107,7 +107,7 @@ The agent's log file is kept at /var/log/waagent.log.
 
  * Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) to /var/lib/waagent/  
 
-- -uninstall: Remove waagent and associated files
+- uninstall: Remove waagent and associated files
  * Unregisters the init script from the system and deletes it
 
  * Deletes the logrotate configuration and the waagent config file in /etc/waagent.conf
@@ -116,7 +116,7 @@ The agent's log file is kept at /var/log/waagent.log.
 
  * Automatic reverting of the VNUMA workaround is not supported, please edit the GRUB configuration files by hand to re-enable NUMA if required.
 
-- -deprovision: Attempt to clean the system and make it suitable for re-provisioning. This operation deleted the following:
+- deprovision: Attempt to clean the system and make it suitable for re-provisioning. This operation deleted the following:
  * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
 
  * Nameserver configuration in /etc/resolv.conf
@@ -129,15 +129,15 @@ The agent's log file is kept at /var/log/waagent.log.
 
  **Warning:** Deprovision does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
-- -deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Windows Azure so it may be captured and re-used.
+- deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Windows Azure so it may be captured and re-used.
 
-- -version: Displays the version of waagent
+- version: Displays the version of waagent
 
-- -serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
+- serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
    the boot console. This ensures that kernel bootup logs are sent to the
    serial port and made available for debugging.
 
-- -daemon: Run waagent as a daemon to manage interaction with the platform.
+- daemon: Run waagent as a daemon to manage interaction with the platform.
    This argument is specified to waagent in the waagent init script.
 
 ##Configuration

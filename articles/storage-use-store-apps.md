@@ -71,6 +71,6 @@ You can also add a reference to Microsoft.WindowsAzure.Storage.Table.dll, availa
 
 
 
-
-
-
+[store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
+[store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
+[store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
