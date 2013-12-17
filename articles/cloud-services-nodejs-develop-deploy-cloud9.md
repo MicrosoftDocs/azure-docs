@@ -21,7 +21,7 @@ In this tutorial you will learn how to:
 environment. One of the features Cloud9 supports for Node.js projects is
 that you can directly deploy to Windows Azure from within the IDE.
 Cloud9 also integrates with the GitHub and BitBucket repository
-services, so it???s easy to share your project with others.
+services, so it's easy to share your project with others.
 
 Using Cloud9, you can develop and deploy an application to Windows Azure
 from many modern browsers and operating systems, without having to
@@ -34,8 +34,7 @@ To use Cloud9, you first need to visit their web site and [register for a
 subscription][Cloud9 IDE]. You can sign in with either an existing
 GitHub or BitBucket account, or create a Cloud9 account. A free
 subscription offering is available, as well as a paid offering which
-provides more features. For more information, see [Cloud 9 IDE][Cloud9
-IDE].
+provides more features. For more information, see [Cloud9 IDE][].
 
 ## Create a Node.js Project
 
@@ -47,7 +46,7 @@ IDE].
 2.  In the **Create a new project** dialog, enter a project name,
     access, and project type. Click **Create** to create the project.
 
-    ![create new project dialog -- Cloud9][create new project dialog -- Cloud9]
+    ![create new project dialog Cloud9][create new project dialog Cloud9]
 
     <div class="dev-callout">
 	<strong>Note</strong>
@@ -176,7 +175,7 @@ trial by following these steps:
     service* is the container in which your application is hosted when
     it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
-    ![create a new deployment][1]
+    ![create a new deployment][create a new deployment]
 
 5.  You will be prompted for the name of the new hosted service and
     configuration options such as the number of instances, host OS, and
@@ -215,16 +214,16 @@ trial by following these steps:
 3.  Click **Deploy** to begin deployment.
 
 4.  If this is the first time you have deployed this project to Windows
-    Azure, you will receive an error of **???No web.config found???**.
+    Azure, you will receive an error of **'No web.config found'**.
     Select **Yes** to create the file. This will add a
-    ???Web.cloud.config??? file to your project.
+    'Web.cloud.config' file to your project.
 
     ![no web.config file found message.][no web.config file found message.]
 
 5.  If this is the first time you have deployed this project to Windows
-    Azure, you will receive an error of **???No ???csdef??? file present???**.
+    Azure, you will receive an error of **'No 'csdef' file present'**.
     Select **Yes** to create the .csdef file. This will add a
-    ???ServiceDefinition.csdef??? file to your project.
+    'ServiceDefinition.csdef' file to your project.
     ServiceDefinition.csdef is a Windows Azure-specific files necessary
     for publishing your application. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
@@ -382,39 +381,40 @@ Azure, perform the following steps:
     ![delete the deployment][delete the deployment]
 
 5.  Select the production deployment, and click **Delete** to delete
-    that application as well.
+    that application as well. 
 
 ## Additional Resources
 
 -   [Cloud9 documentation][]
 
   [Cloud9 IDE]: http://cloud9ide.com/
-  [create new Cloud9 project]: ../Media/cloud9_create_project.png
-  [create new project dialog -- Cloud9]: ../Media/cloud9_new_project.png
-  [start editing the Cloud9 project]: ../Media/cloud9_startediting.png
-  [create new file in the Cloud9 project]: ../Media/cloud9_filenew.png
-  [save the server.js file]: ../Media/cloud9_saveas.png
-  [run in the debugger]: ../Media/cloud9_debug.png
-  [output window]: ../Media/cloud9_output.png
-  [application running in browser]: ../Media/cloud9_debug_browser.png
+  [create new Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_create_project.png
+  [create new project dialog Cloud9]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_project.png
+  [start editing the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_startediting.png
+  [create new file in the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_filenew.png
+  [save the server.js file]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png
+  [run in the debugger]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
+  [output window]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
+  [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
   
-  [create a new deployment]: ../Media/cloud9_createdeployment.png
-  [download publish settings]: ../Media/cloud9_choosetypeandcert.png
+  [create a new deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
+
+  [download publish settings]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [1]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_add_a_deploy_target.png
-  [create a new hosted service]: ../Media/cloud9_new_hosted_service_settings.png
-  [select a deployment]: ../Media/cloud9_select_deployment.png
-  [no web.config file found message.]: ../Media/cloud9_no_web_config.png
+  [1]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud-services-nodejs-develop-deploy-cloud9/cloud9_add_a_deploy_target.png
+  [create a new hosted service]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png
+  [select a deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png
+  [no web.config file found message.]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png
   [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [specify csdef file values]: ../Media/cloud9_createcsdef.png
-  [deployment status]: ../Media/cloud9_deployment_status.png
-  [Windows Azure production URL link]: ../Media/cloud9_production_url.png
-  [console output showing staging URL]: ../Media/cloud9_staging_console_output.png
+  [specify csdef file values]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png
+  [deployment status]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png
+  [Windows Azure production URL link]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_url.png
+  [console output showing staging URL]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_staging_console_output.png
   [Overview of Managing Deployments in Windows Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
-  [Link from deploy dialog to Windows Azure Management Portal]: ../Media/cloud9_portal_link.png
-  [Windows Azure Management Portal]: ../Media/cloud9_hosted_service_and_ribbon.png
-  [VIP SWAP]: ../Media/cloud9_portal_vipswap.png
-  [Production application running on Windows Azure]: ../Media/cloud9_production_on_azure.png
-  [Connect to an instance]: ../Media/connect.png
-  [delete the deployment]: ../Media/cloud9_deletedeployment.png
+  [Link from deploy dialog to Windows Azure Management Portal]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_link.png
+  [Windows Azure Management Portal]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_hosted_service_and_ribbon.png
+  [VIP SWAP]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_vipswap.png
+  [Production application running on Windows Azure]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_on_azure.png
+  [Connect to an instance]: ./media/cloud-services-nodejs-develop-deploy-cloud9/connect.png
+  [delete the deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deletedeployment.png
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409
