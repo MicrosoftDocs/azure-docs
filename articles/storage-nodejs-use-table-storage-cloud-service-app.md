@@ -473,17 +473,17 @@ The following steps show you how to stop and delete your application.
   [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [The completed web page in internet explorer]: ../Media/getting-started-1.png
-  [The web.cloud.config file contents]: ../Media/node37.png
+  [The completed web page in internet explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
+  [The web.cloud.config file contents]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
   
   
-  [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ../Media/node40.png
-  [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ../Media/node41.png
-  [The home.js file with the line module.exports = Home highlighted.]: ../Media/node42.png
-  [The showresults: function is highlighted]: ../Media/node43.png
-  [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ../Media/node44.png
-  [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ../Media/node45.png
-  [the status messages displayed during deployment.]: ../Media/node35.png
-  [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ../Media/node47.png
-  [Status messages indicating the service has stopped.]: ../Media/node48.png
-  [Status messages indicating the service has been deleted.]: ../Media/node49.png
+  [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png
+  [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png
+  [The home.js file with the line module.exports = Home highlighted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node42.png
+  [The showresults: function is highlighted]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png
+  [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png
+  [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node45.png
+  [the status messages displayed during deployment.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node35.png
+  [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png
+  [Status messages indicating the service has stopped.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node48.png
+  [Status messages indicating the service has been deleted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png
