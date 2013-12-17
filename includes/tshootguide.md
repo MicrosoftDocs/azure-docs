@@ -755,14 +755,14 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Azure Diagnostics Manager]: http://cerebrata.com/Products/AzureDiagnosticsManager/
 [Cloud Storage Studio]: http://cerebrata.com/Products/CloudStorageStudio/
 [Azure Management Cmdlets]: http://cerebrata.com/Products/AzureManagementCmdlets/
-
-
-
-
-
+[Gomez]: http://www.compuware.com/application-performance-management/
+[Keynote]: http://www.keynote.com/solutions/
+[Pingdom]: http://pingdom.com/
+[AlertBot]: http://www.alertbot.com/products/website-monitoring/default.aspx
+[IntelliTrace]: http://msdn.microsoft.com/en-us/library/dd264915.aspx
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
-
-
+[AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
+[profile]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
 [VM Assitant]: http://azurevmassist.codeplex.com/
 [Debugging Node in the Windows Azure Emulator]: http://weblogs.asp.net/jimwang/archive/2012/04/17/debugging-node-node-inspector-in-the-azure-emulator.aspx
 [Debugging with Node-Inspector]: http://howtonode.org/debugging-with-node-inspector
@@ -804,6 +804,6 @@ For more information on quota-related errors, see [Understanding Quotas].
 [Microsoft Enterprise Library 5.0 Integration Pack for Windows Azure]: http://msdn.microsoft.com/en-us/library/hh680918%28v=pandp.50%29.aspx
 [Take Control of Logging and Tracing in Windows Azure]: http://msdn.microsoft.com/en-us/magazine/ff714589.aspx
 [Cloud Application Framework & Extensions (CloudFx)]: http://nuget.org/packages/Microsoft.Experience.CloudFx
-
+[Fiddler]: http://www.fiddler2.com/fiddler2/
 [Understanding Quotas]: http://msdn.microsoft.com/en-us/library/gg185683.aspx
 [Troubleshooting Cache]: http://go.microsoft.com/fwlink/?LinkId=252730 
