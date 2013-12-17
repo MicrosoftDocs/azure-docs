@@ -50,10 +50,12 @@ The Queue service contains the following components:
 
 -   **URL format:** Queues are addressable using the following URL
     format:   
-    http://storageaccount.queue.core.windows.net/queue  
+    
+		http://storageaccount.queue.core.windows.net/queue  
       
     The following URL addresses one of the queues in the diagram:  
-    http://myaccount.queue.core.windows.net/imagesToDownload
+    
+		http://myaccount.queue.core.windows.net/imagesToDownload
 
 -   **Storage Account:** All access to Windows Azure Storage is done
     through a storage account. A storage account is the highest level of
@@ -202,10 +204,9 @@ from the queue by calling the **peekMessages** method. By default,
 		}
 	});
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Using <strong>peekMessage</strong> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
-</div>
+
+>WACOM.NOTE 
+>Using <strong>peekMessage</strong> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
 
@@ -236,10 +237,8 @@ after the message has been processed.
 	    }
 	});
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.</p>
-</div>
+>WACOM.NOTE 
+>Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
 

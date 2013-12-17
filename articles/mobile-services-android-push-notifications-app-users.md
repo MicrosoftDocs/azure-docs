@@ -25,19 +25,19 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, and then click **Create**.
 
-   ![][1]
+   	![][1]
 
-   This displays the **Create new table** dialog.
+   	This displays the **Create new table** dialog.
 
 3. Keeping the default **Anybody with the application key** setting for all permissions, type _Registration_ in **Table name**, and then click the check button.
 
-   ![][2]
+   	![][2]
 
-  This creates the **Registration** table, which stores the registration URIs used to send push notifications separate from item data.
+  	This creates the **Registration** table, which stores the registration URIs used to send push notifications separate from item data.
 
 Next, you will modify the push notifications app to store registration data in this new table instead of in the **TodoItem** table.
 
@@ -154,13 +154,13 @@ Your app is now updated to support push notifications to users.
 
 1. In the Management Portal, click the **Data** tab and then click the **Registration** table. 
 
-   ![][3]
+   	![][3]
 
 2. In **registration**, click the **Script** tab and select **Insert**.
    
-   ![][4]
+   	![][4]
 
-   This displays the function that is invoked when an insert occurs in the **Registration** table.
+   	This displays the function that is invoked when an insert occurs in the **Registration** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -178,11 +178,11 @@ Your app is now updated to support push notifications to users.
     	    }
 	    }
 
-   This script checks the **Registration** table for an existing registration with the same URI. The insert only proceeds if no matching registration was found. This prevents duplicate registration records.
+   	This script checks the **Registration** table for an existing registration with the same URI. The insert only proceeds if no matching registration was found. This prevents duplicate registration records.
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
-   ![][5]
+   	![][5]
 
 5. Replace the insert function with the following code, and then click **Save**:
 
@@ -225,11 +225,11 @@ Your app is now updated to support push notifications to users.
   
 6. You will see a black notification box appear briefly in the lower part of the screen. 
 
-  ![][28]
+  	![][28]
 
 <!--7. Tap on the icon and swipe down to display the notification, which appears in the graphic below.
 
-  ![][27]-->
+  	![][27]-->
 
 You have successfully completed this tutorial.
 

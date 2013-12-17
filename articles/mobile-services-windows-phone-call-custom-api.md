@@ -89,7 +89,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 4. Tap the **Complete All** button.
 
-  ![][4]
+  	![][4]
 
 	A message box is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
 

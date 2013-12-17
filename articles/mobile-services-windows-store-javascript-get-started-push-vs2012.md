@@ -53,7 +53,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
                 channel = newChannel;
             });
 
-   This code acquires and stores a push notification channel each time the application is launched.
+   	This code acquires and stores a push notification channel each time the application is launched.
 		
 4. Insert the following code after the code that creates the **MobileServiceClient** instance:
 	
@@ -65,9 +65,9 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
-   ![][15]
+   	![][15]
 
-   This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
 
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
 
@@ -75,7 +75,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
-   ![][5]
+   	![][5]
 
 5. Replace the insert function with the following code, and then click **Save**:
 
@@ -113,11 +113,11 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
 
-   ![][13]
+   	![][13]
 
-   Note that after the insert completes, the app receives a push notification from WNS.
+   	Note that after the insert completes, the app receives a push notification from WNS.
 
-   ![][14]
+   	![][14]
 
 ## <a name="next-steps"> </a>Next steps
 

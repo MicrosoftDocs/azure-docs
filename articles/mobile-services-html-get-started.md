@@ -48,21 +48,21 @@ In this section you will create a new HTML app that is connected to your mobile 
    
 2. In the quickstart tab, click **Windows** under **Choose platform** and expand **Create a new HTML app**.
 
-   ![][6]
+   	![][6]
 
-   This displays the three easy steps to create and host an HTML app connected to your mobile service.
+   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
-  ![][7]
+  	![][7]
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
 4. Under **Download and run your app**, click **Download**. 
 
-  This downloads the web site files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
+  	This downloads the web site files for the sample _To do list_ application that is connected to your mobile service. Save the compressed file to your local computer, and make a note of where you save it.
 
 5. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
 
-  ![][9]
+  	![][9]
 
 	<div class="dev-callout"><b>Note</b>
 		<p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
@@ -88,9 +88,9 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 3. In the app, type meaningful text, such as _Complete the tutorial_, in **Enter new task**, and then click **Add**.
 
-   ![][10]
+   	![][10]
 
-   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+   	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -99,11 +99,11 @@ The final stage of this tutorial is to host and run your new app on your local c
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
-   ![][11]
+   	![][11]
 
-   This lets you browse the data inserted by the app into the table.
+   	This lets you browse the data inserted by the app into the table.
 
-   ![][12]
+   	![][12]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 

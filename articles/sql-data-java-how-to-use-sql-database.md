@@ -114,14 +114,15 @@ We'll actually use this string later in this guide, for now you know the steps t
 1. Create a Java project. For purposes of this tutorial, call it **HelloSQLAzure**.
 2. Add a Java class file named **HelloSQLAzure.java** to the project.
 3. Add the **Microsoft JDBC Driver for SQL Server** to your build path.
-<p/>If you are using Eclipse
+
+   If you are using Eclipse:
     1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
     2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
     3. Click the **Libraries** tab, and then click **Add Library**.
     4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
     5. Click **OK** to close the **Properties** dialog.
 
-    <p/>If you are not using Eclipse
+    If you are not using Eclipse:
     1. Add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
 4. Within your **HelloSQLAzure.java** code, add in `import` statements as shown in the following:
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -23,19 +23,19 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][0]
+   	![][0]
 
 2. Click the **Data** tab, and then click **Create**.
 
-   ![][1]
+   	![][1]
 
-   This displays the **Create new table** dialog.
+   	This displays the **Create new table** dialog.
 
 3. Keeping the default **Anybody with the application key** setting for all permissions, type _Devices_ in **Table name**, and then click the check button.
 
-   ![][2]
+   	![][2]
 
-  This creates the **Devices** table, which stores the device tokens used to send push notifications separate from item data.
+  	This creates the **Devices** table, which stores the device tokens used to send push notifications separate from item data.
 
 Next, you will modify the push notifications app to store data in this new table instead of in the **TodoItem** table.
 
@@ -46,7 +46,7 @@ Next, you will modify the push notifications app to store data in this new table
         // Declare method to register device token for other users
         - (void)registerDeviceToken:(NSString *)deviceToken;
 
-   This enables the App Delegate to register a deviceToken with the Mobile Service.
+   	This enables the App Delegate to register a deviceToken with the Mobile Service.
 
 2. In QSTodoService.m, add the following instance method:
 
@@ -65,7 +65,7 @@ Next, you will modify the push notifications app to store data in this new table
             }];
         }
 
-   This allows other callers to register the device token with Mobile Services.
+   	This allows other callers to register the device token with Mobile Services.
 
 3. In the QSAppDelegate.m file, add the following import statement:
 
@@ -100,7 +100,7 @@ Next, you will modify the push notifications app to store data in this new table
             @"deviceToken" : delegate.deviceToken
         };
  
-   Replace this with the following code:
+   	Replace this with the following code:
 
         // We removed the delegate; this application no longer passes the deviceToken here.
         // Remove the device token from the payload
@@ -112,13 +112,13 @@ Your app has now been updated to use the new Devices table to store device token
 
 1. In the Management Portal, click the **Data** tab and then click the **Devices** table. 
 
-   ![][3]
+   	![][3]
 
 2. In **devices**, click the **Script** tab and select **Insert**.
    
-   ![][4]
+   	![][4]
 
-   This displays the function that is invoked when an insert occurs in the **Devices** table.
+   	This displays the function that is invoked when an insert occurs in the **Devices** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -139,11 +139,11 @@ Your app has now been updated to use the new Devices table to store device token
            }
         }
 
-   This script checks the **Devices** table for an existing device with the same token. The insert only proceeds when no matching device is found. This prevents duplicate device records.
+   	This script checks the **Devices** table for an existing device with the same token. The insert only proceeds when no matching device is found. This prevents duplicate device records.
 
 4. Click **TodoItem**, click **Script** and select **Insert**. 
 
-   ![][5]
+   	![][5]
 
 5. Replace the insert function with the following code, and then click **Save**:
 
@@ -186,15 +186,15 @@ Your app has now been updated to use the new Devices table to store device token
 
 1. Press the **Run** button to build the project and start the app in an iOS capable device, then in the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 
-  ![][24]
+  	![][24]
 
 3. Verify that a notification is received, then click **OK** to dismiss the notification.
 
-  ![][25]
+  	![][25]
 
 4. Repeat step 2 and immediately close the app, then verify that the following toast is shown.
 
-  ![][26]
+  	![][26]
 
 You have successfully completed this tutorial.
 

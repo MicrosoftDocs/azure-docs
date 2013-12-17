@@ -51,6 +51,6 @@ Each virtual machine is associated with a cloud service, either by itself or wit
 
 [Create a Virtual Machine into a Virtual Network]: /en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
 [About Affinity Groups for Virtual Network]:http://msdn.microsoft.com/en-us/library/windowsazure/
-[Create a new virtual machine]:../media/create.png
-[Create a new custom virtual machine]:../media/createnew.png
-[Custom virtual machine creation successful]:../media/vmsuccesswindows.png
+[Create a new virtual machine]: ./media/howto-custom-create-vm/create.png
+[Create a new custom virtual machine]: ./media/howto-custom-create-vm/createnew.png
+[Custom virtual machine creation successful]: ./media/howto-custom-create-vm/vmsuccesswindows.png
