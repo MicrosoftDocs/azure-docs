@@ -58,9 +58,10 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 [How to create a custom virtual machine]:../../Windows/HowTo/howto-custom-create-vm.md
 [Load balancing virtual machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
 [Manage the availability of virtual machines]:../../Windows/CommonTasks/manage-vm-availability.md
-[Create a new virtual machine]:../media/create.png
-[Create a custom virtual machine]:../media/createnew.png
-[Select the image]:../media/imageselectionwindows.png
-[Define the image]:../media/imagedefinewindows.png
-[Define the connected virtual machine]:../media/connectedvms.png
-[Define the connected virtual machine region]: ../media/availabilitysetselect.png
+
+[Create a new virtual machine]: ./media/howto-connect-vm-cloud-service/create.png
+[Create a custom virtual machine]: ./media/howto-connect-vm-cloud-service/createnew.png
+[Select the image]: ./media/howto-connect-vm-cloud-service/imageselectionwindows.png
+[Define the image]: ./media/howto-connect-vm-cloud-service/imagedefinewindows.png
+[Define the connected virtual machine]: ./media/howto-connect-vm-cloud-service/connectedvms.png
+[Define the connected virtual machine region]: ./media/howto-connect-vm-cloud-service/availabilitysetselect.png

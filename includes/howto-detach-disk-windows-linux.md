@@ -58,10 +58,10 @@ The disk remains in storage but is no longer attached to a virtual machine.
 
 You can now attach the disk again to the same virtual machine or to a new machine. For instructions, see [How to Attach a Data Disk to a Virtual Machine] [attachdisk].
 
-[Find data disk]:../media/finddatadisks.png
-[List disks]:../media/disklist.png
-[Detach disk]:../media/detachdisk.png
-[Detach disk details]:../media/detachdiskdetails.png
-[Detach disk success]:../media/diskdetachsuccess.png
+[Find data disk]: ./media/howto-detach-disk-windows-linux/finddatadisks.png
+[List disks]: ./media/howto-detach-disk-windows-linux/disklist.png
+[Detach disk]: ./media/howto-detach-disk-windows-linux/detachdisk.png
+[Detach disk details]: ./media/howto-detach-disk-windows-linux/detachdiskdetails.png
+[Detach disk success]: ./media/howto-detach-disk-windows-linux/diskdetachsuccess.png
 [attachdisk]:/en-us/manage/windows/how-to-guides/attach-a-disk/
 [Manage disks and images]:http://go.microsoft.com/fwlink/p/?LinkId=263439
