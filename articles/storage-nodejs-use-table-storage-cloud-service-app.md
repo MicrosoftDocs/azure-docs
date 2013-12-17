@@ -475,8 +475,8 @@ The following steps show you how to stop and delete your application.
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
   [The completed web page in internet explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
   [The web.cloud.config file contents]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
-  
-  
+  [server.js-code]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png
+  [server.js-routes]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png
   [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png
   [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png
   [The home.js file with the line module.exports = Home highlighted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node42.png
