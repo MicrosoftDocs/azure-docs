@@ -3,4 +3,4 @@
 
 
 
-[WACOM.INCLUDE service-bus-ampq-overview.md]
+[WACOM.INCLUDE service-bus-amqp-overview.md]

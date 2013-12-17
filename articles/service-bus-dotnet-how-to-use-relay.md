@@ -352,7 +352,7 @@ follow these links to learn more.
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Relay Concepts]: ../../../DevCenter/dotNet/Media/sb-relay-01.png
+  [Relay Concepts]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
   [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
