@@ -121,12 +121,9 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 </ul>
 </li>
 
-<li>Create a VM with base operating system: On the Windows Azure Management Portal, click <strong>+NEW</strong>, then click <strong>VIRTUAL MACHINE</strong>, and then click <strong>FROM GALLERY</strong>. <br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png"/>
-</li>
-<li>The <strong>VM OS Selection</strong> dialog box appears. Click <strong>Platform Images</strong>, select the <strong>Windows Server 2008 R2 SP1</strong> platform image.<br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png"/>
- </li>
+<li>Create a VM with base operating system: On the Windows Azure Management Portal, click <strong>+NEW</strong>, then click <strong>VIRTUAL MACHINE</strong>, and then click <strong>FROM GALLERY</strong>. ![azure-sharepoint-wp-4](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-4.png)</li>
+
+<li>The <strong>VM OS Selection</strong> dialog box appears. Click <strong>Platform Images</strong>, select the <strong>Windows Server 2008 R2 SP1</strong> platform image. ![azure-sharepoint-wp-5](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-5.png)</li>
 
 <li>The <strong><em>VM Configuration </em></strong>dialog box appears. Provide the following information:
 
@@ -145,9 +142,7 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 </ul>
 </li>
 </ul>
-<br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-6.png"/>
-</li>
+![azure-sharepoint-wp-6](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-6.png)</li>
 <li>The <strong><em>VM Mode </em></strong>dialog box appears. Provide the following information:
 <ul>
 <li>Select Standalone Virtual Machine.</li>
@@ -170,21 +165,17 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 </li>
 <li>In the <strong>REGION/AFFINITY GROUP/VIRTUAL NETWORK</strong> box, select the region where the virtual image will be hosted.</li>
 </ul>
-<br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-7.png"/>
-</li>
+![azure-sharepoint-wp-7](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-7.png)</li>
 <li>The <strong><em>VM Options </em></strong>dialog box appears. Provide the following information:
 <ul>
 <li>In the <strong>AVAILABILITY SET</strong> box, select (none).</li>
 <li>Read and accept the legal terms.</li>
 <li>Click the checkmark to create the VM.</li>
 </ul>
-<br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-8.png"/></li>
+![azure-sharepoint-wp-8](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-8.png)</li>
 <li>The <strong><em>VM Instances</em></strong> page appears. Verify that your VM was created successfully. 
 
-<br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-9.png"/></li>
+![azure-sharepoint-wp-9](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-9.png)</li>
 
 <li>Complete VM setup:
 <ul>
@@ -192,8 +183,7 @@ You can deploy SharePoint 2010 on Windows Azure by following these steps:
 <li>On the Windows Azure Management Portal, select your VM, and then select the <strong>DASHBOARD</strong> page.</li>
 <li>Click <strong>Connect</strong>.</li>
 </ul>
-<br />
- <img src="./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-10.png"/></li>
+![azure-sharepoint-wp-10](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-10.png)</li>
 <li>Build the SQL Server VM using any of the following options:
 <ul>
 <li>Create a SQL Server 2012 VM by following steps 1 to 7 above-except in <strong>step 3</strong>, use the SQL Server 2012 image instead of the Windows Server 2008 R2 SP1 image. For more information, go to <a href="/en-us/manage/windows/common-tasks/install-sql-server/">Provisioning a SQL Server Virtual Machine on Windows Azure</a>.

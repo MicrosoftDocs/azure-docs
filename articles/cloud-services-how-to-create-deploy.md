@@ -62,7 +62,7 @@ Three cloud service features require special configurations before you export a 
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **New**, click **Cloud Service**, and then click **Quick Create**.
 
- ![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+ ![CloudServices_QuickCreate] [CloudServices_QuickCreate]
 
 2. In **URL**, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments. The URL format for production deployments is: http://*myURL*.cloudapp.net.
 
@@ -76,7 +76,7 @@ You can monitor the status of the process in the message area at the bottom of t
 
 The **Cloud Services** area opens, with the new cloud service displayed. When the status changes to Created, cloud service creation has completed successfully.
 
-![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+![CloudServices_CloudServicesPage] [CloudServices_CloudServicesPage]
 
 
 If any roles in the cloud service require a certificate for Secure Sockets Layer (SSL) data encryption, and the certificate has not been uploaded to Windows Azure, you must upload the certificate before you deploy the cloud service. After you upload a certificate, any Windows applications that are running in the role instances can access the certificate.
@@ -86,16 +86,16 @@ If any roles in the cloud service require a certificate for Secure Sockets Layer
 
 1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**. Then click the name of the cloud service to open the dashboard.
 
- ![CloudServices_EmptyDashboard](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+ ![CloudServices_EmptyDashboard] [CloudServices_EmptyDashboard]
 
 2. Click **Certificates** to open the **Certificates** page, shown below.
 
- ![CloudServices_CertificatesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png)
+ ![CloudServices_CertificatesPage] [CloudServices_CertificatesPage]
 
 3. Click either **Add new certificate** or **Upload**.
  **Add a Certificate** opens.
 
- ![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+ ![CloudServices_AddaCertificate] [CloudServices_AddaCertificate]
 
 4. In **Certificate file**, use **Browse** to select the certificate (.pfx file) to use.
 
@@ -105,7 +105,7 @@ If any roles in the cloud service require a certificate for Secure Sockets Layer
 
 You can watch the progress of the upload in the message area, shown below. When the upload completes, the certificate is added to the table. In the message area, click the down arrow to close the message, or click X to remove the message.
 
-![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+![CloudServices_CertificateProgress] [CloudServices_CertificateProgress]
 
 You can deploy your cloud service from the dashboard or from **Quick Start**.
 
@@ -115,7 +115,7 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 
 2. Click **Quick Start** (the icon to the left of **Dashboard**) to open the **Quick Start** page, shown below. (You can also deploy your cloud service by using **Upload** on the dashboard.)
 
- ![CloudServices_QuickStartPage](./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png)
+ ![CloudServices_QuickStartPage] [CloudServices_QuickStartPage]
 
 3. If you haven't installed the Windows Azure SDK, click **Install Azure SD**K to open the [Windows Azure Downloads page](http://www.windowsazure.com/en-us/develop/downloads/), and then download the SDK for the language in which you prefer to develop your code.
 
@@ -129,7 +129,7 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 
  When you select a deployment environment, **Upload a Package** opens.
 
- ![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+ ![CloudServices_UploadaPackage] [CloudServices_UploadaPackage]
 
 5. In **Deployment name**, enter a name for the new deployment - for example, MyCloudServicev1.
 
@@ -145,7 +145,7 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 
  You can monitor the status of the deployment in the message area. Click the down arrow to hide the message.
 
- ![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+ ![CloudServices_UploadProgress] [CloudServices_UploadProgress]
 
 ###To verify that your deployment completed successfully###
 
@@ -155,5 +155,15 @@ You can deploy your cloud service from the dashboard or from **Quick Start**.
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
- ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+ ![CloudServices_QuickGlance] [CloudServices_QuickGlance]
 
+[CloudServices_QuickCreate]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png
+[CloudServices_CloudServicesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png
+[CloudServices_EmptyDashboard]: ./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png
+[CloudServices_CertificatesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png
+[CloudServices_AddaCertificate]: ./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png
+[CloudServices_CertificateProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png
+[CloudServices_QuickStartPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png
+[CloudServices_UploadaPackage]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png
+[CloudServices_UploadProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png
+[CloudServices_QuickGlance]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png

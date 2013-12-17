@@ -47,7 +47,7 @@ To recover your mobile service after an outage:
 	<p>When you execute the command in this step, the secondary service is deleted so that its capacity can be used to recover the primary service. We recommend that you back up your scripts and settings before you run the command, if you would like to keep them.</p>
     </div>
 
-   	When you're ready, execute this command:
+   When you're ready, execute this command:
 
 		azure mobile recover PrimaryService SecondaryService
 		info:    Executing command mobile recover

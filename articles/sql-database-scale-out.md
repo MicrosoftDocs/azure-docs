@@ -26,7 +26,7 @@ In limited scenarios, you could create copies of a database and then allocate lo
 
 ##Use federations
 
-Federations in SQL Database are used to achieve greater scalability and performance. One or more tables within a database are split by row and portioned across multiple databases (Federation members). This type of horizontal partitioning is often referred to as ???sharding???. The primary scenarios in which this is useful are where you need to achieve scale, performance, or to manage capacity. 
+Federations in SQL Database are used to achieve greater scalability and performance. One or more tables within a database are split by row and portioned across multiple databases (Federation members). This type of horizontal partitioning is often referred to as 'sharding'. The primary scenarios in which this is useful are where you need to achieve scale, performance, or to manage capacity. 
 
 Federations are supported in the Business edition. For more information, see [Federations in SQL Database][] and [SQL Database Federations Tutorial - DBA][].
 

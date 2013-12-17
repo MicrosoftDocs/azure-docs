@@ -53,7 +53,7 @@ Once your subscription is activated for the preview, you need to request Premium
 
 1.	Sign in to the [Windows Azure Management Portal](https://manage.windowsazure.com) using your Microsoft account.
 
-	**Note** ??? Account administrators, service administrators, and co-administrators of the subscription can request quota once the subscription is signed up for the preview.
+	**Note** - Account administrators, service administrators, and co-administrators of the subscription can request quota once the subscription is signed up for the preview.
 
 2.	Navigate to the **Servers** list in the **SQL Databases** extension.
 3.	Select the server for which you plan to request Premium database quota.
@@ -74,12 +74,12 @@ Once your subscription is activated for the preview, you need to request Premium
 	- Only one quota request can be submitted for each logical server in the subscription.
 	- Initially, quota is limited to one database per logical server.
 	- Requesting database quota is free, however, creating a Premium edition database or upgrading an existing Web or Business edition database to Premium will increase the cost of the database.
-6.	You can see the status of your quota request on the server???s **Quick Start** page.
+6.	You can see the status of your quota request on the server's **Quick Start** page.
 
 	![Image7] [Image7]
 	
 7.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
-8.	Once granted, you can see a server???s remaining Premium database quota on the server???s **Quick Start** or **Dashboard** tab.
+8.	Once granted, you can see a server's remaining Premium database quota on the server???s **Quick Start** or **Dashboard** tab.
 
 	![Image8] [Image8]
 

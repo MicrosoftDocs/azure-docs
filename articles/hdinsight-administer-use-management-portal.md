@@ -42,9 +42,9 @@ An HDInsight cluster uses a Windows Azure Blob Storage container as the default 
 
 	When using the Quick Create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name of the container to be used by default by the cluster, you must use the custom create option. 
 
-	<div class="dev-callout">??
-	<b>Important</b>??
-	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.</p>??
+	<div class="dev-callout">
+	<b>Important</b>
+	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.</p>
 	</div>
 
 4. Click the newly created cluster.  It shows the landing page:

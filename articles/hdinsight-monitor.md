@@ -16,11 +16,11 @@ In this topic, you will learn how to monitor an HDInsight cluster.
 
 To monitor the health of an HDInsight cluster and the Hadoop jobs running on the cluster, you can connect to the HDInsight Dashboard, and click the Monitor Cluster tile.
 
-![HDI.TileMonitorCluster](./media/hdinsight-monitor/HDI.TileMonitorCluster.PNG "Monitor Cluster")
+![HDI.TileMonitorCluster] [hdi-monitor-cluster-tile]
 
 The Monitor page looks like:
 
-![HDI.MonitorPage](./media/hdinsight-monitor/HDI.MonitorPage.PNG "Monitor page")
+![HDI.MonitorPage] [hdi-monitor-page]
 
 
 On the right, it shows both Namenode and job tracker are up running, and the 4 data nodes are running in the healthy state.
@@ -30,11 +30,11 @@ On the left, it shows the map reduce metrics for the past 30 minutes. You can ch
 ##<a id="jobhistory"></a> How to: View Hadoop job history
 To view Hadoop job history, connect to HDInsight Dashboard, and then click the Job History tile. 
 
-![HDI.TileJobHistory](./media/hdinsight-monitor/HDI.TileJobHistory.PNG "Job History")
+![HDI.TileJobHistory] [hdi-job-history-tile]
 
 The tile shows the number of jobs that have been ran; for example, the previous image indicates job history is available for 6 jobs.  The job history page looks like the following:
 
-![HDI.JobHistoryPage](./media/hdinsight-monitor/HDI.JobHistoryPage.PNG "Job history page")
+![HDI.JobHistoryPage] [hdi-job-history-page]
 
 
 ## See Also
@@ -43,3 +43,8 @@ The tile shows the number of jobs that have been ran; for example, the previous 
 * [How to: Deploy an HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
 * [How to: Execute Remote Jobs on Your HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
 * [Tutorial: Getting Started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+
+[hdi-monitor-cluster-tile]: ./media/hdinsight-monitor/HDI.TileMonitorCluster.PNG
+[hdi-monitor-page]: ./media/hdinsight-monitor/HDI.MonitorPage.PNG
+[hdi-job-history-tile]: ./media/hdinsight-monitor/HDI.TileJobHistory.PNG
+[hdi-job-history-page]: ./media/hdinsight-monitor/HDI.JobHistoryPage.PNG

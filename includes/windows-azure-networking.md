@@ -14,9 +14,9 @@ Windows Azure lets you create virtual machines (VMs) that run in Microsoft datac
 There is a standard solution to this kind of problem: create a virtual private network (VPN). Organizations of all sizes do this today to link, say, branch office computers to the main company datacenter. This same approach can work with Windows Azure VMs, as Figure 1 shows.
 
 <a name="Fig1"></a>
-
-![01_Networking][01_Networking]
   
+![01_Networking][01_Networking]
+
 **Figure 1: Windows Azure Virtual Network allows creating a virtual network in the cloud that is connected to your on-premises datacenter.**
 
 As the figure shows, Windows Azure Virtual Network lets you create a logical boundary around a group of VMs, called a *virtual network or VNET*, in a Windows Azure datacenter. It then lets you establish an IPsec connection between this VNET and your local network.  The VMs in a VNET can be created using Windows Azure Virtual Machines, Windows Azure Cloud Services, or both. In other words, they can be VMs created using either the Windows Azure Infrastructure as a Service (IaaS) technology or its Platform as a Service (PaaS) technology.
@@ -38,7 +38,7 @@ Imagine that you have built a successful Windows Azure application. Your app is 
 Windows Azure Traffic Manager is designed to solve this problem. Figure 3 shows how.
 
 <a name="Fig3"></a>
-
+   
 ![03_TrafficManager][03_TrafficManager]
    
 **Figure 3: Windows Azure Traffic Manager intelligently directs requests from users across instances of an application running in different Windows Azure datacenters.**

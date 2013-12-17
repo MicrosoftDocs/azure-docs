@@ -15,7 +15,7 @@ received and processed by the receivers in the order in which they were
 added to the queue, and each message is received and processed by only
 one message consumer.</span>
 
-![Queue Concepts][Queue Concepts]
+![Queue Concepts][queue-concepts]
 
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
@@ -90,7 +90,7 @@ namespace.
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
  [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [Queue Concepts]: ./media/howto-service-bus-queues/sb-queues-08.png
+  [queue-concepts]: ./media/howto-service-bus-queues/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-queues/sb-queues-03.png
   [1]: ./media/howto-service-bus-queues/sb-queues-04.png

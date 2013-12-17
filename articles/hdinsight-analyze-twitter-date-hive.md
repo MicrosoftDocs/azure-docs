@@ -19,13 +19,13 @@ This tutorial is composed of the following segments:
 
 1. This step requires curl.exe. Download the appropriate curl file for your OS (such as the Win64 binary SSL) from <a href="http://curl.haxx.se/download.html">http://curl.haxx.se/download.html</a>.
   
-	![Figure3](./media/hdinsight-analyze-twitter-date-hive/Figure3.png)
+	![Figure3] [Figure3]
 
 2. Unzip  **curl.exe** to the appropriate location (such as **C:\twitterdata**)
 
 3. Create these two files using notepad, **get_twitter_stream.cmd** and **twitter_params.txt**  in the same folder as **curl.exe**, as follows:
   
-	![Figure4](./media/hdinsight-analyze-twitter-date-hive/Figure4.png)
+	![Figure4] [Figure4]
  
 4. Edit the **twitter_params.txt** file to track your tweets as follows:
 	
@@ -40,11 +40,11 @@ This tutorial is composed of the following segments:
 
 6. Execute the get_twitter_stream.cmd script from a command prompt as follows:
  
-	![Figure5](./media/hdinsight-analyze-twitter-date-hive/Figure5.png)
+	![Figure5] [Figure5]
   
 	You should see something like this:
   
-	![Figure6](./media/hdinsight-analyze-twitter-date-hive/Figure6.png)
+	![Figure6] [Figure6]
   
 7. You can stop the job by pressing **Ctrl+C**. You can then rename the file and then restart the script. You may leave the process running for 10 minutes to hours. For the purpose of this tutorial please limit the data size to a few hundred megabytes.
 
@@ -58,17 +58,17 @@ This tutorial is composed of the following segments:
 
 	**Navigate** to HDInsight, **Select** the Cluster you have created. Click on **Connect RDP** icon at the bottom of the screen. Log into the RDP session by typing in your password. Once you have logged in, **open** an Explorer window and navigate to c:\.
 
-	![Connect using RDP Icon](./media/hdinsight-analyze-twitter-date-hive/twitter-RDPconnect.PNG)
+	![Connect using RDP Icon] [connect-using-rdp-icon]
 
 2. Press **Ctrl+C** to terminate the Curl tweet collection process, use Windows Explorer to navigate to where the twitter file resides.  **Right click** to send to Compressed (Zipped folder). This saves upload time.
 
 3. Now, **Ctrl-C** on the zip file on your local machine and then navigate to c:\ on the remote desktop session's C:\.  **Ctrl-V** after you clicked on the explorer Window (C:\) to upload the zip file through the RDP session.
 
-	![Uploading tweets through RDP Session] (./media/hdinsight-analyze-twitter-date-hive/twitter-uploadingzip.PNG)
+	![Uploading tweets through RDP Session] [uploading-tweets-thru-rdp]
 
 4. After the file has been uploaded, **right click**, **select** Extract All to c:\ to get the original text file back.  **Open** a Hadoop Command Line Window to start working with HIVE and Hadoop commands.
 
-	![Figure26](./media/hdinsight-analyze-twitter-date-hive/Figure26.png)
+	![Figure26] [Figure26]
 
 5. The first step is, **type** C:\ and **Press Enter**.  This will take you to the c:\ folder where the twitter data resides.
 
@@ -96,7 +96,7 @@ This tutorial is composed of the following segments:
 
 9. The process taking a few seconds to complete:
 
-	![Twitter load raw results](./media/hdinsight-analyze-twitter-date-hive/twitter-load-raw-results.PNG)
+	![Twitter load raw results] [load-raw-results]
 
 10. The large twitter dataset in nested JSon format has now been transformed into a temporary Hive Table structure.
 
@@ -214,11 +214,11 @@ This tutorial is composed of the following segments:
 
 13. This complex Hive script will kick off a set of long Map Reduce jobs by the Hadoop cluster.  Depending on your dataset and the size of your cluster, this could take about 10 minutes.
 
-	![twitter complex etl](./media/hdinsight-analyze-twitter-date-hive/twitter-etl-complex.PNG)
+	![twitter complex etl] [twitter-complex-etl]
 
 14. You may also monitor the progress of your job through the Job tracking page on the headnode by double clicking on the short cut, "Hadoop MapReduce Status" on the desktop.
 
-	![Monitoring and Tracking jobs](./media/hdinsight-analyze-twitter-date-hive/twitter_longjob_browser.PNG)
+	![Monitoring and Tracking jobs] [monitoring-tracking-jobs]
 
 15. Once the ETL process completes, launch the Hive:
 
@@ -230,7 +230,7 @@ This tutorial is composed of the following segments:
 
 17. This query will return find a list of twitter users that sent most tweets that contained the word "Azure".
 
-	![Final Result] (./media/hdinsight-analyze-twitter-date-hive/twitter_final_query_result.PNG)
+	![Final Result] [final-result]
 
 <a name="summary"></a>
 ## Summary 
@@ -242,3 +242,14 @@ In this tutorial we have seen how to transform unstructured Json dataset into st
 While this article demonstrates using the Hadoop command line, you can also perform tasks using the HDInsight Service Interactive Console. For more information, see [Guidance: HDInsight Interactive JavaScript and Hive Consoles][interactive-console].
 
 
+[Figure3]: ./media/hdinsight-analyze-twitter-date-hive/Figure3.png
+[Figure4]: ./media/hdinsight-analyze-twitter-date-hive/Figure4.png
+[Figure5]: ./media/hdinsight-analyze-twitter-date-hive/Figure5.png
+[Figure6]: ./media/hdinsight-analyze-twitter-date-hive/Figure6.png
+[Figure26]: ./media/hdinsight-analyze-twitter-date-hive/Figure26.png
+[connect-using-rdp-icon]: ./media/hdinsight-analyze-twitter-date-hive/twitter-RDPconnect.PNG
+[uploading-tweets-thru-rdp]: ./media/hdinsight-analyze-twitter-date-hive/twitter-uploadingzip.PNG
+[load-raw-results]: ./media/hdinsight-analyze-twitter-date-hive/twitter-load-raw-results.PNG
+[twitter-complex-etl]: ./media/hdinsight-analyze-twitter-date-hive/twitter-etl-complex.PNG
+[monitoring-tracking-jobs]: ./media/hdinsight-analyze-twitter-date-hive/twitter_longjob_browser.PNG
+[final-result]: ./media/hdinsight-analyze-twitter-date-hive/twitter_final_query_result.PNG

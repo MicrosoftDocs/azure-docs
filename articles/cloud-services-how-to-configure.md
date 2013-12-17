@@ -28,7 +28,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
  On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances (virtual machines). 
 
-	![Configuration Page] (./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
+	![Configuration Page] [configuration-page]
 
 3. In monitoring settings, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring. For instructions, see [How to Monitor Cloud Services](../how-to-monitor-a-cloud-service/).
 
@@ -47,7 +47,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
  If you resolve all compatibility issues that your apps have with the most recent operating system version, you can resume automatic operating system updates by setting the operating system version to **Automatic**. 
 
-	![OS Settings] (./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
+	![OS Settings] [os-settings]
 
 6. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) **Save** and **Discard** are added to the command bar after you change a setting.
 
@@ -61,7 +61,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 	
 	**Upload a New Configuration File** opens.
 
-	![Upload Configuration] (./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
+	![Upload Configuration] [upload-configuration]
 
 	b. In **Configuration file**, use **Browse** to select the updated .cscfg file.
 
@@ -96,13 +96,13 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
  **Configure Remote Desktop** displays the settings (if any) that were added to the service configuration file when the cloud service was deployed, as shown below.
 
-	![Cloud services remote] (./media/cloud-services-how-to-configure/CloudServices_Remote.png)
+	![Cloud services remote] [cloud-services-remote] 
 
  <div class="dev-callout"> 
     <b>Warning</b> 
     <p>All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. If no certificate is installed you will see this option:	
     </p> 
-	![CloudServices_CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)
+	![CloudServices_CreateNewCertDropDown] [CloudServices_CreateNewCertDropDown]
     </div>
 
  To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
@@ -148,3 +148,9 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 [Set Up a Remote Desktop Connection for a Role in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
 
 [Using Remote Desktop with Windows Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+
+[configuration-page]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png
+[os-settings]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png
+[upload-configuration]: ./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png
+[cloud-services-remote]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
+[CloudServices_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png
