@@ -200,7 +200,7 @@ In this section you will test the code that handles write conflicts by running t
 
 4. In Visual Studio on the menu, click **BUILD** then **Deploy Solution**. Verify in the output window at the bottom that the build and deployment to the Windows Phone 8 emulator succeeded.
 
-   ![][2]
+   	![][2]
   
 5. Place both emulators running side by side. We can simulate concurrent write conflicts between the client apps running on these emulators. Swipe from right to left in both emulators to view the list of installed applications. Scroll to the bottom of each list and click the **todolist** app.
 
@@ -231,15 +231,15 @@ The following steps walk you through adding the server update script and testing
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][7]
+   	![][7]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][8]
+   	![][8]
 
 3. Click **Script**, then select the **Update** operation.
 
-   ![][9]
+   	![][9]
 
 4. Replace the existing script with the following function, and then click **Save**.
 
