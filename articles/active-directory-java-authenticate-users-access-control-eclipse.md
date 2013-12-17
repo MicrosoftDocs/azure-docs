@@ -381,10 +381,6 @@ At this point, your certificate would be included in your deployment. Note that 
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
 [Windows Azure Management Portal]: https://manage.windowsazure.com
 [acs_flow]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
-
-
-
-
 [acs_home_page]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSHomePage.png
 
 <!-- Eclipse-specific -->
