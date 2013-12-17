@@ -169,20 +169,20 @@ You can easily add an existing virtual machine to an availability set that was p
 [Step 3: (Optional) Create an availability set for previously created virtual machines]: #previousmachine
 [Step 4: (Optional) Add a previously created virtual machine to an availability set]: #existingset
 
-[Update domains]:../media/updatedomains.png
-[Create a virtual machine]:../media/create.png
-[Create from gallery]:../media/createnew.png
-[Select platform image]:../media/platformimageselection.png
-[Define the virtual machine]:../media/imagedefinewindows.png
-[Select standalone]:../media/imagestandalonewindows.png
-[Set virtual machine options]:../media/availabilityset.png
-[Configure availability]:../media/configureavailability.png
-[Connect virtual machines]:../media/connectedvms.png
-[Select the availability set]:../media/availabilitysetselect.png
-[Availability set success]:../media/availabilitysuccess.png
-[Configure the virtual machine]:../media/configurevm.png
-[Create availability set]:../media/availabilitycreate.png
-[Add a virtual machine]:../media/availabilityadd.png
+[Update domains]: ./media/manage-availbility-virtual-machines/updatedomains.png
+[Create a virtual machine]: ./media/manage-availbility-virtual-machines/create.png
+[Create from gallery]: ./media/manage-availbility-virtual-machines/createnew.png
+[Select platform image]: ./media/manage-availbility-virtual-machines/platformimageselection.png
+[Define the virtual machine]: ./media/manage-availbility-virtual-machines/imagedefinewindows.png
+[Select standalone]: ./media/manage-availbility-virtual-machines/imagestandalonewindows.png
+[Set virtual machine options]: ./media/manage-availbility-virtual-machines/availabilityset.png
+[Configure availability]: ./media/manage-availbility-virtual-machines/configureavailability.png
+[Connect virtual machines]: ./media/manage-availbility-virtual-machines/connectedvms.png
+[Select the availability set]: ./media/manage-availbility-virtual-machines/availabilitysetselect.png
+[Availability set success]: ./media/manage-availbility-virtual-machines/availabilitysuccess.png
+[Configure the virtual machine]: ./media/manage-availbility-virtual-machines/configurevm.png
+[Create availability set]: ./media/manage-availbility-virtual-machines/availabilitycreate.png
+[Add a virtual machine]: ./media/manage-availbility-virtual-machines/availabilityadd.png
 
 [Load Balancing Virtual Machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
 [About Affinity Groups for Virtual Network]:http://msdn.microsoft.com/en-us/library/jj156085.aspx

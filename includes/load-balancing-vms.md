@@ -17,7 +17,7 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The following image shows a load-balanced endpoint that is shared among three virtual machines and uses a public and private port of 80.
 
-![Load-balanced endpoints][Load-balanced endpoint]
+![Load-balanced endpoints][Load-balanced endpoints]
 
 This task includes the following steps:
 
@@ -91,14 +91,14 @@ After you create the load-balanced set, add the other virtual machines to the se
 [Step 4: Add virtual machines to the load-balanced set]: #addtoset
 
 
-[Load-balanced endpoint]:../media/loadbalancing.png
-[Select virtual machine]:../media/selectvm.png
-[Select endpoints]:../media/endpoints.png
-[Add endpoints]:../media/addendpoint.png
-[Add lb endpoint]:../media/addloadbalanceendpoint.png
-[Define endpoint]:../media/endpointloadbalance.png
-[Endpoint success]:../media/loadbalancedendpointsuccess.png
-[List endpoint]:../media/listendpoints.png
+[Load-balanced endpoints]: ./media/load-balance-virtual-machines/loadbalancing.png
+[Select virtual machine]: ./media/load-balance-virtual-machines/selectvm.png
+[Select endpoints]: ./media/load-balance-virtual-machines/endpoints.png
+[Add endpoints]: ./media/load-balance-virtual-machines/addendpoint.png
+[Add lb endpoint]: ./media/load-balance-virtual-machines/addloadbalanceendpoint.png
+[Define endpoint]: ./media/load-balance-virtual-machines/endpointloadbalance.png
+[Endpoint success]: ./media/load-balance-virtual-machines/loadbalancedendpointsuccess.png
+[List endpoint]: ./media/load-balance-virtual-machines/listendpoints.png
 
 [How to quickly create a virtual machine]:../../Windows/HowTo/howto-quick-create-vm.md
 [Manage the availability of virtual machines]:../../Windows/CommonTasks/manage-vm-availability.md
