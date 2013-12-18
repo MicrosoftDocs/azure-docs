@@ -1,4 +1,4 @@
-﻿<properties title="How to create a PHP web site in Windows Azure Web Sites" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" description="Learn how to create a PHP web site in Windows Azure Web Sites" documentationCenter="PHP" services="Web Sites" />
+<properties title="How to create a PHP web site in Windows Azure Web Sites" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" description="Learn how to create a PHP web site in Windows Azure Web Sites" documentationCenter="PHP" services="Web Sites" writer="waltpo" editor="mollybos" manager="bjsmith"/>
 
 #How to create a PHP web site in Windows Azure Web Sites
 
