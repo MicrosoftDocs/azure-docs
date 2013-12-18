@@ -16,10 +16,10 @@
 <ul>
 <li>IN THIS SERIES</li>
 <li><strong>1. OVERVIEW</strong></li>
-<li><a href="../2-download-and-run/">2. Download and Run</a></li>
-<li><a href="../3-web-role/">3. Web Role</a></li>
-<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
-<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
+<li><a href="./cloud-services-dotnet-multi-tier-app-storage-2-download-run/">2. Download and Run</a></li>
+<li><a href="./cloud-services-dotnet-multi-tier-app-storage-3-web-role/">3. Web Role</a></li>
+<li><a href="./cloud-services-dotnet-multi-tier-app-storage-4-worker-role-a/">4. Worker Role A</a></li>
+<li><a href="./cloud-services-dotnet-multi-tier-app-storage-5-worker-role-b/">5. Worker Role B</a></li>
 </ul>
 </div>
 <div class="floating-nav jump-to">
