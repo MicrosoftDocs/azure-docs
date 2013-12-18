@@ -499,7 +499,7 @@ The steps in this section use the Windows Azure command-line tools to create a n
 
 If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
 
-[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup-iaas.md)]
+[WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
 ###Install the Windows Azure command-line tool for Mac and Linux
 
