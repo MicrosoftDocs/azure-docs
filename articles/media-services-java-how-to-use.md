@@ -25,7 +25,7 @@ The following diagram illustrates the basic Media Services architecture.
 ![Media Services Architecture][Media Services Architecture]
 
 ###Media Services Feature Support
-The current release of Media Services provides the following feature set for developing media applications in the cloud. For information on future releases, see [Media Services Upcoming Releases:  Planned Feature Support][].
+The current release of Media Services provides the following feature set for developing media applications in the cloud. 
 
 - **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Windows Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
 - **Encode**. Encode operations include encoding, transforming and converting media assets. You can run encoding tasks in the cloud using the Media Encoder that is included in Media Services. Encoding options include the following:
@@ -64,7 +64,7 @@ Media Services support several common media development scenarios as described i
 ###Media Services Client Development
 Extend the reach of your Media Services solution by using SDKs and player frameworks to build media client applications. These clients are for developers who want to build Media Services applications that offer compelling user experiences across a range of devices and platforms. Depending on the devices that you want to build client applications for, there are options for SDKs and player frameworks available from Microsoft and other third-party partners.  
 
-The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development][]. 
+The following provides a list of available client SDKs and player frameworks.  For more information on these and other planned SDKs and player frameworks, and the functionality they can support, see [Media Services Client Development]. 
 
 ####Mac and PC client support  
 For PCs and Macs you can target a streaming experience using Microsoft Silverlight or Adobe Open Source Media Framework.
@@ -449,4 +449,5 @@ For Media Services Javadoc documentation, see [Windows Azure Libraries for Java 
   [Windows Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
   [Windows Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
   [Media Services Architecture]: ./media/media-services-dotnet-how-to-use/wams-01.png
+  [Media Services Client Development]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
 
