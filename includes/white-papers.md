@@ -159,9 +159,6 @@
         </td>
         <td style="width: 400px;">This paper describes the Custom E-Commerce Application (Elasticity Focus) architectural pattern and illustrate specific considerations and suggested approaches for migrating applications with this or similar patterns.</td>
       </tr>
-      <!--	<tr><td style="width: 200px;"><a href="http://download.microsoft.com/download/1/6/E/16ED05B0-5ED7-4873-B334-DD497CE2E428/PDC10_Player_white_paper.pdf">Professional Developers Conference 2010 Video Player</a></td>
-		<td style="width: 400px;"></td>
-	</tr> -->
       <tr>
         <td style="width: 200px;">
           <a href="http://go.microsoft.com/?linkid=9736946">Developing and Deploying with SQL Azure</a>
@@ -169,5 +166,4 @@
         <td style="width: 400px;">This paper provides guidelines on how to deploy an existing on-premise SQL Server database into SQL Azure. It also discusses best practices related to data migration.</td>
       </tr>
 
-    </tbody>
   </table>
