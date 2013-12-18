@@ -45,7 +45,7 @@ The following is a list of Twilio verbs. Learn about the other verbs and capabil
 * **&lt;Hangup&gt;**: Ends a call.
 * **&lt;Play&gt;**: Plays an audio file.
 * **&lt;Pause&gt;**: Waits silently for a specified number of seconds.
-* **&lt;Record&gt;**: Records the caller's voice and returns a URL of a file that contains the recording.
+* **&lt;Record&gt;**: Records the voice of the caller and returns a URL of a file that contains the recording.
 * **&lt;Redirect&gt;**: Transfers control of a call or SMS to the TwiML at a different URL.
 * **&lt;Reject&gt;**: Rejects an incoming call to your Twilio number without billing you
 * **&lt;Say&gt;**: Converts text to speech that is made on a call.
@@ -66,9 +66,9 @@ When your application calls the Twilio API, one of the API parameters is the URL
 For more information about Twilio verbs, their attributes, and TwiML, see [TwiML] [twiml]. For additional information about the Twilio API, see [Twilio API] [twilio_api].
 
 <h2><a id="CreateAccount"></a>Create a Twilio Account</h2>
-When you're ready to get a Twilio account, sign up at [Try Twilio] [try_twilio]. You can start with a free account, and upgrade your account later.
+When you are ready to get a Twilio account, sign up at [Try Twilio] [try_twilio]. You can start with a free account, and upgrade your account later.
 
-When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page] [twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
+When you sign up for a Twilio account, you receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page] [twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 <h2><a id="VerifyPhoneNumbers"></a>Verify Phone Numbers</h2>
 Various phone numbers need to be verified with Twilio for your account. For example, if you want to place outbound phone calls using your existing phone number for caller ID, the phone number must be verified with Twilio. Similarly, until you upgrade, if you want to send SMS messages to a phone number, it must be verified with Twilio. After upgrading, you can send SMS messages to any number without verifying it. For information on how to verify a phone number, see [Manage Numbers] [verify_phone]. Some of the code below relies on phone numbers that you will need to verify with Twilio.
@@ -181,7 +181,7 @@ The following shows how to send an SMS message using the **Services_Twilio** cla
 <h2><a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Web site</h2>
 When your application initiates a call to the Twilio API, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Twilio, you can view the it in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty `<Response>` element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] to see a `<Response>` element that contains a `<Say>` element.)
 
-Instead of relying on the Twilio-provided URL, you can create your own site that returns HTTP responses. You can create the site in any language that returns XML responses; this topic assumes you'll be using PHP to create the TwiML.
+Instead of relying on the Twilio-provided URL, you can create your own site that returns HTTP responses. You can create the site in any language that returns XML responses; this topic assumes you will be using PHP to create the TwiML.
 
 The following PHP page results in a TwiML response that says **Hello World** on the call.
 
@@ -237,10 +237,10 @@ For additional information about using Twilio in Windows Azure with PHP, see [Ho
 In addition to the examples shown here, Twilio offers web-based APIs that you can use to leverage additional Twilio functionality from your Windows Azure application. For full details, see the [Twilio API documentation] [twilio_api_documentation].
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
-Now that you've learned the basics of the Twilio service, follow these links to learn more:
+Now that you have learned the basics of the Twilio service, follow these links to learn more:
 
 * [Twilio Security Guidelines] [twilio_security_guidelines]
-* [Twilio HowTo's and Example Code] [twilio_howtos]
+* [Twilio HowTo Guides and Example Code] [twilio_howtos]
 * [Twilio Quickstart Tutorials][twilio_quickstarts] 
 * [Twilio on GitHub] [twilio_on_github]
 * [Talk to Twilio Support] [twilio_support]
@@ -250,10 +250,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: http://readthedocs.org/docs/twilio-php/en/latest/usage/rest.html
 
-[howto_phonecall_php]: howto_phonecall_php.md
-
-
-
+[howto_phonecall_php]: http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

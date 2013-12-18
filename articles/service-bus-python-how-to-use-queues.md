@@ -54,7 +54,7 @@ To send a message to a Service Bus queue, your application will call the
 **send\_queue\_message** method on the **ServiceBusService** object.
 
 The following example demonstrates how to send a test message to the
-queue named "taskqueue" using **send\_queue\_message**:
+queue named *taskqueue using* **send\_queue\_message**:
 
 	msg = Message('Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -134,7 +134,7 @@ delivery attempts.
 
 ## <a name="next-steps"> </a>Next Steps
 
-Now that you've learned the basics of Service Bus queues, follow these
+Now that you have learned the basics of Service Bus queues, follow these
 links to learn more.
 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions.][]
