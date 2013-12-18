@@ -1,4 +1,6 @@
-<properties linkid="develop-net-tutorials-troubleshooting-web-sites-in-visual-studio" urlDisplayName="Troubleshooting Windows Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Windows Azure Web Sites in Visual Studio" metaKeywords="" metaDescription="This tutorial shows how to use Visual Studio tools for managing and debugging Windows Azure Web Sites." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
+<properties linkid="develop-mobile-tutorials-call-custom-api-android" urlDisplayName="call custom api android" pageTitle="Call a custom API from an Android app | Mobile Services" metaKeywords="call custom api android mobile services" description="Learn how to define a custom API and then call it from an Android app that use Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshooting Windows Azure Web Sites in Visual Studio" authors=""  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
+
+
 
 # Troubleshooting Windows Azure Web Sites in Visual Studio
 

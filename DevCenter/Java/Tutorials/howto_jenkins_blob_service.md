@@ -1,4 +1,6 @@
-﻿<properties linkid="develop-java-how-to-jenkins-ci" urlDisplayName="Jenkins Continuous Integration" pageTitle="How to use Jenkins with the Windows Azure Blob service" metaKeywords="Jenkins, Windows Azure storage, Windows Azure Blob service, windows azure storage, azure jenkins" metaDescription="Describes how to use Jenkins with Windows Azure Blob storage as a repository for build artifacts." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" editor="mollybos" />
+<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Windows Azure Storage with a Jenkins Continuous Integration Solution" metaKeywords="" description="This tutorial show how to use the Windows Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Windows Azure Storage with a Jenkins Continuous Integration solution" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+
+
 
 
 

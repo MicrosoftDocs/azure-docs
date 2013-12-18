@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-add-paging-to-data-wp8" writer="glenga" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to data (Windows Phone) - Mobile Services" metaKeywords="" metaDescription="Learn how to add paging to your data in a Windows Phone 8 app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-add-paging-to-data-wp8" urlDisplayName="Add Paging to Your Data" pageTitle="Add paging to data (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your Windows Phone app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 
 

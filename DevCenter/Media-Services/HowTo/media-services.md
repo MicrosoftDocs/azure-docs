@@ -1,4 +1,6 @@
-<properties linkid="develop-net-how-to-guides-media-services" urlDisplayName="Media Services" pageTitle="How to use Media Services (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" metaDescription="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Media Services" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #How to Use Media Services

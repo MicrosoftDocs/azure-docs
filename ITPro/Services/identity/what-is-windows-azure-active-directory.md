@@ -1,4 +1,6 @@
-﻿<properties umbracoNaviHide="0" pageTitle="What is Windows Azure Active Directory" metaKeywords="Windows Azure Active Directory, Windows Azure AD" metaDescription="Learn about Windows Azure AD." linkid="documentation-services-identity-what-is-windows-azure-active-directory" urlDisplayName="What is Windows Azure AD" headerExpose="" footerExpose="" disqusComments="0" />
+<properties linkid="manage-services-identity-what-is-windows-azure-AD" urlDisplayName="What is Windows Azure AD?" pageTitle="What is Windows Azure Active Directory?" metaKeywords="" description="Use Windows Azure Active Directory to extend your existing on-premises identities into the cloud for an improved admin and end user experience while Microsoft keeps Active Directory running in the cloud with high scale, high availability, and integrated disaster recovery. Or, develop Windows Azure AD integrated applications for your organization or for other organizations." metaCanonical="" services="active-directory" documentationCenter="" title="What is Windows Azure Active Directory?" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

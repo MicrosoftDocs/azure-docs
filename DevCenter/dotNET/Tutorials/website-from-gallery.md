@@ -1,4 +1,6 @@
-﻿<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Web Site from Gallery" pageTitle=".NET web site from Gallery - Windows Azure tutorial" metaKeywords="Azure build website, manage website Azure" metaDescription="A tutorial that teaches you how to create a new web site in Windows Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-dotnet-website-from-gallery" urlDisplayName="Web Site from Gallery" pageTitle=".NET web site from Gallery - Windows Azure tutorial" metaKeywords="Azure build website, manage website Azure" description="A tutorial that teaches you how to create a new web site in Windows Azure. Also learn how to launch and manage your site using the Management Portal." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS web site from the gallery in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

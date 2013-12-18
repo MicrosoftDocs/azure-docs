@@ -1,4 +1,6 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="Step 4: Worker Role A" pageTitle="Multi-tier web site tutorial - Step 4: Worker role A" metaKeywords="Windows Azure tutorial, .NET multi-tier app, multi-tier architecture" metaDescription="The fourth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="tdykstra" editor="mollybos" manager="wpickett" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Multi-tier web site tutorial - Step 4: Worker role A" metaKeywords="Windows Azure tutorial, .NET multi-tier app, multi-tier architecture" description="The fourth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role A (email scheduler) for the Windows Azure Email Service application - 4 of 5." authors=""  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
+
+
 
 <div>
 <div class="left-nav">

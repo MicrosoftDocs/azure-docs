@@ -1,4 +1,6 @@
-<properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaKeywords="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site, Windows Azure getting started tutorial, Windows Azure SQL Database tutorial, Windows Azure .NET hello world tutorial, Windows Azure C# hello world tutorial, SQL Azure C# tutorial" metaDescription="Deploy a Secure ASP.NET MVC app with OAuth, Membership and SQL Database to a Windows Azure Web Site" metaCanonical="http://content-ppe.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/" disqusComments="1" umbracoNaviHide="1" writer="riande" editor="mollybos" manager="wpickett" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors=""  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
+
+
 
 
 # Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site

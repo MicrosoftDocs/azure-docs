@@ -1,4 +1,6 @@
-<properties linkid="devnav-python-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Python feature guides" metaKeywords="Azure Python" metaDescription="Find topics about using Windows Azure service and features in Python." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-python-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Python feature guides" metaKeywords="Azure Python" description="Find topics about using Windows Azure service and features in Python." metaCanonical="" services="" documentationCenter="" title="Python Developer Center - How To Guides" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Python Developer Center - How To Guides

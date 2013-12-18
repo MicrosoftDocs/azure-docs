@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-using-blob-store-hdinsight" urlDisplayName="Use Windows Azure Blob Store with HDInsight" pageTitle="Using Blob Store with HDInsight - Windows Azure tutorial" metaKeywords="hdinsight blob, asv, hdinsight asv, hdinsight azure, wasb, wasbs, hdinsight, hdinsight storage" metaDescription="How to use Windows Azure Blob storage with HDInsight. Low-cost Blob storage has an HDFS interface that enables the full set of components in the Hadoop ecosystem." umbracoNaviHide="0" disqusComments="1" writer="sburgess" editor="mollybos" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Windows Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Windows Azure Blob storage with HDInsight" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+
+
 
 
 #Use Windows Azure Blob storage with HDInsight

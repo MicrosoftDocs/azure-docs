@@ -1,4 +1,6 @@
-<properties linkid="dev-php-how-to-php-web site" urlDisplayName="PHP Web Site" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" metaDescription="Learn how to create a PHP web site in Windows Azure Web Sites" metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="waltpo" editor="mollybos" manager="bjsmith" />
+<properties linkid="develop-php-common-tasks-create-a-php-web-site" urlDisplayName="Create a PHP Web Site" pageTitle="Create a PHP Web Site" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to create a PHP web site in Windows Azure Web Sites" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
+
+
 
 
 

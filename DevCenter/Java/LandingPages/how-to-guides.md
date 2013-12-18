@@ -1,4 +1,6 @@
-<properties linkid="devnav-java-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Java feature guides" metaKeywords="Azure Java" metaDescription="Find topics about using Windows Azure services and features in Java." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-java-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Java feature guides" metaKeywords="Azure Java" description="Find topics about using Windows Azure services and features in Java." metaCanonical="" services="" documentationCenter="" title="Java Developer Center - How To Guides" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Java Developer Center - How To Guides

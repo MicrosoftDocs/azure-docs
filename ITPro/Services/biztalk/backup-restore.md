@@ -1,4 +1,6 @@
-<properties linkid="status-chart" urlDisplayName="BizTalk Services Backup and Restore" pageTitle="BizTalk Services: Backup and Restore" metaKeywords="Get started Azure biztalk services, backup, restore, Azure unstructured data" metaDescription="Lists the Backup and Restore steps for BizTalk Services." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/backup-restore" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="cgronlun" manager="paulettm" /> 
+<properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Register your Windows Store app package for Microsoft authentication" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+
+
 
 # BizTalk Services: Backup and Restore
 

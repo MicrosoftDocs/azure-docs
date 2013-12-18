@@ -1,4 +1,6 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" metaDescription="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="waltpo" />
+<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
+
+
 
 # How to run a Java application server on a virtual machine
 

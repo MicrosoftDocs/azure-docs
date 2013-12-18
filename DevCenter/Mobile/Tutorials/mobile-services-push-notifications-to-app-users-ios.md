@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users" pageTitle="Push Notifications to iOS app users - Windows Azure Mobile Services" metaKeywords="" metaDescription="Learn how to push notifications to app users in iOS apps that use Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-net-tutorials-push-notifications-to-users-ios" urlDisplayName="Push Notifications to Users (iOS)" pageTitle="Push notifications to users (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your iOS app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

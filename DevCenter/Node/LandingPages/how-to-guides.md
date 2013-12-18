@@ -1,4 +1,6 @@
-<properties linkid="devnav-node-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Node.js feature guides" metaKeywords="Azure node, Azure node.js" metaDescription="Find topics about using Windows Azure services and features in Node.js." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-node-howto" urlDisplayName="How To Guides" pageTitle="Windows Azure Node.js feature guides" metaKeywords="Azure node, Azure node.js" description="Find topics about using Windows Azure services and features in Node.js." metaCanonical="" services="" documentationCenter="" title="Node.js Developer Center - How To Guides" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Node.js Developer Center - How To Guides

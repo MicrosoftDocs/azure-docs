@@ -1,4 +1,6 @@
-<properties linkid="develop-dotnet-hadoop" urlDisplayName="Hadoop" pageTitle="How to use Hadoop on Windows Azure (.NET)" metaKeywords="Azure Hadoop introduction, Hadoop Azure basics, intro Azure Hadoop" metaDescription="Find topics about Hadoop on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Hadoop on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 <h1>Hadoop on Windows Azure</h1>

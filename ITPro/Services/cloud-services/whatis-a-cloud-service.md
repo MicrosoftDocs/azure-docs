@@ -1,4 +1,6 @@
-﻿<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Windows Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" metaDescription="An introduction to the cloud service in Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="ryanwi" />
+<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Windows Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors=""  solutions="" writer="ryanwi" manager="" editor=""  />
+
+
 
 
 #What is a cloud service?

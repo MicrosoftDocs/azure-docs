@@ -1,4 +1,6 @@
-<properties linkid="develop-nodejs-tutorials-windows-virtual-machine" urlDisplayName="Windows VM" pageTitle="Create a Windows Virtual Machine - Windows Azure Node.js" metaKeywords="" metaDescription="Learn how to create a Windows Virtual machine from which you can run Node.js applications in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-nodejs-tutorials-windows-virtual-machine" urlDisplayName="Windows Virtual Machine" pageTitle="Windows Azure Node.js Dev Center - Tutorials - Windows Virtual Machine" metaKeywords="" description="" metaCanonical="http://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/" services="virtual-machines" documentationCenter="Node.js" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

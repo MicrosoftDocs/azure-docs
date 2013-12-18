@@ -1,4 +1,6 @@
-<properties linkid="develop-other-tutorials-ruby-on-rails" urlDisplayName="Ruby on Rails" pageTitle="Ruby on Rails on a Windows Azure virtual machine" metaKeywords="" metaDescription="Create and host a Ruby on Rails application on a Windows Azure virtual machine." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="develop-other-ruby" urlDisplayName="Ruby" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Ruby on Rails on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # Ruby on Rails on Windows Azure

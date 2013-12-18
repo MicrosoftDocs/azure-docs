@@ -1,4 +1,6 @@
-﻿<properties linkid="manage-services-traffic-manager" urlDisplayName="Traffic Manager" pageTitle="How to configure traffic manager settings - Windows Azure" metaKeywords="" metaDescription="Learn how to configure Windows Azure Traffic Manager settings to control the distribution of user traffic to hosted services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 <div chunk="../chunks/networking-left-nav.md" />
 #How to Configure Traffic Manager Settings#

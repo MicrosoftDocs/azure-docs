@@ -1,4 +1,6 @@
-﻿<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Windows Azure - Windows Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" metaDescription="Learn about using Linux virtual machines on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Windows Azure - Windows Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

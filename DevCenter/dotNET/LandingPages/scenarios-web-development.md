@@ -1,4 +1,6 @@
-<properties linkid="develop-net" urlDisplayName="Web" pageTitle="Web Sites - Windows Azure .NET Scenarios" metaKeywords="web site scenarios Windows Azure, web sites Windows Azure, web sites Azure, websites Windows Azure, websites Azure" metaDescription="Find topics with common scenarios when using web sites in Windows Azure." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="develop-net" urlDisplayName="Web" pageTitle="Web Sites - Windows Azure .NET Scenarios" metaKeywords="web site scenarios Windows Azure, web sites Windows Azure, web sites Azure, websites Windows Azure, websites Azure" description="Find topics with common scenarios when using web sites in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Web Scenarios" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 <h1>Web Scenarios</h1>
