@@ -80,9 +80,9 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Create new SQL Database server][create-server]
 
-	When the web site has been created you will see the text **Creation of Web Site ???[SITENAME]??? completed successfully**. Now, you can enable Git publishing.
+	When the web site has been created you will see the text **Creation of Web Site '[SITENAME]' completed successfully**. Now, you can enable Git publishing.
 
-6. Click the name of the web site displayed in the list of web sites to open the web site???s Quick Start dashboard.
+6. Click the name of the web site displayed in the list of web sites to open the web site's Quick Start dashboard.
 
 	![Open website dashboard][go-to-dashboard]
 
@@ -162,10 +162,10 @@ In this section you will create a new Node application and use npm to add module
     The output of this command should appear similar to the following:
 
 		express@2.5.9 /usr/local/lib/node_modules/express
-		????????? mime@1.2.4
-		????????? mkdirp@0.3.0
-		????????? qs@0.4.2
-		????????? connect@1.8.7
+		├── mime@1.2.4
+		├── mkdirp@0.3.0
+		├── qs@0.4.2
+		└── connect@1.8.7
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -206,13 +206,13 @@ In this section you will create a new Node application and use npm to add module
     The output of this command should appear similar to the following:
 
 		express@2.5.8 ./node_modules/express
-		????????? mime@1.2.4
-		????????? qs@0.4.2
-		????????? mkdirp@0.3.0
-		????????? connect@1.8.7
+		├── mime@1.2.4
+		├── qs@0.4.2
+		├── mkdirp@0.3.0
+		└── connect@1.8.7
 		jade@0.26.0 ./node_modules/jade
-		????????? commander@0.5.2
-		????????? mkdirp@0.3.0
+		├── commander@0.5.2
+		└── mkdirp@0.3.0
 
 	This installs all of the default modules that Express needs.
 
