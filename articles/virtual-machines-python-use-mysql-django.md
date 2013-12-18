@@ -74,7 +74,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
   ![][2]
 
-1. Before you can begin developing your Django application, we of course need to install Python+Django on the virtual machine.  To that effect, follow the [Setup the Development Environment] [wapstarted] guide in the Python "Hello World" Application tutorial.  
+1. Before you can begin developing your Django application, you of course need to install Python+Django on the virtual machine. You can do so by using the [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). After installing Web PI, use it to search for "Django" and install the Django (Python) product.    
 
   **Note:** you merely need to install the *Django* product from WebPI to get this tutorial working.  You do **not** need *Python Tools for Visual Studio* or even the Windows Azure Python SDK installed for our purposes.
 
@@ -240,10 +240,11 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [2]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-2.png
 [5]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
 
-[djangohelloworld]: ./django-helloworld.md
+[djangohelloworld]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+
 [mysqldoc]: http://dev.mysql.com/doc/
 [mysqlpy]: http://pypi.python.org/pypi/MySQL-python/1.2.3
-[wapstarted]: ../commontasks/how-to-install-python.md
+
 [mysqlpydl]: http://code.google.com/p/soemin/downloads/detail?name=MySQL-python-1.2.3.win32-py2.7.exe&can=2&q=
 [mysqlcommunity]:http://dev.mysql.com/downloads/mysql/
 
@@ -256,5 +257,5 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 [The status of the Stop-AzureService command]: ../Media/django-helloworld-ps-stop.png
 [The status of the Remove-AzureService command]: ../Media/django-helloworld-ps-remove.png
 
-[Installation Guide]: ../commontasks/how-to-install-python.md
+[Installation Guide]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
  

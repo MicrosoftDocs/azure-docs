@@ -24,7 +24,7 @@ You will learn:
 
 -   How to work with Windows Azure Table Storage service
 
-A screenshot of the completed application will be similar as below (the added tasks items will be different):
+A screenshot of the completed application will be similar to the one below (the added tasks items will be different):
 
 ![](./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png)
 
@@ -32,7 +32,7 @@ A screenshot of the completed application will be similar as below (the added ta
 
 ## <a id="setup"> </a>Setting Up the Development Environment
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](http://windowsazure.com/en-us/documentation/articles/python-how-to-install).
 
 
 
@@ -47,7 +47,7 @@ A screenshot of the completed application will be similar as below (the added ta
 Here are the steps for creating the app:
 
 -   Create a default Django Project named 'TableserviceSample' 
-- 	From the command line, cd into a directory where you'd like to store your code, then run the following command: 
+- 	From the command line, cd into a directory where you would like to store your code, then run the following command: 
 
 		django-admin.py startproject TableserviceSample
 
@@ -113,7 +113,7 @@ Add the following code to **views.py** just after the windowsazure import, and r
 	account_key = 'yourkey'
 
 ## Create TableService
-Add following code after "account_name ..."
+Add the following code after **account_name**:
 
 	table_service = TableService(account_name=account_name, account_key=account_key)
 	table_service.create_table('mytasks')
@@ -164,24 +164,24 @@ Now you need to map the URLs in the Django app. Open **urls.py** and add followi
 ## Run the application
 
 
--  Switch to the "TableserviceSample" directory, if you haven't already, and run the command:
+-  Switch to the **TableserviceSample** directory if you haven't already, and run the command:
 
 	python manage.py runserver
 
--   Point your browser to: http://127.0.0.1:8000/. Replace 8000 with the real port #
+-   Point your browser to: `http://127.0.0.1:8000/`. Replace 8000 with the real port number.
 
-You can now click "Add Task" to create one and then click the "Complete" button to update the task and set its status to Yes.
+You can now click **Add Task** to create a task, and then click the **Complete** button to update the task and set its status to Yes.
 
 
 
 ## Running the Application in the Compute Emulator, Publishing and Stopping/Deleting your Application
 
-Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Windows Azure emulator (Windows only) and then publishing to Windows Azure.  For general instructions on how to do this, please refer to the article **"Django Hello World Web Application"** which discusses these steps in detail.
+Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Windows Azure emulator (Windows only) and then publishing to Windows Azure.  For general instructions on how to do this, please refer to the article [Django Hello World Web Application] which discusses these steps in detail.
 
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 
-Now that you've learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
+Now that you have learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
@@ -189,7 +189,6 @@ Now that you've learned the basics of the Windows Azure Table storage service, f
 
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-
-
 [Installation Guide]: ../commontasks/how-to-install-python.md 
-[Django Hello World Web Application]: ./django-helloworld.md
+
+[Django Hello World Web Application]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
