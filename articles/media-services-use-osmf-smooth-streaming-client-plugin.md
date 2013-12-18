@@ -27,7 +27,7 @@ The plugin supports loading and playback of on-demand Smooth Streaming content w
 - Multiple audio language switching with OSMF built-in APIs
 - Max playback quality selection with OSMF built-in APIs
 - Sidecar closed captions with OSMF captions plugin
-- Adobe?? Flash?? Player 10.2 or higher.
+- Adobe® Flash® Player 10.2 or higher.
 - This version only supports OSMF 2.0.
 
 The following are unsupported features:
@@ -383,7 +383,7 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 		</html>
 
 
-6. 	Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash?? Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
-7. 	Enjoy Smooth Streaming content inside Adobe?? Flash?? Player.
+6. 	Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash® Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
+7. 	Enjoy Smooth Streaming content inside Adobe® Flash® Player.
 
 For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
