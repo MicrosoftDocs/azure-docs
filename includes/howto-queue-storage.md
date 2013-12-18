@@ -16,7 +16,7 @@ Common uses of Queue storage include:
 
 The Queue service contains the following components:
 
-![Queue1][Queue1]
+![Queue1][]
 
 -   **URL format:** Queues are addressable using the following URL
     format:   
