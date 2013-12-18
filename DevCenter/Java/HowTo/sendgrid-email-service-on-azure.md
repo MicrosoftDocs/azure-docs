@@ -1,4 +1,6 @@
-<properties linkid="dev-java-how-to-use-sendgrid-azure-deployment" urldisplayname="SendGrid on Windows Azure" headerexpose="" pagetitle="How to Send Email Using SendGrid from Java in a Windows Azure Deployment" metakeywords="SendGrid Java Azure Deployment" footerexpose="" metadescription="" umbraconavihide="0" disquscomments="1" writer="waltpo" editor="mollybos"></properties>
+<properties linkid="store-requestform-preview" urlDisplayName="Request Azure Store Integration" pageTitle="Request Azure Store Integration" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Send Email Using SendGrid from Java in a Windows Azure Deployment" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+
+
 
 
 

@@ -1,4 +1,6 @@
-<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-js" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (JavaScript) - Mobile Services" metaKeywords="" metaDescription="Learn how to authorize users in scripts in your Windows Store app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-js" urlDisplayName="Authorize Users in Scripts" pageTitle="Authorize users in scripts (JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in scripts in your Windows Store app with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/" services="" documentationCenter="Mobile" title="Use scripts to authorize users in Mobile Services" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

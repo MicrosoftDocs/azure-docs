@@ -1,4 +1,6 @@
-<properties linkid="manage-services-storage-SQL-Server-backup" urlDisplayName="Blob Service" pageTitle="How to Use Windows Azure Storage for SQL Server Backup and Restore" metaKeywords="Get started Azure blob, Azure unstructured data, SQL Server Backup to Cloud,SQL Server Restore from Cloud" metaDescription="Get started using the Windows Azure blob storage service to backup and restore SQl Server databases." metaCanonical="http://www.windowsazure.com/en-us/develop/net/blob-storage" umbracoNaviHide="0" disqusComments="1" writer="karaman" editor="tysonn" manager="clairt" />
+<properties linkid="manage-services-storage-SQL-Server-backup" urlDisplayName="Storage for SQL Server backups" pageTitle="How to Use Windows Azure Storage for SQL Server Backup and Restore" metaKeywords="" description="" metaCanonical="" services="storage" documentationCenter="" title="How to Use Windows Azure Storage for SQL Server Backup and Restore" authors=""  solutions="" writer="karaman" manager="clairt" editor="tysonn"  />
+
+
 
 <h1 id="SQLServerBackupandRestoretostorage">  How to Use Windows Azure Storage for SQL Server Backup and Restore</h1>
 

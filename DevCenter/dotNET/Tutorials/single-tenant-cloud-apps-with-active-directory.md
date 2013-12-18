@@ -1,4 +1,6 @@
-﻿
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Developing Single Tenant Applications with Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 # Developing Single Tenant Applications with Windows Azure Active Directory
 

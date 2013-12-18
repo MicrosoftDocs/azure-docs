@@ -1,4 +1,6 @@
-<properties linkid="dev-php-create-mongodb" urlDisplayName="Create MongoDB Database" pageTitle="How to use MongoLab to Create a MongoDB database in Windows Azure" metaKeywords="MongoLab MongoDB Windows Azure" metaDescription="Learn how to use MongoLab to create a MongoDB database in Windows Azure." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="bswan" editor="mollybos" manager="paulettm" />
+<properties linkid="develop-php-common-task-create-mongodb-database" urlDisplayName="Create MongoDB Database" pageTitle="Create a MongoDB Database on MongoLab - PHP Dev Center" metaKeywords="" description="Learn how to create a MongoDB database on MongoLab to use with your Windows Azure application." metaCanonical="" services="" documentationCenter="" title="" authors=""  solutions="" writer="bswan" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

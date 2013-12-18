@@ -1,4 +1,6 @@
-<properties linkid="provisioning-biztalk-service" urlDisplayName="Provision a Windows Azure BizTalk Service" pageTitle="BizTalk Services: Provisioning Using Windows Azure Management Portal" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" metaDescription="Lists the steps to provision a BizTalk Service in the Windows Azure Management Portal." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/provisioning-biztalk-service" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="cgronlun" manager="paulettm" /> 
+<properties linkid="provisioning-biztalk-service" urlDisplayName="Provision a Windows Azure BizTalk Service" pageTitle="Provision BizTalk Services in Management Portal | Windows Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Windows Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Windows Azure Management Portal" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+
+
 
 # BizTalk Services: Provisioning Using Windows Azure Management Portal
 

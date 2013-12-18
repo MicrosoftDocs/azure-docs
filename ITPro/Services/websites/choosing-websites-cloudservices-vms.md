@@ -1,4 +1,6 @@
-<properties linkid="choosing-azure-websites-cloudservices-vms" urlDisplayName="Web Options for Windows Azure" pageTitle="Windows Azure Web Sites, Cloud Services, and VMs: When to use which?" metaKeywords="Cloud Services,Virtual Machines,Web Sites" metaDescription="Understand when to use Windows Azure Web Sites, Cloud Services, and Virtual Machines for web workloads." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" /> 
+<properties linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Windows Azure" pageTitle="Windows Azure Web Sites, Cloud Services, and VMs: When to use which?" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Windows Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors=""  solutions="" writer="jroth" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

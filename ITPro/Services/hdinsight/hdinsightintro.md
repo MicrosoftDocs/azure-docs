@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="Introducing HDInsight" pageTitle="Introduction to Windows Azure HDInsight" metaKeywords="hdinsight, hdinsight service, hdinsight azure, what is hdinsight" metaDescription="Windows Azure HDInsight is a service that deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Windows Azure HDInsight | Windows Azure" metaKeywords="" description="Learn how Windows Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Windows Azure HDInsight" authors=""  solutions="" writer="bradsev" manager="paulettm" editor="cgronlun"  />
+
+
 
 # Introduction to Windows Azure HDInsight
 

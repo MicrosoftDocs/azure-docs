@@ -1,4 +1,6 @@
-<properties linkid="devnav-node-bestpractices" urlDisplayName="Best Practices" pageTitle="Windows Azure Node.js best practices" metaKeywords="Windows Azure best practices, Azure best practices" metaDescription="Find topics about best practices in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="devnav-node-bestpractices" urlDisplayName="Best Practices" pageTitle="Windows Azure Node.js best practices" metaKeywords="Windows Azure best practices, Azure best practices" description="Find topics about best practices in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/net/best-practices/" services="" documentationCenter="" title="Node.js Developer Center - Best Practices" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 #Node.js Developer Center - Best Practices

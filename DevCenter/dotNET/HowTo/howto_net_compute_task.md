@@ -1,4 +1,6 @@
-<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Windows Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" metaDescription="Learn how to deploy and run a compute-intensive .NET app on a Windows Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" disqusComments="1" umbracoNaviHide="1" writer="waltpo" />
+<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Windows Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on a Windows Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on a Windows Azure virtual machine" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
+
+
 
 
 

@@ -1,4 +1,6 @@
-<properties linkid="status-chart" urlDisplayName="BizTalk Services State Chart" pageTitle="BizTalk Services: BizTalk Service State Chart" metaKeywords="Get started Azure biztalk services, state, status, provision, Azure unstructured data" metaDescription="Lists the different operations that can be performed when the BizTalk Service is in a specific state." metaCanonical="http://www.windowsazure.com/en-us/manage/services/biztalk-services/state-chart" umbracoNaviHide="0" disqusComments="1" writer="mandia" editor="cgronlun" manager="paulettm" /> 
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: BizTalk Service State Chart" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+
+
 
 # BizTalk Services: BizTalk Service State Chart
 Depending on the current state of the BizTalk Service, there are operations that you can or cannot perform on the BizTalk Service.

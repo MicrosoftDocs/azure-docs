@@ -1,4 +1,6 @@
-<properties linkid="article" urlDisplayName="Use SSH" pageTitle="Use SSH to connect to Linux virtual machines in Windows Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" metaDescription="Learn how to generate and use SSH keys with a Linux virtual machine on Windows Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="article" urlDisplayName="Use SSH" pageTitle="Use SSH to connect to Linux virtual machines in Windows Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" description="Learn how to generate and use SSH keys with a Linux virtual machine on Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use SSH with Linux on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

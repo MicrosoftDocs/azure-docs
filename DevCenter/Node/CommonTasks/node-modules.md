@@ -1,4 +1,6 @@
-<properties linkid="dev-nodejs-nodemodules" urlDisplayName="Using Node.js Modules" pageTitle="Working with Node.js modules - Windows Azure" metaKeywords="node.js modules azure" metaDescription="Learn how to use Node.js modules with Windows Azure Web Sites and Cloud Services" metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/node-modules" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" /> 
+<properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Using Node.js Modules with Windows Azure applications" authors=""  solutions="" writer="larryfr" manager="paulettm" editor="mollybos"  />
+
+
 
 
 

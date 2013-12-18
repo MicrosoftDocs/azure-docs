@@ -1,4 +1,6 @@
-<properties linkid="develop-net-tutorials-windows-virtual-machine" urlDisplayName="Windows VM" pageTitle="Create a Windows Virtual Machine - Windows Azure .NET" metaKeywords="" metaDescription="Learn how to create a Windows Virtual machine from which you can run .NET applications in Windows Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="dev-net-tutorials-windows-virtual-machine" urlDisplayName="Windows Virtual Machine" pageTitle="Create a virtual machine (.NET) - Windows Azure tutorial" metaKeywords="" description="Learn how to create a Windows Azure virtual machine with Windows Server 2008 R2." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/" services="virtual-machines" documentationCenter=".NET" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

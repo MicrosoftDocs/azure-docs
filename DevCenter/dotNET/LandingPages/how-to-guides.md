@@ -1,4 +1,6 @@
-<properties linkid="dev-net-how-to-guides" urlDisplayName="How To Guides" pageTitle="Windows Azure .NET feature guides" metaKeywords="Azure .NET" metaDescription="Find topics about using Windows Azure services and features in .NET." metaCanonical="" disqusComments="0" umbracoNaviHide="0" />
+<properties linkid="dev-net-how-to-guides" urlDisplayName="How To Guides" pageTitle="Windows Azure .NET feature guides" metaKeywords="Azure .NET" description="Find topics about using Windows Azure services and features in .NET." metaCanonical="" services="" documentationCenter="" title=".NET Developer Center - How To Guides" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 # .NET Developer Center - How To Guides #

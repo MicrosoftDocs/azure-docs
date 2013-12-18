@@ -1,4 +1,6 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" writer="elioda" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" metaDescription="Learn how to use Windows Azure Notification Hubs to send push notifications." metaCanonical="" disqusComments="0" umbracoNaviHide="1" />
+<properties linkid="develop-notificationhubs-tutorials-get-started-windowsdotnet" urlDisplayName="Get started with notification hubs" pageTitle="Get started with Windows Azure Notification Hubs" metaKeywords="" description="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Getting Started with Notification Hubs" authors=""  solutions="" writer="elioda" manager="" editor=""  />
+
+
 
 
 # Getting Started with Notification Hubs

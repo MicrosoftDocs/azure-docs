@@ -1,4 +1,6 @@
-<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use Caching (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure cache, In-Role Cache, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#, In-Role Cache" metaDescription="Learn how to use In-Role Cache for Windows Azure Cache. The samples are written in C# code and use the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" />
+<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use In-Role Cache (.NET) - Windows Azure feature guide" metaKeywords="Windows Azure cache, Windows Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Learn how to use Windows Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Windows Azure Cache" authors=""  solutions="" writer="" manager="" editor=""  />
+
+
 
 
 

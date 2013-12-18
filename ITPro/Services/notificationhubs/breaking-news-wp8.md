@@ -1,4 +1,6 @@
-<properties linkid="develop-notificationhubs-tutorials-send-breaking-news-wp8" writer="glenga" urlDisplayName="Breaking News" pageTitle="Notification Hubs Breaking News Tutorial" metaKeywords="" metaDescription="Learn how to use Windows Azure Service Bus Notification Hubs to send breaking news notifications." metaCanonical="" disqusComments="1" umbracoNaviHide="1" />
+<properties linkid="manage-services-web-sites-operating-system-functionality-available-to-applications" urlDisplayName="Operating System Functionality Available to Applications on Windows Azure Web Sites" pageTitle="Operating System Functionality Available to Applications on Windows Azure Web Sites" metaKeywords="" description="Learn about the common baseline operating system functionality that is available to all applications running on Windows Azure Web Sites, including file access, network access, and registry access." metaCanonical="" services="" documentationCenter="" title="Use Notification Hubs to send breaking news" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+
+
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 

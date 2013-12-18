@@ -1,4 +1,6 @@
-<properties linkid="manage-services-hdinsight-using-mapreduce" urlDisplayName="Use MapReduce" pageTitle="Using MapReduce with HDInsight - Windows Azure tutorial" metaKeywords="using mapreduce, mapreduce hdinsight, mapreduce azure" metaDescription="Learn how to use MapReduce with HDInsight." metaCanonical="" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-howto-mapreduce" urlDisplayName="MapReduce with HDInsight " pageTitle="Use MapReduce with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use HDInsight to execute a simple Hadoop MapReduce job. The tutorial takes a semi-structured log file as input, and generates an output file that contains the log level along with its frequency count." metaCanonical="" services="hdinsight" documentationCenter="" title="Use MapReduce with HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+
+
 
 # Use MapReduce with HDInsight#
  
