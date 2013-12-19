@@ -441,14 +441,14 @@ Congratulations! You've just launched a Node.js application backed by a MongoLab
 
 
 
-[screen-mongolab-websitedashboard]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/screen-mongolab-websitedashboard.png
-[screen-mongolab-newwebsite]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/screen-mongolab-newwebsite.png
-[button-new]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/button-new.png
-[button-store]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/button-store.png
-[entry-mongolab]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/entry-mongolab.png 
-[button-connectioninfo]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/button-connectioninfo.png
-[screen-connectioninfo]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/dialog-mongolab_connectioninfo.png
-[focus-website-connectinfo]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/focus-mongolab-websiteconnectionstring.png
+[screen-mongolab-websitedashboard]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-websitedashboard.png
+[screen-mongolab-newwebsite]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/screen-mongolab-newwebsite.png
+[button-new]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-new.png
+[button-store]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-store.png
+[entry-mongolab]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/entry-mongolab.png 
+[button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
+[screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
+[focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
 [provision]: #provision
 [create]: #create
 [deploy]: #deploy
@@ -471,12 +471,12 @@ Congratulations! You've just launched a Node.js application backed by a MongoLab
 [Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
 [Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
-[node-mongo-finished]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/todo_list_noframe.png
-[node-mongo-express-results]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/express_output.png
-[download-publishing-settings]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/azure-account-download-cli.png
-[import-publishing-settings]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/azureimport.png
-[mongolab-create]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/mongolab-create.png
-[mongolab-view]: ./media/store-mongodb-web-sites-nodejs-use-mongolab/mongolab-view.png
+[node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
+[node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
+[download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
+[import-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azureimport.png
+[mongolab-create]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-create.png
+[mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
 
 
 
