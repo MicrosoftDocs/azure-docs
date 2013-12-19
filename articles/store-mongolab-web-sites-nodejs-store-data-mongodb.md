@@ -361,7 +361,6 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
 1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your web site (in step 9).  
-<!--![buttonGitPublishing][button-git-publishing]-->
 1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Windows Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
 
 		azure site create myuniquesitename --git  
@@ -453,9 +452,6 @@ Congratulations! You've just launched a Node.js application backed by a MongoLab
 [create]: #create
 [deploy]: #deploy
 [manage]: #manage
-<!--[button-git-publishing]: ../../Shared/Media/button-git-publishing.png-->
-
-
 [Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
