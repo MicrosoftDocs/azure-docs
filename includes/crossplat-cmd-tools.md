@@ -215,14 +215,14 @@ For a complete list of commands for creating and managing virtual machines, use 
 
 	azure vm -h
 
+<!-- IMAGES -->
+[Windows Azure Web Site]: ./media/crossplat-cmd-tools/freetrial.png
 
+<!-- LINKS -->
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
-
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
-[windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
+[windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
-[Windows Azure Web Site]: ../media/freetrial.png
-[select a preview feature]: ../media/antares-iaas-preview-02.png
-[select subscription]: ../media/antares-iaas-preview-03.png
+

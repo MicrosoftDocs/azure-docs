@@ -262,7 +262,7 @@ The list of files returned should match the files contained in the **blog_app** 
 
 In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine. Most of the actions we performed were manual, and in a production environment it would be desirable to automate. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources.
 
-For information on automating deployment of your Rails application, as well as using the Unicorn web server and NginX, see [Unicorn+NginX+Capistrano with a Windows Azure Virtual Machine][unicorn-nginx-capistratno].
+For information on automating deployment of your Rails application, as well as using the Unicorn web server and NginX, see [Unicorn+NginX+Capistrano with a Windows Azure Virtual Machine][unicorn-nginx-capistrano].
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
@@ -275,23 +275,38 @@ To learn how to use the Windows Azure SDK for Ruby to access Windows Azure servi
 * [Serve high bandwidth content with the Content Delivery Network][cdn-howto]
 
 
-[vm-instructions]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
-[unicorn-nginx-capistratno]: /en-us/develop/ruby/tutorials/web-app-with-capistrano/
 
-[rails-guides]: http://guides.rubyonrails.org/
-[blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
-[tables]: /en-us/develop/ruby/how-to-guides/table-service/
-[cdn-howto]: /en-us/develop/ruby/app-services/
+<!-- WA.com links -->
+[blobs]: http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage
 
-[ruby-vm-endpoint]: 
-[ruby-http-endpoint-details]: 
-[blog-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
-[blog-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png 
-[default-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
-[default-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
-[vmlist]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
-[endpoints]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
-[new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
+[cdn-howto]: http://www.windowsazure.com/en-us/develop/ruby/app-services/
 
 [management-portal]: https://manage.windowsazure.com/
+
+[tables]: http://www.windowsazure.com/en-us/develop/ruby/how-to-guides/table-service/
+
+[unicorn-nginx-capistrano]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/
+
+[vm-instructions]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial
+
+
+<!-- External Links -->
+[rails-guides]: http://guides.rubyonrails.org/
+
 [sqlite3]: http://www.sqlite.org/
+
+<!-- Images -->
+[blog-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilslocal.png
+
+[blog-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png 
+
+[default-rails]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailslocal.png
+
+[default-rails-cloud]: ./media/virtual-machines-ruby-rails-web-app-linux/basicrailscloud.png
+
+[vmlist]: ./media/virtual-machines-ruby-rails-web-app-linux/vmlist.png
+
+[endpoints]: ./media/virtual-machines-ruby-rails-web-app-linux/endpoints.png
+
+[new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
+

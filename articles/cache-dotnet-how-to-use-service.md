@@ -26,7 +26,8 @@ information on using Windows Azure Cache, refer to the [Next Steps][] section.
 	-   [How To: Store ASP.NET Page Output Caching in the Cache][]
 -   [Next Steps][]
 
-<h2><a name="what-is"></a><span class="short-header">What is Windows Azure Cache?</span>What is Windows Azure Cache?</h2>
+<a name="what-is"></a>
+## What is Windows Azure Cache?
 
 Windows Azure Cache Service (Preview) is a distributed, in-memory, scalable solution that enables you to build highly scalable and responsive applications by providing super-fast access to data.
 
@@ -53,7 +54,8 @@ Each tier differs in terms of features and pricing. The features are covered lat
 
 This guide provides an overview of getting started with Cache Service (Preview). For more detailed information on these features that are beyond the scope of this getting started guide, see [Overview of Windows Azure Cache Service (Preview)][].
 
-<h2><a name="getting-started-cache-service"></a><span class="short-header">Getting Started with Cache Service (Preview)</span>Getting Started with Cache Service (Preview)</h2>
+<a name="getting-started-cache-service"></a>
+## Getting Started with Cache Service (Preview)
 
 Getting started with Cache Service (Preview) is easy. To get started, you provision and configure a cache. Next, you configure the cache clients so they can access the cache. Once the cache clients are configured, you can begin working with them.
 
@@ -61,7 +63,8 @@ Getting started with Cache Service (Preview) is easy. To get started, you provis
 -	[Configure the cache][]
 -	[Configure the cache clients][]
 
-<h2><a name="create-cache"></a><span class="short-header">Create the cache</span>Create a cache</h2>
+<a name="create-cache"></a>
+## Create a cache
 
 To create a cache, first sign in to the [Management Portal][].
 
@@ -69,9 +72,9 @@ To create a cache, first sign in to the [Management Portal][].
 
 Click **New**, **Data Services**, **Cache Preview**, **Quick Create**.
 
-![NewCacheMenu][NewCacheMenu]
+![NewCacheMenu][]
 
-![QuickCreate][QuickCreate]
+![QuickCreate][]
 
 In **Endpoint**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
@@ -94,11 +97,12 @@ Choose the **Cache Offering** and **Cache Memory** that meets the needs of your 
 Once the new cache options are configured, click **Create a New Cache**. It can take a few minutes for the cache to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the cache has been created, your new cache has a Running status and is ready for use with default settings. To customize the configuration of your cache, see the following [Configure the cache][] section.
 
 
-<h2><a name="enable-caching"></a><span class="short-header">Configure the cache</span>Configure the cache</h2>
+<a name="enable-caching"></a>
+## Configure the cache
 
 The **Configure** tab for Cache in the Management Portal is where you configure the options for your cache. Each cache has a **default** named cache, and the Standard and Premium cache offerings support up to nine additional named caches, for a total of ten. Each named cache has its own set of options which allow you to configure your cache in a highly flexible manner.
 
-![NamedCaches][NamedCaches]
+![NamedCaches][]
 
 To create a named cache, type the name of the new cache into the **Name** box, specify the desired options, click **Save**, and click **Yes** to confirm. To cancel any changes, click **Discard**.
 
@@ -139,19 +143,20 @@ For more information about eviction and expiration policies, see [Expiration and
 
 Once the cache is configured, you can configure the cache clients to allow access to the cache.
 
-<h2><a name="NuGet"></a><span class="short-header">Configure the cache clients</span>Configure the cache clients</h2>
+<a name="NuGet"></a>
+## Configure the cache clients
 
 A cache created using the Cache Service (Preview) is accessible from Windows Azure applications running on Azure Web Sites, Web & Worker Roles and Virtual Machines. A NuGet package is provided that simplifies the configuration of cache client applications. 
 
 To configure a client application using the Cache NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
-![NuGetPackageMenu][NuGetPackageMenu]
+![NuGetPackageMenu][]
 
 Select **Windows Azure Caching**, click **Install**, and then click I Accept.
 
 >If **Windows Azure Caching** does not appear in the list type **WindowsAzure.Caching** into the **Search Online** text box and select it from the results.
 
-![NuGetPackage][NuGetPackage]
+![NuGetPackage][]
 
 The NuGet package does several things: it adds the required configuration to the config file of the application, and it adds the required assembly references. For Cloud Services projects, it also adds a cache client diagnostic level setting to the ServiceConfiguration.cscfg file of the Cloud Service.
 
@@ -198,11 +203,11 @@ After the configuration is added, replace the following two items in the newly a
 
 1. Replace **[Cache role name or Service Endpoint]** with the endpoint, which is displayed on the Dashboard in the Management Portal.
 
-	![Endpoint][Endpoint]
+	![Endpoint][]
 
 2. Uncomment the securityProperties section, and replace **[Authentication Key]** with the authentication key, which can be found in the Management Portal by clicking **Manage Keys** from the cache dashboard.
 
-	![AccessKeys][AccessKeys]
+	![AccessKeys][]
 
 >These settings must be configured properly or clients will not be able to access the cache.
 
@@ -236,7 +241,8 @@ If your project is a web project, the following assembly reference is also added
 
 Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.
 
-<h2><a name="working-with-caches"></a><span class="short-header">Working with Caches</span>Working with Caches</h2>
+<a name="working-with-caches"></a>
+## Working with Caches
 
 The steps in this section describe how to perform common tasks with Cache.
 
@@ -246,7 +252,8 @@ The steps in this section describe how to perform common tasks with Cache.
 -   [How To: Store ASP.NET Session State in the Cache][]
 -   [How To: Store ASP.NET Page Output Caching in the Cache][]
 
-<h2><a name="create-cache-object"></a><span class="short-header">Create a DataCache Object</span>How To: Create a DataCache Object</h2>
+<a name="create-cache-object"></a>
+## How To: Create a DataCache Object
 
 In order to programatically work with a cache, you need a reference to the cache. Add the following to the top of any file from which you want to use
 Windows Azure Cache:
@@ -271,7 +278,8 @@ To use the second way, create a new **DataCacheFactory** object in your applicat
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
     // cache can now be used to add and retrieve items.	
 
-<h2><a name="add-object"></a><span class="short-header">Add and Retrieve an Object from the Cache</span>How To: Add and Retrieve an Object from the Cache</h2>
+<a name="add-object"></a>
+## How To: Add and Retrieve an Object from the Cache
 
 To add an item to the cache, the **Add** method or the **Put** method
 can be used. The **Add** method adds the specified object to the cache,
@@ -311,11 +319,12 @@ if it does not exist, or replaces the object if it does exist.
     // replace it.
     cache.Put("item", "value");
 
-<h2><a name="specify-expiration"></a><span class="short-header">Specify the Expiration of an Object in the Cache</span>How To: Specify the Expiration of an Object in the Cache</h2>
+<a name="specify-expiration"></a>
+## How To: Specify the Expiration of an Object in the Cache
 
 By default items in the cache expire 10 minutes after they are placed in the cache. This can be configured in the **Time (min)** setting on the Configure tab for Cache in the Management Portal.
 
-![NamedCaches][NamedCaches]
+![NamedCaches][]
 
 There are three types of **Expiry Policy**: **Never**, **Absolute**, and **Sliding**. These configure how **Time (min)** is used to determine expiration. The default **Expiration Type** is **Absolute**, which means that the countdown timer for an item's expiration begins when the item is placed into the cache. Once the specified amount of time has elapsed for an item, the item expires. If **Sliding** is specified, then the expiration countdown for an item is reset each time the item is accessed in the cache, and the item will not expire until the specified amount of time has elapsed since its last access. If **Never** is specified, then **Time (min)** must be set to **0**, and items will not expire, and will remain valid as long as they are in the cache.
 
@@ -338,7 +347,8 @@ the remaining timeout interval.
     DataCacheItem item = cache.GetCacheItem("item");
     TimeSpan timeRemaining = item.Timeout;
 
-<h2><a name="store-session"></a><span class="short-header">Store ASP.NET Session State in the Cache</span>How To: Store ASP.NET Session State in the Cache</h2>
+<a name="store-session"></a>
+## How To: Store ASP.NET Session State in the Cache
 
 The Session State Provider for Windows Azure Cache is an
 out-of-process storage mechanism for ASP.NET applications. This provider
@@ -366,7 +376,8 @@ To enable the Session State Provider for Windows Azure Cache, uncomment the spec
 For more information about using the Cache service session state
 provider, see [Session State Provider for Windows Azure Cache][].
 
-<h2><a name="store-page"></a><span class="short-header">Store ASP.NET Page Output Caching in the Cache</span>How To: Store ASP.NET Page Output Caching in the Cache</h2>
+<a name="store-page"></a>
+## How To: Store ASP.NET Page Output Caching in the Cache
 
 The Output Cache Provider for Windows Azure Cache is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP
 responses (page output caching). The provider plugs into the new output
@@ -398,7 +409,8 @@ In this example the cached page data will remain in the cache for 60 seconds, an
 
 For more information about using the Output Cache Provider for Windows Azure Cache, see [Output Cache Provider for Windows Azure Cache][].
 
-<h2><a name="next-steps"></a><span class="short-header">Next Steps</span>Next Steps</h2>
+<a name="next-steps"></a>
+## Next Steps
 
 Now that you've learned the basics of Cache Service (Preview),
 follow these links to learn how to do more complex caching tasks.
@@ -407,58 +419,67 @@ follow these links to learn how to do more complex caching tasks.
 -	Learn how to migrate to Cache Service (Preview): [Migrate to Cache Service (Preview)][]
 -   Check out the samples: [Cache Service (Preview) Samples][]
 
+<!-- INTRA-TOPIC LINKS -->
+[Next Steps]: #next-steps
+[What is Windows Azure Cache?]: #what-is
+[Create a Windows Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Windows Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Getting Started with Cache Service (Preview)]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[How To: Create a DataCache Object]: #create-cache-object
+[How To: Add and Retrieve an Object from the Cache]: #add-object
+[How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
+[How To: Store ASP.NET Session State in the Cache]: #store-session
+[How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
+[Target a Supported .NET Framework Profile]: #prepare-vs-target-net
+  
+<!-- IMAGES -->
+[NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
 
-  [Next Steps]: #next-steps
-  [What is Windows Azure Cache?]: #what-is
-  [Create a Windows Azure Cache]: #create-cache
-  [Which type of caching is right for me?]: #choosing-cache
-  [Prepare Your Visual Studio Project to Use Windows Azure Caching]: #prepare-vs
-  [Configure Your Application to Use Caching]: #configure-app
-  [Getting Started with Cache Service (Preview)]: #getting-started-cache-service
-  [Create the cache]: #create-cache
-  [Configure the cache]: #enable-caching
-  [Configure the cache clients]: #NuGet
-  [Working with Caches]: #working-with-caches
-  [How To: Create a DataCache Object]: #create-cache-object
-  [How To: Add and Retrieve an Object from the Cache]: #add-object
-  [How To: Specify the Expiration of an Object in the Cache]: #specify-expiration
-  [How To: Store ASP.NET Session State in the Cache]: #store-session
-  [How To: Store ASP.NET Page Output Caching in the Cache]: #store-page
-  [Windows Azure Management Portal]: http://windows.azure.com/
+[QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
+
+[Endpoint]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
+
+[AccessKeys]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
+
+[NuGetPackage]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png
+
+[NuGetPackageMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png
+
+[NamedCaches]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg
   
-   [NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
-  [QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
-  [Endpoint]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
-  [AccessKeys]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
-  [NuGetPackage]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png
-  [NuGetPackageMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png
-  [NamedCaches]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg
-  
-  [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
-  [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
-  [Session State Provider for Windows Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
-  [Windows Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-  [Output Cache Provider for Windows Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
-  [Windows Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
-  [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-  [Windows Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
-  [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
-  [Windows Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
-  [Windows Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-  [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
-  [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
-  [Overview of Windows Azure Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
-  [Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
-  [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
-  [Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
-  [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-  [Cache Pricing Details]: http://www.windowsazure.com/en-us/pricing/details/cache/
-  [Management Portal]: https://manage.windowsazure.com/
-  [Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
-  [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
-  [Expiration and Eviction]: http://go.microsoft.com/fwlink/?LinkId=317278
-  [High Availability]: http://go.microsoft.com/fwlink/?LinkId=317329
-  [Notifications]: http://go.microsoft.com/fwlink/?LinkId=317276
-  [Migrate to Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=317347
-  [Cache Service (Preview) Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+   
+<!-- LINKS -->
+[Windows Azure Management Portal]: http://windows.azure.com/
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
+[Session State Provider for Windows Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Windows Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Windows Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Windows Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
+[Windows Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Windows Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Windows Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
+[Overview of Windows Azure Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
+[OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/en-us/pricing/details/cache/
+[Management Portal]: https://manage.windowsazure.com/
+[Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
+[Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Expiration and Eviction]: http://go.microsoft.com/fwlink/?LinkId=317278
+[High Availability]: http://go.microsoft.com/fwlink/?LinkId=317329
+[Notifications]: http://go.microsoft.com/fwlink/?LinkId=317276
+[Migrate to Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Cache Service (Preview) Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
 
