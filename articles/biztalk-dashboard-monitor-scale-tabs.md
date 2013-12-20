@@ -97,7 +97,7 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
-This process is called ???rollover keys???. The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
+This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
 </tr>
 
 <tr>
@@ -245,7 +245,7 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
-This process is called ???rollover keys???. The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
+This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
 </tr>
 
 <tr>

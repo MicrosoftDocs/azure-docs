@@ -88,7 +88,7 @@ For information about what the user experience will be like after you enable mut
 * [Windows Azure AD Library on TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
 * [Windows Azure AD Library on MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
 
-[ADextension2FAConfigureStep2]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep2.PNG
-[ADextension2FAConfigureStep3]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep3.PNG
-[ADextension2FAConfigureStep4]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep4.PNG
-[ADextension2FAConfigureStep5]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep5.PNG
+[ADextension2FAConfigureStep2]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep2.png
+[ADextension2FAConfigureStep3]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep3.png
+[ADextension2FAConfigureStep4]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep4.png
+[ADextension2FAConfigureStep5]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep5.png
