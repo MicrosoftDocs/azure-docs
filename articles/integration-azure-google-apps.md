@@ -1,11 +1,11 @@
-<properties umbracoNaviHide="0" pageTitle="Windows Azure AD Integration with Google Apps" metaKeywords="Windows Azure Google Apps Integration" metaDescription="Learn about integrating Windows Azure AD with Google Apps." linkid="documentation-services-identity-windows-azure-ad-integration-with-google=apps" urlDisplayName="Windows Azure AD Integration with Google Apps" headerExpose="" footerExpose="" disqusComments="0" writer="billmath" editor="lisatoft" manager="terrylan" />
+<properties umbracoNaviHide="0" pageTitle="Windows Azure AD Integration with Google Apps" metaKeywords="Windows Azure Google Apps Integration" description="Learn about integrating Windows Azure AD with Google Apps." linkid="documentation-services-identity-windows-azure-ad-integration-with-google=apps" urlDisplayName="Windows Azure AD Integration with Google Apps" headerExpose="" footerExpose="" disqusComments="0" writer="billmath" editor="lisatoft" manager="terrylan" title="Windows Azure AD Integration with Google Apps"/>
 
 The objective of this tutorial is to show the integration of Windows Azure and Google Apps. The scenario outlined in this tutorial assumes that you already have the following items:
 
 - A valid Windows Azure subscription
 - A test tenant in Googe Apps
 
-If you don???t have a valid tenant in Google Apps yet, you can, for example, sign up for a trial account at Google Apps for Business web site.
+If you don't have a valid tenant in Google Apps yet, you can, for example, sign up for a trial account at Google Apps for Business web site.
 
 The scenario outlined in this tutorial consists of the following building blocks:
 
@@ -34,7 +34,7 @@ The objective of this section is to outline how to enable users to authenticate 
 ## To configure federated single sign-on, perform the following steps: ##
 <ol>
 <li>In the Windows Azure Management Portal, select <strong>Active Directory</strong> in the left navigation pane to open the active directory dialog page.</li>
-<li>In the directory list, select your directory to open your directory???s configuration page.</li>
+<li>In the directory list, select your directory to open your directory's configuration page.</li>
 <li>Select <strong>APPLICATIONS</strong> from the top level menu.</li>
 <li>From the list of applications, select <strong>Google Apps</strong> to open the google apps configuration dialog.</li>
 <li>To open the <strong>CONFIGURE SINGLE SIGN-ON</strong> dialog, click <strong>Configure single sign-on.</strong>
@@ -100,8 +100,8 @@ When integrating Windows Azure Active Directory with Google Apps for user provis
 </ol>
 
 # Adding custom domains #
-Configuring user provisioning with Google Apps requires the Windows Azure AD domain and the Google Apps domain to have the same fully qualified domain name (FQDN). However, when you are, for example, using trial tenants to test the scenario in this tutorial, the FQDNS of your tenants typically don???t match. To address this issue, you can configure custom domains in Windows Azure AD and in Google Apps. 
-Configuring a custom domain requires access to your public domain???s DNS zone file. 
+Configuring user provisioning with Google Apps requires the Windows Azure AD domain and the Google Apps domain to have the same fully qualified domain name (FQDN). However, when you are, for example, using trial tenants to test the scenario in this tutorial, the FQDNS of your tenants typically don't match. To address this issue, you can configure custom domains in Windows Azure AD and in Google Apps. 
+Configuring a custom domain requires access to your public domain's DNS zone file. 
 
 ![Google_Tutorial_10](./media/integration-azure-google-apps/Google_Tutorial_10.png)
 
@@ -109,7 +109,7 @@ Configuring a custom domain requires access to your public domain???s DNS zone f
 
 <ol>
 <li>In the Windows Azure Management Portal, select <strong>Active Directory</strong> in the left navigation pane to open the <strong>active directory</strong> dialog page.</li>
-<li>In the directory list, select your directory to open your directory???s configuration page.</li>
+<li>In the directory list, select your directory to open your directory's configuration page.</li>
 <li>Select <strong>DOMAINS</strong> from the top level menu.</li>
 <li>To open the <strong>ADD DOMAIN NAME</strong> textbox, type your domain name, and then click <strong>add</strong>.</li>
 <li>Click <strong>Next</strong> to open the <strong>Verify your domain name</strong> dialog page.
@@ -143,7 +143,7 @@ The objective of this section is to outline how to enable provisioning of Active
 ## To configure user provisioning, perform the following steps: ##
 <ol>
 <li>In the Windows Azure Management Portal, select <strong>Active Directory</strong> in the left navigation pane to open the <strong>active directory</strong> dialog page.</li>
-<li>In the directory list, select your directory to open your directory???s configuration page.</li>
+<li>In the directory list, select your directory to open your directory's configuration page.</li>
 <li>Select <strong>APPLICATIONS</strong> from the top level menu.</li>
 <li>From the list of applications, select <strong>Google Apps</strong> to open the <strong>google apps</strong> configuration dialog.</li>
 <li>To open the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog, click <strong>Configure account sync</strong>.</li>

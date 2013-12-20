@@ -51,10 +51,14 @@ In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To
 
 Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
 
-<div class="dev-callout">??
-<b>Important</b>??
-<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>??
+
+
+<div class="dev-callout">
+<b>Important</b>
+<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>
 </div>
+
+
 
 **To download and import publishsettings**
 
