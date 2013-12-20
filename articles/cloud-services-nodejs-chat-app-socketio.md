@@ -25,7 +25,7 @@ The following steps create the cloud service project that will host the Socket.I
 
 	![Windows Azure PowerShell icon][powershell-menu]
 
-	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named **chatapp** and a worker role named **WorkerRole1**:
 
@@ -34,8 +34,7 @@ The following steps create the cloud service project that will host the Socket.I
 
 	You will see the following response:
 
-	![The output of the new-azureservice and add-azurenodeworkerrole
-    cmdlets][add-workerrole]
+	![The output of the new-azureservice and add-azurenodeworkerrolecmdlets][add-workerrole]
 
 ## Download the Chat Example
 
@@ -168,7 +167,7 @@ In this tutorial you learned how to create a basic chat application hosted in a 
   [add-workerrole]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png
   
   [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-2.PNG
+  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-2.png
   
   
   [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
