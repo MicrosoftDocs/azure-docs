@@ -26,7 +26,7 @@ If you need to update the application code for your cloud service, use **Update*
 
  **Update Deployment** opens.
 
- ![UpdateDeployment] [UpdateDeployment]
+	![UpdateDeployment] [UpdateDeployment]
 
 2. In **Deployment label**, enter a name to identify the deployment (for example, mycloudservicev2). You'll find the deployment name under **quick start** on the dashboard.
 
@@ -63,7 +63,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
  The following confirmation prompt opens.
 
- ![Cloud Services Swap] [cloud-services-swap]
+	![Cloud Services Swap] [cloud-services-swap]
 
 4. After you verify the deployment information, click **Yes** to swap the deployments.
 
@@ -91,14 +91,14 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
  The **Linked Resources** page opens.
 
- ![LinkedResourcesPage] [LinkedResourcesPage]
+	![LinkedResourcesPage] [LinkedResourcesPage]
 
 
 3. Click either **Link a Resource** or **Link**.
 
  The **Link Resource** wizard starts.
 
- ![Link Page1] [link-page1]
+	![Link Page1] [link-page1]
 
 
 4. Click **Create a new resource** or **Link an existing resource**.
@@ -109,7 +109,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 You can follow the progress of the linking operation in the message area.
 
-![Link Progress] [link-progress]
+	![Link Progress] [link-progress]
 
 
 When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](../how-to-scale-a-cloud-service/).
@@ -140,7 +140,7 @@ Use the following procedure to delete a deployment or your cloud service.
 
  If you have a deployment in staging or production, you will see a menu of choices similar to the following one at the bottom of the window. Before you can delete the cloud service, you must delete any existing deployments.
 
- ![Delete Menu] [delete-menu]
+	![Delete Menu] [delete-menu]
 
 
 3. To delete a deployment, click **Delete production deployment** or **Delete staging deployment**. Then, at the confirmation prompt, click **Yes**. 
