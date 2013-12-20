@@ -64,16 +64,16 @@ Use the following procedure to enable multi-factor authentication for a user acc
 1.	Sign in to the Windows Azure Management Portal.
 
 2.	Click **Active Directory**, and then click the name of your directory.
-![ADextension2FAConfigureStep2] (./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep2.PNG)
+![ADextension2FAConfigureStep2] [ADextension2FAConfigureStep2]
 
 3.	On the **Users** page, click the user you want to enable.
-![ADextension2FAConfigureStep3] (./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep3.PNG)
+![ADextension2FAConfigureStep3] [ADextension2FAConfigureStep3]
 
 4.	On the settings page, under **role**, select the **Require Multi-factor Authentication** check box.
-![ADextension2FAConfigureStep4] (./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep4.PNG)
+![ADextension2FAConfigureStep4] [ADextension2FAConfigureStep4]
 
 5.	Click **SAVE**. 
-![ADextension2FAConfigureStep5] (./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep5.PNG)
+![ADextension2FAConfigureStep5] [ADextension2FAConfigureStep5]
 
 For information about what the user experience will be like after you enable mutlifactor authentication for an account, see the following resources:
 
@@ -87,3 +87,8 @@ For information about what the user experience will be like after you enable mut
 * [Windows Azure Identity](http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/)
 * [Windows Azure AD Library on TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
 * [Windows Azure AD Library on MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
+
+[ADextension2FAConfigureStep2]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep2.png
+[ADextension2FAConfigureStep3]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep3.png
+[ADextension2FAConfigureStep4]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep4.png
+[ADextension2FAConfigureStep5]: ./media/active-directory-enable-multi-factor-authentication/ADextension2FAConfigureStep5.png

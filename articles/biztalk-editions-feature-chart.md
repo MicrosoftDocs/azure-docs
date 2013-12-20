@@ -20,7 +20,7 @@ The following table lists the differences:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
-        <th>??</th>
+        <th> </th>
         <th>Developer</th>
         <th>Basic</th>
         <th>Standard</th>
