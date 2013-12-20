@@ -58,7 +58,7 @@ When a Backup is created, the following items are backed up:
 
 <table border="1"> 
 <TR bgcolor="FAF9F9">
-<th>??</th>
+<th> </th>
 <TH>Items backed up</TH> 
 </TR> 
 <TR>
@@ -152,7 +152,7 @@ When restoring a backup, consider the following:
 - The same EDI Runtime data is restored. The EDI Runtime backup stores the control numbers. The restored control numbers are in sequence from the time of the backup. If messages are processed after the last backup, restoring this backup content can cause duplicate control numbers.
 
 **Known Issue**
-<p>During a Restore, you specify the Access Control Namespace and Key, SQL Azure database, and Storage account. If you don???t enter these properties, their values are retrieved from the backup content. The values are not validated. If the parameters in the backup content have been removed from the BizTalk Service settings, the Restore does not detect that they have been deleted. As a result, the Restore fails.</p>
+<p>During a Restore, you specify the Access Control Namespace and Key, SQL Azure database, and Storage account. If you don't enter these properties, their values are retrieved from the backup content. The values are not validated. If the parameters in the backup content have been removed from the BizTalk Service settings, the Restore does not detect that they have been deleted. As a result, the Restore fails.</p>
 
 User-provided input is validated in the Restore. To validate the parameters, enter the Access Control Namespace and Key, SQL Azure database, and Storage account when doing the Restore.
 
