@@ -4,7 +4,7 @@
 
 [WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
-This tutorial provides a general overview of multi-factor authentication concepts and will walk you through how you can use multi-factor authentication in Windows Azure Active Directory to further protect your organization???s identity data in the cloud.
+This tutorial provides a general overview of multi-factor authentication concepts and will walk you through how you can use multi-factor authentication in Windows Azure Active Directory to further protect your organization's identity data in the cloud.
 
 ##Table of Contents##
 
@@ -22,7 +22,7 @@ Multi-factor authentication adds a critical second layer of security to user sig
 * Something you have (a trusted device that is not easily duplicated, like a phone)
 * Something you are (biometrics)
 
-The security of multi-factor authentication lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user???s password, it is useless without also having possession of the trusted device. Conversely, if the user happens to lose the device, the finder of that device won???t be able to use it unless he or she also knows the user???s password.
+The security of multi-factor authentication lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device. Conversely, if the user happens to lose the device, the finder of that device won't be able to use it unless he or she also knows the user's password.
 
 By default, Windows Azure AD supports the use of passwords as its only authentication method for user sign-ins.
 
@@ -32,18 +32,18 @@ When you enable multi-factor authentication for a user account in Windows Azure 
 
 <h3><a id="whyusephones"></a>Why use phones as a security verification method?</h3>
 
-Phone-based authentication systems leverage the user???s telephone as the trusted device for the second factor or authentication. Telephones are extremely difficult to duplicate and phone numbers are extremely difficult to intercept. They are also a widely adopted personal device that is normally carried everywhere by your employees/students and prevents additional IT costs for large purchases of smartcards or other hardware.
+Phone-based authentication systems leverage the user's telephone as the trusted device for the second factor or authentication. Telephones are extremely difficult to duplicate and phone numbers are extremely difficult to intercept. They are also a widely adopted personal device that is normally carried everywhere by your employees/students and prevents additional IT costs for large purchases of smartcards or other hardware.
 
 The combination of the phone and a username/password yields strong, multi-factor authentication results. However, enabling it will have an impact on the overall user experience as described in the next section.
 
 
 <h2><a id="considerations"></a>Things to consider before enabling multi-factor authentication</h2>
-It???s important that you read the following information before you enable this feature because it will have a broad impact on the accounts you enable.
+It's important that you read the following information before you enable this feature because it will have a broad impact on the accounts you enable.
 
-* Use is restricted to admin accounts ??? Currently, multifactor authentication can only be enabled for select users who sign-in with administrative privileges to your tenant. Global admins who go to enable multi-factor authentication in the Windows Azure AD portal will see a list of users that is restricted to only those that are assigned to an admin role. For more information about the various admin roles, see Assigning administrator roles.
+* Use is restricted to admin accounts - Currently, multifactor authentication can only be enabled for select users who sign-in with administrative privileges to your tenant. Global admins who go to enable multi-factor authentication in the Windows Azure AD portal will see a list of users that is restricted to only those that are assigned to an admin role. For more information about the various admin roles, see Assigning administrator roles.
 
  **Important**  
- As a security best practice, we recommend that you don???t regularly use elevated privileged accounts, such as admin roles, for normal day-to-day activities like reading e-mail and working in SharePoint Online. This is especially true when the elevated account has privileges that, if they fell into the wrong hands of a malicious user, could severely impact productivity of the entire organization.
+ As a security best practice, we recommend that you don't regularly use elevated privileged accounts, such as admin roles, for normal day-to-day activities like reading e-mail and working in SharePoint Online. This is especially true when the elevated account has privileges that, if they fell into the wrong hands of a malicious user, could severely impact productivity of the entire organization.
  
 
 * Existing multi-factor authentication set up on-premises - If you are already using multi-factor authentication methods in your on-premises environment and have set up your tenant to use single sign-on, you will not be able to use the phone-based multi-authentication feature built-in to Windows Azure AD. However, your users can continue to leverage your existing multi-factor authentication methods for signing in to your Microsoft cloud services.
@@ -53,7 +53,7 @@ It???s important that you read the following information before you enable this 
  
 * No rich client application support - When you enable multifactor authentication for a user account, you will not be able to use rich client applications, such as Microsoft Outlook, Lync, Windows PowerShell or other installed applications on your computer, to send/receive data provided by the cloud services you have subscribed to in your tenant. For example, if your organization has subscribed to Office 365, the user will not be able to access their e-mail through Outlook that is installed locally but will be able to access their e-mail through a browser using Outlook Web Access.
 
-* No Lync-based IP phone support ??? Once enabled, users will not be able to use a Lync-based IP phones with multi-factor authentication.
+* No Lync-based IP phone support - Once enabled, users will not be able to use a Lync-based IP phones with multi-factor authentication.
 
 <h2><a id="enable"></a>Enable multi-factor authentication for an account</h2>
 Only users who have been assigned the global administrator role in your Windows Azure AD tenant, can enable or disable multifactor authentication.
