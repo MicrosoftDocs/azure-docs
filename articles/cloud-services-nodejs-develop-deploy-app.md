@@ -28,7 +28,7 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-![A browser window displaying Hello World][A browser window displaying Hello World]
+	![A browser window displaying Hello World][A browser window displaying Hello World]
 
 ## Creating a New Node Application
 
