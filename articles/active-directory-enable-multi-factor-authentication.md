@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Enable accounts for multi-factor authentication in Windows Azure AD" metaKeywords="Windows Azure Active Directory, Windows Azure AD, multi-factor authentication, 2FA" metaDescription="Learn how to enable 2FA for accounts in your Windows Azure AD tenant." linkid="documentation-services-identity-enable-accounts-for-2fa-in-windows-azure-ad" urlDisplayName="Enable accounts for multi-factor authentication" headerExpose="" footerExpose="" disqusComments="1" writer="nickp" />
+<properties umbracoNaviHide="0" pageTitle="Enable accounts for multi-factor authentication in Windows Azure AD" metaKeywords="Windows Azure Active Directory, Windows Azure AD, multi-factor authentication, 2FA" description="Learn how to enable 2FA for accounts in your Windows Azure AD tenant." linkid="documentation-services-identity-enable-accounts-for-2fa-in-windows-azure-ad" urlDisplayName="Enable accounts for multi-factor authentication" headerExpose="" footerExpose="" disqusComments="1" writer="nickp" title="Enable accounts for multi-factor authentication in Windows Azure AD" />
 
 #Enable accounts for multi-factor authentication in Windows Azure AD
 
