@@ -165,7 +165,7 @@ In this tutorial you learned how to create a basic chat application hosted in a 
   [add-workerrole]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png
   
   [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-2.png
+  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
   
   
   [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
