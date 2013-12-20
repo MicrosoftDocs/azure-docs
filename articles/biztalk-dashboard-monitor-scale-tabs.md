@@ -277,7 +277,7 @@ Modifies the time range the metrics are displayed in the graph. Options include:
 ![Click Add Metrics][AddMetrics]
 >3. Check the performance metrics you want to display on the **Monitor** tab.
 >4. Click the checkmark to return to the **Monitor** tab.
->5. Click the circle next to the metric to display that metric???s value in the graph.<br/>
+>5. Click the circle next to the metric to display that metric's value in the graph.<br/>
 For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:<br/>
 ![CPU Usage metric is grayed out][GrayedMetric]
 <br/>
@@ -307,7 +307,7 @@ When the following events occur, a timestamp is created:
 <br/>
 This metric shows the result of the following calculation:
 <br/><br/>
-[Destination acknowledgement response sent to the gateway] ??? [Message enters the gateway]</td>
+[Destination acknowledgement response sent to the gateway] - [Message enters the gateway]</td>
 </tr>
 <tr>
 <td>Failures At Source</td>
@@ -329,7 +329,7 @@ When each of the following events occur, a timestamp is created:
 <li>Destination acknowledgement response sent to the gateway</li>
 </ul>
 <br/>This metric shows the result of the following calculation:<br/><br/>
-[Destination acknowledgement response sent to the gateway] ??? [Message enters the gateway] ??? [Destination response is received] + [Message is routed to the destination]</td>
+[Destination acknowledgement response sent to the gateway] - [Message enters the gateway] - [Destination response is received] + [Message is routed to the destination]</td>
 </tr>
 <tr>
 <td>Failures In Process</td>
@@ -365,7 +365,7 @@ Increasing the number of units may impact pricing. If you increase the Units, cl
 
 
 ## Next
-Now that you???re familiar with the different tabs, you can learn more about the Windows Azure BizTalk Services features:
+Now that you're familiar with the different tabs, you can learn more about the Windows Azure BizTalk Services features:
 
 - [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)

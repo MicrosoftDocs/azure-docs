@@ -58,7 +58,7 @@ In the Management Portal, you can add or modify the diagnostics connection strin
 
  You will edit the **monitoring** settings at the top of the **Configure** page, shown below. If you have not enabled Windows Azure Diagnostics for the cloud service, the **Level** option is not available. You can't change the data retention policy. Verbose monitoring data for a cloud service is stored for 10 days.
 
- ![Monitoring options] [monitoring-options]
+	![Monitoring options] [monitoring-options]
 
 
 5. In **Diagnostics Connection Strings**, complete the diagnostics connection string for each role for which you want verbose monitoring.
@@ -94,7 +94,7 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
  By default, the metrics table displays a subset of the available metrics. The illustration shows the default verbose metrics for a cloud service, which is limited to the Memory\Available MBytes performance counter, with data aggregated at the role level. Use **Add Metrics** to select additional aggregate and role-level metrics to monitor in the Management Portal.
 
- ![Verbose display] [verbose-display]
+	![Verbose display] [verbose-display]
 
 2. To add metrics to the metrics table:
 
@@ -121,7 +121,7 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
  The selected metrics are added to the metrics table, as shown below.
 
- ![monitor metrics] [monitor-metrics]
+	![monitor metrics] [monitor-metrics]
 
 4. To delete a metric from the metrics table, click the metric to select it, and then click **Delete Metric**. (You only see **Delete Metric** when you have a metric selected.)
 
