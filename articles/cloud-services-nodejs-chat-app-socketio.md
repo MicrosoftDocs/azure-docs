@@ -15,8 +15,6 @@ A screenshot of the completed application is below:
 
 ![A browser window displaying the service hosted on Windows Azure][completed-app]  
 
-
-
 ## Create a Cloud Service Project
 
 The following steps create the cloud service project that will host the Socket.IO application.
