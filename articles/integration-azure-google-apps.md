@@ -51,39 +51,38 @@ The objective of this section is to outline how to enable users to authenticate 
 	![Google_Tutorial_03](./media/integration-azure-google-apps/Google_Tutorial_03.png)
 
 8. On the <strong>Configure single sign-on at Google Apps</strong> dialog page perform the following steps, and then click the <strong>Complete</strong> button.
-		<ul>
- 		<li>Click <strong>Download certificate</strong>, and then save the certificate as <strong>c:\googleapps.cer</strong>.</li>
-		<li>Open the Google Apps login page, and then sign-on
-<p></p>
-		![Google_Tutorial_04](./media/integration-azure-google-apps/Google_Tutorial_04.png)</li>
+		
+	+ Click <strong>Download certificate</strong>, and then save the certificate as <strong>c:\googleapps.cer</strong>.
+	+ Open the Google Apps login page, and then sign-on
 
-		<li>On the <strong>Admin console</strong>, click Security
-<p></p>
-		![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)</li>
-</ul>
+		![Google_Tutorial_04](./media/integration-azure-google-apps/Google_Tutorial_04.png)
 
-<p></p>If the Security icon is not visible, you should click More controls on the bottom of the page.<p></p></li>
+	+ On the <strong>Admin console</strong>, click Security
+
+		![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
+
+
+	If the Security icon is not visible, you should click More controls on the bottom of the page.
 
 9. On the <strong>Security</strong> page, click <strong>Advanced</strong> settings.
+
 	![Google_Tutorial_06](./media/integration-azure-google-apps/Google_Tutorial_06.png)
 
 10. In the <strong>Advanced</strong> settings section of the page, select <strong>Set up single sign-on</strong>.
+
 	![Google_Tutorial_07](./media/integration-azure-google-apps/Google_Tutorial_07.png)
+
 11. On the Set up single sign-on page, perform the following steps:
+
 	![Google_Tutorial_08](./media/integration-azure-google-apps/Google_Tutorial_08.png)
-	<ul>
-		<li>Select <strong>Enable Single Sign-on</strong>.</li>
 
-		<li>On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, copy the <strong>SINGLE SIGN-ON URL</strong>, and then paste it into the related textbox on the <strong>Security page</strong> in the Google Apps <strong>Admin console</strong>.</li>
+		+ Select <strong>Enable Single Sign-on</strong>.
+		+ On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, copy the <strong>SINGLE SIGN-ON URL</strong>, and then paste it into the related textbox on the <strong>Security page</strong> in the Google Apps <strong>Admin console</strong>.
+		+ On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, copy the <strong>Single sign-out service URL</strong>, and then paste it into the related textbox on the <strong>Security</strong> page in the Google Apps <strong>Admin console</strong>.
+		+ On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, copy the <strong>Change password URL</strong>, and then paste it into the related textbox on the <strong>Security</strong> page in the Google Apps <strong>Admin console</strong>.
+		+ Click the <strong>Browse</strong> button to locate the <strong>Verification certificate</strong>, and then click Upload.
+		+ Click <strong>Save</strong> changes.
 
-		<li>On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, copy the <strong>Single sign-out service URL</strong>, and then paste it into the related textbox on the <strong>Security</strong> page in the Google Apps <strong>Admin console</strong>.</li>
-
-		<li>On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, copy the <strong>Change password URL</strong>, and then paste it into the related textbox on the <strong>Security</strong> page in the Google Apps <strong>Admin console</strong>.</li>
-
-		<li>Click the <strong>Browse</strong> button to locate the <strong>Verification certificate</strong>, and then click Upload.</li>
-		<li>Click <strong>Save</strong> changes.</li>
-</ul>
-</li>
 
 12. On the <strong>Configure single sign-on at Google Apps</strong> page in the Windows Azure AD Portal, click the Complete button.
 
@@ -96,11 +95,13 @@ When integrating Windows Azure Active Directory with Google Apps for user provis
 
 1. Sing-on to your Google Apps tenant.
 1. In the <strong>Admin console</strong>, click <strong>Security</strong>.
+
 	![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
 
 	If the Security icon is not visible, click More controls at the bottom of the Admin console.
 1. On the Security page, click <strong>API reference</strong> to open the related configuration dialog page.
 1. Select <strong>Enable API access</strong>.
+
 	![Google_Tutorial_09](./media/integration-azure-google-apps/Google_Tutorial_09.png)
 
 
@@ -110,17 +111,20 @@ Configuring a custom domain requires access to your public domain's DNS zone fil
 
 	![Google_Tutorial_10](./media/integration-azure-google-apps/Google_Tutorial_10.png)
 
-##To add a custom domain in Windows Azure AD, perform the following steps: ##
+##To add a custom domain in Windows Azure AD, perform the following steps:
 
 1. In the Windows Azure Management Portal, select <strong>Active Directory</strong> in the left navigation pane to open the <strong>active directory</strong> dialog page.
 1. In the directory list, select your directory to open your directory's configuration page.
 1. Select <strong>DOMAINS</strong> from the top level menu.
 1. To open the <strong>ADD DOMAIN NAME</strong> textbox, type your domain name, and then click <strong>add</strong>.
 1. Click <strong>Next</strong> to open the <strong>Verify your domain name</strong> dialog page.
+
 	![Google_Tutorial_11](./media/integration-azure-google-apps/Google_Tutorial_11.png)
 1. Select a <strong>RECORD TYPE</strong>, and then register the selected record in your DNS zone file.
+
 	![Google_Tutorial_12](./media/integration-azure-google-apps/Google_Tutorial_12.png)
 1. Using the <strong>nslookup command</strong>, you should verify whether the DNS record has been successfully registered.
+
 	![Google_Tutorial_13](./media/integration-azure-google-apps/Google_Tutorial_13.png)
 
 ## To add a custom domain in Google Apps, perform the following steps:
@@ -130,14 +134,17 @@ Configuring a custom domain requires access to your public domain's DNS zone fil
 
 	![Google_Tutorial_14](./media/integration-azure-google-apps/Google_Tutorial_14.png)
 1. Click <strong>Add a custom domain</strong>.
+
 	![Google_Tutorial_15](./media/integration-azure-google-apps/Google_Tutorial_15.png)
 1. Click <strong>Use a domain you already own</strong>, and then click <strong>Continue</strong>.
+
 	![Google_Tutorial_16](./media/integration-azure-google-apps/Google_Tutorial_16.png)
 1. Type the name of your custom domain, and then click <strong>Continue</strong>.
+
 	![Google_Tutorial_17](./media/integration-azure-google-apps/Google_Tutorial_17.png)
 1. Complete the steps to verify ownership of the domain.
 	
-	<p></p>If you have already federated single sign-on configured, you must update the Google Apps tenant URL in your federated single ign-on configuration.
+	If you have already federated single sign-on configured, you must update the Google Apps tenant URL in your federated single ign-on configuration.
 
 
 
@@ -152,6 +159,7 @@ The objective of this section is to outline how to enable provisioning of Active
 From the list of applications, select <strong>Google Apps</strong> to open the <strong>google apps</strong> configuration dialog.
 1. To open the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog, click <strong>Configure account sync</strong>.
 1. On the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog page, provide the Google Apps domain name, the Google Apps user name and the Google Apps password, and then click the <strong>Next</strong> button.
+
 	![Google_Tutorial_18](./media/integration-azure-google-apps/Google_Tutorial_18.png)
 1. On the <strong>Confirmation</strong> dialog page, click the <strong>Complete</strong> button to close the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog.
 
