@@ -55,12 +55,11 @@ The objective of this section is to outline how to enable users to authenticate 
 	+ Click <strong>Download certificate</strong>, and then save the certificate as <strong>c:\googleapps.cer</strong>.
 	+ Open the Google Apps login page, and then sign-on
 
-		![Google_Tutorial_04](./media/integration-azure-google-apps/Google_Tutorial_04.png)
+	![Google_Tutorial_04](./media/integration-azure-google-apps/Google_Tutorial_04.png)
 
 	+ On the <strong>Admin console</strong>, click Security
 
-		![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
-
+	![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
 
 	If the Security icon is not visible, you should click More controls on the bottom of the page.
 
@@ -95,13 +94,13 @@ When integrating Windows Azure Active Directory with Google Apps for user provis
 
 1. Sing-on to your Google Apps tenant.
 1. In the <strong>Admin console</strong>, click <strong>Security</strong>.
-
+<p></p>
 	![Google_Tutorial_05](./media/integration-azure-google-apps/Google_Tutorial_05.png)
 
 	If the Security icon is not visible, click More controls at the bottom of the Admin console.
 1. On the Security page, click <strong>API reference</strong> to open the related configuration dialog page.
 1. Select <strong>Enable API access</strong>.
-
+<p></p>
 	![Google_Tutorial_09](./media/integration-azure-google-apps/Google_Tutorial_09.png)
 
 
@@ -109,7 +108,7 @@ When integrating Windows Azure Active Directory with Google Apps for user provis
 Configuring user provisioning with Google Apps requires the Windows Azure AD domain and the Google Apps domain to have the same fully qualified domain name (FQDN). However, when you are, for example, using trial tenants to test the scenario in this tutorial, the FQDNS of your tenants typically don't match. To address this issue, you can configure custom domains in Windows Azure AD and in Google Apps. 
 Configuring a custom domain requires access to your public domain's DNS zone file. 
 
-	![Google_Tutorial_10](./media/integration-azure-google-apps/Google_Tutorial_10.png)
+![Google_Tutorial_10](./media/integration-azure-google-apps/Google_Tutorial_10.png)
 
 ##To add a custom domain in Windows Azure AD, perform the following steps:
 
@@ -129,19 +128,23 @@ Configuring a custom domain requires access to your public domain's DNS zone fil
 
 ## To add a custom domain in Google Apps, perform the following steps:
 
-1.Sing-on to your Google Apps tenant.
-1. In the <strong>Admin console</strong>, click <strong>Domains</strong>. 
+1. Sign-on to your Google Apps tenant.
+1. In the **Admin console**, click **Domains**.
 
 	![Google_Tutorial_14](./media/integration-azure-google-apps/Google_Tutorial_14.png)
+
 1. Click <strong>Add a custom domain</strong>.
 
 	![Google_Tutorial_15](./media/integration-azure-google-apps/Google_Tutorial_15.png)
+
 1. Click <strong>Use a domain you already own</strong>, and then click <strong>Continue</strong>.
 
 	![Google_Tutorial_16](./media/integration-azure-google-apps/Google_Tutorial_16.png)
+
 1. Type the name of your custom domain, and then click <strong>Continue</strong>.
 
 	![Google_Tutorial_17](./media/integration-azure-google-apps/Google_Tutorial_17.png)
+
 1. Complete the steps to verify ownership of the domain.
 	
 	If you have already federated single sign-on configured, you must update the Google Apps tenant URL in your federated single ign-on configuration.
@@ -161,6 +164,7 @@ From the list of applications, select <strong>Google Apps</strong> to open the <
 1. On the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog page, provide the Google Apps domain name, the Google Apps user name and the Google Apps password, and then click the <strong>Next</strong> button.
 
 	![Google_Tutorial_18](./media/integration-azure-google-apps/Google_Tutorial_18.png)
+
 1. On the <strong>Confirmation</strong> dialog page, click the <strong>Complete</strong> button to close the <strong>CONFIGURE ACCOUNT SYNC</strong> dialog.
 
 You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Google Apps.
