@@ -108,7 +108,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 	
 	This method handles the **Click** event for the new button. The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
 
-## <a name="test-app"></a>Test the app
+## Test the app
 
 1. From the **Run** menu, click **Run** to start the project in the Android emulator.
 
