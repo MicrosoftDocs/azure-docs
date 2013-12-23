@@ -14,7 +14,7 @@
 
 	![][2]
 
-  This creates the new API.
+	This creates the new API.
 
 
 > WACOM.NOTE
