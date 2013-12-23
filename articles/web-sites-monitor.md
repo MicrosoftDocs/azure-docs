@@ -32,18 +32,18 @@ Web sites provide monitoring functionality via the Monitor management page. The 
 
 The following list describes the metrics that you can view in the chart on the **Monitor** page:
 
-- **CPUTime** ??? A measure of the web site's CPU usage.
-- **Requests** ??? A count of client requests to the web site.
-- **Data Out** ??? A measure of data sent by the web site to clients.
-- **Data In** ??? A measure of data received by the web site from clients.
-- **Http Client Errors** ??? Number of Http "4xx Client Error" messages sent.
-- **Http Server Errors** ??? Number of Http "5xx Server Error" messages sent.
-- **Http Successes** ??? Number of Http "2xx Success" messages sent.
-- **Http Redirects** ??? Number of Http "3xx Redirection" messages sent.
-- **Http 401 errors** ??? Number of Http "401 Unauthorized" messages sent.
-- **Http 403 errors** ??? Number of Http "403 Forbidden" messages sent.
-- **Http 404 errors** ??? Number of Http "404 Not Found" messages sent.
-- **Http 406 errors** ??? Number of Http "406 Not Acceptable" messages sent.
+- **CPUTime** - A measure of the web site's CPU usage.
+- **Requests** - A count of client requests to the web site.
+- **Data Out** - A measure of data sent by the web site to clients.
+- **Data In** - A measure of data received by the web site from clients.
+- **Http Client Errors** - Number of Http "4xx Client Error" messages sent.
+- **Http Server Errors** - Number of Http "5xx Server Error" messages sent.
+- **Http Successes** - Number of Http "2xx Success" messages sent.
+- **Http Redirects** - Number of Http "3xx Redirection" messages sent.
+- **Http 401 errors** - Number of Http "401 Unauthorized" messages sent.
+- **Http 403 errors** - Number of Http "403 Forbidden" messages sent.
+- **Http 404 errors** - Number of Http "404 Not Found" messages sent.
+- **Http 406 errors** - Number of Http "406 Not Acceptable" messages sent.
 
 ##<a name="howtoreceivealerts"></a>How to: Receive alerts from web site metrics
 In **Standard** web site mode, you can receive alerts based on your web site monitoring metrics. The alert feature requires that you first configure a web endpoint for monitoring, which you can do in the **Monitoring** section of the **Configure** page. On the **Settings** page of the Windows Azure Management Portal, you can then create a rule to trigger an alert when the metric you choose reaches a value that you specify. You can also choose to have email sent when the alert is triggered. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Windows Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
@@ -63,9 +63,9 @@ To determine the extent that a web site is impacting resource usage quotas, foll
 
 Resource usage quotas help prevent overuse of the following resources:
 
-- **Data Out** ??? a measure of the amount of data sent from web sites running in **Shared** mode to their clients in the current quota interval (24 hours).
-- **CPU Time** ??? the amount of CPU time used by web sites running in **Shared** mode for the current quota interval.
-- **File System Storage** ??? The amount of file system storage in use by web sites running in **Shared** mode.
+- **Data Out** - a measure of the amount of data sent from web sites running in **Shared** mode to their clients in the current quota interval (24 hours).
+- **CPU Time** - the amount of CPU time used by web sites running in **Shared** mode for the current quota interval.
+- **File System Storage** - The amount of file system storage in use by web sites running in **Shared** mode.
 
 When a subscription's usage quotas are exceeded, Windows Azure takes action to stop overuse of resources. This is done to prevent any subscriber from exhausting resources to the detriment of other subscribers.
 
@@ -84,11 +84,11 @@ Consider scaling back additional instances of shared mode web sites if resource 
 
 Windows Azure takes the following actions if a subscription's resource usage quotas are exceeded in a quota interval (24 hours):
 
- - **Data Out** ??? when this quota is exceeded, Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
+ - **Data Out** - when this quota is exceeded, Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
 
- - **CPU Time** ??? when this quota is exceeded, Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
+ - **CPU Time** - when this quota is exceeded, Windows Azure stops all web sites for a subscription which are configured to run in **Shared** mode for the remainder of the current quota interval. Windows Azure will start the web sites at the beginning of the next quota interval.
 
- - **File System Storage** ??? Windows Azure prevents deployment of any web sites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations, but all write operations, including those required for normal web site activity, are blocked. When this occurs, you can configure one or more web sites running in Shared web site mode to run in Standard web site mode, or reduce usage of file system storage below the File System Storage usage quota.
+ - **File System Storage** - Windows Azure prevents deployment of any web sites for a subscription which are configured to run in Shared mode if the deployment will cause the File System Storage usage quota to be exceeded. When the File System Storage resource has grown to the maximum size allowed by its quota, file system storage remains accessible for read operations, but all write operations, including those required for normal web site activity, are blocked. When this occurs, you can configure one or more web sites running in Shared web site mode to run in Standard web site mode, or reduce usage of file system storage below the File System Storage usage quota.
 
 
 
@@ -147,7 +147,7 @@ Since application logging to storage requires using a storage client to view the
 
 The **site diagnostics** section of the **Configure** management page controls the logging performed by the web server, such as the logging of web requests, failure to serve pages, or how long it took to serve a page. You can enable or disable the following options:
 
-- **Web Server Logging** ??? Turn on Web Server logging to save web site logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web site, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client. You can save the logs to a Windows Azure Storage Account or to the File System.
+- **Web Server Logging** - Turn on Web Server logging to save web site logs using the W3C extended log file format. Web server logging produces a record of all incoming requests to your web site, which contains information such as the client IP address, requested URI, HTTP status code of the response, and the user agent string of the client. You can save the logs to a Windows Azure Storage Account or to the File System.
 
  To save web server logs to a Windows Azure Storage Account, choose **Storage**, and then choose **manage storage** to specify a storage account and a Windows Azure Blob Container where the logs will be kept. For more information about Windows Azure Storage Accounts, see [How to Manage Storage Accounts](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
@@ -155,9 +155,9 @@ The **site diagnostics** section of the **Configure** management page controls t
 
  By default, web server logs are never deleted. To specify a period of time after which the logs will be automatically deleted, select **Set Retention** and enter the number of days to keep the logs in the **Retention Period** box. This setting is available for both the Windows Azure Storage and File System options.
 
-- **Detailed Error Messages** ??? Turn on detailed error logging to log additional information about HTTP errors (status codes greater than 400).
+- **Detailed Error Messages** - Turn on detailed error logging to log additional information about HTTP errors (status codes greater than 400).
 
-- **Failed Request Tracing** ??? Turn on failed request tracing to capture information for failed client requests, such as a 400 series HTTP status code.  Failed request tracing produces an XML document that contains a trace of which modules the request passed through in IIS, details returned by the module, and the time the module was invoked. This information can be used to isolate which component the failure occurred in.
+- **Failed Request Tracing** - Turn on failed request tracing to capture information for failed client requests, such as a 400 series HTTP status code.  Failed request tracing produces an XML document that contains a trace of which modules the request passed through in IIS, details returned by the module, and the time the module was invoked. This information can be used to isolate which component the failure occurred in.
 
 
 After enabling diagnostics for a web site, click the **Save** icon at the bottom of the **Configure** management page to apply the options that you have set.
