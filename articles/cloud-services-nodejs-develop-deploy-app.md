@@ -28,7 +28,7 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-	![A browser window displaying Hello World][A browser window displaying Hello World]
+   ![A browser window displaying Hello World][A browser window displaying Hello World]
 
 ## Creating a New Node Application
 
@@ -244,7 +244,7 @@ deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library
 </div>
 
   [A browser window displaying Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-  [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ../../Shared/Media/azure-powershell-menu.png
+  [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
   [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
   [nodejs.org]: http://nodejs.org/
   [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
