@@ -86,25 +86,25 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 2. In the `About` method, right-click the line that sets `ViewBag.Message`, and then in the context menu click **Breakpoint** - **Insert Breakpoint**. (You can also set a breakpoint by pressing F9 while the cursor is in a line.)
 
-   ![Set a breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-setbreakpoint.png)
+	![Set a breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-setbreakpoint.png)
 
 3. Press F5 to run in debug mode, and then click the **About** link in the menu bar (you might have to expand the menu by clicking the symbol at the upper right corner of the page).
 
-   Visual Studio stops on the statement that sets `ViewBag.Message`. You can now examine or change variable values, step through code one line at a time, change statement execution order, etc.
+	Visual Studio stops on the statement that sets `ViewBag.Message`. You can now examine or change variable values, step through code one line at a time, change statement execution order, etc.
 
 4. Hover the mouse pointer over `currentTime` to see the value of the variable.
 
-   ![View variable in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugview.png)
+	![View variable in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugview.png)
 
 5. Click inside the displayed time value and change the time to a different value, such as "Changed in debug mode", and then press Enter.
 
-   ![Change variable in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchange.png)
+	![Change variable in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchange.png)
 
 6. Press F5 to continue running the application.
 
    The About page displays the new value that you entered for the time.
 
-   ![About page](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-afterdebugchange.png)
+	![About page](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-afterdebugchange.png)
 
 7. Close the browser
 
@@ -116,7 +116,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 3. Click the **Settings** tab, and change **Configuration** to **Debug**, and then click **Publish**.
 
-   ![Publish in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
+	![Publish in debug mode](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
 4. After deployment finishes and your browser opens to the Windows Azure URL of your site, close the browser.
 
@@ -124,9 +124,9 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 5. For Visual Studio 2013 only: In **Server Explorer** expand **Windows Azure**, expand **Web Sites**, right-click your web site, and click **Attach Debugger**. 
 
-   ![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
+	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-   The browser automatically opens to your home page running in Windows Azure. You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
+	The browser automatically opens to your home page running in Windows Azure. You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
 
 6. For Visual Studio 2012 only:
 
@@ -134,7 +134,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
    * Set **Remote Debugging** to **On**, and set **Remote Debugging Visual Studio Version** to **2012**.
 
-      ![Set remote debugging in management portal](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png)
+	![Set remote debugging in management portal](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png)
    
    * In the Visual Studio **Debug** menu, click **Attach to Process**.
 
@@ -156,7 +156,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 7. Hover over the `currentTime` variable to see the time value.
 
-   ![View variable in debug mode running in Windows Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+	![View variable in debug mode running in Windows Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
    The time you see is now the Windows Azure server time, which may be in a different time zone than your local computer.
 
@@ -166,7 +166,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
    The About page running in Windows Azure displays the new value that you entered into the currentTime variable.
 
-   ![About page with new value](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
+	![About page with new value](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
 ### Notes
 
@@ -265,7 +265,7 @@ In this section you'll do the following tasks:
 
    The default trace listener writes all trace output to the **Output** window, along with other Debug output. The following illustration shows the output from the trace statements that you added to the `Index` method.
 
-   ![Tracing in Debug window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
+	![Tracing in Debug window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
    The following steps show how to view trace output in a web page, without compiling in debug mode.
 
@@ -296,11 +296,11 @@ In this section you'll do the following tasks:
 
 5. On the **Application Trace** page, click **View Details**.
 
-   ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
    The **Request Details** page appears, and in the **Trace Information** section you see the output from the trace statements that you added to the `Index` method.
 
-   ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
 By default, `trace.axd` is only available locally. If you wanted to make it available from a remote site, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
 
@@ -318,21 +318,21 @@ However, enabling `trace.axd` in a production site is generally not recommended 
 
 3. In **Server Explorer**, right-click your web site and select **View Streaming Logs in Output Window**. 
 
-   ![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
+	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
    The **Output** window shows that you are connected to the log-streaming service, and adds a notification line each minute that goes by without a log to display.
 
-   ![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
+	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 
 4. In the browser window that shows your application home page, click **Contact**.
 
    Within a few seconds the output from the error-level trace you added to the `Contact` method appears in the **Output** window.
 
-   ![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
+	![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
 Visual Studio is only showing error-level traces because that is the default setting when you enable the log monitoring service. When you create a new Windows Azure Web Site, all logging is disabled by default, as you saw when you opened the site settings page earlier:
 
-![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
+	![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
 
 However, when you selected **View Streaming Logs in Output Window**, Visual Studio automatically changed **Application Logging(File System)** to **Error**, which means error-level logs get reported. In order to see all of your tracing logs, you can change this setting to **Verbose**. When you select a severity level lower than error, all logs for higher severity levels are also reported. So when you select verbose, you also see information, warning, and error logs.  
@@ -341,13 +341,13 @@ However, when you selected **View Streaming Logs in Output Window**, Visual Stud
 
 5. Change **Application Logging (File System)** to **Verbose**, and then click **Save**.
  
-   ![Setting trace level to Verbose](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
+	![Setting trace level to Verbose](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
 
 6. In the browser window that is now showing your **Contact** page, click **Home**, then click **About**, and then click **Contact**.
 
    Within a few seconds, the **Output** window shows all of your tracing output.
 
-   ![Verbose trace output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
+	![Verbose trace output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
 In this section you enabled and disabled logging by using Windows Azure Web Site settings. You can also enable and disable trace listeners by modifying the Web.config file. However, modifying the Web.config file causes the app domain to recycle, while enabling logging via the web site doesn't do that. If the problem takes a long time to reproduce, or is intermittent, recycling the app domain might "fix" it and force you to wait until it happens again. Enabling diagnostics in Windows Azure doesn't do this, so you can start capturing error information immediately.
 
@@ -355,7 +355,7 @@ In this section you enabled and disabled logging by using Windows Azure Web Site
 
 The **Windows Azure Logs** tab of the **Output** Window has several buttons and a text box:
 
-   ![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
+	![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
 
 These perform the following functions:
 
@@ -375,21 +375,21 @@ Web server logs record all HTTP activity on the site. In order to see them in th
 
 1. In the **Azure Web Site Configuration** tab that you opened from **Server Explorer**, change Web Server Logging to **On**, and then click **Save**.
 
-   ![Enable web server logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
+	![Enable web server logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
 
 2. In the **Output** Window, click the **Specify which Windows Azure logs to monitor** button.
-
-   ![Specify which Windows Azure logs to monitor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
+	
+	![Specify which Windows Azure logs to monitor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
 
 3. In the **Windows Azure Logging Options** dialog box, select **Web server logs**, and then click **OK**.
 
-   ![Monitor web server logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
+	![Monitor web server logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 
 4. In the browser window that shows the web site, click **Home**, then click **About**, and then click **Contact**.
 
    The application logs generally appear first, followed by the web server logs. You might have to wait a while for the logs to appear. 
 
-   ![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
+	![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
 
 By default, when you first enable web server logs by using Visual Studio, Windows Azure writes the logs to the file system. As an alternative, you can use the management portal to specify that web server logs should be written to a blob container in a storage account. For more information, see the **site diagnostics** section in [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig). 
@@ -402,23 +402,23 @@ Detailed error logs provide some additional information about HTTP requests that
 
 1. In the **Azure Web Site Configuration** tab that you opened from **Server Explorer**, change **Detailed Error Messages** to **On**, and then click **Save**.
 
-   ![Enable detailed error messages](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
+	![Enable detailed error messages](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 
 2. In the **Output** Window, click the **Specify which Windows Azure logs to monitor** button.
 
 3. In the **Windows Azure Logging Options** dialog box, click **All logs**, and then click **OK**.
 
-   ![Monitor all logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
+	![Monitor all logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
 
 4. In the address bar of the browser window, add an extra character to the URL to cause a 404 error (for example, `http://localhost:53370/Home/Contactx`), and press Enter.
 
    After several seconds the detailed error log appears in the Visual Studio **Output** window. The log output is long, and the following image only shows part of it.
 
-   ![Detailed error log in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
+	![Detailed error log in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
 
    If you copy the HTML of the log output and open it in a browser, you see the following page:
 
-   ![Detailed error log in browser window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
+	![Detailed error log in browser window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
 <h2><a name="downloadlogs"></a><span class="short-header">Download logs</span>Download file system logs</h2>
 
@@ -426,11 +426,11 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 1. In the **Output** window, click **Download Streaming Logs**.
 
-   ![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
+	![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
 
    File Explorer opens to your *Downloads* folder with the downloaded file selected.
 
-   ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
+	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
 
 2. Extract the *.zip* file, and you see the following folder structure:
 
@@ -454,17 +454,17 @@ One advantage of sending application tracing logs to storage is that you get som
 
 2. In the management portal, click the **Storage** tab, and then click **Create a Storage Account**.
 
-  ![Create a storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png)
+	![Create a storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-createstorage.png)
 
 2. Enter a unique URL to use for the storage account, and then click **Create Storage Account**.
 
-  ![Enter a URL](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png)
+	![Enter a URL](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storageurl.png)
 
 1. In the Visual Studio **Azure Web Site** window, click the **Logs** tab, and then click **Configure Logging**.
 
-  ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-  This opens the **Configure** tab in the management portal for your web site. Another way to get here is to click the **Web Sites** tab, click your web site, and then click the **Configure** tab.
+	This opens the **Configure** tab in the management portal for your web site. Another way to get here is to click the **Web Sites** tab, click your web site, and then click the **Configure** tab.
 
 2. In the management portal **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Storage)** to **On**.
 
@@ -472,11 +472,11 @@ One advantage of sending application tracing logs to storage is that you get som
 
 4. Click **Manage Connection**.
 
-  ![Click Manage Connection](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
+	![Click Manage Connection](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
 
   In the **Manage diagnostic storage** box, you can choose your storage account if you have more than one. The **Storage Account Key** field defaults to the primary key value of the selected storage account.
 
-  ![Click Manage Connection](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
+	![Click Manage Connection](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
 
 6. In the **Manage diagnostic storage** box click the check mark to close the box.
 
@@ -488,15 +488,15 @@ One advantage of sending application tracing logs to storage is that you get som
 
 8. In the **Logs** tab of the **Azure Web Site** window in Visual Studio, click **Refresh** under **Diagnostic Summary**.
 
-  ![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+	![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
   The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. 
 
   (If you get a "table not found" error for the WAWSAppLogTable, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
 
-  ![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
+	![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
-  Notice that in this view you see **Process ID** and **Thread ID** for each log, which you don't get in the file system logs. You can see additional fields by viewing the Windows Azure storage table directly.
+	Notice that in this view you see **Process ID** and **Thread ID** for each log, which you don't get in the file system logs. You can see additional fields by viewing the Windows Azure storage table directly.
 
 8. Click **View all application logs**.
 
@@ -504,15 +504,15 @@ One advantage of sending application tracing logs to storage is that you get som
    
    (If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Windows Azure** node, and then right-click **Tables** and click **Refresh**.)
 
-  ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png)
+	![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png)
 
-  ![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
+	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
   This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
 
 7. To look at the details for a single row, right-click one of the rows, and then click **Edit**.
 
-  ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
+	![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
 
 <h2><a name="failedrequestlogs"></a><span class="short-header">Failed request logs</span>View failed request tracing logs</h2>
 
@@ -526,7 +526,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 1. In the **Configuration** tab of the **Azure Web Site** window that you opened from **Server Explorer**, change **Failed Request Tracing** to **On**, and then click **Save**.
 
-   ![Enable failed request tracing](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
+	![Enable failed request tracing](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
 
 4. In the address bar of the browser window that shows the web site, add an extra character to the URL and click Enter to cause a 404 error.
 
@@ -536,11 +536,11 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 3. In the management portal, click **Dashboard**, and then click **Reset your deployment credentials** in the **Quick Glance** section.
 
-   ![Reset FTP credentials link in Dashboard](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
+	![Reset FTP credentials link in Dashboard](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-resetftpcredentials.png)
 
 4. Enter a new user name and password.
 
-   ![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
+	![New FTP user name and password](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
 5. In the management portal **Dashboard** tab press F5 to refresh the page, and then scroll down to where you see **Deployment / FTP User**. Notice that the user name has the site name prefixed to it. **When you log in, you have to use this full user name with the site name prefixed to it as shown here.**
 
@@ -552,21 +552,21 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 6. Open the *LogFiles* folder.
 
-   ![Open LogFiles folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
+	![Open LogFiles folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
 
 7. Open the folder that is named W3SVC plus a numeric value.
 
-   ![Open W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
+	![Open W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
 
    The folder contains XML files for any errors that have been logged after you enabled failed request tracing, and an XSL file that a browser can use to format the XML.
 
-   ![W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
+	![W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
 
 8. Click the XML file for the failed request that you want to see tracing information for.
 
    The following illustration shows part of the tracing information for a sample error.
 
-   ![Failed request tracing in browser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
+	![Failed request tracing in browser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
 
 <h2><a name="nextsteps"></a><span class="short-header">Next Steps</span>Next Steps</h2>

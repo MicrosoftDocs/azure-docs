@@ -13,7 +13,7 @@ You manage your web sites with a set of Management pages. Each Web Site manageme
 The **QuickStart** management page includes the following sections:
 
 - **Get the tools** - Provides links to [Install WebMatrix][mswebmatrix] and the [Windows Azure SDK][azuresdk].
-- **Publish your app** - Provides links to download the web site???s publishing profile and reset deployment credentials for the web site.
+- **Publish your app** - Provides links to download the web site's publishing profile and reset deployment credentials for the web site.
 - **Integrate source control** - Set up and manage deployment from source control tools or web sites like TFS, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
 
 ## Dashboard ##
