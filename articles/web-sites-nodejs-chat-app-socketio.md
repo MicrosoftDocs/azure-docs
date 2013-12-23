@@ -143,5 +143,5 @@ In this tutorial you learned how to create a chat application hosted in a Window
 [Socket.IO GitHub repository]: https://github.com/LearnBoost/socket.io/tree/0.9.14
 [cloudservice]: /en-us/develop/nodejs/tutorials/app-using-socketio/
 
-[chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.PNG
+[chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [The output of the npm install command]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
