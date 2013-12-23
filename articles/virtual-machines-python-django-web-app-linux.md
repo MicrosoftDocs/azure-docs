@@ -116,8 +116,13 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
-[A browser window displaying the hello world page on Windows Azure]: ../Media/mac-linux-django-helloworld-browser.png
-[The result of the django-admin command]: ../Media/mac-linux-django-helloworld-dir.png
-[add endpoint]: ../Media/mac-linux-django-helloworld-add-endpoint.png
+<!-- IMAGES -->
+[A browser window displaying the hello world page on Windows Azure]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png
+
+[The result of the django-admin command]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-dir.png
+
+[add endpoint]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png
+
 [port80]: ./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png
+
 [portal-vm]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/

@@ -23,10 +23,8 @@ Monitoring displays in the Management Portal are highly configurable. You can ch
 
 By default, minimal monitoring is provided for a new cloud service using performance counters gathered from the host operating system for the roles instances (virtual machines). The minimal metrics are limited to CPU Percentage, Data In, Data Out, Disk Read Throughput, and Disk Write Throughput. By configuring verbose monitoring, you can receive additional metrics based on performance data within the virtual machines (role instances). The verbose metrics enable closer analysis of issues that occur during application operations.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://msdn.microsoft.com/en-us/library/gg433048.aspx">Collect Logging Data by Using Windows Azure Diagnostics</a> and <a href="http://msdn.microsoft.com/en-us/library/hh411542.aspx">Create and Use Performance Counters in a Windows Azure Application</a>.</p> 
-</div>
+> WACOM.NOTE
+> If you use verbose monitoring, you can add more performance counters at role instance startup, through a diagnostics configuration file, or remotely using the Windows Azure Diagnostics API. To be able to monitor these metrics in the Management Portal, you must add the performance counters before you configure verbose monitoring. For more information, see <a href="http://msdn.microsoft.com/en-us/library/gg433048.aspx">Collect Logging Data by Using Windows Azure Diagnostics</a> and <a href="http://msdn.microsoft.com/en-us/library/hh411542.aspx">Create and Use Performance Counters in a Windows Azure Application</a>.
 
 By default performance counter data from role instances is sampled and transferred from the role instance at 3-minute intervals. When you enable verbose monitoring, the raw performance counter data is aggregated for each role instance and across role instances for each role at intervals of 5 minutes, 1 hour, and 12 hours. The aggregated data is  purged after 10 days.
 
@@ -60,7 +58,7 @@ In the Management Portal, you can add or modify the diagnostics connection strin
 
  You will edit the **monitoring** settings at the top of the **Configure** page, shown below. If you have not enabled Windows Azure Diagnostics for the cloud service, the **Level** option is not available. You can't change the data retention policy. Verbose monitoring data for a cloud service is stored for 10 days.
 
- ![Monitoring options] (./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png)
+	![Monitoring options] [monitoring-options]
 
 
 5. In **Diagnostics Connection Strings**, complete the diagnostics connection string for each role for which you want verbose monitoring.
@@ -96,14 +94,14 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
  By default, the metrics table displays a subset of the available metrics. The illustration shows the default verbose metrics for a cloud service, which is limited to the Memory\Available MBytes performance counter, with data aggregated at the role level. Use **Add Metrics** to select additional aggregate and role-level metrics to monitor in the Management Portal.
 
- ![Verbose display] (./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
+	![Verbose display] [verbose-display]
 
 2. To add metrics to the metrics table:
 
 	a. Click **Add Metrics** to open **Choose Metrics**, shown below.
  The first available metric is expanded to show options that are available. For each metric, the top option displays aggregated monitoring data for all roles. In addition, you can choose individual roles to display data for.
 
-	![Add metrics] (./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png)
+	![Add metrics] [add-metrics]
 
 	b. To select metrics to display:
 
@@ -117,13 +115,13 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 	<p>In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.</p> 
 </div>
  
-	![Add metrics search] (./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
+	![Add metrics search] [add-metrics-search]
 
 3. After you finish selecting metrics, click OK (checkmark).
 
  The selected metrics are added to the metrics table, as shown below.
 
- ![monitor metrics](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
+	![monitor metrics] [monitor-metrics]
 
 4. To delete a metric from the metrics table, click the metric to select it, and then click **Delete Metric**. (You only see **Delete Metric** when you have a metric selected.)
 
@@ -137,12 +135,12 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
  
 2. To switch between displaying relative values (final value only for each metric) and absolute values (Y axis displayed), select Relative or Absolute at the top of the chart.
 
-	![Relative or Absolute] (./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png)
+	![Relative or Absolute] [relative-absolute]
  
 
 3. To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
 
-	![Monitor display period] (./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
+	![Monitor display period] [monitor-display-period]
 
 On the dashboard metrics chart, the method for plotting metrics is different. A standard set of metrics is available, and metrics are added or removed by selecting the metric header.
 
@@ -183,3 +181,11 @@ For example, the following tables would store verbose monitoring data aggregated
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
+
+[monitoring-options]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
+[verbose-display]: ./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png
+[add-metrics]: ./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png
+[add-metrics-search]: ./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png
+[monitor-metrics]: ./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png
+[relative-absolute]: ./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png
+[monitor-display-period]: ./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png

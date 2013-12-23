@@ -516,7 +516,7 @@ Now that you've learned the basics of service management, follow these links to 
 
 
 [download-SDK-Python]: https://www.windowsazure.com/en-us/develop/python/common-tasks/install-python/
-[cloud service]: http://www.windowsazure.com/en-us/manage/services/cloud-services/what-is-a-cloud-service/
+[cloud service]:http://windowsazure.com/en-us/documentation/articles/cloud-services-what-is
 [service package]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
 [Windows Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
 [cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx

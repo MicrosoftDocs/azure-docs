@@ -10,7 +10,7 @@
 Node.js includes a minimal set of functionality in the core runtime.
 Developers often use 3rd party modules to provide additional
 functionality when developing a Node.js application. In this tutorial
-you will create a new application using the [Express] module, which provides an MVC framework for creating Node.js web applications.
+you will create a new application using the [Express][] module, which provides an MVC framework for creating Node.js web applications.
 
 A screenshot of the completed application is below:
 
@@ -70,8 +70,8 @@ Perform the following steps to create a new cloud service project named 'express
 
 ## Modifying the View
 
-Now modify the view to display the message ???Welcome to Express in
-Windows Azure???.
+Now modify the view to display the message "Welcome to Express in
+Windows Azure".
 
 1.  Enter the following command to open the index.jade file:
 
@@ -107,15 +107,15 @@ Once the deployment operation completes, your browser will open and display the 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Windows Azure.][A web browser displaying Welcome to Express in Windows Azure]
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [A web browser displaying Welcome to Express in Windows Azure]: ../Media/node36.png
-  [Windows PowerShell displaying the output of the npm install express command.]: ../Media/express-g.png
-  
+  [A web browser displaying Welcome to Express in Windows Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node36.png
+  [Windows PowerShell displaying the output of the npm install express command.]: ./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png
+  [Express]: http://expressjs.com/
   [express-command]: ./media/cloud-services-nodejs-develop-deploy-express-app/node23.png
-  [Directory listing of the WebRole1 folder.]: ../Media/getting-started-17.png
-  [The output of the npm install command]: ../Media/node26.png
-  [A web page containing welcome to express.]: ../Media/node28.png
-  [The contents of the index.jade file.]: ../Media/getting-started-19.png
-  
-  [The index.jade file modified]: ../Media/node31.png
-  
+  [Directory listing of the WebRole1 folder.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-17.png
+  [The output of the npm install command]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
+  [A web page containing welcome to express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
+  [The contents of the index.jade file.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
+  [http://jade-lang.com]: http://jade-lang.com
+  [The index.jade file modified]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
+  [express-page]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png
   [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png

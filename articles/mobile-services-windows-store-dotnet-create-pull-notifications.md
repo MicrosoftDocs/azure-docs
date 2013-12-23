@@ -29,13 +29,13 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	![][1]
 
-   This displays the **Create a new custom API** dialog.
+	This displays the **Create a new custom API** dialog.
 
 3. Change **Get permission** to **Everyone**, type _tiles_ in **API name**, and then click the check button.
 
    	![][2]
 
-  This creates the new API with public GET access.
+	This creates the new API with public GET access.
 
 4. Click the new tiles entry in the API table.
 

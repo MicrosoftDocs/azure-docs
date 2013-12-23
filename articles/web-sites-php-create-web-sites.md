@@ -1,4 +1,4 @@
-﻿<properties title="How to create a PHP web site in Windows Azure Web Sites" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" description="Learn how to create a PHP web site in Windows Azure Web Sites" documentationCenter="PHP" services="Web Sites" />
+<properties title="How to create a PHP web site in Windows Azure Web Sites" pageTitle="How to create a PHP web site in Windows Azure Web Sites" metaKeywords="PHP Azure Web Sites" description="Learn how to create a PHP web site in Windows Azure Web Sites" documentationCenter="PHP" services="Web Sites" writer="waltpo" editor="mollybos" manager="bjsmith"/>
 
 #How to create a PHP web site in Windows Azure Web Sites
 
@@ -90,4 +90,3 @@ For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/de
 [wordpress-gallery]: /en-us/develop/php/tutorials/website-from-gallery/
 [websites-pricing]: http://www.windowsazure.com/en-us/pricing/details/#header-1
 [scale-websites]: /en-us/manage/services/web-sites/how-to-scale-websites/
-

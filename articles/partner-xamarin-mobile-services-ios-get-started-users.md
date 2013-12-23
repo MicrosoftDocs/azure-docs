@@ -47,7 +47,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
 
-   ![][13]
+   	![][13]
 
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
@@ -134,7 +134,7 @@ Next, you will update the app to authenticate users before requesting resources 
 		
 7. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
-   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ## Get completed example
 Download the [completed example project]. Be sure to update the **applicationURL** and **applicationKey** variables with your own Azure settings. 

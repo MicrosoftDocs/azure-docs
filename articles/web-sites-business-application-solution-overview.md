@@ -155,7 +155,6 @@ Windows Azure enables you to host secure intranet applications in the Cloud. Win
   [vmoverview]:/en-us/documentation/services/virtual-machines/
   [chooseservice]:/en-us/manage/services/web-sites/choose-web-app-service
   [scenarioglobalweb]:/en-us/manage/services/web-sites/global-web-presence-solution-overview/
-  
   [scenariodigitalmarketing]:/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
   [adoverview]:/en-us/documentation/services/active-directory/
   [adusing]:/en-us/manage/windows/fundamentals/identity/#ad
@@ -176,11 +175,8 @@ Windows Azure enables you to host secure intranet applications in the Cloud. Win
   [enterprisepizza]:http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa
   [newrelic]:http://newrelic.com/azure
   [configurediagnostics]:/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
-  
   [troubleshootwebsites]:/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  
-  
-    [BusinessApplicationsAzureAD]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AzureAD.png
+  [BusinessApplicationsAzureAD]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AzureAD.png
   [BusinessApplicationsADUsers]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_Users.png
   [BusinessApplicationsVSIntranetApp]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_IntranetApp.png
   [BusinessApplicationsVSProperties]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_Properties.png

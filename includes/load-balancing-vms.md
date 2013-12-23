@@ -9,7 +9,7 @@ Endpoints can be used for different purposes, such as to balance the load of net
 An endpoint can be assigned a protocol of TCP or UDP (the TCP protocol includes HTTP and HTTPS traffic). Each endpoint defined for a virtual machine is assigned a public and private port for communication. The private port is defined for setting up communication rules on the virtual machine and the public port is used by Windows Azure to communicate with the virtual machine from external resources.
 
 
-**Note**: If you want learn about connecting to virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Note**: If you want to learn about connecting to virtual machines directly by hostname or set up cross-premises connections, see [Windows Azure Virtual Network Overview].
 
 If you configure load balancing, Windows Azure provides round-robin load balancing of network traffic to publicly defined ports of a cloud service. A load-balanced endpoint is a specific TCP or UDP endpoint used by all members of a cloud service.
 
@@ -17,7 +17,7 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The following image shows a load-balanced endpoint that is shared among three virtual machines and uses a public and private port of 80.
 
-![Load-balanced endpoints][Load-balanced endpoint]
+![loadbalancing][]
 
 This task includes the following steps:
 
@@ -30,7 +30,7 @@ This task includes the following steps:
 
 You can create the first virtual machine by using either the **From Gallery** or the **Quick Create** method. 
 
-- **From Gallery** - The **From Gallery** method allows you to create an endpoint when you create the virtual machine, and it allows you to specify a name for the cloud service that is created when you create the virtual machine. For instructions, see [Create a Virtual Machine Running Linux](https://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) or [Create a Virtual Machine Running Windows Server](https://www.windowsazure.com/en-us/manage/windows/tutorials/virtual-machine-from-gallery/).
+- **From Gallery** - The **From Gallery** method allows you to create an endpoint when you create the virtual machine, and it allows you to specify a name for the cloud service that is created when you create the virtual machine. For instructions, see [Create a Virtual Machine Running Linux] or [Create a Virtual Machine Running Windows Server].
 
 - **Quick Create** - Create a virtual machine by choosing an image from the Image Gallery and providing basic information. When you use this method, you will need to add the endpoint after you create the virtual machine. This method also creates a cloud service using a default name. For more information, see [How to quickly create a virtual machine] []. 
 
@@ -83,25 +83,28 @@ After you create the load-balanced set, add the other virtual machines to the se
 
 6. Repeat the process for the rest of the virtual machines in the cloud service.
 
-
-
 [Step 1: Create the first virtual machine and an endpoint]: #firstmachine
 [Step 2: Create additional virtual machines in the same cloud service]: #addmachines
 [Step 3: Set up load balancing of the virtual machines]: #loadbalance
 [Step 4: Add virtual machines to the load-balanced set]: #addtoset
 
+<!-- IMAGES -->
+[loadbalancing]: ./media/load-balancing-vms/LoadBalancing.png
 
-[Load-balanced endpoint]:../media/loadbalancing.png
-[Select virtual machine]:../media/selectvm.png
-[Select endpoints]:../media/endpoints.png
-[Add endpoints]:../media/addendpoint.png
-[Add lb endpoint]:../media/addloadbalanceendpoint.png
-[Define endpoint]:../media/endpointloadbalance.png
-[Endpoint success]:../media/loadbalancedendpointsuccess.png
-[List endpoint]:../media/listendpoints.png
+<!-- LINKS -->
 
-[How to quickly create a virtual machine]:../../Windows/HowTo/howto-quick-create-vm.md
-[Manage the availability of virtual machines]:../../Windows/CommonTasks/manage-vm-availability.md
-[How to set up communication with a virtual machine]:../../Windows/HowTo/howto-setup-endpoints-vm.md
-[How to connect virtual machines in a cloud service]:../../Windows/HowTo/howto-connect-vm-cloud-service.md
+[Create a Virtual Machine Running Linux]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial
+
+[Create a Virtual Machine Running Windows Server]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-tutorial
+
+[How to quickly create a virtual machine]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-quick-create
+
+[Manage the availability of virtual machines]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-manage-availability
+
+[How to set up communication with a virtual machine]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-how-to-setup-endpoints
+
+[How to connect virtual machines in a cloud service]: http://windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine
+
 [Get Started with Windows Azure PowerShell]:http://msdn.microsoft.com/en-us/library/jj156055.aspx
+
+[Windows Azure Virtual Network Overview]: http://go.microsoft.com/fwlink/p/?LinkID=294063

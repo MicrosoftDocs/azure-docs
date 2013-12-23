@@ -132,8 +132,13 @@ To set up your Python and Django environments, please see the [Installation Guid
 When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
 [1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
-[The result of the New-AzureService command]: ../Media/django-helloworld-cmd-new-azure-service.png
-[add endpoint]: ../Media/django-helloworld-addendpoint.png
+
+[The result of the New-AzureService command]:  ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png
+
+[add endpoint]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
+
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
+
 [portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
+
 [Installation Guide]: ../commontasks/how-to-install-python.md

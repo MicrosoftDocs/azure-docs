@@ -587,9 +587,11 @@ to learn how to do more complex storage tasks.
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   
-  
-  
-  
+  [Blob5]: ./media/storage-dotnet-how-to-use-table-storage-20/blob5.png
+  [Blob6]: ./media/storage-dotnet-how-to-use-table-storage-20/blob6.png
+  [Blob7]: ./media/storage-dotnet-how-to-use-table-storage-20/blob7.png
+  [Blob8]: ./media/storage-dotnet-how-to-use-table-storage-20/blob8.png
+  [Blob9]: ./media/storage-dotnet-how-to-use-table-storage-20/blob9.png
   
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

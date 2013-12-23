@@ -35,7 +35,7 @@ Microsoft Power Query for Excel is available for importing data from Windows Azu
 ###Outline
 This topic describes the Hadoop ecosystem supported by HDInsight, the main use scenarios for HDInsight, and a guide to further resources. It contains the following sections:
 
-* <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight</a>: HDInsight provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with Blob storage/HDFS and the MapReduce framework using either the Power Query or the Microsoft Hive ODBC Driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
+ * <a href="#Ecosystem">The Hadoop Ecosystem on HDInsight</a>: HDInsight provides implementations of Pig, Hive and Sqoop, and supports other BI tools such as Excel, SQL Server Analysis Services and Reporting Services that are integrated with Blob storage/HDFS and the MapReduce framework using either the Power Query or the Microsoft Hive ODBC Driver. This section describes what jobs these programs in the Hadoop ecosystem are designed to handle.
 
  * <a href="#Scenarios">Big data scenarios for HDInsight</a>: This section addresses the question: for what types of jobs is HDInsight an appropriate technology?
 

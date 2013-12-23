@@ -1,7 +1,7 @@
 <a id="what-are-service-bus-queues"></a>
-<h2>What are Service Bus Queues?</h2>
+##What are Service Bus Queues?
 
-<span>Service Bus Queues support a **brokered messaging communication**
+Service Bus Queues support a **brokered messaging communication**
 model. When using queues, components of a distributed application do not
 communicate directly with each other, they instead exchange messages via
 a queue, which acts as an intermediary. A message producer (sender)
@@ -13,9 +13,9 @@ messages. Queues offer **First In, First Out (FIFO)** message delivery
 to one or more competing consumers. That is, messages are typically
 received and processed by the receivers in the order in which they were
 added to the queue, and each message is received and processed by only
-one message consumer.</span>
+one message consumer.
 
-![Queue Concepts][Queue Concepts]
+![QueueConcepts][]
 
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
@@ -89,8 +89,8 @@ namespace.
 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
- [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [Queue Concepts]: ./media/howto-service-bus-queues/sb-queues-08.png
+  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [QueueConcepts]: ./media/howto-service-bus-queues/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-queues/sb-queues-03.png
   [1]: ./media/howto-service-bus-queues/sb-queues-04.png

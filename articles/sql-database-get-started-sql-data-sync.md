@@ -97,10 +97,10 @@ To register a database with the agent, follow the instructions at [Register a SQ
 3. Wait for SQL Data Sync to confirm the USERNAME and PASSWORD. A green check mark appears to the right of the PASSWORD when the credentials are confirmed.
 4. From the dropdown, select the **CONFLICT RESOLUTION** policy.
 
- **Hub Wins** ??? any change written to the hub database is written to the reference databases, overwriting changes in the same reference database record. Functionally, this means that the first change written to the hub is propagated to the other databases.
+ **Hub Wins** - any change written to the hub database is written to the reference databases, overwriting changes in the same reference database record. Functionally, this means that the first change written to the hub is propagated to the other databases.
 
 
- **Client Wins** ??? changes written to the hub are overwritten by changes in reference databases. Functionally, this means that the last change written to the hub is the one kept and propagated to the other databases.
+ **Client Wins** - changes written to the hub are overwritten by changes in reference databases. Functionally, this means that the last change written to the hub is the one kept and propagated to the other databases.
 
 5.	Click the right-arrow.
 
@@ -113,10 +113,10 @@ Repeat this step for each additional database you want to add to the sync group.
 1. From the dropdown, select the database to add.
 
  Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.
-2.	Enter credentials for this database ??? **USERNAME** and **PASSWORD**.
+2.	Enter credentials for this database - **USERNAME** and **PASSWORD**.
 3.	From the dropdown, select the **SYNC DIRECTION** for this database.
 
- **Bi-directional** ??? changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.
+ **Bi-directional** - changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.
 
  **Sync from the Hub** - The database receives updates from the Hub. It does not send changes to the Hub.
 
@@ -145,7 +145,7 @@ Windows Azure SQL Data Sync allows you to select tables and columns to synchroni
 - If no columns in a table are selected, the table is not included in the sync group. 
 - To select/unselect all the tables, click SELECT at the bottom of the screen.
 10.	Click **SAVE**, then wait for the sync group to finish provisioning.
-11.	To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group???s name).
+11.	To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group's name).
 
 ![Image6] [Image6]
 

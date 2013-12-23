@@ -19,7 +19,7 @@ A Windows Azure BizTalk Service consists of the following components:
 <tr>
 <td>Windows Azure Subscription</td>
 <td><p>The subscription governs access to the Windows Azure Management Portal and is created by the Windows Azure account holder at <a HREF="https://account.windowsazure.com/Subscriptions"> Windows Azure Subscriptions</a>.</p>
-<p>The Windows Azure account can have multiple subscriptions and can be managed by the Windows Azure account holder or by different people or groups. For example, your Windows Azure account holder creates a subscription named <em>BizTalkServiceSubscription</em> and gives the BizTalk Administrators within your company (e.g. ContosoBTSAdmins@live.com) access to this subscription. In this scenario, the BizTalk Administrators log into the Windows Azure Management Portal and have full Administrator rights to all the hosted services in the subscription, including Windows Azure BizTalk Services. The BizTalk Administrators are not the Windows Azure account holders and therefore don???t have access to any billing information.</p>
+<p>The Windows Azure account can have multiple subscriptions and can be managed by the Windows Azure account holder or by different people or groups. For example, your Windows Azure account holder creates a subscription named <em>BizTalkServiceSubscription</em> and gives the BizTalk Administrators within your company (e.g. ContosoBTSAdmins@live.com) access to this subscription. In this scenario, the BizTalk Administrators log into the Windows Azure Management Portal and have full Administrator rights to all the hosted services in the subscription, including Windows Azure BizTalk Services. The BizTalk Administrators are not the Windows Azure account holders and therefore don't have access to any billing information.</p>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Manage Subscriptions and Storage Accounts in the Windows Azure Management Portal</a> provides more information on Windows Azure Accounts and Subscriptions.
 </td>
 </tr>
@@ -27,7 +27,7 @@ A Windows Azure BizTalk Service consists of the following components:
 <td>Windows Azure SQL Database</td>
 <td><p>A SQL Database stores the tables, views and stored procedures used by Windows Azure BizTalk Services.</p>
 <p>When you provision a BizTalk Service, you can use an existing Azure SQL Server, Azure SQL Database, or automatically create a new Server or Database. When you choose to create a new Windows Azure SQL Server and Database, Windows Azure Services is automatically enabled.</p>
-<p>If you create a new Azure SQL Database on an existing Azure SQL Server, the firewall rules of the Server are not modified. As a result, it's possible other Windows Azure Services are not allowed access to the Server???s databases.</p>
+<p>If you create a new Azure SQL Database on an existing Azure SQL Server, the firewall rules of the Server are not modified. As a result, it's possible other Windows Azure Services are not allowed access to the Server's databases.</p>
 There are no minimum scale requirements for the SQL Database settings.</td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 	<table border="1">
 	<tr>
 	<td><strong>BizTalk Service Name</strong></td>
-	<td>Enter a name for your BizTalk Service. ".biztalk.windows.net" is automatically added to the name you enter. This results in a URL that is used to access your BizTalk Service. You can enter any name but it???s best to be specific. Some examples include:<br/><br/>
+	<td>Enter a name for your BizTalk Service. ".biztalk.windows.net" is automatically added to the name you enter. This results in a URL that is used to access your BizTalk Service. You can enter any name but it's best to be specific. Some examples include:<br/><br/>
 	<em>mycompany</em>.biztalk.windows.net<br/>
 	<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
 	<em>myapplication</em>.biztalk.windows.net

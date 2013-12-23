@@ -36,6 +36,61 @@ Before you begin this tutorial, you must have the following:
 
 In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer](web-platform-installer). Click Run when prompted, click Install, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight](powershell-install-configure).
 
+**To install Windows Azure PowerShell**
+
+1. Open Internet Explorer, and browse to the [Windows Azure Downloads][powershell-download] page.
+2. Under **Windows downloads** in the **Command line tools** section, click **Windows Azure PowerShell**, and then follow the instructions.
+
+
+
+**To install and import the PowerShell Tools for Windows Azure HDInsight**
+
+1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
+2. Click **Run** from the bottom of the page to run the installation package.
+3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+
+Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
+
+
+
+<div class="dev-callout">
+<b>Important</b>
+<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>
+</div>
+
+
+
+**To download and import publishsettings**
+
+1. Sign in to the [Windows Azure Management Portal][azure-management-portal] using the credentials for your Windows Azure account.
+
+2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+3.	Run the following command to download the publishsettings file.
+
+		Get-AzurePublishSettingsFile
+
+	The command opens an Internet Explorer window and a web page. The URL is *https://manage.Windowsazure.com/publishsettings/index?client=powershell*. 
+
+4. When prompted, download and save the publishing profile and note the path and name of the publishsettings file. This information is required when you run the Import-AzurePublishSettingsFile cmdlet to import the settings. The default location and file name format is:
+	
+		C:\Users\<UserProfile>\Desktop\[MySubscription-...]-downloadDate-credentials.publishsettings
+
+6.	From the Windows Azure PowerShell window, run the following command to import the publishsettings file:
+
+		Import-AzurePublishSettingsFile <PublishSettings-file>
+
+	For example:
+
+		Import-AzurePublishSettingFile "C:\Users\JohnDole\Desktop\Azure-8-30-2013-credentials.publishsettings"
+
+7. Once the file is imported, you can use the following command to list your subscriptions:
+
+		Get-AzureSubscription
+
+8. When you have multiple subscriptions, you can use the following command to make a subscription the current subscription:
+
+		Select-AzureSubscription -SubscriptionName <SubscriptionName>
+
 ##<a name="provision"></a>Provision an HDInsight cluster
 
 The HDInsight provision process requires a Windows Azure Storage account to be used as the default file system. The storage account must be located in the same data center as the HDInsight compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
@@ -103,10 +158,8 @@ For the detailed instructions, see
 	<tr><td>Password (cluster admin)</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. This can only be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
-	<div class="dev-callout">??
-	<b>Note</b>??
-	<p>Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.</p>??
-	</div>
+	> WACOM.NOTE
+        > Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
 	The HDInsight cluster location will be the same as the storage account.
 	</td></tr>
@@ -151,7 +204,7 @@ Running a MapReduce job requires the following elements:
 
 The URI scheme for accessing files in Blob storage is:
 
-	WASB
+	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
@@ -273,7 +326,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	The *Select-AzureSubscription* is used to set the current subscription in case you have multiple subscriptions, and the default subscription is not the one to use. 
 

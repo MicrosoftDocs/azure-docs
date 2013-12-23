@@ -218,7 +218,7 @@ token, without filtering or modifying them.
 2.  On the **Rule Groups** page, click **Default Rule Group for Azure Web App**.
 3.  On the **Edit Rule Group** page, click **Generate**.
 4.  On the **Generate Rules: Default Rule Group for Azure Web App** page, ensure Windows
-    Live ID is checked and then click **Generate**.
+    Live ID is checked and then click **Generate**.	
 5.  On the **Edit Rule Group** page, click **Save**.
 
 ## <a name="upload-certificate">Upload a certificate to your ACS namespace</a>
@@ -230,9 +230,7 @@ In this task, you upload a .PFX certificate that will be used to sign token requ
 3.  On the **Add Token-Signing Certificate or Key** page:
     1. In the **Used for** section, click **Relying Party Application** and select **Azure Web App** (which you previously set as the name of your relying party application).
     2. In the **Type** section, select **X.509 Certificate**.
-    3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box.
-    > WACOM.NOTE 
-    > For testing purposes, you may use a self-signed-certificate. To create a self-signed certificate, use the **New** button in the **ACS Filter Library** dialog (described later), or use the **encutil.exe** utility from the [project web site][] of the Windows Azure Starter Kit for Java (by Microsoft Open Technologies).
+    3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box. Note that for testing purposes, you may use a self-signed-certificate. To create a self-signed certificate, use the **New** button in the **ACS Filter Library** dialog (described later), or use the **encutil.exe** utility from the [project web site][] of the Windows Azure Starter Kit for Java (by Microsoft Open Technologies).
     4. Ensure that **Make Primary** is checked. Your **Add Token-Signing Certificate or Key** page should look similar to the following.
         ![Add token-signing certificate][add_token_signing_cert]
     5. Click **Save** to save your settings and close the **Add Token-Signing Certificate or Key** page.
@@ -381,10 +379,6 @@ At this point, your certificate would be included in your deployment. Note that 
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
 [Windows Azure Management Portal]: https://manage.windowsazure.com
 [acs_flow]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSFlow.png
-
-
-
-
 [acs_home_page]: ./media/active-directory-java-authenticate-users-access-control-eclipse/ACSHomePage.png
 
 <!-- Eclipse-specific -->

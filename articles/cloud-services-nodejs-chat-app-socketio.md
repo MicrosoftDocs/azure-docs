@@ -9,13 +9,11 @@
 Socket.IO provides realtime communication between between your node.js
 server and clients. This tutorial will walk you through hosting a
 socket.IO based chat application on Windows Azure. For more information
-on Socket.IO, see [http://socket.io/].
+on Socket.IO, see <a href="http://socket.io/">http://socket.io/</a>.
 
 A screenshot of the completed application is below:
 
 ![A browser window displaying the service hosted on Windows Azure][completed-app]  
-
-
 
 ## Create a Cloud Service Project
 
@@ -25,7 +23,7 @@ The following steps create the cloud service project that will host the Socket.I
 
 	![Windows Azure PowerShell icon][powershell-menu]
 
-	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named **chatapp** and a worker role named **WorkerRole1**:
 
@@ -34,8 +32,7 @@ The following steps create the cloud service project that will host the Socket.I
 
 	You will see the following response:
 
-	![The output of the new-azureservice and add-azurenodeworkerrole
-    cmdlets][add-workerrole]
+	![The output of the new-azureservice and add-azurenodeworkerrolecmdlets][add-workerrole]
 
 ## Download the Chat Example
 
@@ -152,7 +149,7 @@ messages between different clients using Socket.IO.
 
 In this tutorial you learned how to create a basic chat application hosted in a Windows Azure Cloud Service. To learn how to host this application in a Windows Azure Web Site, see [Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site][chatwebsite].
 
-  
+  [chatwebsite]: /en-us/develop/nodejs/tutorials/website-using-socketio/
 
   
   [Windows Azure SLA]: http://www.windowsazure.com/en-us/support/sla/
@@ -165,14 +162,14 @@ In this tutorial you learned how to create a basic chat application hosted in a 
   [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
   [Summary and Next Steps]: #summary
   [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
-  
+  [add-workerrole]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png
   
   [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-2.PNG
+  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
   
   
   [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
-  [The output of the npm install command]: ../media/socketio-7.png
-  [Two browser windows displaying chat messages from User1 and User2]: ../media/socketio-8.png
-  [The output of the Publish-AzureService command]: ../media/socketio-9.png
+  [The output of the npm install command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
+  [Two browser windows displaying chat messages from User1 and User2]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png
+  [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
   

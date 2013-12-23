@@ -44,9 +44,9 @@ The Blob service contains the following components:
     http://`<storage
     account>`.blob.core.windows.net/`<container>`/`<blob>`  
       
-    The following URL could be used to address one of the blobs in the
+    The following example URL could be used to address one of the blobs in the
     diagram above:  
-    http://sally.blob.core.windows.net/movies/MOV1.AVI
+    `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
 
   [Understanding Block Blobs and Page Blobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx

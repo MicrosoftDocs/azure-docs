@@ -22,11 +22,11 @@ To be able to authenticate users, you must register your app with an identity pr
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   ![][4]
+   	![][4]
 
 2. Click the **Dashboard** tab and make a note of the **Site URL** value.
 
-   ![][5]
+   	![][5]
 
     You may need to provide this value to the identity provider when you register your app.
 
@@ -45,7 +45,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
 
-   ![][13]
+   	![][13]
 
 Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
@@ -53,11 +53,11 @@ Both your mobile service and your app are now configured to work with your chose
 
 1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
 
-   ![][14]
+   	![][14]
 
 2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
 
-   ![][15]
+   	![][15]
 
 3. In Eclipse, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
 
@@ -121,7 +121,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 5. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
-   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+   	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ## Get completed example
 Download the [completed example project]. Be sure to update the **applicationURL** and **applicationKey** variables with your own Azure settings.

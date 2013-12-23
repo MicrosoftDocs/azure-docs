@@ -39,7 +39,8 @@ For more information about page Blobs, see [Understanding Block and Page Blobs](
 
 * URL: A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL is used to provide the location and name of the SQL Server backup file. In this implementation, the only valid URL is one that points to a page Blob in a Windows Azure Storage account. The URL must point to an actual Blob, not just a container. If the Blob does not exist, it is created. If an existing Blob is specified, BACKUP fails, unless the > WITH FORMAT option is specified. 
 Following is an example of the URL you would specifiy in the BACKUP command: 
-**` http
+**`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+
 <b>Note:</b> HTTPS is not required, but is recommended.
 <b>Important</b>
 If you choose to copy and upload a backup file to the Windows Azure Blob storage service, you must use a page blob type as your storage option if you are planning to use this file for restore operations. RESTORE from a block blob type will fail with an error. 

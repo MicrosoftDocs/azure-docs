@@ -31,11 +31,7 @@ Now that you have your Pusher account set up, the next step is to modify the iOS
 
 ###Install the libPusher library
 
-<<<<<<< HEAD
-The [libPusher][] library let's you access Pusher from iOS. 
-=======
 The [libPusher][] library lets you access Pusher from iOS. 
->>>>>>> 15144d4967a892ed4a0c6d016fe38a7cb8077f5a
 
 1. Download the libPusher library [from here][libPusherDownload].
 
@@ -258,23 +254,37 @@ The library is now installed ready for use.
 
 The app is now able to receive events from Pusher, and to update the local Todo list accordingly.
 
+
+
 <h2><a name="install-scripts"></a>Install server scripts</h2>
+
+
 
 All that remains is setting up your server scripts. We'll insert a script for when an item is inserted or updated into the TodoList table.
 
+
+
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][1]
+2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
+
+	![][1]
+
+
 
 3. In **TodoItem**, click the **Script** tab and select **Insert**.
-   
-   ![][2]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+
+	![][2]
+
+   
+
+	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+
 
 4. Replace the insert function with the following code:
+
 
 		var Pusher = require('pusher');
 		
@@ -304,15 +314,20 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 			}
 		}
 
+
+
 5. Replace the placeholders in the above script with the values you copied from the Connection Info dialog earlier:
 
 	- **`**your_app_id**`**: the app&#95;id value
 	- **`**your_app_key**`**: the app&#95;key value
 	- **`**your_app_key_secret**`**: the app&#95;key&#95;secret
 
+
 6. Click the **Save** button. You have now configured a script to publish an event to Pusher every time a new item is inserted into the **TodoItem** table.
 
+
 7. Select **Update** from the **Operation** dropdown.
+
 
 8. Replace the update function with the following code:
 
@@ -345,11 +360,18 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 			}
 		}
 
+
+
 9. Repeat step 5 for this script to replace the placeholders.
+
 
 10. Click the **Save** button. You have now configured a script to publish an event to Pusher every time a new item is updated.
 
+
+
 <h2><a name="test-app"></a>Test your app</h2>
+
+
 
 To test the app you'll need to run two instances. You can run one instance on an iOS device and another in the iOS simulator.
 

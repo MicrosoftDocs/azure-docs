@@ -11,24 +11,24 @@ cross-premises connections, use the **From Gallery** method instead and specify 
 3. Select a CentOS virtual machine image from **Platform Images**, and then click the next arrow at the bottom right of the page.
 	
 4. On the **Virtual machine configuration** page, provide the following information:
-
-- Provide a **Virtual Machine Name**, such as "testlinuxvm".
-- Specify a **New User Name**, such as "newuser", which will be added to the Sudoers list file.
-- In the **New Password** box, type a [strong password](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
-- In the **Confirm Password** box, retype the password.
-- Select the appropriate **Size** from the drop down list.
+	- Provide a **Virtual Machine Name**, such as "testlinuxvm".
+	- Specify a **New User Name**, such as "newuser", which will be added to the Sudoers list file.
+	- In the **New Password** box, type a [strong password](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
+	- In the **Confirm Password** box, retype the password.
+	- Select the appropriate **Size** from the drop down list.
 
 	Click the next arrow to continue.
 	
 5. On the **Virtual machine mode** page, provide the following information:
-- Select **Standalone Virtual Machine**.
-- In the **DNS Name** box, type a valid DNS address.  For example,  "testlinuxvm"
-- In the **Storage Account** box, select **Use an automatically generated storage account**.
-- In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
+	- Select **Standalone Virtual Machine**.
+	- In the **DNS Name** box, type a valid DNS address.  For example,  "testlinuxvm"
+	- In the **Storage Account** box, select **Use an automatically generated storage account**.
+	- In the **Region/Affinity Group/Virtual Network** box, select a region where this virtual image will be hosted.
 
-   Click the next arrow to continue.
+	Click the next arrow to continue.
 
 6. On the **Virtual machine options** page, select **(none)** in the **Availability Set** box.
+
 	Click the check mark to continue.
 	
 7. Wait while Windows Azure prepares your virtual machine.

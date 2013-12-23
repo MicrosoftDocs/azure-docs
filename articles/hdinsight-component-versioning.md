@@ -25,7 +25,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 
 ###Cluster version 1.6
 
-[Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
+[Windows Azure HDInsight] (http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
 
 <table border="1">
 <tr><th>Component</th><th>Version</th></tr>
@@ -49,8 +49,7 @@ If you use the **Quick Create** option, you will get the 2.1 version. If you use
 ![HDI.Versioning.VersionScreen][image-hdi-versioning-versionscreen]
 
 
-## Supported versions ##
-
+## Supported versions
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform (HDP) versions that they use, and their release dates. When known, their deprecation dates will also be provided.
 
 <table border="1">

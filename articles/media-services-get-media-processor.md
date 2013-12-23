@@ -45,7 +45,7 @@ The following table provides the name and description of each available media pr
 
 <br />
 
-The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically][].
+The following method shows how to get a media processor instance. The code example assumes the use of a module-level variable named **_context** to reference the server context as described in the section [How to: Connect to Media Services Programmatically].
 
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -65,3 +65,4 @@ Now that you know how to get a media processor instance, go to the [How to Encod
 
 [How to Encode an Asset]: http://go.microsoft.com/fwlink/?LinkId=301753
 [Task Preset Strings for the Windows Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
+[How to: Connect to Media Services Programmatically]: http://www.windowsazure.com/en-us/develop/media-services/how-to-guides/set-up-computer-for-media-services

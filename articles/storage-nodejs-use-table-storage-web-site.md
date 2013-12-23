@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Windows Azure Table Service" authors=""  solutions="" writer="" manager="" editor=""  />
+﻿<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Windows Azure Table Service" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -88,17 +88,17 @@ In this section you will create a new Node application and use npm to add module
     The output of this command should appear similar to the following:
 
 		express@3.4.0 C:\Users\larryfr\AppData\Roaming\npm\node_modules\express
-		????????? methods@0.0.1
-		????????? fresh@0.2.0
-		????????? cookie-signature@1.0.1
-		????????? range-parser@0.0.4
-		????????? buffer-crc32@0.2.1
-		????????? cookie@0.1.0
-		????????? debug@0.7.2
-		????????? mkdirp@0.3.5
-		????????? commander@1.2.0 (keypress@0.1.0)
-		????????? send@0.1.4 (mime@1.2.11)
-		????????? connect@2.9.0 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, multiparty@2.1.8)
+		├── methods@0.0.1
+		├── fresh@0.2.0
+		├── cookie-signature@1.0.1
+		├── range-parser@0.0.4
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.4 (mime@1.2.11)
+		└── connect@2.9.0 (uid2@0.0.2, pause@0.0.1, qs@0.6.5, bytes@0.2.0, multiparty@2.1.8)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -132,7 +132,7 @@ In this section you will create a new Node application and use npm to add module
 		run the app:
 		  $ node app
 
-	After this command completes, you should have several new directories and files in the **tasklist** directory.
+After this command completes, you should have several new directories and files in the **tasklist** directory.
 
 ###Install additional modules
 
@@ -145,26 +145,26 @@ The **package.json** file is one of the files created by the **express** command
     The output of this command should appear similar to the following:
 
 		express@3.4.0 node_modules\express
-		????????? methods@0.0.1
-		????????? range-parser@0.0.4
-		????????? cookie-signature@1.0.1
-		????????? fresh@0.2.0
-		????????? buffer-crc32@0.2.1
-		????????? cookie@0.1.0
-		????????? debug@0.7.2
-		????????? mkdirp@0.3.5
-		????????? commander@1.2.0 (keypress@0.1.0)
-		????????? send@0.1.4 (mime@1.2.11)
-		????????? connect@2.9.0 (uid2@0.0.2, pause@0.0.1, bytes@0.2.0, qs@0.6.5, multiparty@2.1.8)
+		├── methods@0.0.1
+		├── range-parser@0.0.4
+		├── cookie-signature@1.0.1
+		├── fresh@0.2.0
+		├── buffer-crc32@0.2.1
+		├── cookie@0.1.0
+		├── debug@0.7.2
+		├── mkdirp@0.3.5
+		├── commander@1.2.0 (keypress@0.1.0)
+		├── send@0.1.4 (mime@1.2.11)
+		└── connect@2.9.0 (uid2@0.0.2, pause@0.0.1, bytes@0.2.0, qs@0.6.5, multiparty@2.1.8)
 
 		jade@0.35.0 node_modules\jade
-		????????? character-parser@1.2.0
-		????????? commander@2.0.0
-		????????? mkdirp@0.3.5
-		????????? monocle@1.1.50 (readdirp@0.2.5)
-		????????? transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
-		????????? with@1.1.1 (uglify-js@2.4.0)
-		????????? constantinople@1.0.2 (uglify-js@2.4.0)
+		├── character-parser@1.2.0
+		├── commander@2.0.0
+		├── mkdirp@0.3.5
+		├── monocle@1.1.50 (readdirp@0.2.5)
+		├── transformers@2.1.0 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
+		├── with@1.1.1 (uglify-js@2.4.0)
+		└── constantinople@1.0.2 (uglify-js@2.4.0)
 
 	This installs all of the default modules that Express needs.
 
@@ -179,24 +179,24 @@ The **package.json** file is one of the files created by the **express** command
 		node-uuid@1.4.1 node_modules\node-uuid
 
 		nconf@0.6.7 node_modules\nconf
-		????????? ini@1.1.0
-		????????? async@0.1.22
-		????????? pkginfo@0.2.3
-		????????? optimist@0.3.7 (wordwrap@0.0.2)
+		├── ini@1.1.0
+		├── async@0.1.22
+		├── pkginfo@0.2.3
+		└── optimist@0.3.7 (wordwrap@0.0.2)
 
 		azure@0.7.15 node_modules\azure
-		????????? dateformat@1.0.2-1.2.3
-		????????? xmlbuilder@0.4.2
-		????????? envconf@0.0.4
-		????????? node-uuid@1.2.0
-		????????? mpns@2.0.1
-		????????? underscore@1.5.2
-		????????? mime@1.2.11
-		????????? validator@1.5.1
-		????????? tunnel@0.0.2
-		????????? wns@0.5.3
-		????????? xml2js@0.2.8 (sax@0.5.5)
-		????????? request@2.25.0 (json-stringify-safe@5.0.0, aws-sign@0.3.0, forever-agent@0.5.0, tunnel-agent@0.3.0, qs@0.6.5, oauth-sign@0.3.0, cookie-jar@0.3.0, node-uuid@1.4.1, http-signature@0.10.0, form-data@0.1.1, hawk@1.0.0)
+		├── dateformat@1.0.2-1.2.3
+		├── xmlbuilder@0.4.2
+		├── envconf@0.0.4
+		├── node-uuid@1.2.0
+		├── mpns@2.0.1
+		├── underscore@1.5.2
+		├── mime@1.2.11
+		├── validator@1.5.1
+		├── tunnel@0.0.2
+		├── wns@0.5.3
+		├── xml2js@0.2.8 (sax@0.5.5)
+		└── request@2.25.0 (json-stringify-safe@5.0.0, aws-sign@0.3.0, forever-agent@0.5.0, tunnel-agent@0.3.0, qs@0.6.5, oauth-sign@0.3.0, cookie-jar@0.3.0, node-uuid@1.4.1, http-signature@0.10.0, form-data@0.1.1, hawk@1.0.0)
 
 ##Using the Table service in a node application
 
@@ -660,8 +660,9 @@ While the steps in this article describe using the Table Service to store inform
 [Windows Azure Developer Center]: /en-us/develop/nodejs/
 
 
-
-
+[node]: http://nodejs.org
+[Git]: http://git-scm.com
+[Express]: http://expressjs.com
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
@@ -669,7 +670,7 @@ While the steps in this article describe using the Table Service to store inform
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
-
+[azure]: https://github.com/WindowsAzure/azure-sdk-for-node
 
 
 [Windows Azure Portal]: http://windowsazure.com

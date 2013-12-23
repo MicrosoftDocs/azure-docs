@@ -169,21 +169,12 @@ You can easily add an existing virtual machine to an availability set that was p
 [Step 3: (Optional) Create an availability set for previously created virtual machines]: #previousmachine
 [Step 4: (Optional) Add a previously created virtual machine to an availability set]: #existingset
 
-[Update domains]:../media/updatedomains.png
-[Create a virtual machine]:../media/create.png
-[Create from gallery]:../media/createnew.png
-[Select platform image]:../media/platformimageselection.png
-[Define the virtual machine]:../media/imagedefinewindows.png
-[Select standalone]:../media/imagestandalonewindows.png
-[Set virtual machine options]:../media/availabilityset.png
-[Configure availability]:../media/configureavailability.png
-[Connect virtual machines]:../media/connectedvms.png
-[Select the availability set]:../media/availabilitysetselect.png
-[Availability set success]:../media/availabilitysuccess.png
-[Configure the virtual machine]:../media/configurevm.png
-[Create availability set]:../media/availabilitycreate.png
-[Add a virtual machine]:../media/availabilityadd.png
+<!-- IMAGES -->
+[Update domains]: ./media/manage-vm-availability/updatedomains.png
+[Create a virtual machine]: ./media/manage-vm-availability/create.png
+[Create from gallery]: ./media/manage-vm-availability/createnew.png
 
+<!-- LINKS -->
 [Load Balancing Virtual Machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
 [About Affinity Groups for Virtual Network]:http://msdn.microsoft.com/en-us/library/jj156085.aspx
 [How to connect virtual machines in a cloud service]:../../Windows/HowTo/howto-connect-vm-cloud-service.md

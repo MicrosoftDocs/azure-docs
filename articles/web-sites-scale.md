@@ -19,7 +19,7 @@ You use the Windows Azure Management Portal to scale your web sites, and to spec
 
 When a web site is first created it runs in **Free** web site mode, meaning that it shares available compute resources with other subscribers that are also running web sites in **Free** or **Shared** web site mode.
 
-A single instance of a web site configured to run in **Free** mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. It is recommended that you configure any  "proof of concept??? web sites to run in **Free** mode. You can create up to 10 web sites per region in Free mode.
+A single instance of a web site configured to run in **Free** mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. It is recommended that you configure any  "proof of concept" web sites to run in **Free** mode. You can create up to 10 web sites per region in Free mode.
 
 
 
@@ -64,7 +64,7 @@ To change the scaling of resources for a web site, in the Management Portal, ope
 - **Choose Sites** (Standard mode only) - Choose which web sites in the current region and subscription to run in Standard mode. To run all web sites in the current region and subscription in **Standard** mode, leave the **Select All** checkbox selected.
 
 - **Instance Size** (Standard mode only) - Provides options for additional scale up of a web site running in **Standard** web site mode. If **Instance Size** is changed from **Small** to **Medium** or **Large**, the web site will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [Virtual Machine and Cloud Service Sizes for Windows Azure][vmsizes].
-
+The **Instance Size** setting is global for the web site 
 - **Edit Scale Settings for Schedule** (Standard mode only) - Use this Autoscale feature to scale resources based on daytime versus nighttime, or weekday versus weekend. To start, choose **Set up schedule times** to bring up the **Set up schedule times** dialog box where you can make the following choices:
 
  - Choose a **Time zone** for the web site. Daylight Savings Time is respected for the time zone that you select.
@@ -74,11 +74,11 @@ To change the scaling of resources for a web site, in the Management Portal, ope
 
  - To scale the web site differently based on weekday versus weekend, choose **Differing Scale between Weekday and Weekend**. For the purposes of this feature, the weekend starts at the end of day Friday (8:00 PM by default), and ends at the beginning of the day on Monday (8:00 AM by default). The weekend profile uses the same day start and end that you define in the **Time** setting.
 
- After you have made these settings, click **OK** to close the **Schedule Times** dialog box. The **Edit Scale Settings for Schedule** box now displays up to three recurring schedules: **Week Day**, **Week Night**, and **Weekend**. You can now select one of these schedules and use the **Scale by Metric** and the **Instance Count** features to fine tune the scaling of resources for the schedule that you chose. 
+After you have made these settings, click **OK** to close the **Schedule Times** dialog box. The **Edit Scale Settings for Schedule** box now displays up to three recurring schedules: **Week Day**, **Week Night**, and **Weekend**. You can now select one of these schedules and use the **Scale by Metric** and the **Instance Count** features to fine tune the scaling of resources for the schedule that you chose. 
 
-	**Note**: The **Instance Size** setting is global for the web site and does not change according to the schedule selected.
+**Note**: The **Instance Size** setting is global for the web site and does not change according to the schedule selected.
 
- After you have finished making changes to all the schedules, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
+After you have finished making changes to all the schedules, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
 
 
 

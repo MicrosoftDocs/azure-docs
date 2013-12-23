@@ -40,8 +40,8 @@ After you have imported the publishsettings file, you can use the following comm
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-<div class="dev-callout">??
-<b>Important</b>??
+<div class="dev-callout">
+<b>Important</b>
 <p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>

@@ -203,7 +203,7 @@ In this section you will build a Windows Store app package to install the app on
 
 4. On the Package Creation Completed screen, click the **Output location** link to open the package location.
 
-   ![][11]
+   	![][11]
 
 5. Copy the package folder, "todolist_1.0.0.0_AnyCPU_Debug_Test", to the second machine. On that machine, open the package folder and right click on the **Add-AppDevPackage.ps1** PowerShell script and click **Run with PowerShell** as shown below. Follow the prompts to install the app.
 
@@ -255,15 +255,15 @@ The following steps walk you through adding the server update script and testing
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
 
-   ![][7]
+   	![][7]
 
 2. Click the **Data** tab, then click the **TodoItem** table.
 
-   ![][8]
+   	![][8]
 
 3. Click **Script**, then select the **Update** operation.
 
-   ![][9]
+   	![][9]
 
 4. Replace the existing script with the following function, and then click **Save**.
 

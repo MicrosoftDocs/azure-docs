@@ -63,7 +63,7 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 2. Click **Recovery Services**, then click **Create New**,  point to **Backup Vault**, and then click **Quick Create**.
 
-	![New backup vault](./media/backup-configure-vault/RS_howtobackup1.png)
+	![New backup vault] [new-backup-vault]
 
 3. In **Name**, enter a friendly name to identify the backup vault.
 
@@ -76,14 +76,14 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 	It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal. After the backup vault has been created, a message will tell you that the vault has been successfully created and it will be listed in the resources for Recovery Services as **Online**. 
 
-	![Backup vault creation](./media/backup-configure-vault/RS_howtobackup2.png)
+	![Backup vault creation] [backup-vault-create]
 
 <h2><a id="upload"></a>Upload a certificate</h2>
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
 2. Click **Recovery Services**, then click the name of backup vault that will be identified by the certificate and then click **Manage certificate**.
 	
-	![Manage certificate](./media/backup-configure-vault/RS_howtoupload1.png)
+	![Manage certificate] [manage-cert]
 
 3. In the **Manage Certificate** dialog click Browse Your Computer to locate the .cer file to use with this backup vault.
 <h2><a id="download"></a>Download and install a backup agent</h2>
@@ -93,7 +93,7 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 3. Click **Install Agent** 
 	
-	![Install Agent](./media/backup-configure-vault/RS_howtodownload1.png)
+	![Install Agent] [install-agent]
 4. You will be presented with a dialog where you can choose which agent to download:
 	* Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager
 	* Agent for Windows Server 2012 Essentials
@@ -112,16 +112,23 @@ Once the agent is installed you can use the appropriate local management interfa
 	* **Delete**. Deletes the current backup vault. If a backup vault is no longer being used, you can delete it to free up storage space. **Delete** is only enabled after all registered servers have been deleted from the vault. 
 
 3. Click **Protected Items** to view the items that have been backed up from the servers. This list is for information purposes only.  
-![Protected Items](./media/backup-configure-vault/RS_protecteditems.png)
+![Protected Items] [protected-itmes]
 
 4. Click **Servers** to view the names of the servers that are register to this vault. From here you can perform the following tasks:
 	* **Allow Re-register**. When this option is selected for a server you can use the Registration Wizard in the agent to register the server with the backup vault a second time. You might need to re-register due to an error in the certificate or if a server had to be rebuilt. Re-registration is allowed only once per server name.
 	* **Delete**. Deletes a server from the backup vault. All of the stored data associated with the server is deleted immediately.
 
-		![Deleted Server](./media/backup-configure-vault/RS_deletedserver.png)
+		![Deleted Server] [deleted-server]
+
 <h2><a id="next"></a>Next steps</h2>
 
 - To learn more about Windows Azure Backup, see [Windows Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 
 - Visit the [Windows Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
+[new-backup-vault]: ./media/backup-configure-vault/RS_howtobackup1.png
+[backup-vault-create]: ./media/backup-configure-vault/RS_howtobackup2.png
+[manage-cert]: ./media/backup-configure-vault/RS_howtoupload1.png
+[install-agent]: ./media/backup-configure-vault/RS_howtodownload1.png
+[deleted-server]: ./media/backup-configure-vault/RS_deletedserver.png
+[protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png

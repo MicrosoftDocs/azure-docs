@@ -9,7 +9,6 @@ This tutorial shows you how to create a PHP Windows Azure Web Site with a Window
 > WACOM.NOTE
 > You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
 
-
 You will learn:
 
 * How to create a Windows Azure Web Site and a SQL Database using the Windows Azure Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
@@ -20,6 +19,7 @@ By following this tutorial, you will build a simple registration web application
 ![Windows Azure PHP Web Site][running-app]
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+
 
 ##Create a Windows Azure Web Site and set up Git publishing
 
@@ -128,8 +128,7 @@ To run the application locally, follow the steps below. Note that these steps as
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> WACOM.NOTE
-        > You will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
+	Note that you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
 
 4. Open a web browser and browse to **http://localhost/registration/createtable.php**. This will create the `registration_tbl` table in the database.
 
@@ -182,8 +181,7 @@ To run the application locally, follow the steps below. Note that these steps as
 			die(var_dump($e));
 		}
 
-	> WACOM.NOTE
-	> Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
+    Again, you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local MySQL user name and password.
 
 7. Following the database connection code, add code for inserting registration information into the database.
 

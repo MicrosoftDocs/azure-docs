@@ -49,10 +49,10 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **Select the virtual machine operating system** page.
 	
 [How to Log on to a Virtual Machine Running Linux]: ./howto-logon-linux-vm.md
-[Deprovision the virtual machine]: ../media/linuxdeprovision.png
-[Deprovision of virtual machine successful]:../media/linuxdeprovision2.png
-[Shutdown the virtual machine]:../media/shutdownvm.png
-[Capture an image of the virtual machine]:../../windows/media/capturevm.png
-[Enter the details of the capture]:../media/capturelinux.png
-[Image capture successful]:../../windows//media/capturesuccess.png
-[Use the captured image]:../media/myimageslinux.png
+[Deprovision the virtual machine]: ./media/virtual-machines-linux-capture-image/LinuxDeprovision.png
+[Deprovision of virtual machine successful]: ./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png
+[Shutdown the virtual machine]: ./media/virtual-machines-linux-capture-image/ShutdownVM.png
+[Capture an image of the virtual machine]: ./media/virtual-machines-linux-capture-image/CaptureVM.png
+[Enter the details of the capture]: ./media/virtual-machines-linux-capture-image/CaptureLinux.png
+[Image capture successful]: ./media/virtual-machines-linux-capture-image/CaptureSuccess.png
+[Use the captured image]: ./media/virtual-machines-linux-capture-image/MyImagesLinux.png

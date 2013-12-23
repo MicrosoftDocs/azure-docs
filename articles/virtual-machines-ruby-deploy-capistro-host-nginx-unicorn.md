@@ -4,7 +4,7 @@
 
 #Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano
 
-This tutorial describes how to deploy a Ruby on Rails-based web site to a Windows Azure Virtual Machine using [Capistrano](https://github.com/capistrano/capistrano/). This tutorial also describes how to [Nginx](http://nginx.org/) and [Unicorn](http://unicorn.bogomips.org/) to host the application on the virtual machine.
+This tutorial describes how to deploy a Ruby on Rails-based web site to a Windows Azure Virtual Machine using [Capistrano](https://github.com/capistrano/capistrano/). This tutorial also describes how to [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the application on the virtual machine.
 
 This tutorial assumes you have no prior experience using Windows Azure. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 

@@ -42,7 +42,7 @@ include:
 -   Forwarding customer inquiries
 -   Email notifications from your application
 
-For more information, see [http://sendgrid.com][].
+For more information, see [http://sendgrid.com](9http://sendgrid.com).
 
 ## <a name="createaccount"> </a>Create a SendGrid Account
 
@@ -259,7 +259,7 @@ these links to learn more.
 -   SendGrid API documentation:
     <http://docs.sendgrid.com/documentation/api/>
 -   SendGrid special offer for Windows Azure customers:
-    [http://sendgrid.com/azure.html][]
+    [http://sendgrid.com/azure.html](http://sendgrid.com/azure.html)
 
   [Next Steps]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [What is the SendGrid Email Service?]: #whatis

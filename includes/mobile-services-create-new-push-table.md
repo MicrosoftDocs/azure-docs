@@ -1,17 +1,17 @@
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][0]
+	![][0]
 
 2. Click the **Data** tab, and then click **Create**.
 
-   ![][1]
+	![][1]
 
-   This displays the **Create new table** dialog.
+	This displays the **Create new table** dialog.
 
 3. Keeping the default **Anybody with the application key** setting for all permissions, type _Registrations_ in **Table name**, and then click the check button.
 
-   ![][2]
+	![][2]
 
   This creates the **Registrations** table, which stores the channel URIs used to send push notifications.
 

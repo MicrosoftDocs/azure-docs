@@ -53,7 +53,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
   	![][7]
   
-  This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
+  	This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
 
 Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
@@ -63,61 +63,60 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to .
 
-   ![][102] 
+   	![][102] 
 
 2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
 
-   ![][103]
+   	![][103]
    
-   This generates your app ID and requests you to **Submit** the information. Click **Submit**
+   	This generates your app ID and requests you to **Submit** the information. Click **Submit**
    
-   ![][104] 
+   	![][104] 
    
-   Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
+   	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
    
-   ![][105]
+   	![][105]
 
 	Note: If you choose to supply a **Bundle Identifier** value other than *MobileServices.Quickstart*, you must also update the bundle identifier value in your Xcode project.
     
 
 3. Locate the app ID that you just created, and click on its row. 
 
-   ![][106]
+   	![][106]
    
-   Clicking on the app ID will display details on the app and app ID. Click the **Settings** button.
+   	Clicking on the app ID will display details on the app and app ID. Click the **Settings** button.
    
-   ![][107] 
+   	![][107] 
    
 4. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
 
-   ![][108] 
+   	![][108] 
 
-   This displays the "Add iOS Certificate" assistant.
+   	This displays the "Add iOS Certificate" assistant.
    
-   ![][108] 
-
+   	![][108] 
 
     Note: This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
 
 5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
 
-  ![][110]
+  	![][110]
   
 6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
  
-  ![][111]  
+  	![][111]  
 
-   This downloads the signing certificate and saves it to your computer in your Downloads folder. 
+   	This downloads the signing certificate and saves it to your computer in your Downloads folder. 
 
-  ![][9] 
+  	![][9] 
 
     Note: By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
-   This installs the new certificate in the Keychain, as shown below:
+   	This installs the new certificate in the Keychain, as shown below:
 
-   ![][10]
+   	![][10]
 
     Note: The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.
 
@@ -127,33 +126,33 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
  
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
 
-   ![][112]
+   	![][112]
 
 2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**
 
-   ![][113]
+   	![][113]
 
 3. Next, select the app ID for the Mobile Services Quickstart app from the **App ID** drop-down list, and click **Continue**
 
-   ![][114]
+   	![][114]
 
 4. In the **Select certificates** screen, select the certificate created earlier, and click **Continue**
   
-   ![][115]
+   	![][115]
 
 5. Next, select the **Devices** to use for testing, and click **Continue**
 
-   ![][116]
+   	![][116]
 
 6. Finally, pick a name for the profile in **Profile Name**, click **Generate**, and click **Done**
 
-   ![][117]
+   	![][117]
   
-  This creates a new provisioning profile.
+  	This creates a new provisioning profile.
 
 7. In Xcode, open the Organizer select the Devices view, select **Provisioning Profiles** in the **Library** section in the left pane, and then click the **Refresh** button at the bottom of the middle pane. 
 
-   ![][101]
+   	![][101]
 
 8. Under **Targets**, click **Quickstart**, expand **Code Signing Identity**, then under **Debug** select the new profile.
 
@@ -167,9 +166,9 @@ After you have registered your app with APNS and configured your project, you mu
 
 1. In Keychain Access, right-click the new certificate, click **Export**, name your file QuickstartPusher, select the **.p12** format, then click **Save**.
 
-   ![][28]
+   	![][28]
 
-  Make a note of the file name and location of the exported certificate.
+  	Make a note of the file name and location of the exported certificate.
 
     <div class="dev-callout"><b>Note</b>
 	<p>This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.</p>
@@ -177,17 +176,17 @@ After you have registered your app with APNS and configured your project, you mu
 
 2. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][18]
+   	![][18]
 
 3. Click the **Push** tab and click **Upload**.
 
-   ![][19]
+   	![][19]
 
-   This displays the Upload Certificate dialog.
+   	This displays the Upload Certificate dialog.
 
 4. Click **File**, select the exported certificate QuickstartPusher.p12 file, enter the **Password**, make sure that the correct **Mode** is selected, click the check icon, then click **Save**.
 
-   ![][20] 
+   	![][20] 
 
     <div class="dev-callout"><b>Note</b>
 	<p>This tutorial uses developement certificates.</p>
@@ -291,10 +290,10 @@ Your app is now updated to support push notifications.
             }, 2500);
         }
 
-   This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
+   	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
 
-   <div class="dev-callout"><b>Note</b>
+   	<div class="dev-callout"><b>Note</b>
    <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
    </div> 
 

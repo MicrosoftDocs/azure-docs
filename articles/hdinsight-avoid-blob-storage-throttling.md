@@ -53,8 +53,8 @@ TODO: Provide a short summary, then list related articles with details about why
 * (TODO: Short sentence of link1): [(TODO: Enter link1 text)] [NextStepsLink1]
 * (TODO: Short sentence of link2): [(TODO: Enter link2 text)] [NextStepsLink2]
 
-enter Next Steps 1 URL)
-enter Next Steps 2 URL)
+[NextStepsLink1]: (TODO: enter Next Steps 1 URL)
+[NextStepsLink2]: (TODO: enter Next Steps 2 URL)
 
 
 
