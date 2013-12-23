@@ -173,7 +173,7 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [1]: ./media/mobile-services-store-scripts-source-control/mobile-setup-source-control.png
 [2]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-credentials.png
 [3]: ./media/mobile-services-store-scripts-source-control/mobile-source-control-configure.png
-
+[4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
 [5]: ./media/mobile-services-store-scripts-source-control/mobile-portal-data-tables.png
 [6]: ./media/mobile-services-store-scripts-source-control/mobile-insert-script-source-control.png
 
@@ -188,8 +188,8 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [Work with server scripts in Mobile Services]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Define a custom API that supports pull notifications]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
-
+[node-uuid]: https://npmjs.org/package/node-uuid
