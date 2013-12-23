@@ -15,10 +15,10 @@ Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In
 
 In this tutorial you will:
 
--  [Create a virtual machine and install MongoDB][]
--  [Create and run the My Task List ASP.NET application on your development computer][]
--  [Create a Windows Azure web site][]
--  [Deploy the ASP.NET application to the web site using Git][]
+-  [Create a virtual machine and install MongoDB][Create a virtual machine and install MongoDB]
+-  [Create and run the My Task List ASP.NET application on your development computer][Create and run the My Task List ASP.NET application on your development computer]
+-  [Create a Windows Azure web site][Create a Windows Azure web site]
+-  [Deploy the ASP.NET application to the web site using Git][Deploy the ASP.NET application to the web site using Git]
 
 <h2>Background knowledge</h2>
 
@@ -471,51 +471,34 @@ You have now successfully deployed your ASP.NET application to a Windows Azure w
 
 [AzurePortal]: http://manage.windowsazure.com
 [WindowsAzure]: http://www.windowsazure.com
-
+[MongoC#LangCenter]: http://docs.mongodb.org/ecosystem/drivers/csharp/
 [MVCWebSite]: http://www.asp.net/mvc
-
-
-
+[ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
-
-
 [MongoDB]: http://www.mongodb.org
-
-
 [InstallMongoOnCentOSLinuxVM]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
 [InstallMongoOnWindowsVM]: /en-us/manage/windows/common-tasks/install-mongodb/
- [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
+[VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
 <!-- IMAGES -->
 
 
-
-[StartPageNewProject]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/NewProject.png
-
-[NewProjectMyTaskListApp]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/NewProjectMyTaskListApp.png
-
-[VS2013SelectMVCTemplate]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/VS2013SelectMVCTemplate.png
-
-[VS2013DefaultMVCApplication]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/VS2013DefaultMVCApplication.png
-
-[VS2013ManageNuGetPackages]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/VS2013ManageNuGetPackages.png
-
-[SearchforMongoDBCSharpDriver]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/SearchforMongoDBCSharpDriver.png
-
-[MongoDBCsharpDriverInstalled]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/MongoDBCsharpDriverInstalled.png
-
-[MongoDBCSharpDriverReferences]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/MongoDBCSharpDriverReferences.png
-
-[SolutionExplorerMyTaskListApp]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/SolutionExplorerMyTaskListApp.png
-
-[TaskListAppBlank]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/TaskListAppBlank.png
-[WAWSCreateWebSite]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/WAWSCreateWebSite.png
-
-[WAWSDashboardMyTaskListApp]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/WAWSDashboardMyTaskListApp.png
-[Image9]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/RepoReady.png
-[Image10]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/GitInstructions.png
-[Image11]: ./media/store-mongodb-web-sites-dotnet-connect-db-vm/GitDeploymentComplete.png
+[StartPageNewProject]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProject.png
+[NewProjectMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/NewProjectMyTaskListApp.png
+[VS2013SelectMVCTemplate]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013SelectMVCTemplate.png
+[VS2013DefaultMVCApplication]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013DefaultMVCApplication.png
+[VS2013ManageNuGetPackages]: ./media/web-sites-dotnet-store-data-mongodb-vm/VS2013ManageNuGetPackages.png
+[SearchforMongoDBCSharpDriver]: ./media/web-sites-dotnet-store-data-mongodb-vm/SearchforMongoDBCSharpDriver.png
+[MongoDBCsharpDriverInstalled]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCsharpDriverInstalled.png
+[MongoDBCSharpDriverReferences]: ./media/web-sites-dotnet-store-data-mongodb-vm/MongoDBCSharpDriverReferences.png
+[SolutionExplorerMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/SolutionExplorerMyTaskListApp.png
+[TaskListAppBlank]: ./media/web-sites-dotnet-store-data-mongodb-vm/TaskListAppBlank.png
+[WAWSCreateWebSite]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSCreateWebSite.png
+[WAWSDashboardMyTaskListApp]: ./media/web-sites-dotnet-store-data-mongodb-vm/WAWSDashboardMyTaskListApp.png
+[Image9]: ./media/web-sites-dotnet-store-data-mongodb-vm/RepoReady.png
+[Image10]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitInstructions.png
+[Image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
 
 <!-- TOC BOOKMARKS -->
 [Create a virtual machine and install MongoDB]: #virtualmachine

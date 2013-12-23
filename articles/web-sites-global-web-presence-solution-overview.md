@@ -6,7 +6,7 @@
 
 # Create a Global Web Presence on Windows Azure Web Sites
 
-This guide provides a technical overview of how to host your organization???s (.COM) site on Windows Azure. This scenario is also referred to as a global web presence. This guide focuses on using [Windows Azure Web Sites][websitesoverview], because Web Sites is the fastest and simplest way to create, migrate, scale, and manage a web application on Windows Azure. However, some application requirements lend themselves better to [Windows Azure Cloud Services][csoverview] or [Windows Azure Virtual Machines][vmoverview] running IIS. These are also excellent choices for hosting web applications. If you are in the initial planning stages, please review the document [Windows Azure Web Sites, Cloud Services, and VMs: When to use which?][chooseservice]. In the absence of a requirement to use Cloud Services or Virtual Machines, we recommend using Web Sites for hosting your global web presence. The rest of this document will provide guidance for using Web Sites with this scenario. 
+This guide provides a technical overview of how to host your organization's (.COM) site on Windows Azure. This scenario is also referred to as a global web presence. This guide focuses on using [Windows Azure Web Sites][websitesoverview], because Web Sites is the fastest and simplest way to create, migrate, scale, and manage a web application on Windows Azure. However, some application requirements lend themselves better to [Windows Azure Cloud Services][csoverview] or [Windows Azure Virtual Machines][vmoverview] running IIS. These are also excellent choices for hosting web applications. If you are in the initial planning stages, please review the document [Windows Azure Web Sites, Cloud Services, and VMs: When to use which?[chooseservice]. In the absence of a requirement to use Cloud Services or Virtual Machines, we recommend using Web Sites for hosting your global web presence. The rest of this document will provide guidance for using Web Sites with this scenario. 
 
 The following areas are addressed in this guide:
 
@@ -54,7 +54,7 @@ Some source control tools and FTP clients require username/password access. For 
 
 ![GlobalWebFTPSettings][GlobalWebFTPSettings]
 
-Note that the Deployment/FTP user name is a combination of the Web Site name and the user name that you provided. So if your site were ???http://contoso.azurewebsite.net??? and if your user name were ???myuser???, the user name for deployment and FTP would be ???contoso\myuser???.
+Note that the Deployment/FTP user name is a combination of the Web Site name and the user name that you provided. So if your site were "http://contoso.azurewebsite.net" and if your user name were "myuser", the user name for deployment and FTP would be "contoso\myuser".
 
 You can also choose to deploy through a source control management service, such as GitHub or TFS Online. Click the option to **Set up deployment from source control**. Then follow the instructions for source control system or service of your choice. For step-by-step instructions for publishing from a local Git repository, see [Publishing from Source Control to Windows Azure Web Sites][publishingwithgit].
 
@@ -77,17 +77,17 @@ One more option for both development and deployment is WebMatrix from the Window
 
 For more information on this option, see [Develop and deploy a web site with Microsoft WebMatrix][aspnetgetstarted].
 
-Although these steps provide what you need for deploying your .COM site, you should also create a plan for managing the ongoing content publishing cycle. These options could range from rolling a custom solution, to periodic redeployments for a site that changes infrequently, to a full-featured content management system (CMS). If you???re creating a new web site, you should note that there are options in the gallery to use existing CMS frameworks, such as [Drupal][drupal] or [Umbraco][umbraco].
+Although these steps provide what you need for deploying your .COM site, you should also create a plan for managing the ongoing content publishing cycle. These options could range from rolling a custom solution, to periodic redeployments for a site that changes infrequently, to a full-featured content management system (CMS). If you're creating a new web site, you should note that there are options in the gallery to use existing CMS frameworks, such as [Drupal][drupal] or [Umbraco][umbraco].
 
 ##<a name="customdomain"></a>Add a Custom Domain
-If this is your global web presence, you will want to associate your registered domain name with the web site. There are many third-party providers that provide domain registration services. Each of these providers supports the creation of different types of DNS records to manage your domain. A DNS record helps to map a user-friendly URL, such as ???www.contoso.com???, to the actual URL or IP address that hosts the site. 
+If this is your global web presence, you will want to associate your registered domain name with the web site. There are many third-party providers that provide domain registration services. Each of these providers supports the creation of different types of DNS records to manage your domain. A DNS record helps to map a user-friendly URL, such as "www.contoso.com", to the actual URL or IP address that hosts the site. 
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>In the discussion below, there are two DNS record types of interest. First, a CNAME record can redirect from one URL, such as ???www.contoso.com???, to a different URL, such as ???contoso.azurewebsites.net???. Second, an A record can map a URL, such as ???www.contoso.com???, to an IP address, such as 172.16.48.1.</p>
+<p>In the discussion below, there are two DNS record types of interest. First, a CNAME record can redirect from one URL, such as "www.contoso.com", to a different URL, such as "contoso.azurewebsites.net". Second, an A record can map a URL, such as "www.contoso.com", to an IP address, such as 172.16.48.1.</p>
 </div>
 
-For Windows Azure Web Sites, you must first create a CNAME record to the Windows Azure Web Site. This setting is done through the third-party registrar???s site. The following is an example CNAME record.
+For Windows Azure Web Sites, you must first create a CNAME record to the Windows Azure Web Site. This setting is done through the third-party registrar's site. The following is an example CNAME record.
 
 <table cellspacing="0" border="1">
 <tr>
@@ -104,7 +104,7 @@ For Windows Azure Web Sites, you must first create a CNAME record to the Windows
 </tr>
 </table>
 
-If your domain is newly registered, it might take the domain a day or more to resolve on all DNS servers, which operate off of cached DNS entries. However, if your domain already exists, the CNAME change should happen within a minute. Note that the CNAME record provides a mapping between your domain (which must be qualified with a subdomain alias, such as ???www???) to the Windows Azure Web Site URL. Neither side of the CNAME record includes the ???http://??? prefix.
+If your domain is newly registered, it might take the domain a day or more to resolve on all DNS servers, which operate off of cached DNS entries. However, if your domain already exists, the CNAME change should happen within a minute. Note that the CNAME record provides a mapping between your domain (which must be qualified with a subdomain alias, such as "www") to the Windows Azure Web Site URL. Neither side of the CNAME record includes the "http://" prefix.
 
 In the Windows Azure Management Portal, verify that you are running in **Shared** or Sta****ndard modes on the **Scale** tab (custom domains are not supported for **Free** web sites). Then go to the **Configure** tab and click the **Manage Domains** button. This enables you to associate the web site with the custom domain name. 
 
@@ -132,11 +132,11 @@ For more information, see [Configuring a custom domain name for a Windows Azure 
 ##<a name="ssl"></a>Secure the Web Site with SSL
 If your site contains read-only information, there is no need to provide secure access to the site. However, if you collect any user information, perform ecommerce, or manage any other sensitive data, you should secure the site. Security is a big subject, and this paper cannot cover all of the best practices and techniques. However, it is important to highlight the process of enabling Secure Sockets Layer (SSL) for your Web Site. SSL allows users to connect to your site in an encrypted manner with HTTPS addresses instead of HTTP. There are specific steps required to use SSL with Windows Azure Web Sites. 
 
-Windows Azure Web Sites automatically provides a secure connection to the actual site URL. For example, if your site were http://contoso.azurewebsites.net, you can connect over SSL simply by changing ???http??? to ???https???, as in **https**://contoso.azurewebsites.net.
+Windows Azure Web Sites automatically provides a secure connection to the actual site URL. For example, if your site were http://contoso.azurewebsites.net, you can connect over SSL simply by changing "http" to "https", as in **https**://contoso.azurewebsites.net.
 
 However, if you are using a custom domain name, you must take steps to upload a certificate and enable SSL through the Windows Azure Management Portal for your web site. The following steps provide a summary of this process, but you can find the detailed instructions in the topic [Configuring an SSL certificate for a Windows Azure web site][ssl].
 
-First, obtain an SSL certificate from a Certificate Authority. If you are going to secure your domain with multiple subdomains (for example www.contoso.com and staging.contoso.com), you???ll need to get a wildcard certificate (*.contoso.com). These can cost more, so you must decide whether the flexibility of this type of certificate justifies the cost.
+First, obtain an SSL certificate from a Certificate Authority. If you are going to secure your domain with multiple subdomains (for example www.contoso.com and staging.contoso.com), you'll need to get a wildcard certificate (*.contoso.com). These can cost more, so you must decide whether the flexibility of this type of certificate justifies the cost.
 
 Once you get the certificate from the Certificate Authority, you cannot simply upload it to Windows Azure in the same format. You must generate a .pfx file using the openssl command. The openssl command is part of the OpenSSL Project. The sources are distributed on the [OpenSSL website][openssl], but you can usually find a precompiled version of the tool on the internet as well. In the following example, a certificate, myserver.crt, and the private key file, myserver.key, are used to create a .pfx file.
 
@@ -173,10 +173,10 @@ The rule can email administrators or other individuals when the response time ex
 
 ![GlobalWebMonitor4][GlobalWebMonitor4]
 
-If you discover the site requires scaling, this can be done on the **Scale** tab either manually or through the Autoscale preview. The scale tab provides choices for both scale-up (larger dedicated machines) or scale-out (additional shared instances or dedicated instances of the same size). However, the Autoscale preview only supports scale-out. For more details on this option, see the For more information on web site monitoring, see the ???Scale with User Demand??? section of the [Digital Marketing Campaign][scenariodigitalmarketing] scenario. Also see, [How to Monitor Web Sites][howtomonitor].
+If you discover the site requires scaling, this can be done on the **Scale** tab either manually or through the Autoscale preview. The scale tab provides choices for both scale-up (larger dedicated machines) or scale-out (additional shared instances or dedicated instances of the same size). However, the Autoscale preview only supports scale-out. For more details on this option, see the For more information on web site monitoring, see the "Scale with User Demand" section of the [Digital Marketing Campaign][scenariodigitalmarketing] scenario. Also see, [How to Monitor Web Sites][howtomonitor].
 
 ##<a name="summary"></a>Summary
-To create your organization???s (.COM) site, the standard tasks include choosing a development framework, site creation, deployment, custom domain assignment, and monitoring. For sites that must secure user data, SSL is highly recommended. This article has provided an overview of performing these tasks using Windows Azure Web Sites. For more information, see the following technical articles referenced in the paper.
+To create your organization's (.COM) site, the standard tasks include choosing a development framework, site creation, deployment, custom domain assignment, and monitoring. For sites that must secure user data, SSL is highly recommended. This article has provided an overview of performing these tasks using Windows Azure Web Sites. For more information, see the following technical articles referenced in the paper.
 
 <table cellspacing="0" border="1">
 <tr>
