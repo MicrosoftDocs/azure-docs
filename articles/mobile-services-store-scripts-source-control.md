@@ -24,20 +24,20 @@ To complete this tutorial, you must have already created a mobile service by com
 
 	![][1]
 
-> WACOM.NOTE
-> Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.
+	> WACOM.NOTE
+	> Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.
 
 3. Supply a **User name**, **New password**, confirm the password, then click the check button. 
 
 	![][2]
 
-   The Git repository is created in your mobile service. Make a note of the credentials you just supplied; you will use them to access this repository.
+	The Git repository is created in your mobile service. Make a note of the credentials you just supplied; you will use them to access this repository.
 
 4. Click the Configure tab and notice the new **Source control** fields.
 
 	![][3]
 
-   The URL of the Git repository is displayed. You will use this URL to clone the repository to your local computer.
+	The URL of the Git repository is displayed. You will use this URL to clone the repository to your local computer.
 
 Now that you have enabled source control in your mobile service, it's time to use Git to clone the repo to your local computer.
 
@@ -45,10 +45,10 @@ Now that you have enabled source control in your mobile service, it's time to us
 
 1. Install Git on your local computer. 
 
-  The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
+	The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-> WACOM.NOTE
-> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
+	> WACOM.NOTE
+	> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 

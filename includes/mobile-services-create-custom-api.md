@@ -17,8 +17,8 @@
 	This creates the new API.
 
 
-> WACOM.NOTE
-> Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service.
+	> WACOM.NOTE
+	> Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service.
 
 4. Click the new **completeall** entry in the API table.
 
