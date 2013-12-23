@@ -8,7 +8,7 @@
    
 	![][4]
 
-This displays the function that is invoked when an insert occurs in the **Registrations** table.
+	This displays the function that is invoked when an insert occurs in the **Registrations** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
