@@ -19,7 +19,7 @@ You use the Windows Azure Management Portal to scale your web sites, and to spec
 
 When a web site is first created it runs in **Free** web site mode, meaning that it shares available compute resources with other subscribers that are also running web sites in **Free** or **Shared** web site mode.
 
-A single instance of a web site configured to run in **Free** mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. It is recommended that you configure any  "proof of concept??? web sites to run in **Free** mode. You can create up to 10 web sites per region in Free mode.
+A single instance of a web site configured to run in **Free** mode will provide somewhat limited performance when compared to other configurations but should still provide sufficient performance to complete development tasks or proof of concept work. It is recommended that you configure any  "proof of concept" web sites to run in **Free** mode. You can create up to 10 web sites per region in Free mode.
 
 
 
@@ -74,11 +74,11 @@ To change the scaling of resources for a web site, in the Management Portal, ope
 
  - To scale the web site differently based on weekday versus weekend, choose **Differing Scale between Weekday and Weekend**. For the purposes of this feature, the weekend starts at the end of day Friday (8:00 PM by default), and ends at the beginning of the day on Monday (8:00 AM by default). The weekend profile uses the same day start and end that you define in the **Time** setting.
 
- After you have made these settings, click **OK** to close the **Schedule Times** dialog box. The **Edit Scale Settings for Schedule** box now displays up to three recurring schedules: **Week Day**, **Week Night**, and **Weekend**. You can now select one of these schedules and use the **Scale by Metric** and the **Instance Count** features to fine tune the scaling of resources for the schedule that you chose. 
+After you have made these settings, click **OK** to close the **Schedule Times** dialog box. The **Edit Scale Settings for Schedule** box now displays up to three recurring schedules: **Week Day**, **Week Night**, and **Weekend**. You can now select one of these schedules and use the **Scale by Metric** and the **Instance Count** features to fine tune the scaling of resources for the schedule that you chose. 
 
 	**Note**: The **Instance Size** setting is global for the web site and does not change according to the schedule selected.
 
- After you have finished making changes to all the schedules, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
+After you have finished making changes to all the schedules, click the **Save** icon in the command bar at the bottom of the page to save all schedule settings at once (you do not have to save each schedule individually).
 
 
 

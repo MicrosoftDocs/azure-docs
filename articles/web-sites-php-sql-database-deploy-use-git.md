@@ -20,6 +20,7 @@ By following this tutorial, you will build a simple registration web application
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
+
 ##Create a Windows Azure Web Site and set up Git publishing
 
 Follow these steps to create a Windows Azure Web Site and a SQL Database:
