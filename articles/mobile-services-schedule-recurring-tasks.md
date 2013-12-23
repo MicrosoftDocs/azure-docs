@@ -208,8 +208,8 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Next steps]: #next-steps
 
 <!-- Images. -->
-
-
+[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
+[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
 [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
 [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
 [4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
@@ -218,12 +218,12 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
 [8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
 [9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-
-
+[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
+[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
