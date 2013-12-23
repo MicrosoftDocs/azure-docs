@@ -2,13 +2,13 @@
 
 1. In the Management Portal, click the **Data** tab and then click the **Registrations** table. 
 
-   ![][3]
+	![][3]
 
 2. In **Registrations**, click the **Script** tab and select **Insert**.
    
-   ![][4]
+	![][4]
 
-   This displays the function that is invoked when an insert occurs in the **Registrations** table.
+This displays the function that is invoked when an insert occurs in the **Registrations** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 

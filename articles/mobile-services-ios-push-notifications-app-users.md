@@ -118,7 +118,7 @@ Your app has now been updated to use the new Devices table to store device token
    
    	![][4]
 
-   This displays the function that is invoked when an insert occurs in the **Devices** table.
+	This displays the function that is invoked when an insert occurs in the **Devices** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 

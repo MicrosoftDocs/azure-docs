@@ -18,25 +18,24 @@ To complete this tutorial, you must have already created a mobile service by com
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   ![][0]
+	![][0]
 
 2. Click the **Dashboard** tab, then under **Quick glance**, click **Set up source control**, and click **Yes** to confirm.
 
-   ![][1]
+	![][1]
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.</p>
-    </div>
+> WACOM.NOTE
+> Source control is a preview feature. We recommend that you backup your script files regulary, even though they are stored in Mobile Services.
 
 3. Supply a **User name**, **New password**, confirm the password, then click the check button. 
 
-  ![][2]
+	![][2]
 
    The Git repository is created in your mobile service. Make a note of the credentials you just supplied; you will use them to access this repository.
 
 4. Click the Configure tab and notice the new **Source control** fields.
 
-   ![][3]
+	![][3]
 
    The URL of the Git repository is displayed. You will use this URL to clone the repository to your local computer.
 
@@ -48,10 +47,8 @@ Now that you have enabled source control in your mobile service, it's time to us
 
   The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.</p>
-	</div>
+> WACOM.NOTE
+> On some operating systems, both a command-line and GUI version of Git are available. The instructions provided in this article use the command-line version.
 
 2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
@@ -110,11 +107,11 @@ Now that you have created your local repository, you can make changes to server 
 
 6. Back in the Management Portal, click the **Data** tab, then click the **TodoItem** table.
 
-   ![][5]
+	![][5]
 
 3. Click **Script**, then select the **Insert** operation.
 
-   ![][6]
+	![][6]
 
 	Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
