@@ -195,7 +195,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
 
-    a. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
+	a. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
     
 	![add win az sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzAddWAsub.png)
     
@@ -208,6 +208,7 @@ This is all you need to do for now to create the application that you'll deploy 
 	![download pub file](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDown2.png)
     
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+
     
 	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
     

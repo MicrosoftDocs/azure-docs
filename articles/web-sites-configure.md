@@ -67,7 +67,7 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 <ul>
 <li><strong>Git URL</strong> - If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
 <li><strong>Deployment Trigger URL</strong> - This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
-<li><strong>Branch to Deploy</strong> ??? This lets you specify the branch that will be deployed when you push content to it.</li>
+<li><strong>Branch to Deploy</strong> - This lets you specify the branch that will be deployed when you push content to it.</li>
 </ul>
 </li>
 
