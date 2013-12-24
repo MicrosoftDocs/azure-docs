@@ -15,10 +15,10 @@ Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In
 
 In this tutorial you will:
 
--[Create a virtual machine and install MongoDB][#virtualmachine]
--[Create and run the My Task List ASP.NET application on your development computer][#createapp]
--[Create a Windows Azure web site][#createwebsite]
--[Deploy the ASP.NET application to the web site using Git][#deployapp]
+-[Create a virtual machine and install MongoDB](#virtualmachine)
+-[Create and run the My Task List ASP.NET application on your development computer](#createapp)
+-[Create a Windows Azure web site](#createwebsite)
+-[Deploy the ASP.NET application to the web site using Git](#deployapp)
 
 
 <h2>Background knowledge</h2>

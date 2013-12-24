@@ -355,7 +355,7 @@ In this section you enabled and disabled logging by using Windows Azure Web Site
 
 The **Windows Azure Logs** tab of the **Output** Window has several buttons and a text box:
 
-	![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
+![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
 
 These perform the following functions:
 
@@ -484,7 +484,7 @@ One advantage of sending application tracing logs to storage is that you get som
 
 7. In the browser window that displays the application web site, click **Home**, then click **About**, and then click **Contact**.
 
-  The logging information produced by browsing these web pages will be written to the storage account.
+	The logging information produced by browsing these web pages will be written to the storage account.
 
 8. In the **Logs** tab of the **Azure Web Site** window in Visual Studio, click **Refresh** under **Diagnostic Summary**.
 
