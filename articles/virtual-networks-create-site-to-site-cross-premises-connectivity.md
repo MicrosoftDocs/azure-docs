@@ -8,7 +8,7 @@
 
 This tutorial walks you through the steps to create a cross-premises virtual network. The type of connection we will create is a site-to-site connection. If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-This tutorial assumes you have no prior experience using Windows Azure. It???s meant to help you become familiar with the steps required to create a site-to-site virtual network. If you???re looking for design scenarios and advanced information about Virtual Network, see the [Windows Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+This tutorial assumes you have no prior experience using Windows Azure. It's meant to help you become familiar with the steps required to create a site-to-site virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Windows Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
 After completing this tutorial, you will have a virtual network where you can deploy your Windows Azure services and virtual machines, which can then communicate directly with your company's network.
 
@@ -38,9 +38,9 @@ In this tutorial you will learn:
 
 -  The name and IP address of your DNS server (if you want to use your on-premises DNS server for name resolution).
 
--  A VPN device with a public IPv4 address. You???ll need the IP address in order to complete the wizard. The VPN device cannot be located behind a NAT and must meet the minimum device standards. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) for more information. 
+-  A VPN device with a public IPv4 address. You'll need the IP address in order to complete the wizard. The VPN device cannot be located behind a NAT and must meet the minimum device standards. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) for more information. 
 
-	Note: You can use RRAS as part of your VPN solution. However, this tutorial doesn???t walk you through the RRAS configuration steps. 
+	Note: You can use RRAS as part of your VPN solution. However, this tutorial doesn't walk you through the RRAS configuration steps. 
 
 	For RRAS configuration information, see [Routing and Remote Access Service templates](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx). 
 
@@ -83,7 +83,7 @@ In this tutorial you will learn:
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
-	<p>It???s possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in <a href="http://go.microsoft.com/fwlink/?LinkID=248092">About Configuring a Virtual Network using the Management Portal</a>.</p> 
+	<p>It's possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in <a href="http://go.microsoft.com/fwlink/?LinkID=248092">About Configuring a Virtual Network using the Management Portal</a>.</p> 
 	</div>
 
 -  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. Type *YourDNS* for the name and *10.1.0.4* for the IP address.
@@ -97,7 +97,7 @@ In this tutorial you will learn:
 
 -  **NAME:** Type *YourCorpHQ*.
 
--  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. If you don???t have this information, you???ll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
+-  **VPN DEVICE IP ADDRESS:** Enter the public IP address of your VPN device. If you don't have this information, you'll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
 
 -  **ADDRESS SPACE:** Type *10.1.0.0/16*.
 -  **Add address space:** This tutorial does not require additional address space.
@@ -146,7 +146,7 @@ After creating your Windows Azure Virtual Network, use the following procedure t
 
 	It may take up to 15 minutes for the gateway to be created.
 
-4.	After the gateway has been created, you???ll need to gather the following information that will be used to configure the VPN device. 
+4.	After the gateway has been created, you'll need to gather the following information that will be used to configure the VPN device. 
 
 -  Gateway IP address
 -  Shared key
@@ -154,21 +154,21 @@ After creating your Windows Azure Virtual Network, use the following procedure t
 
 	The next steps walk you through this process.
 
-5.	To locate the Gateway IP Address ??? The Gateway IP address is located on the virtual network **DASHBOARD** page. 
+5.	To locate the Gateway IP Address - The Gateway IP address is located on the virtual network **DASHBOARD** page. 
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_09_GatewayIP.png)
 
-6.	To acquire the Shared Key ??? The shared key is located on the virtual network **DASHBOARD** page. Click Manage Key at the bottom of the screen, and then copy the key displayed in the dialog box. 
+6.	To acquire the Shared Key - The shared key is located on the virtual network **DASHBOARD** page. Click Manage Key at the bottom of the screen, and then copy the key displayed in the dialog box. 
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_10_ManageSharedKey.png)
 
 7.	Download the VPN device configuration script template. On the dashboard, click **Download VPN Device Script**.
 
-8.	On the **Download a VPN Device Configuration Script** dialog box, select the vendor, platform, and operating system for your company???s VPN device. Click the checkmark button and save the file. 
+8.	On the **Download a VPN Device Configuration Script** dialog box, select the vendor, platform, and operating system for your company's VPN device. Click the checkmark button and save the file. 
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_11_DownloadVPNDeviceScript.png)
 
-If you don???t see your VPN device in the drop-down list, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) in the MSDN library for additional script templates.
+If you don't see your VPN device in the drop-down list, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) in the MSDN library for additional script templates.
 
 
 ##  <a name="ConfigVPN">Configure the VPN Device (Network Administrator)</a>
@@ -181,7 +181,7 @@ For additional information about configuring a virtual network gateway, see [Con
 
 This procedure assumes the following:
 
--  The person configuring the VPN device is proficient at configuring the device that has been selected. Due to the number of devices that are compatible with virtual network and the configurations that are specific to each device family, these steps do not walk through device configuration at a granular level. Therefore, it???s important that the person configuring the device is familiar with the device and its configuration settings. 
+-  The person configuring the VPN device is proficient at configuring the device that has been selected. Due to the number of devices that are compatible with virtual network and the configurations that are specific to each device family, these steps do not walk through device configuration at a granular level. Therefore, it's important that the person configuring the device is familiar with the device and its configuration settings. 
 
 -  The device that you have selected to use is compatible with virtual network. Check [here](http://go.microsoft.com/fwlink/?LinkID=248098) for device compatibility.
 
