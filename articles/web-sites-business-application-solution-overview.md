@@ -1,4 +1,4 @@
-<properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Windows Azure Web Sites" pageTitle="Create a Line-of-Business Application on Windows Azure Web Sites" metaKeywords="Web Sites" metaDescription="Understand how to construct a line-of-business application on Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" /> 
+<properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Windows Azure Web Sites" pageTitle="Create a Line-of-Business Application on Windows Azure Web Sites" metaKeywords="Web Sites" description="Understand how to construct a line-of-business application on Windows Azure." umbracoNaviHide="0" disqusComments="1" writer="jroth" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Windows Azure Web Sites" /> 
 
 
 
