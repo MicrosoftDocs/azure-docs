@@ -102,7 +102,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 6. Press F5 to continue running the application.
 
-   The About page displays the new value that you entered for the time.
+	The About page displays the new value that you entered for the time.
 
 	![About page](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-afterdebugchange.png)
 
@@ -164,7 +164,7 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 5. Press F5 to continue running.
 
-   The About page running in Windows Azure displays the new value that you entered into the currentTime variable.
+	The About page running in Windows Azure displays the new value that you entered into the currentTime variable.
 
 	![About page with new value](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
@@ -263,11 +263,11 @@ In this section you'll do the following tasks:
 
 3. Press F5 to run the application in debug mode.
 
-   The default trace listener writes all trace output to the **Output** window, along with other Debug output. The following illustration shows the output from the trace statements that you added to the `Index` method.
+	The default trace listener writes all trace output to the **Output** window, along with other Debug output. The following illustration shows the output from the trace statements that you added to the `Index` method.
 
 	![Tracing in Debug window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
-   The following steps show how to view trace output in a web page, without compiling in debug mode.
+	The following steps show how to view trace output in a web page, without compiling in debug mode.
 
 2. Open the application Web.config file (the one located in the project folder) and add a `<system.diagnostics>` element at the end of the file just before the closing `</configuration>` element:
 
@@ -284,7 +284,7 @@ In this section you'll do the following tasks:
 		    </trace>
 		  </system.diagnostics>
 
-   The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
+	The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
 
 3. Add a [trace element](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) under `<system.web>` in the Web.config file, such as the following example:
 
@@ -298,7 +298,7 @@ In this section you'll do the following tasks:
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
-   The **Request Details** page appears, and in the **Trace Information** section you see the output from the trace statements that you added to the `Index` method.
+	The **Request Details** page appears, and in the **Trace Information** section you see the output from the trace statements that you added to the `Index` method.
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
@@ -314,28 +314,28 @@ However, enabling `trace.axd` in a production site is generally not recommended 
 
 2. In the **Publish Web** dialog box, click **Publish**.
 
-   After Visual Studio publishes your update, it opens a browser window to your home page (assuming you didn't clear **Destination URL** on the **Connection** tab).
+	After Visual Studio publishes your update, it opens a browser window to your home page (assuming you didn't clear **Destination URL** on the **Connection** tab).
 
 3. In **Server Explorer**, right-click your web site and select **View Streaming Logs in Output Window**. 
 
 	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
 
-   The **Output** window shows that you are connected to the log-streaming service, and adds a notification line each minute that goes by without a log to display.
+	The **Output** window shows that you are connected to the log-streaming service, and adds a notification line each minute that goes by without a log to display.
 
 	![View Streaming Logs in context menu](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 
 4. In the browser window that shows your application home page, click **Contact**.
 
-   Within a few seconds the output from the error-level trace you added to the `Contact` method appears in the **Output** window.
+	Within a few seconds the output from the error-level trace you added to the `Contact` method appears in the **Output** window.
 
 	![Error trace in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
-Visual Studio is only showing error-level traces because that is the default setting when you enable the log monitoring service. When you create a new Windows Azure Web Site, all logging is disabled by default, as you saw when you opened the site settings page earlier:
+	Visual Studio is only showing error-level traces because that is the default setting when you enable the log monitoring service. When you create a new Windows Azure Web Site, all logging is disabled by default, as you saw when you opened the site settings page earlier:
 
 	![Application Logging off](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
 
-However, when you selected **View Streaming Logs in Output Window**, Visual Studio automatically changed **Application Logging(File System)** to **Error**, which means error-level logs get reported. In order to see all of your tracing logs, you can change this setting to **Verbose**. When you select a severity level lower than error, all logs for higher severity levels are also reported. So when you select verbose, you also see information, warning, and error logs.  
+	However, when you selected **View Streaming Logs in Output Window**, Visual Studio automatically changed **Application Logging(File System)** to **Error**, which means error-level logs get reported. In order to see all of your tracing logs, you can change this setting to **Verbose**. When you select a severity level lower than error, all logs for higher severity levels are also reported. So when you select verbose, you also see information, warning, and error logs.  
 
 4. In **Server Explorer**, right-click the web site, and then click **View Settings** as you did earlier.
 
@@ -345,7 +345,7 @@ However, when you selected **View Streaming Logs in Output Window**, Visual Stud
 
 6. In the browser window that is now showing your **Contact** page, click **Home**, then click **About**, and then click **Contact**.
 
-   Within a few seconds, the **Output** window shows all of your tracing output.
+	Within a few seconds, the **Output** window shows all of your tracing output.
 
 	![Verbose trace output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
@@ -387,7 +387,7 @@ Web server logs record all HTTP activity on the site. In order to see them in th
 
 4. In the browser window that shows the web site, click **Home**, then click **About**, and then click **Contact**.
 
-   The application logs generally appear first, followed by the web server logs. You might have to wait a while for the logs to appear. 
+	The application logs generally appear first, followed by the web server logs. You might have to wait a while for the logs to appear. 
 
 	![Web server logs in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
@@ -412,11 +412,11 @@ Detailed error logs provide some additional information about HTTP requests that
 
 4. In the address bar of the browser window, add an extra character to the URL to cause a 404 error (for example, `http://localhost:53370/Home/Contactx`), and press Enter.
 
-   After several seconds the detailed error log appears in the Visual Studio **Output** window. The log output is long, and the following image only shows part of it.
+	After several seconds the detailed error log appears in the Visual Studio **Output** window. The log output is long, and the following image only shows part of it.
 
 	![Detailed error log in Output window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
 
-   If you copy the HTML of the log output and open it in a browser, you see the following page:
+	If you copy the HTML of the log output and open it in a browser, you see the following page:
 
 	![Detailed error log in browser window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
@@ -428,7 +428,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 	![Logs tab buttons](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png)
 
-   File Explorer opens to your *Downloads* folder with the downloaded file selected.
+	File Explorer opens to your *Downloads* folder with the downloaded file selected.
 
 	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png)
 
@@ -440,7 +440,7 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
    * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
    * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
-   (The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
+	(The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
 
 <h2><a name="storagelogs"></a><span class="short-header">Storage logs</span>View storage logs</h2>
 
@@ -474,7 +474,7 @@ One advantage of sending application tracing logs to storage is that you get som
 
 	![Click Manage Connection](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
 
-  In the **Manage diagnostic storage** box, you can choose your storage account if you have more than one. The **Storage Account Key** field defaults to the primary key value of the selected storage account.
+	In the **Manage diagnostic storage** box, you can choose your storage account if you have more than one. The **Storage Account Key** field defaults to the primary key value of the selected storage account.
 
 	![Click Manage Connection](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
 
@@ -490,9 +490,9 @@ One advantage of sending application tracing logs to storage is that you get som
 
 	![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-  The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. 
+	The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs. 
 
-  (If you get a "table not found" error for the WAWSAppLogTable, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
+	(If you get a "table not found" error for the WAWSAppLogTable, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
 
 	![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
@@ -500,15 +500,15 @@ One advantage of sending application tracing logs to storage is that you get som
 
 8. Click **View all application logs**.
 
-   The trace log table appears in the Windows Azure storage table viewer.
+	The trace log table appears in the Windows Azure storage table viewer.
    
-   (If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Windows Azure** node, and then right-click **Tables** and click **Refresh**.)
+	(If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Windows Azure** node, and then right-click **Tables** and click **Refresh**.)
 
 	![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetableinse.png)
 
 	![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-  This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
+	This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
 
 7. To look at the details for a single row, right-click one of the rows, and then click **Edit**.
 
@@ -530,7 +530,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 4. In the address bar of the browser window that shows the web site, add an extra character to the URL and click Enter to cause a 404 error.
 
-   This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
+	This causes a failed request tracing log to be created, and the following steps show how to view or download the log.
 
 2. In Visual Studio, in the **Configuration** tab of the **Azure Web Site** window, click **Open in Management Portal**.
 
@@ -548,7 +548,7 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 6. Log in using the FTP credentials that you created earlier (including the site name prefix for the user name).
 
-   The browser shows the root folder of the site.
+	The browser shows the root folder of the site.
 
 6. Open the *LogFiles* folder.
 
@@ -558,13 +558,13 @@ You can view failed request tracing logs in a browser directly via FTP or locall
 
 	![Open W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
 
-   The folder contains XML files for any errors that have been logged after you enabled failed request tracing, and an XSL file that a browser can use to format the XML.
+	The folder contains XML files for any errors that have been logged after you enabled failed request tracing, and an XSL file that a browser can use to format the XML.
 
 	![W3SVC folder](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
 
 8. Click the XML file for the failed request that you want to see tracing information for.
 
-   The following illustration shows part of the tracing information for a sample error.
+	The following illustration shows part of the tracing information for a sample error.
 
 	![Failed request tracing in browser](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequestinbrowser.png)
 
@@ -642,13 +642,6 @@ For more information about analyzing web server logs, see the following resource
 ### Analyzing failed request tracing logs
 
 The Microsoft TechNet web site includes a [Using Failed Request Tracing](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) section which may be helpful for understanding how to use these logs. However, this documentation focuses mainly on configuring failed request tracing in IIS, which you can't do in Windows Azure Web Sites.
-
-
-
-
-
-
-
 
 
 

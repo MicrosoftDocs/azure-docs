@@ -64,7 +64,7 @@ Follow these steps to create a web site in Windows Azure.
 
  - **Connection Strings**: View and edit connection strings. For .NET sites, these connection strings will be injected into your .NET configuration **connectionStrings** settings at runtime, overriding existing entries where the key equals the linked database name. For PHP and Node sites, these settings will be available as environment variables at runtime.
 
- - **Default Documents**: A web site???s default document is the page that is displayed by default when a user navigates to a web site. Add your web application's default document to this list if it is not already present.  Your web site's default document should be at the top of the list.
+ - **Default Documents**: A web site's default document is the page that is displayed by default when a user navigates to a web site. Add your web application's default document to this list if it is not already present.  Your web site's default document should be at the top of the list.
 
 - **Handler Mappings**: Specify script processors that will handle requests for specific file extensions like *.php.
 
