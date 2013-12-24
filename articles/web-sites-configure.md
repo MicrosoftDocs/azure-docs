@@ -51,13 +51,13 @@ Follow these steps to change configuration options for a web site.
 </ul></li>
 
 <!-- CERTIFICATES -->
-<li style="margin-left: 40px"><strong>certificates</strong> ??? In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
+<li style="margin-left: 40px"><strong>certificates</strong> - In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
 <br /><strong>Note:</strong>
 Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.
 </li>
 
 <!-- DOMAIN NAMES -->
-<li style="margin-left: 40px"><strong>domain names</strong> ??? View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
+<li style="margin-left: 40px"><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
 
 <!-- SSL BINDINGS -->
 <li style="margin-left: 40px"><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
@@ -65,8 +65,8 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 <!-- DEPLOYMENTS  -->
 <li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
-<li><strong>Git URL</strong> ??? If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
-<li><strong>Deployment Trigger URL</strong> ??? This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
+<li><strong>Git URL</strong> - If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
+<li><strong>Deployment Trigger URL</strong> - This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
 <li><strong>Branch to Deploy</strong> ??? This lets you specify the branch that will be deployed when you push content to it.</li>
 </ul>
 </li>
@@ -82,7 +82,7 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 <li><strong>Logging Level</strong> - When logging is enabled, this option specifies the amount of information that will be recorded (Error, Warning, Information, or Verbose).</li>
 
 <!-- DIAGNOSTIC STORAGE -->
-<li><strong>Diagnostic Storage</strong> ??? Clicking <strong>Manage Connection</strong> opens the <strong>Manage diagnostic storage</strong> dialog with the following options for saving logs to your Azure storage account:
+<li><strong>Diagnostic Storage</strong> - Clicking <strong>Manage Connection</strong> opens the <strong>Manage diagnostic storage</strong> dialog with the following options for saving logs to your Azure storage account:
 <ul>
 <li><strong>Storage Account Name</strong> - Choose the storage account to which you would like to have the logs saved.</li>
 <li><strong>Storage Access Key</strong> - Displays the key for the chosen storage account. If you have regenerated the key for the storage account, type the new key here manually, or use one of the <strong>Synchronize</strong> buttons. The synchronize buttons are available only if the currently logged on user has access to the selected storage account.
@@ -95,12 +95,12 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 </li></ul></li></ul></li>
 
 <!-- SITE DIAGNOSTICS  -->
-<li style="margin-left: 40px"><strong>site diagnostics</strong> ??? Set options for gathering diagnostic 
+<li style="margin-left: 40px"><strong>site diagnostics</strong> - Set options for gathering diagnostic 
 	information for your web site, including:
 	<ul>
 
 <!-- WEB SERVER LOGGING -->
-	<li style="margin-left: 60px"><strong>Web Server Logging</strong> ??? Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
+	<li style="margin-left: 60px"><strong>Web Server Logging</strong> - Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
 <br /><strong>Tip</strong>: The maximum size of log storage in the file system is 100 megabytes. If you need to retain more history than that, use Windows Azure Storage, which has a much greater storage capacity.
 	<ul>
 		<li>To save web server logs to a Windows Azure Storage Account, choose <strong>Storage</strong>, and then choose <strong>manage storage</strong>. In the <strong>Manage Storage for Site Diagnostics</strong> dialog box, use the <strong>Storage Account</strong> option to choose the Windows Azure Storage Account for the container that will hold the logs. Use the <strong>Azure Blob Container</strong> option to choose the container that will hold the logs, or select <strong>Create a new blob container</strong> to enable the <strong>Blob Name</strong> box where you can specify a name for the new container.
@@ -111,12 +111,12 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 </li>
 
 <!-- DETAILED ERROR MESSAGES -->
-	<li style="margin-left: 60px"><strong>Detailed Error Messages</strong> ??? Specify whether to log detailed error messages for the web site. 
+	<li style="margin-left: 60px"><strong>Detailed Error Messages</strong> - Specify whether to log detailed error messages for the web site. 
 	If enabled, detailed error messages are saved as .htm files to the FTP site listed under FTP Diagnostic Logs on the Dashboard management page. 
 	After connecting to the specified FTP site navigate to /LogFiles/DetailedErrors/ to retrieve the .htm files which contain detailed error messages.</li>
 
 <!-- FAILED REQUEST TRACING -->
-	<li style="margin-left: 60px"><strong>Failed Request Tracing</strong> ??? Specify whether to enable failed request tracing. If enabled, 
+	<li style="margin-left: 60px"><strong>Failed Request Tracing</strong> - Specify whether to enable failed request tracing. If enabled, 
 	failed request tracing output is written to XML files and saved to the FTP site listed under FTP Diagnostic Logs on the Dashboard management page. 
 	After connecting to the specified FTP site navigate to /LogFiles/W3SVC######### (where ######### represent a unique identifier for the web site) 
 	to retrieve the XML files that contain the failed request tracing output.<br /><strong>Important</strong><br />The /LogFiles/W3SVC#########/ 
@@ -124,7 +124,7 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 	the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</li>
 
 <!-- REMOTE DEBUGGING -->
-<li style="margin-left: 60px"><strong>Remote Debugging</strong> ??? Set this option to <strong>On</strong> to enable remote debugging in your choice of Visual Studio 2012 or Visual Studio 2013. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Windows Azure web site.
+<li style="margin-left: 60px"><strong>Remote Debugging</strong> - Set this option to <strong>On</strong> to enable remote debugging in your choice of Visual Studio 2012 or Visual Studio 2013. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Windows Azure web site.
 <br />
 <strong>Note</strong>:  Remote debugging will be enabled only for 48 hours and will not work with a site name or user name that is longer than 20 characters. 
 </li>
@@ -141,12 +141,12 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 </li>
 
 <!-- APP SETTINGS -->
-	<li><strong>app settings</strong> ??? Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be 
+	<li><strong>app settings</strong> - Specify name/value pairs that will be loaded by your web application on start up. For .NET sites, these settings will be 
 	injected into your .NET configuration AppSettings at runtime, overriding existing settings. For PHP and Node sites these settings will be 
 	available as environment variables at runtime.</li>
 
 <!-- CONNECTION STRINGS -->
-	<li><strong>connection strings</strong> ??? View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP 
+	<li><strong>connection strings</strong> - View connection strings for linked resources. For .NET sites, these connection strings will be injected into your .NET configuration connectionStrings settings at runtime, overriding existing entries where the key equals the linked database name. For PHP 
 	and Node sites these settings will be available as environment variables at runtime, prefixed with the connection type. The environment variable prefixes are as follows: <br />
 <ul><li>SQL Server: SQLCONNSTR_</li>
 <li>MySQL: MYSQLCONNSTR_</li>
@@ -156,10 +156,10 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 	configuration management page.</li>
 
 <!-- DEFAULT DOCUMENTS -->
-	<li><strong>default documents</strong> ??? Add your web site's default document to this list if it is not already in the list. A web site???s default 
+	<li><strong>default documents</strong> - Add your web site's default document to this list if it is not already in the list. A web site's default 
 	document is the web page that is displayed when a user navigates to a web site and does not specify a particular page on the web site. So given the 
 	web site http://contoso.com, if the default document is set to default.htm, a user would be routed to http://www.contoso.com/default.htm when pointing 
-	their browser to http://www.contoso.com. If your web site contains more than one of the files in the list, then make sure your web site???s default document 
+	their browser to http://www.contoso.com. If your web site contains more than one of the files in the list, then make sure your web site's default document 
 	is at the top of the list by changing the order of the files in the list.</li>
 
 <!-- HANDLER MAPPINGS -->

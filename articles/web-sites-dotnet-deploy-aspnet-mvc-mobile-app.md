@@ -603,57 +603,26 @@ You can test your live web site using the phone emulator by browsing to the site
 [MVC4DeveloperPreview]: http://www.asp.net/mvc/mvc4
 [WebDeployUpdate]: http://www.windowsazure.com/en-us/develop/net/
 [Visual Studio Express 2012]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-products
-
 [MVC4StarterProject]: http://go.microsoft.com/fwlink/?LinkId=228307
 [FinishedProject]: http://go.microsoft.com/fwlink/?LinkId=228306
-
 [Win7PhoneEmulator]: http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx
 [OperaMobileEmulator]: http://www.opera.com/developer/tools/mobile/
 [AppleSafari]: http://www.apple.com/safari/download/
 [HowToSafari]: http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html
 [FireFox]: http://www.bing.com/search?q=firefox+download
 [FireFoxUserAgentSwitcher]: https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/
-
 [CSSMediaQuries]: http://www.w3.org/TR/css3-mediaqueries/
-
 [jquerydocs]: http://jquerymobile.com/demos/1.0b3/#/demos/1.0b3/docs/about/intro.html
 [setuseragent]: http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/
 [managementportal]: https://manage.windowsazure.com
-
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk20NetVS12.png
-
 [Add XSRF Protection]: #xsrf
-
-
-
-
-
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ImportPublishSettings.png
 [ImportPublishProfile]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ImportPublishProfile.png
-
-
-
-
 [PublishVSSolution]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/PublishVSSolution.png
-
-
-
-
 [ValidateConnection]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/ValidateConnection.png
-
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk20NetVS12.png
-
-
-
-
-
-
-
-
-
 [firsdeploy007]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/dntutmobile-deploy1-publish-005.png
-
 [firsdeploy009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/dntutmobile-deploy1-publish-007.png
-
 [rxPWS]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rxPWS.png
 

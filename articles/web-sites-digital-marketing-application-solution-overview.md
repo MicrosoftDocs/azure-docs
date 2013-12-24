@@ -1,9 +1,5 @@
 <properties linkid="develop-media-services-resources " urlDisplayName="Resources" pageTitle="Windows Azure Media Services Center - Resources" metaKeywords="" description="Find resources, tutorials, and documentation about how to use Media Services with Windows Azure." metaCanonical="" services="" documentationCenter="" title="Create a Digital Marketing Campaign on Windows Azure Web Sites" authors=""  solutions="" writer="jroth" manager="paulettm" editor="mollybos"  />
 
-
-
-
-
 # Create a Digital Marketing Campaign on Windows Azure Web Sites
 This guide provides a technical overview of how to use Windows Azure Web Sites to create digital marketing campaigns. A digital marketing campaign is typically a short-lived entity that is meant to drive a short-term marketing goal. There are two main scenarios to consider. In the first scenario, a third-party marketing firm creates and manages the campaign for their customer for the duration of the promotion. A second scenario involves the marketing firm creating and then transferring ownership of the digital marketing campaign resources to their customer. The customer then runs and manages the digital marketing campaign on their own. 
 
@@ -25,9 +21,9 @@ The following areas are addressed in this guide:
 </div>
 
 ##<a name="deployexisting"></a>Deploy Existing Web Sites
-In the Global Web Presence scenario, we discussed various options for creating and deploying a new web site. If you are new to Windows Azure Web Sites, it is a good idea to [review that information][scenarioglobalweb]. If you frequently create digital marketing campaigns, it is possible that you have existing web assets that you customize for different promotions. In this section, we???ll look closer at the options for deploying various types of web sites from source control.
+In the Global Web Presence scenario, we discussed various options for creating and deploying a new web site. If you are new to Windows Azure Web Sites, it is a good idea to [review that information][scenarioglobalweb]. If you frequently create digital marketing campaigns, it is possible that you have existing web assets that you customize for different promotions. In this section, we'll look closer at the options for deploying various types of web sites from source control.
 
-If you are reusing web assets for multiple purposes, you should strongly consider a source control management system, if you don???t already use one. This allows you to store templates of common web solutions that can be branched and customized for specific customers. Web Sites provides the option to synchronize with many different source code repositories. On the **Dashboard** tab, select the **Set up deployment from source control** link.
+If you are reusing web assets for multiple purposes, you should strongly consider a source control management system, if you don't already use one. This allows you to store templates of common web solutions that can be branched and customized for specific customers. Web Sites provides the option to synchronize with many different source code repositories. On the **Dashboard** tab, select the **Set up deployment from source control** link.
 
 ![DigitalMarketingDeploy1][DigitalMarketingDeploy1]
 
@@ -37,7 +33,7 @@ This brings up a dialog with multiple source code control options. These include
 
 You can use various source control techniques to manage the new project that is based on an existing baseline. For example, you can copy a baseline repository that was previously saved to begin work on the new project, or you can create a new branch to track the customizations for the current project. For a good example of the use of branches in managing different deployments from the same source control repository, see [Multiple Environments with Windows Azure Web Sites][gitstaging]. This post demonstrates how to use git branching to manage staging and production environments.
 
-Once you???ve connected your Web Site to source control, you can configure and track deployments from the portal. For more information on using source control with Web Sites, see [Publishing from Source Control to Windows Azure Web Sites][publishingwithgit].
+Once you've connected your Web Site to source control, you can configure and track deployments from the portal. For more information on using source control with Web Sites, see [Publishing from Source Control to Windows Azure Web Sites][publishingwithgit].
 
 When using existing web assets, it is also important to have flexibility to host many different types of web sites. On the **Configure** tab, you can select both .NET and PHP support for your web site. 
 
@@ -102,7 +98,7 @@ For **Free** and **Shared** modes, you also should be aware of resource quotas. 
 
 ![DigitalMarketingUsageOverview][DigitalMarketingUsageOverview]
 
-If you find that you???re getting close to exhausting these quotas, consider moving from **Free** to **Shared** or from **Shared** to **Standard**. In **Standard** mode, you have dedicated resources on one or more small, medium, or large virtual machines. 
+If you find that you're getting close to exhausting these quotas, consider moving from **Free** to **Shared** or from **Shared** to **Standard**. In **Standard** mode, you have dedicated resources on one or more small, medium, or large virtual machines. 
 
 In addition to using the Management Portal for this information, there are a number of third-party tools that provide advanced monitoring data for your web sites. For example, you can install a New Relic add-on from the Windows Azure Store. For a walkthrough on using New Relic for monitoring, see [New Relic Application Performance Management on Windows Azure][newrelic]. 
 

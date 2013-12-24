@@ -54,7 +54,7 @@ For example, when creating an ASP.NET MVC 4 project in Visual Studio, you have t
 
 ![BusinessApplicationsVSIntranetApp][BusinessApplicationsVSIntranetApp]
 
-This makes changes to the project settings to support Windows Authentication. Specifically, the web.config file has the **authentication** element???s **mode** attribute set to **Windows**. You must make this change manually if you create a different ASP.NET project, such as a Web Forms project, or if you are working with an existing project.
+This makes changes to the project settings to support Windows Authentication. Specifically, the web.config file has the **authentication** element's **mode** attribute set to **Windows**. You must make this change manually if you create a different ASP.NET project, such as a Web Forms project, or if you are working with an existing project.
 
 For an MVC project, you must also change two values in the project properties window. Set **Windows Authentication** to **Enabled** and **Anonymous Authentication** to **Disabled**.
 
