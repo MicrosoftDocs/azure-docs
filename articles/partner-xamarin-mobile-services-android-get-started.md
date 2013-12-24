@@ -99,11 +99,10 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- Images. -->
 [0]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-completed-android.png
-
-
-
-
-
+[2]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create.png
+[3]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page1.png
+[4]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-create-page2.png
+[5]: ./media/partner-xamarin-mobile-services-android-get-started/obile-services-selection.png
 [6]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-portal-quickstart-xamarin-android.png
 [7]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-steps-xamarin-android.png
 [8]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-xamarin-project-android-xs.png
@@ -111,14 +110,14 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [10]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-quickstart-startup-android.png
 [11]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-tab.png
 [12]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-data-browse.png
-
+[13]: ./media/partner-xamarin-mobile-services-android-get-started/mobile-services-diagram.png
 
 
 <!-- URLs. -->
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
-
+[Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
