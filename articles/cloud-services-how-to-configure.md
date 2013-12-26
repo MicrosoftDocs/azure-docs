@@ -26,7 +26,7 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 2. Click **Configure**.
 
- On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances (virtual machines). 
+	On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances (virtual machines). 
 
 	![Configuration Page](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
 
@@ -41,11 +41,11 @@ Windows Azure can only ensure 99.95 percent service availability during the conf
 
 5. In **operating system settings**, you can change the operating system family or version for role instances (virtual machines), or choose **Automatic** to resume automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect VM roles that were added to hosted services in the previous Windows Azure Management Portal.
 
- When you deploy a new cloud service, you can choose either the Windows Server 2008 R2,  Windows Server 2008 with Service Pack 2 (SP2), or Windows Server 2012 operating system. During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
+	When you deploy a new cloud service, you can choose either the Windows Server 2008 R2,  Windows Server 2008 with Service Pack 2 (SP2), or Windows Server 2012 operating system. During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
 
- If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an operating system family and version. When you choose a specific operating system version, automatic operating system updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
+	If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an operating system family and version. When you choose a specific operating system version, automatic operating system updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
 
- If you resolve all compatibility issues that your apps have with the most recent operating system version, you can resume automatic operating system updates by setting the operating system version to **Automatic**. 
+	If you resolve all compatibility issues that your apps have with the most recent operating system version, you can resume automatic operating system updates by setting the operating system version to **Automatic**. 
 
 	![OS Settings](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
 
@@ -94,7 +94,7 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 2. Open the **Configure** page for the cloud service, and click **Remote**.
 
- **Configure Remote Desktop** displays the settings (if any) that were added to the service configuration file when the cloud service was deployed, as shown below.
+	 **Configure Remote Desktop** displays the settings (if any) that were added to the service configuration file when the cloud service was deployed, as shown below.
 
 	![Cloud services remote](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
 
@@ -102,10 +102,11 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
     <b>Warning</b> 
     <p>All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. If no certificate is installed you will see this option:	
     </p> 
+
 	![CloudServices_CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)
     </div>
 
- To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
+	To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 3. In **Roles**, select the service role you want to update or select **All** for all roles.
 
