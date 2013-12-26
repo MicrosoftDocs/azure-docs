@@ -25,12 +25,12 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 2. After you create the first custom virtual machine, on the [Management Portal](http://manage.windowsazure.com) command bar, click **New**.
 
 
-	![Create a new virtual machine](./media/howto-connect-vm-cloud-service/ Create.png)
+	![Create a new virtual machine](./media/howto-connect-vm-cloud-service/Create.png)
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
 	
-	![Create a custom virtual machine](./media/howto-connect-vm-cloud-service/ CreateNew.png
+	![Create a custom virtual machine](./media/howto-connect-vm-cloud-service/CreateNew.png
 )
 
 	The **Select the virtual machine operating system** dialog box appears. 
@@ -89,8 +89,6 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 
 
 
-[How to create a custom virtual machine]: ./articles/virtual-machines-create-custom.md
-
-[Load balancing virtual machines]: ../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
-
-[Manage the availability of virtual machines]: ./articles/load-balance-virtual-machines
+[How to create a custom virtual machine]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-create-custom/
+[Load balancing virtual machines]: http://windowsazure.com/en-us/documentation/articles/load-balance-virtual-machines/
+[Manage the availability of virtual machines]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-manage-availability/
