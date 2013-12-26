@@ -545,22 +545,22 @@ autoscaling scenarios:
   [Using Performance Counters in Windows Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-
-  [diagram of sample autoscaling]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling01.png
-  [files configured by autoscaling NuGet package]: ./media/cloud-services-dotnet-autoscaling-application-block/auotscaling02.png
-  [image]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
-  [Set Copy to Output Directory value]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling04.png
-  [1]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png
-  [2]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png
-  [3]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png
-  [4]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png
-  [5]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling09.png
+					
+  [diagram of sample autoscaling]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling01.png
+  [files configured by autoscaling NuGet package]: ./media/cloud-services-dotnet-autoscaling-application-block / auotscaling02.png
+  [image]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling03.png
+  [Set Copy to Output Directory value]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling04.png
+  [1]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling05.png
+  [2]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling06.png
+  [3]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling07.png
+  [4]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling08.png
+  [5]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling09.png
   [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx
-  [6]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png
-  [7]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png
-  [8]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png
-  [9]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png
-  [10]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png
+  [6]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling10.png
+  [7]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling11.png
+  [8]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling12.png
+  [9]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling13.png
+  [10]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling14.png
   [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
   [Implementing Throttling Behavior]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
   [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
