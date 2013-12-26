@@ -148,9 +148,9 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 [Set Up a Remote Desktop Connection for a Role in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
 
 [Using Remote Desktop with Windows Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
-
-[configuration-page]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png
-[os-settings]: ./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png
-[upload-configuration]: ./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png
-[cloud-services-remote]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
-[CloudServices_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png
+			
+[configuration-page]: ./media/cloud-services-how-to-configure/ CloudServices_ConfigurePage1.png
+[os-settings]: ./media/cloud-services-how-to-configure/ CloudServices_ConfigurePage_OSSettings.png
+[upload-configuration]: ./media/cloud-services-how-to-configure/ CloudServices_UploadConfigFile.png
+[cloud-services-remote]: ./media/cloud-services-how-to-configure/ CloudServices_Remote.png
+[CloudServices_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/ CloudServices_CreateNewCertDropDown.png
