@@ -11,7 +11,7 @@ When you create a virtual machine, a cloud service is automatically created to c
 
 
 
-For more information about load-balancing virtual machines, see [Load balancing virtual machines] []. For more information about managing the availability of your application, see [Manage the availability of virtual machines] []. 
+For more information about load-balancing virtual machines, see [Load balancing virtual machines] [Load balancing virtual machines]. For more information about managing the availability of your application, see [Manage the availability of virtual machines] [Manage the availability of virtual machines]. 
 
 
 
@@ -19,22 +19,19 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 
 
 
-1. Create a virtual machine using the steps in [How to create a custom virtual machine] [].
+1. Create a virtual machine using the steps in [How to create a custom virtual machine] [How to create a custom virtual machine].
 
 
 2. After you create the first custom virtual machine, on the [Management Portal](http://manage.windowsazure.com) command bar, click **New**.
 
 
-	![Create a new virtual machine] [Create a new virtual machine]
-
-
+	![Create a new virtual machine](./media/howto-connect-vm-cloud-service/ Create.png)
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
 	
-	![Create a custom virtual machine] [Create a custom virtual machine]
-
-	
+	![Create a custom virtual machine](./media/howto-connect-vm-cloud-service/ CreateNew.png
+)
 
 	The **Select the virtual machine operating system** dialog box appears. 
 
@@ -91,19 +88,9 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 
 
 
-[How to create a custom virtual machine]: ../../Windows/HowTo/howto-custom-create-vm.md
+
+[How to create a custom virtual machine]: ./articles/virtual-machines-create-custom.md
 
 [Load balancing virtual machines]: ../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
 
-[Manage the availability of virtual machines]: ../../Windows/CommonTasks/manage-vm-availability.md
-
-[Create a new virtual machine]: ./media/howto-connect-vm-cloud-service/ Create.png
-[Create a custom virtual machine]: ./media/howto-connect-vm-cloud-service/ CreateNew.png
-
-[Select the image]: ./media/howto-connect-vm-cloud-service/ ImageSelectionWindows.png
-
-[Define the image]: ./media/howto-connect-vm-cloud-service/ ImageDefineWindows.png
-
-[Define the connected virtual machine]: ./media/howto-connect-vm-cloud-service/ ConnectedVMs.png
-
-[Define the connected virtual machine region]:  ./media/howto-connect-vm-cloud-service/ AvailabilitySetSelect.png
+[Manage the availability of virtual machines]: ./articles/load-balance-virtual-machines
