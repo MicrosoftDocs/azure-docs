@@ -30,8 +30,7 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
 	
-	![Create a custom virtual machine](./media/howto-connect-vm-cloud-service/CreateNew.png
-)
+	![Create a custom virtual machine](./media/howto-connect-vm-cloud-service/CreateNew.png)
 
 	The **Select the virtual machine operating system** dialog box appears. 
 
