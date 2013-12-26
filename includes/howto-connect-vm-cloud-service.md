@@ -97,14 +97,13 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 
 [Manage the availability of virtual machines]: ../../Windows/CommonTasks/manage-vm-availability.md
 
-[Create a new virtual machine]: ./media/howto-connect-vm-cloud-service/Create.png
+[Create a new virtual machine]: ./media/howto-connect-vm-cloud-service/ Create.png
+[Create a custom virtual machine]: ./media/howto-connect-vm-cloud-service/ CreateNew.png
 
-[Create a custom virtual machine]: ./media/howto-connect-vm-cloud-service/CreateNew.png
+[Select the image]: ./media/howto-connect-vm-cloud-service/ ImageSelectionWindows.png
 
-[Select the image]: ./media/howto-connect-vm-cloud-service/ImageSelectionWindows.png
+[Define the image]: ./media/howto-connect-vm-cloud-service/ ImageDefineWindows.png
 
-[Define the image]: ./media/howto-connect-vm-cloud-service/ImageDefineWindows.png
+[Define the connected virtual machine]: ./media/howto-connect-vm-cloud-service/ ConnectedVMs.png
 
-[Define the connected virtual machine]: ./media/howto-connect-vm-cloud-service/ConnectedVMs.png
-
-[Define the connected virtual machine region]:  ./media/howto-connect-vm-cloud-service/AvailabilitySetSelect.png
+[Define the connected virtual machine region]:  ./media/howto-connect-vm-cloud-service/ AvailabilitySetSelect.png
