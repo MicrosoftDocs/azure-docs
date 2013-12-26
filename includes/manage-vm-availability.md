@@ -170,9 +170,9 @@ You can easily add an existing virtual machine to an availability set that was p
 [Step 4: (Optional) Add a previously created virtual machine to an availability set]: #existingset
 
 <!-- IMAGES -->
-[Update domains]: ./media/manage-vm-availability/updatedomains.png
-[Create a virtual machine]: ./media/manage-vm-availability/create.png
-[Create from gallery]: ./media/manage-vm-availability/createnew.png
+[Update domains]: ./media/manage-vm-availability/UpdateDomains.png
+[Create a virtual machine]: ./media/manage-vm-availability/Create.png
+[Create from gallery]: ./media/manage-vm-availability/CreateNew.png
 
 <!-- LINKS -->
 [Load Balancing Virtual Machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
