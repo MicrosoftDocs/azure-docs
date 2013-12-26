@@ -64,16 +64,16 @@ Use the following procedure to enable multi-factor authentication for a user acc
 1.	Sign in to the Windows Azure Management Portal.
 
 2.	Click **Active Directory**, and then click the name of your directory.
-![ADextension2FAConfigureStep2] [ADextension2FAConfigureStep2]
+![ADextension2FAConfigureStep2][ADextension2FAConfigureStep2]
 
 3.	On the **Users** page, click the user you want to enable.
-![ADextension2FAConfigureStep3] [ADextension2FAConfigureStep3]
+![ADextension2FAConfigureStep3][ADextension2FAConfigureStep3]
 
 4.	On the settings page, under **role**, select the **Require Multi-factor Authentication** check box.
-![ADextension2FAConfigureStep4] [ADextension2FAConfigureStep4]
+![ADextension2FAConfigureStep4][ADextension2FAConfigureStep4]
 
 5.	Click **SAVE**. 
-![ADextension2FAConfigureStep5] [ADextension2FAConfigureStep5]
+![ADextension2FAConfigureStep5][ADextension2FAConfigureStep5]
 
 For information about what the user experience will be like after you enable mutlifactor authentication for an account, see the following resources:
 
