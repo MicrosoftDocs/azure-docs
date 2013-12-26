@@ -25,14 +25,14 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 2. After you create the first custom virtual machine, on the [Management Portal](http://manage.windowsazure.com) command bar, click **New**.
 
 
-	![Create a new virtual machine][Create a new virtual machine]
+	![Create a new virtual machine] [Create a new virtual machine]
 
 
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
 	
-	![Create a custom virtual machine][Create a custom virtual machine]
+	![Create a custom virtual machine] [Create a custom virtual machine]
 
 	
 
