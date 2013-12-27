@@ -107,7 +107,7 @@ On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agen
 	
 	The **Attach Empty Disk** dialog box appears.
 
-	![Define disk details] (./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png)
+	![Define disk details](./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png)
 
 4. The **Virtual Machine Name**, **Storage Location**, and **File Name** are already defined for you. All you have to do is enter the size that you want for the disk. Type **5** in the **Size** field.
 
@@ -119,7 +119,7 @@ On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agen
 
 	The number of disks is now 2 for the virtual machine and the disk that you attached is listed in the **Disks** table.
 
-	![Attach disk success] (./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png)
+	![Attach disk success](./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png)
 
 The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must log on to the machine and initialize the disk to use it for storing data.
 
@@ -131,7 +131,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 	You can find the identifier of the last data disk that was added in the messages that are displayed.
 
-	![Identify disk] (./media/CreateVirtualMachineLinuxTutorial/diskmessages.png)
+	![Identify disk](./media/CreateVirtualMachineLinuxTutorial/diskmessages.png)
 
 3. In the SSH window, type the following command to create a new device, and then enter **MyPassword1** for the account password:
 
@@ -139,25 +139,25 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 4. Type **n** to create a new partition.
 
-	![Create new device] (./media/CreateVirtualMachineLinuxTutorial/diskpartition.png)
+	![Create new device](./media/CreateVirtualMachineLinuxTutorial/diskpartition.png)
 
 5. Type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder.
 
-	![Create partition] (./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png)
+	![Create partition](./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png)
 
 6. Type **p** to see the details about the disk that is being partitioned.
 
-	![List disk information] (./media/CreateVirtualMachineLinuxTutorial/diskinfo.png)
+	![List disk information](./media/CreateVirtualMachineLinuxTutorial/diskinfo.png)
 
 7. Type **w** to write the settings for the disk.
 
-	![Write the disk changes] (./media/CreateVirtualMachineLinuxTutorial/diskwrite.png)
+	![Write the disk changes](./media/CreateVirtualMachineLinuxTutorial/diskwrite.png)
 
 8. You must create the file system on the new partition. Type the following command to create the file system, and then enter MyPassword1 for the account password:
 
 	`sudo mkfs -t ext4 /dev/sdc1`
 
-	![Create file system] (./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png)
+	![Create file system](./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png)
 
 9. Type the following command to make a directory for mounting the drive, and then enter **MyPassword1** for the account password:
 
