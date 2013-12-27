@@ -12,7 +12,7 @@ Follow these steps to create a new mobile service.
 
 	![][2]
 
-    This displays the **New Mobile Service** dialog.
+	This displays the **New Mobile Service** dialog.
 
 4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
 
@@ -20,7 +20,7 @@ Follow these steps to create a new mobile service.
 
    	This displays the **Specify database settings** page.
 
-    <div class="dev-callout"> 
+	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <strong>Use existing Database</strong> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
 
@@ -28,7 +28,7 @@ Follow these steps to create a new mobile service.
 
 	![][4]
 
-    <div class="dev-callout"> 
+	<div class="dev-callout"> 
 	<b>Note</b> 
 	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>We recommend that you make a note of the administrator login name and password that you specify; you will need this information to reuse the SQL Database instance or the server in the future.</p> 
 	</div>

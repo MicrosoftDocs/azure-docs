@@ -58,7 +58,7 @@ Connecting to SQL Database requires that you know the server name on Windows Azu
 
 3.  On the SQL Databases home page, click **SERVERS** at the top of the page to list all of the servers associated with your subscription. Find the name of the server to which you want to connect and copy it to the clipboard.
 
-Next, configure your SQL Database firewall to
+	Next, configure your SQL Database firewall to
 allow connections from your local machine. You do this by adding your local machines IP address to the firewall exception list.
 
 1.  On SQL Databases home page, click **SERVERS** and then click the server to which you want to connect.
@@ -69,16 +69,14 @@ allow connections from your local machine. You do this by adding your local mach
 
 4.  In the Configure page, **Allowed IP Addresses** includes three boxes where you can specify a rule name and a range of IP addresses as starting and ending values. For a rule name, you might enter the name of your computer. For the start and end range, paste in the IP address of your computer into both boxes, and then click the checkbox that appears.
 
- The rule name must be unique. If this is your development
- computer, you can enter the IP address in both the IP range
- start box and the IP range end box. Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.
+	The rule name must be unique. If this is your development computer, you can enter the IP address in both the IP range start box and the IP range end box. Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.
  
 5. Click **SAVE** at the bottom of the page.
 
     **Note:** There can be up as much as a five-minute delay for changes
     to the firewall settings to take effect.
 
-You are now ready to connect to SQL Database using Management Studio.
+	You are now ready to connect to SQL Database using Management Studio.
 
 1.  On the taskbar, click **Start**, point to **All Programs**, point to
     **Microsoft SQL Server 2012**, and then click **SQL Server

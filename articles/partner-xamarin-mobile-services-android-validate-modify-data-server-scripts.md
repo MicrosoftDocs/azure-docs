@@ -126,7 +126,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 	
 4. From the **Run** menu, then click **Run** to start the app. 
 
-   Notice that the timestamp is only displayed for items inserted after you updated the insert script.
+	Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
 5. In **TodoActivity.cs**, replace the existing query in **RefreshItemsFromTableAsync** with the following query:
 
@@ -134,7 +134,7 @@ The Mobile Service client will ignore any data in a response that it cannot seri
 										 item.CreatedAt != null)
 								  .ToListAsync();
 
-   This method updates the query to also filter out items that do not have a timestamp value.
+	This method updates the query to also filter out items that do not have a timestamp value.
 	
 6. From the **Run** menu, then click **Run** to start the app.
 

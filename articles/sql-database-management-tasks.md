@@ -34,7 +34,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 
 1. In Management Studio, in Connect to Server, make sure that Database Engine is selected, then enter the logical server name in this format: *servername*.database.widnows.net
 
-   You can also get the fully qualified server name in the management portal, on the server dashboard, in MANAGE URL.
+	You can also get the fully qualified server name in the management portal, on the server dashboard, in MANAGE URL.
 
 2. In Authentication, choose **SQL Server Authentication** and then enter the administrator login that you created when you configured the logical server.
 
