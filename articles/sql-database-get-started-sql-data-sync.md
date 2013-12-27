@@ -24,13 +24,13 @@ This tutorial assumes minimal prior experience with SQL Server and Windows Azure
 
 2. Click **SQL DATABASES** in the left pane.
 
-3. Click **SYNC** at the bottom of the page. When you click SYNC, a list appears showing the things you can add ??? **New Sync Group** and **New Sync Agent**.
+3. Click **SYNC** at the bottom of the page. When you click SYNC, a list appears showing the things you can add - **New Sync Group** and **New Sync Agent**.
 
 4. To launch the New SQL Data Sync Agent wizard, click **New Sync Agent**.
 
 5. If you haven't added an agent before, **click download it here**.
 
-![Image1] [Image1]
+	![Image1](./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.PNG)
 
 
 <h2><a id="AddAgent"></a>Step 2: Add a Client Agent</h2>
@@ -67,7 +67,6 @@ Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.m
 
 
 
-
 <h2><a id="RegisterSSDB"></a>Step 3: Register a SQL Server database with the Client Agent</h2>
 
 After the Client Agent is installed, register every on-premises SQL Server database that you intend to include in a sync group with the agent.
@@ -82,18 +81,19 @@ To register a database with the agent, follow the instructions at [Register a SQ
 2.	Click **SQL DATABASES**.
 3.	Click **ADD SYNC** at the bottom of the page then select New Sync Group from the drawer.
 
-![Image2] [Image2]
+	![Image2](./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png)
+
 
 <h3><a id=""></a>Step 4b: Enter the basic settings</h3>	
 1.	Enter a meaningful name for the sync group.
 2.	From the dropdown, select the **REGION** (Data Center) to host this sync group.
 3. Click the right-arrow.
 
-![Image3] [Image3]
-
+	![Image3](./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG)
+ 
 <h3><a id="DefineHubDB"></a>Step 4c: Define the sync hub</h3>
 1. From the dropdown, select the SQL Database instance to serve as the sync group hub.
-2. Enter the credentials for this SQL Database instance ??? **HUB USERNAME** and **HUB PASSWORD**.
+2. Enter the credentials for this SQL Database instance - **HUB USERNAME** and **HUB PASSWORD**.
 3. Wait for SQL Data Sync to confirm the USERNAME and PASSWORD. A green check mark appears to the right of the PASSWORD when the credentials are confirmed.
 4. From the dropdown, select the **CONFLICT RESOLUTION** policy.
 
@@ -104,7 +104,7 @@ To register a database with the agent, follow the instructions at [Register a SQ
 
 5.	Click the right-arrow.
 
-![Image4] [Image4]
+	![Image4](./media/sql-database-get-started-data-sync/NewSyncGroupHub-Figure4.PNG)
 
 <h3><a id="AddRefDB"></a>Step 4d: Add a reference database</h3>
 
@@ -112,21 +112,22 @@ Repeat this step for each additional database you want to add to the sync group.
 
 1. From the dropdown, select the database to add.
 
- Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.
+	Databases in the dropdown include both SQL Server databases that have been registered with the agent and SQL Database instances.
 2.	Enter credentials for this database - **USERNAME** and **PASSWORD**.
 3.	From the dropdown, select the **SYNC DIRECTION** for this database.
 
- **Bi-directional** - changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.
+	**Bi-directional** - changes in the reference database are written to the hub database, and changes to the hub database are written to the reference database.
 
- **Sync from the Hub** - The database receives updates from the Hub. It does not send changes to the Hub.
+	**Sync from the Hub** - The database receives updates from the Hub. It does not send changes to the Hub.
 
- **Sync to the Hub** - The database sends updates to the Hub. Changes in the Hub are not written to this database.
+	**Sync to the Hub** - The database sends updates to the Hub. Changes in the Hub are not written to this database.
 
 4.	To finish creating the sync group, click the check mark in the lower right of the wizard. Wait for the SQL Data Sync to confirm the credentials. A green check indicates that the credentials are confirmed.
 
 5.	Click the check mark a second time. This returns you to the **SYNC** page under SQL Databases. This sync group is now listed with your other sync groups and agents.
 
-![Image5] [Image5]
+	![Image5](./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG)
+
 
 <h2><a id="SyncRules"></a>Step 5: Define the data to sync</h2>
 
@@ -141,14 +142,13 @@ Windows Azure SQL Data Sync allows you to select tables and columns to synchroni
 7.	Click the right-arrow.
 8.	Click **REFRESH SCHEMA**.
 9.	For each table in the database, select the columns to include in the synchronizations. 
-- Columns with unsupported data types cannot be selected. 
-- If no columns in a table are selected, the table is not included in the sync group. 
-- To select/unselect all the tables, click SELECT at the bottom of the screen.
+	- Columns with unsupported data types cannot be selected. 
+	- If no columns in a table are selected, the table is not included in the sync group. 
+	- To select/unselect all the tables, click SELECT at the bottom of the screen.
 10.	Click **SAVE**, then wait for the sync group to finish provisioning.
 11.	To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group's name).
 
-![Image6] [Image6]
-
+	![Image6](./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.PNG)
 
 <h2><a id="Configure"></a>Step 6: Configure your sync group</h2>
 
@@ -161,13 +161,13 @@ If you want a sync group to synchronize on a schedule, you configure the sync gr
 4.	Click the name of this sync group.
 5.	Click the **CONFIGURE** tab.
 6.	**AUTOMATIC SYNC**
-- To configure the sync group to sync on a set frequency, click **ON**. You can still sync on demand by clicking SYNC.
-- Click **OFF** to configure the sync group to sync only when you click SYNC.
+	- To configure the sync group to sync on a set frequency, click **ON**. You can still sync on demand by clicking SYNC.
+	- Click **OFF** to configure the sync group to sync only when you click SYNC.
 7.	**SYNC FREQUENCY**
-- If AUTOMATIC SYNC is ON, set the synchronization frequency. The frequency must be between 5 Minutes and 1 Month.
+	- If AUTOMATIC SYNC is ON, set the synchronization frequency. The frequency must be between 5 Minutes and 1 Month.
 8.	Click **SAVE**.
 
-![Image7] [Image7]
+![Image7](./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.PNG)
 
 Congratulations. You have created a sync group that includes both a SQL Database instance and a SQL Server database.
 
@@ -180,13 +180,6 @@ For additional information on SQL Database and SQL Data Sync see:
 * [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 
-[Image1]: ./media/sql-database-get-started-data-sync/SQLDatabaseScreen-Figure1.png
-[Image2]: ./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png
-[Image3]: ./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG
-[Image4]: ./media/sql-database-get-started-data-sync/NewSyncGroupHub-Figure4.png
-[Image5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
-[Image6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.png
-[Image7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.png
 
 
 

@@ -45,9 +45,9 @@ In this guide, you'll create the server first. You might prefer this approach if
 
 5. In Server Settings, enter an administrator name as one word with no spaces. 
 
-  SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
+	SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
 
-  The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
+	The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
 
 6. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
@@ -71,7 +71,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 4. Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
-  If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
+	If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
 
 5. Enter a name for the firewall rule, such as the name of your computer or company.
 

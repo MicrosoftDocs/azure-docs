@@ -25,7 +25,7 @@ This topic describes how to create a storage account in the Windows Azure Manage
 
 2. Click **Create New**, click **Storage**, and then click **Quick Create**.
 
-	![NewStorageAccount] [NewStorageAccount]
+	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
 3. In **URL**, enter a subdomain name to use in the storage account URL. To access an object in storage, you will append the object's location to the endpoint. For example, the URL for accessing a blob might be http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -54,7 +54,7 @@ This topic describes how to create a storage account in the Windows Azure Manage
 
 	It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the portal. After the storage account has been created, your new storage account has **Online** status and is ready for use. 
 
-	![StoragePage] [StoragePage]
+	![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
 
 <h2><a id="next"></a>Next steps</h2>
 
@@ -64,5 +64,3 @@ This topic describes how to create a storage account in the Windows Azure Manage
 
 - Configure your apps to use Windows Azure Blob, Table, and Queue services. The [Windows Azure Developer Center](http://www.windowsazure.com/en-us/develop/overview/) provides How To Guides for using the Blob, Table, and Queue storage services with your .NET, Node.js, Java, and PHP applications. For instructions specific to a programming language, see the How To Guides for that language.
 
-[NewStorageAccount]: ./media/storage-create-storage-account/storage_NewStorageAccount.png
-[StoragePage]: ./media/storage-create-storage-account/Storage_StoragePage.png

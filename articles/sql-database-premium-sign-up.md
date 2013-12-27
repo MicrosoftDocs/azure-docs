@@ -24,15 +24,16 @@ The first step to take advantage of this feature is to sign up your subscription
 
 	**Note** - Only Windows Azure account administrators can access the Account portal. If you are not the account administrator for your subscription, please have that person complete the sign-up process for your subscription. For more information about Windows Azure accounts and subscriptions, see [Purchase Options](http://account.windowsazure.com/PreviewFeatures).
  
-	![Image1] [Image1]
+	![Image1](./media/sql-database-premium-sign-up/AccountSignup-Figure1.png)
 
 2. Find the **Premium for SQL Database** item in the preview features list and click the **try it now** button associated with the item.
 
-	![Image2] [Image2]
+	![Image2](./media/sql-database-premium-sign-up/AccountSignupButton-Figure2.png)
+
 
 3. Choose the subscription you wish to sign up for the preview.
 
-	![Image3] [Image3]
+	![Image3](./media/sql-database-premium-sign-up/Subscription-Figure3.png)
 
 	Only active, paid Windows Azure subscriptions are eligible for the preview. You may sign up multiple subscriptions, but each subscription can be signed up only once. 
 
@@ -40,7 +41,7 @@ The first step to take advantage of this feature is to sign up your subscription
 
 	The current status of the sign up request is reflected in the preview features list.
 
-	![Image4] [Image4]
+	![Image4](./media/sql-database-premium-sign-up/Status-Figure4.png)
 
 4. Requests will be approved based on current capacity and demand. You may wait up to 2 days for your subscription to be activated, with longer wait times indicating high demand or fulfilled public preview capacity.
 
@@ -60,8 +61,7 @@ Once your subscription is activated for the preview, you need to request Premium
 4.	Navigate to the **Quick Start** for the selected server by clicking the lightning bolt icon in the top navigation bar.
 5.	Click **Request Premium Database Quota** in the **Premium Database** section.
 
-	![Image6] [Image6]
-	
+	![Image6](./media/sql-database-premium-sign-up/RequestQuota-Figure6.png)
 
 
 	Once your request is submitted, you may wait up to 5 days before being granted quota. Longer wait times may indicate high demand or fulfilled preview capacity.
@@ -76,23 +76,23 @@ Once your subscription is activated for the preview, you need to request Premium
 	- Requesting database quota is free, however, creating a Premium edition database or upgrading an existing Web or Business edition database to Premium will increase the cost of the database.
 6.	You can see the status of your quota request on the server's **Quick Start** page.
 
-	![Image7] [Image7]
+	![Image7](./media/sql-database-premium-sign-up/PendingApproval-Figure7.png)
 	
-7.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
-8.	Once granted, you can see a server's remaining Premium database quota on the server???s **Quick Start** or **Dashboard** tab.
 
-	![Image8] [Image8]
+7.	You will receive an email notification when your Premium database quota request is granted and quota is available for use.
+8.	Once granted, you can see a server's remaining Premium database quota on the server's **Quick Start** or **Dashboard** tab.
+
+	![Image8](./media/sql-database-premium-sign-up/QuotaApproved-Figure8.png)
 
 <h2><a id="Upgrade"></a>Step 3: Create a Premium database</h2>
 
 
 Once you have been granted quota, you can create a new Premium edition database or upgrade an existing Web or Business  database to Premium to take advantage of reserved capacity and more predictable performance. 
 
-![Image9] [Image9]
+![Image9](./media/sql-database-premium-sign-up/SpecifyDBSettings-Figure9.png)
 
 
-
-![Image10] [Image10]
+![Image10](./media/sql-database-premium-sign-up/PremiumDBSettings-Figure10.png)
 
 
 For more information, see [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927).
@@ -106,14 +106,7 @@ For additional information about Premium databases, see:
 * [Managing a Premium Database](http://go.microsoft.com/fwlink/p/?LinkID=311927)
 * [Premium for SQL Database Guidance](http://go.microsoft.com/fwlink/p/?LinkId=313650)
 
-[Image1]: ./media/sql-database-premium-sign-up/AccountSignup-Figure1.png
-[Image2]: ./media/sql-database-premium-sign-up/AccountSignupButton-Figure2.png
-[Image3]: ./media/sql-database-premium-sign-up/Subscription-Figure3.png
-[Image4]: ./media/sql-database-premium-sign-up/Status-Figure4.png
-[Image5]: ./media/sql-database-premium-sign-up/QuickStart-Figure5.PNG
-[Image6]: ./media/sql-database-premium-sign-up/RequestQuota-Figure6.png
-[Image7]: ./media/sql-database-premium-sign-up/PendingApproval-Figure7.png
-[Image8]: ./media/sql-database-premium-sign-up/QuotaApproved-Figure8.png
+
 
 
 

@@ -1,9 +1,9 @@
 #How to Attach a Data Disk to a Virtual Machine
 
-*
 
-	*[Concepts](#concepts)
-	*[How to: Attach an existing disk](#attachexisting)
+
+	* [Concepts](#concepts)
+	* [How to: Attach an existing disk](#attachexisting)
 	
 * [How to: Attach an empty disk](#attachempty)
 	

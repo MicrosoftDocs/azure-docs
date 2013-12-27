@@ -97,7 +97,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
-   ![Image2] []
+	![Image2] []
 
 2. Click **Configure**. 
 
@@ -105,13 +105,13 @@ In the next step, you will configure the firewall so that connections from appli
 
 4. Paste the IP address into both the START IP ADDRESS and END IP ADDRESS to establish the range addresses that are allowed to access the server. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
-  If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
+	If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
 
 5. Enter a name for the firewall rule, such as the name of your computer or company.
 
 6. Click the checkmark next to the rule to save it.
 
-    ![Image3] []
+	![Image3] []
 
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
@@ -253,9 +253,9 @@ following resources to learn more about SQL Database.
   [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   
-  [Image1]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.png
-  [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDbFirewall.png
-  [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDbIPRange.png
+  [Image1]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG
+  [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDbFirewall.PNG
+  [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDbIPRange.PNG
   
   
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
