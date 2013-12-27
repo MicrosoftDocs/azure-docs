@@ -46,24 +46,24 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2><a id="verifystaticip"></a>Step 1: Verify static IP address for YourPrimaryDC</h2>
 
-1.	Log on to YourPrimaryDC on the Corp network.
+	1. Log on to YourPrimaryDC on the Corp network.
 
-2.	In Server Manager, click View Network Connections.
+	2. In Server Manager, click View Network Connections.
 
-3.	Right-click the local area network connection and click Properties.
+	3. Right-click the local area network connection and click Properties.
 
-4.	Click Internet Protocol Version 4 (TCP/IPv4) and click Properties.
+	4. Click Internet Protocol Version 4 (TCP/IPv4) and click Properties.
 
-5.	Verify that the server is assigned a static IP address. 
+	5. Verify that the server is assigned a static IP address. 
 
-	![VerifystaticIPaddressyourPrimaryDC1] (./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png)
+	![VerifystaticIPaddressyourPrimaryDC1](./media/virtual-networks-install-replica-active-directory-domain-controller/VerifystaticIP.png)
 
 
 <h2><a id="installforest"></a>Step 2: Install Corp forest</h2>
 
 1.	In the RDP session for the VM, click **Start**, type **dcpromo**, and press ENTER.
 
-	![InstallCorpForest1] (./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png)
+	![InstallCorpForest1](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png)
 
 
 2.	On the Welcome page, click **Next**.
@@ -197,7 +197,7 @@ This tutorial walks you through the steps to install an additional domain contro
 
 	**Important** 
 
- Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
+	Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
 
 	![AddDC9](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC9.png)
 

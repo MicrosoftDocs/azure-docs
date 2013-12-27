@@ -80,13 +80,13 @@ You can log on to the virtual machine that you created to manage both its settin
 
 5. Click **Connect**.
 
-	![Continue with connecting] (./media/CreateVirtualMachineWindowsTutorial/connectpublisher.png)
+	![Continue with connecting](./media/CreateVirtualMachineWindowsTutorial/connectpublisher.png)
 
 6. In the password box, type the user name and password that you specified when you created the virtual machine, and then click **OK**.
 
 7. Click **Yes** to verify the identity of the virtual machine.
 
-	![Verify the identity of the machine] (./media/CreateVirtualMachineWindowsTutorial/connectverify.png)
+	![Verify the identity of the machine](./media/CreateVirtualMachineWindowsTutorial/connectverify.png)
 
 	You can now work with the virtual machine just like you would a server in your office.
 
@@ -112,7 +112,7 @@ Your application might need to store data. To set this up, attach a data disk to
 
 	The virtual machine now has 2 disks. The disk that you attached is listed in the **Disks** table.
 
-	![Attach empty disk] (./media/CreateVirtualMachineWindowsTutorial/attachemptysuccess.png)
+	![Attach empty disk](./media/CreateVirtualMachineWindowsTutorial/attachemptysuccess.png)
 
 	After you attach the data disk to the virtual machine, the disk is offline and not initialized. Before you can use it to store data, you'll need to log on to the virtual machine and initialize the disk.
 
@@ -120,21 +120,21 @@ Your application might need to store data. To set this up, attach a data disk to
 
 8. After you log on to the virtual machine, open **Server Manager**. In the left pane, expand **Storage**, and then click **Disk Management**.
 
-	![Initialize the disk in Server Manager] (./media/CreateVirtualMachineWindowsTutorial/servermanager.png)
+	![Initialize the disk in Server Manager](./media/CreateVirtualMachineWindowsTutorial/servermanager.png)
 
 9. Right-click **Disk 2**, and then click **Initialize Disk**.
 
-	![Start initialization] (./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
+	![Start initialization](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 
 10. Click **OK** to start the initialization process.
 
 11. Right-click the space allocation area for Disk 2, click **New Simple Volume**, and then finish the wizard with the default values.
 
-	![Create the volume] (./media/CreateVirtualMachineWindowsTutorial/initializediskvolume.png)
+	![Create the volume](./media/CreateVirtualMachineWindowsTutorial/initializediskvolume.png)
 
 	The disk is now online and ready to use with a new drive letter.
 
-	![Initialization success] (./media/CreateVirtualMachineWindowsTutorial/initializesuccess.png)
+	![Initialization success](./media/CreateVirtualMachineWindowsTutorial/initializesuccess.png)
 
 
 ##Next Steps 

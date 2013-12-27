@@ -53,41 +53,41 @@ In this tutorial, you will:
 
    Click the next arrow on the bottom right to continue.
 
-	![VM Configuration] [Image4]
+	![VM Configuration][Image4]
 
 
 
 5. On the **Virtual machine mode** page, provide the following information:
-- Select **Standalone Virtual Machine**.
-- In the **DNS NAME** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
-- In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
+	- Select **Standalone Virtual Machine**.
+	- In the **DNS NAME** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
+	- In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
 
-   Click the next arrow to continue.
+	Click the next arrow to continue.
 
-	![VM Mode] [Image5]
+	![VM Mode][Image5]
 
 6. On the **Virtual machine options** page:
-- In the **AVAILABILITY SET** box, select **(none)**. 
-- Read and accept the legal terms.
+	- In the **AVAILABILITY SET** box, select **(none)**. 
+	- Read and accept the legal terms.
 
-	![VM Options] [Image6]
+	![VM Options][Image6]
 
 7. Click the check mark in the bottom right corner to continue.
 
 8. Wait while Windows Azure prepares your virtual machine. Expect the virtual machine status to proceed through:
 
-- Starting (Provisioning)
-- Stopped
-- Starting (Provisioning)
-- Running (Provisioning)
-- Running
+	- Starting (Provisioning)
+	- Stopped
+	- Starting (Provisioning)
+	- Running (Provisioning)
+	- Running
 	
 
 <h2 id="RemoteDesktop">Open the virtual machine using Remote Desktop and complete setup</h2>
 
 1. When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page. At the bottom of the page, click **Connect**.
 
-	![Select Dashboard Page] [Image5b]
+	![Select Dashboard Page][Image5b]
 2. Choose to open the rpd file using the Windows Remote Desktop program (`%windir%\system32\mstsc.exe`).
 
 	
@@ -125,39 +125,39 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
 3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD ENDPOINT**.
 
-	![Click ADD ENDPOINT] [Image28]
+	![Click ADD ENDPOINT][Image28]
 
 4. On the **Add Endpoint to Virtual Machine** page, click **Add Endpoint**, and then click the Next arrow to continue.
 
-	![Click Add endpoint] [Image29]
+	![Click Add endpoint][Image29]
 
 5. On the **Specify the details of the endpoint** page, provide the following information.
 
-- In the **NAME** box, provide a name for the endpoint.
-- In the **PROTOCOL** box, select **TCP**. You may type SQL Server's default listening port **1433** in the **Private Port** box. Similarly, you may type **57500** in the **PUBLIC PORT** box. Note that many organizations select different port numbers to avoid malicious security attacks.
+	- In the **NAME** box, provide a name for the endpoint.
+	- In the **PROTOCOL** box, select **TCP**. You may type SQL Server's default listening port **1433** in the **Private Port** box. Similarly, you may type **57500** in the **PUBLIC PORT** box. Note that many organizations select different port numbers to avoid malicious security attacks.
 
 
-	![Endpoint screen] [Image30]
+	![Endpoint screen][Image30]
 
 6. Click the check mark to continue. The endpoint is created.
 
-	![VM with Endpoint] [Image31]
+	![VM with Endpoint][Image31]
 
 <h3 id="FW">Open TCP ports in the Windows firewall for the default instance of the Database Engine</h3>
 
 1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, on the Start menu, click **Run**, type **WF.msc**, and then click **OK**.
 
 
-    ![Start the Firewall Program] [Image12]
+    ![Start the Firewall Program][Image12]
 2. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
 
-    ![New Rule] [Image13]
+    ![New Rule][Image13]
 
 3. In the **Rule Type** dialog box, select **Port**, and then click **Next**.
 
 4. In the **Protocol and Ports** dialog box, select **TCP**. Select **Specific local ports**, and then type the port number of the instance of the Database Engine (**1433** for the default instance or your choice for the private port in the endpoint step). 
 
-    ![TCP Port 1433] [Image14]
+    ![TCP Port 1433][Image14]
 
 5. Click **Next**.
 
@@ -165,17 +165,17 @@ The virtual machine must have an endpoint to listen for incoming TCP communicati
 
     **Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this option if you want to configure additional security options in your environment.
 
-    ![Allow Connections] [Image15]
+    ![Allow Connections][Image15]
 
 7. In the **Profile** dialog box, select **Public**, and then click **Next**. 
 
     **Security Note:**  Selecting **Public** allows access over the internet. Whenever possible, select a more restrictive profile.
 
-    ![Public Profile] [Image16]
+    ![Public Profile][Image16]
 
 8. In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
 
-    ![Rule Name] [Image17]
+    ![Rule Name][Image17]
 
 Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/en-us/library/cc646023.aspx).
 
@@ -184,7 +184,7 @@ Open additional ports for other components as needed. For more information, see 
 
 1. While connected to the virtual machine by using Remote Desktop, on the Start menu, click **All Programs**, click **Microsoft SQL Server** *version*, click **Configuration Tools**, and then click **SQL Server Configuration Manager**.
 
-    ![Open SSCM] [Image9]
+    ![Open SSCM][Image9]
 
 2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
 
@@ -192,13 +192,13 @@ Open additional ports for other components as needed. For more information, see 
 
 4. In the details pane, right-click TCP, it should be Enabled for the gallery images by default. For your custom images, click **Enable** (if its status is Disabled.)
 
-    ![Enable TCP] [Image10]
+    ![Enable TCP][Image10]
 
 5. In the console pane, click **SQL Server Services**. (Restarting the Database Engine can be postponed until completion of the next step.)
 
 6. In the details pane, right-click **SQL Server (_instance name_)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
 
-    ![Restart Database Engine] [Image11]
+    ![Restart Database Engine][Image11]
 
 7. Close SQL Server Configuration Manager.
 
@@ -210,27 +210,27 @@ The SQL Server Database Engine cannot use Windows Authentication without domain 
 
 1. While connected to the virtual machine by using Remote Desktop, on the Start menu, click **All Programs**, click **Microsoft SQL Server _version_**, and then click **SQL Server Management Studio**. 
 
-    ![Start SSMS] [Image18]
+    ![Start SSMS][Image18]
 
 The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
 
 2. When opening, Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave **_your_VM_name_\your_local_administrator** in the **User name** box. Click **Connect**.
 
-    ![Connect to Server] [Image19]
+    ![Connect to Server][Image19]
 
 3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.
 
-    ![Server Properties] [Image20]
+    ![Server Properties][Image20]
 
 4. On the **Security** page, under **Server authentication**, select **SQL Server and Windows Authentication mode**, and then click **OK**.
 
-    ![Select Authentication Mode] [Image21]
+    ![Select Authentication Mode][Image21]
 
 5. In the SQL Server Management Studio dialog box, click **OK** to acknowledge the requirement to restart SQL Server.
 
 6. In Object Explorer, right-click your server, and then click **Restart**. (If SQL Server Agent is running, it must also be restarted.)
 
-    ![Restart] [Image22]
+    ![Restart][Image22]
 
 7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
 
@@ -242,7 +242,7 @@ To connect to the Database Engine from another computer, you must create at leas
 
 2. Right-click the **Security** folder, point to **New**, and select **Login...**.
 
-    ![New Login] [Image23]
+    ![New Login][Image23]
 
 3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
 
@@ -260,13 +260,13 @@ To connect to the Database Engine from another computer, you must create at leas
 
 10. In the **Default language** list, leave **default** as the value.
     
-    ![Login Properties] [Image24]
+    ![Login Properties][Image24]
 
 11. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**. 
 
     **Security Note:** Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
 
-    ![sysadmin] [Image25]
+    ![sysadmin][Image25]
 
 12. Click OK.
 
@@ -282,7 +282,7 @@ To connect to the SQL Server Database Engine from another computer, you must kno
 
 2. On the **VIRTUAL MACHINE INSTANCES** page, in the **DNS NAME** column, find and copy the DNS name for the virtual machine which appears preceded by **http://**. (The user interface might not display the entire name, but you can right-click on it, and select copy.)
 
-    ![DNS Name] [Image32]
+    ![DNS Name][Image32]
 
 ### Connect to the Database Engine from another computer ###
  
@@ -298,7 +298,7 @@ To connect to the SQL Server Database Engine from another computer, you must kno
 
 6. Click **Connect**.
 
-    ![Connect using SSMS] [Image33]
+    ![Connect using SSMS][Image33]
 
 ### Connecting to the Database Engine from your application ###
 

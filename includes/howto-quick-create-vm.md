@@ -10,15 +10,15 @@ You use the **Quick Create** method to quickly create a virtual machine in the M
 
 2. On the command bar, click **New**.
 
-	![Create a new virtual machine] (./media/howto-quick-create-vm/create.png)
+	![Create a new virtual machine](./media/howto-quick-create-vm/create.png)
 
 3. Click **Virtual Machines**, and then click **Quick Create**.
 
-	![Quick Create a new virtual machine] (./media/howto-quick-create-vm/createquick.png)
+	![Quick Create a new virtual machine](./media/howto-quick-create-vm/createquick.png)
 
 	The **Create a New Virtual Machine** dialog box appears.
 
-	4. Type the following information for the new virtual machine:
+4. Type the following information for the new virtual machine:
 
 	- **DNS Name** - the name that is used for both the virtual machine that is created and the cloud service that contains the virtual machine.
 	- **Image** - the platform image that is used to create the virtual machine. 
@@ -32,5 +32,5 @@ You use the **Quick Create** method to quickly create a virtual machine in the M
 
 	You will see the new virtual machine listed in on the **Virtual Machines** page.
 
-	![Virtual machine creation success] (./media/howto-quick-create-vm/vmsuccesswindows.png)
+	![Virtual machine creation success](./media/howto-quick-create-vm/vmsuccesswindows.png)
 

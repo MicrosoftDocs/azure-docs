@@ -31,7 +31,7 @@ A screenshot of the completed application is below:
 1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
  - Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
  - Click *ADD ENDPOINT* button at the bottom of the screen.
-![][add endpoint]
+	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
 ![][port80]
@@ -98,7 +98,7 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 	C:\Python27\python.exe -m django.bin.django-admin startproject DjangoApplication
     
-	![The result of the New-AzureService command][The result of the New-AzureService command]
+	![The result of the New-AzureService command](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png)
 
  The **django-admin.py** script generates a basic structure for Django-based web sites:
     
@@ -132,10 +132,6 @@ To set up your Python and Django environments, please see the [Installation Guid
 When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
 
 [1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
-
-[The result of the New-AzureService command]:  ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-cmd-new-azure-service.png
-
-[add endpoint]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
