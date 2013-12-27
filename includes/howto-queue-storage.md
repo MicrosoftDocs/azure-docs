@@ -16,7 +16,7 @@ Common uses of Queue storage include:
 
 The Queue service contains the following components:
 
-![Queue1][]
+	![Queue1](./media/howto-queue-storage/queue1.png)
 
 -   **URL format:** Queues are addressable using the following URL
     format:   
@@ -33,4 +33,4 @@ The Queue service contains the following components:
 
 -   **Message:** A message, in any format, of up to 64KB.
 
-[Queue1]: ./media/howto-queue-storage/queue1.png
+
