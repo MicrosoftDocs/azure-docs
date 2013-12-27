@@ -48,9 +48,11 @@ You can find the disks that are attached to a virtual machine by using either th
 
 3. Click **Dashboard**. On the dashboard for the virtual machine, you can find the number of attached disks and the names of the disks. The following example shows one data disk attached to a virtual machine:
 
-		![Find data disk](./media/howto-detach-disk-windows-linux/FindDataDisks.png)	
+		
+	![Find data disk](./media/howto-detach-disk-windows-linux/FindDataDisks.png)	
 	
-	**Note:** At least one disk is attached to all virtual machines. Each virtual machine has an operating system disk attached that you cannot detach without deleting the virtual machine. The local temporary disk is not listed in the disks section because it is not persistent.
+	
+**Note:** At least one disk is attached to all virtual machines. Each virtual machine has an operating system disk attached that you cannot detach without deleting the virtual machine. The local temporary disk is not listed in the disks section because it is not persistent.
 
 
 

@@ -2,11 +2,14 @@
 
 *
 
-[Concepts](#concepts)
-* [How to: Attach an existing disk](#attachexisting)
+	*[Concepts](#concepts)
+	*[How to: Attach an existing disk](#attachexisting)
+	
 * [How to: Attach an empty disk](#attachempty)
+	
 * [How to: Initialize a new data disk in Windows Server 2008 R2](#initializeinWS)
-* [How to: Initialize a new data disk in Linux](#initializeinlinux)
+
+	* [How to: Initialize a new data disk in Linux](#initializeinlinux)
 
 
 
