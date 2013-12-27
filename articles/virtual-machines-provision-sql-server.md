@@ -372,7 +372,7 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 
 
 
-[Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
+[Image4]: ./virtual-machines-provision-sql-server / 4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
