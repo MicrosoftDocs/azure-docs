@@ -1,8 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Windows Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Windows Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors=""  solutions="" writer="ryanwi" manager="" editor=""  />
 
 
-
-
 #How to Monitor Cloud Services
 
 [WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
@@ -58,8 +56,7 @@ In the Management Portal, you can add or modify the diagnostics connection strin
 
  You will edit the **monitoring** settings at the top of the **Configure** page, shown below. If you have not enabled Windows Azure Diagnostics for the cloud service, the **Level** option is not available. You can't change the data retention policy. Verbose monitoring data for a cloud service is stored for 10 days.
 
-	![Monitoring options] [monitoring-options]
-
+	![Monitoring options](./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png)
 
 5. In **Diagnostics Connection Strings**, complete the diagnostics connection string for each role for which you want verbose monitoring.
 	
@@ -92,16 +89,17 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 
 1. In the [Management Portal](http://manage.windowsazure.com/), open the **Monitor** page for the cloud service.
 
- By default, the metrics table displays a subset of the available metrics. The illustration shows the default verbose metrics for a cloud service, which is limited to the Memory\Available MBytes performance counter, with data aggregated at the role level. Use **Add Metrics** to select additional aggregate and role-level metrics to monitor in the Management Portal.
+By default, the metrics table displays a subset of the available metrics. The illustration shows the default verbose metrics for a cloud service, which is limited to the Memory\Available MBytes performance counter, with data aggregated at the role level. Use **Add Metrics** to select additional aggregate and role-level metrics to monitor in the Management Portal.
 
-	![Verbose display] [verbose-display]
-
+	![Verbose display](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
+ 
 2. To add metrics to the metrics table:
 
 	a. Click **Add Metrics** to open **Choose Metrics**, shown below.
- The first available metric is expanded to show options that are available. For each metric, the top option displays aggregated monitoring data for all roles. In addition, you can choose individual roles to display data for.
+	The first available metric is expanded to show options that are available. For each metric, the top option displays aggregated monitoring data for all roles. In addition, you can choose individual roles to display data for.
 
-	![Add metrics] [add-metrics]
+	![Add metrics](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png)
+
 
 	b. To select metrics to display:
 
@@ -111,18 +109,19 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
 	You can display up to 50 metrics in the metrics table.
 
 	<div class="dev-callout"> 
-<b>Hint</b> 
+	<b>Hint</b> 
 	<p>In verbose monitoring, the metrics list can contain dozens of metrics. To display a scrollbar, hover over the right side of the dialog box. To filter the list, click the search icon, and enter text in the search box, as shown below.</p> 
 </div>
  
-	![Add metrics search] [add-metrics-search]
+	![Add metrics search](./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png)
 
 3. After you finish selecting metrics, click OK (checkmark).
 
- The selected metrics are added to the metrics table, as shown below.
+	The selected metrics are added to the metrics table, as shown below.
 
-	![monitor metrics] [monitor-metrics]
+	![monitor metrics](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
 
+ 
 4. To delete a metric from the metrics table, click the metric to select it, and then click **Delete Metric**. (You only see **Delete Metric** when you have a metric selected.)
 
 
@@ -135,12 +134,11 @@ You can receive alerts based on your cloud service monitoring metrics. On the **
  
 2. To switch between displaying relative values (final value only for each metric) and absolute values (Y axis displayed), select Relative or Absolute at the top of the chart.
 
-	![Relative or Absolute] [relative-absolute]
- 
+	![Relative or Absolute](./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png)
 
 3. To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
 
-	![Monitor display period] [monitor-display-period]
+	![Monitor display period](./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png)
 
 On the dashboard metrics chart, the method for plotting metrics is different. A standard set of metrics is available, and metrics are added or removed by selecting the metric header.
 
@@ -182,10 +180,3 @@ For example, the following tables would store verbose monitoring data aggregated
 
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
-[monitoring-options]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
-[verbose-display]: ./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png
-[add-metrics]: ./media/cloud-services-how-to-monitor/CloudServices_AddMetrics.png
-[add-metrics-search]: ./media/cloud-services-how-to-monitor/CloudServices_AddMetrics_Search.png
-[monitor-metrics]: ./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png
-[relative-absolute]: ./media/cloud-services-how-to-monitor/CloudServices_Monitor_RelativeAbsolute.png
-[monitor-display-period]: ./media/cloud-services-how-to-monitor/CloudServices_Monitor_DisplayPeriod.png

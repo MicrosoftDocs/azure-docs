@@ -181,40 +181,40 @@ This is all you need to do for now to create the application that you'll deploy 
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
 
 	![Publish in project context menu][PublishVSSolution]<br/>
 
 	The **Publish Web** wizard opens.
 
-6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
+2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
 
 	![Import publish settings][ImportPublishSettings]
 
 	The **Import Publish Profile** dialog box appears.
 
-1. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
+3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
 
-	a. In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
+	-In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
     
 	![add win az sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzAddWAsub.png)
     
-	b. In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+	-In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
     
 	![download sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDownLoad.png)
     
-	c. In your browser window, save the *.publishsettings* file.<br/>
+	-In your browser window, save the *.publishsettings* file.<br/>
     
 	![download pub file](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDown2.png)
     
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
     
-	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+	-In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
     
 	![download sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDownLoad.png)
     
-	e. Click **Import**.<br/>
+	-Click **Import**.<br/>
     
 	![import](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzImp.png)
 

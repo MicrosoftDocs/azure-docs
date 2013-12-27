@@ -46,7 +46,8 @@ The next step is to create the Windows Azure web site.
 3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
 4. In the **Region** drop-down list, choose the region that is closest to you.<br/>
 This setting specifies which data center your web site will run in. 
-5. Click the **Create Web Site** arrow.<br/>
+5. Click the **Create Web Site** arrow.
+
 	![Create a new web site][CreateWebSite]<br/>
 The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.<br/>
 ![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]<br/>
@@ -178,7 +179,6 @@ In some scenarios you might want to run your application in a Windows Azure Clou
 [AppRunningLocally]: ./media/web-sites-dotnet-get-started-vs2012/AppRunningLocally.png
 [ClickQuickCreate]: ./media/web-sites-dotnet-get-started-vs2012/ClickQuickCreate.png
 
-[CreateWebsite]: ./media/web-sites-dotnet-get-started-vs2012/CreateWebsite.png
 [CreateWebsite]: ./media/web-sites-dotnet-get-started-vs2012/CreateWebsite.png
 [DeployedWebSite]: ./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png
 
