@@ -376,8 +376,6 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
-
-
 [Image8b]: ./media/virtual-machines-provision-sql-server/SQLVMConnectionsOnAzure.GIF
 [Image9]: ./media/virtual-machines-provision-sql-server/9Click-SSCM.png
 [Image10]: ./media/virtual-machines-provision-sql-server/10Enable-TCP.png
@@ -396,13 +394,9 @@ You've seen how to create and configure a SQL Server on a Windows Azure virtual 
 [Image23]: ./media/virtual-machines-provision-sql-server/23New-Login.png
 [Image24]: ./media/virtual-machines-provision-sql-server/24Test-Login.png
 [Image25]: ./media/virtual-machines-provision-sql-server/25sysadmin.png
-
-
-
 [Image28]: ./media/virtual-machines-provision-sql-server/28Add-Endpoint.png
 [Image29]: ./media/virtual-machines-provision-sql-server/29Add-Endpoint-to-VM.png
 [Image30]: ./media/virtual-machines-provision-sql-server/30Endpoint-Details.png
 [Image31]: ./media/virtual-machines-provision-sql-server/31VM-Connect.png
-
 [Image32]: ./media/virtual-machines-provision-sql-server/32DNS-Name.png
 [Image33]: ./media/virtual-machines-provision-sql-server/33Connect-SSMS.png

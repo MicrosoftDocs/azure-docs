@@ -62,7 +62,7 @@ The second IP address is the important one to check. It should match a VIP for o
 
 >>![nslookup command example][1]
 
->>**Figure 2** ??? nslookup command example
+>>**Figure 2** - nslookup command example
 
 - **Use one of the additional testing methods listed below.** Select the appropriate method for the type of load balancing you are testing.
 
@@ -152,7 +152,7 @@ To change a policy to a different type, use the following steps:
 
 2. **Select the policy** you want to change in the Traffic Manager screen in the Management Portal.
 
-3. **Click ???Configure???** on the top menu bar.
+3. **Click "Configure"** on the top menu bar.
 
 4. **Make the desired changes to the policy.** Note that if you change the load balancing method, depending on the selected option, the order of the hosted services in the **Selected hosted services** list may or may not be important.  
 
@@ -191,7 +191,7 @@ The **Create Traffic Manager policy** dialog box should be similar to the exampl
 
 ![Dialog box for Round Robin load balancing method][3] 
 
-**Figure 2** ??? Dialog box for Round Robin load balancing method
+**Figure 2** - Dialog box for Round Robin load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For instructions, see  [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
 
@@ -214,7 +214,7 @@ For more information on the different load balancing methods that Traffic Manage
 
 	![Create button for policies][4]
 
-	**Figure 1** ??? Create button for policies
+	**Figure 1** - Create button for policies
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription.
 
@@ -232,7 +232,7 @@ The **Create Traffic Manager policy** dialog box should look similar to the exam
 
 ![Dialog box for Failover load balancing method][5]
 
-**Figure 2** ??? Dialog box for Failover load balancing method
+**Figure 2** - Dialog box for Failover load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
 
@@ -243,7 +243,7 @@ For example, the following command routes all traffic going to **www.contoso.com
 
 <h2><a id="howto_direct"></a>How to: Direct Incoming Traffic to Hosted Services Based on Network Performance</h2>
 
-In order to load balance hosted service that are located in different datacenters across the globe, you can direct incoming traffic to the closest hosted service. Although ???closest??? may directly correspond to geographic distance, it can also correspond to the location with the lowest latency to service the request. The Performance load balancing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load. For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+In order to load balance hosted service that are located in different datacenters across the globe, you can direct incoming traffic to the closest hosted service. Although "closest" may directly correspond to geographic distance, it can also correspond to the location with the lowest latency to service the request. The Performance load balancing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load. For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
 
 The following steps will walk you through the process:
 
@@ -256,7 +256,7 @@ Also refer to "Best practices for hosted services and policies" in the [Overview
 
 	![Create button for policies][6]
 	
-	**Figure 1** ??? Create button for policies
+	**Figure 1** - Create button for policies
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription. 
 
@@ -274,7 +274,7 @@ The **Create Traffic Manager policy** dialog box should look something like the 
 
 ![Dialog box for Performance load balancing method][7]
 
-**Figure 2** ??? Dialog box for Performance load balancing method
+**Figure 2** - Dialog box for Performance load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information about testing, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test).
 
