@@ -1,8 +1,6 @@
 <properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
-
-<div chunk="../chunks/networking-left-nav.md" />
 #How to Configure Traffic Manager Settings#
 Windows Azure Traffic Manager enables you to control the distribution of user traffic to Windows Azure hosted services. 
 
