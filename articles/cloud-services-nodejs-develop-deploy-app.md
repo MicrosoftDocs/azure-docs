@@ -28,7 +28,7 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-   ![A browser window displaying Hello World][A browser window displaying Hello World]
+   ![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 
 ## Creating a New Node Application
 
@@ -50,24 +50,20 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 
         PS C:\node> New-AzureServiceProject helloworld
 
-    You will see the following response:
+    	You will see the following response:
 
-    ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
+	![The result of the New-AzureService helloworld command](./media/cloud-services-nodejs-develop-deploy-app/node9.png)
 
-    The **New-AzureServiceProject** cmdlet generates a basic structure for
-    creating a new Windows Azure Node application which will be published to a Cloud Service. It contains
-    configuration files necessary for publishing to Windows Azure. The
-    cmdlet also changes your working directory to the directory for the
-    service.
+	The **New-AzureServiceProject** cmdlet generates a basic structure for creating a new Windows Azure Node application which will be published to a Cloud Service. It contains configuration files necessary for publishing to Windows Azure. The cmdlet also changes your working directory to the directory for the service.
 
-    The files created by the **New-AzureServiceProject** cmdlet are:
+	The files created by the **New-AzureServiceProject** cmdlet are:
 
-    -   **ServiceConfiguration.Cloud.cscfg**,
+	-   **ServiceConfiguration.Cloud.cscfg**,
         **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
         Windows Azure-specific files necessary for publishing your
         application.
 		
-		For more information about these files, see
+	For more information about these files, see
         [Overview of Creating a Hosted Service for Windows Azure][].
 
     -   **deploymentSettings.json** stores local settings that are used by
@@ -78,12 +74,11 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 
         PS C:\node\helloworld> Add-AzureNodeWebRole
 
-    You will see the following response:
+	You will see the following response:
 
-    ![The output of the Add-AzureNodeWebRole command.][The output of the Add-AzureNodeWebRole command.]
+	![The output of the Add-AzureNodeWebRole command.](./media/cloud-services-nodejs-develop-deploy-app/node11.png)
 
-    The **Add-AzureNodeWebRole** cmdlet creates a new directory for your
-    application and generates scaffolding for a basic Node.js application. It also modifies the **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg**, and **ServiceDefinition.csdef** files created in the previous step to add configuration entries for the new role.
+	The **Add-AzureNodeWebRole** cmdlet creates a new directory for your application and generates scaffolding for a basic Node.js application. It also modifies the **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg**, and **ServiceDefinition.csdef** files created in the previous step to add configuration entries for the new role.
 
 	<div class="dev-callout">
 	<b>Note</b>
@@ -95,17 +90,17 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 
 5.  Use the following commands to navigate to the **WebRole1** directory, and then open the the **server.js** file in notepad. 
 
-		PS C:\\node\\helloworld> cd WebRole1
+	PS C:\\node\\helloworld> cd WebRole1
         PS C:\node\helloworld\WebRole1> notepad server.js
 
-    The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the "Hello World" sample
+	The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the "Hello World" sample
     on the [nodejs.org][] web site, except:
 
-    -   The port has been changed to allow the application to find the 
+   	-   The port has been changed to allow the application to find the 
         correct port assigned to it by the cloud environment.
-    -   Console logging has been removed.
+   	-   Console logging has been removed.
 
-    ![Notepad displaying the contents of server.js][Notepad displaying the contents of server.js]
+	![Notepad displaying the contents of server.js](./media/cloud-services-nodejs-develop-deploy-app/node13.png)
 
 ## Running Your Application Locally in the Emulator
 
@@ -119,21 +114,17 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 
         PS C:\node\helloworld\WebRole1> Start-AzureEmulator -Launch
 
-    The **-Launch** parameter specifies that the tools should
-    automatically open a browser window and display the application once
-    it is running in the emulator. A browser opens and displays "Hello
-    World," as shown in the screenshot below. This indicates that the
-    service is running in the compute emulator and is working correctly.
+	The **-Launch** parameter specifies that the tools should automatically open a browser window and display the application once it is running in the emulator. A browser opens and displays "Hello World," as shown in the screenshot below. This indicates that the service is running in the compute emulator and is working correctly.
 
-    ![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
+	![A web browser displaying the Hello World web page][A web browser displaying the Hello World web page]
 
 2.  To stop the compute emulator, use the **Stop-AzureEmulator** command:
-
-		PS C:\node\helloworld\WebRole1> Stop-AzureEmulator
+	
+	PS C:\node\helloworld\WebRole1> Stop-AzureEmulator
 
 ## Deploying the Application to Windows Azure
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
 
@@ -144,7 +135,7 @@ In order to deploy your application to Windows Azure, you must first download th
 
         PS C:\node\helloworld\WebRole1> Get-AzurePublishSettingsFile
 
-    This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Windows Azure subscription.
+	This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Windows Azure subscription.
 
 	Save the downloaded profile to a file location you can easily access.
 
@@ -176,11 +167,11 @@ In order to deploy your application to Windows Azure, you must first download th
 
 	- The **launch** parameter will launch your browser and navigate to the hosted service after deployment has completed.
 
-    After publishing succeeds, you will see a response similar to the following:
+	After publishing succeeds, you will see a response similar to the following:
 
-    ![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
+	![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
 
-    The **Publish-AzureServiceProject** cmdlet performs the following steps:
+The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
     1.  Creates a package that will be deployed to Windows Azure. The
         package contains all the files in your node.js application
@@ -200,11 +191,11 @@ In order to deploy your application to Windows Azure, you must first download th
 	<p>It can take 5 - 7 minutes for the application to deploy and become available when first published.</p>
 	</div>
 
-    Once the deployment has completed, a browser window will open and navigate to the cloud service.
+	Once the deployment has completed, a browser window will open and navigate to the cloud service.
 
-    ![A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.][A browser window displaying Hello World]
+	![A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.][A browser window displaying Hello World]
 
-    Your application is now running on Windows Azure!
+	Your application is now running on Windows Azure!
 
 ## Stopping and Deleting Your Application
 
@@ -218,10 +209,9 @@ instances are not running and are in the stopped state.
 
         PS C:\node\helloworld\WebRole1> Stop-AzureService
 
-    Stopping the service may take several minutes. When the service is
-    stopped, you receive a message indicating that it has stopped.
+	Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
 
-    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
+	![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
 
 2.  To delete the service, call the following cmdlet:
 
@@ -229,39 +219,31 @@ instances are not running and are in the stopped state.
 
 	When prompted, enter **Y** to delete the service.
 
-    Deleting the service may take several minutes. After the service has
-    been deleted you receive a message indicating that the service was
-    deleted.
+	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
-    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
+	![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Deleting the service does not delete the storage account that
-was created when the service was initially published, and you will
-continue to be billed for storage used. For more information on
+	<div class="dev-callout">
+	<strong>Note</strong>
+	<p>Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on
 deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from a Windows Azure Subscription</a>.</p>
 </div>
 
-  [A browser window displaying Hello World]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-  [The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
-  [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
-  [nodejs.org]: http://nodejs.org/
-  [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-  [A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
-  [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [The output of the Add-AzureNodeWebRole command.]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-  [A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
-  [Notepad displaying the contents of server.js]: ./media/cloud-services-nodejs-develop-deploy-app/node13.png
-  [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-  [The menu displayed when right-clicking the Windows Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
-  
-  [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
-  [A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
-  [Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
-  [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-  [The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-  [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-  [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-  [How to Delete a Storage Account from a Windows Azure Subscription]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
+
+[The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
+[mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
+[nodejs.org]: http://nodejs.org/
+[A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
+[Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The menu displayed when right-clicking the Windows Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
+[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
+[A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
+[Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[How to Delete a Storage Account from a Windows Azure Subscription]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
+[powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
