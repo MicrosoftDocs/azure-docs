@@ -114,7 +114,7 @@ Azure emulator:
     multi-user functionality, open additional browser windows using the
     same URL and enter different nicknames.
 
-    ![Two browser windows displaying chat messages from User1 and User2][Two browser windows displaying chat messages from User1 and User2]
+    ![Two browser windows displaying chat messages from User1 and User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
 3.  After testing the application, stop the emulator by issuing the
     following command:
@@ -153,7 +153,6 @@ In this tutorial you learned how to create a basic chat application hosted in a 
 
   [chatwebsite]: /en-us/develop/nodejs/tutorials/website-using-socketio/
 
-  
   [Windows Azure SLA]: http://www.windowsazure.com/en-us/support/sla/
   [Windows Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
   [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
@@ -165,13 +164,11 @@ In this tutorial you learned how to create a basic chat application hosted in a 
   [Summary and Next Steps]: #summary
   [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
 
-  
   [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
   [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
   
   
   [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
   [The output of the npm install command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
-  [Two browser windows displaying chat messages from User1 and User2]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png
   [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
   

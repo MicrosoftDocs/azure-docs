@@ -17,7 +17,7 @@ For a cloud service that contains instances of web roles or worker roles, you ca
 
 The following image shows a load-balanced endpoint that is shared among three virtual machines and uses a public and private port of 80.
 
-![loadbalancing][]
+![loadbalancing](./media/load-balancing-vms/LoadBalancing.png)
 
 This task includes the following steps:
 
@@ -88,8 +88,6 @@ After you create the load-balanced set, add the other virtual machines to the se
 [Step 3: Set up load balancing of the virtual machines]: #loadbalance
 [Step 4: Add virtual machines to the load-balanced set]: #addtoset
 
-<!-- IMAGES -->
-[loadbalancing]: ./media/load-balancing-vms/LoadBalancing.png
 
 <!-- LINKS -->
 
