@@ -26,7 +26,7 @@ Default values for the ports and protocol for these endpoints are provided when 
 
 3. Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
 
-	![Endpoints] (./media/howto-setup-endpoints/endpointswindows.png)
+	![Endpoints](./media/howto-setup-endpoints/endpointswindows.png)
 
 4.	Click **Add**.
 
@@ -44,7 +44,7 @@ Default values for the ports and protocol for these endpoints are provided when 
 
 	You will now see the endpoint listed on the **Endpoints** page.
 
-	![Endpoint creation successful] (./media/howto-setup-endpoints/endpointwindowsnew.png)
+	![Endpoint creation successful](./media/howto-setup-endpoints/endpointwindowsnew.png)
 
 ###Manage the ACL on an Endpoint###
 
@@ -58,7 +58,7 @@ Follow these steps to add, modify, or remove an ACL on an endpoint.
 
 3. Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
 
-    ![ACL list] (./media/howto-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.PNG)
+    ![ACL list](./media/howto-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.PNG)
 
 4. Select the appropriate endpoint from the list. 
 
@@ -66,7 +66,7 @@ Follow these steps to add, modify, or remove an ACL on an endpoint.
 
     The **Specify ACL details** dialog box appears.
 
-    ![Specify ACL details] (./media/howto-setup-endpoints/EndpointACLdetails.PNG)
+    ![Specify ACL details](./media/howto-setup-endpoints/EndpointACLdetails.PNG)
 
 6. Use rows in the list to add, delete, or edit rules for an ACL. The Remote Subnet value corresponds to the IP address range that you can either allow or deny as a rule. The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be listed from least restrictive to most restrictive. For examples and more information, see [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 

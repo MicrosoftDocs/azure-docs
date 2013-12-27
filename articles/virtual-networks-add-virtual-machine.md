@@ -149,15 +149,24 @@ To install an additional domain controller for your on-premises Active Directory
 
 <!-- LINKS -->
 
-
-
-
-
-<!-- INTERNAL LINKS -->
+[wa_com]: http://manage.windowsazure.com/
+[Tut2_VN]: ..Tutorial2_CreateVNetCrossPrem 
+[Tut1_VN]: ..Tutorial1_CreateVirtualNetwork
 
 <!-- IMAGES -->
 
-
+[NewStorAcct]: ./media/virtual-networks-add-virtual-machine/VNTut3_01_NewStorageAccount.png
+[QuickCreate]:	./media/virtual-networks-add-virtual-machine//VNTut3_02_StorageAcct_QuickCreate.png
+[CreateNewAcct]: ./media/virtual-networks-add-virtual-machine//VNTut3_03_CreateNewStorageAccount.png
+[NewStorAcctCreated]: ./media/virtual-networks-add-virtual-machine//VNTut3_04_NewStorageAcctCreated.png
+[NewVM]: ./media/virtual-networks-add-virtual-machine//VNTut3_05_NewVM.png
+[FromGallery]: ./media/virtual-networks-add-virtual-machine//VNTut3_06_VM_FromGallery.png
+[VMOS]:	./media/virtual-networks-add-virtual-machine//VNTut3_07_VMOSSelect_Win2008R2.png
+[VMConfig]: ./media/virtual-networks-add-virtual-machine//VNTut3_08_VMConfig.png
+[VMMode]: ./media/virtual-networks-add-virtual-machine//VNTut3_09_VMMode.png
+[VMOptions]: ./media/virtual-networks-add-virtual-machine//VNTut3_10_VMOptions.png
+[VMInstances]: ./media/virtual-networks-add-virtual-machine//VNTut3_11_VMInstances.png
+[AllTab]: ./media/virtual-networks-add-virtual-machine//VNTut3_12_AllTab.png
 
 
 

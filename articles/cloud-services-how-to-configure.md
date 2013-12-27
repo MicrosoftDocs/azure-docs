@@ -98,13 +98,8 @@ Add **Import** elements to the service definition file (.csdef) to import the Re
 
 	![Cloud services remote](./media/cloud-services-how-to-configure/CloudServices_Remote.png)
 
-	<div class="dev-callout"> 
-    	<b>Warning</b> 
-    	<p>All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. If no certificate is installed you will see this option:	
-	</p> 
-
-	![CloudServices_CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)
-	</div>
+> WACOM.NOTE
+> **Warning:** All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. If no certificate is installed you will see this option: ![CloudServices_CreateNewCertDropDown](./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png)
 
 	To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Windows Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
