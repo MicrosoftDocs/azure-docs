@@ -27,13 +27,13 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][1]
+	![][1]
 
 3. In **todoitem**, click the **Script** tab and select **Insert**.
    
-   ![][2]
+	![][2]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 4. Replace the insert function with the following code:
 
@@ -84,17 +84,17 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 1. In the client app project, run the quickstart application. 
 
-   This topic shows the Windows Store version of the quickstart,
+	This topic shows the Windows Store version of the quickstart,
 
 2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
 
-   ![][3]
+	![][3]
 
 3. Notice that you receive an email, such as one shown in the notification below. 
 
-   ![][4]
+	![][4]
 
-Congratulations, you have successfully configured your mobile service to send email by using SendGrid.
+	Congratulations, you have successfully configured your mobile service to send email by using SendGrid.
 
 ## <a name="nextsteps"> </a>Next Steps
 
@@ -121,10 +121,7 @@ these links to learn more about SendGrid.
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
 [sign up page]: http://sendgrid.com/azure.html
 [Multiple User Credentials page]: http://sendgrid.com/credentials
-
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
-
-
 [cloud-based email service]: http://sendgrid.com/solutions
 [transactional email delivery]: http://sendgrid.com/transactional-email
 

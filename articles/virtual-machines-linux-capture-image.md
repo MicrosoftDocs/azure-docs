@@ -14,27 +14,27 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 	`sudo waagent -deprovision`
 
-	![Deprovision the virtual machine][Deprovision the virtual machine]
+	![Deprovision the virtual machine](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
 
 3. Type **y** to continue.
 
-	![Deprovision of virtual machine successful][Deprovision of virtual machine successful]
+	![Deprovision of virtual machine successful](./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png)
 
 4. Type **Exit** to close the SSH client.
 
 5. In the [Management Portal](http://manage.windowsazure.com), select the virtual machine, and then click **Shutdown**.
 
-	![Shutdown the virtual machine][Shutdown the virtual machine]
+	![Shutdown the virtual machine](./media/virtual-machines-linux-capture-image/ShutdownVM.png)
 
 6. Click **Yes** to acknowledge that you will continue to be billed for the virtual machine when it is not running.
 
 7. When the virtual machine is stopped, on the command bar, click **Capture**.
 
-	![Capture an image of the virtual machine][Capture an image of the virtual machine]
+	![Capture an image of the virtual machine](./media/virtual-machines-linux-capture-image/CaptureVM.png)
 
 	The **Capture Virtual Machine** dialog box appears.
 	
-	![Enter the details of the capture][Enter the details of the capture]
+	![Enter the details of the capture](./media/virtual-machines-linux-capture-image/CaptureLinux.png)
 
 8.	In **Image Name**, enter the name for the new image.
 
@@ -44,15 +44,9 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 	The new image is now available under **Images**. The virtual machine is deleted after the image is captured.
 
-	![Image capture successful][Image capture successful]
+	![Image capture successful](./media/virtual-machines-linux-capture-image/CaptureSuccess.png)
 
 	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **Select the virtual machine operating system** page.
 	
 [How to Log on to a Virtual Machine Running Linux]: ./howto-logon-linux-vm.md
-[Deprovision the virtual machine]: ./media/virtual-machines-linux-capture-image/LinuxDeprovision.png
-[Deprovision of virtual machine successful]: ./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png
-[Shutdown the virtual machine]: ./media/virtual-machines-linux-capture-image/ShutdownVM.png
-[Capture an image of the virtual machine]: ./media/virtual-machines-linux-capture-image/CaptureVM.png
-[Enter the details of the capture]: ./media/virtual-machines-linux-capture-image/CaptureLinux.png
-[Image capture successful]: ./media/virtual-machines-linux-capture-image/CaptureSuccess.png
-[Use the captured image]: ./media/virtual-machines-linux-capture-image/MyImagesLinux.png
+

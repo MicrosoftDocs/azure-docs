@@ -45,12 +45,19 @@ Each virtual machine is associated with a cloud service, either by itself or wit
 
 15.  Under Endpoints, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
 
+
 16. Click the arrow to create the virtual machine.
 
-	![Custom virtual machine creation successful][Custom virtual machine creation successful]
+
+	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+
 
 [Create a Virtual Machine into a Virtual Network]: /en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
+
 [About Affinity Groups for Virtual Network]: http://msdn.microsoft.com/en-us/library/windowsazure/
+
 [Create a new virtual machine]: ./media/howto-custom-create-vm/Create.png
+
 [Create a new custom virtual machine]: ./media/howto-custom-create-vm/CreateNew.png
-[Custom virtual machine creation successful]: ./media/howto-custom-create-vm/VMSuccessWindows.png
+
+
