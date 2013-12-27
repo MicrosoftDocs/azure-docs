@@ -164,9 +164,9 @@ For information on how to setup a Linux VM, please see the [Linux Management sec
 [Setting up a Linux VM via the Windows Azure portal]: ../../../shared/chunks/create-and-configure-opensuse-vm-in-portal
 [How to use the Windows Azure Command-Line Tools for Mac and Linux]: ../../shared/chunks/crossplat-cmd-tools
 [how-to-install-python-webpi-1]: ./media/python-how-to-install/how-to-install-python-webpi-1.png 
-[how-to-install-Python-webpi-2]: ./media/python-how-to-install/how-to-install-Python-webpi-2.png
-[how-to-install-Python-webpi-3]: ./media/python-how-to-install/how-to-install-Python-webpi-3.png
-[how-to-install-Python-ptvs]: ./media/python-how-to-install/how-to-install-Python-ptvs.png
+[how-to-install-Python-webpi-2]: ./media/python-how-to-install/how-to-install-python-webpi-2.png
+[how-to-install-Python-webpi-3]: ./media/python-how-to-install/how-to-install-python-webpi-3.png
+[how-to-install-Python-ptvs]: ./media/python-how-to-install/how-to-install-python-ptvs.png
 [how-to-install-python-win-site]: ./media/python-how-to-install/how-to-install-python-win-site.png 
 [how-to-install-python-win-run]: ./media/python-how-to-install/how-to-install-python-win-run.png 
 [how-to-install-python-linux-run]: ./media/python-how-to-install/how-to-install-python-linux-run.png
