@@ -34,9 +34,9 @@ The best way to test your policy is to set up a number of clients and then bring
 
 - **Know the IP addresses of the Windows Azure hosted services** in the policy you are testing. You can obtain this information from the Windows Azure Management Portal. Click on the Production Deployment of your service. In the properties pane on the right, the last entry will be the VIP, which is the virtual IP address of that hosted service.
 
-![hosted service IP location][0]
+	![hosted service IP location][0]
 
-**Figure 1** -  hosted service IP location
+	**Figure 1** -  hosted service IP location
 
 - **Use tools that let you resolve a DNS name to an IP address** and display that address. You are checking to see that your company domain name resolves to IP addresses of the hosted services in your policy. They should resolve in a manner consistent with the load balancing method of your Traffic Manager policy. If you are on a Windows system, you can use nslookup from a CMD window (explained below). Other publicly available tools that allow you to "dig" an IP address are also readily available on the Internet.
 
@@ -185,11 +185,11 @@ For more information, see [Overview of Windows Azure Traffic Manager](http://msd
 For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
 
 
-The **Create Traffic Manager policy** dialog box should be similar to the example below.
+	The **Create Traffic Manager policy** dialog box should be similar to the example below.
 
-![Dialog box for Round Robin load balancing method][3] 
+	![Dialog box for Round Robin load balancing method][3] 
 
-**Figure 2** - Dialog box for Round Robin load balancing method
+	**Figure 2** - Dialog box for Round Robin load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For instructions, see  [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
 
@@ -226,11 +226,11 @@ For more information, see [Overview of Windows Azure Traffic Manager](http://msd
 8. **Name your Traffic Manager domain.** Give your domain a unique name. You can only specify the prefix for your domain. Leave the **DNS time to live (TTL)** at its default time.
 For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
  
-The **Create Traffic Manager policy** dialog box should look similar to the example below. 
+	The **Create Traffic Manager policy** dialog box should look similar to the example below. 
 
-![Dialog box for Failover load balancing method][5]
+	![Dialog box for Failover load balancing method][5]
 
-**Figure 2** - Dialog box for Failover load balancing method
+	**Figure 2** - Dialog box for Failover load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
 
@@ -268,11 +268,11 @@ For more information, see [Overview of Windows Azure Traffic Manager](http://msd
 8. **Name your Traffic Manager domain.** Give your domain a unique name. You can only specify the prefix for your domain. Leave the **DNS time to live (TTL)** at its default time. 
 For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
  
-The **Create Traffic Manager policy** dialog box should look something like the example below. 
+	The **Create Traffic Manager policy** dialog box should look something like the example below. 
 
-![Dialog box for Performance load balancing method][7]
+	![Dialog box for Performance load balancing method][7]
 
-**Figure 2** - Dialog box for Performance load balancing method
+	**Figure 2** - Dialog box for Performance load balancing method
 
 9. **Test the Traffic Manager domain and policy.** For more information about testing, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test).
 
