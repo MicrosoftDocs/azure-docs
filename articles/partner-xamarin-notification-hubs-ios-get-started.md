@@ -128,13 +128,12 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
-   This installs the new certificate in the Keychain, as shown below:
+	This installs the new certificate in the Keychain, as shown below:
 
    	![][10]
 
-	<div class="dev-callout"><b>Note</b>
-	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
-	</div>
+	> WACOM.NOTE
+	> The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.
 
 	Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
 
@@ -411,11 +410,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 
 [9]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step9.png
 [10]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step10.png
-
-
 [18]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step18.png
-
-
 [105]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-05.png
 [106]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-06.png
 [107]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-07.png

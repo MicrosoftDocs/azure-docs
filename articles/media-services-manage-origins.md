@@ -17,7 +17,7 @@ Media Services enables you to add multiple streaming origins to your account and
 4. Click the START button to start the origin. 
 5. If you want to configure the origin, click the name of the origin. 
 
- ![Origin page] [origin-page]
+	![Origin page][origin-page]
 
 <h2>Configuring the Origin</h2>
 
@@ -30,9 +30,9 @@ The CONFIGURE tab enables you to do the following configurations:
 3. Specify configuration for G20 authentication requests from Akami servers.
 
 
- ![Configure origin] [configure-origin]
+	![Configure origin][configure-origin]
 
-The configuration on this page will only apply to origins that have at least one reserved unit. To reserve the on-demand streaming reserved units, go to the SCALE tab. For detailed information about reserved units, see [Scaling Media Services](http://go.microsoft.com/fwlink/?LinkID=275847&clcid=0x409/).
+	The configuration on this page will only apply to origins that have at least one reserved unit. To reserve the on-demand streaming reserved units, go to the SCALE tab. For detailed information about reserved units, see [Scaling Media Services](http://go.microsoft.com/fwlink/?LinkID=275847&clcid=0x409/).
 
 
 [origin-page]: ./media/media-services-manage-origins/media-services-origins-page.png

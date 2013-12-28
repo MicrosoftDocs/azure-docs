@@ -46,17 +46,17 @@ In this section, you use the JavaScript console to run the WordCount sample that
 5. Enter your credential, and then click **Log On**.
 6. From the HDInsight portal, click **Samples**.
 
-	![HDI.Tiles.Samples] [hdi-tiles-samples]
+	![HDI.Tiles.Samples][hdi-tiles-samples]
 
 7. From the **Hadoop Sample Gallery** page , click on the **WordCount**  tile. 
 8. Click **WordCount.js** from the upper right, and save the file  to a local directory, for example the ../downloads folder.
 
-	![HDI.JsConsole.WordCountDownloads] [hdi-jsconsole-wordcount]
+	![HDI.JsConsole.WordCountDownloads][hdi-jsconsole-wordcount]
 
 9. Click **Windows Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
 10. Click **Interactive Cluster** to bring up the JavaScript console. 
 	
-	![HDI.Tiles.InteractiveConsole] [hdi-tiles-interactive-console]
+	![HDI.Tiles.InteractiveConsole][hdi-tiles-interactive-console]
 11. Click **JavaScript** on the upper right.
 12. Run the following command:
 
@@ -67,7 +67,7 @@ In this section, you use the JavaScript console to run the WordCount sample that
 	- **Source:** _..\downloads\Wordcount.js
  	- **Destination:** ./WordCount.js/ 	
 
-	![HDI.JsConsole.UploadJs] [hdi-jsconsole-upload]
+	![HDI.JsConsole.UploadJs][hdi-jsconsole-upload]
 
 	Browse the location of the WordCount.js file. The full local path will be required. The single dot at the start of the destination path is needed as part of the relative address in HDFS.
 
@@ -79,7 +79,7 @@ In this section, you use the JavaScript console to run the WordCount sample that
 		#ls
 		#cat WordCount.js
 
-	![HDI.JsConsole.JsCode] [hdi-jsconsole-jscode]
+	![HDI.JsConsole.JsCode][hdi-jsconsole-jscode]
 
 	Note that the JavaScript map function removes capital letters from the text using the "toLowerCase()" method before counting the number of occurences of a word in the reduce function. 
 	
@@ -139,7 +139,7 @@ In the last section, you ran a MapReduce job to retrieve the top 10 words from a
 
 		graph.bar(data)
 		
-	![HDI.JsConsole.BarGraphTop10Words] [hdi-jsconsole-bargraph-top10words]
+	![HDI.JsConsole.BarGraphTop10Words][hdi-jsconsole-bargraph-top10words]
 
 
 ##<a name="createhivetable"></a>Use the Hive Console to Export the Results to a Hive Table
@@ -171,7 +171,7 @@ This section introduces you to the Hive interactive console. You will create a H
 
 5. Click **EVALUATE**.
 	
-	![HDI.Hive.ShowDescribeTable] [hdi-hive-showdescribetable]
+	![HDI.Hive.ShowDescribeTable][hdi-hive-showdescribetable]
 
 ##<a name="queryhivetable"></a>Use the Hive Console to Query the Data in the Hive Table
 

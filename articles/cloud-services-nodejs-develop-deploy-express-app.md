@@ -14,7 +14,7 @@ you will create a new application using the [Express][] module, which provides a
 
 A screenshot of the completed application is below:
 
-![A web browser displaying Welcome to Express in Windows Azure][A web browser displaying Welcome to Express in Windows Azure]
+![A web browser displaying Welcome to Express in Windows Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ##Create a Cloud Service Project
 
@@ -22,7 +22,7 @@ Perform the following steps to create a new cloud service project named 'express
 
 1. From the **Start Menu** or **Start Screen**, search for **Windows Azure PowerShell**. Finally, right-click **Windows Azure PowerShell** and select **Run As Administrator**.
 
-	![Windows Azure PowerShell icon][powershell-menu]
+	![Windows Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
 	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
@@ -39,7 +39,7 @@ Perform the following steps to create a new cloud service project named 'express
 
 	The output of the npm command should look similar to the result below. 
 
-	![Windows PowerShell displaying the output of the npm install express command.][Windows PowerShell displaying the output of the npm install express command.]
+	![Windows PowerShell displaying the output of the npm install express command.](./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png)
 
 2. Change directories to the **WebRole1** directory and use the express command to generate a new application:
 
@@ -47,7 +47,7 @@ Perform the following steps to create a new cloud service project named 'express
 
 	You will be prompted to overwrite your earlier application. Enter **y** or **yes** to continue. Express will generate the app.js file and a folder structure for building your application.
 
-    ![The output of the express command][express-command]
+	![The output of the express command](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 
 3.  Delete the **server.js** file and then rename the generated **app.js** file to **server.js**.
 
@@ -59,14 +59,14 @@ Perform the following steps to create a new cloud service project named 'express
 
         PS C:\node\expressapp\WebRole1> npm install
 
-    ![The output of the npm install command][The output of the npm install command]
+	![The output of the npm install command](./media/cloud-services-nodejs-develop-deploy-express-app/node26.png)
 
 8.  Use the following command to run the application in the Windows
     Azure emulator:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
-    ![A web page containing welcome to express.][A web page containing welcome to express.]
+	![A web page containing welcome to express.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
 ## Modifying the View
 
@@ -77,22 +77,20 @@ Windows Azure".
 
         PS C:\node\expressapp\WebRole1> notepad views/index.jade
 
-    ![The contents of the index.jade file.][The contents of the index.jade file.]
+    ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
     Jade is the default view engine used by Express applications. For more
     information on the Jade view engine, see [http://jade-lang.com][].
 
 2.  Modify the last line of text by appending **in Windows Azure**.
 
-    ![The index.jade file, the last line reads: p Welcome to \#{title}
-    in Windows Azure][The index.jade file modified]
+	![The index.jade file, the last line reads: p Welcome to \#{title} in Windows Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)
 
 3.  Save the file and exit Notepad.
 
 4.  Refresh your browser and you will see your changes.
 
-    ![A browser window, the page contains Welcome to Express in Windows
-    Azure][express-page]
+	![A browser window, the page contains Welcome to Express in Windows Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node32.png)
 
 After testing the application, use the **Stop-AzureEmulator** cmdlet to stop the emulator.
 
@@ -104,18 +102,10 @@ In the Windows Azure PowerShell window, use the **Publish-AzureServiceProject** 
 
 Once the deployment operation completes, your browser will open and display the web page.
 
-![A web browser displaying the Express page. The URL indicates it is now hosted on Windows Azure.][A web browser displaying Welcome to Express in Windows Azure]
+![A web browser displaying the Express page. The URL indicates it is now hosted on Windows Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
+
 
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [A web browser displaying Welcome to Express in Windows Azure]: ./media/cloud-services-nodejs-develop-deploy-express-app/node36.png
-  [Windows PowerShell displaying the output of the npm install express command.]: ./media/cloud-services-nodejs-develop-deploy-express-app/express-g.png
   [Express]: http://expressjs.com/
-  [express-command]: ./media/cloud-services-nodejs-develop-deploy-express-app/node23.png
-  [Directory listing of the WebRole1 folder.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-17.png
-  [The output of the npm install command]: ./media/cloud-services-nodejs-develop-deploy-express-app/node26.png
-  [A web page containing welcome to express.]: ./media/cloud-services-nodejs-develop-deploy-express-app/node28.png
-  [The contents of the index.jade file.]: ./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png
   [http://jade-lang.com]: http://jade-lang.com
-  [The index.jade file modified]: ./media/cloud-services-nodejs-develop-deploy-express-app/node31.png
-  [express-page]: ./media/cloud-services-nodejs-develop-deploy-express-app/node32.png
-  [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png
+

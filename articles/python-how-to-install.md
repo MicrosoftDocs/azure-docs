@@ -63,7 +63,8 @@ The WebPI installer provides everything you need to Python Azure apps as well sp
 
 Once finished, you should see this screen confirming your install choices:
 
-![how-to-install-python-webpi-3][how-to-install-python-webpi-3]
+
+![how-to-install-python-webpi-3][how-to-install-Python-webpi-3]
 
 
 After installation is complete, type python at the prompt to make sure things went smoothly.  Depending on how you installed, you may need to set your "path" variable to find (the right version of) Python:

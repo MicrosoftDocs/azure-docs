@@ -6,17 +6,17 @@ Follow these steps to create a new mobile service.
 
 2.	At the bottom of the navigation pane, click **+NEW**.
 
-	![][1]
+	![](./media/mobile-services-create-new-service/plus-new.png)
 
 3.	Expand **Compute** and **Mobile Service**, then click **Create**.
 
-	![][2]
+	![](./media/mobile-services-create-new-service/mobile-create.png)
 
 	This displays the **New Mobile Service** dialog.
 
 4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
 
-	![][3]
+	![](./media/mobile-services-create-new-service/mobile-create-page1.png)
 
    	This displays the **Specify database settings** page.
 
@@ -26,7 +26,7 @@ Follow these steps to create a new mobile service.
 
 6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
 
-	![][4]
+	![](./media/mobile-services-create-new-service/mobile-create-page2.png)
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -35,13 +35,7 @@ Follow these steps to create a new mobile service.
 
 You have now created a new mobile service that can be used by your mobile apps.
 
-<!-- Anchors. -->
 
-<!-- Images. -->
-[1]: ./media/mobile-services-create-new-service/plus-new.png
-[2]: ./media/mobile-services-create-new-service/mobile-create.png
-[3]: ./media/mobile-services-create-new-service/mobile-create-page1.png
-[4]: ./media/mobile-services-create-new-service/mobile-create-page2.png
 
 <!-- URLs. -->
 [Management Portal]: https://manage.windowsazure.com/

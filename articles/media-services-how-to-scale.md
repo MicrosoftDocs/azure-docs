@@ -22,21 +22,21 @@ To change the number of on-demand streaming reserved units, do the following:
 
 2. Select the ORIGINS page. Then, click on the origin that you want to modify.
 
- ![Origin page] (./media/media-services-how-to-scale/media-services-origin-page.png)
+	![Origin page](./media/media-services-how-to-scale/media-services-origin-page.png)
 
 3. To specify the number of reserved units, select the SCALE tab and move the **reserved capacity** slider.
 
- ![Scale page] (./media/media-services-how-to-scale/media-services-origin-scale.png)
+	![Scale page](./media/media-services-how-to-scale/media-services-origin-scale.png)
 
 4. Press the SAVE button to save your changes.
 
- The allocation of any new units of on-demand streaming takes around 20 minutes to complete. 
+	The allocation of any new units of on-demand streaming takes around 20 minutes to complete. 
 
 	 
- **Note:** Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
+	**Note:** Currently, going from any positive value of on-demand streaming units back to none, can disable on-demand streaming for up to an hour.
 
 
- **Note:** The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 <h2>Encoding Reserved Units</h2>
 
@@ -48,11 +48,11 @@ To change the number of encoding reserved units, do the following:
 
 2. Select the PROCESSORS page. 
 
- ![Processors page] (./media/media-services-how-to-scale/media-services-encoding-scale.png) 
+	![Processors page](./media/media-services-how-to-scale/media-services-encoding-scale.png) 
 
-4. Press the SAVE button to save your changes.
+3. Press the SAVE button to save your changes.
 
- The new encoding reserved units are allocated almost immediately.
+	The new encoding reserved units are allocated almost immediately.
 
 	**Note:** The highest number of units specified for the 24-hour period is used in calculating the cost.
 
