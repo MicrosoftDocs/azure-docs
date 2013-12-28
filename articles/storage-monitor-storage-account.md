@@ -40,7 +40,7 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 
       **Minimal** - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the Blob, Table, and Queue services.
 
-      **Verbose** ??? In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Windows Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations. 
+      **Verbose** - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Windows Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations. 
 
       **Off** - Turns off monitoring. Existing monitoring data is persisted through the end of the retention period.
 
