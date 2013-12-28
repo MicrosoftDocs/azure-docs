@@ -2,14 +2,13 @@
 
 
 
-	* [Concepts](#concepts)
-	* [How to: Attach an existing disk](#attachexisting)
-	
-* [How to: Attach an empty disk](#attachempty)
-	
-* [How to: Initialize a new data disk in Windows Server 2008 R2](#initializeinWS)
 
-	* [How to: Initialize a new data disk in Linux](#initializeinlinux)
+	[Concepts](#concepts)
+	[How to: Attach an existing disk](#attachexisting)
+	[How to: Attach an empty disk](#attachempty)
+	[How to: Initialize a new data disk in Windows Server 2008 R2](#initializeinWS)
+
+	[How to: Initialize a new data disk in Linux](#initializeinlinux)
 
 
 
@@ -129,11 +128,13 @@ The data disk that you just attached to the virtual machine is offline and not i
 2. After you log on to the machine, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
 
 
-	![Open Server Manager][Open Server Manager]
+
+	![Open Server Manager](./media/howto-attach-disk-window-linux/ServerManager.png)
 
 
 
 3. Right-click **Disk 2**, and then click **Initialize Disk**.
+
 
 
 	![Initialize the disk](./media/howto-attach-disk-window-linux/InitializeDisk.png)
@@ -266,11 +267,6 @@ The data disk that you just attached to the virtual machine is offline and not i
 [logonlinux]: /en-us/manage/linux/how-to-guides/log-on-a-linux-vm/
 [Manage disks and images]: http://go.microsoft.com/fwlink/?LinkId=263439
 
-
-
-
-[List disk information]: 
-[Open Server Manager]: ./media/howto-attach-disk-window-linux/ServerManager.png
 [Volume successfully initialized]: ./media/howto-attach-disk-window-linux/InitializeSuccess.png
 [Write the disk changes]: ./media/howto-attach-disk-window-linux/DiskWrite.png
 

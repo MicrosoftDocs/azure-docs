@@ -22,7 +22,7 @@ Windows Azure Media Services form an extensible media platform that integrates t
 
 The following diagram illustrates the basic Media Services architecture.
 
-![Media Services Architecture][Media Services Architecture]
+![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
 
 ###Media Services Feature Support
 The current release of Media Services provides the following feature set for developing media applications in the cloud. 
@@ -448,6 +448,5 @@ For Media Services Javadoc documentation, see [Windows Azure Libraries for Java 
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
   [Windows Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
   [Windows Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
-  [Media Services Architecture]: ./media/media-services-dotnet-how-to-use/wams-01.png
   [Media Services Client Development]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
 

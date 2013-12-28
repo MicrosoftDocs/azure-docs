@@ -11,8 +11,8 @@ This tutorial walks you through these basic steps:
 
 1. [Add string length validation]
 2. [Update the client to support validation]
-<!--3. [Add a timestamp on insert]
-4. [Update the client to display the timestamp]-->
+3. [Add a timestamp on insert]
+4. [Update the client to display the timestamp]
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 

@@ -35,7 +35,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
    	![][2]
 
-  This creates the new API with public GET access.
+	This creates the new API with public GET access.
 
 4. Click the new tiles entry in the API table.
 

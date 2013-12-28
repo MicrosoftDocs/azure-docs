@@ -23,9 +23,10 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>Ambari</td><td>API v1.0</td></tr>
 </table><br/>
 
+
 ###Cluster version 1.6
 
-[Windows Azure HDInsight] (http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
+[Windows Azure HDInsight](http://go.microsoft.com/fwlink/?LinkID=285601) cluster version 1.6 is also available. It is based on the Hortonworks Data Platform version 1.1.0 and provides Hadoop services with the component versions itemized in the following table:
 
 <table border="1">
 <tr><th>Component</th><th>Version</th></tr>
