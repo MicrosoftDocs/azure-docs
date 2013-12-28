@@ -186,12 +186,11 @@ The **Publish-AzureServiceProject** cmdlet performs the following steps:
         information, see [Overview of Creating a Hosted Service for Windows Azure][].
     4.  Publishes the deployment package to Windows Azure.
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>It can take 5 - 7 minutes for the application to deploy and become available when first published.</p>
-	</div>
+	> WACOM.NOTE
+	> It can take 5 - 7 minutes for the application to deploy and become available when first published.
 
 	Once the deployment has completed, a browser window will open and navigate to the cloud service.
+
 
 	![A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 

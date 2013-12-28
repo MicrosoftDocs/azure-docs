@@ -46,7 +46,7 @@ provides more features. For more information, see [Cloud9 IDE][].
 2.  In the **Create a new project** dialog, enter a project name,
     access, and project type. Click **Create** to create the project.
 
-	![create new project dialog Cloud9][create new project dialog Cloud9]
+	![create new project dialog Cloud9](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_project.png)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -59,12 +59,12 @@ provides more features. For more information, see [Cloud9 IDE][].
 
 3.  After the project has been created, click **Start Editing**. If this is the first time you have used the Cloud9 IDE, you will be offered the option to take a tour of the service. If you wish to skip the tour and view it at a later date, select **Just the editor,please**.
 
-	![start editing the Cloud9 project][start editing the Cloud9 project]
+	![start editing the Cloud9 project](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_startediting.png)
 
 4.  To create a new Node application, select **File** and then **New
     File**.
 
-	![create new file in the Cloud9 project][create new file in the Cloud9 project]
+	![create new file in the Cloud9 project](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_filenew.png)
 
 5.  A new tab titled **Untitled1** will be displayed. Enter the
     following code on the **Untitled1** tab to create the Node
@@ -92,7 +92,7 @@ provides more features. For more information, see [Cloud9 IDE][].
 	<p>You may notice a warning symbol indicating that the req variable is unused. You may safely ignore this warning.</p>
 	</div>
 
-	![save the server.js file][save the server.js file]
+	![save the server.js file](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png)
 
 ## Run the Application
 
@@ -306,10 +306,7 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 -   [Cloud9 documentation][]
 
   [Cloud9 IDE]: http://cloud9ide.com/
-  [create new project dialog Cloud9]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_project.png
-  [start editing the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_startediting.png
-  [create new file in the Cloud9 project]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_filenew.png
-  [save the server.js file]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png
+
   [run in the debugger]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
   [output window]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
   [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
