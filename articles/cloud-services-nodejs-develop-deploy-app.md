@@ -126,6 +126,8 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 
 	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
+</br>
+
 ### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
 
 In order to deploy your application to Windows Azure, you must first download the publishing settings for your Windows Azure subscription. The following steps guide you through this process:
@@ -173,18 +175,14 @@ In order to deploy your application to Windows Azure, you must first download th
 
 The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
-    1.  Creates a package that will be deployed to Windows Azure. The
-        package contains all the files in your node.js application
-        folder.
-    2.  Creates a new **storage account** if one does not exist. The Windows
-        Azure storage account is used to store the application package
-        during deployment. You can safely delete the storage account after
-        deployment is done.
-    3.  Creates a new **cloud service** if one does not already exist. A
-        **cloud service** is the container in which your application is
-        hosted when it is deployed to Windows Azure. For more
-        information, see [Overview of Creating a Hosted Service for Windows Azure][].
-    4.  Publishes the deployment package to Windows Azure.
+1.  Creates a package that will be deployed to Windows Azure. The package contains all the files in your node.js application folder.
+
+2.  Creates a new **storage account** if one does not exist. The Windows Azure storage account is used to store the application package during deployment. You can safely delete the storage account after deployment is done.
+
+3.  Creates a new **cloud service** if one does not already exist. A **cloud service** is the container in which your application is hosted when it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
+
+4.  Publishes the deployment package to Windows Azure.
+
 
 	> WACOM.NOTE
 	> It can take 5 - 7 minutes for the application to deploy and become available when first published.
@@ -195,6 +193,7 @@ The **Publish-AzureServiceProject** cmdlet performs the following steps:
 	![A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 
 	Your application is now running on Windows Azure!
+
 
 ## Stopping and Deleting Your Application
 

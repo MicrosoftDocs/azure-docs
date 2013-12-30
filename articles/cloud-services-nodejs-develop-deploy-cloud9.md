@@ -103,16 +103,16 @@ provides more features. For more information, see [Cloud9 IDE][].
 
 1.  Click **Debug** to run the application in the Cloud9 debugger.
 	
-	![run in the debugger][run in the debugger]
+	![run in the debugger](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png)
 
 2.  An output window will be displayed. Click on the URL listed to
     access your application through a browser window.
 
-	![output window][output window]
+	![output window](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png)
 
 	The resulting application will look as follows:
 
-	![application running in browser][application running in browser]
+	![application running in browser](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png)
 
 3.  To stop debugging the application, click **stop**.
 
@@ -123,6 +123,7 @@ do not already have a Windows Azure account, you can sign up for a free
 trial by following these steps:
 
 [WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
+
 
 ## Create a Deployment
 
@@ -136,7 +137,7 @@ trial by following these steps:
 
     1.  Click **Download Windows Azure Settings**.
 
-        ![download publish settings][download publish settings]
+        ![download publish settings](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png)
 
         This will open the Windows Azure Management Portal and prompt you to download the Windows Azure publishing settings. You will be required to log in to your Windows Azure account before you can begin.
 
@@ -149,11 +150,11 @@ trial by following these steps:
 
 4.  Click **+ Create new** to create a new hosted service. A *hosted service* is the container in which your application is hosted when it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
-	![create a new deployment][create a new deployment]
+	![create a new deployment](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
 5.  You will be prompted for the name of the new hosted service and configuration options such as the number of instances, host OS, and data center. The deployment name specified will be used as the hosted service name in Windows Azure. This name must be unique within the Windows Azure system.
 	
-	![create a new hosted service][create a new hosted service]
+	![create a new hosted service](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -173,7 +174,7 @@ trial by following these steps:
     as the production URL that will be used after deployment to Windows
     Azure.
 
-	![select a deployment][select a deployment]
+	![select a deployment](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png)
 
 2.  Select **Deploy to Production environment**.
 
@@ -181,17 +182,17 @@ trial by following these steps:
 
 4.  If this is the first time you have deployed this project to Windows Azure, you will receive an error of **'No web.config found'**. Select **Yes** to create the file. This will add a 'Web.cloud.config' file to your project.
 	
-	![no web.config file found message.][no web.config file found message.]
+	![no web.config file found message](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png)
 
 5.  If this is the first time you have deployed this project to Windows Azure, you will receive an error of **'No 'csdef' file present'**. Select **Yes** to create the .csdef file. This will add a'ServiceDefinition.csdef' file to your project.    ServiceDefinition.csdef is a Windows Azure-specific files necessary for publishing your application. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
 
 6.  You will be prompted to select the instance size for this application. Select **Small**, and then click **Create**. For more details about Windows Azure VM sizes, see [How to Configure Virtual Machine Sizes][].
 
-	![specify csdef file values][specify csdef file values]
+	![specify csdef file values](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png)
 
 7.  The deployment entry will display the status of the deployment process. Once complete, the deployment will display as **Active**.
 
-	![deployment status][deployment status]
+	![deployment status](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png)
 
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -200,7 +201,7 @@ trial by following these steps:
 
 8.  The deployment dialog includes a link to the production URL. When the deployment is complete, click the URL to browse to your application running in Windows Azure.
 
-	![Windows Azure production URL link][Windows Azure production URL link]
+	![Windows Azure production URL link](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_url.png)
 
 ## Update the Application
 
@@ -227,7 +228,7 @@ When you make changes to your application, you can use Cloud9 to deploy the upda
 
 3.  When your application is deployed to staging, the guid-based staging URL will be displayed in the Console output, as shown in the screenshot below. Click the URL to open your staged application in a browser.
 
-	![console output showing staging URL][console output showing staging URL]
+	![console output showing staging URL](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_staging_console_output.png)
 
 ## Move the Update to Production using VIP Swap
 
@@ -256,20 +257,20 @@ details, see [Overview of Managing Deployments in Windows Azure.][]
 
 4.  To perform the VIP Swap, select the hosted service, and then click **Swap VIP** in the ribbon.
 
-	![VIP SWAP][VIP SWAP]
+	![VIP SWAP](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_vipswap.png)
 
 5.  Click **OK** in the Swap VIPs dialog that appears.
 
 6.  Browse to your production application. You will see that the version of the application previously deployed to stage is now in production.
 
-	![Production application running on Windows Azure][Production application running on Windows Azure]
+	![Production application running on Windows Azure](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_on_azure.png)
 
 ## Using Remote Desktop
 
 If you enabled RDP and specified a username and password when creating your deployment, you can use Remote Desktop to connect to your Hosted Service by selecting a specific instance, and then selecting Connect on
 the ribbon.
 
-![Connect to an instance][Connect to an instance]
+![Connect to an instance](./media/cloud-services-nodejs-develop-deploy-cloud9/connect.png)
 
 When you click Connect, you will be prompted to open or download a .RDP file. This file contains the information required to connect to your remote desktop session. Running this file on a Windows system will prompt you for the username and password you entered when creating your deployment, and will then connect you to the desktop of the selected
 instance.
@@ -289,7 +290,7 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 
 1.  In the deploy dialog, click on the **Open portal** link to open the Windows Azure Management Portal.
 
-	![Link from deploy dialog to Windows Azure Management Portal][Link from deploy dialog to Windows Azure Management Portal]
+	![Link from deploy dialog to Windows Azure Management Portal](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_link.png)
 
 2.  Sign in to the portal with your credentials.
 
@@ -297,7 +298,7 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 
 4.  Select the staging deployment (indicated by the **Environment** value). Click **Delete** in the ribbon to delete the application.
 
-	![delete the deployment][delete the deployment]
+	![delete the deployment](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deletedeployment.png)
 
 5.  Select the production deployment, and click **Delete** to delete that application as well.
 
@@ -305,30 +306,9 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 
 -   [Cloud9 documentation][]
 
-  [Cloud9 IDE]: http://cloud9ide.com/
 
-  [run in the debugger]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
-  [output window]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
-  [application running in browser]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
-  
-  [create a new deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png
-  
-  [download publish settings]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
+  [Cloud9 IDE]: http://cloud9ide.com/ 
   [Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [1]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud-services-nodejs-develop-deploy-cloud9/cloud9_add_a_deploy_target.png
-  [create a new hosted service]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png
-  [select a deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_select_deployment.png
-  [no web.config file found message.]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png
   [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [specify csdef file values]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png
-  [deployment status]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png
-  [Windows Azure production URL link]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_url.png
-  [console output showing staging URL]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_staging_console_output.png
   [Overview of Managing Deployments in Windows Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
-  [Link from deploy dialog to Windows Azure Management Portal]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_link.png
-  [Windows Azure Management Portal]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_hosted_service_and_ribbon.png
-  [VIP SWAP]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_portal_vipswap.png
-  [Production application running on Windows Azure]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_production_on_azure.png
-  [Connect to an instance]: ./media/cloud-services-nodejs-develop-deploy-cloud9/connect.png
-  [delete the deployment]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deletedeployment.png
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409

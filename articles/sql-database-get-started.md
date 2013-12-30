@@ -41,48 +41,48 @@ To get started with a free account, click free trial in the upper right corner a
 
 1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this. 
 
-    ![Image1] [Image1]
+	![Image1](./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png)
 
 2. Click **New** at the bottom of the page. When you click **New**, a list rolls up the screen showing things you can create.
 
 3. Click **SQL Database** and then click **Custom Create**. 
 
-    ![Image2] [Image2]
+	![Image2](./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png)
 
-    Choosing this option lets you create a new server at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Database, which you will do later in this tutorial.  
+	Choosing this option lets you create a new server at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Database, which you will do later in this tutorial.  
 
 4.  The Database Settings page appears when you click **Custom Create**. In this page, you provide basic information that creates an empty database on the server. Adding tables and data will come in a later step. 
 
-    Fill out the Database Settings page as follows:
+	Fill out the Database Settings page as follows:
 
-    ![Image3] [Image3]
+	![Image3](./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG)
 
-* Enter **School** for the database name. 
+	* Enter **School** for the database name. 
 
-* Use the default settings for edition, max size, and collation. 
+	* Use the default settings for edition, max size, and collation. 
 
-* Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
+	* Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
 
-* When you are through, click the arrow to go to next page.
+	* When you are through, click the arrow to go to next page.
 
 
-7. Fill out the Server Settings as follows: 
+5. Fill out the Server Settings as follows: 
 
-    ![Image4] [Image4]
+	![Image4](./media/sql-database-get-started/4ServerSettings_SQLTut.png)
 
-* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
+	* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
 
-* Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
+	* Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you or your users. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+	* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you or your users. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
+	* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
 
-* Click the checkmark at the bottom of the page when you are finished.
+	* Click the checkmark at the bottom of the page when you are finished.
 
-Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
+	Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
 
-In the next step, you will configure the firewall so that connections from applications running on your computer are allowed to access the databases on your SQL Database server.
+	In the next step, you will configure the firewall so that connections from applications running on your computer are allowed to access the databases on your SQL Database server.
 
 
 
@@ -97,23 +97,25 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 2. Click **Servers** at the top of the page. Next, click on the server you just created so that you see a white arrow to the right. Click on the arrow to open the server page.
 
-    ![Image5] [Image5]
+	![Image5](./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG)
 
 3. On the server page, click **Configure** to open the firewall configuration settings and specify the rule as follows: 
 
-    ![Image6] [Image6]
+	![Image6](./media/sql-database-get-started/6DBConfigFirewall_SQLTut.png)
 
-* Copy the current client IP address. This is the IP address that your  router or proxy server is listening on. SQL Database detects the IP address used by the current connection so that you can create a firewall rule to accept connection requests from this device. 
 
-* Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
+	* Copy the current client IP address. This is the IP address that your  router or proxy server is listening on. SQL Database detects the IP address used by the current connection so that you can create a firewall rule to accept connection requests from this device. 
+	
+	* Paste the IP address into both the beginning and end range. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
-* Enter a name for the firewall rule, such as the name of your computer or company.
+	* Enter a name for the firewall rule, such as the name of your computer or company.
 
-* Click the checkmark to save the rule.
+	* Click the checkmark to save the rule.
 
-    After you save the rule, your page will look similar to the following screenshot.
+	After you save the rule, your page will look similar to the following screenshot.
 
-    ![Image7] [Image7]
+	![Image7](./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png)
+
 
 4. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
@@ -131,25 +133,27 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of items on the home page. 
 
-   ![Image8] [Image8]
+	![Image8](./media/sql-database-get-started/8MainPageHome_SQLTut.PNG)
 
 
 2. Click on **School** so that you see a white arrow to the right. Click on the arrow to open the database page.
 
-   ![Image9] [Image9]
+	![Image9](./media/sql-database-get-started/9dblistschool_SQLTut.png)
 
 3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
+	
+	![Image10](./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.png)
 
-	![Image10] [Image10]
 
 4. Enter the administrator login name and password. This is the administrator login that you specified when you created the server.
 
-	![Image11] [Image11]
+	![Image11](./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png)
+
 
 5. Click **New Query** in Management Portal for SQL Database. An empty query window opens in the workspace. In the next step, you will use this window to copy in a series of predefined scripts that will add structure and data to your empty database.
 
-	![Image12] [Image12]
-	
+	![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png)
+	 
 
 <h2><a id="createschema"></a>Step 5: Create the schema</h2>
 
@@ -685,7 +689,7 @@ In a new query window, copy and run the following Transact-SQL script to retriev
 
 You should see a result set that looks like the following illustration.
 
-![Image13] [Image13]
+![Image13](./media/sql-database-get-started/13DBQueryResults_SQLTut.png)
 
 
 <h4><a id="QuerySys"></a>Query system data</h4>
@@ -721,21 +725,22 @@ To create a login, you must first connect to the **master** database.
 1. In the [Management Portal](http://manage.windowsazure.com), select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the
 server page. 
 
-    ![Image5] [Image5]
+	![Image5](./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG)
 
 2. On the Quick Start page, click **Manage Server** to open a new connection to the Management Portal for SQL Database. 
 
 3. Enter the administrator name and password. This is the administrator login that you specified when you created the server.
 
-    ![Image20] [Image20]
+	![Image20](./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png)
+
 
 4. The SQL Database management portal opens in a new browser window. Click **Select a Database** at the top, and click **master**.
 
-	![Image14] [Image14]
+	![Image14](./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG)
 
 5. If you see an error on the page similar to the following, ignore it. Click **New Query** to open a query window that lets you execute Transact-SQL commands on the **master** database.
 
-	![Image15] [Image15]
+	![Image15](./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG)
 
 6. Copy and paste the following command into the query window.
 
@@ -752,7 +757,7 @@ After you create a SQL Server authentication login, the next step is to assign t
 
 	On the SQL Database management portal page, the **School** database name is visible in the top left corner.
 
-	![Image12] [Image12]
+	![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png)
 
 2. Click **New Query** to open a new query window and copy in the following statement. 
 
@@ -760,13 +765,13 @@ After you create a SQL Server authentication login, the next step is to assign t
 
 3. Run the script. This script creates a new database user based on the login.
 
-   Next, you'll assign permissions using the db_datareader role. Database users assigned to this role can read all data from all user tables in the database. 
+	Next, you'll assign permissions using the db_datareader role. Database users assigned to this role can read all data from all user tables in the database. 
 
 4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created. 
 
         EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
 
-You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
+	You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
 
 
 
@@ -790,20 +795,21 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
   Enter a SQL Server authentication login. For testing purposes, you can use the administrator login that you created when you set up the server. For regular data access, use a database user login similar to the one you just created.
 
-    ![Image16] [Image16]
+	![Image16](./media/sql-database-get-started/16ExcelConnect_SQLTut.png)
+
 
 3.  On the next page, choose the **School** database, and then choose **Course**. Click **Finish**.
 
-	![Image17] [Image17]
+	![Image17](./media/sql-database-get-started/17ExcelSelect_SQLTut.png)
 
 4. The Import Data dialog box appears that prompts you to select how and where to import your data. With the default options selected, click **OK**.
 
-	![Image19] [Image19]
+	![Image19](./media/sql-database-get-started/19ExcelImport_SQLTut.png)
 
 
 5. In the worksheet, you should see a table similar to the following. 
 	
-	![Image18] [Image18]
+	![Image18](./media/sql-database-get-started/18ExcelTable_SQLTut.png)
 
 Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information on this [Microsoft web site](http://www.microsoft.com/en-us/bi/powerpivot.aspx).
 
@@ -831,26 +837,7 @@ There are other methods for moving an on-premise database to SQL Database. If yo
 * [Copying Databases in SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
 
 
-[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
-[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
-[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.png
-[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.png
-[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: ./media/sql-database-get-started/8MainPageHome_SQLTut.PNG
-[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.png
-[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.png
-[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png
-[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png
-[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.png
-[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
-[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.png
-[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.png
-[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
-[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.png
+
 
 
 

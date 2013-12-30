@@ -1,17 +1,15 @@
 ﻿<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Windows Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to a Windows Azure web site connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
-
-
-
-
-#Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure
+# Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure
 
 Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Windows Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to a Windows Azure web site using Git.
 
 [WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
-<h2>Overview</h2>
+
+
+##Overview
 
 In this tutorial you will:
 
@@ -21,7 +19,7 @@ In this tutorial you will:
 -[Deploy the ASP.NET application to the web site using Git](#deployapp)
 
 
-<h2>Background knowledge</h2>
+##Background knowledge
 
 Knowledge of the following is useful for this tutorial, though not required:
 
@@ -30,7 +28,8 @@ Knowledge of the following is useful for this tutorial, though not required:
 * The ASP .NET MVC web application framework. You can learn all about it at the [ASP.NET MVC web site][MVCWebSite].
 * Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
-<h2>Preparation</h2>
+
+##Preparation
 
 In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, and set up your development environment.
 
