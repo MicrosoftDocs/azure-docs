@@ -100,6 +100,7 @@ The **Import Publish Profile** dialog box appears.
     
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
+<br/>
 
 	- In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
 
