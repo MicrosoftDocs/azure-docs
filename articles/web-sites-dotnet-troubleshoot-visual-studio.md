@@ -43,23 +43,23 @@ Visual Studio provides access to a subset of the site management functions and c
 
 1. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
-   [WACOM.INCLUDE [vs-connect](../includes/vs-connect.md)]
+	[WACOM.INCLUDE [vs-connect](../includes/vs-connect.md)]
 
-1. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
+2. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
 
-2. Right-click the node for the web site that you created in [Getting started with Windows Azure and ASP.NET][GetStarted], and then click **View Settings**.
+3. Right-click the node for the web site that you created in [Getting started with Windows Azure and ASP.NET][GetStarted], and then click **View Settings**.
 
-   ![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
+	![View Settings in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
-   The **Azure Web Site** tab appears, and you can see there the site management and configuration tasks that are available in Visual Studio.
+	The **Azure Web Site** tab appears, and you can see there the site management and configuration tasks that are available in Visual Studio.
 
-   ![Azure Web Site window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
+	![Azure Web Site window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-   In this tutorial you'll be using the logging and tracing drop-downs. 
+	In this tutorial you'll be using the logging and tracing drop-downs. 
    
-   For information about the App Settings and Connection Strings boxes in this window, see [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+	For information about the App Settings and Connection Strings boxes in this window, see [Windows Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-   If you want to perform a site management task that can't be done this window, you can click **Full Web Site Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	If you want to perform a site management task that can't be done this window, you can click **Full Web Site Settings** to open a browser window to the management portal. For more information, see [How to Configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 <h2><a name="remotedebug"></a><span class="short-header">Remote debugging</span>Remote Debugging</h2>
 
@@ -130,35 +130,35 @@ In this section, you'll debug locally first, and then you'll see how to debug re
 
 6. For Visual Studio 2012 only:
 
-   * In the Windows Azure Management Portal, go to the **Configure** tab for your web site, and then scroll down to the **Site Diagnostics** section.
+	* In the Windows Azure Management Portal, go to the **Configure** tab for your web site, and then scroll down to the **Site Diagnostics** section.
 
-   * Set **Remote Debugging** to **On**, and set **Remote Debugging Visual Studio Version** to **2012**.
+	* Set **Remote Debugging** to **On**, and set **Remote Debugging Visual Studio Version** to **2012**.
 
 	![Set remote debugging in management portal](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debuginportal.png)
    
-   * In the Visual Studio **Debug** menu, click **Attach to Process**.
+	* In the Visual Studio **Debug** menu, click **Attach to Process**.
 
-   * In the **Qualifier** box, enter the URL for your web site, without the `http://` prefix. 
+	* In the **Qualifier** box, enter the URL for your web site, without the `http://` prefix. 
 
-   * Select **Show processes from all users**.
+	* Select **Show processes from all users**.
 
-   * When you're prompted for credentials, enter the user name and password that has permissions to publish the web site. To get these credentials, go to the Dashboard tab for your web site in the management portal and click **Download the publish profile**. Open the file in a text editor, and you'll find the user name and password after the first occurrences of **userName=** and **userPWD=**. 
+	* When you're prompted for credentials, enter the user name and password that has permissions to publish the web site. To get these credentials, go to the Dashboard tab for your web site in the management portal and click **Download the publish profile**. Open the file in a text editor, and you'll find the user name and password after the first occurrences of **userName=** and **userPWD=**. 
 
-   * When the processes appear in the **Available Processes** table, select **w3wp.exe**, and then click **Attach**.
+	* When the processes appear in the **Available Processes** table, select **w3wp.exe**, and then click **Attach**.
 
-   * Open a browser to your site URL.
+	* Open a browser to your site URL.
 
-      You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
+	You might have to wait 20 seconds or so while Windows Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
 
 6. Click **About** in the menu again.
 
-   Visual Studio stops on the breakpoint as it did before, except now the project code is running in Windows Azure, not on your local computer.
+	Visual Studio stops on the breakpoint as it did before, except now the project code is running in Windows Azure, not on your local computer.
 
 7. Hover over the `currentTime` variable to see the time value.
 
 	![View variable in debug mode running in Windows Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-   The time you see is now the Windows Azure server time, which may be in a different time zone than your local computer.
+	The time you see is now the Windows Azure server time, which may be in a different time zone than your local computer.
 
 8. Enter a new value for the `currentTime` variable, such as "Now running in Windows Azure".
 
@@ -302,11 +302,11 @@ In this section you'll do the following tasks:
 
 	![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
-By default, `trace.axd` is only available locally. If you wanted to make it available from a remote site, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
+	By default, `trace.axd` is only available locally. If you wanted to make it available from a remote site, you could add `localOnly="false"` to the `trace` element in the *Web.config* file, as shown in the following example:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-However, enabling `trace.axd` in a production site is generally not recommended for security reasons, and in the following sections you'll see an easier way to read tracing logs in a Windows Azure Web Site.
+	However, enabling `trace.axd` in a production site is generally not recommended for security reasons, and in the following sections you'll see an easier way to read tracing logs in a Windows Azure Web Site.
 
 ### View the tracing output in Windows Azure
 
@@ -349,7 +349,7 @@ However, enabling `trace.axd` in a production site is generally not recommended 
 
 	![Verbose trace output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
-In this section you enabled and disabled logging by using Windows Azure Web Site settings. You can also enable and disable trace listeners by modifying the Web.config file. However, modifying the Web.config file causes the app domain to recycle, while enabling logging via the web site doesn't do that. If the problem takes a long time to reproduce, or is intermittent, recycling the app domain might "fix" it and force you to wait until it happens again. Enabling diagnostics in Windows Azure doesn't do this, so you can start capturing error information immediately.
+	In this section you enabled and disabled logging by using Windows Azure Web Site settings. You can also enable and disable trace listeners by modifying the Web.config file. However, modifying the Web.config file causes the app domain to recycle, while enabling logging via the web site doesn't do that. If the problem takes a long time to reproduce, or is intermittent, recycling the app domain might "fix" it and force you to wait until it happens again. Enabling diagnostics in Windows Azure doesn't do this, so you can start capturing error information immediately.
 
 ### Output window features
 
@@ -434,11 +434,11 @@ Any logs that you can monitor in the **Output** window can also be downloaded as
 
 2. Extract the *.zip* file, and you see the following folder structure:
 
-   ![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
+	![Downloaded file](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-   * Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
-   * Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
-   * Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
+	* Application tracing logs are in *.txt* files in the *LogFiles\Application* folder.
+	* Web server logs are in *.log* files in the *LogFiles\http\RawLogs* folder. You can use a tool such as [Log Parser](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=24659) to view and manipulate these files.
+	* Detailed error message logs are in *.html* files in the *LogFiles\DetailedErrors* folder.
 
 	(The *deployments* folder is for files created by source control publishing; it doesn't have anything related to Visual Studio publishing. The *Git* folder is for traces related to source control publishing and the log file streaming service.)  
 

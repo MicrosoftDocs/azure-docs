@@ -58,7 +58,7 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 
  	**Manage Access Keys** opens.
 
-	![Managekeys] (./media/storage-manage-storage-account/Storage_ManageKeys.png)
+	![Managekeys](./media/storage-manage-storage-account/Storage_ManageKeys.png)
 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
