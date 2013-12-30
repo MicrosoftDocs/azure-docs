@@ -82,7 +82,7 @@ The previous example caches the page for forty-five seconds. Because **VaryByPar
 [NewIcon]: ./media/web-sites-web-forms-output-caching/CacheScreenshot_NewButton.PNG
 [NewCacheDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CreateOptions.PNG
 [CacheIcon]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheIcon.PNG
-[NuGetDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_NuGet.png
+[NuGetDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_NuGet.PNG
 [OutputConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_OC_WebConfig.PNG
 [CacheConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheConfig.PNG
 [EndpointURL]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_EndpointURL.PNG
