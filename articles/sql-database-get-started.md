@@ -138,7 +138,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 2. Click on **School** so that you see a white arrow to the right. Click on the arrow to open the database page.
 
-	![Image9](./media/sql-database-get-started/9DBlListSchool_SQLTut.png)
+	![Image9](./media/sql-database-get-started/9DBListSchool_SQLTut.png)
 
 3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
 	
