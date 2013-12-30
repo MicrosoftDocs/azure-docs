@@ -51,11 +51,11 @@ In this tutorial you will learn:
 
 1.	After you have created your virtual network in the [Windows Azure Management Portal](http://manage.windowsazure.com/), on the lower left-hand corner of the screen, click **New**.
 
-	![NewStorAcct] [NewStorAcct]
+	![NewStorAcct](./media/virtual-networks-add-virtual-machine/VNTut3_01_NewStorageAccount.png)
 
 2.	In the navigation pane, click **DATA SERVICES**, **STORAGE**, and then **QUICK CREATE**.
 
-	![QuickCreate] [QuickCreate]
+	![QuickCreate](./media/virtual-networks-add-virtual-machine//VNTut3_02_StorageAcct_QuickCreate.png)
 
 3.	Enter the following information, and then click the check mark on the bottom right of the screen.
 
@@ -65,26 +65,30 @@ In this tutorial you will learn:
 
 -  **ENABLE GEO-REPLICATION:** Leave this box checked.
  
-	![CreateNewAcct] [CreateNewAcct]
+	![CreateNewAcct](./media/virtual-networks-add-virtual-machine//VNTut3_03_CreateNewStorageAccount.png)
 
 4.	On the **Storage** page, the **STATUS** column will display **Online** when the process is complete.
  
-	![NewStorAcctCreated] [NewStorAcctCreated]
+	![NewStorAcctCreated](./media/virtual-networks-add-virtual-machine//VNTut3_04_NewStorageAcctCreated.png)
+
 
 ## <a name="CreateVM">Create Virtual Machine and Deploy to Virtual Network</a> ##
 **To create a virtual machine and deploy to a virtual network:**
 
 1.	After you have created your storage account, on the lower left-hand corner of the screen, click **New**.
 
-	![NewVM] [NewVM]
+	![NewVM](./media/virtual-networks-add-virtual-machine//VNTut3_05_NewVM.png)
+
 
 2.	In the navigation pane, click **COMPUTE**, **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
  
-	![FromGallery] [FromGallery]
+	![FromGallery](./media/virtual-networks-add-virtual-machine//VNTut3_06_VM_FromGallery.png)
+
 
 3.	On the **VM OS Selection** screen, select **Windows Server 2008 R2 SP1, October 2012** (or the most recent version available), and then click the next arrow.
  
-	![VMOS] [VMOS]
+	![VMOS](./media/virtual-networks-add-virtual-machine//VNTut3_07_VMOSSelect_Win2008R2.png)
+
 
 4.	On the **Virtual machine configuration** screen, enter the following information, and then click the next arrow. 
 	<!-- SHOULD WE TELL USERS TO WRITE DOWN USER NAME AND PASS?? -->
@@ -101,7 +105,7 @@ In this tutorial you will learn:
 
 -  **SIZE:** Select **Small**.
  
-	![VMConfig] [VMConfig]
+	![VMConfig](./media/virtual-networks-add-virtual-machine//VNTut3_08_VMConfig.png)
 
 5.	On the **Virtual machine mode** screen, enter the following information, and then click the next arrow.
 
@@ -113,7 +117,7 @@ In this tutorial you will learn:
 
 -  **REGION/AFFINITY GROUP/VIRTUAL NETWORK:** From the drop-down list, select **YourVirtualNetwork**.
  
-	![VMMode] [VMMode]
+	![VMMode] (./media/virtual-networks-add-virtual-machine//VNTut3_09_VMMode.png)
 
 6.	On the **Virtual machine options** screen, enter the following information, and then click the check mark button. Your virtual machine will now be created. It can take up to 10 minutes for the new machine to be created.
 	<!-- CONFIRM HOW LONG IT CAN TAKE ON AVG FOR VMACHINE TO BE CREATED -->
@@ -128,15 +132,16 @@ In this tutorial you will learn:
 	<p>You should select at least one subnet and DO NOT select the gateway subnet.</p>
 	</div> 
  
-	![VMOptions] [VMOptions]
+	![VMOptions](./media/virtual-networks-add-virtual-machine//VNTut3_10_VMOptions.png)
 
 7.	When your virtual machine has been created, on the virtual machines screen, the **STATUS** will be **Running**.
  
-	![VMInstances] [VMInstances]
+	![VMInstances](./media/virtual-networks-add-virtual-machine//VNTut3_11_VMInstances.png)
+
 
 8.	In the navigation pane, click **ALL ITEMS**. All your objects you've created will be displayed with their current status.
  
-	![AllTab] [AllTab]
+	![AllTab](./media/virtual-networks-add-virtual-machine//VNTut3_12_AllTab.png)
 
 ## Next Steps ##
 To install an additional domain controller for your on-premises Active Directory domain on the VM you just created, see [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](/en-us/manage/services/networking/replica-domain-controller/).
@@ -153,20 +158,7 @@ To install an additional domain controller for your on-premises Active Directory
 [Tut2_VN]: ..Tutorial2_CreateVNetCrossPrem 
 [Tut1_VN]: ..Tutorial1_CreateVirtualNetwork
 
-<!-- IMAGES -->
 
-[NewStorAcct]: ./media/virtual-networks-add-virtual-machine/VNTut3_01_NewStorageAccount.png
-[QuickCreate]:	./media/virtual-networks-add-virtual-machine//VNTut3_02_StorageAcct_QuickCreate.png
-[CreateNewAcct]: ./media/virtual-networks-add-virtual-machine//VNTut3_03_CreateNewStorageAccount.png
-[NewStorAcctCreated]: ./media/virtual-networks-add-virtual-machine//VNTut3_04_NewStorageAcctCreated.png
-[NewVM]: ./media/virtual-networks-add-virtual-machine//VNTut3_05_NewVM.png
-[FromGallery]: ./media/virtual-networks-add-virtual-machine//VNTut3_06_VM_FromGallery.png
-[VMOS]:	./media/virtual-networks-add-virtual-machine//VNTut3_07_VMOSSelect_Win2008R2.png
-[VMConfig]: ./media/virtual-networks-add-virtual-machine//VNTut3_08_VMConfig.png
-[VMMode]: ./media/virtual-networks-add-virtual-machine//VNTut3_09_VMMode.png
-[VMOptions]: ./media/virtual-networks-add-virtual-machine//VNTut3_10_VMOptions.png
-[VMInstances]: ./media/virtual-networks-add-virtual-machine//VNTut3_11_VMInstances.png
-[AllTab]: ./media/virtual-networks-add-virtual-machine//VNTut3_12_AllTab.png
 
 
 
