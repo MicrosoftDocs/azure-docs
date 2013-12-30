@@ -68,7 +68,7 @@ To get started with a free account, click free trial in the upper right corner a
 
 5. Fill out the Server Settings as follows: 
 
-	![Image4](./media/sql-database-get-started/4ServerSettings_SQLTut.png)
+	![Image4](./media/sql-database-get-started/4ServerSettings_SQLTut.PNG)
 
 	* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Windows Live ID. Windows authentication is not supported on SQL Database.
 
@@ -133,16 +133,16 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of items on the home page. 
 
-	![Image8](./media/sql-database-get-started/8MainPageHome_SQLTut.PNG)
+	![Image8](./media/sql-database-get-started/8MainPageHome_SQLTut.png)
 
 
 2. Click on **School** so that you see a white arrow to the right. Click on the arrow to open the database page.
 
-	![Image9](./media/sql-database-get-started/9dblistschool_SQLTut.png)
+	![Image9](./media/sql-database-get-started/9DBlListSchool_SQLTut.png)
 
 3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
 	
-	![Image10](./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.png)
+	![Image10](./media/sql-database-get-started/10DBPortalManageButton_SQLTut.png)
 
 
 4. Enter the administrator login name and password. This is the administrator login that you specified when you created the server.
@@ -152,7 +152,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 5. Click **New Query** in Management Portal for SQL Database. An empty query window opens in the workspace. In the next step, you will use this window to copy in a series of predefined scripts that will add structure and data to your empty database.
 
-	![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png)
+	![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG)
 	 
 
 <h2><a id="createschema"></a>Step 5: Create the schema</h2>
@@ -689,7 +689,7 @@ In a new query window, copy and run the following Transact-SQL script to retriev
 
 You should see a result set that looks like the following illustration.
 
-![Image13](./media/sql-database-get-started/13DBQueryResults_SQLTut.png)
+![Image13](./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG)
 
 
 <h4><a id="QuerySys"></a>Query system data</h4>
@@ -757,7 +757,7 @@ After you create a SQL Server authentication login, the next step is to assign t
 
 	On the SQL Database management portal page, the **School** database name is visible in the top left corner.
 
-	![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.png)
+	![Image12](./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG)
 
 2. Click **New Query** to open a new query window and copy in the following statement. 
 
@@ -809,7 +809,7 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 5. In the worksheet, you should see a table similar to the following. 
 	
-	![Image18](./media/sql-database-get-started/18ExcelTable_SQLTut.png)
+	![Image18](./media/sql-database-get-started/18ExcelTable_SQLTut.PNG)
 
 Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information on this [Microsoft web site](http://www.microsoft.com/en-us/bi/powerpivot.aspx).
 
