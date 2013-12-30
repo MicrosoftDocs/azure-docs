@@ -62,35 +62,29 @@ application.
 To configure your connection string in the Windows Azure service
 configuration:
 
-1.  Within the Solution Explorer of Visual Studio, in the **Roles**
-    folder of your Windows Azure Deployment Project, right-click your
-    web role or worker role and click **Properties**.  
-    ![Blob5][]
+1.  Within the Solution Explorer of Visual Studio, in the **Roles** folder of your Windows Azure Deployment Project, right-click your web role or worker role and click **Properties**.  
 
-2.  Click the **Settings** tab and press the **Add Setting** button.  
-    ![Blob6][]
+	![Blob5](./Media/storage-dotnet-how-to-use-queues-20/blob5.png)
 
-    A new **Setting1** entry will then show up in the settings grid.
+2.  Click the **Settings** tab and press the **Add Setting** button. 
+ 
+	![Blob6](./Media/storage-dotnet-how-to-use-queues-20/blob6.png)
 
-3.  In the **Type** drop-down of the new **Setting1** entry, choose
-    **Connection String**.  
-    ![Blob7][]
+	A new **Setting1** entry will then show up in the settings grid.
 
-4.  Click the **...** button at the right end of the **Setting1** entry.
-    The **Storage Account Connection String** dialog will open.
+3.  In the **Type** drop-down of the new **Setting1** entry, choose **Connection String**.  
 
-5.  Choose whether you want to target the storage emulator (the Windows
-    Azure storage simulated on your local machine) or an actual storage
-    account in the cloud. The code in this guide works with either
-    option. Enter the **Primary Access Key** value copied from the
-    earlier step in this tutorial if you wish to store queue data in the
-    storage account we created earlier on Windows Azure.   
-    ![Blob8][]
+	![Blob7](./Media/storage-dotnet-how-to-use-queues-20/blob7.png)
 
-6.  Change the entry **Name** from **Setting1** to a "friendlier" name
-    like **StorageConnectionString**. You will reference this
-    connection string later in the code in this guide.  
-    ![Blob9][]
+4.  Click the **...** button at the right end of the **Setting1** entry. The **Storage Account Connection String** dialog will open.
+
+5.  Choose whether you want to target the storage emulator (the Windows Azure storage simulated on your local machine) or an actual storage account in the cloud. The code in this guide works with either option. Enter the **Primary Access Key** value copied from the earlier step in this tutorial if you wish to store queue data in the    storage account we created earlier on Windows Azure.   
+
+	![Blob8](./Media/storage-dotnet-how-to-use-queues-20/blob8.png)
+
+6.  Change the entry **Name** from **Setting1** to a "friendlier" name like **StorageConnectionString**. You will reference this connection string later in the code in this guide.  
+
+	![Blob9](./Media/storage-dotnet-how-to-use-queues-20/blob9.png)
 	
 ### Configuring your connection string using .NET configuration
 
@@ -391,14 +385,7 @@ to learn how to do more complex storage tasks.
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
-  [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
-  
-  [Blob5]: ./Media/storage-dotnet-how-to-use-queues-20/blob5.png
-  [Blob6]: ./Media/storage-dotnet-how-to-use-queues-20/blob6.png
-  [Blob7]: ./Media/storage-dotnet-how-to-use-queues-20/blob7.png
-  [Blob8]: ./Media/storage-dotnet-how-to-use-queues-20/blob8.png
-  [Blob9]: ./Media/storage-dotnet-how-to-use-queues-20/blob9.png
-  
+  [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx 
   [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

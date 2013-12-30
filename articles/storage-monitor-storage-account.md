@@ -91,7 +91,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 2. Click **Monitor**.
 
- The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
+	The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
 
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
@@ -103,7 +103,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 3. Click **Add Metrics**. 
 
- The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list. 
+	The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list. 
 
 	![AddMetricsInitialDisplay](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
  
@@ -114,7 +114,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the Management Portal.
 
- In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
+	In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
 
 	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
@@ -148,9 +148,9 @@ For each of the storage services available with your storage account (Blob, Tabl
  
 3. For each service (Blob, Table, and Queue), configure the following:
 
-- The types of request to log: Read Requests, Write Requests, and Delete Requests
+	- The types of request to log: Read Requests, Write Requests, and Delete Requests
 
-- The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
+	- The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
 
 4. Click **Save**.
 
