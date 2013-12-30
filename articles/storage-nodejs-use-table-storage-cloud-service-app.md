@@ -32,7 +32,7 @@ You will learn:
 
 A screenshot of the completed application is below:
 
-![The completed web page in internet explorer][The completed web page in internet explorer]
+![The completed web page in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## Setting Storage Credentials in Web.Config
 
