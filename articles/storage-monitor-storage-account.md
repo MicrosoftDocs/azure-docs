@@ -32,7 +32,7 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 
 2. Click **Configure**, and scroll down to the **monitoring** settings for the Blob, Table, and Queue services, shown below.
 
-	![MonitoringOptions] (./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
+	![MonitoringOptions](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
 3. In **monitoring**, set the level of monitoring and the data retention policy for each service:
 
@@ -40,7 +40,7 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 
       **Minimal** - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the Blob, Table, and Queue services.
 
-      **Verbose** ??? In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Windows Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations. 
+      **Verbose** - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Windows Azure Storage Service API. Verbose metrics enable closer analysis of issues that occur during application operations. 
 
       **Off** - Turns off monitoring. Existing monitoring data is persisted through the end of the retention period.
 
@@ -67,7 +67,7 @@ On the dashboard, you can choose up to six metrics to plot on the metrics chart 
 
 - To hide a metric that is plotted on the chart, clear the check box by the metric header.
 
-	![Monitoring_nmore] (./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+	![Monitoring_nmore](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. By default, the chart shows trends, displaying only the current value of each metric (the **Relative** option at the top of the chart). To display a Y axis so you can see absolute values, select **Absolute**.
 
@@ -91,10 +91,10 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 2. Click **Monitor**.
 
- The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
+	The **Monitor** page opens. By default, the metrics table displays a subset of the metrics that are available for monitoring. The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services. Use **Add Metrics** to select the metrics you want to monitor from all available metrics.
 
 
-	![Monitoring_VerboseDisplay] (./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -103,27 +103,27 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 3. Click **Add Metrics**. 
 
- The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list. 
+	The aggregate metrics that are available in minimal monitoring are at the top of the list. If the check box is selected, the metric is displayed in the metrics list. 
 
-	![AddMetricsInitialDisplay] (./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
+	![AddMetricsInitialDisplay](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
  
 4. Hover over the right side of the dialog box to display a scrollbar that you can drag to scroll additional metrics into view.
 
-	![AddMetricsScrollbar] (./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
+	![AddMetricsScrollbar](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
 5. Click the down arrow by a metric to expand a list of operations the metric is scoped to include. Select each operation that you want to view in the metrics table in the Management Portal.
 
- In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
+	In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.
 
-	![ExpandCollapse] (./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
+	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
 
 6. After you select metrics for all services, click OK (checkmark) to update the monitoring configuration. The selected metrics are added to the metrics table.
 
 7. To delete a metric from the table, click the metric to select it, and then click **Delete Metric**, as shown below.
 
-	![DeleteMetric] (./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
+	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
 <h2><a id="customizemetricschart"></a>How to: Customize the metrics chart on the Monitor page</h2>
 
@@ -143,14 +143,14 @@ For each of the storage services available with your storage account (Blob, Tabl
 
 2. Click **Configure**, and use the Down arrow on the keyboard to scroll down to **logging** (shown below).
 
-	![Storagelogging] (./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
+	![Storagelogging](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
 
  
 3. For each service (Blob, Table, and Queue), configure the following:
 
-- The types of request to log: Read Requests, Write Requests, and Delete Requests
+	- The types of request to log: Read Requests, Write Requests, and Delete Requests
 
-- The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
+	- The number of days to retain the logged data. Enter zero is if you do not want to set a retention policy. If you do not set a retention policy, it is up to you to delete the logs.
 
 4. Click **Save**.
 

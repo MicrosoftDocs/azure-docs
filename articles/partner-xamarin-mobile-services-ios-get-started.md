@@ -33,9 +33,9 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
 2. In the quickstart tab, click **Xamarin.iOS** under **Choose platform** and expand **Create a new Xamarin.iOS app**.
 
-   ![][6]
+	![][6]
 
-   This displays the three easy steps to create a Xamarin.iOS app connected to your mobile service.
+	This displays the three easy steps to create a Xamarin.iOS app connected to your mobile service.
 
   	![][7]
 
@@ -45,7 +45,7 @@ In this section you will create a new Xamarin.iOS app that is connected to your 
 
 5. Under **Download and run app**, click **Download**. 
 
-  This downloads the project for the sample _To do list_ application that is connected to your mobile service and references the Azure Mobile Services component for Xamarin.iOS. Save the compressed project file to your local computer, and make a note of where you saved it.
+	This downloads the project for the sample _To do list_ application that is connected to your mobile service and references the Azure Mobile Services component for Xamarin.iOS. Save the compressed project file to your local computer, and make a note of where you saved it.
 
 <h2><span class="short-header">Run your app</span>Run your new Xamarin.iOS app</h2>
 
@@ -53,17 +53,17 @@ The final stage of this tutorial is to build and run your new app.
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the **XamarinTodoQuickStart.iOS.sln** solution file using Xamarin Studio or Visual Studio.
 
-   ![][8]
+	![][8]
 
-   ![][9]
+	![][9]
 
 2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
 
 3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
 
-   ![][10]
+	![][10]
 
-   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -72,11 +72,11 @@ The final stage of this tutorial is to build and run your new app.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
-   ![][11]
+	![][11]
 
-   This lets you browse the data inserted by the app into the table.
+	This lets you browse the data inserted by the app into the table.
 
-   ![][12]
+	![][12]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
@@ -99,11 +99,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- Images. -->
 [0]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
-
-
-
-
-
 [6]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-portal-quickstart-xamarin-ios.png
 [7]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-steps-xamarin-ios.png
 [8]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-xamarin-project-ios-xs.png

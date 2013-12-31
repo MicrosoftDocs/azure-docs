@@ -74,23 +74,23 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    	![][108]
    
 
-   This generates your app ID and requests that you submit the information. Click **Submit**.
+	This generates your app ID and requests that you submit the information. Click **Submit**.
    
    	![][109] 
    
-   Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
+	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
    
    	![][110]
 
-    <div class="dev-callout"><b>Note</b>
+	<div class="dev-callout"><b>Note</b>
 	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <b>MobileServices.Quickstart</b>, you must also update the bundle identifier value in your Xcode project.</p>
-    </div>
+	 </div>
 
 3. Locate the app ID that you just created, and click on its row. 
 
    	![][111]
    
-   Clicking on the app ID will display details about the app and the app ID:
+	Clicking on the app ID will display details about the app and the app ID:
    
    	![][112] 
    
@@ -100,13 +100,13 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	![][114] 
 
-   This displays the "Add iOS Certificate" assistant.
+	This displays the "Add iOS Certificate" assistant.
    
    	![][115] 
 
-    <div class="dev-callout"><b>Note</b>
+	<div class="dev-callout"><b>Note</b>
 	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
-    </div>
+	</div>
 
 5. Click **Choose File**, browse to the location in which you saved the CSR file that you created in the first task, and then click **Generate**. 
 
@@ -128,15 +128,14 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
-   This installs the new certificate in the Keychain, as shown below:
+	This installs the new certificate in the Keychain, as shown below:
 
    	![][10]
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
-    </div>
+	> WACOM.NOTE
+	> The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.
 
-Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
+	Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
 
 <h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
  
@@ -331,9 +330,7 @@ To send notifications using a .NET app:
 
 2. Add a reference to the Windows Azure Service Bus SDK with the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. In the Visual Studio main menu, click **Tools**, then **Library Package Manager**, then **Package Manager Console**. Then, in the console window type:
 
-        Install-Package WindowsAzure.ServiceBus
-
-    and press Enter.
+        Install-Package WindowsAzure.ServiceBus and press Enter.
 
 2. Open the file Program.cs and add the following using statement:
 
@@ -413,11 +410,7 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 
 [9]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step9.png
 [10]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step10.png
-
-
 [18]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step18.png
-
-
 [105]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-05.png
 [106]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-06.png
 [107]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-07.png

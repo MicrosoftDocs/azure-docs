@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+﻿<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -49,7 +49,7 @@ privately for internal application storage.
 
 The Blob service contains the following components:
 
-![Blob1][]
+![Blob1](./media/storage-nodejs-how-to-use-blob-storage/blob1.jpg)
 
 -   **URL format:** Blobs are addressable using the following URL
     format:
@@ -86,11 +86,11 @@ create a storage account [using the REST API][].)
 
 2.  At the bottom of the navigation pane, click **+NEW**.
 
-	![+new][plus-new]
+	![+new](./media/storage-nodejs-how-to-use-blob-storage/plus-new.png)
 
 3.  Click **Storage Account**, and then click **Quick Create**.
 
-	![Quick create dialog][quick-create-storage]
+	![Quick create dialog](./media/storage-nodejs-how-to-use-blob-storage/quick-storage.png)
 
 4.  In URL, type a subdomain name to use in the URI for the
     storage account. The entry can contain from 3-24 lowercase letters
@@ -295,10 +295,6 @@ to learn how to do more complex storage tasks.
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-
-  [plus-new]: ./media/storage-nodejs-how-to-use-blob-storage/plus-new.png
-  [quick-create-storage]: ./media/storage-nodejs-how-to-use-blob-storage/quick-storage.png
-  [Blob1]: ./media/storage-nodejs-how-to-use-blob-storage/blob1.jpg
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
   [Windows Azure Management Portal]: http://manage.windowsazure.com
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"

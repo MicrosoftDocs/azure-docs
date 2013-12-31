@@ -11,8 +11,8 @@ This tutorial walks you through these basic steps:
 
 1. [Add string length validation]
 2. [Update the client to support validation]
-<!--3. [Add a timestamp on insert]
-4. [Update the client to display the timestamp]-->
+3. [Add a timestamp on insert]
+4. [Update the client to display the timestamp]
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with data]. Before you begin this tutorial, you must first complete [Get started with data].  
 
@@ -56,7 +56,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 2. Press the **Run** button to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
 
-   Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
+	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.	
 
 3. In the TodoService.cs file, locate the current <code>try/catch</code> exception handling in the **InsertTodoItemAsync** method, and replace the <code>catch</code> with:
     
@@ -74,7 +74,7 @@ Now that the mobile service is validating data and sending error responses, you 
         return -1;
 		}
 
-   This shows a popup window which displays the error to the user. 
+	This shows a popup window which displays the error to the user. 
 
 4. Locate the **OnAdd** method in **TodoListViewController.cs**. Update the method to make sure the returned <code>index</code> isn't <code>-1</code> as is returned in the exception handling in **InsertTodoItemAsync**. In this case we don't want to add a new row to the <code>TableView</code>.
 
@@ -89,7 +89,7 @@ Now that the mobile service is validating data and sending error responses, you 
 
 	![][4]
 
-  Notice that error is handled and the error messaged is displayed to the user.
+	Notice that error is handled and the error messaged is displayed to the user.
 
 
 ## <a name="next-steps"> </a>Next steps

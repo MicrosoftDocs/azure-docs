@@ -79,14 +79,14 @@ The previous example caches the page for forty-five seconds. Because **VaryByPar
   
   
 [installed the latest]: http://www.windowsazure.com/en-us/downloads/?sdk=net
-[NewIcon]: ./media/web-sites-web-forms-output-caching/CacheScreenshot_NewButton.png
-[NewCacheDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CreateOptions.png
-[CacheIcon]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheIcon.png
-[NuGetDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_NuGet.png
-[OutputConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_OC_WebConfig.png
-[CacheConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheConfig.png
-[EndpointURL]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_EndpointURL.png
-[ManageKeys]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_ManageAccessKeys.png
+[NewIcon]: ./media/web-sites-web-forms-output-caching/CacheScreenshot_NewButton.PNG
+[NewCacheDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CreateOptions.PNG
+[CacheIcon]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheIcon.PNG
+[NuGetDialog]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_NuGet.PNG
+[OutputConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_OC_WebConfig.PNG
+[CacheConfig]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_CacheConfig.PNG
+[EndpointURL]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_EndpointURL.PNG
+[ManageKeys]: ./media/web-sites-web-forms-output-caching/CachingScreenshot_ManageAccessKeys.PNG
   
   
   

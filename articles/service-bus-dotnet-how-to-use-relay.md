@@ -26,7 +26,7 @@ enterprise network to the public cloud, without having to open up a
 firewall connection or requiring intrusive changes to a corporate
 network infrastructure.
 
-![Relay Concepts][Relay Concepts]
+![Relay Concepts](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
 The Service Bus relay allows you to host WCF services within your
 existing enterprise environment. You can then delegate listening for
@@ -57,47 +57,43 @@ To create a service namespace:
 
 3.  In the lower pane of the Management Portal, click **Create**.   
 
-    ![][0]
+	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
 4.  In the **Add a new namespace** dialog, enter a namespace name.
     The system immediately checks to see if the name is available.   
 
-    ![][1]
+	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
+
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
     compute resources).
 
-    IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
+	IMPORTANT: Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
 
-6.	Click the check mark. The system now creates your service
-    namespace and enables it. You might have to wait several minutes as
-    the system provisions resources for your account.
+6.	Click the check mark. The system now creates your service namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-	![][6]
+	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-The namespace you created will then appear in the Management Portal and
-takes a moment to activate. Wait until the status is **Active** before
-continuing.
+	The namespace you created will then appear in the Management Portal and takes a moment to activate. Wait until the status is **Active** before continuing.
 
 <h2><span class="short-header">Obtain Management Credentials</span>Obtain the Default Management Credentials for the Namespace</h2>
 
-In order to perform management operations, such as creating a relay
-connection, on the new namespace, you must obtain the management
-credentials for the namespace.
+In order to perform management operations, such as creating a relay connection, on the new namespace, you must obtain the management credentials for the namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:   
-    ![][0]
+	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
+
 
 2.  Select the namespace you just created from the list shown:   
-    ![][2]
+	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
+
 
 3.  Click **Connection Information**.   
-    ![][3]
-
+	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-06.png)
+ 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
 <h2><span class="short-header">Get the NuGet Package</span>Get the Service Bus NuGet Package</h2>
@@ -112,13 +108,11 @@ the Service Bus dependencies.
 
 To install the NuGet package in your application, do the following:
 
-1.  In Solution Explorer, right-click **References**, then click
-    **Manage NuGet Packages**.
-2.  Search for WindowsAzure" and select the **Windows Azure
-    Service Bus** item. Click **Install** to complete the installation,
-    then close this dialog.
+1.  In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
+2.  Search for WindowsAzure" and select the **Windows Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog.
 
-    ![][5]
+	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
+  
 
 <h2><span class="short-header">Expose and Consume a SOAP Web Service</span>How to Use Service Bus to Expose and Consume a SOAP Web Service with TCP</h2>
 
@@ -352,15 +346,7 @@ follow these links to learn more.
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Relay Concepts]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
-  [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
-  [2]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png
-  [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-06.png
-  
-  [5]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png
-  [6]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
-  [Building a Service for the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
+   [Building a Service for the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
   [Building a Service Bus Client Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
   [Windows Azure Samples]: http://code.msdn.microsoft.com/windowsazure

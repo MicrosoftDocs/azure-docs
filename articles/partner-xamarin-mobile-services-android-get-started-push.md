@@ -28,11 +28,10 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
-   ![][1]   
+	![][1]   
 
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
+	> WACOM.NOTE
+	> When you already have an existing project, you are directed to the **Dashboard** page after login. To create a new project from the Dashboard, expand **API Project<**, click **Create...** under **Other projects**, then enter a project name and click **Create project**.
 
 2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 
 
@@ -42,7 +41,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 4. Click **API Access**, and then click **Create new Server key...** 
 
-   ![][2]
+	![][2]
 
 5. In **Configure Server Key for API Project**, click **Create**.
 
@@ -58,13 +57,13 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   ![][18]
+	![][18]
 
 2. Click the **Push** tab, enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
 
-   ![][19]
+	![][19]
 
-You mobile service is now configured to work with GCM to send push notifications.
+	You mobile service is now configured to work with GCM to send push notifications.
 
 <a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
 
@@ -165,13 +164,13 @@ Your app is now updated to support push notifications.
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
-   ![][21]
+	![][21]
 
 2. In **TodoItem**, click the **Script** tab and select **Insert**.
    
   	![][22]
 
-   This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
 
 3. Replace the insert function with the following code, and then click **Save**:
 
@@ -197,9 +196,9 @@ Your app is now updated to support push notifications.
 
 1. Run the app and add a new Todo item. Ensure that you receive a push notification about the new Todo item being added.
 
-3. Review the **Logs** tab of your mobile app in the Azure management portal to see the logging messages we added to the **Insert** method on the **TodoItem** table above.
+2. Review the **Logs** tab of your mobile app in the Azure management portal to see the logging messages we added to the **Insert** method on the **TodoItem** table above.
 
-4. Look at the **TodoItem** table in the Azure management portal to see the new **channel** column that was added and contains unique device registration identifiers.
+3. Look at the **TodoItem** table in the Azure management portal to see the new **channel** column that was added and contains unique device registration identifiers.
 
 You have successfully completed this tutorial.
 

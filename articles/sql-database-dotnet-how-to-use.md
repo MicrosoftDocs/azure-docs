@@ -56,13 +56,13 @@ Next, you'll create and configure a database and server. In the Windows Azure Ma
 
 7. Choose an edition, maximum size, and collation. For the purposes of this guide, you can use the default values. 
 
- SQL Database provides two database editions. Web Edition grows up to a size of 5 GB. Business Edition grows up to a size of 50 GB.
+	SQL Database provides two database editions. Web Edition grows up to a size of 5 GB. Business Edition grows up to a size of 50 GB.
 
- The MAXSIZE is specified when the database is first created and can
+	The MAXSIZE is specified when the database is first created and can
 later be changed using ALTER DATABASE. MAXSIZE provides the ability to
 limit the size of the database.
 
- For each SQL database created on Windows Azure, there are actually three
+	For each SQL database created on Windows Azure, there are actually three
 replicas of that database. This is done to ensure high availability.
 Failover is transparent and part of the service. The [Service Level
 Agreement][] provides 99.9% uptime for SQL Database.
@@ -73,9 +73,9 @@ Agreement][] provides 99.9% uptime for SQL Database.
 
 10. In Server Settings, enter a SQL Server authentication login name.
 
-  SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
+	SQL Database uses SQL Authentication over an encrypted connection. A new SQL Server authentication login assigned to the sysadmin fixed server role will be created using the name you provide. 
 
-  The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
+	The login cannot be an email address, Windows user account, or a Windows Live ID. Neither Claims nor Windows authentication is supported on SQL Database.
 
 11. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
@@ -89,7 +89,7 @@ Notice that you did not specify a server name. SQL Database auto-generates the s
 
 After the database is created, click on it to open its dashboard. The dashboard provides connection strings that you can copy and use in application code. It also shows the management URL that you'll need to specify if you are connecting to the database from Management Studio or other administrative tool.
 
-![Image1] []
+	![Image1](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
 
@@ -97,7 +97,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
-   ![Image2] []
+	![Image2](./media/sql-database-dotnet-how-to-use/SQLDbFirewall.PNG)
 
 2. Click **Configure**. 
 
@@ -105,18 +105,17 @@ In the next step, you will configure the firewall so that connections from appli
 
 4. Paste the IP address into both the START IP ADDRESS and END IP ADDRESS to establish the range addresses that are allowed to access the server. Later, if you encounter connection errors indicating that the range is too narrow, you can edit this rule to widen the range.
 
-  If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
+	If client computers use dynamically assigned IP addresses, you must specify a range that is broad enough to include IP addresses assigned to computers in your network. Start with a narrow range, and then expand it only if you need to.
 
 5. Enter a name for the firewall rule, such as the name of your computer or company.
 
 6. Click the checkmark next to the rule to save it.
 
-    ![Image3] []
+	![Image3](./media/sql-database-dotnet-how-to-use/SQLDbIPRange.PNG)
 
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
 You now have a database instance, logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. You are now ready to connect to the database programmatically.
-
 
 
 <h2><a name="Connect-DB"></a><span class="short-header">Connect to SQL Database</span></h2>
@@ -252,12 +251,6 @@ following resources to learn more about SQL Database.
   [Next Steps]: #next-steps
   [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  
-  [Image1]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.png
-  [Image2]: ./media/sql-database-dotnet-how-to-use/SQLDbFirewall.png
-  [Image3]: ./media/sql-database-dotnet-how-to-use/SQLDbIPRange.png
-  
-  
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
   [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx

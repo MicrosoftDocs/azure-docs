@@ -33,17 +33,17 @@ In this section you will create a new Xamarin.Android app that is connected to y
 
 2. In the quickstart tab, click **Xamarin.Android** under **Choose platform** and expand **Create a new Android app**.
 
-   ![][6]
+	![][6]
 
-   This displays the three easy steps to create a Xamarin.Android app connected to your mobile service.
+	This displays the three easy steps to create a Xamarin.Android app connected to your mobile service.
 
-  	![][7]
+	![][7]
 
 3. Click **Create TodoItem table** to create a table to store app data.
 
 4. Under **Download and run app**, click **Download**. 
 
-  This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
+	This downloads the project for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
 ## Run your Android app
 
@@ -55,7 +55,7 @@ The final stage of this tutorial is to build and run your new app.
 
  	![][8]
 
-  ![][9]
+	![][9]
 
 3. Press the **Run** button to build the project and start the app. You will be asked to select an emulator or a connected USB device. 
 
@@ -63,21 +63,20 @@ The final stage of this tutorial is to build and run your new app.
 
 4. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 
-   ![][10]
+	![][10]
 
-   This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
 
-	<div class="dev-callout"><strong>Note</strong> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.cs C# file.</p>
- 	</div>
+	> WACOM.NOTE 
+   	> You can review the code that accesses your mobile service to query and insert data, which is found in the ToDoActivity.cs C# file.
 
 6. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
-   ![][11]
+	![][11]
 
-   This lets you browse the data inserted by the app into the table.
+	This lets you browse the data inserted by the app into the table.
 
-   ![][12]
+	![][12]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 

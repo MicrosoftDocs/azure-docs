@@ -3,4 +3,4 @@
 
 
 
-[WACOM.INCLUDE service-bus-amqp-overview.md]
+[WACOM.INCLUDE [service-bus-amqp-overview](../includes/service-bus-amqp-overview.md)]

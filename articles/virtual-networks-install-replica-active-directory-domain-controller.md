@@ -198,6 +198,7 @@ This tutorial walks you through the steps to install an additional domain contro
 
 	Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
 
+
 	![AddDC9](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC9.png)
 
 10.When prompted about the DNS delegation warning, click **Yes**.
@@ -239,7 +240,7 @@ For more information about using Windows PowerShell, see [Getting Started with W
 
 <h2><a id="provisionvm"></a>Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
-1.To create an additional virtual machine that is domain-joined when it first boots, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
+1. To create an additional virtual machine that is domain-joined when it first boots, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
 
 	To determine the Internal IP address of the domain controller, click the name of virtual network where it is running. 
 

@@ -63,11 +63,11 @@ In the virtual machine that you just created, complete the following procedure:
 
 2. Open a Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
 
-	![Open Command Prompt window] (./media/virtual-machines-create-upload-vhd-windows-server/sysprepcommand.png)
+	![Open Command Prompt window](./media/virtual-machines-create-upload-vhd-windows-server/sysprepcommand.png)
 
 3.	The **System Preparation Tool** dialog box appears.
 
-	![Start Sysprep] (./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
+	![Start Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
 4. In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked.
 
@@ -86,11 +86,11 @@ A storage account represents the highest level of the namespace for accessing th
 
 3. Click **Storage Account**, and then click **Quick Create**.
 
-	![Quick create a storage account] (./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png)
+	![Quick create a storage account](./media/virtual-machines-create-upload-vhd-windows-server/Storage-quick-create.png)
 
 4. Fill out the fields as follows:
 
-	![Enter storage account details] (./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
+	![Enter storage account details](./media/virtual-machines-create-upload-vhd-windows-server/Storage-create-account.png)
 
 - Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
 	
@@ -102,7 +102,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 	The account now appears under **Storage Accounts**.
 
-	![Storage account successfully created] (./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
+	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
 
 
 ## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Windows Azure ##

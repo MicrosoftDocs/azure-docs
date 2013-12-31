@@ -91,11 +91,11 @@ You must complete specific configuration steps in the operating system for the v
 
 	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
 
-	![Open Hyper-V settings] (./media/virtual-machines-linux-create-upload-vhd/settings.png)
+	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd/settings.png)
 
 	c) In the **Hardware** pane, click **IDE Controller 1**.
 
-	![Add DVD drive with install media] (./media/virtual-machines-linux-create-upload-vhd/installiso.png)
+	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd/installiso.png)
 
 	d) In the **IDE Controller** box, click **DVD Drive**, and then click **Add**.
 
@@ -497,15 +497,15 @@ A storage account represents the highest level of the namespace for accessing th
 
 2. On the command bar, click **New**.
 
-	![Create storage account] (./media/virtual-machines-linux-create-upload-vhd/create.png)
+	![Create storage account](./media/virtual-machines-linux-create-upload-vhd/create.png)
 
 3. Click **Storage Account**, and then click **Quick Create**.
 
-	![Quick create a storage account] (./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
+	![Quick create a storage account](./media/virtual-machines-linux-create-upload-vhd/storage-quick-create.png)
 
 4. Fill out the fields as follows:
 
-	![Enter storage account details] (./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
+	![Enter storage account details](./media/virtual-machines-linux-create-upload-vhd/storage-create-account.png)
 
 - Under **URL**, type a subdomain name to use in the URL for the storage account. The entry can contain from 3-24 lowercase letters and numbers. This name becomes the host name within the URL that is used to address Blob, Queue, or Table resources for the subscription.
 	
@@ -517,7 +517,7 @@ A storage account represents the highest level of the namespace for accessing th
 
 	The account is now listed under **Storage Accounts**.
 
-	![Storage account successfully created] (./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
+	![Storage account successfully created](./media/virtual-machines-linux-create-upload-vhd/Storagenewaccount.png)
 
 
 ## <a id="#connect"> </a>Step 3: Prepare the connection to Windows Azure ##

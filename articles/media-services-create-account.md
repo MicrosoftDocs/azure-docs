@@ -26,7 +26,7 @@ Accessing Media Services requires two associated accounts:
 
 1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
-   ![Media Services Quick Create][Media Services Quick Create]
+	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length. 
 
@@ -42,8 +42,7 @@ You can monitor the status of the process in the message area at the bottom of t
 
 The **media services** page opens with the new account displayed. When the status changes to Active, it means the account is successfully created.
 
->![Media Services Page][Media Services Page]
-
+	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
 When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
 
@@ -62,7 +61,4 @@ In addition, you can view code that uses Windows Azure Media Services SDK to acc
   
   [Management Portal]: http://manage.windowsazure.com/
 
-<!-- Images. -->
-  [Media Services Quick Create]: ./media/media-services-create-account/wams-QuickCreate.png
-  [Media Services Page]: ./media/media-services-create-account/wams-mediaservices-page.png
 

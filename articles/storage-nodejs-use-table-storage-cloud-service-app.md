@@ -32,7 +32,7 @@ You will learn:
 
 A screenshot of the completed application is below:
 
-![The completed web page in internet explorer][The completed web page in internet explorer]
+![The completed web page in internet explorer](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## Setting Storage Credentials in Web.Config
 
@@ -51,44 +51,33 @@ will use the storage emulator.</p>
 Perform the following steps to retrieve the storage account credentials
 and add them to the web.config settings:
 
-1.  If it is not already open, start the Windows Azure PowerShell from the **Start** menu by expanding **All Programs, Windows
-    Azure**, right-click **Windows Azure
-    PowerShell**, and then select **Run As Administrator**.
+1.  If it is not already open, start the Windows Azure PowerShell from the **Start** menu by expanding **All Programs, Windows Azure**, right-click **Windows Azure PowerShell**, and then select **Run As Administrator**.
 
-2.  Change directories to the folder containing your application. For
-    example, C:\\node\\tasklist\\WebRole1.
+2.  Change directories to the folder containing your application. For example, C:\\node\\tasklist\\WebRole1.
 
-3.  From the Windows Azure Powershell window enter the following cmdlet to
-    retrieve the storage account information:
+3.  From the Windows Azure Powershell window enter the following cmdlet to retrieve the storage account information:
 
         PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
 
-    This retrieves the list of storage accounts and account keys
-    associated with your hosted service.
+	This retrieves the list of storage accounts and account keys associated with your hosted service.
 
-    <div class="dev-callout">
+	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>Since the Windows Azure SDK creates a storage
-    account when you deploy a service, a storage account should already
-    exist from deploying your application in the previous guides.</p>
+	<p>Since the Windows Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</p>
 	</div>
 
-4.  Open the web.cloud.config file containing the environment settings
-    that are used when the application is deployed to Windows Azure:
+4.  Open the web.cloud.config file containing the environment settings that are used when the application is deployed to Windows Azure:
 
         PS C:\node\tasklist\WebRole1> notepad web.cloud.config
 
-5.  Insert the following block under **configuration** element,
-    substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the
-    account name and the primary key for the storage account you want to
-    use for deployment:
+5.  Insert the following block under **configuration** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:
 
         <appSettings>
           <add key="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}"/>
           <add key="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}"/>
         </appSettings>
 
-    ![The web.cloud.config file contents][The web.cloud.config file contents]
+	![The web.cloud.config file contents](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
 6.  Save the file and close notepad.
 
@@ -109,33 +98,25 @@ these modules in your application:
 
         PS C:\node\tasklist\WebRole1> notepad server.js
 
-2.  Add the code below after the line that ends with
-    express.createServer() to include the node-uuid, home, and azure
-    modules. The home module does not exist yet, but you will create it
-    shortly.
+2.  Add the code below after the line that ends with express.createServer() to include the node-uuid, home, and azure  modules. The home module does not exist yet, but you will create it shortly.
 
-    ![The server.js code with line 'var app = modules.exports =
-    express.createServer();' highlighted][server.js-code]
+	![The server.js code with line 'var app = modules.exports =
+    express.createServer();' highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png)
 
         var uuid = require('node-uuid');
         var Home = require('./home');
         var azure = require('azure');
 
-3.  Add code to create a storage table client passing in storage account
-    and access key information.
+3.  Add code to create a storage table client passing in storage account and access key information.
 
-    <div class="dev-callout">
+	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>When running in the emulator, the SDK will automatically
-    use the emulator even though storage account information has been
-    provided via web.config.</p>
+	<p>When running in the emulator, the SDK will automatically use the emulator even though storage account information has been provided via web.config.</p>
 	</div>
 
         var client = azure.createTableService();
 
-4.  Next, create a table in Windows Azure Storage called tasks. The
-    logic below creates a new table if it doesn't exist, and populates
-    the table with some default data.
+4.  Next, create a table in Windows Azure Storage called tasks. The logic below creates a new table if it doesn't exist, and populates the table with some default data.
 
         //table creation
         client.createTableIfNotExists('tasks', function(error){
@@ -156,22 +137,17 @@ these modules in your application:
 
         });
 
-5.  Replace the existing code in the route section with the code below,
-    which creates a home controller instance and routes all requests to
-    **/** or **/home** to it.
+5.  Replace the existing code in the route section with the code below, which creates a home controller instance and routes all requests to **/** or **/home** to it.
 
-    ![The server.js file with the lines containing //routes app.get('/',
+	![The server.js file with the lines containing //routes app.get('/',
     routes.index); app.get('/home',function(req,res){ res.render('home',
-    { title: 'Home'});}); selected.][server.js-routes]
+    { title: 'Home'});}); selected.](./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png)
 
         var home = new Home(client);
         app.get('/', home.showItems.bind(home));
         app.get('/home', home.showItems.bind(home));
 
-    Notice that instead of handling the request inline, you are now
-    delegating the command to a Home object. The **bind** command is
-    necessary to ensure that these references are properly resolved
-    locally within the home controller.
+	Notice that instead of handling the request inline, you are now delegating the command to a Home object. The **bind** command is necessary to ensure that these references are properly resolved locally within the home controller.
 
 ## Creating the Home Controller
 
@@ -226,14 +202,14 @@ controller:
              },
         };
 
-    Your home controller now includes three functions:
+	Your home controller now includes three functions:
 
-    -   *showItems* handles the request.
-    -   *getItems* uses the table client to retrieve open task items
+	-   *showItems* handles the request.
+	-   *getItems* uses the table client to retrieve open task items
         from your tasks table. Notice that the query can have additional
         filters applied; for example, the above query filters only show
         tasks where completed is equal to false.
-    -   *showResults* calls the Express render function to render the
+	-   *showResults* calls the Express render function to render the
         page using the home view that you will create in the next
         section.
 
@@ -285,10 +261,9 @@ items:
 
         PS C:\node\tasklist\WebRole1> Start-AzureEmulator -launch
 
-    Your browser displays the following page, showing the task item that
-    was retrieved from Windows Azure Storage:
+	Your browser displays the following page, showing the task item that was retrieved from Windows Azure Storage:
 
-    ![Internet explorer displaying a 'My Tasklist' page with one item in a table.][Internet explorer displaying a 'My Tasklist' page with one item in a table.]
+	![Internet explorer displaying a 'My Tasklist' page with one item in a table.](./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png)
 
 ## Adding New Task Functionality
 
@@ -300,11 +275,11 @@ items.
 In the server.js file, add the following line after the last route entry
 for**/home**, and then save the file.
 
-![The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.][The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]
+![The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png)
 
         app.post('/home/newitem', home.newItem.bind(home));
 
-The routes section should now look as follows:
+	The routes section should now look as follows:
 
        // Routes
 
@@ -319,7 +294,7 @@ To use the node-uuid module to create a unique identifier, add the
 following line at the top of the home.js file after the first line where
 the module is exported.
 
-![The home.js file with the line module.exports = Home highlighted.][The home.js file with the line module.exports = Home highlighted.]
+![The home.js file with the line module.exports = Home highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node42.png)
 
        var uuid = require('node-uuid');
 
@@ -329,7 +304,7 @@ To implement the new item functionality, create a **newItem** function.
 In your home.js file, paste the following code after the last function
 and then save the file.
 
-![The showresults: function is highlighted][The showresults: function is highlighted]
+![The showresults: function is highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png)
 
        newItem: function (req, res) {
            var self = this;
@@ -402,18 +377,15 @@ remove any of the spacing below.</p>
 
         PS C:\node\tasklist\WebRole1> start http://localhost:81/home
 
-    The browser opens and displays the following page:
+	The browser opens and displays the following page:
 
-    ![A web paged titled My Task List with a table containing tasks and fields to add a new task.][A web paged titled My Task List with a table containing tasks and fields to add a new task.]
+	![A web paged titled My Task List with a table containing tasks and fields to add a new task.](./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png)
 
-2.  Enter for **Item Name:** "New task functionality", **Item
-    Category:** "Site work"?, and for **Item Date:** "12/02/2011". Then
-    click **Add item**.
+2.  Enter for **Item Name:** "New task functionality", **Item Category:** "Site work"?, and for **Item Date:** "12/02/2011". Then click **Add item**.
 
-    The item is added to your tasks table in Windows Azure Storage and
-    displayed as shown in the screenshot below.
+	The item is added to your tasks table in Windows Azure Storage and displayed as shown in the screenshot below.
 
-![A web page titled My Task List with a table containing tasks, after you have added a task to the list.][A web page titled My Task List with a table containing tasks, after you have added a task to the list.]
+	![A web page titled My Task List with a table containing tasks, after you have added a task to the list.](./media/storage-nodejs-use-table-storage-cloud-service-app/node45.png)
 
 ## Re-Publishing the Application to Windows Azure
 
@@ -426,15 +398,13 @@ updating the deployment to the existing hosted service.
 
         PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 
-    After the deployment is complete, you should see a response similar to the following:
+	After the deployment is complete, you should see a response similar to the following:
 
-    ![the status messages displayed during deployment.][the status messages displayed during deployment.]
+	![the status messages displayed during deployment.](./media/storage-nodejs-use-table-storage-cloud-service-app/node35.png)
 
-    As before, because you specified the **-launch** option, the browser
-    opens and displays your application running in Windows Azure when
-    publishing is completed.
+	As before, because you specified the **-launch** option, the browser opens and displays your application running in Windows Azure when publishing is completed.
 
-    ![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.][A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]
+	![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png)
 
 ## Stopping and Deleting Your Application
 
@@ -453,10 +423,9 @@ The following steps show you how to stop and delete your application.
 
         PS C:\node\tasklist\WebRole1> Stop-AzureService
 
-    Stopping the service may take several minutes. When the service is
-    stopped, you receive a message indicating that it has stopped.
+	Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
 
-    ![Status messages indicating the service has stopped.][Status messages indicating the service has stopped.]
+	![Status messages indicating the service has stopped.](./media/storage-nodejs-use-table-storage-cloud-service-app/node48.png)
 
 3.  To delete the service, call the following cmdlet:
 
@@ -464,26 +433,12 @@ The following steps show you how to stop and delete your application.
 
 	When prompted, enter **Y** to delete the service.
 
-    Deleting the service may take several minutes. After the service has
-    been deleted you receive a message indicating that the service was
-    deleted.
+	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
-    ![Status messages indicating the service has been deleted.][Status messages indicating the service has been deleted.]
+	![Status messages indicating the service has been deleted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png
 
+)
   [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
-  [The completed web page in internet explorer]: ./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png
-  [The web.cloud.config file contents]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png
-  [server.js-code]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png
-  [server.js-routes]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png
-  [Internet explorer displaying a 'My Tasklist' page with one item in a table.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png
-  [The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png
-  [The home.js file with the line module.exports = Home highlighted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node42.png
-  [The showresults: function is highlighted]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png
-  [A web paged titled My Task List with a table containing tasks and fields to add a new task.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node44.png
-  [A web page titled My Task List with a table containing tasks, after you have added a task to the list.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node45.png
-  [the status messages displayed during deployment.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node35.png
-  [A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png
-  [Status messages indicating the service has stopped.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node48.png
-  [Status messages indicating the service has been deleted.]: ./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png
+ 

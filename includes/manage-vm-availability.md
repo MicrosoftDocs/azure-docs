@@ -6,7 +6,7 @@ You can ensure the availability of your application by using multiple Windows Az
 
 You manage the availability of your application that uses multiple virtual machines by adding the machines to an availability set. Availability sets are directly related to fault domains and update domains. A fault domain in Windows Azure is defined by avoiding single points of failure, like the network switch or power unit of a rack of servers. In fact, a fault domain is closely equivalent to a rack of physical servers.  When multiple virtual machines are connected together in a cloud service, an availability set can be used to ensure that the machines are located in different fault domains. The following diagram shows two availability sets with two virtual machines in each set.
 
-![Update domains][Update domains]
+![Update domains](./media/manage-vm-availability/UpdateDomains.png)
 
 Windows Azure periodically updates the operating system that hosts the instances of an application. A virtual machine is shut down when an update is applied. An update domain is used to ensure that not all of the virtual machine instances are updated at the same time. When you assign multiple virtual machines to an availability set, Windows Azure ensures that the machines are assigned to different update domains. The previous diagram shows two virtual machines running Internet Information Services (IIS) in separate update domains and two virtual machines running SQL Server also in separate update domains.
 
@@ -29,7 +29,7 @@ To create an availability set that contains virtual machines, you can create the
 
 2. On the command bar, click **New**.
 
-	![Create a virtual machine][Create a virtual machine]
+	![Create a virtual machine](./media/manage-vm-availability/Create.png)
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
@@ -82,11 +82,11 @@ The previous step showed you how to create a virtual machine and availability se
 
 2. On the command bar, click **New**.
 
-	![Create a virtual machine][Create a virtual machine]
+	![Create a virtual machine](./media/manage-vm-availability/Create.png)
 
 3. Click **Virtual Machine**, and then click **From Gallery**.
 
-	![Create from gallery][Create from gallery]
+	![Create from gallery](./media/manage-vm-availability/CreateNew.png)
 
 	The **Select the virtual machine operating system** dialog box appears. You can now select an image from the Image Gallery.
 
@@ -169,10 +169,6 @@ You can easily add an existing virtual machine to an availability set that was p
 [Step 3: (Optional) Create an availability set for previously created virtual machines]: #previousmachine
 [Step 4: (Optional) Add a previously created virtual machine to an availability set]: #existingset
 
-<!-- IMAGES -->
-[Update domains]: ./media/manage-vm-availability/UpdateDomains.png
-[Create a virtual machine]: ./media/manage-vm-availability/Create.png
-[Create from gallery]: ./media/manage-vm-availability/CreateNew.png
 
 <!-- LINKS -->
 [Load Balancing Virtual Machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md

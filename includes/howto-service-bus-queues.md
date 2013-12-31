@@ -15,7 +15,7 @@ received and processed by the receivers in the order in which they were
 added to the queue, and each message is received and processed by only
 one message consumer.
 
-![QueueConcepts][]
+![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
 Service Bus queues are a general-purpose technology that can be used for
 a wide variety of scenarios:
@@ -46,25 +46,25 @@ To create a service namespace:
     **Service Bus**.
 
 3.  In the lower pane of the Management Portal, click **Create**.   
-    ![][0]
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
 4.  In the **Add a new namespace** dialog, enter a namespace name.
     The system immediately checks to see if the name is available.   
-    ![][1]
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  After making sure the namespace name is available, choose the
     country or region in which your namespace should be hosted (make
     sure you use the same country/region in which you are deploying your
     compute resources).
 
-    IMPORTANT: Pick the **same region** that you intend to choose for
+	IMPORTANT: Pick the **same region** that you intend to choose for
     deploying your application. This will give you the best performance.
 
 6. 	Click the check mark. The system now creates your service
     namespace and enables it. You might have to wait several minutes as
     the system provisions resources for your account.
 
-	![][5]
+	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
 The namespace you created will then appear in the Management Portal and
 takes a moment to activate. Wait until the status is **Active** before
@@ -79,22 +79,17 @@ namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
     display the list of available namespaces:   
-    ![][6]
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
 2.  Select the namespace you just created from the list shown:   
-    ![][2]
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
 3.  Click **Connection Information**.   
-    ![][3]
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [QueueConcepts]: ./media/howto-service-bus-queues/sb-queues-08.png
   [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [0]: ./media/howto-service-bus-queues/sb-queues-03.png
-  [1]: ./media/howto-service-bus-queues/sb-queues-04.png
-  [2]: ./media/howto-service-bus-queues/sb-queues-09.png
-  [3]: ./media/howto-service-bus-queues/sb-queues-06.png
-  [5]: ./media/howto-service-bus-queues/getting-started-multi-tier-27.png
-  [6]: ./media/howto-service-bus-queues/sb-queues-13.png
+
+

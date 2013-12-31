@@ -56,9 +56,9 @@ You can use **Manage Keys** to copy a storage access key to use in a connection 
 
 2. Click **Manage Keys**.
 
- **Manage Access Keys** opens.
+ 	**Manage Access Keys** opens.
 
-	![Managekeys] (./media/storage-manage-storage-account/Storage_ManageKeys.png)
+	![Managekeys](./media/storage-manage-storage-account/Storage_ManageKeys.png)
 
  
 3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
@@ -108,8 +108,8 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 2. Click anywhere in the storage account entry except the name, and then click **Delete**.
 
- -Or-
+	 -Or-
 
- Click the name of the storage account to open the dashboard, and then click **Delete**.
+	Click the name of the storage account to open the dashboard, and then click **Delete**.
 
 3. Click **Yes** to confirm you want to delete the storage account.

@@ -86,47 +86,49 @@ The **Publish Web** wizard opens.
 The **Import Publish Profile** dialog box appears.
 3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
-	-In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**.<br/> 
+	- In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**.<br/> 
     
 	![add Windows Azure subscription](./media/web-sites-dotnet-get-started-vs2012/rzAddWAsub.png)
     
-	-In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+	- In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
     
 	![download subscription file](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadDownload.png)
     
-	-In your browser window, save the *.publishsettings* file.<br/>
+	- In your browser window, save the *.publishsettings* file.<br/>
     
 	![download .publishsettings file](./media/web-sites-dotnet-get-started-vs2012/rzDown2.png)<br/>
     
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
-	-In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+<br/>
 
-    ![download sub](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadBrowse.png)
+	- In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
 
-	-Click **Import**.<br/>
+	![download sub](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadBrowse.png)
+
+	- Click **Import**.<br/>
     
 	![import](./media/web-sites-dotnet-get-started-vs2012/rzImp.png)
 
 4. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
-![Import Publish Profile][ImportPublishProfile]
+	![Import Publish Profile][ImportPublishProfile]
 5. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
-![Validate connection][ValidateConnection]<br/>
+	![Validate connection][ValidateConnection]<br/>
 6. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. Click **Next**.<br/>
-![Successfully validated connection][ValidateConnectionSuccess]
+	![Successfully validated connection][ValidateConnectionSuccess]
 7. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.<br/>
 Click **Next**.<br/>
-![Settings tab][PublishWebSettingsTab]
+	![Settings tab][PublishWebSettingsTab]
 8. In the **Preview** tab, click **Start Preview**.<br/>
 ![StartPreview button in the Preview tab][PublishWebStartPreview]<br/>The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/> 
-![StartPreview file output][PublishWebStartPreviewOutput]<br/>
+	![StartPreview file output][PublishWebStartPreviewOutput]<br/>
 9. Click **Publish**.<br/>
 Visual Studio begins the process of copying the files to the Windows Azure server.<br/>
 10. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.<br/>
-![Output window reporting successful deployment][PublishOutput]
+	![Output window reporting successful deployment][PublishOutput]
 11. Upon successful deployment, the default browser automatically opens to the URL of the deployed web site.<br/>
 The application you created is now running in the cloud.<br/>
-![Web site running in Windows Azure][DeployedWebSite]<br/>
+	![Web site running in Windows Azure][DeployedWebSite]<br/>
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
