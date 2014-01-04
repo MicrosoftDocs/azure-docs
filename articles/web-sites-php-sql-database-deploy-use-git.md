@@ -239,13 +239,11 @@ After you have tested your application locally, you can publish it to your Windo
 
 > WACOM.NOTE
 > In the <code>$host</code>, the value of SERVER must be prepended with <code>tcp:</code>, and the value of <code>$user</code> is the concatenation of the value of USERNAME, '@', and your server ID. Your server ID is the first 10 characters of the value of SERVER.
-</div>
 
 Now, you are ready to set up Git publishing and publish the application.
 
 > WACOM.NOTE
 > These are the same steps noted at the end of the Create a Windows Azure Web Site and Set up Git Publishing section above.
-</div>
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
