@@ -363,22 +363,12 @@ In this simple example a user receives a push notification with the data that wa
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-
-
-
-
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png
 [7]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png
 
 [9]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step9.png
 [10]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step10.png
-
-
-
-
-
-
 [17]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step17.png
 [18]: ./media/mobile-services-ios-get-started-push/mobile-services-selection.png
 [19]: ./media/mobile-services-ios-get-started-push/mobile-push-tab-ios.png
@@ -420,7 +410,6 @@ In this simple example a user receives a push notification with the data that wa
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
 [Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
-
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
