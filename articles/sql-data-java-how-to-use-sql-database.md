@@ -43,14 +43,11 @@ The following are prerequisites if you intend to use SQL Database with Java.
 * A Java Developer Kit (JDK), v 1.6 or later.
 * A Windows Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
 * If you are using Eclipse:
-
-    * Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
-
-    * The Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+** Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+** The Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
 
 * If you are not using Eclipse:
-
-    * Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
+** Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
 
 <h2><a id="create_db"></a>Creating a Windows Azure SQL Database</h2>
 
@@ -113,14 +110,16 @@ We'll actually use this string later in this guide, for now you know the steps t
 2. Add a Java class file named **HelloSQLAzure.java** to the project.
 3. Add the **Microsoft JDBC Driver for SQL Server** to your build path.
 
-   ###If you are using Eclipse:###
+    If you are using Eclipse:
+
     1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
     2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
     3. Click the **Libraries** tab, and then click **Add Library**.
     4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
     5. Click **OK** to close the **Properties** dialog.
 
-    ###If you are not using Eclipse:###
+    If you are not using Eclipse:
+
     * Add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
 
 4. Within your **HelloSQLAzure.java** code, add in `import` statements as shown in the following:
