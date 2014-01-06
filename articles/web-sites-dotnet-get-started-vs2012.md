@@ -39,18 +39,18 @@ The following illustration shows the completed application:
 
 The next step is to create the Windows Azure web site.
 
-1. In the [Windows Azure Management Portal][PreviewPortal], click **Web Sites**, and then click **New**.<br/>
+1. In the [Windows Azure Management Portal][PreviewPortal], click **Web Sites**, and then click **New**.
 ![New web site][WebSiteNew]
-2. Click **Quick Create**.<br/>
-![Quick create][ClickQuickCreate]<br/>
-3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.<br/>The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
-4. In the **Region** drop-down list, choose the region that is closest to you.<br/>
+2. Click **Quick Create**.
+![Quick create][ClickQuickCreate]
+3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
+4. In the **Region** drop-down list, choose the region that is closest to you.
 This setting specifies which data center your web site will run in. 
 5. Click the **Create Web Site** arrow.
 
 	![Create a new web site](./media/web-sites-dotnet-get-started-vs2012/CreateWebsite.png)
-The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.<br/>
-![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]<br/>
+The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.
+![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]
 
 <h2><a name="createmvc4app"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 4 application</h2>
 
@@ -59,76 +59,76 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Create the project
 
 1. Start Visual Studio 2012 or Visual Studio 2012 for Web Express.
-2. From the **File** menu, click **New**, and then click **Project**.<br/>
+2. From the **File** menu, click **New**, and then click **Project**.
 ![New Project in File menu][NewVSProject]
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET MVC 4 Web Application**. 
 3. Ensure that **.NET Framework 4.5** is selected as the target framework.
-4. Name the application **MyExample** and click **OK**.<br/>
+4. Name the application **MyExample** and click **OK**.
 ![New Project dialog box][NewMVC4WebApp]
-5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template and click **OK**.<br/>
+5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template and click **OK**.
 ![New ASP.NET MVC 4 Project dialog box][InternetAppTemplate]
 
 ### Run the application locally
 
 1. Press **CTRL**+**F5** to run the application.
-The application home page appears in the default browser.<br/>
+The application home page appears in the default browser.
 ![Web site running locally][AppRunningLocally]
 
 This is all you need to do to create a simple application that you'll deploy to Windows Azure.
 
 <h2><a name="deploytowindowsazure"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
 
-1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
-![Publish in project context menu][PublishVSSolution]<br/>
+1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
+![Publish in project context menu][PublishVSSolution]
 The **Publish Web** wizard opens.
-2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
-![Import publish settings][ImportPublishSettings]<br/>
+2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
+![Import publish settings][ImportPublishSettings]
 The **Import Publish Profile** dialog box appears.
 3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
-	- In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**.<br/> 
+	- In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**. 
     
 	![add Windows Azure subscription](./media/web-sites-dotnet-get-started-vs2012/rzAddWAsub.png)
     
-	- In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
+	- In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.
     
 	![download subscription file](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadDownload.png)
     
-	- In your browser window, save the *.publishsettings* file.<br/>
+	- In your browser window, save the *.publishsettings* file.
     
-	![download .publishsettings file](./media/web-sites-dotnet-get-started-vs2012/rzDown2.png)<br/>
+	![download .publishsettings file](./media/web-sites-dotnet-get-started-vs2012/rzDown2.png)
     
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
-<br/>
 
-	- In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
+
+	- In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
 
 	![download sub](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadBrowse.png)
 
-	- Click **Import**.<br/>
+	- Click **Import**.
     
 	![import](./media/web-sites-dotnet-get-started-vs2012/rzImp.png)
 
-4. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
+4. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.
 	![Import Publish Profile][ImportPublishProfile]
-5. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
-	![Validate connection][ValidateConnection]<br/>
-6. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. Click **Next**.<br/>
+5. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
+	![Validate connection][ValidateConnection]
+6. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. Click **Next**.
 	![Successfully validated connection][ValidateConnectionSuccess]
-7. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.<br/>
-Click **Next**.<br/>
+7. In the **Settings** tab, uncheck **Use this connection string at runtime** option, since this application is not using a database. You can accept the default settings for the remaining items on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.
+Click **Next**.
 	![Settings tab][PublishWebSettingsTab]
-8. In the **Preview** tab, click **Start Preview**.<br/>
-![StartPreview button in the Preview tab][PublishWebStartPreview]<br/>The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed.<br/> 
-	![StartPreview file output][PublishWebStartPreviewOutput]<br/>
-9. Click **Publish**.<br/>
-Visual Studio begins the process of copying the files to the Windows Azure server.<br/>
-10. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.<br/>
+8. In the **Preview** tab, click **Start Preview**.
+![StartPreview button in the Preview tab][PublishWebStartPreview]The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. 
+	![StartPreview file output][PublishWebStartPreviewOutput]
+9. Click **Publish**.
+Visual Studio begins the process of copying the files to the Windows Azure server.
+10. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 	![Output window reporting successful deployment][PublishOutput]
-11. Upon successful deployment, the default browser automatically opens to the URL of the deployed web site.<br/>
-The application you created is now running in the cloud.<br/>
-	![Web site running in Windows Azure][DeployedWebSite]<br/>
+11. Upon successful deployment, the default browser automatically opens to the URL of the deployed web site.
+The application you created is now running in the cloud.
+	![Web site running in Windows Azure][DeployedWebSite]
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
