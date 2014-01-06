@@ -9,7 +9,7 @@
 
 This guide will explain how to access Blitline services and how to submit jobs to Blitline.
 
-<h2><a name="toc"></a>Table of contents</h2>
+## Table of contents
 
 [What is Blitline?][]
 [What Blitline is NOT][]
@@ -40,8 +40,7 @@ To clarify what Blitline is useful for, it is often easier to identify what Blit
 
 <h2><a name="createaccount"></a><span  class="short-header">Create a Blitline account</span>Create a Blitline account</h2>
 
-
-<div chunk="../../Shared/Chunks/blitline-signup.md" />
+[WACOM.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
 <h2><a name="createjob"></a><span  class="short-header">Create a Blitline job</span>How to create a Blitline job</h2>
 
