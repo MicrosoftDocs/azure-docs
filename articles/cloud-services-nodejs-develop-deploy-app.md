@@ -28,7 +28,7 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-   ![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+	![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 
 ## Creating a New Node Application
 
@@ -126,7 +126,7 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 
 	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-</br>
+
 
 ### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
 
