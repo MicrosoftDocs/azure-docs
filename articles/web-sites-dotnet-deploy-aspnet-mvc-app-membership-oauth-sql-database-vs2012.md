@@ -29,7 +29,7 @@ You'll learn:
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
 
-![login page][rxb]
+	![login page][rxb]
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -77,7 +77,9 @@ Windows Azure SQL Database is a cloud-based relational database service that is 
 	![New button in Management Portal][rxWSnew]
 
 2. Click **CUSTOM CREATE**.
+
 	![Create with Database link in Management Portal][rxCreateWSwithDB]
+
 	The **New Web Site - Custom Create** wizard opens.
  
 3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.
@@ -190,6 +192,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 	![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
     
 	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+	
 	
 	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
     
