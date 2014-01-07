@@ -273,31 +273,31 @@ For more information about using Windows PowerShell, see [Getting Started with W
 <h2><a id="backup"></a>Step 7: Backup the domain controller</h2>
 
 
-1.	Connect to YourVMachine.
+1. Connect to YourVMachine.
 
-2.	Click **Start**, Click **Server Manager**, click **Add Features**, and then select **Windows Server Backup Features**. Follow the instructions to install Windows Server Backup.
+2. Click **Start**, Click **Server Manager**, click **Add Features**, and then select **Windows Server Backup Features**. Follow the instructions to install Windows Server Backup.
 
-3.	Click **Start**, Click **Windows Server Backup**, click **Backup once**.
+3. Click **Start**, Click **Windows Server Backup**, click **Backup once**.
  
-4.	Click **Different options** and click **Next**.
+4. Click **Different options** and click **Next**.
 
-5.	Click **Full Server** and click **Next**.
+5. Click **Full Server** and click **Next**.
 
-6.	Click **Local drives** and click **Next**.
+6. Click **Local drives** and click **Next**.
 
-7.	Select the destination drive that does not host the operating system files or the Active Directory database, and click Next.
+7. Select the destination drive that does not host the operating system files or the Active Directory database, and click Next.
 
 	![BackupDC](./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png)
 
 
-8.	Confirm the backup settings you selected and then click **Backup**.
+8. Confirm the backup settings you selected and then click **Backup**.
 
 <h2><a id="test"></a>Step 8: Test authentication and authorization</h2>
 
-1.	In order to test authentication and authorization, create a domain user account in Active Directory. 
+1. In order to test authentication and authorization, create a domain user account in Active Directory. 
 Log on to the client VM in each site and create a shared folder on the VM
 
-2.	Test access to the shared folder using different accounts and groups and permissions. 
+2. Test access to the shared folder using different accounts and groups and permissions. 
 
 ## See Also
 

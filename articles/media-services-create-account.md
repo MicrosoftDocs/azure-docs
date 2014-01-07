@@ -38,15 +38,15 @@ Accessing Media Services requires two associated accounts:
 
 6. Click **Quick Create** at the bottom of the form.
 
-You can monitor the status of the process in the message area at the bottom of the window.
+	You can monitor the status of the process in the message area at the bottom of the window.
 
-The **media services** page opens with the new account displayed. When the status changes to Active, it means the account is successfully created.
+	The **media services** page opens with the new account displayed. When the status changes to Active, it means the account is successfully created.
 
 	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
-When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
+	When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
 
-In addition, you can view code that uses Windows Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos. You can click on one of the links under WRITE SOME CODE section, copy the code  and use it in your application. 
+	In addition, you can view code that uses Windows Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos. You can click on one of the links under WRITE SOME CODE section, copy the code  and use it in your application. 
 
 
 <!-- Reusable paths. -->
