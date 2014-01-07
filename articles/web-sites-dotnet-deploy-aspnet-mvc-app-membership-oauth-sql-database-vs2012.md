@@ -163,7 +163,8 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 	![saving the .publishsettings file][firsdeploy002]
 
-	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+
+		[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -191,7 +192,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
     
 	![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
     
-	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+		[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 	
 	
 	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.

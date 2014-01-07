@@ -40,17 +40,25 @@ The following illustration shows the completed application:
 The next step is to create the Windows Azure web site.
 
 1. In the [Windows Azure Management Portal][PreviewPortal], click **Web Sites**, and then click **New**.
-![New web site][WebSiteNew]
+
+	![New web site][WebSiteNew]
+
 2. Click **Quick Create**.
-![Quick create][ClickQuickCreate]
+	
+	![Quick create][ClickQuickCreate]
+
 3. In the **Create Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application.The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows **example1**, but if someone has already taken that string for a URL, you need to enter a different value.
+
 4. In the **Region** drop-down list, choose the region that is closest to you.
 This setting specifies which data center your web site will run in. 
+
 5. Click the **Create Web Site** arrow.
 
 	![Create a new web site](./media/web-sites-dotnet-get-started-vs2012/CreateWebsite.png)
-The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.
-![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]
+
+	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon.
+	
+	![Web Sites page of Management Portal, web site created][WebSiteStatusRunning]
 
 <h2><a name="createmvc4app"></a><span class="short-header">Create the app</span>Create an ASP.NET MVC 4 application</h2>
 
@@ -59,36 +67,44 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Create the project
 
 1. Start Visual Studio 2012 or Visual Studio 2012 for Web Express.
+
 2. From the **File** menu, click **New**, and then click **Project**.
-![New Project in File menu][NewVSProject]
+
+	![New Project in File menu][NewVSProject]
+
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET MVC 4 Web Application**. 
+
 3. Ensure that **.NET Framework 4.5** is selected as the target framework.
+
 4. Name the application **MyExample** and click **OK**.
-![New Project dialog box][NewMVC4WebApp]
+	
+	![New Project dialog box][NewMVC4WebApp]
+
 5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template and click **OK**.
-![New ASP.NET MVC 4 Project dialog box][InternetAppTemplate]
+
+	![New ASP.NET MVC 4 Project dialog box][InternetAppTemplate]
 
 ### Run the application locally
 
-1. Press **CTRL**+**F5** to run the application.
-The application home page appears in the default browser.
-![Web site running locally][AppRunningLocally]
+1. Press **CTRL**+**F5** to run the application. The application home page appears in the default browser.
 
-This is all you need to do to create a simple application that you'll deploy to Windows Azure.
+	![Web site running locally][AppRunningLocally]
+
+	This is all you need to do to create a simple application that you'll deploy to Windows Azure.
 
 <h2><a name="deploytowindowsazure"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
-   ![Publish in project context menu][PublishVSSolution]
+	![Publish in project context menu][PublishVSSolution]
 
-   The **Publish Web** wizard opens.
+	The **Publish Web** wizard opens.
 
 2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
-   ![Import publish settings][ImportPublishSettings]
+	![Import publish settings][ImportPublishSettings]
 
-   The **Import Publish Profile** dialog box appears.
+	The **Import Publish Profile** dialog box appears.
 
 3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
@@ -98,7 +114,7 @@ This is all you need to do to create a simple application that you'll deploy to 
     
 	- In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.
     
-	   ![download subscription file](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadDownload.png)
+  	   ![download subscription file](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadDownload.png)
     
 	- In your browser window, save the *.publishsettings* file.
     
@@ -137,8 +153,7 @@ Click **Next**.
 
 	![StartPreview file output][PublishWebStartPreviewOutput]
 
-9. Click **Publish**.
-Visual Studio begins the process of copying the files to the Windows Azure server.
+9. Click **Publish**. Visual Studio begins the process of copying the files to the Windows Azure server.
 
 10. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 

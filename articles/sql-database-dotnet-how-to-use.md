@@ -97,7 +97,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 1. Click **SQL Databases**, click **Servers** at the top of the page, and then click on the server you just created.
 
-	![Image2](./media/sql-database-dotnet-how-to-use/SQLDbFirewall.PNG)
+	![Image2](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
 
 2. Click **Configure**. 
 
@@ -111,7 +111,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 6. Click the checkmark next to the rule to save it.
 
-	![Image3](./media/sql-database-dotnet-how-to-use/SQLDbIPRange.PNG)
+	![Image3](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
 
 7. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
