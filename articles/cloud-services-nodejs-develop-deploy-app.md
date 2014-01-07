@@ -26,7 +26,7 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-	![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 
 
 ## Creating a New Node Application
@@ -122,7 +122,7 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 
 
 
-### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
+###<a id="download_publishing_settings"></a>Downloading the Windows Azure Publishing Settings
 
 In order to deploy your application to Windows Azure, you must first download the publishing settings for your Windows Azure subscription. The following steps guide you through this process:
 
