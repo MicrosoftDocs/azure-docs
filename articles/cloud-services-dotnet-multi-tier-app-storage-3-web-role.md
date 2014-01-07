@@ -56,33 +56,33 @@ You begin by creating a Visual Studio solution with a project for the web front-
 
 2. From the **File** menu select **New Project**.
 
-   ![New Project menu][mtas-file-new-project]
+	![New Project menu][mtas-file-new-project]
 
 3. Expand **C#** and select **Cloud** under **Installed Templates**, and then select **Windows Azure Cloud Service**.  
 
 4. Name the application **AzureEmailService** and click **OK**.
 
-   ![New Project dialog box][mtas-new-cloud-project]
+	![New Project dialog box][mtas-new-cloud-project]
 
 5. In the **New Windows Azure Cloud Service** dialog box, select **ASP.NET MVC 4 Web Role** and click the arrow that points to the right.
 
-   ![New Windows Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
+	![New Windows Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
 
 6. In the column on the right, hover the pointer over **MvcWebRole1**, and then click the pencil icon to change the name of the web role. 
 
 7. Enter MvcWebRole as the new name, and then press Enter.
 
-   ![New Windows Azure Cloud Project dialog box - renaming the web role][mtas-new-cloud-service-dialog-rename]
+	![New Windows Azure Cloud Project dialog box - renaming the web role][mtas-new-cloud-service-dialog-rename]
 
 8. Follow the same procedure to add a **Worker Role**, name it WorkerRoleA, and then click **OK**.
 
-   ![New Windows Azure Cloud Project dialog box - adding a worker role][mtas-new-cloud-service-add-worker-a]
+	![New Windows Azure Cloud Project dialog box - adding a worker role][mtas-new-cloud-service-add-worker-a]
 
 5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
 
 6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.
 
-   ![New Project dialog box][mtas-new-mvc4-project]
+	![New Project dialog box][mtas-new-mvc4-project]
 
 ### Set the page header, menu, and footer
 
@@ -90,17 +90,17 @@ In this section you update the headers, footers, and menu items that are shown o
 
 1. In **Solution Explorer**, expand the Views\Shared folder and open the &#95;Layout.cshtml file.
 
-   ![_Layout.cshtml in Solution Explorer][mtas-opening-layout-cshtml]
+	![_Layout.cshtml in Solution Explorer][mtas-opening-layout-cshtml]
 
 2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Windows Azure Email Service".
 
 3. In the **&lt;p&gt;** element with class "site-title", change "your logo here" to "Windows Azure Email Service", and change "Home" to "MailingList".
 
-    ![title and header in _Layout.cshtml][mtas-title-and-logo-in-layout]
+	![title and header in _Layout.cshtml][mtas-title-and-logo-in-layout]
 
 4. Delete the menu section:
 
-    ![menu in _Layout.cshtml][mtas-menu-in-layout]
+	![menu in _Layout.cshtml][mtas-menu-in-layout]
 
 4. Insert a new menu section where the old one was:
 
@@ -112,19 +112,19 @@ In this section you update the headers, footers, and menu items that are shown o
 
 4. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Windows Azure Email Service".<br/>
 
-   ![footer in _Layout.cshtml][mtas-footer-in-layout]
+	![footer in _Layout.cshtml][mtas-footer-in-layout]
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
 
-   The application home page appears in the default browser.
+	The application home page appears in the default browser.
 
-   ![home page][mtas-home-page-before-adding-controllers]
+	![home page][mtas-home-page-before-adding-controllers]
 
-   The application runs in the Windows Azure compute emulator.  You can see the compute emulator icon in the Windows system tray:
+	The application runs in the Windows Azure compute emulator.  You can see the compute emulator icon in the Windows system tray:
 
-   ![Compute emulator in system tray][mtas-compute-emulator-icon]
+	![Compute emulator in system tray][mtas-compute-emulator-icon]
 
 
 <h2><a name="tracing"></a><span class="short-header">Configure Tracing</span>Configure Tracing</h2>
@@ -190,15 +190,15 @@ The API framework that you use to work with Windows Azure Storage tables, queues
 
 1. In the Visual Studio **Tools** menu, hover over **Library Package Manager**, and then click **Manage NuGet Packages for Solution**.
 
-   ![Manage NuGet Packages for Solution in menu][mtas-manage-nuget-for-solution]
+	![Manage NuGet Packages for Solution in menu][mtas-manage-nuget-for-solution]
 
 2. In the left pane of the **Manage NuGet Packages** dialog box, select **Updates**, then scroll down to the **Windows Azure Storage** package and click **Update**.
 
-   ![Windows Azure Storage package in Manage NuGet Packages dialog box][mtas-update-storage-nuget-pkg]
+	![Windows Azure Storage package in Manage NuGet Packages dialog box][mtas-update-storage-nuget-pkg]
 
 3. In the **Select Projects** dialog box, make sure both projects are selected, and then click **OK**.
 
-   ![Selecting both projects in the Select Projects dialog box][mtas-nuget-select-projects]
+	![Selecting both projects in the Select Projects dialog box][mtas-nuget-select-projects]
  
 4. Accept the license terms to complete installation of the package, and then close the **Manage NuGet Packages** dialog box.
 
@@ -275,7 +275,7 @@ You could add this one-time startup code to the `OnStart` method in the *WebRole
 	
 3. Right click on the blue squiggly line under `RoleEnvironment`, select **Resolve** then select **using Microsoft.WindowsAzure.ServiceRuntime**. 
 
- ![rightClick][mtas-4]
+	![rightClick][mtas-4]
 
 1. Right click the blue squiggly line under `CloudStorageAccount`, select **Resolve**, and then select **using Microsoft.WindowsAzure.Storage**.  
 
@@ -290,8 +290,6 @@ In the following sections you build the components of the web application, and y
 
 
 
-
-
 <h2><a name="mailinglist"></a><span class="short-header">Mailing List</span>Create and test the Mailing List controller and views</h2>
 
 The **Mailing List** web UI is used by administrators to create, edit and display mailing lists, such as "Contoso University History Department announcements" and "Fabrikam Engineering job postings".
@@ -302,7 +300,7 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 
 1. In **Solution Explorer**, right-click the `Models` folder in the MVC project, and choose **Add Existing Item**.
 
-   ![Add existing item to Models folder][mtas-add-existing-item-to-models]
+	![Add existing item to Models folder][mtas-add-existing-item-to-models]
 
 2. Navigate to the folder where you downloaded the sample application, select the *MailingList.cs* file in the `Models` folder, and click **Add**.
 
@@ -339,33 +337,33 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 	    }
 			
 
-   The Windows Azure Storage TSL 2.0 API requires that the entity classes that you use for table operations derive from [TableEntity][]. This class defines `PartitionKey`, `RowKey`, `TimeStamp`, and `ETag` fields. The `TimeStamp` and `ETag` properties are used by the system. You'll see how the `ETag` property is used for concurrency handling later in the tutorial. 
+	The Windows Azure Storage TSL 2.0 API requires that the entity classes that you use for table operations derive from [TableEntity][]. This class defines `PartitionKey`, `RowKey`, `TimeStamp`, and `ETag` fields. The `TimeStamp` and `ETag` properties are used by the system. You'll see how the `ETag` property is used for concurrency handling later in the tutorial. 
 
-   (There is also a [DynamicTableEntity] class for use when you want to work with table rows as Dictionary collections of key value pairs instead of by using predefined model classes. For more information, see [Windows Azure Storage Client Library 2.0 Tables Deep Dive][deepdive].)
+	(There is also a [DynamicTableEntity] class for use when you want to work with table rows as Dictionary collections of key value pairs instead of by using predefined model classes. For more information, see [Windows Azure Storage Client Library 2.0 Tables Deep Dive][deepdive].)
 
-   The `mailinglist` table partition key is the list name. In this entity class the partition key value can be accessed either by using the `PartitionKey` property (defined in the `TableEntity` class) or the `ListName` property (defined in the `MailingList` class).  The `ListName` property uses `PartitionKey` as its backing variable. Defining the `ListName` property enables you to use a more descriptive variable name in code and makes it easier to program the web UI, since formatting and validation DataAnnotations attributes can be added to the `ListName` property, but they can't be added directly to the `PartitionKey` property.
+	The `mailinglist` table partition key is the list name. In this entity class the partition key value can be accessed either by using the `PartitionKey` property (defined in the `TableEntity` class) or the `ListName` property (defined in the `MailingList` class).  The `ListName` property uses `PartitionKey` as its backing variable. Defining the `ListName` property enables you to use a more descriptive variable name in code and makes it easier to program the web UI, since formatting and validation DataAnnotations attributes can be added to the `ListName` property, but they can't be added directly to the `PartitionKey` property.
 
-   The `RegularExpression` attribute on the `ListName` property causes MVC to validate user input to ensure that the list name value entered only contains alphanumeric characters or underscores. This restriction was implemented in order to keep list names simple so that they can easily be used in query strings in URLs. 
+	The `RegularExpression` attribute on the `ListName` property causes MVC to validate user input to ensure that the list name value entered only contains alphanumeric characters or underscores. This restriction was implemented in order to keep list names simple so that they can easily be used in query strings in URLs. 
 
-   **Note:**  If you wanted the list name format to be less restrictive, you could allow other characters and URL-encode list names when they are used in query strings. However, certain characters are not allowed in Windows Azure Table partition keys or row keys, and you would have to exclude at least those characters. For information about characters that are not allowed or cause problems in the partition key or row key fields, see [Understanding the Table Service Data Model][tabledatamodel] and [% Character in PartitionKey or RowKey][percentinkeyfields].
+	**Note:**  If you wanted the list name format to be less restrictive, you could allow other characters and URL-encode list names when they are used in query strings. However, certain characters are not allowed in Windows Azure Table partition keys or row keys, and you would have to exclude at least those characters. For information about characters that are not allowed or cause problems in the partition key or row key fields, see [Understanding the Table Service Data Model][tabledatamodel] and [% Character in PartitionKey or RowKey][percentinkeyfields].
 
-   The `MailingList` class defines a default constructor that sets `RowKey` to the hard-coded string "mailinglist", because all of the mailing list rows in this table have that value as their row key. (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Any constant value could have been chosen for this purpose, as long as it could never be the same as an email address, which is the row key for the subscriber rows in this table.
+	The `MailingList` class defines a default constructor that sets `RowKey` to the hard-coded string "mailinglist", because all of the mailing list rows in this table have that value as their row key. (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Any constant value could have been chosen for this purpose, as long as it could never be the same as an email address, which is the row key for the subscriber rows in this table.
 
-   The list name and the "from" email address must always be entered when a new `MailingList` entity is created, so they have `Required` attributes.
+	The list name and the "from" email address must always be entered when a new `MailingList` entity is created, so they have `Required` attributes.
 
-   The `Display` attributes specify the default caption to be used for a field in the MVC UI. 
+	The `Display` attributes specify the default caption to be used for a field in the MVC UI. 
 
 ### Add the MailingList MVC controller
 
 1. In **Solution Explorer**, right-click the Controllers folder in the MVC project, and choose **Add Existing Item**.
 
-   ![Add existing item to Controllers folder][mtas-add-existing-item-to-controllers]
+	![Add existing item to Controllers folder][mtas-add-existing-item-to-controllers]
 
 2. Navigate to the folder where you downloaded the sample application, select the *MailingListController.cs* file in the `Controllers` folder, and click **Add**.
 
 3. Open *MailingListController.cs* and examine the code.
 
-   The default constructor creates a `CloudTable` object to use for working with the `mailinglist` table.
+	The default constructor creates a `CloudTable` object to use for working with the `mailinglist` table.
 
 	    public class MailingListController : Controller
 	    {
@@ -381,9 +379,9 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 	            mailingListTable = tableClient.GetTableReference("mailinglist");
 	        }
 		
-   The code gets the credentials for your Windows Azure Storage account from the Cloud Service project settings file in order to make a connection to the storage account. (You'll configure those settings later in this tutorial, before you test the controller.) If you are going to run the MVC project in a Windows Azure Web Site, you can get the connection string from the Web.config file instead.
+	The code gets the credentials for your Windows Azure Storage account from the Cloud Service project settings file in order to make a connection to the storage account. (You'll configure those settings later in this tutorial, before you test the controller.) If you are going to run the MVC project in a Windows Azure Web Site, you can get the connection string from the Web.config file instead.
 
-   Next is a `FindRow` method that is called whenever the controller needs to look up a specific mailing list entry of the `MailingList` table, for example to edit a mailing list entry. The code retrieves a single `MailingList` entity by using the partition key and row key values passed in to it. The rows that this controller edits are the ones that have "MailingList" as the row key, so "MailingList" could have been hard-coded for the row key, but specifying both partition key and row key is a pattern used for the `FindRow` methods in all of the controllers.
+	Next is a `FindRow` method that is called whenever the controller needs to look up a specific mailing list entry of the `MailingList` table, for example to edit a mailing list entry. The code retrieves a single `MailingList` entity by using the partition key and row key values passed in to it. The rows that this controller edits are the ones that have "MailingList" as the row key, so "MailingList" could have been hard-coded for the row key, but specifying both partition key and row key is a pattern used for the `FindRow` methods in all of the controllers.
 
         private MailingList FindRow(string partitionKey, string rowKey)
         {
@@ -412,14 +410,14 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             return subscriber;
         }
 
-   The only difference in the two queries is the model type that they pass to the [TableOperation.Retrieve](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) method. The model type specifies the schema (the properties) of the row or rows that you expect the query to return. A single table may have different schemas in different rows. Typically you specify the same model type when reading a row that was used to create the row.
+	The only difference in the two queries is the model type that they pass to the [TableOperation.Retrieve](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) method. The model type specifies the schema (the properties) of the row or rows that you expect the query to return. A single table may have different schemas in different rows. Typically you specify the same model type when reading a row that was used to create the row.
         
-   The **Index** page displays all of the mailing list rows, so the query in the `Index` method returns all `MailingList` entities that have "mailinglist" as the row key (the other rows in the table have email address as the row key, and they contain subscriber information).
+	The **Index** page displays all of the mailing list rows, so the query in the `Index` method returns all `MailingList` entities that have "mailinglist" as the row key (the other rows in the table have email address as the row key, and they contain subscriber information).
 
                 var query = new TableQuery<MailingList>().Where(TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.Equal, "mailinglist"));
                 lists = mailingListTable.ExecuteQuery(query, reqOptions).ToList();
 
-   The `Index` method surrounds this query with code that is designed to handle timeout conditions. 
+	The `Index` method surrounds this query with code that is designed to handle timeout conditions. 
 
         public ActionResult Index()
         {
@@ -444,9 +442,9 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             return View(lists);
         }
 
-   If you don't specify timeout parameters, the API automatically retries three times with exponentially increasing timeout limits. For a web interface with a user waiting for a page to appear, this could result in unacceptably long wait times. Therefore, this code specifies linear retries (so the timeout limit doesn't increase each time) and a timeout limit that is reasonable for the user to wait. 
+	If you don't specify timeout parameters, the API automatically retries three times with exponentially increasing timeout limits. For a web interface with a user waiting for a page to appear, this could result in unacceptably long wait times. Therefore, this code specifies linear retries (so the timeout limit doesn't increase each time) and a timeout limit that is reasonable for the user to wait. 
 
-   When the user clicks the **Create** button on the **Create** page, the MVC model binder creates a `MailingList` entity from input entered in the view, and the `HttpPost Create` method adds the entity to the table.
+	When the user clicks the **Create** button on the **Create** page, the MVC model binder creates a `MailingList` entity from input entered in the view, and the `HttpPost Create` method adds the entity to the table.
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -508,11 +506,11 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             return View(editedMailingList);
         }
 
-   The try-catch block handles concurrency errors. A concurrency exception is raised if a user selects a mailing list for editing, then while the **Edit** page is displayed in the browser another user edits the same mailing list. When that happens, the code displays a warning message and indicates which fields were changed by the other user.  The TSL API uses the `ETag` to check for concurrency conflicts. Every time a table row is updated, the `ETag` value is changed.  When you get a row to edit, you save the `ETag` value, and when you execute an update or delete operation you pass in the `ETag` value that you saved. (The `Edit` view has a hidden field for the ETag value.) If the update operation finds that the `ETag` value on the record you are updating is different than the `ETag` value that you passed in to the update operation, it raises a concurrency exception. If you don't care about concurrency conflicts, you can set the ETag field to an asterisk ("*") in the entity that you pass in to the update operation, and conflicts are ignored. 
+	The try-catch block handles concurrency errors. A concurrency exception is raised if a user selects a mailing list for editing, then while the **Edit** page is displayed in the browser another user edits the same mailing list. When that happens, the code displays a warning message and indicates which fields were changed by the other user.  The TSL API uses the `ETag` to check for concurrency conflicts. Every time a table row is updated, the `ETag` value is changed.  When you get a row to edit, you save the `ETag` value, and when you execute an update or delete operation you pass in the `ETag` value that you saved. (The `Edit` view has a hidden field for the ETag value.) If the update operation finds that the `ETag` value on the record you are updating is different than the `ETag` value that you passed in to the update operation, it raises a concurrency exception. If you don't care about concurrency conflicts, you can set the ETag field to an asterisk ("*") in the entity that you pass in to the update operation, and conflicts are ignored. 
 
-   Note: The HTTP 412 error is not unique to concurrency errors. It can be raised for other errors by the SCL API.
+	Note: The HTTP 412 error is not unique to concurrency errors. It can be raised for other errors by the SCL API.
 
-   For the **Delete** page, the `HttpGet Delete` method looks up the row in order to display its contents, and the `HttpPost` method deletes the `MailingList` row along with any `Subscriber` rows that are associated with it in the `MailingList` table.
+	For the **Delete** page, the `HttpGet Delete` method looks up the row in order to display its contents, and the `HttpPost` method deletes the `MailingList` row along with any `Subscriber` rows that are associated with it in the `MailingList` table.
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -543,9 +541,9 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
             return RedirectToAction("Index");
         }
 
-   In case a large number of subscribers need to be deleted, the code deletes the records in batches. The transaction cost of deleting one row is the same as deleting 100 rows in a batch. The maximum number of operations that you can perform in one batch is 100. 
+	In case a large number of subscribers need to be deleted, the code deletes the records in batches. The transaction cost of deleting one row is the same as deleting 100 rows in a batch. The maximum number of operations that you can perform in one batch is 100. 
 
-   Although the loop processes both `MailingList` rows and `Subscriber` rows, it reads them all into the `MailingList` entity class because the only fields needed for the `Delete` operation are the `PartitionKey`, `RowKey`, and `ETag` fields.
+	Although the loop processes both `MailingList` rows and `Subscriber` rows, it reads them all into the `MailingList` entity class because the only fields needed for the `Delete` operation are the `PartitionKey`, `RowKey`, and `ETag` fields.
 
 ### Add the MailingList MVC views
 
@@ -553,7 +551,7 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 
 1. Right-click the new *Views\MailingList* folder, and choose **Add Existing Item**.
 
-   ![Add existing item to Views folder][mtas-add-existing-item-to-views]
+	![Add existing item to Views folder][mtas-add-existing-item-to-views]
 
 2. Navigate to the folder where you downloaded the sample application, select all four of the .cshtml files in the *Views\MailingList* folder, and click **Add**.
 
@@ -602,9 +600,9 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 		    @Scripts.Render("~/bundles/jqueryval")
 		}
 				
-   This code is typical for MVC views.  Notice the hidden field that is included to preserve the `ETag` value which is used for handling concurrency conflicts. Notice also that the `ListName` field has a `DisplayFor` helper instead of an `EditorFor` helper. We didn't enable the **Edit** page to change the list name, because that would have required complex code in the controller:  the `HttpPost Edit` method would have had to delete the existing mailing list row and all associated subscriber rows, and re-insert them all with the new key value. In a production application you might decide that the additional complexity is worthwhile. As you'll see later, the `Subscriber` controller does allow list name changes, since only one row at a time is affected. 
+	This code is typical for MVC views.  Notice the hidden field that is included to preserve the `ETag` value which is used for handling concurrency conflicts. Notice also that the `ListName` field has a `DisplayFor` helper instead of an `EditorFor` helper. We didn't enable the **Edit** page to change the list name, because that would have required complex code in the controller:  the `HttpPost Edit` method would have had to delete the existing mailing list row and all associated subscriber rows, and re-insert them all with the new key value. In a production application you might decide that the additional complexity is worthwhile. As you'll see later, the `Subscriber` controller does allow list name changes, since only one row at a time is affected. 
 
-   The *Create.cshtml* and *Delete.cshtml* code is similar to *Edit.cshtml*.
+	The *Create.cshtml* and *Delete.cshtml* code is similar to *Edit.cshtml*.
 
 4. Open *Index.cshtml* and examine the code.
 
@@ -648,7 +646,7 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 	    }
 	    </table>
 	
-   This code is also typical for MVC views. The **Edit** and **Delete** hyperlinks specify partition key and row key query string parameters in order to identify a specific row.  For `MailingList` entities only the partition key is actually needed since row key is always "MailingList", but both are kept so that the MVC view code is consistent across all controllers and views.
+	This code is also typical for MVC views. The **Edit** and **Delete** hyperlinks specify partition key and row key query string parameters in order to identify a specific row.  For `MailingList` entities only the partition key is actually needed since row key is always "MailingList", but both are kept so that the MVC view code is consistent across all controllers and views.
 
 ### Make MailingList the default controller
 
@@ -673,7 +671,7 @@ You are going to enter settings for your test storage account, which you will us
 
 1. In **Solution Explorer**, right-click **MvcWebRole** under **Roles** in the **AzureEmailService** cloud project, and then choose **Properties**.
 
-   ![Web role properties][mtas-mvcwebrole-properties-menu]
+	![Web role properties][mtas-mvcwebrole-properties-menu]
 
 2. Make sure that **All Configurations** is selected in the **Service Configuration** drop-down list.
 
@@ -685,27 +683,27 @@ You are going to enter settings for your test storage account, which you will us
 
 6. Click the ellipsis (**...**) button at the right end of the line to open the **Storage Account Connection String** dialog box.
 
-   ![Right Click Properties][mtas-elip]<br/>
+	![Right Click Properties][mtas-elip]<br/>
 
 7. In the **Create Storage Connection String** dialog, click the **Your subscription** radio button, and then click the **Download Publish Settings** link. 
 
-   **Note:** If you configured storage settings for tutorial 2 and you're doing this tutorial on the same machine, you don't have to download the settings again, you just have to click **Your subscription** and then choose the correct **Subscription** and **Account Name**.
+	**Note:** If you configured storage settings for tutorial 2 and you're doing this tutorial on the same machine, you don't have to download the settings again, you just have to click **Your subscription** and then choose the correct **Subscription** and **Account Name**.
 
-   ![Right Click Properties][mtas-enter]<br/>
+	![Right Click Properties][mtas-enter]<br/>
 
-   When you click the **Download Publish Settings** link, Visual Studio launches a new instance of your default browser with the URL for the Windows Azure Management Portal download publish settings page. If you are not logged into the portal, you are prompted to log in. Once you are logged in your browser prompts you to save the publish settings. Make a note of where you save the settings.
+	When you click the **Download Publish Settings** link, Visual Studio launches a new instance of your default browser with the URL for the Windows Azure Management Portal download publish settings page. If you are not logged into the portal, you are prompted to log in. Once you are logged in your browser prompts you to save the publish settings. Make a note of where you save the settings.
 
-   ![publish settings][mtas-3]
+	![publish settings][mtas-3]
 
 1. In the **Create Storage Connection String** dialog, click  **Import**, and then navigate to the publish settings file that you saved in the previous step.
 
 1. Select the subscription and storage account that you wish to use, and then click **OK**.
 
-  ![select storage account][mtas-5]
+	![select storage account][mtas-5]
 
 1. Follow the same procedure that you used for the `StorageConnectionString` connection string to set the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string.
 
-   You don't have to download the publish settings file again. When you click the ellipsis for the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string, you'll find that the **Create Storage Connection String** dialog box remembers your subscription information. When you click the **Your subscription** radio button, all you have to do is select the same **Subscription** and **Account Name** that you selected earlier, and then click **OK**. 
+	You don't have to download the publish settings file again. When you click the ellipsis for the `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` connection string, you'll find that the **Create Storage Connection String** dialog box remembers your subscription information. When you click the **Your subscription** radio button, all you have to do is select the same **Subscription** and **Account Name** that you selected earlier, and then click **OK**. 
 
 2. Follow the same procedure that you used for the two connection strings for the MvcWebRole role to set the connection strings for the WorkerRoleA role.
 
@@ -727,7 +725,7 @@ You can manually add settings to the *ServiceDefinition.csdf* file and the two *
 - You only add the new setting in one place, and the correct setting XML is added to all three files.
 - The correct XML is generated for the three settings files. The *ServiceDefinition.csdf* file defines settings that must be in each *.cscfg* configuration file. If the *ServiceDefinition.csdf* file and the two *.cscfg* configuration files settings are inconsistent, you can get the following error message from Visual Studio: "The current service model is out of sync. Make sure both the service configuration and definition files are valid."
 
-   ![Invalid service configuration and definition files error][mtas-er1]
+	![Invalid service configuration and definition files error][mtas-er1]
 
 If you get this error, the properties editor will not work until you resolve the inconsistency problem.
 
@@ -735,14 +733,11 @@ If you get this error, the properties editor will not work until you resolve the
 
 1. Run the project by pressing CTRL+F5.
 
-    ![Empty MailingList Index page][mtas-mailing-list-empty-index-page]
+	![Empty MailingList Index page][mtas-mailing-list-empty-index-page]
 
 2. Use the **Create** function to add some mailing lists, and try the **Edit** and **Delete** functions to make sure they work.
 
-    ![MailingList Index page with rows][mtas-mailing-list-index-page]
-
-
-
+	![MailingList Index page with rows][mtas-mailing-list-index-page]
 
 
 
@@ -795,13 +790,12 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
 		    }
 		
 
-   Like the `MailingList` entity class, the `Subscriber` entity class is used to read and write rows in the `mailinglist` table. `Subscriber` rows use the email address instead of the constant "mailinglist" for the row key.  (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Therefore an `EmailAddress` property is defined that uses the `RowKey` property as its backing field, the same way that `ListName` uses `PartitionKey` as its backing field. As explained earlier, this enables you to put formatting and validation DataAnnotations attributes on the properties.
+	Like the `MailingList` entity class, the `Subscriber` entity class is used to read and write rows in the `mailinglist` table. `Subscriber` rows use the email address instead of the constant "mailinglist" for the row key.  (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Therefore an `EmailAddress` property is defined that uses the `RowKey` property as its backing field, the same way that `ListName` uses `PartitionKey` as its backing field. As explained earlier, this enables you to put formatting and validation DataAnnotations attributes on the properties.
 
-   The `SubscriberGUID` value is generated when a `Subscriber` entity is created. It is used in subscribe and unsubscribe links to help ensure that only authorized persons can subscribe or unsubscribe email addresses.
- 
-   When a row is initially created for a new subscriber, the `Verified ` value is `false`. The `Verified` value changes to `true` only after the new subscriber clicks the **Confirm** hyperlink in the welcome email. If a message is sent to a list while a subscriber has `Verified` = `false`, no email is sent to that subscriber.
+	The `SubscriberGUID` value is generated when a `Subscriber` entity is created. It is used in subscribe and unsubscribe links to help ensure that only authorized persons can subscribe or unsubscribe email addresses.
+	When a row is initially created for a new subscriber, the `Verified ` value is `false`. The `Verified` value changes to `true` only after the new subscriber clicks the **Confirm** hyperlink in the welcome email. If a message is sent to a list while a subscriber has `Verified` = `false`, no email is sent to that subscriber.
 
-   The `Verified` property in the `Subscriber` entity is defined as nullable. When you specify that a query should return `Subscriber` entities, it is possible that some of the retrieved rows might not have a `Verified` property. Therefore the `Subscriber` entity defines its `Verified` property as nullable so that it can more accurately reflect the actual content of a row if table rows that don't have a *Verified* property are returned by a query. You might be accustomed to working with SQL Server tables, in which every row of a table has the same schema. In a Windows Azure Storage table, each row is just a collection of properties, and each row can have a different set of properties. For example, in the Windows Azure Email Service sample application, rows that have "MailingList" as the row key don't have a `Verified` property.  If a query returns a table row that doesn't have a `Verified` property, when the `Subscriber` entity class is instantiated, the `Verified` property in the entity object will be null.  If the property were not nullable, you would get the same value of `false` for rows that have `Verified` = `false` and for rows that don't have a `Verified` property at all. Therefore, a best practice for working with Windows Azure Tables is to make each property of an entity class nullable in order to accurately read rows that were created by using different entity classes or different versions of the current entity class. 
+	The `Verified` property in the `Subscriber` entity is defined as nullable. When you specify that a query should return `Subscriber` entities, it is possible that some of the retrieved rows might not have a `Verified` property. Therefore the `Subscriber` entity defines its `Verified` property as nullable so that it can more accurately reflect the actual content of a row if table rows that don't have a *Verified* property are returned by a query. You might be accustomed to working with SQL Server tables, in which every row of a table has the same schema. In a Windows Azure Storage table, each row is just a collection of properties, and each row can have a different set of properties. For example, in the Windows Azure Email Service sample application, rows that have "MailingList" as the row key don't have a `Verified` property.  If a query returns a table row that doesn't have a `Verified` property, when the `Subscriber` entity class is instantiated, the `Verified` property in the entity object will be null.  If the property were not nullable, you would get the same value of `false` for rows that have `Verified` = `false` and for rows that don't have a `Verified` property at all. Therefore, a best practice for working with Windows Azure Tables is to make each property of an entity class nullable in order to accurately read rows that were created by using different entity classes or different versions of the current entity class. 
 
 ### Add the Subscriber MVC controller
 
@@ -811,7 +805,7 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
 
 3. Open *SubscriberController.cs* and examine the code.
 
-   Most of the code in this controller is similar to what you saw in the `MailingList` controller. Even the table name is the same because subscriber information is kept in the `MailingList` table. After the `FindRow` method you see a `GetListNames` method. This method gets the data for a drop-down list on the **Create** and **Edit** pages, from which you can select the mailing list to subscribe an email address to.
+	Most of the code in this controller is similar to what you saw in the `MailingList` controller. Even the table name is the same because subscriber information is kept in the `MailingList` table. After the `FindRow` method you see a `GetListNames` method. This method gets the data for a drop-down list on the **Create** and **Edit** pages, from which you can select the mailing list to subscribe an email address to.
 
         private List<MailingList> GetListNames()
         {
@@ -820,9 +814,9 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
             return lists;
         }
 
-   This is the same query you saw in the `MailingList` controller. For the drop-down list you want rows that have information about mailing lists, so you select only those that have RowKey = "mailinglist".
+	This is the same query you saw in the `MailingList` controller. For the drop-down list you want rows that have information about mailing lists, so you select only those that have RowKey = "mailinglist".
 
-   For the method that retrieves data for the **Index** page, you want rows that have subscriber information, so you select all rows that do not have RowKey = "MailingList".
+	For the method that retrieves data for the **Index** page, you want rows that have subscriber information, so you select all rows that do not have RowKey = "MailingList".
 
         public ActionResult Index()
         {
@@ -831,11 +825,11 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
             return View(subscribers);
         }
 
-   Notice that the query specifies that data will be read into `Subscriber` objects (by specifying `<Subscriber>`) but the data will be read from the `mailinglist` table.
+	Notice that the query specifies that data will be read into `Subscriber` objects (by specifying `<Subscriber>`) but the data will be read from the `mailinglist` table.
 
-   **Note:** The number of subscribers could grow to be too large to handle this way in a single query. In a future release of the tutorial we hope to implement paging functionality and show how to handle continuation tokens. You need to handle continuation tokens when you execute queries that would return more than 1,000 rows: Windows Azure returns 1,000 rows and a continuation token that you use to execute another query that starts where the previous one left off. (Azure Storage Explorer does not handle continuation tokens; therefore its queries will not return more than 1,000 rows.) For more information about large result sets and continuation tokens, see [How to get most out of Windows Azure Tables][howtogetthemost] and [Windows Azure Tables: Expect Continuation Tokens, Seriously](http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously). 
+	**Note:** The number of subscribers could grow to be too large to handle this way in a single query. In a future release of the tutorial we hope to implement paging functionality and show how to handle continuation tokens. You need to handle continuation tokens when you execute queries that would return more than 1,000 rows: Windows Azure returns 1,000 rows and a continuation token that you use to execute another query that starts where the previous one left off. (Azure Storage Explorer does not handle continuation tokens; therefore its queries will not return more than 1,000 rows.) For more information about large result sets and continuation tokens, see [How to get most out of Windows Azure Tables][howtogetthemost] and [Windows Azure Tables: Expect Continuation Tokens, Seriously](http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously). 
 
-   In the `HttpGet Create` method, you set up data for the drop-down list; and in the `HttpPost` method, you set default values before saving the new entity.
+	In the `HttpGet Create` method, you set up data for the drop-down list; and in the `HttpPost` method, you set default values before saving the new entity.
 
         public ActionResult Create()
         {
@@ -868,7 +862,7 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
             return View(subscriber);
         }
 
-   The `HttpPost Edit` page is more complex than what you saw in the `MailingList` controller because the `Subscriber` page enables you to change the list name or email address, both of which are key fields. If the user changes one of these fields, you have to delete the existing record and add a new one instead of updating the existing record. The following code shows the part of the edit method that handles the different procedures for key versus non-key changes:
+	The `HttpPost Edit` page is more complex than what you saw in the `MailingList` controller because the `Subscriber` page enables you to change the list name or email address, both of which are key fields. If the user changes one of these fields, you have to delete the existing record and add a new one instead of updating the existing record. The following code shows the part of the edit method that handles the different procedures for key versus non-key changes:
      
             if (ModelState.IsValid)
             {
@@ -903,19 +897,19 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
                     }
                     return RedirectToAction("Index");
 
-    The parameters that the MVC model binder passes to the `Edit` method include the original list name and email address values (in the `partitionKey` and `rowKey` parameters) and the values entered by the user (in the `listName` and `emailAddress` parameters): 
+	The parameters that the MVC model binder passes to the `Edit` method include the original list name and email address values (in the `partitionKey` and `rowKey` parameters) and the values entered by the user (in the `listName` and `emailAddress` parameters): 
 
         public ActionResult Edit(string partitionKey, string rowKey, string listName, string emailAddress)
 
-    The parameters passed to the `UpdateModel` method exclude `PartitionKey` and `RowKey` properties from model binding:
+	The parameters passed to the `UpdateModel` method exclude `PartitionKey` and `RowKey` properties from model binding:
 
             var excludeProperties = new string[] { "PartitionKey", "RowKey" };
             
-   The reason for this is that the `ListName` and `EmailAddress` properties use `PartitionKey` and `RowKey` as their backing properties, and the user might have changed one of these values. When the model binder updates the model by setting the `ListName` property, the `PartitionKey` property is automatically updated. If the model binder were to update the `PartitionKey` property with that property's original value after updating the `ListName` property, it would overwrite the new value that was set by the `ListName` property. The `EmailAddress` property automatically updates the `RowKey` property in the same way.  
+	The reason for this is that the `ListName` and `EmailAddress` properties use `PartitionKey` and `RowKey` as their backing properties, and the user might have changed one of these values. When the model binder updates the model by setting the `ListName` property, the `PartitionKey` property is automatically updated. If the model binder were to update the `PartitionKey` property with that property's original value after updating the `ListName` property, it would overwrite the new value that was set by the `ListName` property. The `EmailAddress` property automatically updates the `RowKey` property in the same way.  
 
-   After updating the `editedSubscriber` model object, the code then determines whether the partition key or row key was changed. If either key value changed, the existing subscriber row has to be deleted and a new one inserted. If only the row key changed, the deletion and insertion can be done in an atomic batch transaction.
+	After updating the `editedSubscriber` model object, the code then determines whether the partition key or row key was changed. If either key value changed, the existing subscriber row has to be deleted and a new one inserted. If only the row key changed, the deletion and insertion can be done in an atomic batch transaction.
 
-   Notice that the code creates a new entity to pass in to the `Delete` operation:
+	Notice that the code creates a new entity to pass in to the `Delete` operation:
 
             // RowKey changed, do delete/insert in a batch.
             var batchOperation = new TableBatchOperation();
@@ -923,10 +917,9 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
             batchOperation.Insert(editedSubscriber);
             mailingListTable.ExecuteBatch(batchOperation);
 
-   Entities that you pass in to operations in a batch must be distinct entities. For example, you can't create a `Subscriber` entity, pass it in to a `Delete` operation, then change a value in the same `Subscriber` entity and pass it in to an `Insert` operation. If you did that, the state of the entity after the property change would be in effect for both the Delete and the Insert operation.
+	Entities that you pass in to operations in a batch must be distinct entities. For example, you can't create a `Subscriber` entity, pass it in to a `Delete` operation, then change a value in the same `Subscriber` entity and pass it in to an `Insert` operation. If you did that, the state of the entity after the property change would be in effect for both the Delete and the Insert operation.
 
-   **Note:**  Operations in a batch must all be on the same partition. Because a change to the list name changes the partition key, it can't be done in a transaction.
-
+	**Note:**  Operations in a batch must all be on the same partition. Because a change to the list name changes the partition key, it can't be done in a transaction.
 
 
 
@@ -989,22 +982,19 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
 		    @Scripts.Render("~/bundles/jqueryval")
 		}
 						
-   This code is similar to what you saw earlier for the `MailingList` **Edit** view. The `SubscriberGUID` value is not shown, so the value is not automatically provided in a form field for the `HttpPost` controller method. Therefore, a hidden field is included in order to preserve this value.
+	This code is similar to what you saw earlier for the `MailingList` **Edit** view. The `SubscriberGUID` value is not shown, so the value is not automatically provided in a form field for the `HttpPost` controller method. Therefore, a hidden field is included in order to preserve this value.
 
-   The other views contain code that is similar to what you already saw for the `MailingList` controller.
+	The other views contain code that is similar to what you already saw for the `MailingList` controller.
 
 ### Test the application
 
 1. Run the project by pressing CTRL+F5, and then click **Subscribers**.
 
-    ![Empty Subscriber Index page][mtas-subscribers-empty-index-page]
+	![Empty Subscriber Index page][mtas-subscribers-empty-index-page]
 
 2. Use the **Create** function to add some mailing lists, and try the **Edit** and **Delete** functions to make sure they work.
 
-    ![Subscribers Index page with rows][mtas-subscribers-index-page]
-
-
-
+	![Subscribers Index page with rows][mtas-subscribers-index-page]
 
 
 
@@ -1075,13 +1065,13 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 	        public string Status { get; set; }
 	    }
 		
-   The `Message` class defines a default constructor that sets the `MessageRef` property to a unique value for the message. Since this value is part of the row key, the setter for the `MessageRef` property automatically sets the `RowKey` property also. The `MessageRef` property setter concatenates the "message" literal and the `MessageRef` value and puts that in the `RowKey` property.
+	The `Message` class defines a default constructor that sets the `MessageRef` property to a unique value for the message. Since this value is part of the row key, the setter for the `MessageRef` property automatically sets the `RowKey` property also. The `MessageRef` property setter concatenates the "message" literal and the `MessageRef` value and puts that in the `RowKey` property.
 
-   The `MessageRef` value is created by getting the `Ticks` value from `DateTime.Now`. This ensures that by default when displaying messages in the web UI they will be displayed in the order in which they were created for a given scheduled date (`ScheduledDate` is the partition key). You could use a GUID to make message rows unique, but then the default retrieval order would be random.
+	The `MessageRef` value is created by getting the `Ticks` value from `DateTime.Now`. This ensures that by default when displaying messages in the web UI they will be displayed in the order in which they were created for a given scheduled date (`ScheduledDate` is the partition key). You could use a GUID to make message rows unique, but then the default retrieval order would be random.
 
-   The default constructor also sets default status of Pending for new `message` rows.
+	The default constructor also sets default status of Pending for new `message` rows.
 
-   For more information about the `Message` table structure, see the [first tutorial in the series][firsttutorial].
+	For more information about the `Message` table structure, see the [first tutorial in the series][firsttutorial].
 
 ### Add the Message MVC controller
 
@@ -1091,9 +1081,9 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 
 3. Open *MessageController.cs* and examine the code.
 
-   Most of the code in this controller is similar to what you saw in the `Subscriber` controller. What is new here is code for working with blobs. For each message, the HTML and plain text content of the email is uploaded in the form of .htm and .txt files and stored in blobs.
+	Most of the code in this controller is similar to what you saw in the `Subscriber` controller. What is new here is code for working with blobs. For each message, the HTML and plain text content of the email is uploaded in the form of .htm and .txt files and stored in blobs.
 
-   Blobs are stored in blob containers. The Windows Azure Email Service application stores all of its blobs in a single blob container named "azuremailblobcontainer", and code in the controller constructor gets a reference to this blob container:
+	Blobs are stored in blob containers. The Windows Azure Email Service application stores all of its blobs in a single blob container named "azuremailblobcontainer", and code in the controller constructor gets a reference to this blob container:
 
 	    public class MessageController : Controller
 	    {
@@ -1113,9 +1103,9 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 	            blobContainer = blobClient.GetContainerReference("azuremailblobcontainer");
 	        }
 	
-   For each file that a user selects to upload, the MVC view provides an `HttpPostedFile` object that contains information about the file. When the user creates a new message, the `HttpPostedFile` object is used to save the file to a blob. When the user edits a message, the user can choose to upload a replacement file or leave the blob unchanged.
+	For each file that a user selects to upload, the MVC view provides an `HttpPostedFile` object that contains information about the file. When the user creates a new message, the `HttpPostedFile` object is used to save the file to a blob. When the user edits a message, the user can choose to upload a replacement file or leave the blob unchanged.
 
-   The controller includes a method that the `HttpPost Create` and `HttpPost Edit` methods call to save a blob:
+	The controller includes a method that the `HttpPost Create` and `HttpPost Edit` methods call to save a blob:
 
         private void SaveBlob(string blobName, HttpPostedFileBase httpPostedFile)
         {
@@ -1128,7 +1118,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
             }
         }
 
-   The `HttpPost Create` method saves the two blobs and then adds the `Message` table row. Blobs are named by concatenating the `MessageRef` value with the file name extension ".htm" or ".txt". 
+	The `HttpPost Create` method saves the two blobs and then adds the `Message` table row. Blobs are named by concatenating the `MessageRef` value with the file name extension ".htm" or ".txt". 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -1160,7 +1150,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
             return View(message);
         }
 
-   The `HttpGet Edit` method validates that the retrieved message is in `Pending` status so that the user can't change a message once worker role B has begun processing it.  Similar code is in the `HttpPost Edit` method and the `Delete` and `DeleteConfirmed` methods.
+	The `HttpGet Edit` method validates that the retrieved message is in `Pending` status so that the user can't change a message once worker role B has begun processing it.  Similar code is in the `HttpPost Edit` method and the `Delete` and `DeleteConfirmed` methods.
 
         public ActionResult Edit(string partitionKey, string rowKey)
         {
@@ -1175,7 +1165,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
             return View(message);
         }
 
-   In the `HttpPost Edit` method, the code saves a new blob only if the user chose to upload a new file. The following code omits the concurrency handling part of the method, which is the same as what you saw earlier for the `MailingList` controller. 
+	In the `HttpPost Edit` method, the code saves a new blob only if the user chose to upload a new file. The following code omits the concurrency handling part of the method, which is the same as what you saw earlier for the `MailingList` controller. 
  
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -1232,9 +1222,9 @@ The `Message` entity class is used for the rows in the `Message` table that cont
                     return RedirectToAction("Index");
                 }
 
-   If the scheduled date is changed, the partition key is changed, and a row has to be deleted and inserted. This can't be done in a transaction because it affects more than one partition.
+	If the scheduled date is changed, the partition key is changed, and a row has to be deleted and inserted. This can't be done in a transaction because it affects more than one partition.
 
-   The `HttpPost Delete` method deletes the blobs when it deletes the row in the table:
+	The `HttpPost Delete` method deletes the blobs when it deletes the row in the table:
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(String partitionKey, string rowKey)
@@ -1340,9 +1330,9 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 		    @Scripts.Render("~/bundles/jqueryval")
 		}
 				
-   The `HttpPost Edit` method needs the partition key and row key, so the code provides these in hidden fields. The hidden fields were not needed in the `Subscriber` controller because (a) the `ListName` and `EmailAddress` properties in the `Subscriber` model update the `PartitionKey` and `RowKey` properties, and (b) the `ListName` and `EmailAddress` properties were included with `EditorFor` helpers in the Edit view. When the MVC model binder for the `Subscriber` model updates the `ListName` property, the `PartitionKey` property is automatically updated, and when the MVC model binder updates the `EmailAddress` property in the `Subscriber` model, the `RowKey` property is automatically updated. In the `Message` model, the fields that map to partition key and row key are not editable fields, so they don't get set that way.
+	The `HttpPost Edit` method needs the partition key and row key, so the code provides these in hidden fields. The hidden fields were not needed in the `Subscriber` controller because (a) the `ListName` and `EmailAddress` properties in the `Subscriber` model update the `PartitionKey` and `RowKey` properties, and (b) the `ListName` and `EmailAddress` properties were included with `EditorFor` helpers in the Edit view. When the MVC model binder for the `Subscriber` model updates the `ListName` property, the `PartitionKey` property is automatically updated, and when the MVC model binder updates the `EmailAddress` property in the `Subscriber` model, the `RowKey` property is automatically updated. In the `Message` model, the fields that map to partition key and row key are not editable fields, so they don't get set that way.
 
-   A hidden field is also included for the `MessageRef` property. This is the same value as the partition key, but it is included in order to enable better code clarity in the `HttpPost Edit` method. Including the `MessageRef` hidden field enables the code in the `HttpPost Edit` method to refer to the `MessageRef` value by that name when it constructs file names for the blobs. 
+	A hidden field is also included for the `MessageRef` property. This is the same value as the partition key, but it is included in order to enable better code clarity in the `HttpPost Edit` method. Including the `MessageRef` hidden field enables the code in the `HttpPost Edit` method to refer to the `MessageRef` value by that name when it constructs file names for the blobs. 
    
 3. Open the *Index.cshtml* file and examine the code.
 
@@ -1401,7 +1391,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 		
 		</table>
 				
-   A difference here from the other **Index** views is that the **Edit** and **Delete** links are shown only for messages that are in `Pending` status:
+	A difference here from the other **Index** views is that the **Edit** and **Delete** links are shown only for messages that are in `Pending` status:
 
         @if (item.Status == "Pending")
         {
@@ -1409,19 +1399,19 @@ The `Message` entity class is used for the rows in the `Message` table that cont
             @Html.ActionLink("Delete", "Delete", new { PartitionKey = item.PartitionKey, RowKey = item.RowKey }) @: |
         }
 
-   This helps prevent the user from making changes to a message after worker role A has begun to process it.
+	This helps prevent the user from making changes to a message after worker role A has begun to process it.
 
-   The other views contain code that is similar to the **Edit** view or the other views you saw for the other controllers.
+	The other views contain code that is similar to the **Edit** view or the other views you saw for the other controllers.
 
 ### Test the application
 
 1. Run the project by pressing CTRL+F5, then click **Messages**.
 
-    ![Empty Message Index page][mtas-message-empty-index-page]
+	![Empty Message Index page][mtas-message-empty-index-page]
 
 2. Use the **Create** function to add some mailing lists, and try the **Edit** and **Delete** functions to make sure they work.
 
-    ![Subscribers Index page with rows][mtas-message-index-page]
+	![Subscribers Index page with rows][mtas-message-index-page]
 
 
 
@@ -1452,7 +1442,7 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 	        public bool? Confirmed { get; set; }
 	    }
 
-   Unsubscribe links contain the `SubscriberGUID`. That value is used to get the email address, list name, and list description from the `MailingList` table. The view displays the email address and the description of the list that is to be unsubscribed from, and it displays a **Confirm** button that the user must click to complete the unsubscription process.
+	Unsubscribe links contain the `SubscriberGUID`. That value is used to get the email address, list name, and list description from the `MailingList` table. The view displays the email address and the description of the list that is to be unsubscribed from, and it displays a **Confirm** button that the user must click to complete the unsubscription process.
 
 ### Add the Unsubscribe controller
 
@@ -1462,9 +1452,9 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 
 3. Open *UnsubscribeController.cs* and examine the code.
 
-   This controller has an `HttpGet Index` method that displays the initial unsubscribe page, and an `HttpPost Index` method that processes the **Confirm** or **Cancel** button.
+	This controller has an `HttpGet Index` method that displays the initial unsubscribe page, and an `HttpPost Index` method that processes the **Confirm** or **Cancel** button.
 
-   The `HttpGet Index` method uses the GUID and list name in the query string to get the `MailingList` table row for the subscriber. Then it puts all the information needed by the view into the view model and displays the **Unsubscribe** page. It sets the `Confirmed` property to null in order to tell the view to display the initial version of the **Unsubscribe** page.
+	The `HttpGet Index` method uses the GUID and list name in the query string to get the `MailingList` table row for the subscriber. Then it puts all the information needed by the view into the view model and displays the **Unsubscribe** page. It sets the `Confirmed` property to null in order to tell the view to display the initial version of the **Unsubscribe** page.
  
 	     public ActionResult Index(string id, string listName)
 	     {
@@ -1492,9 +1482,9 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 	         return View(unsubscribeVM);
 	     }
 
-   Note: The SubscriberGUID is not in the partition key or row key, so the performance of this query will degrade as partition size (the number of email addresses in a mailing list) increases.  For more information about alternatives to make this query more scalable, see [the first tutorial in the series][firsttutorial].
+	Note: The SubscriberGUID is not in the partition key or row key, so the performance of this query will degrade as partition size (the number of email addresses in a mailing list) increases.  For more information about alternatives to make this query more scalable, see [the first tutorial in the series][firsttutorial].
 
-   The `HttpPost Index` method again uses the GUID and list name to get the subscriber information and populates the view model properties. Then, if the **Confirm** button was clicked, it deletes the subscriber row in the `MailingList` table. If the **Confirm** button was pressed it also sets the `Confirm` property to `true`, otherwise it sets the `Confirm` property to `false`. The value of the `Confirm` property is what tells the view to display the confirmed or canceled version of the **Unsubscribe** page.
+	The `HttpPost Index` method again uses the GUID and list name to get the subscriber information and populates the view model properties. Then, if the **Confirm** button was clicked, it deletes the subscriber row in the `MailingList` table. If the **Confirm** button was pressed it also sets the `Confirm` property to `true`, otherwise it sets the `Confirm` property to `false`. The value of the `Confirm` property is what tells the view to display the confirmed or canceled version of the **Unsubscribe** page.
 
         [HttpPost] 
         [ValidateAntiForgeryToken]
@@ -1578,9 +1568,9 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 		    @Scripts.Render("~/bundles/jqueryval")
 		}
 						
-   The `Layout = null` line specifies that the _Layout.cshtml file should not be used to display this page. The **Unsubscribe** page displays a very simple UI without the headers and footers that are used for the administrator pages.
+	The `Layout = null` line specifies that the _Layout.cshtml file should not be used to display this page. The **Unsubscribe** page displays a very simple UI without the headers and footers that are used for the administrator pages.
 
-   In the body of the page, the `Confirmed` property determines what will be displayed on the page:  **Confirm** and **Cancel** buttons if the property is null, unsubscribe-confirmed message if the property is true, unsubscribe-canceled message if the property is false.
+	In the body of the page, the `Confirmed` property determines what will be displayed on the page:  **Confirm** and **Cancel** buttons if the property is null, unsubscribe-confirmed message if the property is true, unsubscribe-canceled message if the property is false.
 
 ### Test the application
 
@@ -1588,7 +1578,7 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 
 2. Click **Create** and create a new subscriber for any mailing list that you created when you were testing earlier.
 
-   Leave the browser window open on the **Subscribers** **Index** page.
+	Leave the browser window open on the **Subscribers** **Index** page.
 
 3. Open Azure Storage Explorer, and then select your test storage account.
 
@@ -1596,23 +1586,23 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 
 5. Double-click the subscriber row that you added.
 
-    ![Azure Storage Explorer][mtas-ase-unsubscribe]
+	![Azure Storage Explorer][mtas-ase-unsubscribe]
 
 6. In the **Edit Entity** dialog box, select and copy the `SubscriberGUID` value.
 
-    ![Azure Storage Explorer][mtas-ase-edit-entity-unsubscribe]
+	![Azure Storage Explorer][mtas-ase-edit-entity-unsubscribe]
 
 7. Switch back to your browser window.  In the address bar of the browser, change "Subscriber" in the URL to "unsubscribe?ID=[guidvalue]&listName=[listname]" where [guidvalue] is the GUID that you copied from Azure Storage Explorer, and [listname] is the name of the mailing list.  For example:
 
         http://127.0.0.1/unsubscribe?ID=b7860242-7c2f-48fb-9d27-d18908ddc9aa&listName=contoso1
 
-   The version of the **Unsubscribe** page that asks for confirmation is displayed:
+	The version of the **Unsubscribe** page that asks for confirmation is displayed:
 
-    ![Unsubscribe page][mtas-unsubscribe-page]
+	![Unsubscribe page][mtas-unsubscribe-page]
 
 2. Click **Confirm** and you see confirmation that the email address has been unsubscribed.
 
-    ![Unsubscribe confirmed page][mtas-unsubscribe-confirmed-page]
+	![Unsubscribe confirmed page][mtas-unsubscribe-confirmed-page]
 
 3. Go back to the **Subscribers** **Index** page to verify that the subscriber row is no longer there.
 
@@ -1627,14 +1617,14 @@ The following changes to the instructions apply if you want to build the alterna
 
 * Store the Windows Azure Storage connection string in the Web.config file instead of the cloud service settings file. (This only works for Windows Azure Web Sites. If you try to use the Web.config file for the storage connection string in a Windows Azure Cloud Service web role, you'll get an HTTP 500 error.) 
 
-   Add a new connection string named `StorageConnectionString` to the *Web.config* file, as shown in the following example:
+Add a new connection string named `StorageConnectionString` to the *Web.config* file, as shown in the following example:
 
 	       <connectionStrings>
 	          <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-MvcWebRole-20121010185535;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-MvcWebRole-20121010185535.mdf" providerName="System.Data.SqlClient" />
 	          <add name="StorageConnectionString" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[primarykey]" />
 	       </connectionStrings>
 	
-   Get the values for the connection string from the [Windows Azure management portal][managementportal]:  select the **Storage** tab and your storage account, and then click **Manage keys** at the bottom of the page.
+Get the values for the connection string from the [Windows Azure management portal][managementportal]:  select the **Storage** tab and your storage account, and then click **Manage keys** at the bottom of the page.
 
 * Wherever you see `RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString")` in the code, replace it with `ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString`.
 
@@ -1660,9 +1650,6 @@ In the [next tutorial][nexttutorial] you'll configure and program worker role A,
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
 <div><a href="../4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
-
-
-
 
 
 
