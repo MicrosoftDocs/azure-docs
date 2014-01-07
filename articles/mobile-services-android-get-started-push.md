@@ -359,8 +359,8 @@ In this simple example a user receives a push notification with the data that wa
 [Google Cloud Console]: https://cloud.google.com/console
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Android Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[Set Up Google Play Services SDK]: http://developer.android.com/google/play-services/setup.html
-[Referencing a library project]: http://developer.android.com/tools/projects/projects-eclipse.html#ReferencingLibraryProject
+[Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android

@@ -16,7 +16,7 @@ The tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. This tutorial requires the following:
 
-+ Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://developer.android.com/sdk/index.html">here</a>.
++ Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://go.microsoft.com/fwlink/?LinkId=389797">here</a>.
 + Active Windows Store account.
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
