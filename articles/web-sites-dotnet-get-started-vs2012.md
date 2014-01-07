@@ -110,26 +110,26 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
     
 	- In the **Import Publish Profile** dialog box, click **Import from a Windows Azure web site**, and then click **Add Windows Azure subscription**. 
     
-	   ![add Windows Azure subscription](./media/web-sites-dotnet-get-started-vs2012/rzAddWAsub.png)
+	![add Windows Azure subscription](./media/web-sites-dotnet-get-started-vs2012/rzAddWAsub.png)
     
 	- In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.
     
-  	   ![download subscription file](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadDownload.png)
+	![download subscription file](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadDownload.png)
     
 	- In your browser window, save the *.publishsettings* file.
     
-	   ![download .publishsettings file](./media/web-sites-dotnet-get-started-vs2012/rzDown2.png)
+	![download .publishsettings file](./media/web-sites-dotnet-get-started-vs2012/rzDown2.png)
 
 	- In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
 
-	   ![download sub](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadBrowse.png)
+	![download sub](./media/web-sites-dotnet-get-started-vs2012/rzDownLoadBrowse.png)
 
 	- Click **Import**.
     
-	   ![import](./media/web-sites-dotnet-get-started-vs2012/rzImp.png)
+	![import](./media/web-sites-dotnet-get-started-vs2012/rzImp.png)
 
-       > WACOM.NOTE
-       > The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Windows Azure services.
+	> WACOM.NOTE
+	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Windows Azure services.
 
 4. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.
 
@@ -149,7 +149,10 @@ Click **Next**.
 	![Settings tab][PublishWebSettingsTab]
 
 8. In the **Preview** tab, click **Start Preview**.
-![StartPreview button in the Preview tab][PublishWebStartPreview]The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. 
+
+	![StartPreview button in the Preview tab][PublishWebStartPreview]
+
+	The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. 
 
 	![StartPreview file output][PublishWebStartPreviewOutput]
 
