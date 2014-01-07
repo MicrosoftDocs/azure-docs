@@ -15,11 +15,9 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 3.	Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
 
-	![Run Sysprep.exe][Run Sysprep.exe]
 
 4. 	The **System Preparation Tool** dialog box appears.
 
-	![Enter Sysprep.exe options][Enter Sysprep.exe options]
 
 	In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][].
 
@@ -29,13 +27,10 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 7.	Sysprep shuts down the virtual machine, which changes the status of the machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
 
-	![The virtual machine is stopped][The virtual machine is stopped]
 
 8.	Click **Virtual Machines**, and then select the virtual machine you want to capture.
 
 9.	On the command bar, click **Capture**.
-
-	![Capture an image of the virtual machine][Capture an image of the virtual machine]
 
 	The **Capture an Image from a Virtual Machine** dialog box appears.
 
