@@ -26,7 +26,9 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-	![A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.">
+</p>
+
 
 
 ## Creating a New Node Application
