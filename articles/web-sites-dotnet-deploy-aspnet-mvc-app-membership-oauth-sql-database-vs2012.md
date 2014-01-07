@@ -29,7 +29,7 @@ You'll learn:
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
 
-	![login page][rxb]
+	![login page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png)
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -55,6 +55,7 @@ To start, set up your development environment by installing the Windows Azure SD
 [Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)
 1. When you are prompted to run or save the installation executable, click **Run**.
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.
+
 ![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]
 
 
