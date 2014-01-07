@@ -38,23 +38,23 @@ You can create the first VM either by using the Windows Azure management portal 
 <h3>To create a VM by using Windows Azure management portal</h3>
 1.	Click **New**, click **Compute**, click **Virtual Machine**, and click **From Gallery**. 
 
-	![Create VM From Gallery] [create-vm]
+	![Create VM From Gallery][create-vm]
 
 2.	Select the image.
 
-	![VM Image] [vm-image]
+	![VM Image][vm-image]
 
 3.	Type the name of the new VM, a user name and password, and select a version release date and size.
 
-	![VM Configuration] [vm-configuration]
+	![VM Configuration][vm-configuration]
 
 4.	Select the virtual network and subnet and accept other default values.
 
-	![VM Subnet] [vm-subnet]
+	![VM Subnet][vm-subnet]
 
 5.	Accept default endpoints and click the check mark to complete the wizard.
 
-	![VM Ports] [vm-ports]
+	![VM Ports][vm-ports]
 
 <h3>To create a VM by using Windows Azure PowerShell</h3>
 
@@ -134,32 +134,32 @@ You can create the first VM either by using the Windows Azure management portal 
 
 2. Type the size of hard disk (in GB) you want, such as 30. 
 
-	![Specify disk size] [specify-disk-size]
+	![Specify disk size][specify-disk-size]
 
 3.	Repeat steps 9 and 10 to attach a second disk.
 
 
 4.	Click the name of the VM and click **Connect**.
 
-	![Connect] [connect]
+	![Connect][connect]
 
 
 5.	Click **Open**.
 
-	![Open] [open]
+	![Open][open]
 
 6.	In RDP connection dialog, click **Don't ask me again for connections to this computer**, and click **Connect**.
 
-	![Connect with RDP] [connect-rdp]
+	![Connect with RDP][connect-rdp]
 
 7.	Type your credentials using the format <i>VM Name</i>\<i>AdminUserName</i>. If you provisioned the VM by using Windows Azure PowerShell, type <i>VM Name</i>\Administrator.
 
-	![Credentials] [credentials]
+	![Credentials][credentials]
 
 
 8. In Remote Desktop Connection, click **Yes**.
 
-	![Remote Desktop] [remote-desktop]
+	![Remote Desktop][remote-desktop]
 
 
 
@@ -176,7 +176,7 @@ You can create the first VM either by using the Windows Azure management portal 
 2.	In Server Manager, click **Manage** and click **Add Roles and Features** to start the Add Roles Wizard. For more information about installing AD DS on Windows Server 2012, see [Install Active Directory Domain Services (Level 100)](http://technet.microsoft.com/en-us/library/hh472162.aspx).
 
 
-	![Add Role] [add-role]
+	![Add Role][add-role]
 
 
 3.	On the Before you begin page, click **Next**.
@@ -184,62 +184,62 @@ You can create the first VM either by using the Windows Azure management portal 
 
 4.	On the Select installation type page, click **Role-based or feature-based installation** and then click **Next**.
 
-	![Select Installation type] [select-installation]
+	![Select Installation type][select-installation]
 
 
 5.	On the Select destination server page, click **Select a server from the server pool**, click the name of the server and then click **Next**.
 
-	![Select server] [select-server]
+	![Select server][select-server]
 
 6.	On the Select server roles page, click **Active Directory Domain Services**, then on the Add Roles and Features Wizard dialog box, click **Add Features**, and then click **Next**.  
 
-	![Select Server Role] [select-server-role]
+	![Select Server Role][select-server-role]
 
-	![Add tools] [add-tools]
+	![Add tools][add-tools]
 
 
 7.	On the Select features page, select any additional features you want to install and click **Next**. 
 
-	![Select features] [select-features]
+	![Select features][select-features]
 
 
 8.	On the Active Directory Domain Services page, review the information and then click **Next**.
 
 9.	On the Confirm installation selections page, click **Install**.
 
-	![Confirm Server Role] [confirm-server-role]
+	![Confirm Server Role][confirm-server-role]
 
 10.	On the Results page, verify that the installation succeeded, and click **Promote this server to a domain controller** to start the Active Directory Domain Services Configuration Wizard.
 
-	![Promote] [promote]
+	![Promote][promote]
 	
 	Note: If you close Add Roles Wizard at this point without starting the Active Directory Domain Services Configuration Wizard, you can restart it by clicking Tasks in Server Manager.
 
 11.	On the Deployment Configuration page, click **Add a new forest** and then type the name of the root domain (for example, fabrikam.com) and click **Next**.
 
-	![New forest] [new-forest]
+	![New forest][new-forest]
 
 12.	On the Domain Controller Options page, type and confirm the Directory Services Restore Mode password, accept other default values and click **Next**.
 
-	![DC Options] [dc-options]
+	![DC Options][dc-options]
 
 13.	On the DNS Options page (which appears only if you install a DNS server), click **Create DNS delegation** as needed and then click **Next**. If you do, provide credentials that have permission to create DNS delegation records in the parent DNS zone. If a DNS server that hosts the parent zone cannot be contacted, the **Create DNS delegation** option is not available.
 
 14.	On the Additional Options page, type a new NetBIOS name or verify the default NetBIOS name of the domain, and then click **Next**.
 
-	![Additional Options] [additional-options]
+	![Additional Options][additional-options]
 
 15.	On the Paths page, type or browse to the locations for the Active Directory database, log files, and SYSVOL folder, and click **Next**. 	
 	
-	![Paths] [paths]
+	![Paths][paths]
 
 16.	On the Review Options page, confirm your selections, review the selections, and then click **Next**. 
 
-	![Review options] [review-options]
+	![Review options][review-options]
 
 17.	On the Prerequisites Check page, confirm that prerequisite validation completed and then click **Install**. 
 
-	![Prerequisite check] [prereq-check]
+	![Prerequisite check][prereq-check]
 
 18.	On the Results page, verify that the server was successfully configured as a domain controller. The server will be restarted automatically to complete the AD DS installation. 
 
@@ -271,7 +271,7 @@ You can create the first VM either by using the Windows Azure management portal 
 6.	Click **Local drives**, then click **Next**.
 
 7.	Select the destination drive that does not host the operating system files or the Active Directory database, then click **Next**.
-    ![Backup the DC] [backup-dc]
+    ![Backup the DC][backup-dc]
 
 8.	Confirm the settings you selected and then click **Backup**. 
 
