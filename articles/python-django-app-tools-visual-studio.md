@@ -166,6 +166,6 @@ Once it's all setup you can click on the link below DNS Name to view your web si
 ![Your Django app in the cloud](./media/python-django-app-tools-visual-studio/ptvs-dj-FirstAppInCloud.png)
 
 
-[How to Install Python]: ../commontasks/how-to-install-python.md
-[newer and more extensive tutorial]: ./django-tutorial.md
+[How to Install Python]: ./python-how-to-install/
+[newer and more extensive tutorial]: ./web-sites-python-create-deploy-django-app/
 

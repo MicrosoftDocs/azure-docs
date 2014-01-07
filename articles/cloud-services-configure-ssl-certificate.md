@@ -8,7 +8,7 @@
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 <div class="dev-callout">Note
-<p>The procedures in this task apply to Windows Azure Cloud Services; for Web Sites, see <a href="../enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.</p>
+<p>The procedures in this task apply to Windows Azure Cloud Services; for Web Sites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for a Windows Azure web site</a>.</p>
 </div>
 
 This task includes the following steps:
