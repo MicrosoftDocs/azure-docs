@@ -217,7 +217,7 @@ Consider finding out more about the following Mobile Services topics:
 [mpns object]: http://go.microsoft.com/fwlink/p/?LinkId=271130
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-wp8/
+[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
 [What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
 [Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-wp8/
 [Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
