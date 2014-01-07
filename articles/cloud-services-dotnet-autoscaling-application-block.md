@@ -548,7 +548,7 @@ autoscaling scenarios:
 					
   [diagram of sample autoscaling]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling01.png
   [files configured by autoscaling NuGet package]: ./media/cloud-services-dotnet-autoscaling-application-block/auotscaling02.png
-  [image]: ./media/cloud-services-dotnet-autoscaling-application-block / autoscaling03.png
+  [image]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling03.png
   [Set Copy to Output Directory value]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling04.png
   [1]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png
   [2]: ./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png
