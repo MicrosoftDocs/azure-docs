@@ -26,7 +26,8 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-	![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+	![A browser window displaying the hello world page.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+
 
 
 ## Creating a New Node Application
