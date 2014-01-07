@@ -60,6 +60,11 @@ You can write C# code to access the Windows Azure management REST API. There are
 
 ##<a name="ftp"></a>FTP
 
+FTP is the most ubiquitous publishing protocol, predating the web itself. When you create a web site, you can create FTP credentials and use any standard FTP application, including Internet Explorer itself, to push or pull content. There are quite a few tools and techniques that allow you to [script](http://support.microsoft.com/kb/96269) or [automate](http://support.microsoft.com/kb/96269) using FTP. 
+
+* Pros: Huge selection of tools, requires little configuration, very easy and straightforward to use.
+* Cons: Limited ability for intelligent sync.
+
 ##<a name="webdeploy"></a>Web Deploy
 
 For information about how to deploy by using Web Deploy in Visual Studio, see [Visual Studio](#vs) earlier in this document.
