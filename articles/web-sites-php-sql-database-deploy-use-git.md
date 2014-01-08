@@ -27,9 +27,8 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 1. Login to the [Windows Azure Management Portal][management-portal].
 2. Click the **New** icon on the bottom left of the portal.
-
-![Create New Windows Azure Web Site][new-website]
-
+![Create New Windows Azure Web Site][new-website]		
+	
 3. Click **Web Site**, then **Custom Create**.
 
 	![Custom Create a new Web Site][custom-create]

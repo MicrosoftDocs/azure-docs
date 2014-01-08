@@ -274,7 +274,7 @@ The .htm files include the following sections:
 
 **Log File Type: Web Server Logging**
 
-- Location: /LogFiles/http/RawLogs. The information stored in the files is formatted using the [W3C extended log format](http://msdn.microsoft.com/en-us/library/windows/desktop/aa814385(v=vs.85).aspx). The s-computername, s-ip and cs-version fields are not used by Windows Azure Web Sites.
+- Location: /LogFiles/http/RawLogs. The information stored in the files is formatted using the [W3C extended log format](http://go.microsoft.com/fwlink/?LinkID=90561). The s-computername, s-ip and cs-version fields are not used by Windows Azure Web Sites.
 
 - Read Files with: Log Parser. Used to parse and query IIS log files. Log Parser 2.2 is available on the Microsoft Download Center at <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 

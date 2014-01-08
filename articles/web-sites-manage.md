@@ -1,4 +1,4 @@
-<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Web Sites" authors=""  solutions="" writer="tysonn" manager="" editor=""  />
+<properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage web sites - Windows Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal web site management pages in Windows Azure. Details are provided for each web site management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Web Sites" authors=""  solutions="" writer="timamm" manager="" editor=""  />
 
 
 
@@ -13,7 +13,7 @@ You manage your web sites with a set of Management pages. Each Web Site manageme
 The **QuickStart** management page includes the following sections:
 
 - **Get the tools** - Provides links to [Install WebMatrix][mswebmatrix] and the [Windows Azure SDK][azuresdk].
-- **Publish your app** - Provides links to download the web site's publishing profile and reset deployment credentials for the web site.
+- **Publish your app** - Provides links to download the web site's publishing profile, reset deployment credentials for the web site, enable staged publishing on a non-staged site, and learn about staged publishing.
 - **Integrate source control** - Set up and manage deployment from source control tools or web sites like TFS, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
 
 ## Dashboard ##
@@ -26,9 +26,9 @@ The **Dashboard** management page includes the following:
  - **HTTP Server Errors** - the number of HTTP "5xx Server Error" messages sent.
  - **Requests** - a count of all client requests to the web site.
  <br />**Note:**
-You can add additional performance metrics on the the **Monitor** management page by choosing **Add Metrics** on the bottom of that page. For more information, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
+You can add additional performance metrics on the the **Monitor** management page by choosing **Add Metrics** on the bottom of that page. For more information, see [How to Monitor Web Sites][Monitor].
 
-- **Web Endpoint Status** - A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click **Configure Web Endpoint Monitoring** and go to the **Monitoring** section of the **Configure** management page. Endpoints can be added only in Standard mode. For more information, see [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/).
+- **Web Endpoint Status** - A list of web endpoints that have been configured for monitoring. If no endpoints have been configured, click **Configure Web Endpoint Monitoring** and go to the **Monitoring** section of the **Configure** management page. Endpoints can be added only in Standard mode. For more information, see [How to Monitor Web Sites][Monitor].
 
 - **Autoscale Status** - In Standard mode, you can automatically scale your resources so you'll only spend as much as you need. To enable autoscaling, choose **Configure Autoscale**, which takes you to the **Scale** page. If your web site is in Free or Shared mode, you will need to change it to Standard mode (you can do this on the **Scale** page) before you can configure autoscaling. 
 
@@ -40,12 +40,13 @@ You can add additional performance metrics on the the **Monitor** management pag
  - **Reset Your Deployment Credentials** - Displays a dialog box where you provide unique credentials for use when publishing with Git or FTP. If you wish to use Git or FTP deployment then you must reset deployment credentials because authentication to an FTP host or Git repository with Live ID credentials is not supported. Once you reset deployment credentials you can use these credentials for Git or FTP publishing to any web site in your subscription.
  - **Reset Your Publish Profile Credentials** - Resets the publish profile for your web site. Previously downloaded publish profiles will become invalid.
  - **Set up Deployment from Source Control** - Displays a dialog box where you can set up continuous publishing from Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket, or Local Git.
+ - **Enable Staged Publishing** - For sites in Standard mode, enable this feature to deploy your site to a staging slot. The staging slot lets you validate the site's content and configuration before swapping it into production. You can also use the staged version of the site to gradually add content updates, and then swap the site into production when the updates have been completed on the staging slot. (This option is not available on a staged site.)
  - **Edit in Visual Studio Online** - Click this link to edit your web site directly online. You can enable this feature on the **Configure** page.
  - **Disconnect from Dropbox** - If you have set up a connection to Dropbox for deployment purposes, this link allows you to disconnect it.
  - **Delete Git repository** - If you have set up a Git repository, this link allows you to delete it.
  - **Status** - Indicates whether the web site is running.
  - **Site URL** - Specifies the publicly accessible address of the web site on the internet.
- - **Compute Mode** - Specifies whether the web site is running in Free, Shared, or Standard mode. For more information about web site modes, see [How to Scale a Web Site](../how-to-scale-websites/).
+ - **Compute Mode** - Specifies whether the web site is running in Free, Shared, or Standard mode. For more information about web site modes, see [How to Scale a Web Site][Scale].
  - **FTP Hostname** - Specifies the URL to use when publishing to the web site over FTP.
  - **FTPS Hostname** - Specifies the URL to use when publishing to the web site over FTPS.
  - **Deployment User / FTP User** - Indicates the account used when deploying the web site to Windows Azure over FTP or Git.
@@ -60,7 +61,7 @@ You can add additional performance metrics on the the **Monitor** management pag
  This tab appears only if you have set up deployment from source control. The **Deployments** management page provides a summary of all deployments made to the web site using your publishing method of choice. If Git publishing has been configured for the web site but no deployments have been made, the **Deployments** management page provides information describing how to use GIT to deploy your web application to the web site.
 
 ##Monitor##
-The **Monitor** management page provides a chart that displays usage information for the web site. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics HTTP Successes, HTTP Redirects, HTTP 401 errors, HTTP 403 errors, HTTP 404 errors and HTTP 406 errors. For more information about these metrics, see [How to Monitor Web Sites](../how-to-monitor-websites/).
+The **Monitor** management page provides a chart that displays usage information for the web site. By default this chart displays the same metrics as the chart on the **Dashboard** page as described above in the Dashboard section. The chart can also be configured to display the metrics HTTP Successes, HTTP Redirects, HTTP 401 errors, HTTP 403 errors, HTTP 404 errors and HTTP 406 errors. For more information about these metrics, see [How to Monitor Web Sites][Monitor].
 
 ##Configure##
 The **Configure** management page is used to set application specific settings including:
@@ -79,7 +80,7 @@ The **Configure** management page is used to set application specific settings i
 - **Default Documents** - Add your web site's default document to this list if it is not already in the list. If your web site contains more than one of the files in the list then make sure your web site's default document appears at the top of the list by changing the order of the files in the list.
 - **Handler Mappings** - Add custom script processors that handle requests for specific file types (for example, *.php).
 
-For more information about how to configure a Web Site see [How to Configure Web Sites](../how-to-configure-websites/).
+For more information about how to configure a Web Site see [How to Configure Web Sites][Configure].
 
 
 ##Scale##
@@ -87,7 +88,7 @@ On the **Scale** management page, you can specify the web site mode (**Free**, *
  
 In **Standard** mode, you can also increase the core count and memory capacity of each instance by changing the **Instance Size**.  For greater cost effectiveness, you can choose the **Autoscale** option to have Windows Azure allocate resources for your web site dynamically. The **Choose Sites** option lets you choose which web sites in a region you want to run in **Standard** mode. 
 
-For more information about configuring scale options for a web site, see [How to Scale a Web Site](../how-to-scale-websites/).
+For more information about configuring scale options for a web site, see [How to Scale a Web Site][Scale].
 
 ##Linked Resources##
 The **Linked Resources** management page provides a list of Windows Azure resources that your web site is using, including SQL databases, MySQL databases, and Azure storage accounts. Click the name of the resource to manage it.
@@ -108,13 +109,14 @@ The following icons are not displayed at the bottom of the **Dashboard** managem
 - **Link** - At the bottom of the **Linked Resources** management page, allows you to create management links to other Windows Azure resources. For example, if your web site accesses a SQL database, you can create a management link to the database resource by clicking **Link**.
 
 
-
+<!-- LINKS -->
 [mswebmatrix]:http://go.microsoft.com/fwlink/?LinkID=226244
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
+[Configure]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites
 
+[Monitor]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/
 
-
-
+[Scale]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-scale-websites
 

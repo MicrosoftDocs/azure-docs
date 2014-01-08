@@ -28,11 +28,11 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 	![Create From Gallery][6]
 
-1. Locate and click the WordPress icon in list, and then click **Next**.
+4. Locate and click the WordPress icon in list, and then click **Next**.
 	
 	![WordPress from list][7]
 
-4. On the **Configure Your App** page, enter or select values for all fields:
+5. On the **Configure Your App** page, enter or select values for all fields:
 	
 - Enter a URL name of your choice	
 - Leave **Create a new MySQL database** selected in the **Database** field
@@ -40,9 +40,9 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 	![configure your app][8]
 
-5. Then click **Next**.
+6. Then click **Next**.
 
-5. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to you as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
+7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to you as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
 	
 	![create database][9]
 
@@ -54,7 +54,7 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![launch dashboard][10]
 
-7. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
+2. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
 
 	![site URL][11] 
 
@@ -62,9 +62,9 @@ After you click **Complete** Windows Azure will initiate build and deploy operat
 
 	![login to WordPress][12]
 
-8. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
+4. Login to the new WordPress web site by entering the username and password that you specified on the **Welcome** page.
 
-9. You'll have a new WordPress site that looks similar to the site below.  
+5. You'll have a new WordPress site that looks similar to the site below.  
 
 	![your WordPress site][13]
 
