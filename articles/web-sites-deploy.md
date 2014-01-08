@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-deploy-websites" urlDisplayName="How to deploy" pageTitle="How to deploy web sites - Windows Azure service management" metaKeywords="Azure deploying web site" description="Learn how to deploy a web site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy a Web Site" authors="tdykstra,timamm"  solutions="" writer="tdykstra,timamm" manager="wpickett" editor="mollybos"  />
+<properties linkid="manage-services-how-to-deploy-websites" urlDisplayName="How to deploy" pageTitle="How to deploy web sites - Windows Azure service management" metaKeywords="Azure deploying web site" description="Learn how to deploy a web site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy a Web Site" authors="tdykstra"  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
 
 #How to Deploy a Web Site
 
@@ -73,25 +73,34 @@ For information about how to deploy by using Web Deploy in Visual Studio, see [V
 
 For information about how to deploy a web site by using WebMatrix, see the following resources:
 
-
 * [Develop and deploy a web site with Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix/). How to create a simple web site by using a WebMatrix template and deploy it to a Windows Azure Web Site by using WebMatrix and Web Deploy.
+* [Webmatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). How to use WebMatrix to deploy from a Git repository.
 
 ##<a name="git"></a>Git
 
 For information about how to deploy a web site by using Git, see the following resources:
 
-[Publishing from Source Control to Windows Azure Web Sites](/en-us/develop/net/common-tasks/publishing-with-git/). How to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, BitBucket, DropBox, or Mercurial.
+* [Publishing from Source Control to Windows Azure Web Sites](/en-us/develop/net/common-tasks/publishing-with-git/). How to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, BitBucket, DropBox, or Mercurial.
+* [Windows Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
-For information about how to deploy a Git repository from Visual Studio, see [Visual Studio](#vs) earlier in this document.
+See also [Visual Studio](#vs) and [WebMatrix](#webmatrix) earlier in this document.
 
 ##<a name="dropbox"></a>DropBox
 
-For information about how to deploy a Git repository from DropBox, see [Git](#git) earlier in this document.
+For information about how to deploy a web site by using DropBox, see the following resources:
+
+* [Deploy To Windows Azure Using Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Windows Azure Management Portal to set up DropBox deployment.
+* [Windows Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+
+See also [Git](#git) earlier in this document.
 
 ##<a name="mercurial"></a>Mercurial
 
-For information about how to deploy a Git repository from Mercurial, see [Git](#git) earlier in this document.
+For information about how to deploy from Mercurial, see the following resources:
 
+* [Windows Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+
+See also [Git](#git) earlier in this document.
 
 ##<a name="nextsteps"></a>Next Steps
 For more information, see [Windows Aure Web Sites](/en-us/documentation/services/web-sites/).
