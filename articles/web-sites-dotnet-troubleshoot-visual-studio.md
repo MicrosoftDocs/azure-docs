@@ -43,7 +43,21 @@ Visual Studio provides access to a subset of the site management functions and c
 
 1. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
-	[WACOM.INCLUDE [vs-connect](../includes/vs-connect.md)]
+
+	* Sign in to the Windows Azure account by entering your credentials.
+
+		This method is quicker and easier, but if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
+
+		In **Server Explorer**, click the **Connect to Windows Azure** button. An alternative is to right-click the **Windows Azure** node, and then click **Connect to Windows Azure** in the context menu.
+
+	* Install a management certificate that enables access to your account.
+
+		In **Server Explorer**, right-click the **Windows Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Windows Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Windows Azure account.
+
+		> WACOM.NOTE
+		> Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Windows Azure services.
+
+	For more information, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
 2. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
 
@@ -67,7 +81,7 @@ Sometimes you might find that your application runs correctly when you run it lo
 
 In this section, you'll debug locally first, and then you'll see how to debug remotely. 
 
-<div class="dev-callout"><strong>Note</strong><p>Remote debugging is a preview feature and currently does not work with site names or user names that are longer than 20 characters.</p></div>
+<div class="dev-callout"><strong>Note</strong><p>Remote debugging is a preview feature.</p></div>
 
 ### Debug locally
 
