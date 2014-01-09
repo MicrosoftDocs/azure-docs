@@ -1,8 +1,8 @@
-<properties linkid="develop-mobile-how-to-guides-import-publishsettings" urlDisplayName="Import your publishsettings file in Visual Studio 2013" pageTitle="Import your publishsettings file in Visual Studio 2013 - Mobile Services" metaKeywords="Windows Azure import publishsettings, mobile services" description="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" />
+<properties linkid="develop-mobile-how-to-guides-import-publish-settings" urlDisplayName="Import your subscription publish settings file in Visual Studio 2013" pageTitle="Import your publishsettings file in Visual Studio 2013 - Mobile Services" metaKeywords="Windows Azure import publishsettings, mobile services" description="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" />
 
-# Import your publishsettings file in Visual Studio 2013
+# Import your subscription publish settings file in Visual Studio 2013
 
-Before you can create the mobile service, you must import the publishsettings file from your Windows Azure subscription into Visual Studio. This enables Visual Studio to connect to Windows Azure on your behalf.  
+Before you can create the mobile service, you must import the publish settings file from your Windows Azure subscription into Visual Studio. This enables Visual Studio to connect to Windows Azure on your behalf.  
 
 
 1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
