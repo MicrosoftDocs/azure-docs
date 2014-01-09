@@ -29,7 +29,7 @@ The site must be in the Standard mode to enable staged publishing.
 
 1. On the Quick Start page, or in the Quick Glance section of the Dashboard page for your web site, click **Enable staged publishing**. 
 	
-	![EnableStagedPub][]
+	![Enable Staged Publishing][EnableStagedPub]
 	
 	> WACOM.NOTE
 	> If your site is not already in Standard mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and upgrade the site on the **Scale** tab of your web site before continuing.
@@ -38,11 +38,11 @@ The site must be in the Standard mode to enable staged publishing.
 
 3. In the list of web sites, expand the mark to the left of your web site name to reveal the staging site slot. It will have the name of your site followed by **(staging)**. 
 	
-	![SiteListWStagingSite][]
+	![Site List with Staging Site][SiteListWStagingSite]
 	
 4. When you select the name of the staging site slot, a page will open with a set of tabs just like any other web site. **[your website name] (staging)** will appear at the top of the portal page to remind you that you are viewing the staging site slot.
 	
-	![StagingTitle][]
+	![Staging Site Title][StagingTitle]
 	
 You can now add and update content for the staging site slot using the publish profile or deployment credentials associated with the staging site slot. 
 
@@ -71,16 +71,17 @@ When a staging site slot is created, the configuration for the staging site slot
 - If you change a site to Free mode or Shared mode, it will no longer be swappable.
 
 - Your staged site needs to be configured exactly as you want to have it in production.
+
 <a name="Swap"></a>
 ##To Swap the Staging Site Slot with the Production Site Slot##
 
 1. To swap the staging site slot to production, select the staging site slot in the web sites list and click the **Swap** button in the command bar. 
 	
-	![SwapButtonBar][]
+	![Swap Button][SwapButtonBar]
 	
 2. An "Are you sure you want to swap web site deployments?" confirmation dialog will appear, reminding you of the configuration that will change and the configuration that will not change. 
 	
-	![SwapConfirmationDialog][]
+	![Swap Confirmation Dialog][SwapConfirmationDialog]
 	
 3. After you answer **Yes**, the site slot that was in production now becomes your staging site slot.
 
@@ -99,7 +100,7 @@ If any errors are identified for the content or configuration swapped to product
 
 In the command bar at the bottom of the Windows Azure Web Sites portal page, click **Delete**. You will be given the option to delete both production and staging sites, or delete the staging site only. 
 
-![DeleteStagingSiteButton][]
+![Delete Staging Site][DeleteStagingSiteButton]
 
 After you answer **Yes** to the confirmation message, one or both sites will be deleted, depending on the option that you chose.
 
