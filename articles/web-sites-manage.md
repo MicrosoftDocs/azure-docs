@@ -79,8 +79,9 @@ The **Configure** management page is used to set application specific settings i
 - **Connection Strings** - View connection strings to linked resources. For .NET sites, these connection strings will be injected into the web site's .NET configuration connectionStrings settings at runtime, overriding any existing entries where the key equals the linked database name. For PHP and Node web sites, these settings will be available as environment variables at runtime.
 - **Default Documents** - Add your web site's default document to this list if it is not already in the list. If your web site contains more than one of the files in the list then make sure your web site's default document appears at the top of the list by changing the order of the files in the list.
 - **Handler Mappings** - Add custom script processors that handle requests for specific file types (for example, *.php).
+- **Virtual Applications and Directories**  - Configure virtual applications and directories associated with your web site. You also have the option to mark a virtual directory as an application in site configuration.
 
-For more information about how to configure a Web Site see [How to Configure Web Sites][Configure].
+For more information about how to configure a Web Site, see [How to Configure Web Sites][Configure].
 
 
 ##Scale##
