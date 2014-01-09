@@ -42,6 +42,12 @@ The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform I
 
 <div class="dev-callout">
 <b>Note</b>
+<p>The HDInsight Emulator currently only supports English OS. </p>
+</div>
+
+
+<div class="dev-callout">
+<b>Note</b>
 <p>If you have had Microsoft HDInsight Developer Preview installed, you must uninstall the following two components from Control Panel/Program and Features first.</p>
 
 <ul>

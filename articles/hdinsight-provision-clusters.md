@@ -25,7 +25,7 @@ HDInsight cluster uses a Windows Azure Blob Storage container as the default fil
 
 <div class="dev-callout">
 <b>Note</b>
-<p>Currently, only the Europe North and the US West and the US East region can host HDInsight clusters.</p>
+<p>Currently, only the Southeast Asia, North Europe, West Europe, East US and the West US regions can host HDInsight clusters.</p>
 </div>
 
 This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
@@ -50,7 +50,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><td>HDINSIGHT VERSION</td>
 			<td>Choose the HDInsight version to use for this cluster. The default is 2.0.</td></tr>
 		<tr><td>REGION</td>
-			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *US East* or *US West* or *Europe North*.</td>
+			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *Southeast Asia*, *North Europe*, *West Europe*, *East US* or *West US*.</td>
 		</tr>
 	</table>
 
