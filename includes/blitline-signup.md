@@ -5,11 +5,11 @@
 
 2. In the lower pane of the management portal, click **New**.
 
-	![command-bar-new][]
+	![command-bar-new][command-bar-new]
 
 3. Click **Store**.
 
-	![blitline-store][]
+	![blitline-store][blitline-store]
 
 4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
 
@@ -17,7 +17,7 @@
 
 6. Enter a name to identify your **Blitline** service in your Windows Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
 
-	![store-screen-1][]
+	![store-screen-1][store-screen-1]
 
 7. Choose a value for the region; for example, West US. 
 
@@ -32,11 +32,11 @@ To use Blitline you need to have your Application ID.
 
 1. Click **Connection Info**.
 
-	![blitline-connection-info-button][]
+	![blitline-connection-info-button][blitline-connection-info-button]
 
 2. In the *Connection info* dialog, you can see your Application ID
 
-	![blitline-connection-info][]
+	![blitline-connection-info][blitline-connection-info]
 
 <!--images-->
 
