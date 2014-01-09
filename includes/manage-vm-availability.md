@@ -2,9 +2,11 @@
 
 #Manage the Availability of Virtual Machines#
 
-You can ensure the availability of your application by using multiple Windows Azure Virtual Machines. By using multiple virtual machines in your application, you can make sure that your application is available during local network failures, local disk hardware failures, and any planned downtime that the platform may require.
+To help ensure the availability of your application, we strongly recommend using multiple virtual machines that provide redunancy. To provide redunancy, configure more than one virtual machine to perform the same function or role. This redunancy is required to receive a guaranteed level of service. Also be sure to consider dependencies. For example, if virtual machine "IIS1" depends on services provided by virtual machine "SQL1," redundancy for virtual machine "SQL1" is provided by "SQL2" to help avoid service interruptions. For more information about service level agreements,  see the "Cloud Services, Virtual Machines and Virtual Network" section in [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
 
-You manage the availability of your application that uses multiple virtual machines by adding the machines to an availability set. Availability sets are directly related to fault domains and update domains. A fault domain in Windows Azure is defined by avoiding single points of failure, like the network switch or power unit of a rack of servers. In fact, a fault domain is closely equivalent to a rack of physical servers.  When multiple virtual machines are connected together in a cloud service, an availability set can be used to ensure that the machines are located in different fault domains. The following diagram shows two availability sets with two virtual machines in each set.
+This approach can help ensure that your application is available during local network failures, local disk hardware failures, and any planned downtime that the platform may require.
+
+You manage the availability of an application that uses multiple virtual machines by adding the virtual machines to an availability set. Availability sets are directly related to fault domains and update domains. A fault domain in Windows Azure is defined by avoiding single points of failure, like the network switch or power unit of a rack of servers. In fact, a fault domain is closely equivalent to a rack of physical servers.  When multiple virtual machines are connected in a cloud service, an availability set places the virtual machines in different fault domains. The following diagram shows two availability sets with two virtual machines in each set.
 
 ![Update domains](./media/manage-vm-availability/UpdateDomains.png)
 
