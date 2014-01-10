@@ -1,4 +1,4 @@
-﻿<properties title="How to use blob storage (PHP) - Windows Azure feature guide" pageTitle="How to use blob storage (PHP) - Windows Azure feature guide" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" />
+<properties title="How to use blob storage (PHP) - Windows Azure feature guide" pageTitle="How to use blob storage (PHP) - Windows Azure feature guide" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" writer="waltpo" manager="bjsmith" editor="mollybos"/>
 
 #How to use the Blob service from PHP
 
@@ -285,7 +285,7 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 
 <h2><a id="NextSteps"></a>Next steps</h2>
 
-Now that you�ve learned the basics of the Windows Azure Blob service, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of the Windows Azure Blob service, follow these links to learn how to do more complex storage tasks.
 
 - See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
 - Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>

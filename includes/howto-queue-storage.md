@@ -1,4 +1,4 @@
-﻿## <a name="what-is"> </a>What is Queue Storage?
+## <a name="what-is"> </a>What is Queue Storage?
 
 Windows Azure Queue storage is a service for storing large numbers of
 messages that can be accessed from anywhere in the world via
@@ -16,23 +16,19 @@ Common uses of Queue storage include:
 
 The Queue service contains the following components:
 
-![Queue1][Queue1]
+![Queue1](./media/howto-queue-storage/queue1.png)
 
--   **URL format:** Queues are addressable using the following URL
-    format:   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+
+- **URL format:** Queues are addressable using the following URL format:   
+	http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-    The following URL addresses one of the queues in the diagram:  
-    `http://myaccount.queue.core.windows.net/imagesToDownload`
+The following URL addresses one of the queues in the diagram:  
+	http://myaccount.queue.core.windows.net/imagesToDownload
 
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. A storage account is the highest level of
-    the namespace for accessing queues. The total size of blob, table,
-    and queue contents in a storage account cannot exceed 100TB.
+-**Storage Account:** All access to Windows Azure Storage is done through a storage account. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
--   **Queue:** A queue contains a set of messages. All messages must be
-    in a queue.
+- **Queue:** A queue contains a set of messages. All messages must be in a queue.
 
--   **Message:** A message, in any format, of up to 64KB.
+- **Message:** A message, in any format, of up to 64KB.
 
-[Queue1]: ./media/howto-queue-storage/queue1.png
+

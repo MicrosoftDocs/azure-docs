@@ -32,13 +32,13 @@ Windows Azure customers can unlock 25,000 free emails each month. These 25,000 f
 
 	![sendgrid-purchasing-message][sendgrid-purchasing-message]
 
-Your SendGrid account is provisioned immediately and you will see the message **Successfully purchased Add-On SendGrid**. Your account and credentials are now created. You are ready to send emails at this point. 
+	Your SendGrid account is provisioned immediately and you will see the message **Successfully purchased Add-On SendGrid**. Your account and credentials are now created. You are ready to send emails at this point. 
 
-To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid add-ons dashboard. 
+	To modify your subscription plan or see the SendGrid contact settings, click the name of your SendGrid service to open the SendGrid add-ons dashboard. 
 
-![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
+	![sendgrid-add-on-dashboard][sendgrid-add-on-dashboard]
 
-To send an email using SendGrid, you must supply your  account credentials (username and password).
+	To send an email using SendGrid, you must supply your  account credentials (username and password).
 
 ### To find your SendGrid credentials ###
 
@@ -50,17 +50,16 @@ To send an email using SendGrid, you must supply your  account credentials (user
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-To set your email deliverability settings, click the **Manage** button. This will open the Sendgrid.com web interface where you can login and open your SendGrid Control Panel. 
+	To set your email deliverability settings, click the **Manage** button. This will open the Sendgrid.com web interface where you can login and open your SendGrid Control Panel. 
 
-![sendgrid-control-panel][sendgrid-control-panel]
+	![sendgrid-control-panel][sendgrid-control-panel]
 
-For more information on getting started with SendGrid, see [SendGrid Getting Started][].
+	For more information on getting started with SendGrid, see [SendGrid Getting Started][].
 
 <!--images-->
 
 [command-bar-new]: ./media/sendgrid-sign-up/sendgrid_BAR_NEW.PNG
 [sendgrid-store]: ./media/sendgrid-sign-up/sendgrid_offerings_store.png
-[store-screen-1]: ../media/sendgrid_store_scrn1.png
 [store-screen-2]: ./media/sendgrid-sign-up/sendgrid_store_scrn2.png
 [store-screen-3]: ./media/sendgrid-sign-up/sendgrid_store_scrn3.png
 [sendgrid-purchasing-message]: ./media/sendgrid-sign-up/sendgrid_purchasing_message.png

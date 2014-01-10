@@ -1,4 +1,4 @@
-﻿## <a name="what-is"> </a>What is Blob Storage
+## <a name="what-is"> </a>What is Blob Storage
 
 Windows Azure Blob storage is a service for storing large amounts of
 unstructured data that can be accessed from anywhere in the world via
@@ -24,9 +24,7 @@ The Blob service contains the following components:
 ![Blob1][Blob1]
 
 -   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. This is the highest level of the
-    namespace for accessing blobs. An account can contain an unlimited
-    number of containers, as long as their total size is under 100TB.
+    through a storage account. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 -   **Container:** A container provides a grouping of a set of blobs.
     All blobs must be in a container. An account can contain an
@@ -46,9 +44,10 @@ The Blob service contains the following components:
     http://`<storage
     account>`.blob.core.windows.net/`<container>`/`<blob>`  
       
-    The following URL could be used to address one of the blobs in the
+    The following example URL could be used to address one of the blobs in the
     diagram above:  
     `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
-[Blob1]: ./media/howto-blob-storage/blob1.jpg
+
   [Understanding Block Blobs and Page Blobs]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[Blob1]: ./media/howto-blob-storage/blob1.jpg
