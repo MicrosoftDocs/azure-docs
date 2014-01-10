@@ -94,7 +94,7 @@ Azure emulator:
     the command completes, you should see output similar to the
     following:
 
-    ![The output of the npm install command][The output of the npm install command]
+    ![The output of the npm install command][The-output-of-the-npm-install-command]
 
 4.  Since this example was originally a part of the Socket.IO GitHub
     repository, and directly referenced the Socket.IO library by
@@ -169,6 +169,6 @@ In this tutorial you learned how to create a basic chat application hosted in a 
   
   
   [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
-  [The output of the npm install command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
+  [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
   
