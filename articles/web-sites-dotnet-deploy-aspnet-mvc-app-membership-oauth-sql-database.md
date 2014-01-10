@@ -151,7 +151,19 @@ This is all you need to do for now to create the application that you'll deploy 
 
 5. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
-   [WACOM.INCLUDE [vs-connect-ws-publish](../includes/vs-connect-ws-publish.md)]   
+   
+	* Click **Sign In**, and then enter the credentials for your Windows Azure account.
+
+		This method is quicker and easier, but if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
+
+	* Click **Manage subscriptions** in order to install a management certificate that enables access to your account.
+
+		In the **Manage Windows Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and import a subscription file (also called a *.publishsettings* file) for your Windows Azure account.
+
+		> WACOM.NOTE
+		> Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Windows Azure services.
+
+		For more information, see [How to Connect to Windows Azure from Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
 
 7. In the **Import Publish Profile** dialog box, select your web site from the drop-down list, and then click **OK**.<br/>
 ![Import Publish Profile](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs4.png)
@@ -452,14 +464,20 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 The **Publish Web** wizard opens.
 1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select **ContactDB**.
 
-   (If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)
-<br/><br/>![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
+	(If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)
+
+	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
+
 1. Under **ContactManagerContext**, select **Execute Code First Migrations**.
-<br/><br/>
-![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
+
+	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
+
 1. Click **Publish**.
+
 1. Log in as *user1* and verify you can edit data.
+
 1. Log out.
+
 2. Log in using Google or Facebook. That will add the Google or Facebook account to the **canEdit** role.
 
 ### Stop the web site to prevent other people from registering  
@@ -487,9 +505,6 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 3. Your Windows Azure App opens up in your default browser. You are viewing the home page as an anonymous user.  
 4. Click the **About** link. You'll be redirected to the Log in page.
 5. Click the **Register** link on the Log in page and create local account. We will use this local account to verify you can access the read only pages but you cannot access pages that change data (which are protected by the *canEdit* role). Later on in the tutorial we will remove local account access. 
-<!--
-1. Log out of the local user account and log in with the Google account you previously registered with. Verify you can edit data. 
--->
 <br/><br/>
 ![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr6.png)
 <br/><br/>
