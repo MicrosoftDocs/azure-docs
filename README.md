@@ -162,7 +162,7 @@ Below is a list of the most common markdown syntax.
 
 	Links can also have references, which will be discussed in the "Link and Image References" section below.
 
-*	**Images** - The base syntax for an image is `![alt text for the image] (image url)`.
+*	**Images** - The base syntax for an image is `![alt text for the image](image url)`.
 
 	Images can also have references, which will be discussed in the "Link and Image References" section below.
 
@@ -176,9 +176,9 @@ In order to make the transition into using markdown as easy as possible, each of
 
 Markdown has a really nice feature that allows a user to insert a reference instead of a url for images and links.  The syntax for using this feature is:
 
-	The image below is from [Google] [googleweb]
+	The image below is from [Google][googleweb]
 	
-	![Google's logo] [logo]
+	![Google's logo][logo]
 	
 	[googleweb]: google.com
 	[logo]: https://www.google.com/images/srpr/logo3w.png
