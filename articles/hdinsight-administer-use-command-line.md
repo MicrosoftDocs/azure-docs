@@ -110,9 +110,11 @@ After you have imported the publishsettings file, you can use the following comm
 <p>The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
-<li>US East</li>
-<li>US West</li>
-<li>Europe North</li>
+<li>Southeast Asia</li>
+<li>North Europe</li>
+<li>West Europe</li>
+<li>East US</li>
+<li>West US</li>
 </ul>
 
 </div>
