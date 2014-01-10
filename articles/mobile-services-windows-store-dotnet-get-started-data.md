@@ -45,14 +45,17 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-5. In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the **App** class, which looks like the following example: 
+<ol start="7"><li>In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the **App** class, which looks like the following example: 
 
-		public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
 		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
 		        "https://todolist.azure-mobile.net/",
 		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		</code></pre>
 
-	This code provides access to your new mobile service in your app by using an instance of the [MobileServiceClient class]. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.
+	This code provides access to your new mobile service in your app by using an instance of the <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">MobileServiceClient class</a>. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.
+</li>
+</ol>
 
 <h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
 
