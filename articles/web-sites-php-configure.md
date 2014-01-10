@@ -16,19 +16,19 @@ This guide will show you how to configure the built-in PHP runtime in Windows Az
 Windows Azure Web Sites allows you to build highly scalable web sites on Windows Azure. You can quickly and easily deploy sites to a highly scalable cloud environment that allows you to start small and scale as traffic grows. Windows Azure Web Sites uses the languages and open source apps of your choice and supports deployment with Git, FTP, and TFS. You can easily integrate other services like MySQL, SQL Database, Caching, CDN, and Storage.
 
 <h2><a name="ChangeBuiltInPHP"></a>How to: Change the built-in PHP configuration</h2>
-By default, PHP 5.3 is installed and immediately available for use when you create a Windows Azure Web Site. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
+By default, PHP 5.4 is installed and immediately available for use when you create a Windows Azure Web Site. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
-PHP 5.4 is also available, but not enabled by default. To enable it, follow these steps:
+PHP 5.5 is also available, but not enabled by default. To enable it, follow these steps:
 
-1. Browse to your web site's dashboard in the Windows Azure Portal, click on **CONFIGURE**.
+1. Browse to your web site's dashboard in the Windows Azure Portal, click on **Configure**.
 
 	![Configure tab on Web Sites dashboard][configure]
 
-1. Click PHP 5.4.
+1. Click PHP 5.5.
 
 	![Select PHP version][select-php-version]
 
-1. Click **SAVE** at the bottom of the page.
+1. Click **Save** at the bottom of the page.
 
 	![Save configuration settings][save-button]
 
@@ -50,9 +50,9 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below.
 
 1. Add a `bin` directory to your root directoy.
-1. Put `.dll` extension files in the `bin` directory (for example, `php_mongo.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.3) and are VC9 and non-thread-safe (nts) compatible.
+1. Put `.dll` extension files in the `bin` directory (for example, `php_mongo.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.4) and are VC9 and non-thread-safe (nts) compatible.
 1. Deploy your application.
-1. Navigate to your site�s dashboard in the Windows Azure Portal, and click on **CONFIGURE**.
+1. Navigate to your site's dashboard in the Windows Azure Portal, and click on **Configure**.
 
 	![Configure tab on Web Sites dashboard][configure]
 
@@ -60,7 +60,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 
 	![Enable extension in app settings][app-settings]
 
-1. Click **SAVE** at the bottom of the page.
+1. Click **Save** at the bottom of the page.
 
 	![Save configuration settings][save-button]
 
@@ -72,7 +72,7 @@ Instead of the default PHP runtime, Windows Azure Web Sites can use a PHP runtim
 1. Optionally, add extensions to your PHP runtime and enable them in the `php.ini` file.
 1. Add `bin` directory to your root directory, and put the directory that contains your PHP runtime in it (for example, `bin\php`).
 1. Deploy your application.
-1. Navigate to your site's dashboard in the Windows Azure Portal, and click on **CONFIGURE**.
+1. Navigate to your site's dashboard in the Windows Azure Portal, and click on **Configure**.
 
 	![Configure tab on Web Sites dashboard][configure]
 
@@ -80,7 +80,7 @@ Instead of the default PHP runtime, Windows Azure Web Sites can use a PHP runtim
 
 	![Specify handler in hander mappings][handler-mappings]
 
-1. Click **SAVE** at the bottom of the page.
+1. Click **Save** at the bottom of the page.
 
 	![Save configuration settings][save-button]
 

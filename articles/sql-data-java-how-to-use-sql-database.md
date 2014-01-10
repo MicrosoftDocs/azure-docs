@@ -1,7 +1,5 @@
 <properties linkid="develop-java-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Azure (Java) - Windows Azure feature guide" metaKeywords="" description="Learn how to use the Windows Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Windows Azure SQL Database in Java" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
 
-
-
 # How to Use Windows Azure SQL Database in Java
 
 The following steps show you how to use Windows Azure SQL Database with Java. Command line examples are shown for simplicity, but highly similar steps would be appropriate for web applications, either hosted on-premise, within Windows Azure, or in other environments. This guide covered creating a server and creating a database from the [Windows Azure Management Portal](https://windows.azure.com). For information about performing these tasks from the production portal, see [Using SQL Database with Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh749029.aspx).
@@ -44,15 +42,8 @@ The following are prerequisites if you intend to use SQL Database with Java.
 
 * A Java Developer Kit (JDK), v 1.6 or later.
 * A Windows Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-* If you are using Eclipse:
-
-    * Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
-
-    * The Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
-
-* If you are not using Eclipse:
-
-    * Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
+* If you are using Eclipse, you'll need Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. You will also need the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). During installation of this plugin, ensure that Microsoft JDBC Driver 4.0 for SQL Server is included. For more information, see [Installing the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+* If you are not using Eclipse, you will need the Microsoft JDBC Driver 4.0 for SQL Server, which you can download from <http://www.microsoft.com/en-us/download/details.aspx?id=11774>.
 
 <h2><a id="create_db"></a>Creating a Windows Azure SQL Database</h2>
 
@@ -123,14 +114,15 @@ We'll actually use this string later in this guide, for now you know the steps t
 3. Add the **Microsoft JDBC Driver for SQL Server** to your build path.
 
    If you are using Eclipse:
+
     1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
     2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.
     3. Click the **Libraries** tab, and then click **Add Library**.
     4. In the **Add Library** dialog, select **Microsoft JDBC Driver 4.0 for SQL Server**, click **Next**, and then click **Finish**.
     5. Click **OK** to close the **Properties** dialog.
 
-    If you are not using Eclipse:
-    1. Add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+    If you are not using Eclipse, add the Microsoft JDBC Driver 4.0 for SQL Server JAR to your class path. For related information, see [Using the JDBC Driver](http://msdn.microsoft.com/en-us/library/ms378526.aspx).
+
 4. Within your **HelloSQLAzure.java** code, add in `import` statements as shown in the following:
 
         import java.sql.*;

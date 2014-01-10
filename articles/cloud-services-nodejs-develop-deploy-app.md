@@ -16,9 +16,7 @@ provide a robust dedicated virtual machine for hosting each role reliably.
 For more information on Cloud Services, and how they compare to Windows Azure Web Sites and Virtual machines, see [Windows Azure Web Sites, Cloud Services, and VMs: When to use which?](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)
 
 <div class="dev-callout"><strong>Looking to build a simple web site?</strong>
-<p>If your scenario involves just a simple web site front-end, consider <a href="../create-a-website-(mac)">using a 
-    lightweight Windows Azure Web Site.</a> You can easily upgrade to a Cloud Service as 
-    your web site grows and your requirements change.</p>
+<p>If your scenario involves just a simple web site front-end, consider <a href="../create-a-website-(mac)">using a lightweight Windows Azure Web Site.</a> You can easily upgrade to a Cloud Service as your web site grows and your requirements change.</p>
 </div>
 <br />
 
@@ -28,7 +26,10 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-   ![A browser window displaying Hello World](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.">
+</p>
+
+
 
 ## Creating a New Node Application
 
@@ -41,8 +42,7 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 
-2.  Create a new **node** directory on your C drive, and change to the
-    c:\\node directory:
+2.  Create a new **node** directory on your C drive, and change to the c:\\node directory:
 	
 	![A command prompt displaying the commands 'mkdir c:\\node' and 'cd node'.][mkdir]
 
@@ -66,7 +66,7 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 	For more information about these files, see
         [Overview of Creating a Hosted Service for Windows Azure][].
 
-    -   **deploymentSettings.json** stores local settings that are used by
+	-   **deploymentSettings.json** stores local settings that are used by
         the Windows Azure PowerShell deployment cmdlets.
 
 4.  Enter the following command to add a new web role using the
@@ -82,10 +82,7 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>By default if you do not provide a role name, one will be created
-    for you. You can provide a name as the first parameter
-    to <b>Add-AzureNodeWebRole</b>. For example, <code>Add-AzureNodeWebRole
-    MyRole</code></p>
+	<p>By default if you do not provide a role name, one will be created for you. You can provide a name as the first parameter to <b>Add-AzureNodeWebRole</b>. For example, <code>Add-AzureNodeWebRole MyRole</code></p>
 	</div>
 
 5.  Use the following commands to navigate to the **WebRole1** directory, and then open the the **server.js** file in notepad. 
@@ -93,8 +90,7 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 	PS C:\\node\\helloworld> cd WebRole1
         PS C:\node\helloworld\WebRole1> notepad server.js
 
-	The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the "Hello World" sample
-    on the [nodejs.org][] web site, except:
+	The **server.js** file was created by the **Add-AzureNodeWebRole** cmdlet, and contains the following starter code. This code is similar to the "Hello World" sample on the [nodejs.org][] web site, except:
 
    	-   The port has been changed to allow the application to find the 
         correct port assigned to it by the cloud environment.
@@ -110,7 +106,7 @@ compute emulator simulates the environment your application will run in
 when it is deployed to the cloud. Perform the following steps to test the application in the emulator.
 
 1.  Close Notepad and switch back to the Windows PowerShell window.
-    Enter the following cmdlet to run your service in the emulator:
+  	Enter the following cmdlet to run your service in the emulator:
 
         PS C:\node\helloworld\WebRole1> Start-AzureEmulator -Launch
 
@@ -126,14 +122,13 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 
 	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-</br>
 
-### <a id="download_publishing_settings"> </a>Downloading the Windows Azure Publishing Settings
+
+###<a id="download_publishing_settings"></a>Downloading the Windows Azure Publishing Settings
 
 In order to deploy your application to Windows Azure, you must first download the publishing settings for your Windows Azure subscription. The following steps guide you through this process:
 
-1.  From the Windows PowerShell window, launch the download page by
-    running the following cmdlet:
+1.  From the Windows PowerShell window, launch the download page by running the following cmdlet:
 
         PS C:\node\helloworld\WebRole1> Get-AzurePublishSettingsFile
 
@@ -141,18 +136,14 @@ In order to deploy your application to Windows Azure, you must first download th
 
 	Save the downloaded profile to a file location you can easily access.
 
-2.  In the Windows Azure PowerShell window, use the following cmdlet to
-    configure the Windows PowerShell for Node.js cmdlets to use the
-    Windows Azure publishing profile you downloaded:
+2.  In the Windows Azure PowerShell window, use the following cmdlet to configure the Windows PowerShell for Node.js cmdlets to use the Windows Azure publishing profile you downloaded:
 
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
 
 	<div class="dev-callout">
 	<b>Note</b>
-	<p>After importing the publish settings, consider deleting the
-    downloaded .publishSettings file as it contains information that
-    can be used by others to access your account.</p>
+	<p>After importing the publish settings, consider deleting the downloaded .publishSettings file as it contains information that can be used by others to access your account.</p>
 	</div>
     
 
@@ -173,7 +164,7 @@ In order to deploy your application to Windows Azure, you must first download th
 
 	![The output of the Publish-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node19.png)
 
-The **Publish-AzureServiceProject** cmdlet performs the following steps:
+	The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
 1.  Creates a package that will be deployed to Windows Azure. The package contains all the files in your node.js application folder.
 
@@ -197,13 +188,9 @@ The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
 ## Stopping and Deleting Your Application
 
-After deploying your application, you may want to disable it so you can
-avoid extra costs. Windows Azure bills web role instances per hour of server 
-time consumed. Server time is consumed once your application is deployed, even if the
-instances are not running and are in the stopped state.
+After deploying your application, you may want to disable it so you can avoid extra costs. Windows Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.
 
-1.  In the Windows PowerShell window, stop the service deployment
-    created in the previous section with the following cmdlet:
+1.  In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:
 
         PS C:\node\helloworld\WebRole1> Stop-AzureService
 

@@ -2,7 +2,7 @@
 
 # Transform and extend your site
 
-By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can make modifications to the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure web sites. You can also use XDT declarations to add private site extensions to enable custom site administration scenarios. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure web sites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
 
 
 <!-- MINI TOC -->
@@ -16,11 +16,11 @@ By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/d
 	* [Site extension deployment](#deploy)
 
 <h2><a id="transform"></a>Transform the Site Configuration in ApplicationHost.config</h2>
-Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Windows Azure Web Sites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
+The Azure Web Sites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Windows Azure Web Sites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
 
 To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the site root. Then, on the **Configure** page in the Windows Azure Portal, you set the `WEBSITE_PRIVATE_EXTENSIONS` app setting to 1 (you may need to restart the site). 
 
-The following applicationHost.xdt sample shows how to add a new environment variable to a site that uses PHP 5.4.
+The following applicationHost.xdt sample shows how to add a new custom environment variable to a site that uses PHP 5.4.
 
 	<?xml version="1.0"?> 
 	<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform"> 
@@ -35,11 +35,13 @@ The following applicationHost.xdt sample shows how to add a new environment vari
   		</system.webServer> 
 	</configuration> 
 
- **Notes**
+ 
+A log file with transform status and details is available from the FTP root under LogFiles\Transform.
 
-- Elements from the list of modules under `system.webServer` cannot be removed or reordered, but additions to the list are possible. 
-- A log file with transform status and details is available from the FTP root under LogFiles\Transform.
-- For additional samples, see [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+For additional samples, see [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+
+**Note**<br />
+Elements from the list of modules under `system.webServer` cannot be removed or reordered, but additions to the list are possible. 
 
 
 <h2><a id="extend"></a>Extend your Site</h2>
@@ -61,7 +63,7 @@ PHP Manager is a site extension that allows site administrators to easily view a
 
 <h4><a id="PHPwebapp"></a>The PHP Manager web app</h4>
 	
-The following image shows the home page of the PHP Manager web site:
+The following is the home page of the PHP Manager web site:
 
 ![TransformSitePHPUI][TransformSitePHPUI]
 
@@ -91,19 +93,19 @@ The only special logic needed for file I/O is to indicate where the wwwroot dire
 
 After you have the directory path, you can use regular file I/O operations to read and write to files.
 
-One point of caution with site extensions regards the handling of internal links.  If you have any links in your HTML files that give absolute paths to internal links on your site, you must ensure those links are prepended with your extension name as your site root. This is needed because the site root for your extension is now "/_`<your-extension-name>`_/" rather than being just "/", so any internal links must be updated accordingly. For example, suppose your code includes a link to the following: 
+One point of caution with site extensions regards the handling of internal links.  If you have any links in your HTML files that give absolute paths to internal links on your site, you must ensure those links are prepended with your extension name as your site root. This is needed because the site root for your extension is now "/`[your-extension-name]`/" rather than being just "/", so any internal links must be updated accordingly. For example, suppose your code includes a link to the following: 
 
 `"<a href="/Home/Settings">PHP Settings</a>"`
 
 When the link is part of a site extension, the link must be in the following form:
 
-`"<a href="/`_`<your-site-name>`_`/Home/Settings">Settings</a>"`. 
+`"<a href="/[your-site-name]/Home/Settings">Settings</a>"` 
 
 You can work around this requirement by either using only relative paths within your web site, or in the case of ASP.NET web sites, by using the `@Html.ActionLink` method which creates the appropriate links for you.
 
 <h4><a id="XDT"></a>The applicationHost.xdt file</h4>
 
-The code for your site extension goes under %HOME%\SiteExtensions\\_`<your-extension-name>`_. We'll call this the extension root.  
+The code for your site extension goes under %HOME%\SiteExtensions\[your-extension-name]. We'll call this the extension root.  
 
 To register your site extension with the applicationHost.config file, you need to place a file called ApplicationHost.xdt in the extension root. The contents of the ApplicationHost.xdt file should be as follows:
 
@@ -113,8 +115,8 @@ To register your site extension with the applicationHost.config file, you need t
     			<sites>
       				<site name="%XDT_SCMSITENAME%" xdt:Locator="Match(name)">
 						<!-- NOTE: Add your extension name in the application paths below -->
-        				<application path="/<your-extension-name>" xdt:Locator="Match(path)" xdt:Transform="Remove" />
-        				<application path="/<your-extension-name>" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
+        				<application path="/[your-extension-name]" xdt:Locator="Match(path)" xdt:Transform="Remove" />
+        				<application path="/[your-extension-name]" applicationPool="%XDT_APPPOOLNAME%" xdt:Transform="Insert">
           					<virtualDirectory path="/" physicalPath="%XDT_EXTENSIONPATH%" />
         				</application>
       				</site>
@@ -124,7 +126,7 @@ To register your site extension with the applicationHost.config file, you need t
 
 The name you select as your extension name should have the same name as your extension root folder.
 
-This has the effect of adding a new application path to the `system.applicationHost` sites list under the SCM site. The SCM site is a site administration end point with specific access credentials. It has the URL `https://`_`<your-site-name>`_`.scm.azurewebsites.net`.  
+This has the effect of adding a new application path to the `system.applicationHost` sites list under the SCM site. The SCM site is a site administration end point with specific access credentials. It has the URL `https://[your-site-name].scm.azurewebsites.net`.  
 
 	<system.applicationHost>
   		...
@@ -133,15 +135,15 @@ This has the effect of adding a new application path to the `system.applicationH
         			<binding protocol="http" bindingInformation="*:80: [your-website].scm.azurewebsites.net" />
         			<binding protocol="https" bindingInformation="*:443: [your-website].scm.azurewebsites.net" />
       			</bindings>
-      			<traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\<your-website>\VirtualDirectory0\LogFiles" />
-      			<detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\<your-website> \VirtualDirectory0\LogFiles\DetailedErrors" />
+      			<traceFailedRequestsLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles" />
+      			<detailedErrorLogging enabled="false" directory="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\LogFiles\DetailedErrors" />
       			<logFile logSiteId="false" />
-      			<application path="/" applicationPool="<your-website>">
+      			<application path="/" applicationPool="[your-website]">
         			<virtualDirectory path="/" physicalPath="D:\Program Files (x86)\SiteExtensions\Kudu\1.24.20926.5" />
       			</application>
 				<!-- Note the custom changes that go here -->
-      			<application path="/<your-extension-name>" applicationPool="<your-website>">
-        			<virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\<your-website>\VirtualDirectory0\SiteExtensions\<your-extension-name>" />
+      			<application path="/[your-extension-name]" applicationPool="[your-website]">
+        			<virtualDirectory path="/" physicalPath="C:\DWASFiles\Sites\[your-website]\VirtualDirectory0\SiteExtensions\[your-extension-name]" />
       			</application>
     		</site>
   	</sites>
@@ -150,7 +152,7 @@ This has the effect of adding a new application path to the `system.applicationH
 
 <h3><a id="deploy"></a>Site extension deployment</h3>
 
-To install your site extension, you can use FTP to copy all the files of your web app to the "\SiteExtensions\your-extension-name" folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
+To install your site extension, you can use FTP to copy all the files of your web app to the "\SiteExtensions\[your-extension-name]" folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
 
 Next, in the Windows Azure Web Sites Portal, go to the **Configure** tab for the web site that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
 
@@ -163,7 +165,7 @@ Finally, in the Windows Azure Portal, restart your web site to enable your exten
 You should be able to see your site extension at:
 
 
-`https://`_`<your-site-name>`_`.scm.azurewebsites.net/`_`<your-extension-name>`_ 
+`https://[your-site-name].scm.azurewebsites.net/[your-extension-name]` 
 
 Note that the URL looks just like the URL for your site, except that it uses HTTPS and contains ".scm". 
 

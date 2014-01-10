@@ -46,11 +46,11 @@ In this tutorial you'll learn:
 
 1. In Solution Explorer, right-click the cloud service project, and choose **New Worker Role Project**.
 
-   ![New worker role project menu][mtas-new-worker-role-project]
+	![New worker role project menu][mtas-new-worker-role-project]
 
 3. In the **Add New Role Project** dialog box, select **C#**, select **Worker Role**, name the project WorkerRoleB, and click **Add**. 
 
-   ![New role project dialog box][mtas-add-new-role-project-dialog]
+	![New role project dialog box][mtas-add-new-role-project-dialog]
 
 <h2><a name="addreference"></a><span class="short-header">Add reference</span>Add a reference to the web project</h2>
 
@@ -58,11 +58,11 @@ You need a reference to the web project because that is where the entity classes
 
 4. Right-click the WorkerRoleB project, and choose **Add Reference**.
 
-   ![Add reference in WorkerRoleB project][mtas-worker-b-add-reference-menu]
+	![Add reference in WorkerRoleB project][mtas-worker-b-add-reference-menu]
 
 4. In **Reference Manager**, add a reference to the MvcWebRole project (or to the web application project if you are running the web UI in a Windows Azure Web Site).
 
-   ![Add reference to MvcWebRole][mtas-worker-b-reference-manager]
+	![Add reference to MvcWebRole][mtas-worker-b-reference-manager]
 
 
 
@@ -74,21 +74,21 @@ When you added the project, it didn't automatically get the updated version of t
 
 2. With **Installed Packages** selected in the left pane, scroll down until you get to the Windows Azure Storage package.
 
-   You'll see the package listed twice, once for the 1.7 version and once for the 2.0 version.
+	You'll see the package listed twice, once for the 1.7 version and once for the 2.0 version.
 
 4. Select the 1.7 version of the package and click **Manage**.
 
-   The check boxes for MvcWebRole and WorkerRoleB are cleared, and the check box for WorkerRoleB is selected.
+	The check boxes for MvcWebRole and WorkerRoleB are cleared, and the check box for WorkerRoleB is selected.
 
 5. Clear the check box for WorkerRoleB, and then click **OK**.
 
 6. When you are asked if you want to uninstall dependent packages, click **No**.
 
-   When the uninstall finishes you have only the 2.0 version of the package in the NuGet dialog box.
+	When the uninstall finishes you have only the 2.0 version of the package in the NuGet dialog box.
 
 7. Click **Manage** for the 2.0 version of the package.
 
-   The check boxes for MvcWebRole and WorkerRoleA are selected, and the check box for WorkerRoleA is cleared.
+	The check boxes for MvcWebRole and WorkerRoleA are selected, and the check box for WorkerRoleA is cleared.
 
 8. Select the check box for WorkerRoleA, and then click **OK**.
 
@@ -123,13 +123,13 @@ To send email by using SendGrid, you need to install the SendGrid NuGet package.
 
 1. In **Solution Explorer**, right-click the WorkerRoleB project and choose **Manage NuGet Packages**.
 
-   ![Manage NuGet Packages][mtas-worker-b-manage-nuget]
+	![Manage NuGet Packages][mtas-worker-b-manage-nuget]
 
 2. In the **Manage NuGet Packages** dialog box, select the **Online** tab, enter "sendgrid" in the search box, and press Enter.
 
 3. Click **Install** on the **Sendgrid** package.
 
-   ![Install the Sendgrid package][mtas-worker-b-install-sendgrid]
+	![Install the Sendgrid package][mtas-worker-b-install-sendgrid]
 
 4. Close the dialog box.
 
@@ -166,17 +166,17 @@ For storage account credentials, the procedure is the same as what you saw in [t
 
 1. Follow the same procedure to configure settings for the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** connection string.
 
-Next, you create and configure the three new settings that are only used by worker role B.
+	Next, you create and configure the three new settings that are only used by worker role B.
 
 3. In the **Settings** tab of the **Properties** window, Click **Add Setting**, and then add three new settings of type **String**:
 
-   * **Name**: SendGridUserName, **Value**: the SendGrid user name that you established in [the second tutorial][tut2].
+	* **Name**: SendGridUserName, **Value**: the SendGrid user name that you established in [the second tutorial][tut2].
 
-   * **Name**: SendGridPassword, **Value**: the SendGrid password.
+	* **Name**: SendGridPassword, **Value**: the SendGrid password.
 
-   * **Name**: AzureMailServiceURL, **Value**: the base URL that the application will have when you deploy it, for example:  http://sampleurl.cloudapp.net.
+	* **Name**: AzureMailServiceURL, **Value**: the base URL that the application will have when you deploy it, for example:  http://sampleurl.cloudapp.net.
 
-   ![New settings in WorkerRoleB project][mtas-worker-b-settings]
+	![New settings in WorkerRoleB project][mtas-worker-b-settings]
 
 ### Add code that runs when the worker role starts
 
@@ -184,15 +184,15 @@ Next, you create and configure the three new settings that are only used by work
 
 5. Right-click the WorkerRoleB project, and choose **Add Existing Item**.
 
-   ![Add existing item to Worker Role B][mtas-worker-b-add-existing]
+	![Add existing item to Worker Role B][mtas-worker-b-add-existing]
 
 2. Navigate to the folder where you downloaded the sample application, select the WorkerRoleB.cs file in the WorkerRoleB project, and click **Add**.
 
 3. Open WorkerRoleB.cs and examine the code.
 
-   As you already saw in worker role A, the `OnStart` method initializes the context classes that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the `Run` method exist.  
+	As you already saw in worker role A, the `OnStart` method initializes the context classes that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the `Run` method exist.  
 
-   The difference compared to worker role A is the addition of the blob container and the subscribe queue among the resources to create if they don't already exist. You'll use the blob container to get the files that contain the HTML and plain text for the email body. The subscribe queue is used for sending subscription confirmation emails.
+	The difference compared to worker role A is the addition of the blob container and the subscribe queue among the resources to create if they don't already exist. You'll use the blob container to get the files that contain the HTML and plain text for the email body. The subscribe queue is used for sending subscription confirmation emails.
 
         public override bool OnStart()
         {
@@ -229,7 +229,7 @@ Next, you create and configure the three new settings that are only used by work
             return base.OnStart();
         }
 
-   The `Run` method processes work items from two queues: the queue used for messages sent to email lists (work items created by worker role A), and the queue used for subscription confirmation emails (work items created by the subscribe API method in the MvcWebRole project).
+	The `Run` method processes work items from two queues: the queue used for messages sent to email lists (work items created by worker role A), and the queue used for subscription confirmation emails (work items created by the subscribe API method in the MvcWebRole project).
 
        
         public override void Run()
@@ -289,7 +289,7 @@ Next, you create and configure the three new settings that are only used by work
             }
         }
 
-   This code runs in an infinite loop until the worker role is shut down. If a work item is found in the main queue, the code processes it and then checks the subscribe queue. 
+	This code runs in an infinite loop until the worker role is shut down. If a work item is found in the main queue, the code processes it and then checks the subscribe queue. 
 
                     // Retrieve and process a new message from the send-email-to-list queue.
                     msg = this.sendEmailQueue.GetMessage();
@@ -307,20 +307,20 @@ Next, you create and configure the three new settings that are only used by work
                         messageFound = true;
                     }
 
-   If nothing is waiting in either queue, the code sleeps 60 seconds before continuing with the loop. 
+	If nothing is waiting in either queue, the code sleeps 60 seconds before continuing with the loop. 
 
                     if (messageFound == false)
                     {
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-   The purpose of the sleep time is to minimize Windows Azure Storage transaction costs, as explained in [the previous tutorial][tut4]. 
+	The purpose of the sleep time is to minimize Windows Azure Storage transaction costs, as explained in [the previous tutorial][tut4]. 
 
-   When a queue item is pulled from the queue by the [GetMessage][]  method, that queue item becomes invisible for 30 seconds to all other worker and web roles accessing the queue. This is what ensures that only one worker role instance will pick up any given queue message for processing. You can explicitly set this *exclusive lease* time (the time the queue item is invisible) by passing a  [visibility timeout](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) parameter to the  `GetMessage` method. If the worker role could take more than 30 seconds to process a queue message, you should increase the exclusive lease time to prevent other role instances from processing the same message. 
+	When a queue item is pulled from the queue by the [GetMessage][]  method, that queue item becomes invisible for 30 seconds to all other worker and web roles accessing the queue. This is what ensures that only one worker role instance will pick up any given queue message for processing. You can explicitly set this *exclusive lease* time (the time the queue item is invisible) by passing a  [visibility timeout](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) parameter to the  `GetMessage` method. If the worker role could take more than 30 seconds to process a queue message, you should increase the exclusive lease time to prevent other role instances from processing the same message. 
 
-   On the other hand, you don't want to set the exclusive lease time to an excessively large value. For example, if the exclusive lease time is set to 48 hours and your worker role unexpectedly shuts down after dequeuing a message, another worker role would not be able to process the message for 48 hours. The exclusive lease maximum is 7 days.
+	On the other hand, you don't want to set the exclusive lease time to an excessively large value. For example, if the exclusive lease time is set to 48 hours and your worker role unexpectedly shuts down after dequeuing a message, another worker role would not be able to process the message for 48 hours. The exclusive lease maximum is 7 days.
 
-   The  [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx)  method (notice the "s" at the end of the name) can be used to pull up to 32 messages from the queue in one call. Each queue access incurs a small transaction cost, and the transaction cost is the same whether 32 messages are returned or zero messages are returned. The following code fetches up to 32 messages in one call and then processes them.
+	The  [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx)  method (notice the "s" at the end of the name) can be used to pull up to 32 messages from the queue in one call. Each queue access incurs a small transaction cost, and the transaction cost is the same whether 32 messages are returned or zero messages are returned. The following code fetches up to 32 messages in one call and then processes them.
 
     	foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
 	    {
@@ -328,9 +328,9 @@ Next, you create and configure the three new settings that are only used by work
 	        messageFound = true;
 	    }
 
-   When using `GetMessages` to remove multiple messages, be sure the visibility timeout gives your application enough time to process all the messages. Once the visibility timeout expires, other role instances can access the message, and once they do, the first instance will not be able to delete the message when it finishes processing the work item.
+	When using `GetMessages` to remove multiple messages, be sure the visibility timeout gives your application enough time to process all the messages. Once the visibility timeout expires, other role instances can access the message, and once they do, the first instance will not be able to delete the message when it finishes processing the work item.
 
-   The `Run` method calls `ProcessQueueMessage` when it finds a work item in the main queue:
+	The `Run` method calls `ProcessQueueMessage` when it finds a work item in the main queue:
 
        
         private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -412,16 +412,16 @@ Next, you create and configure the three new settings that are only used by work
                partitionKey, rowKey, GetRoleInstance());
         }
 
-   Poison messages are those that cause the application to throw an exception when they are processed.  If a message has been pulled from the queue more than five times, we assume that it cannot be processed and remove it from the queue so that we don't keep trying to process it. Production applications should consider moving the poison message to a "dead message" queue for analysis rather than deleting the message.
+	Poison messages are those that cause the application to throw an exception when they are processed.  If a message has been pulled from the queue more than five times, we assume that it cannot be processed and remove it from the queue so that we don't keep trying to process it. Production applications should consider moving the poison message to a "dead message" queue for analysis rather than deleting the message.
 
-   The code parses the queue message into the partition key and row key needed to retrieve the SendEmail row, and a restart flag.
+	The code parses the queue message into the partition key and row key needed to retrieve the SendEmail row, and a restart flag.
 
             var messageParts = msg.AsString.Split(new char[] { ',' });
             var partitionKey = messageParts[0];
             var rowKey = messageParts[1];
             var restartFlag = messageParts[2];
 
-   If processing for this message has been restarted after an unexpected shut down, the code checks the `messagearchive` table to determine if this email has already been sent. If it has already been sent, the code deletes the `SendEmail` row if it exists and deletes the queue message.
+	If processing for this message has been restarted after an unexpected shut down, the code checks the `messagearchive` table to determine if this email has already been sent. If it has already been sent, the code deletes the `SendEmail` row if it exists and deletes the queue message.
 
             if (restartFlag == "1")
             {
@@ -444,7 +444,7 @@ Next, you create and configure the three new settings that are only used by work
                 }
             }
 
-   Next, we get the `SendEmail` row from the `message` table. This row has all of the information needed to send the email, except for the blobs that contain the HTML and plain text body of the email.
+	Next, we get the `SendEmail` row from the `message` table. This row has all of the information needed to send the email, except for the blobs that contain the HTML and plain text body of the email.
 
             var retrieveOperation = TableOperation.Retrieve<SendEmail>(partitionKey, rowKey);
             var retrievedResult = messageTable.Execute(retrieveOperation);
@@ -456,7 +456,7 @@ Next, you create and configure the three new settings that are only used by work
                 return;
             }
 
-   Then the code sends the email and archives the `SendEmail` row.
+	Then the code sends the email and archives the `SendEmail` row.
 
             if (emailRowInMessageTable.EmailSent != true)
             {
@@ -471,15 +471,15 @@ Next, you create and configure the three new settings that are only used by work
                 messageTable.Execute(deleteOperation);
             }
 
-   Moving the row to the messagearchive table can't be done in a transaction because it affects multiple tables.
+	Moving the row to the messagearchive table can't be done in a transaction because it affects multiple tables.
 
-   Finally, if everything else is successful, the queue message is deleted.
+	Finally, if everything else is successful, the queue message is deleted.
 
             sendEmailQueue.DeleteMessage(msg);
 
-   The actual work of sending the email by using SendGrid is done by the `SendEmailToList` method. If you want to use a different service than SendGrid, all you have to do is change the code in this method.
+	The actual work of sending the email by using SendGrid is done by the `SendEmailToList` method. If you want to use a different service than SendGrid, all you have to do is change the code in this method.
 
-   **Note:** If you have invalid credentials in the project settings, the call to SendGrid will fail but the application will not get any indication of the failure.  If you use SendGrid in a production application, consider setting up separate credentials for the web API in order to avoid causing silent failures when an administrator changes his or her SendGrid user account password. For more information, see [SendGrid MultiAuth - Multiple Account Credentials](http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials). You can set up credentials at [https://sendgrid.com/credentials](https://sendgrid.com/credentials). 
+	**Note:** If you have invalid credentials in the project settings, the call to SendGrid will fail but the application will not get any indication of the failure.  If you use SendGrid in a production application, consider setting up separate credentials for the web API in order to avoid causing silent failures when an administrator changes his or her SendGrid user account password. For more information, see [SendGrid MultiAuth - Multiple Account Credentials](http://support.sendgrid.com/entries/21658978-sendgrid-multiauth-multiple-account-credentials). You can set up credentials at [https://sendgrid.com/credentials](https://sendgrid.com/credentials). 
 
         private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
@@ -508,9 +508,9 @@ Next, you create and configure the three new settings that are only used by work
             }
         }
 
-   In the `GetBlobText` method, the code gets the blob size and then uses that value to initialize the `MemoryStream` object for performance reasons. If you don't provide the size, what the `MemoryStream` does is allocate 256 bytes, then when the download exceeds that, it allocates 512 more bytes, and so on, doubling the amount allocated each time. For a large blob this process would be inefficient compared to allocating the correct amount at the start of the download.
+	In the `GetBlobText` method, the code gets the blob size and then uses that value to initialize the `MemoryStream` object for performance reasons. If you don't provide the size, what the `MemoryStream` does is allocate 256 bytes, then when the download exceeds that, it allocates 512 more bytes, and so on, doubling the amount allocated each time. For a large blob this process would be inefficient compared to allocating the correct amount at the start of the download.
 
-   The `Run` method calls `ProcessSubscribeQueueMessage` when it finds a work item in the subscribe queue:
+	The `Run` method calls `ProcessSubscribeQueueMessage` when it finds a work item in the subscribe queue:
  
         private void ProcessSubscribeQueueMessage(CloudQueueMessage msg)
         {
@@ -553,15 +553,15 @@ Next, you create and configure the three new settings that are only used by work
                 subscriberGUID, GetRoleInstance());
         }
 
-   This method performs the following tasks:
+	This method performs the following tasks:
 
-   * If the message is a "poison" message, logs and deletes it.
-   * Gets the subscriber GUID from the queue message.
-   * Uses the GUID to get subscriber information from the MailingList table.
-   * Sends a confirmation email to the new subscriber.
-   * Deletes the queue message.
+	* If the message is a "poison" message, logs and deletes it.
+	* Gets the subscriber GUID from the queue message.
+	* Uses the GUID to get subscriber information from the MailingList table.
+	* Sends a confirmation email to the new subscriber.
+	* Deletes the queue message.
 
-   As with emails sent to lists, the actual sending of the email is in a separate method, making it easy for you to change to a different email service if you want to do that.
+	As with emails sent to lists, the actual sending of the email is in a separate method, making it easy for you to change to a different email service if you want to do that.
 
         private static void SendSubscribeEmail(string subscriberGUID, Subscriber subscriber, MailingList mailingList)
         {
@@ -626,7 +626,7 @@ To learn more about autoscaling Windows Azure Cloud Service roles, see
 the following resources:
 
 * [How to Use the Autoscaling Application Block][autoscalingappblock]
-* [Autoscaling and Windows Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+* [Autoscaling and Windows Azure][autoscaling-and-windows-azure]
 * [Building Elastic, Autoscalable Solutions with Windows Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN channel 9 video)
 
 
@@ -687,4 +687,4 @@ These tutorials and the sample application were written by [Rick Anderson](http:
 
 
 [mtas-worker-b-settings]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png
-
+[autoscaling-and-windows-azure]: http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx

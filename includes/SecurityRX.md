@@ -166,15 +166,15 @@ protocols. The following resources provide in-depth information about AD
 FS:
 
 -   [AD FS 2.0 Content Map](http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx)
--   [Web SSO Design](http://technet.microsoft.com/en-us/library/dd807033(WS.10).aspx)
--   [Federated Web SSO Design](http://technet.microsoft.com/en-us/library/dd807050(WS.10).aspx)
+-   [Web SSO Design][Web SSO Design]
+-   [Federated Web SSO Design][Federated Web SSO Design]
 
 **Windows Azure Shared Access Signatures.** Shared Access Signatures
 enable you to fine-tune access to a blob or container resource. The
 following resources provide in-depth information about Shared Access
 Signatures.
 
--   [Managing Access to Blobs and Container](http://msdn.microsoft.com/en-us/library/ee393343.aspx)s
+-   [Managing Access to Blobs and Containers](http://msdn.microsoft.com/en-us/library/ee393343.aspx)
 -   [New Storage Feature: Shared Access Signatures](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
 -   [Shared Access Signatures Are Easy These Days](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
@@ -646,7 +646,7 @@ authentication implementation.
 Refer to the following resources to solve this scenario:
 
 -   [Download the App Publishing Kit](http://go.microsoft.com/fwlink/?LinkId=221323)
--   [Introduction to Windows Azure Marketplace for Applications.](https://datamarket.azure.com/ http:/msdn.microsoft.com/en-us/hh328543)
+-   [Introduction to Windows Azure Marketplace for Applications](https://datamarket.azure.com/)
 
 ##Security Knobs
 
@@ -803,3 +803,6 @@ application is hosted on Windows Azure Virtual Machines.
 [18]:./media/SecurityRX/18_IAccessMyDataset.gif
 [19]:./media/SecurityRX/19_UsersAccessMyDatasets.gif
 [20]:./media/SecurityRX/20_ApplicationAccessMarketplaceAPI.gif
+
+[Web SSO Design]: http://technet.microsoft.com/en-us/library/dd807033(WS.10).aspx
+[Federated Web SSO Design]: http://technet.microsoft.com/en-us/library/dd807050(WS.10).aspx

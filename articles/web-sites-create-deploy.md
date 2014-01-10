@@ -1,30 +1,17 @@
 <properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create web sites - Windows Azure service management" metaKeywords="Azure creating web site, Azure deleting website" description="Learn how to create a web site using the Windows Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Web Site" authors=""  solutions="" writer="timamm" manager="" editor=""  />
 
+#How to Create a Web Site
 
+This topic shows how to create a web site from the gallery or by using the management portal.
 
-
-
-#How to Create and Deploy a Web Site
-
-Just as you can quickly create and deploy a web application created from the gallery, you can also deploy a web site created on a workstation with traditional developer tools from Microsoft or other companies. 
-
+For information about how to deploy your content to a Windows Azure Web Site that you have created, see the **Deploy** section in [Windows Azure Web Sites](/en-us/documentation/services/web-sites/).
 
 ## Table of Contents ##
 
-- [Deployment Options](#deployoptions)
 - [How to: Create a Web Site Using the Management Portal](#createawebsiteportal)
 - [How to: Create a Web Site from the Gallery](#howtocreatefromgallery)
 - [How to: Delete a Web Site](#deleteawebsite)
 - [Next Steps](#nextsteps)
-
-
-##<a name="deployoptions"></a>Deployment Options
-
-Windows Azure supports deploying web sites from remote computers using WebDeploy, FTP, Git or TFS. Many development tools provide integrated support for publication using one or more of these methods and may only require that you provide the necessary credentials, site URL and hostname or URL for your chosen deployment method. 
-
-Credentials and deployment URLs for all enabled deployment methods are stored in the web site's publish profile, a file which can be downloaded in the Windows Azure Management Portal from the **Quick Start** page or the **quick glance** section of the **Dashboard** page. 
-
-If you prefer to deploy your web site with a separate client application, high quality open source Git and FTP clients are available for download on the Internet for this purpose.
 
 ##<a name="createawebsiteportal"></a>How to: Create a Web Site Using the Management Portal
 
@@ -76,20 +63,5 @@ Follow these steps to create a web site in Windows Azure.
 Web sites are deleted using the **Delete** icon in the Windows Azure Management Portal. The **Delete** icon is available in the Windows Azure Portal when you click **Web Sites** to list all of your web sites and at the bottom of each of the web site management pages.
 
 ##<a name="nextsteps"></a>Next Steps
-For more information about Web Sites, see the following:
 
-[Walkthrough: Troubleshooting a Web Site on Windows Azure](http://go.microsoft.com/fwlink/?LinkId=251824)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+For more information, see [Windows Azure Web Sites](/en-us/documentation/services/web-sites/).

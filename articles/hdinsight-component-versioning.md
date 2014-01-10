@@ -57,7 +57,7 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><th>HDInsight version</th><th><a href="http://go.microsoft.com/fwlink/?LinkID=286746">HDP version</a></th><th>Release date</th></tr>
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>10/28/2013</td></tr>
 <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>10/28/2013</td></tr>
-</table>
+</table><br/>
 
 ### A note on support for each version 
 A "Support Window" refers to the period of time an HDInsight cluster version is supported by Microsoft Customer Support and bound by this SLA.  An HDInsight cluster is outside the Support Window if its version has a Support Expiration Date past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  

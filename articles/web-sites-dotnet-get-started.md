@@ -45,7 +45,7 @@ Your first step is to create a Visual Studio web application project that you'll
 
 2. From the **File** menu, click **New Project**.
 
-   ![New Project in File menu](./media/web-sites-dotnet-get-started-vs2013/gs13newproj.png)
+	![New Project in File menu](./media/web-sites-dotnet-get-started-vs2013/gs13newproj.png)
 
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET Web Application**.
 
@@ -53,33 +53,33 @@ Your first step is to create a Visual Studio web application project that you'll
 
 4. Name the application **MyExample** and click **OK**.
 
-   ![New Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png)
+	![New Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png)
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** template, and then click **Change Authentication**.
 
-   ![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13changeauth.png)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13changeauth.png)
 
 6. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**.
 
-   ![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
+	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
 
-   The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+	The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
 
 5. In the **New ASP.NET Project** dialog box, click **OK**.
 
-   ![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
 
-   The application home page appears in the default browser.
+	The application home page appears in the default browser.
 
-   ![Web site running locally](./media/web-sites-dotnet-get-started-vs2013/GS13homepage.png)
+	![Web site running locally](./media/web-sites-dotnet-get-started-vs2013/GS13homepage.png)
 
-   The `http://localhost` URL shows that it's running on your local computer. By default it's running in IIS Express, which is a lightweight version of IIS designed for use during web application development.
+	The `http://localhost` URL shows that it's running on your local computer. By default it's running in IIS Express, which is a lightweight version of IIS designed for use during web application development.
 
-This is all you need to do to create a simple application that you can deploy to Windows Azure.
+	This is all you need to do to create a simple application that you can deploy to Windows Azure.
 
 
 
@@ -90,83 +90,94 @@ This is all you need to do to create a simple application that you can deploy to
 
 5. In Visual Studio **Solution Explorer**, right-click the project, and then select **Publish** from the context menu.
 
-   ![Publish in project context menu](./media/web-sites-dotnet-get-started-vs2013/GS13publish.png)
+	![Publish in project context menu](./media/web-sites-dotnet-get-started-vs2013/GS13publish.png)
 
-   The **Publish Web** wizard opens.
+	The **Publish Web** wizard opens.
 
 6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
-   ![Import publish settings](./media/web-sites-dotnet-get-started-vs2013/ImportPublishSettings.png)
+	![Import publish settings](./media/web-sites-dotnet-get-started-vs2013/ImportPublishSettings.png)
 
-   The **Import Publish Profile** dialog box appears.
+	The **Import Publish Profile** dialog box appears.
 
 5. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
-   [WACOM.INCLUDE [vs-connect-ws-publish](../includes/vs-connect-ws-publish.md)]
+	* Click **Sign In**, and then enter the credentials for your Windows Azure account.
+
+	This method is quicker and easier, but if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
+
+	* Click **Manage subscriptions** in order to install a management certificate that enables access to your account.
+
+	In the **Manage Windows Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and import a subscription file (also called a *.publishsettings* file) for your Windows Azure account.
+
+	<div class="dev-callout"><strong>Security Note:</strong>
+	<p>Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Windows Azure services.</p></div>
+
+	For more information, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
 2. In the **Import Publish Settings** dialog box, select the **Import from a Windows Azure Web Site** radio button, and then click **New**.
 
-   ![Add New Site](./media/web-sites-dotnet-get-started-vs2013/GS13NewSite.png)
+	![Add New Site](./media/web-sites-dotnet-get-started-vs2013/GS13NewSite.png)
 
 3. In the **Create a site on Windows Azure** dialog box, enter a string in the **Site name** box to use as the unique URL for your application.
 
-   The complete URL will consist of what you enter here plus the suffix that you see next to the text box. If someone else has already used the URL you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different value.
+	The complete URL will consist of what you enter here plus the suffix that you see next to the text box. If someone else has already used the URL you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different value.
 
 4. In the **Location** drop-down list, choose the location that is closest to you.
 
-   This setting specifies which data center your web site will run in. 
+	This setting specifies which data center your web site will run in. 
 
 5. Leave the database fields unchanged.
 
-   For this tutorial you aren't using a database. The [Next Steps](#nextsteps) section at the end of the tutorial links to a tutorial that shows you how to use a database.
+	For this tutorial you aren't using a database. The [Next Steps](#nextsteps) section at the end of the tutorial links to a tutorial that shows you how to use a database.
 
 6. Click **Create**.<br/>
 
-   ![Create a new web site](./media/web-sites-dotnet-get-started-vs2013/GS13createsite.png)
+	![Create a new web site](./media/web-sites-dotnet-get-started-vs2013/GS13createsite.png)
 
-   In a few seconds the web site is created. When you return to the **Import Publish Settings** dialog box, the new site is selected in the drop-down list.
+	In a few seconds the web site is created. When you return to the **Import Publish Settings** dialog box, the new site is selected in the drop-down list.
 
 6. Click **OK**.
 
-   ![Web site created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
+	![Web site created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
 
 8. In the **Connection** tab of the **Publish Web** wizard, click **Validate Connection** to make sure that the settings are correct.
 
-   ![Validate connection](./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnection.png)
+	![Validate connection](./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnection.png)
 
-   When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. 
+	When the connection has been validated, a green check mark is shown next to the **Validate Connection** button. 
 
 9. Click **Next**.
 
-   ![Successfully validated connection](./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnectionSuccess.png)
+	![Successfully validated connection](./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnectionSuccess.png)
 
 10. In the **Settings** tab, click **Next**.
 
-   ![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
+	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-   You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.
+	You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.
 
 11. In the **Preview** tab, click **Start Preview**.
 
-   ![StartPreview button in the Preview tab](./media/web-sites-dotnet-get-started-vs2013/GS13Preview.png)
+	![StartPreview button in the Preview tab](./media/web-sites-dotnet-get-started-vs2013/GS13Preview.png)
 
-   The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of.
+	The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of.
 
 12. Click **Publish**.
 
-   ![StartPreview file output](./media/web-sites-dotnet-get-started-vs2013/GS13previewoutput.png)
+	![StartPreview file output](./media/web-sites-dotnet-get-started-vs2013/GS13previewoutput.png)
 
-   Visual Studio begins the process of copying the files to the Windows Azure server.
+	Visual Studio begins the process of copying the files to the Windows Azure server.
 
 13. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
-   ![Output window reporting successful deployment](./media/web-sites-dotnet-get-started-vs2013/PublishOutput.png)
+	![Output window reporting successful deployment](./media/web-sites-dotnet-get-started-vs2013/PublishOutput.png)
 
 14. Upon successful deployment, the default browser automatically opens to the URL of the deployed web site.
 
-   The application you created is now running in the cloud.
+	The application you created is now running in the cloud.
 
-   ![Web site running in Windows Azure](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
+	![Web site running in Windows Azure](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 

@@ -61,59 +61,59 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2><a id="installforest"></a>Step 2: Install Corp forest</h2>
 
-1.In the RDP session for the VM, click **Start**, type **dcpromo**, and press ENTER.
+1. In the RDP session for the VM, click **Start**, type **dcpromo**, and press ENTER.
 
 	![InstallCorpForest1](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest1.png)
 
 
-2.On the Welcome page, click **Next**.
+2. On the Welcome page, click **Next**.
 
 	![InstallCorpForest2](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest2.png)
 
 
 
-3.On the Operating System Compatibility page, click **Next**.
+3. On the Operating System Compatibility page, click **Next**.
 
 	![InstallCorpForest3](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest3.png)
 
-4.On the Choose a Deployment Configuration page, click **Create a new domain in a new forest**, and click **Next**. 
+4. On the Choose a Deployment Configuration page, click **Create a new domain in a new forest**, and click **Next**. 
 
 	![InstallCorpForest4](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest4.png)
 
 
-5.On the Name the Forest Root Domain page, type **corp.contoso.com** the fully qualified domain name (FQDN) of the forest root domain and click **Next**. 
+5. On the Name the Forest Root Domain page, type **corp.contoso.com** the fully qualified domain name (FQDN) of the forest root domain and click **Next**. 
 
 	![InstallCorpForest5](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest5.png)
 
 
-6.On the Set Forest Functional level page, click **Windows Server 2008 R2** and then click **Next**.
+6. On the Set Forest Functional level page, click **Windows Server 2008 R2** and then click **Next**.
 
 	![InstallCorpForest6](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest6.png)
 
-7.On the Additional Domain Controller Options page, click **DNS server** and click **Next**.
+7. On the Additional Domain Controller Options page, click **DNS server** and click **Next**.
 
 	![InstallCorpForest7](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest7.png)
 
-8.If the following DNS delegation warning appears, click **Yes**.
+8. If the following DNS delegation warning appears, click **Yes**.
 
 	![InstallCorpForest8](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest8.png)
 
 
-9.On the Location for Active Directory database, log files and SYSVOL page, type or select the location for the files and click **Next**.
+9. On the Location for Active Directory database, log files and SYSVOL page, type or select the location for the files and click **Next**.
 
 	![InstallCorpForest9](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest9.png)
 
 
-10.On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**.
+10. On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**.
 
 	![InstallCorpForest10](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest10.png)
 
 
-11.On the Summary page, confirm your selections and click **Next**. 
+11. On the Summary page, confirm your selections and click **Next**. 
 
 	![InstallCorpForest11](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest11.png)
 
-12.After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
+12. After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
 
 	![InstallCorpForest12](./media/virtual-networks-install-replica-active-directory-domain-controller/InstallCorpForest12.png)
 
@@ -121,78 +121,78 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2><a id="subnets"></a>Step 3: Create subnets and sites</h2>
 
-1.On YourPrimaryDC, click Start, click Administrative Tools and then click Active Directory Sites and Services.
-2.Click **Sites**, right-click **Subnets**, and then click **New Subnet**.
+1. On YourPrimaryDC, click Start, click Administrative Tools and then click Active Directory Sites and Services.
+2. Click **Sites**, right-click **Subnets**, and then click **New Subnet**.
 
 	![CreateSubnetsandSites1](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites1.png)
 
-3.In **Prefix::**, type **10.1.0.0/24**, select the **Default-First-Site-Name** site object and click **OK**.
+3. In **Prefix::**, type **10.1.0.0/24**, select the **Default-First-Site-Name** site object and click **OK**.
 
 	![CreateSubnetsandSites2](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites2.png)
 
-4.Right-click **Sites** and click **New Site**.
+4. Right-click **Sites** and click **New Site**.
 
 	![CreateSubnetsandSites3](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites3.png)
 
 
-5.In Name, type **CloudSite**, select **DEFAULTIPSITELINK** and click **OK**. 
+5. In Name, type **CloudSite**, select **DEFAULTIPSITELINK** and click **OK**. 
 
 	![CreateSubnetsandSites4](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites4.png)
 
 
-6.Click **OK** to confirm the site was created. 
+6. Click **OK** to confirm the site was created. 
 
 	![CreateSubnetsandSites5](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites5.png)
 
-7.Right-click **Subnets**, and then click **New Subnet**.
+7. Right-click **Subnets**, and then click **New Subnet**.
 
 	![CreateSubnetsandSites6](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites6.png)
 
-8.In **Prefix::**, type **10.4.2.0/24**, select the **CloudSite** site object and click **OK**.
+8. In **Prefix::**, type **10.4.2.0/24**, select the **CloudSite** site object and click **OK**.
 
 	![CreateSubnetsandSites7](./media/virtual-networks-install-replica-active-directory-domain-controller/CreateSubnetsandSites7.png)
 
 
 <h2><a id="cloudsite"></a>Step 4: Install an additional domain controller in the CloudSite</h2>
 
-1.Log on to YourVMachine, click **Start**, type **dcpromo**, and press ENTER.
+1. Log on to YourVMachine, click **Start**, type **dcpromo**, and press ENTER.
 
 	![AddDC1](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC1.png)
 
-2.On the Welcome page, click **Next**.
+2. On the Welcome page, click **Next**.
 
 	![AddDC2](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC2.png)
 
 
-3.On the Operating System Compatibility page, click **Next**.
+3. On the Operating System Compatibility page, click **Next**.
 
 	![AddDC3](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC3.png)
 
-4.On Choose a Deployment Configuration page, click **Existing forest**, click **Add a domain controller to an existing domain**, and click **Next**.
+4. On Choose a Deployment Configuration page, click **Existing forest**, click **Add a domain controller to an existing domain**, and click **Next**.
 
 	![AddDC4](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC4.png)
 
 
-5.On the Network Credentials page, make sure you are installing the domain controller in **corp.contoso.com** domain and type credentials of a member of the Domain Admins group (or use corp\administrator credentials). 
+5. On the Network Credentials page, make sure you are installing the domain controller in **corp.contoso.com** domain and type credentials of a member of the Domain Admins group (or use corp\administrator credentials). 
 
 	![AddDC5](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC5.png)
 
 
-6.On the Select a Domain page, click **Next**. 
+6. On the Select a Domain page, click **Next**. 
 
 	![AddDC6](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC6.png)
 
 
-7.On the Select a Site page, make sure that CloudSite is selected and click **Next**.
+7. On the Select a Site page, make sure that CloudSite is selected and click **Next**.
 
 	![AddDC7](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC7.png)
 
-8.On the Additional Domain Controller Options page, click **Next**. 
+8. On the Additional Domain Controller Options page, click **Next**. 
 
 	![AddDC8](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC8.png)
 
 
-9.On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)**
+9. On the Static IP assignment warning, click **Yes, the computer will use an IP address automatically assigned by a DHCP server (not recommended)**
 
 	**Important** 
 
@@ -201,37 +201,37 @@ This tutorial walks you through the steps to install an additional domain contro
 
 	![AddDC9](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC9.png)
 
-10.When prompted about the DNS delegation warning, click **Yes**.
+10. When prompted about the DNS delegation warning, click **Yes**.
 
 	![AddDC10](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC10.png)
 
 
-11.On the Location for Active Directory database, log files and SYSVOL page, click Browse and type or select a location on the data disk for the Active Directory files and click **Next**. 
+11. On the Location for Active Directory database, log files and SYSVOL page, click Browse and type or select a location on the data disk for the Active Directory files and click **Next**. 
 
 	![AddDC11](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC11.png)
 
-12.On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**.
+12. On the Directory Services Restore Administrator page, type and confirm the DSRM password and click **Next**.
 
 	![AddDC12](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC12.png)
 
-13.On the Summary page, click **Next**.
+13. On the Summary page, click **Next**.
 
 	![AddDC13](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC13.png)
 
-14.After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
+14. After the Active Directory Installation Wizard finishes, click **Finish** and then click **Restart Now** to complete the installation. 
 
 	![AddDC14](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC14.png)
 
 
 <h2><a id="validate"></a>Step 5: Validate the installation</h2>
 
-1.Reconnect to the VM.
+1. Reconnect to the VM.
 
-2.Click **Start**, right-click **Command Prompt** and click **Run as Administrator**. 
+2. Click **Start**, right-click **Command Prompt** and click **Run as Administrator**. 
 
-3.Type the following command and press ENTER:  'Dcdiag /c /v'
+3. Type the following command and press ENTER:  'Dcdiag /c /v'
 
-4.Verify that the tests ran successfully. 
+4. Verify that the tests ran successfully. 
 
 After the DC is configured, run the following Windows PowerShell cmdlet to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs must be configured when the VMs are provisioned. Substitute the correct names for your domain, VM name, and so on. 
 
@@ -273,31 +273,31 @@ For more information about using Windows PowerShell, see [Getting Started with W
 <h2><a id="backup"></a>Step 7: Backup the domain controller</h2>
 
 
-1.	Connect to YourVMachine.
+1. Connect to YourVMachine.
 
-2.	Click **Start**, Click **Server Manager**, click **Add Features**, and then select **Windows Server Backup Features**. Follow the instructions to install Windows Server Backup.
+2. Click **Start**, Click **Server Manager**, click **Add Features**, and then select **Windows Server Backup Features**. Follow the instructions to install Windows Server Backup.
 
-3.	Click **Start**, Click **Windows Server Backup**, click **Backup once**.
+3. Click **Start**, Click **Windows Server Backup**, click **Backup once**.
  
-4.	Click **Different options** and click **Next**.
+4. Click **Different options** and click **Next**.
 
-5.	Click **Full Server** and click **Next**.
+5. Click **Full Server** and click **Next**.
 
-6.	Click **Local drives** and click **Next**.
+6. Click **Local drives** and click **Next**.
 
-7.	Select the destination drive that does not host the operating system files or the Active Directory database, and click Next.
+7. Select the destination drive that does not host the operating system files or the Active Directory database, and click Next.
 
 	![BackupDC](./media/virtual-networks-install-replica-active-directory-domain-controller/BackupDC.png)
 
 
-8.	Confirm the backup settings you selected and then click **Backup**.
+8. Confirm the backup settings you selected and then click **Backup**.
 
 <h2><a id="test"></a>Step 8: Test authentication and authorization</h2>
 
-1.	In order to test authentication and authorization, create a domain user account in Active Directory. 
+1. In order to test authentication and authorization, create a domain user account in Active Directory. 
 Log on to the client VM in each site and create a shared folder on the VM
 
-2.	Test access to the shared folder using different accounts and groups and permissions. 
+2. Test access to the shared folder using different accounts and groups and permissions. 
 
 ## See Also
 

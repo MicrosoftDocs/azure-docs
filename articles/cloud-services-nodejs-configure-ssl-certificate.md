@@ -11,7 +11,7 @@ to specify an HTTPS endpoint for a Node.js application hosted as a Windows Azure
 SSL certificate to secure your application.
 
 <div class="dev-callout">Note
-<p>The steps in this article only apply to node applications hosted as a Windows Azure Cloud Service in a web role; for Web Sites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for a Windows Azure web site</a>.</p>
+<p>The steps in this article only apply to node applications hosted as a Windows Azure Cloud Service in a web role; for Web Sites, see <a href="./web-sites-configure-ssl-certificate/">Configuring an SSL certificate for a Windows Azure web site</a>.</p>
 </div>
 
 This task includes the following steps:

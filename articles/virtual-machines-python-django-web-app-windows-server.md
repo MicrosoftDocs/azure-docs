@@ -137,4 +137,4 @@ When you're done with this tutorial, shutdown and/or remove your newly created W
 
 [portal-vm]: /en-us/manage/windows/tutorials/virtual-machine-from-gallery/
 
-[Installation Guide]: ../python-how-to-install/
+[Installation Guide]: ../articles/python-how-to-install.md

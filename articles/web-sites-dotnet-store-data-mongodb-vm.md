@@ -78,19 +78,19 @@ MongoDB offers client-side support for C# applications through a driver, which y
 To install the MongoDB C# driver:
 
 1. In **Solution Explorer**, under the **MyTaskListApp** project, right-click **References** and select **Manage NuGetPackages**.
-	
+
 	![Manage NuGet Packages][VS2013ManageNuGetPackages]
-	
+
 2. In the **Manage NuGet Packages** window, in the left pane, click **Online**. In the **Search Online** box on the right, type "mongocsharpdriver".  Click **Install** to install the driver.
-	
+
 	![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
-	
+
 3. Click **I Accept** to accept the 10gen, Inc. license terms.
-	
+
 4. Click **Close** after the driver has installed.
 	![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]
-	
-	
+
+
 The MongoDB C# driver is now installed.  References to the **MongoDB.Driver.dll** and **MongoDB.Bson.dll** libraries have been added to the project.
 
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
@@ -440,12 +440,12 @@ In this section you will create a Windows Azure web site.
 3. Enter a unique prefix for the application's URL.
 4. Select a region.
 5. Click **Create Web Site**.
-	
-	![Create a new web site][WAWSCreateWebSite]
-	
+
+![Create a new web site][WAWSCreateWebSite]
+
 6. Your web site will be created quickly and will be listed in **Web sites**.
 
-	![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
+![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
 
 <a id="deployapp"></a> 
 ###Deploy the ASP.NET application to the web site using Git
@@ -454,18 +454,20 @@ In this section you will deploy the My Task List application using Git.
 1. Click your web site name in **Web sites**, then click **Dashboard**.  On the right side, under Quick Glance, click **Set up deployment from source control**.
 2. On the **Where is your source code?** page, choose **Local Git repository**, and the click the **Next** arrow. 
 3. The Git repository should be created quickly. Make note of the instructions on the resulting page as they will be used in the next section.
-	
+
 	![Git Repository is Ready][Image9]
-	
+
 4. Under **Push my local files to Windows Azure** there are instructions for pushing your code to Windows Azure. The instructions will look similar to the following:
-	
+
 	![Push local files to Windows Azure][Image10]
 	
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
 6. Following the instructions in step 2, commit your local files.  
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
 8. When the deployment has completed you will see the following confirmation:
+
 	![Deployment Complete][Image11]
+
 9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: http://mytasklistapp.azurewebsites.net.
 
 ##Summary##

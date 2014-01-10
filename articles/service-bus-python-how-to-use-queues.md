@@ -22,7 +22,7 @@ covered include **creating queues, sending and receiving messages**, and
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](./python-how-to-install/).
 
 
 ## <a name="create-queue"> </a>How to Create a Queue

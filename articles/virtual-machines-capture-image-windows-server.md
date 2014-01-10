@@ -15,11 +15,9 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 3.	Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
 
-	![Run Sysprep.exe][Run Sysprep.exe]
 
 4. 	The **System Preparation Tool** dialog box appears.
 
-	![Enter Sysprep.exe options][Enter Sysprep.exe options]
 
 	In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction][].
 
@@ -29,13 +27,10 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 7.	Sysprep shuts down the virtual machine, which changes the status of the machine in the [Management Portal](http://manage.windowsazure.com) to **Stopped**.
 
-	![The virtual machine is stopped][The virtual machine is stopped]
 
 8.	Click **Virtual Machines**, and then select the virtual machine you want to capture.
 
-9.	On the command bar (at the bottom of the window), click **Capture**.
-
-	![Capture an image of the virtual machine][Capture an image of the virtual machine]
+9.	On the command bar, click **Capture**.
 
 	The **Capture an Image from a Virtual Machine** dialog box appears.
 
@@ -53,10 +48,10 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 [How to Log on to a Virtual Machine Running Windows Server]:http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/en-us/library/bb457073.aspx
-[Run Sysprep.exe]:media/virtual-machines-capture-image-windows-server/sysprepcommand.png
-[Enter Sysprep.exe options]:media/virtual-machines-capture-image-windows-server/sysprepgeneral.png
-[The virtual machine is stopped]:media/virtual-machines-capture-image-windows-server/sysprepstopped.png
-[Capture an image of the virtual machine]:media/virtual-machines-capture-image-windows-server/capturevm.png
-[Enter the image name]:media/virtual-machines-capture-image-windows-server/capture.png
-[Image capture successful]:media/virtual-machines-capture-image-windows-server/capturesuccess.png
-[Use the captured image]:media/virtual-machines-capture-image-windows-server/myimagesWindows.png
+[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+[Enter Sysprep.exe options]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
+[The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
+[Capture an image of the virtual machine]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
+[Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
+[Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
+[Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png

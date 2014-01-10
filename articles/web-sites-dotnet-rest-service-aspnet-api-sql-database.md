@@ -206,8 +206,9 @@ This is all you need to do for now to create the application that you'll deploy 
 	-In your browser window, save the *.publishsettings* file.<br/>
     
 	![download pub file](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDown2.png)
+
     
-	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+		[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
     
 	-In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
