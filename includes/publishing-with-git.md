@@ -1,11 +1,13 @@
-﻿# Publishing from Source Control to Windows Azure Web Sites
+# Publishing from Source Control to Windows Azure Web Sites
 
 Windows Azure Web Sites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your web site, and then quickly and easily push changes to your site when you want.
 
 In this article, you will learn how to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, DropBox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Windows Azure by using Team Foundation Service].
 
-> WACOM.NOTE
-> Many of the Git commands described in this article are performed automatically when creating a Web Site using the [Windows Azure Command-Line Tools for Mac and Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+<div class="dev-callout">
+<strong>Note</strong>
+<p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
+</div>
 
 The task includes the following steps:
 
@@ -22,8 +24,10 @@ The task includes the following steps:
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-> WACOM.NOTE
-> On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.
+<div class="dev-callout">
+<strong>Note</strong>
+<p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
+</div>
 
 <h2><a id="Step2"></a>Create a local repository</h2>
 
@@ -260,15 +264,13 @@ The following are errors or problems commonly encountered when using Git to publ
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
 [git-WhereIsYourSourceCode]: ./media/publishing-with-git/git-WhereIsYourSourceCode.png
 [git-instructions]: ./media/publishing-with-git/git-instructions.png
-[portal-deployment-credentials]: ../Media/git-deployment-credentials.png
+[portal-deployment-credentials]: ./media/publishing-with-git/git-deployment-credentials.png
 
 [git-ChooseARepositoryToDeploy]: ./media/publishing-with-git/git-ChooseARepositoryToDeploy.png
 [hello-git]: ./media/publishing-with-git/git-hello-git.png
 [yay]: ./media/publishing-with-git/git-yay.png
-[git-select-repository]: ../Media/git-select-project.png
 [git-githubdeployed]: ./media/publishing-with-git/git-GitHubDeployed.png
 [git-GitHubDeployed-Updated]: ./media/publishing-with-git/git-GitHubDeployed-Updated.png
-[deploy-git-links]: ../Media/git-deploy-link.png
 [git-DisconnectFromGitHub]: ./media/publishing-with-git/git-DisconnectFromGitHub.png
 [git-DeploymentTrigger]: ./media/publishing-with-git/git-DeploymentTrigger.png
 [Create a Repo (GitHub)]: https://help.github.com/articles/create-a-repo
