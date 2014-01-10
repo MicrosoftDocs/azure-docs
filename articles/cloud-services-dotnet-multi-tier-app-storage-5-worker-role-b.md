@@ -626,7 +626,7 @@ To learn more about autoscaling Windows Azure Cloud Service roles, see
 the following resources:
 
 * [How to Use the Autoscaling Application Block][autoscalingappblock]
-* [Autoscaling and Windows Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+* [Autoscaling and Windows Azure][autoscaling-and-windows-azure]
 * [Building Elastic, Autoscalable Solutions with Windows Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN channel 9 video)
 
 
@@ -687,4 +687,4 @@ These tutorials and the sample application were written by [Rick Anderson](http:
 
 
 [mtas-worker-b-settings]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-worker-role-b/mtas-worker-b-settings.png
-
+[autoscaling-and-windows-azure]: http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx
