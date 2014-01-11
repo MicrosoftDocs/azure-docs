@@ -36,19 +36,19 @@ This topic describes the Backup and Restore functionality, including:
 
 To backup Windows Azure BizTalk Services, the following prerequisites are required:
 
-<table border="1">
-<TR>
-<TD>Windows Azure Subscription</TD> 
-<TD>The subscription ID is listed in the Dashboard tab of the BizTalk Service. The Dashboard tab is available by clicking the BizTalk Service in the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=213885">Windows Azure Management Portal</a>.</TD> 
-</TR> 
-<TR>
-<TD>BizTalk Service Name</TD> 
-<TD>Enter the BizTalk Service name. The BizTalk Service name is available in the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=213885">Windows Azure Management Portal</a> under <strong>BizTalk Services</strong>.</TD> 
-</TR> 
-<TR>
-<TD>Windows Azure Storage Account and access key</TD> 
-<TD>Specify an existing Windows Azure Storage account with its Primary Access Key to store the backup content. This Storage account can be in any Region, including a different region than the Windows Azure SQL Database and the BizTalk Service. The Storage account and Primary Access Key are available in the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=213885">Windows Azure Management Portal</a> under <strong>Storage</strong>.</TD>
-</TR>
+<table border="1" cellpadding="5">
+<tr>
+<td>Windows Azure Subscription</td> 
+<td align="left">The subscription ID is listed in the Dashboard tab of the BizTalk Service. The Dashboard tab is available by clicking the BizTalk Service in the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=213885">Windows Azure Management Portal</a>.</td> 
+</tr> 
+<tr>
+<td>BizTalk Service Name</td> 
+<td align="left">Enter the BizTalk Service name. The BizTalk Service name is available in the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=213885">Windows Azure Management Portal</a> under <strong>BizTalk Services</strong>.</td> 
+</tr> 
+<tr>
+<td>Windows Azure Storage Account and access key</td> 
+<td align="left">Specify an existing Windows Azure Storage account with its Primary Access Key to store the backup content. This Storage account can be in any Region, including a different region than the Windows Azure SQL Database and the BizTalk Service. The Storage account and Primary Access Key are available in the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=213885">Windows Azure Management Portal</a> under <strong>Storage</strong>.</td>
+</tr>
 </table>
 
 
@@ -56,18 +56,18 @@ To backup Windows Azure BizTalk Services, the following prerequisites are requir
 
 When a Backup is created, the following items are backed up:
 
-<table border="1"> 
-<TR bgcolor="FAF9F9">
+<table border="1" cellpadding="5"> 
+<tr bgcolor="FAF9F9">
 <th> </th>
-<TH>Items backed up</TH> 
-</TR> 
-<TR>
+<th>Items backed up</th> 
+</tr> 
+<tr>
 <td colspan="2">
  <strong>Windows Azure BizTalk Services Portal</strong></td>
-</TR> 
-<TR>
-<TD>Configuration and Runtime</TD> 
-<TD><bl>
+</tr> 
+<tr>
+<td>Configuration and Runtime</td> 
+<td align="left"><ul>
 <li>Partner and profile details</li>
 <li>Partner Agreements</li>
 <li>Custom assemblies deployed</li>
@@ -79,26 +79,26 @@ When a Backup is created, the following items are backed up:
 <li>X12 ST01 and GS01 mappings</li>
 <li>Control numbers (EDI)</li>
 <li>AS2 Message MIC values</li>
-</bl></TD>
-</TR> 
+</ul></td>
+</tr> 
  
-<TR>
+<tr>
 <td colspan="2">
  <strong>Windows Azure BizTalk Service</strong></td>
-</TR> 
-<TR>
-<TD>SSL Certificate</TD> 
-<TD>
-<bl>
+</tr> 
+<tr>
+<td>SSL Certificate</td> 
+<td align="left">
+<ul>
 <li>SSL Certificate Data</li>
 <li>SSL Certificate Password</li>
-</bl>
-</TD>
-</TR> 
-<TR>
-<TD>BizTalk Service Settings</TD> 
-<TD>
-<bl>
+</ul>
+</td>
+</tr> 
+<tr>
+<td>BizTalk Service Settings</td> 
+<td align="left">
+<ul>
 <li>Scale unit count</li>
 <li>Edition</li>
 <li>Product Version</li>
@@ -107,18 +107,18 @@ When a Backup is created, the following items are backed up:
 <li>Tracking database connection string</li>
 <li>Archiving Storage account connection string</li>
 <li>Monitoring storage account connection string</li>
-</bl></TD>
-</TR> 
-<TR>
+</ul></td>
+</tr> 
+<tr>
 <td colspan="2">
  <strong>Additional Items</strong></td>
-</TR> 
-<TR>
-<TD>Tracking Database</TD> 
-<TD>When the BizTalk Service is provisioned, the Tracking Database details are entered, including the Windows Azure SQL Database Server and the Tracking Database name. The Tracking Database is not automatically backed up.<br/><br/>
+</tr> 
+<tr>
+<td>Tracking Database</td> 
+<td align="left">When the BizTalk Service is provisioned, the Tracking Database details are entered, including the Windows Azure SQL Database Server and the Tracking Database name. The Tracking Database is not automatically backed up.<br/><br/>
 <strong>Important</strong><br/>
-If the Tracking Database is accidentally deleted and the database needs recovered, a previous backup must exist. If a backup does not exist, the Tracking Database and its data are not recoverable. In this situation, create a new Tracking Database with the same database name. Geo-Replication is recommended.</TD>
-</TR> 
+If the Tracking Database is accidentally deleted and the database needs recovered, a previous backup must exist. If a backup does not exist, the Tracking Database and its data are not recoverable. In this situation, create a new Tracking Database with the same database name. Geo-Replication is recommended.</td>
+</tr> 
 </table>
 
 
