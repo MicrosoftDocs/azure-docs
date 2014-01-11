@@ -1,4 +1,3 @@
-
 #Create a Virtual Machine Running Linux 
 
 Creating a virtual machine that is running the Linux operating system is easy when you use the Image Gallery in the Windows Azure Management Portal. This guide assumes that you have no prior experience using Windows Azure. You can create a virtual machine running the Linux operating system in the cloud that you can access and customize.
@@ -72,17 +71,17 @@ This tutorial shows you how to use the PuTTY program to access the virtual machi
 
 1. Find the **Host Name** and **Port information** from the Management Portal. You can find the information that you need from the dashboard of the virtual machine. Click the virtual machine name and look for the **SSH Details** in the **Quick Glance** section of the dashboard.
 
-	![Find SSH details] (./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png)
+	![Find SSH details](./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png)
 
 2. Open the PuTTY program.
 
 3. Enter the **Host Name** and the **Port information** that you collected from the dashboard, and then click **Open**.
 
-	![Enter the host name and port information] (./media/CreateVirtualMachineLinuxTutorial/putty.png)
+	![Enter the host name and port information](./media/CreateVirtualMachineLinuxTutorial/putty.png)
 
 4. Log on to the virtual machine using the NewUser1 account that you specified when the machine was created.
 
-	![Log on to the new virtual machine] (./media/CreateVirtualMachineLinuxTutorial/sshlogin.png)
+	![Log on to the new virtual machine](./media/CreateVirtualMachineLinuxTutorial/sshlogin.png)
 
 	You can now work with the virtual machine just as you would with any other server.
 
