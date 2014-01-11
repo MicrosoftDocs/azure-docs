@@ -434,7 +434,6 @@ The following steps show you how to stop and delete your application.
 
 	![Status messages indicating the service has been deleted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png)
 
-
   [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
