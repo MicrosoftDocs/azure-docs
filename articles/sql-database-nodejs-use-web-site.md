@@ -478,7 +478,7 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [for free]: http://windowsazure.com
 [Git remote]: http://git-scm.com/docs/git-remote
 
-[Node.js Web Application with MongoDB]: ../website-with-mongodb-(mac)/
+[Node.js Web Application with MongoDB]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
 [Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
 [Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
 [Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
