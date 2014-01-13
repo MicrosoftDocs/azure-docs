@@ -32,7 +32,7 @@ information on tables, see the [Next Steps][] section.
 ## <a name="create-account"> </a>Create a Windows Azure Storage Account
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../articles/python-how-to-install.md).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ## <a name="create-table"> </a>How to Create a Table

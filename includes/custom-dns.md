@@ -5,7 +5,7 @@ contoso.com.
 
 <div class="dev-callout"> 
 <b>Note</b> 
-	<p>The procedures in this task apply to Windows Azure Cloud Services. For storage accounts, see <a href="/en-us/develop/net/common-tasks/custom-dns-storage/">Configuring a Custom Domain Name for a Windows Azure Storage Account</a>. For Web Sites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
+	<p>The procedures in this task apply to Windows Azure Cloud Services. For storage accounts, see <a href="../storage-custom-domain-name/">Configuring a Custom Domain Name for a Windows Azure Storage Account</a>. For Web Sites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
 </div>
 
 This task will show you how to:

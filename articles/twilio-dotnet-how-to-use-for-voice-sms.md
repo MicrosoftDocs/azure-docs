@@ -294,7 +294,7 @@ For additional information about using Twilio on Windows Azure with ASP.NET, see
 
 
 
-[howto_phonecall_dotnet]: ../articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md
+[howto_phonecall_dotnet]: ../partner-twilio-cloud-services-dotnet-phone-call-web-role/
 
 
 
