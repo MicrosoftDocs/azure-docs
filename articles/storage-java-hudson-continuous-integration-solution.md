@@ -19,12 +19,12 @@ In this tutorial you will be using the Windows Azure Storage Plugin for Hudson C
 -   [How to create a post-build action that uploads your build artifacts to your storage account][]
 -   [Components used by the Blob service][]
 
-<h2><a name="overview"></a><span class="short header">Overview</span>Overview of Hudson</h2>
+<h2><a id="overview"></a><span class="short header">Overview</span>Overview of Hudson</h2>
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This topic will show how to use Windows Azure blob storage as the repository of the build artifacts.
 
 More information about Hudson can be found at [Meet Hudson][].
 
-<h2><a name="benefits"></a><span class="short header">Benefits</span>Benefits of using the Blob service</h2>
+<h2><a id="benefits"></a><span class="short header">Benefits</span>Benefits of using the Blob service</h2>
 
 Benefits of using the Blob service to host your agile development build artifacts include:
 
@@ -33,7 +33,7 @@ Benefits of using the Blob service to host your agile development build artifact
 - Performance when your customers and partners download your build artifacts.
 - Control over user access policies, with a choice between anonymous access, expiration-based shared access signature access, private access, etc.
 
-<h2><a name="prerequisites"></a><span class="short header">Prequisites</span>Prequisites</h2>
+<h2><a id="prerequisites"></a><span class="short header">Prequisites</span>Prequisites</h2>
 
 You will need the following to use the Blob service with your Hudson CI solution:
 
@@ -60,11 +60,11 @@ You will need the following to use the Blob service with your Hudson CI solution
 
 - Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
-<h2><a name="howtouse"></a><span class="short header">How to use Blob service</span>How to use the Blob service with Hudson CI</h2>
+<h2><a id="howtouse"></a><span class="short header">How to use Blob service</span>How to use the Blob service with Hudson CI</h2>
 
 To use the Blob service with Hudson, you'll need to install the Windows Azure Storage plugin, configure the plugin to use your storage account, and then create a post-build action that uploads your build artifacts to your storage account. These steps are described in the following sections.
 
-<h2><a name="howtoinstall"></a><span class="short header">How to install</span>How to install the Windows Azure Storage plugin</h2>
+<h2><a id="howtoinstall"></a><span class="short header">How to install</span>How to install the Windows Azure Storage plugin</h2>
 
 1. Within the Hudson dashboard, click **Manage Hudson**.
 2. In the **Manage Hudson** page, click **Manage Plugins**.
@@ -74,7 +74,7 @@ To use the Blob service with Hudson, you'll need to install the Windows Azure St
 6. Click **Install**.
 7. After the installation is complete, restart Hudson.
 
-<h2><a name="howtoconfigure"></a><span class="short header">How to configure</span>How to configure the Windows Azure Storage plugin to use your storage account</h2>
+<h2><a id="howtoconfigure"></a><span class="short header">How to configure</span>How to configure the Windows Azure Storage plugin to use your storage account</h2>
 
 1. Within the Hudson dashboard, click **Manage Hudson**.
 2. In the **Manage Hudson** page, click **Configure System**.
@@ -86,7 +86,7 @@ To use the Blob service with Hudson, you'll need to install the Windows Azure St
     5. [Optional] If you have additional storage accounts that you want made available to your Hudson CI, click **Add more Storage Accounts**.
     6. Click **Save** to save your settings.
 
-<h2><a name="howtocreatepostbuild"></a><span class="short header">How to create post-build action</span>How to create a post-build action that uploads your build artifacts to your storage account</h2>
+<h2><a id="howtocreatepostbuild"></a><span class="short header">How to create post-build action</span>How to create a post-build action that uploads your build artifacts to your storage account</h2>
 
 For instruction purposes, first we'll need to create a job that will create several files, and then add in the post-build action to upload the files to your storage account.
 
@@ -121,7 +121,7 @@ For instruction purposes, first we'll need to create a job that will create seve
     4. Click **Containers**.
     5. Click the container named **myjob**, which is the lowercase version of the job name that you assigned when you created the Hudson job. Container names and blob names are lowercase (and case-sensitive) in Windows Azure storage. Within the list of blobs for the container named **myjob** you should see **hello.txt** and **date.txt**. Copy the URL for either of these items and open it in your browser. You will see the text file that was uploaded as a build artifact.
 
-<h2><a name="components"></a><span class="short header">Blob service components</span>Components used by the Blob service</h2>
+<h2><a id="components"></a><span class="short header">Blob service components</span>Components used by the Blob service</h2>
 
 The following provides an overview of the Blob service components.
 
