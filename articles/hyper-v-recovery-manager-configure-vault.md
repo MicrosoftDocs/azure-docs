@@ -140,11 +140,11 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 2. Click **Data Services**, and then click **Recovery Services**.  
 
-	![Preview Program](../media/RS_PreviewProgram.png)
+	![Preview Program](./media/hyper-v-recovery-manager-configure-vault/RS_PreviewProgram.png)
 
 3. Click **Recovery Services**, click **Create New**,  point to **Hyper-V Recovery Manager Vault**, and then click **Quick Create**.
 	
-	![New vault](../media/RS_hvvault.png)
+	![New Vault](./media/hyper-v-recovery-manager-configure-vault/RS_hvvault.png)
 
 3. In **Name**, enter a friendly name to identify the vault.
 
@@ -162,16 +162,16 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 2. In the **Recovery Services** page, open the required vault.
 3. Click the Quick Start icon to open the Quick Start page.
 
-	![Quick Start Icon](../media/RS_QuickStartIcon.png)
+	![Quick Start Icon](./media/hyper-v-recovery-manager-configure-vault/RS_QuickStartIcon.png)
 
 2. Click **Manage Certificate**.
 
-	![Quick Start](../media/RS_QuickStart.png)
+	![Quick Start](./media/hyper-v-recovery-manager-configure-vault/RS_QuickStart.png)
 
 3. In the **Manage Certificate** dialog box, click **Browse For File** to locate the .cer file you want to upload to the vault.
 
 
-	![Manage Certificate](../media/RS_ManageCert.png)
+	![Manage Certificate](./media/hyper-v-recovery-manager-configure-vault/RS_ManageCert.png)
 
 
 <a name="download"></a> <h2>Step 3: Download and install the Provider</h2>
@@ -179,31 +179,31 @@ Install the Hyper-V Recovery Manager Provider on each VMM server you want to reg
 
 1. On the **Quick Start** page, click **Download Provider** to obtain the Provider installation .exe file. Run this file on the VMM server to begin Provider Setup.
 
-	![Download Agent](../media/RS_installwiz.png)
+	![Download Agent](./media/hyper-v-recovery-manager-configure-vault/RS_installwiz.png)
 
 2. Follow the steps to complete the Provider installation.
 
-	![Setup Complete](../media/RS_SetupComplete.png)
+	![Setup Complete](./media/hyper-v-recovery-manager-configure-vault/RS_SetupComplete.png)
 
 3. After the Provider installation is complete, follow the wizard steps to register the VMM server with the vault.
 4. On the Internet Connection page, specify how the Provider running on the VMM server connects to the Internet. The Provider can use the default Internet connection settings on the server, or click **Use a proxy server for Internet requests** to use custom settings.
 	
-	![Internet Settings](../media/RS_ProviderProxy.png)
+	![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/RS_ProviderProxy.png)
 
 	If you want to use custom settings during this walkthrough, read the information in <a href="http://go.microsoft.com/fwlink/?LinkId=378266">Step 2: Install the Provider and register the VMM servers</a> of the Deployment guide.
 
 
 5. On the Certificate Registration page, select the .pfx file that corresponds to the .cer you uploaded to the vault. 
 
-	![Certificate Register](../media/RS_CertReg1.png)
+	![Certificate Register](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg1.png)
 
-	![Certificate Vault](../media/RS_CertReg2.png)
+	![Certificate Vault](./media/hyper-v-recovery-manager-configure-vault/RS_CertReg2.png)
 
 1. On the VMM Server page, specify a friendly name for the VMM server. This name is used to identify the server in the Hyper-V Recovery Manager console.
 2. Select **Synchronize cloud data with the vault** to synchronize the data on all private clouds located on the VMM server with the Hyper-V Recovery Manager vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can publish each cloud individually to synchronize it, before you configure cloud protection settings.  
 3. Click **Register** to complete the process. 
 
-	![Internet Settings](../media/RS_PublishCloudSetup.png)
+	![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/RS_PublishCloudSetup.png)
 
 <P>At this stage, metadata from the VMM server is retrieved by Hyper-V Recovery Manager, in order to orchestrate failover and recovery. After a server has been successfully registered its friendly name will be displayed on the **Resources** tab of the Servers page in the vault.</P>
 
@@ -216,13 +216,11 @@ After VMM servers are registered, you can configure cloud protection settings. I
 
 1. In the VMM console, open the **VMs and Services** workspace.
 2. in the **VMs and Services** pane, open the cloud you want to publish.
-3. On the **General** page of the cloud properties, to publish the cloud, select **Send configuration data about this cloud to the Windows Azure Hyper-V Recovery Manager**.
+3. On the **General** page of the cloud properties, to publish the cloud, select **Send configuration data about this cloud to the Windows Azure Hyper-V Recovery Manager**. After the cloud is published it's displayed in the vault.
 
-![Clouds](../media/RS_PublishCloud.png)
+	![Clouds](./media/hyper-v-recovery-manager-configure-vault/RS_PublishCloud.png)
 
-After a cloud is published it's displayed in the vault.
-
-![Clouds](../media/RS_Clouds.png)
+	![Published Cloud](./media/hyper-v-recovery-manager-configure-vault/RS_Clouds.png)
 
 <h3><a id="configureclouds"></a>Configure clouds</h3>
 
@@ -231,7 +229,7 @@ To configure clouds for protection, do the following:
 1. On the Quick Start page, click **Configure Protection Settings**.
 2. On the **Protected Items** tab, select the cloud that you want to configure and go to the **Configuration** tab.
 
-	![Cloud Configuration](../media/RS_CloudConfig.png)
+	![Cloud Configuration](./media/hyper-v-recovery-manager-configure-vault/RS_CloudConfig.png)
 
 
 3. In **Target Location**, specify the VMM server that manages the cloud you want to use for recovery.
@@ -277,10 +275,10 @@ To map networks, do the following:
 The list of source VM networks and their associated target VM networks is displayed. A blank value is shown for networks that are not mapped.
 6. Select an unmapped entry in the source and target list,  and click **Map**. The service detects the VM networks on the target server and displays them.  
 
-	![Manage certificate](../media/RS_networks.png)
+	![Manage certificate](./media/hyper-v-recovery-manager-configure-vault/RS_networks.png)
 
 7. On the Select a Target Network page, select the target VM network you want to use on the target VMM server.
-![Target Network](../media/RS_TargetNetwork.png) 
+	![Target Network](./media/hyper-v-recovery-manager-configure-vault/RS_TargetNetwork.png) 
 
 8. Click the information icons next to the source and target network names to view the subnets and type for each network.
 
@@ -302,7 +300,8 @@ Network mappings can be modified or removed on the **Networks** tab. Note the fo
 <p>After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. You enable protection in the VMM console, by right-clicking each virtual machine you want to protect and selecting **Enable Recovery**.</p>
 
 <p>After protection is enabled, you can see the virtual machine in the virtual machines list of the cloud. You can view progress of the enable protection action in the **Jobs** tab.</p>
-![Virtual Machines](../media/RS_Clouds.png)
+
+![Virtual Machines](./media/hyper-v-recovery-manager-configure-vault/RS_Clouds.png)
 
 <P>Three jobs are created when you enable protection of virtual machines. The Enable Protection job runs. Then after the initial replication completes two more Finalize Protection jobs run. The virtual machine is ready for failover only after these three jobs have completed successfully.</P>
 
@@ -312,11 +311,11 @@ A recovery plan gathers virtual machines together into groups so that they can b
 1. On the Quick Start page, click **Create Recovery Plan**.
 2. On the Specify the Recovery Page Name and Target page, type in a name and the source and target VMM servers. If you are deploying Hyper-V Recovery Manager on a single VMM server then the source and target server will be the same. The source VMM server must contain virtual machines with protection enabled.
 
-	![Create Recovery Plan](../media/RS_RecoveryPlan1.png)
+	![Create Recovery Plan](./media/hyper-v-recovery-manager-configure-vault/RS_RecoveryPlan1.png)
 3. In the Select Virtual Machines page, select virtual machines to add to the recovery plan. These are added to the recovery plan default group (Group 1).
 4. Click the check mark to create the recovery plan. Recovery plans you create can be deleted on the **Recovery Plans** tab.
 
-	![Recovery Plan VMs](../media/RS_RecoveryPlan2.png)
+	![Recovery Plan VMs](./media/hyper-v-recovery-manager-configure-vault/RS_RecoveryPlan2.png)
 
 
 After creating a recovery plan, you can perform the following actions:
@@ -410,9 +409,7 @@ Note that a query can return a maximum of 200 jobs, so we recommend you narrow q
 <LI>**Task Time**—The job duration</LI>
 </UL>
 
-	
-
-![Jobs tab](../media/RS_Jobs.png)
+![Jobs tab](./media/hyper-v-recovery-manager-configure-vault/RS_Jobs.png)
 
 
 
@@ -457,8 +454,7 @@ The **Dashboard** tab provides the following information:
 <LI>**Issues**—The dashboard shows information about issues with VMM server connections, and issues with cloud configuration settings or synchronization of virtual machine replication. You can get more details of an issue, view jobs associated with the issue, or try to resynchronize virtual machines.</LI>
 </UL>
 
-
-![Dashboard](../media/RS_Dashboard.png)
+![Dashboard](./media/hyper-v-recovery-manager-configure-vault/RS_Dashboard.png)
 
 <h2><a id="next"></a>Next steps</h2>
 <UL>
