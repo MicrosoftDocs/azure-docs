@@ -69,7 +69,7 @@ install required modules::
     the command completes, you should see output similar to the
     following:
 
-    ![The output of the npm install command][The output of the npm install command]
+    ![The output of the npm install command][npm-output]
 
 2.  Since this example was originally a part of the Socket.IO GitHub
     repository, and directly referenced the Socket.IO library by
@@ -144,4 +144,4 @@ In this tutorial you learned how to create a chat application hosted in a Window
 [cloudservice]: /en-us/develop/nodejs/tutorials/app-using-socketio/
 
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
-[The output of the npm install command]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
+[npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
