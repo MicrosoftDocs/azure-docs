@@ -1,4 +1,4 @@
-﻿<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) - Windows Azure feature guide" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
@@ -16,7 +16,7 @@ see the [Next Steps][] section.
 
 * [What is the Blob Service?][]    
 * [Concepts][]    
-* [Create a Windows Azure Storage Account]   
+* [Create a Windows Azure Storage Account][]   
 * [Create a Node.js Application][]   
 * [Configure your Application to Access Storage][]   
 * [Setup a Windows Azure Storage Connection String][]   
