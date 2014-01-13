@@ -189,6 +189,6 @@ Now that you have learned the basics of the Windows Azure Table storage service,
 
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-[Installation Guide]: ../commontasks/how-to-install-python.md 
+[Installation Guide]: ../python-how-to-install.md 
 
 [Django Hello World Web Application]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
