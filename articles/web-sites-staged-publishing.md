@@ -39,7 +39,7 @@ The site must be in the Standard mode to enable staged publishing.
 
 3. In the list of web sites, expand the mark to the left of your web site name to reveal the staging site slot. It will have the name of your site followed by **(staging)**. 
 	
-	![Site List with Staging Site][SiteListWStagingSite]
+	![Site List with Staging Site][SiteListWStagedSite]
 	
 4. When you select the name of the staging site slot, a page will open with a set of tabs just like any other web site. **[your website name] (staging)** will appear at the top of the portal page to remind you that you are viewing the staging site slot.
 	
@@ -119,7 +119,7 @@ After you answer **Yes** to the confirmation message, one or both sites will be 
 
 <!-- IMAGES -->
 [EnableStagedPub]:  ./media/web-sites-staged-publishing/EnableStagedPub.png
-[SiteListWStagingSite]: ./media/web-sites-staged-publishing/SiteListWStagingSite.png
+[SiteListWStagedSite]: ./media/web-sites-staged-publishing/SiteListWStagedSite.png
 [StagingTitle]: ./media/web-sites-staged-publishing/StagingTitle.png
 [SwapButtonBar]: ./media/web-sites-staged-publishing/SwapButtonBar.png
 [SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
