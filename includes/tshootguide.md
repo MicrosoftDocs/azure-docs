@@ -129,8 +129,8 @@ Windows Azure-based solutions and services.
 ###Perform Appropriate Tracing and Logging
 
 Because the complexity of distributed, scale-out applications,
-traditional debuggers that work against one process are of mush less use 
-when investigating issues that are occuring while your application is running.
+traditional debuggers that work against one process are of much less use 
+when investigating issues that occur while your application is running.
 Therefore tracing and logging are of upmost importance. The execution of
 your app and its data is shared across many services, which are hosted
 on many different machines. In a large scale distributed application, it
@@ -265,9 +265,9 @@ application and select the profiling settings that you require.
 
 **Windows Azure VM Assistant**
 
-The [VM Assitant] tool is a CodePlex project that collects all the
+The [VM Assistant] tool is a CodePlex project that collects all the
 relevant troubleshooting data in one place when you Remote Desktop into
-an virtual machine instance. The **VM Health** button gives the current
+a virtual machine instance. The **VM Health** button gives the current
 status of the instance.
 
 ###Debugging Errors Where You Can
@@ -279,7 +279,7 @@ do rudimentary tests without having to deploying your application. The
 debugging tools you use vary depending upon the programming language and the development tools
 you are using.
 
-After an application has been deployed, you can debug in the cloud using a debugger like Visual Studio. The requires creating a debug build and deploying it. In order to do this,you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occured. While there are some drawbacks to debugging in the cloud, there are some circumstancesin which it is required. Not all Windows Azure Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
+After an application has been deployed, you can debug in the cloud using a debugger like Visual Studio. This requires creating a debug build and deploying it. In order to do this,you must connect to a specific role instance. If you have a complex application with multiple roles and role instances, it can be very difficult to determine to which role instance to connect. Visual Studio Ultimate supports IntelliTrace, which allows .NET roles to track debug information. When a problem occurs you can download this information and load it into Visual Studio. You can look at each role instance's IntelliTrace log to determine where the problem occurred. While there are some drawbacks to debugging in the cloud, there are some circumstances in which it is required. Not all Windows Azure Services have an emulator (for example Service Bus) and not all supported development tools (for example Mac and Linux) come with emulators. 
 
 Once you have debugged your application locally you will most likely
 have to rely on the instrumentation built into your application to
@@ -383,7 +383,7 @@ The debugging technique used for Windows Azure Cloud Services depends on the typ
 
 Some new debugging features have been added to the Windows Azure SDK 1.7 including making it easier to find stack traces when exceptions occur and improvements in Remote Desktop connectivity. Stack traces are now included in the Windows Event Log, making it easier to see exactly what went wrong. In addition Remote Desktop connectivity has been improved. If your role is cycling or aborted you will be able to use Remote Desktop to connect to the problematic role and investigate the problem. 
 
-The windows Azure Portal provides access to monitoring data that helps IT professionals and developers anticpate and diagnose problems in Windows Azure Cloud Services. By default values such as "CPU Percentage", "Data In", "Data Out", "Disk Read Throughput" and "Disk Write Throughput" are collected by the host VM. There is no configuration needed to enable these metrics for role instances and there is no cost impact to customers. Additional performance information can also be collected. To collect verbose diagnostic information you must have a valid diagnostics connection string as this information will be stored in Windows Azure Storage and will therefore incurr additional storage costs. When user enables verbose monitoring, the portal will remotely configure role instances to collect the default set of performance counters. 
+The windows Azure Portal provides access to monitoring data that helps IT professionals and developers anticipate and diagnose problems in Windows Azure Cloud Services. By default values such as "CPU Percentage", "Data In", "Data Out", "Disk Read Throughput" and "Disk Write Throughput" are collected by the host VM. There is no configuration needed to enable these metrics for role instances and there is no cost impact to customers. Additional performance information can also be collected. To collect verbose diagnostic information you must have a valid diagnostics connection string as this information will be stored in Windows Azure Storage and will therefore incur additional storage costs. When user enables verbose monitoring, the portal will remotely configure role instances to collect the default set of performance counters. 
 
 ###Windows Azure Diagnostics 
 
@@ -720,7 +720,7 @@ following articles:
     [http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx)
 
 <h2><a id="Cache"></a>Windows Azure Caching</h2>
-Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Cachineg(Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:
+Windows Azure Caching comes in two flavors: the Windows Azure Shared Caching and role-based Windows Azure Caching (Preview). Shared Caching is a multitenent Windows Azure service that provides caching services. Windows Azure Caching (Preview) hosts caching on a role by using a portion of the memory from the virtual machines that host your role instances. To troubleshoot Windows Azure Caching, observe the behavior of the cache by checking error codes and catching exceptions. When using role-based Caching (Preview),you can also use performance counters. Caching problems generally fall into one of the following categories:
 
 - 	Quota-related errors - a quota has been exceeded (Shared Caching)
 - 	Throttling - occurs when there is not enough physical memory to support additional cached items
@@ -763,7 +763,7 @@ For more information on quota-related errors, see [Understanding Quotas].
 [startup task]: http://msdn.microsoft.com/en-us/library/gg456327.aspx
 [AVIcode]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
 [profile]: http://msdn.microsoft.com/en-us/library/windowsazure/hh369930.aspx
-[VM Assitant]: http://azurevmassist.codeplex.com/
+[VM Assistant]: http://azurevmassist.codeplex.com/
 [Debugging Node in the Windows Azure Emulator]: http://weblogs.asp.net/jimwang/archive/2012/04/17/debugging-node-node-inspector-in-the-azure-emulator.aspx
 [Debugging with Node-Inspector]: http://howtonode.org/debugging-with-node-inspector
 
