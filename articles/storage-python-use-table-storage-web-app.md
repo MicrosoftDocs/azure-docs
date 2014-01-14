@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors=""  solutions="" writer="" manager="" editor="mollybos"  />
 
 
 
@@ -189,6 +189,6 @@ Now that you have learned the basics of the Windows Azure Table storage service,
 
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-[Installation Guide]: ../python-how-to-install.md 
+[Installation Guide]: ../python-how-to-install 
 
 [Django Hello World Web Application]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
