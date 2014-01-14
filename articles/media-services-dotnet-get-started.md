@@ -42,7 +42,7 @@ The following prerequisites are required for the walkthrough and for development
 
 4. Add an *appSettings* section to the **app.config** file, and set the values for your Windows Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	>In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.
 
 	<pre><code>

@@ -47,7 +47,7 @@ To use the Windows Azure Queue service APIs, you need to:
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the `WindowsAzure.php` autoloader file.
 
 	require_once 'vendor\autoload.php';
@@ -116,7 +116,7 @@ A **QueueRestProxy** object lets you create a queue with the **createQueue** met
 		echo $code.": ".$error_message."<br />";
 	}
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > You should not rely on case sensitivity for metadata keys. All keys are read from the service in lowercase.
 
 
