@@ -3,7 +3,6 @@
 
 
 
-
 #Build a Node.js Chat Application with Socket.IO on a Windows Azure Web Site
 
 Socket.IO provides real-time communication between your node.js server and clients. This tutorial will walk you through hosting a Socket.IO based chat application as a Windows Azure Web Site. For more information on Socket.IO, see [http://socket.io/][socketio].
