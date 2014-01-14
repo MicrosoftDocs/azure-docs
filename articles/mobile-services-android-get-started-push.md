@@ -177,7 +177,7 @@ You mobile service is now configured to work with GCM to send push notifications
 	<p>When dynamic schema is enabled on your mobile service, a new <strong>handle</strong> column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
-12. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-n.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+12. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-n.jar** and **notification-hubs-n.jar** files to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
 13.  Open the file ToDoItemActivity.java, and add the following import statement:
 

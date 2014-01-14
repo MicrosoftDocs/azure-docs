@@ -617,6 +617,7 @@ The **Publish Web** wizard opens.
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
 Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
+
 	![settings][rxSettings] 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
@@ -628,9 +629,6 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
 1. Close the publish dialog.
 1. In the **View** menu click **Server Explorer**. 
-	![Publish][rxP3] 
-
-	![Publish][rxP2]
 
 1. Click on the **Connect to Database** icon.
 	
@@ -651,11 +649,15 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 	![firewall error][rx5]
 
 1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
+
 	![Select SQL][rx6]
+
 1. Select the database you wish to open.
+
 1. Click the **Set up Windows Azure firewall rules for this IP address** link.
 
 	![firewall rules][rx7]
+
 1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough, you will need to add a range of IP addresses.
 
 ## Adding a Range of Allowed IP Addresses ##
