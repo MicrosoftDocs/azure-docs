@@ -41,7 +41,7 @@ The site must be in the Standard mode to enable staged publishing.
 	
 	![Site List with Staging Site][SiteListWStagedSite]
 	
-4. When you select the name of the staging site slot, a page will open with a set of tabs just like any other web site. **[your website name] (staging)** will appear at the top of the portal page to remind you that you are viewing the staging site slot.
+4. When you select the name of the staging site slot, a page will open with a set of tabs just like any other web site. ***your-website-name* (staging)** will appear at the top of the portal page to remind you that you are viewing the staging site slot.
 	
 	![Staging Site Title][StagingTitle]
 	
