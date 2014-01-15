@@ -297,7 +297,7 @@ these links to learn more.
   
   
   
-  [SendGrid NuGet package]: ../../../DevCenter/dotNet/Media/sendgrid01.png
+  [SendGrid NuGet package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/
