@@ -175,7 +175,7 @@ In order to deploy your application to Windows Azure, you must first download th
 4.  Publishes the deployment package to Windows Azure.
 
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	> It can take 5 - 7 minutes for the application to deploy and become available when first published.
 
 	Once the deployment has completed, a browser window will open and navigate to the cloud service.

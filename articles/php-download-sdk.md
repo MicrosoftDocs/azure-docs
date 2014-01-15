@@ -13,7 +13,7 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
-> WACOM.NOTE 
+> [WACOM.NOTE] 
 > You must have PHP 5.3 or higher to use the PHP client libraries for Windows Azure. 
 
 ##PHP client libraries for Windows Azure
@@ -27,7 +27,7 @@ For information about how to use the PHP Client Libraries for Windows Azure, see
 1. [Install Git][install-git]. 
 
 
-	> WACOM.NOTE 
+	> [WACOM.NOTE] 
 	> On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
@@ -71,7 +71,7 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
 
-	> WACOM.NOTE 
+	> [WACOM.NOTE] 
 	> The PHP Client Libraries for Windows Azure have a dependency on the [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime), and [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR packages. The recommended way to resolve these dependencies is to install these packages using the [PEAR package manager](http://pear.php.net/manual/en/installation.php)
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure and reference classes from your application.
@@ -94,7 +94,7 @@ The Windows Azure Command-Line Tools for Mac and Linux are a set of command-line
 
 		npm install azure-cli -g
 
-	> WACOM.NOTE 
+	> [WACOM.NOTE] 
 	> You may need to run this command with elevated privileges:  `sudo npm install azure-cli -g`
 
 
