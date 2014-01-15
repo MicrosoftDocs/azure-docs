@@ -491,7 +491,7 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
  If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
  
 ### How to run the monitoring client application
@@ -526,6 +526,6 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 [namespace_list]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
 [properties_pane]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-[add_ca_cert]: ../commontasks/java-add-certificate-ca-store.md
+[add_ca_cert]: ../java-add-certificate-ca-store.md
 
 

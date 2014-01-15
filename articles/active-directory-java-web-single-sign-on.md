@@ -145,7 +145,7 @@ This step will output information similar to the following:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
     > You should save this output, especially the generated symmetric key. This key is only revealed to you during Service Principal creation, and you will be unable to retrieve it in the future. The other values are required for using the Graph API to read and write information in the directory.
 
 6. The final step sets the reply URL for your application. The reply URL is where responses are sent following authentication attempts. Type the following commands and press enter:
@@ -289,7 +289,7 @@ This step shows you how to add support for federated login using Windows Identit
 		federation.realm=spn:7829c758-2bef-43df-a685-717089474505
 		federation.reply=https://localhost:8443/sample/wsfed-saml 
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
     > The **audienceuris** and **realm** values must be prefaced by "spn:".
 
 20. Now you need to create a new Servlet. Right-click the **sample** project, click **New**, click **Other**, then click **Servlet**. 
@@ -391,7 +391,7 @@ This step shows you how to add support for federated login using Windows Identit
 			</user-data-constraint>
 		</security-constraint> 
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
     > Before proceeding, ensure that JBoss Server is already configured to support SSL.
 
 29. Now we are ready to run the application end-to-end. Right-click the **sample** project, click **Run As**, then click **Run On Server**. Accept the values that you specified before, and click **Finish**.

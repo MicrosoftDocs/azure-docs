@@ -118,7 +118,7 @@ For the detailed instructions, see
 	<tr><td>Password (cluster admin)</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. This can only be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
         > Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
 	The HDInsight cluster location will be the same as the storage account.

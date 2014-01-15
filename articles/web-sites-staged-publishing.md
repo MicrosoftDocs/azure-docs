@@ -30,10 +30,9 @@ The site must be in the Standard mode to enable staged publishing.
 1. On the Quick Start page, or in the Quick Glance section of the Dashboard page for your web site, click **Enable staged publishing**. 
 	
 	![Enable Staged Publishing][EnableStagedPub]
-		
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>If your site is not already in Standard mode, you will receive the message <strong>You must be in the standard mode to enable staged publishing</strong>. At this point, you have the option to select <strong>Upgrade</strong> and upgrade the site on the <strong>Scale</strong> tab of your web site before continuing.</p></div>
+	
+	> [WACOM.NOTE]
+	> If your site is not already in Standard mode, you will receive the message **You must be in the standard mode to enable staged publishing**. At this point, you have the option to select **Upgrade** and upgrade the site on the **Scale** tab of your web site before continuing.
 	
 2. When prompted **Are you sure you want to enable staged publishing for the web site '**[your website name]**'**, choose **Yes**.
 
@@ -86,19 +85,15 @@ When a staging site slot is created, the configuration for the staging site slot
 	
 3. After you answer **Yes**, the site slot that was in production now becomes your staging site slot.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>To swap the production site slot to staging, simply select the production site in the web site list before choosing <strong>Swap</strong>.</p>
-	</div>
+> [WACOM.NOTE]
+> To swap the production site slot to staging, simply select the production site in the web site list before choosing **Swap**.
 
 <a name="Rollback"></a>
 ##To Rollback a Production Site to Staging##
 If any errors are identified for the content or configuration swapped to production, you can simply swap the staging site slot (formerly your production site) back into production, and then make further fixes to the new version of your site while it is in staging mode. 
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>For a rollback to be successful, the staging site slot must still contain the unaltered content and configuration of the previous production site.</p>
-</div>
+> [WACOM.NOTE]
+> For a rollback to be successful, the staging site slot must still contain the unaltered content and configuration of the previous production site.
 
 <a name="Delete"></a>
 ##To Delete a Staging Site##

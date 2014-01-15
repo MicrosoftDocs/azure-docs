@@ -31,7 +31,7 @@ This topic describes how to create a storage account in the Windows Azure Manage
 
 4. In **Region/Affinity Group**, select a region or affinity group for the storage.  Select an affinity group instead of a region if you want your storage services to be in the same data center with other Windows Azure services that you are using. This can improve performance, and no charges are incurred for egress.
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
         > To create an affinity group, open the <b>Networks</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Create a new affinity group</b> or <b>Create</b>. You can use affinity groups that you create in the previous Management Portal. To open the other portal, click <b>Preview</b> on the title bar, and then click <b>Take me to the previous portal</b>. (To return to this portal, click <b>View the Preview Portal</b> at the bottom of the portal.) You can also create and manage affinity groups using the Windows Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
 
 5. If you have more than one Windows Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Windows Azure subscription that you want to use the storage account with. You can create up to five storage accounts for a subscription.
@@ -44,7 +44,7 @@ This topic describes how to create a storage account in the Windows Azure Manage
 
 	A third replication option, **Read Access Geo-Redundant**, is currently in preview. This option enables read-only access to the replicated data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
         > In order to use read-access geo-redundant replication while it is in preview, you must manually request that the feature be enabled for your subscription. Visit the <a href="https://account.windowsazure.com/PreviewFeatures">Windows Azure Preview Features</a> page to request read-access geo-redundant replication for your subscription. For more details about read-access geo-redundant replication, see the <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx">Windows Azure Storage Team Blog</a>.
 	> If read-access geo-redundant replication is not enabled as a preview feature on your subscription, the option to select it for your storage account will be disabled.
 
