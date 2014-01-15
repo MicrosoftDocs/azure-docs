@@ -19,7 +19,7 @@ By following this tutorial, you will build a simple registration web application
 
 This tutorial assumes you have [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Windows Azure SDK for PHP</a>.
 
 ##<a id="create-web-site-and-set-up-git"></a>Create a Windows Azure web site and set up Git publishing
@@ -192,7 +192,7 @@ You can now browse to **http://localhost/registration/index.php** to test the ap
 
 After you have tested your application locally, you can publish it to your Windows Azure web site using Git. You will initialize your local Git repository and publish the application.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > These are the same steps shown in the portal at the end of the Create a Windows Azure web site and Set up Git Publishing section above.
 
 1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the Deployment tab on the portal.

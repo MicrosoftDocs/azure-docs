@@ -193,7 +193,7 @@ This is all you need to do for now to create the application that you'll deploy 
     
 	![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
     
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Windows Azure services.
 	
     
