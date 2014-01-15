@@ -57,7 +57,7 @@ The following file types are accepted as runnable scripts that can be used as a 
 	
 2. To start or stop a continuous job, select the job in the job list and click **Start** or **Stop** in the command bar.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > For continuous web jobs, it is recommended that you enable **Always On** on the Configure page for your web site. The Always On feature, available in Standard mode only, prevents web sites from being unloaded, even if they have been idle for some time. If your web site is always loaded, your continuous web job may run more reliably.
 
 <a name="CreateScheduled"></a>
