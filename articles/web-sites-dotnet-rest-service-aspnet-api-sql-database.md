@@ -636,13 +636,15 @@ To:
 
 3. In the browser, append /api/contacts to the URL.
 
-	The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts.<br/> FireFox and Chrome will display the data in XML format.
+	The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts.<br/> FireFox and Chrome will display the data in XML format.<br/>
 
-	<br/>![Index page with to-do list items][rxFFchrome]<br/>
+	![Index page with to-do list items][rxFFchrome]
+	
 
 	IE will prompt you to open or save the contacts.
 
-	![Web API save dialog][addwebapi006]<br/>
+	![Web API save dialog][addwebapi006]
+	
 	
 	You can open the returned contacts in notepad or a browser.
 	
@@ -777,7 +779,7 @@ To publish the application, you repeat the procedure you followed earlier.
 8. Click **Publish**.<br/>
 After the deployment completes, the browser opens to the home page of the application.<br/>
 
-	![Index page with no contacts][intro001]<br/>
+	![Index page with no contacts][intro001]
 
 	The Visual Studio publish process automatically configured the connection string in the deployed *Web.config* file to point to the SQL database. It also configured Code First Migrations to automatically upgrade the database to the latest version the first time the application accesses the database after deployment.
 
