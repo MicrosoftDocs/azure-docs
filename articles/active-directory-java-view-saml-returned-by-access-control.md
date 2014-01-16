@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Windows Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Windows Azure Access Control Service" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Windows Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Windows Azure Access Control Service" authors="" videoId="" scriptId="" solutions="" writer="waltpo" manager="" editor="mollybos"  />
 
 
 
@@ -190,5 +190,5 @@ To further explore ACS's functionality and to experiment with more sophisticated
 [Run the application]: #run_application
 [Next steps]: #next_steps
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse.md
+[How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
