@@ -13,7 +13,7 @@ This guide will show you how to view the underlying Security Assertion Markup La
 
 For more information on ACS, see the [Next steps](#next_steps) section.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > The Windows Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.
 
 ## Table of Contents
