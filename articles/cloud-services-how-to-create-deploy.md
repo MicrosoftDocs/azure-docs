@@ -68,7 +68,7 @@ Three cloud service features require special configurations before you export a 
 
 3. In **Region/Affinity Group**, select the geographic region or affinity group to deploy the cloud service to. Select an affinity group if you want to deploy your cloud service to the same location as other Windows Azure services within a region.
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	> To create an affinity group, open the **Networks** area of the Management Portal, click **Affinity Groups**, and then click either **Create a new affinity group** or **Create**. You can use affinity groups that you created in the earlier Windows Azure Management Portal. And you can create and manage affinity groups using the Windows Azure Service Management API. For more information, see [Operations on Affinity Groups](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
 
 4. Click **Create Cloud Service**.
@@ -122,7 +122,7 @@ Three cloud service features require special configurations before you export a 
 
 	On the downloads page, you can also install client libraries and source code for developing web apps in Node.js, Java, PHP, and other languages, which you can deploy as scalable Windows Azure cloud services.
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	> For cloud services created earlier (known earlier as *hosted services*), you'll need to make sure the guest operating systems on the virtual machines (role instances) are compatible with the Windows Azure SDK version you install.  For more information, see the [Windows Azure SDK release notes](http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx).
 
 4. Click either **New Production Deployment** or **New Staging Deployment**. 
