@@ -159,9 +159,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 1. In your web editor, open the index.html project file and add the following to the script references for the page:
 
-        <script src='//**APP_URL**/client/MobileServices.Web-1.0.0.min.js'></script>
-
-    You must replace the placeholder `**APP_URL**` with the URL of your mobile service.
+        <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
 5. In the editor, open the file app.js, uncomment the following code that defines the **MobileServiceClient** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order:
 
