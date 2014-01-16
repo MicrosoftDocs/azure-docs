@@ -1,7 +1,7 @@
 <properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy Java MapReduce jobs | Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" metaDescription="Learn developing MapReduce jobs on HDInsight emulator, and deploying it to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Develop and deploy Java MapReduce jobs to HDInsight
-This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator to deploying and running it on Windows Azure HDInsight.
+This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator, to deploying and running it on Windows Azure HDInsight.
 
 **Prerequisites:**
 
