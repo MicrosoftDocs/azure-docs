@@ -30,7 +30,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	![][1]   
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	> When you already have an existing project, you are directed to the **Dashboard** page after login. To create a new project from the Dashboard, expand **API Project<**, click **Create...** under **Other projects**, then enter a project name and click **Create project**.
 
 2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 

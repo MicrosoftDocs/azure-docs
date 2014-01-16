@@ -145,13 +145,13 @@ When you consider the options, virtual machines can be used for almost any appli
 </tr>
 </table>
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > Web or worker roles can integrate MySQL-as-a-service through <a href="http://www.cleardb.com/">ClearDB</a>'s offerings, but not as part of the Management Portal workflow.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > For Web Sites, SSL is only supported for standard mode. For more information on using SSL with Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure Web Site</a>.
 
-> WACOM.NOTE
+> [WACOM.NOTE]
 > Web Deploy is supported for cloud services when deploying to single-instance roles. However, production roles require multiple instances to meet the Windows Azure SLA. Therefore, Web Deploy is not a suitable deployment mechanism for cloud services in production.
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs.png
