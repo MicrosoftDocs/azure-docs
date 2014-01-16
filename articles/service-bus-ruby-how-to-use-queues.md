@@ -14,7 +14,7 @@ covered include **creating queues, sending and receiving messages**, and
 
 * [What are Service Bus Queues?](#what-are-service-bus-queues)
 * [Create a Service Namespace](#create-a-service-namespace)
-* [Obtain the Default Management Credentials for the Namespace](#obtain-the-default-management-credentials-for-the-namespace)
+* [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
 * [Create a Ruby Application](#create-a-ruby-application)
 * [Configure Your Application to Use Service Bus](#configure-your-application-to-use-service-bus)
 * [Setup a Windows Azure Service Bus Connection](#setup-a-windows-azure-service-bus-connection)

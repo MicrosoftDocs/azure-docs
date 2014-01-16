@@ -399,7 +399,7 @@ This tutorial does not show all of the steps you must perform to register with t
 
 Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and log in if necessary. Click the **Register as a Developer** button and complete the registration process. Once you complete registration, click **Create New App**. Enter a name for the app. You don't need to enter an app namespace.
 
-	![Create New FB app][rxFBapp]
+	![Create New FB app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png)
 
 
 Enter localhost for the **App Domain** and http://localhost/ for the **Site URL**. Click **Enabled** for **Sandbox Mode**, then click **Save Changes**.
@@ -411,7 +411,7 @@ You will need the **App ID** and the **App Secret** to implement OAuth in this a
 ## Creating test users ##
 In the left pane under **Settings** click **Developer Roles**. Click the **Create** link on the **Test Users** row (not the **Testers** row).
 
-	![FB testers][rxFBt]
+	![FB testers](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png)
 
 Click on the **Modify** link to get the test users email (which you will use to log into the application). Click the **See More** link, then click **Edit** to set the test users password.
 
@@ -617,6 +617,7 @@ The **Publish Web** wizard opens.
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
 Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
+
 	![settings][rxSettings] 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
@@ -628,9 +629,6 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
 1. Close the publish dialog.
 1. In the **View** menu click **Server Explorer**. 
-	![Publish][rxP3] 
-
-	![Publish][rxP2]
 
 1. Click on the **Connect to Database** icon.
 	
@@ -651,11 +649,15 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 	![firewall error][rx5]
 
 1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
+
 	![Select SQL][rx6]
+
 1. Select the database you wish to open.
+
 1. Click the **Set up Windows Azure firewall rules for this IP address** link.
 
 	![firewall rules][rx7]
+
 1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough, you will need to add a range of IP addresses.
 
 ## Adding a Range of Allowed IP Addresses ##
@@ -777,9 +779,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [rxE]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png
 [rx2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png
 [rxP]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxP.png
-[rxFBapp]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png
 [rxFB]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png
-[rxFBt]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png
 [rxSTD]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSTD.png
 [rxUid]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png
 [rxRoleID]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxRoleID.png

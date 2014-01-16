@@ -1,4 +1,4 @@
-<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors=""  solutions="" videoId="" scriptId="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
 
 
 
@@ -8,7 +8,7 @@
 
 # How to run a compute-intensive task in Java on a virtual machine
 
-With Windows Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
+With Windows Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 
 This tutorial assumes you know how to create Java console applications, import libraries to your Java application, and generate a Java archive (JAR). No knowledge of Windows Azure is assumed. 
 
@@ -526,6 +526,6 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 [namespace_list]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
 [properties_pane]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-[add_ca_cert]: ../java-add-certificate-ca-store.md
+[add_ca_cert]: ../java-add-certificate-ca-store
 
 

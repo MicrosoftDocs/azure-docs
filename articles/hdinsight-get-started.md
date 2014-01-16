@@ -389,12 +389,12 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [powershell-open]: /en-us/manage/install-and-configure-windows-powershell/#Install
 
 
-[image-hdi-storageaccount-quickcreate]: ./media/hdsight-get-started/HDI.StorageAccount.QuickCreate.png
-[image-hdi-clusterstatus]: ./media/hdsight-get-started/HDI.ClusterStatus.png
-[image-hdi-quickcreatecluster]: ./media/hdsight-get-started/HDI.QuickCreateCluster.png
-[image-hdi-wordcountdiagram]: ./media/hdsight-get-started/HDI.WordCountDiagram.gif
-[image-hdi-gettingstarted-mrjoboutput]: ./media/hdsight-get-started/HDI.GettingStarted.MRJobOutput.png
-[image-hdi-gettingstarted-runmrjob]: ./media/hdsight-get-started/HDI.GettingStarted.RunMRJob.png
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-[image-hdi-gettingstarted-powerquery-importdata3]: ./media/hdsight-get-started/HDI.GettingStarted.PowerQuery.ImportData3.png
+[image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
+[image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
+[image-hdi-quickcreatecluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
+[image-hdi-wordcountdiagram]: ./media/hdinsight-get-started/HDI.WordCountDiagram.gif
+[image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-get-started/HDI.GettingStarted.MRJobOutput.png
+[image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-get-started/HDI.GettingStarted.RunMRJob.png
+[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
+[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+[image-hdi-gettingstarted-powerquery-importdata3]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData3.png

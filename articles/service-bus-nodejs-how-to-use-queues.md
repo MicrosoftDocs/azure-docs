@@ -18,13 +18,13 @@ Steps] section.
 -   [What are Service Bus Queues?][]
 -   [Create a Service Namespace][]
 -   [Obtain the Default Management Credentials for the Namespace][]
--   [Create a Node.js Application][]
--   [Configure Your Application to Use Service Bus][]
--   [How to: Create a Queue][]
--   [How to: Send Messages to a Queue][]
--   [How to: Receive Messages from a Queue][]
--   [How to: Handle Application Crashes and Unreadable Messages][]
--   [Next Steps][]
+-   [Create a Node.js Application](#create-app)
+-   [Configure Your Application to Use Service Bus](#configure-app)
+-   [How to: Create a Queue](#create-queue)
+-   [How to: Send Messages to a Queue](#send-messages)
+-   [How to: Receive Messages from a Queue](#receive-messages)
+-   [How to: Handle Application Crashes and Unreadable Messages](#handle-crashes)
+-   [Next Steps](#next-steps)
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 

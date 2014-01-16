@@ -29,8 +29,8 @@ For information on manually configuring Diagnostics in your application or remot
   [Troubleshooting Best Practices for Developing Windows Azure Applications]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
   
 
-  [Using performance counters in Windows Azure]: ./profiling.md
-  [How to monitor cloud services]: ./cloud-services-how-to-monitor.md
+  [Using performance counters in Windows Azure]: ../cloud-services-performance-testing-visual-studio-profiler/
+  [How to monitor cloud services]: ../cloud-services-how-to-monitor/
   [DiagnosticMonitorTraceListener Class]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx
   [How to Use the Windows Azure Diagnostics Configuration File]: http://msdn.microsoft.com/en-us/library/windowsazure/hh411551.aspx
   [Adding Trace Failed Requests in the IIS 7.0 Configuration Reference]: http://www.iis.net/ConfigReference/system.webServer/tracing/traceFailedRequests/add

@@ -33,4 +33,4 @@ First, you use the Add Push Notification wizard in Visual Studio 2013 to registe
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Import your publishsettings file in Visual Studio 2013]: /en-us/documentation/articles/mobile-services-how-to-import-publishsettings/
+[Import your publishsettings file in Visual Studio 2013]: /en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/

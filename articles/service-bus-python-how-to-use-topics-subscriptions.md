@@ -28,7 +28,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 
 [WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../articles/python-how-to-install.md).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 
 
 ##<a name="How_to_Create_a_Topic"></a>How to Create a Topic

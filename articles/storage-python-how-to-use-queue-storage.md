@@ -30,7 +30,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../articles/python-how-to-install.md).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
