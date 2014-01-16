@@ -41,7 +41,7 @@ The next step is to create the Windows Azure web site.
 
 1. In the [Windows Azure Management Portal][PreviewPortal], click **Web Sites**, and then click **New**.
 
-	![New web site][WebSiteNew]
+![New web site][WebSiteNew]
 
 2. Click **Quick Create**.
 	
@@ -70,7 +70,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 2. From the **File** menu, click **New**, and then click **Project**.
 
-	![New Project in File menu][NewVSProject]
+![New Project in File menu][NewVSProject]
 
 3. In the **New Project** dialog box, expand **C#** and select **Web** under **Installed Templates**, and then select **ASP.NET MVC 4 Web Application**. 
 
@@ -78,19 +78,19 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 4. Name the application **MyExample** and click **OK**.
 	
-	![New Project dialog box][NewMVC4WebApp]
+![New Project dialog box][NewMVC4WebApp]
 
 5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template and click **OK**.
 
-	![New ASP.NET MVC 4 Project dialog box][InternetAppTemplate]
+![New ASP.NET MVC 4 Project dialog box][InternetAppTemplate]
 
 ### Run the application locally
 
 1. Press **CTRL**+**F5** to run the application. The application home page appears in the default browser.
 
-	![Web site running locally][AppRunningLocally]
+![Web site running locally][AppRunningLocally]
 
-	This is all you need to do to create a simple application that you'll deploy to Windows Azure.
+This is all you need to do to create a simple application that you'll deploy to Windows Azure.
 
 <h2><a name="deploytowindowsazure"></a><span class="short-header">Deploy the app</span>Deploy the application to Windows Azure</h2>
 
@@ -98,13 +98,13 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 	![Publish in project context menu][PublishVSSolution]
 
-	The **Publish Web** wizard opens.
+The **Publish Web** wizard opens.
 
 2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
 	![Import publish settings][ImportPublishSettings]
 
-	The **Import Publish Profile** dialog box appears.
+The **Import Publish Profile** dialog box appears.
 
 3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
     
@@ -128,7 +128,7 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
     
 	![import](./media/web-sites-dotnet-get-started-vs2012/rzImp.png)
 
-	> WACOM.NOTE
+	> [WACOM.NOTE]
 	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Windows Azure services.
 
 4. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.

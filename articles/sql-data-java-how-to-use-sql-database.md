@@ -83,7 +83,14 @@ Before using Windows Azure SQL Database in Java code, you will need to create a 
 6. Right-click the highlighted contents of the **JDBC** connection string and click **Copy**.
 7. You can now paste this value into your code file to create a connection string of the following form. Replace *your_server* (in two places) with the text you copied in the previous step, and replace *your_password* with the password value you specified when you created your SQL Database account. (Also replace the values assigned to **database=** and **user=** if you did not use **gettingstarted** and **MySQLAdmin**, respectively.) 
 
-	jdbc:sqlserver://*your_server*;database=gettingstarted;user=MySQLAdmin@*your_server*;password=*your_password*;encrypt=true;hostNameInCertificate=*.int.mscds.com;loginTimeout=30;
+    String connectionString =
+		"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
+    	"database=gettingstarted" + ";" + 
+    	"user=MySQLAdmin@*your_server*" + ";" +  
+    	"password=*your_password*" + ";" +  
+        "encrypt=true" + ";" +
+        "hostNameInCertificate=*.int.mscds.com" + ";" +  
+        "loginTimeout=30";
 
 We'll actually use this string later in this guide, for now you know the steps to determine the connection string. Also, depending on your application needs, you may not need to use the **encrypt** and **hostNameInCertificate** settings, and you may need to modify the **loginTimeout** setting.
 
@@ -106,7 +113,7 @@ We'll actually use this string later in this guide, for now you know the steps t
 2. Add a Java class file named **HelloSQLAzure.java** to the project.
 3. Add the **Microsoft JDBC Driver for SQL Server** to your build path.
 
-    If you are using Eclipse:
+   If you are using Eclipse:
 
     1. Within Eclipse's Project Explorer, right-click the **HelloSQLAzure** project and click **Properties**.
     2. In the left-hand pane of the **Properties** dialog, click **Java Build Path**.

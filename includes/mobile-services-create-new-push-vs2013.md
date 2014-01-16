@@ -1,5 +1,9 @@
 First, you use the Add Push Notification wizard in Visual Studio 2013 to register your app with the Windows Store, configure your mobile service to enable push notifications, and add code to your app to register a device channel.
 
+0. If you haven't already done so, follow the steps in [Import your publishsettings file in Visual Studio 2013] to import your publisher.settings file into Visual Studio. 
+
+	You do not need to do this if you have already used Visual Studio to create or manage mobile services in your Windows Azure subscription.
+
 1. In Visual Studio 2013, open Solution Explorer, right-click the project, click **Add** then **Push Notification...**. 
 
 	![mobile-add-push-notifications-vs2013](./media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
@@ -29,3 +33,4 @@ First, you use the Add Push Notification wizard in Visual Studio 2013 to registe
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Import your publishsettings file in Visual Studio 2013]: /en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/

@@ -549,7 +549,7 @@ In some cases, the call to the login method can be avoided after the first time 
 	vault.Remove(vault.Retrieve("Facebook", user.UserId));
 
 
-For Windows Phone apps, you may encrypt and cache data using the [ProtectData] class and store sensitive information in isolated storage.
+For Windows Phone apps, you may encrypt and cache data using the [ProtectedData] class and store sensitive information in isolated storage.
 
 <h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
 
@@ -705,7 +705,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Windows Phone authentication]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-users-wp8/
 [PasswordVault]: http://msdn.microsoft.com/en-us/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[ProtectData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+[ProtectedData]: http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet

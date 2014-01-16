@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using HDInsight | Windows Azure" metaKeywords="" description="Get started with HDInsight, a big data solution. Learn how to provision an cluster, run a Hadoop MapReduce job, and then output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Windows Azure HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using HDInsight | Windows Azure" metaKeywords="" description="Get started with HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Windows Azure HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
 
 
 
@@ -9,7 +9,7 @@ HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the clo
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, run a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-In conjunction withe the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
+In conjunction with the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
 **Prerequisites:**
 
@@ -34,72 +34,32 @@ Before you begin this tutorial, you must have the following:
 
 ##<a id="setup"></a> Set up local environment for running PowerShell
 
-In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer](web-platform-installer). Click Run when prompted, click Install, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight](powershell-install-configure).
+In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer](web-platform-installer). Click **Run** when prompted, click **Install**, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight](powershell-install-configure).
 
-**To install Windows Azure PowerShell**
+The PowerShell cmdlets require your subscription information so that it can be used to manage your services.
 
-1. Open Internet Explorer, and browse to the [Windows Azure Downloads][powershell-download] page.
-2. Under **Windows downloads** in the **Command line tools** section, click **Windows Azure PowerShell**, and then follow the instructions.
+**To connect to your subscription using Windows Azure AD**
 
+1. Open the Windows Azure PowerShell console, as instructed in [How to: Install Windows Azure PowerShell][powershell-open].
+2. Run the following command:
 
+		Add-AzureAccount
 
-**To install and import the PowerShell Tools for Windows Azure HDInsight**
+3. In the window, type the email address and password associated with your account. Windows Azure authenticates and saves the credential information, and then closes the window.
 
-1. Open Internet Explorer, and then browse to [Microsoft .NET SDK for Hadoop][hdinsight-cmdlets-download] to download the package.
-2. Click **Run** from the bottom of the page to run the installation package.
-3.	Open **Windows Azure PowerShell**. For instructions of opening a Windows Azure PowerShell console window, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
-
-Your Windows Azure subscription information is used by the cmdlets to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import publishsettings once.
-
-
-
-<div class="dev-callout">
-<b>Important</b>
-<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>
-</div>
-
-
-
-**To download and import publishsettings**
-
-1. Sign in to the [Windows Azure Management Portal][azure-management-portal] using the credentials for your Windows Azure account.
-
-2.	Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
-3.	Run the following command to download the publishsettings file.
-
-		Get-AzurePublishSettingsFile
-
-	The command opens an Internet Explorer window and a web page. The URL is *https://manage.Windowsazure.com/publishsettings/index?client=powershell*. 
-
-4. When prompted, download and save the publishing profile and note the path and name of the publishsettings file. This information is required when you run the Import-AzurePublishSettingsFile cmdlet to import the settings. The default location and file name format is:
+The other method to connect to  your subscription is using the certificate method. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 	
-		C:\Users\<UserProfile>\Desktop\[MySubscription-...]-downloadDate-credentials.publishsettings
-
-6.	From the Windows Azure PowerShell window, run the following command to import the publishsettings file:
-
-		Import-AzurePublishSettingsFile <PublishSettings-file>
-
-	For example:
-
-		Import-AzurePublishSettingFile "C:\Users\JohnDole\Desktop\Azure-8-30-2013-credentials.publishsettings"
-
-7. Once the file is imported, you can use the following command to list your subscriptions:
-
-		Get-AzureSubscription
-
-8. When you have multiple subscriptions, you can use the following command to make a subscription the current subscription:
-
-		Select-AzureSubscription -SubscriptionName <SubscriptionName>
-
 ##<a name="provision"></a>Provision an HDInsight cluster
 
 The HDInsight provision process requires a Windows Azure Storage account to be used as the default file system. The storage account must be located in the same data center as the HDInsight compute resources. Currently, you can only provision HDInsight clusters in the following data centers:
 
-- US East 
-- US West
-- Europe North
+- Southeast Asia
+- North Europe
+- West Europe
+- East US
+- West US
 
-You must choose one of the two data centers for your Windows Azure Storage account.
+You must choose one of the five data centers for your Windows Azure Storage account.
 
 **To create a Windows Azure Storage account**
 
@@ -108,7 +68,7 @@ You must choose one of the two data centers for your Windows Azure Storage accou
 
 	![HDI.StorageAccount.QuickCreate][image-hdi-storageaccount-quickcreate]
 
-3. Enter **URL** and **LOCATION/AFFINITY GROUP**, and then click **CREATE STORAGE ACCOUNT**. You will see the new storage account in the storage list.  
+3. Enter **URL** and **LOCATION**, and then click **CREATE STORAGE ACCOUNT**. You will see the new storage account in the storage list. Affinity groups are not supported.
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 5. Click the new storage account from the list to select it.
 6. Click **MANAGE ACCESS KEYS** from the bottom of the page.
@@ -158,8 +118,8 @@ For the detailed instructions, see
 	<tr><td>Password (cluster admin)</td><td>The password for the account <i>admin</i>. The cluster user name is specified to be "admin" by default when using the Quick Create option. This can only be changed by using the <strong>Custom Create</strong> wizard. The password field must be at least 10 characters and must contain an uppercase letter, a lowercase letter, a number, and a special character.</td></tr>
 	<tr><td>Storage Account</td><td>Select the storage account you created from the dropdown box. <br/>
 
-	> WACOM.NOTE
-        > Once as Storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
+	> [WACOM.NOTE]
+        > Once a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
 	The HDInsight cluster location will be the same as the storage account.
 	</td></tr>
@@ -212,9 +172,9 @@ Because HDInsight uses a Blob Storage container as the default file system, you 
 
 For example, to access the hadoop-examples.jar, you can use one of the following options:
 
-	wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
-	wasb:///example/jars/hadoop-examples.jar
-	/example/jars/hadoop-examples.jar
+	● wasb://<containername>@<storageaccountname>.blob.core.windows.net/example/jars/hadoop-examples.jar
+	● wasb:///example/jars/hadoop-examples.jar
+	● /example/jars/hadoop-examples.jar
 				
 The use of the *wasb://* prefix in the paths of these files. This is needed to indicate Azure Blob Storage is being used for input and output files. The output directory assumes a default path relative to the *wasb:///user/&lt;username&gt;* folder. 
 
@@ -425,8 +385,10 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [apache-hadoop]: http://hadoop.apache.org/
 
 [powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
-
 [powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+[powershell-open]: /en-us/manage/install-and-configure-windows-powershell/#Install
+
+
 [image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
 [image-hdi-quickcreatecluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png

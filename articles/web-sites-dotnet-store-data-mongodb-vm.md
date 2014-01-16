@@ -1,25 +1,25 @@
-﻿<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Windows Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to a Windows Azure web site connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-dotnet-website-with-mongodb-vm" urlDisplayName="Website with MongoDB VM" pageTitle=".NET web site with MongoDB on a virtual machine - Windows Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to a Windows Azure web site connected to MongoDB on a virtual machine." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 # Create a Windows Azure web site that connects to MongoDB running on a virtual machine in Windows Azure
 
 Using Git, you can deploy an ASP.NET application to a Windows Azure web site. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running in a virtual machine in Windows Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to a Windows Azure web site using Git.
 
-	[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
+[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 
 
-##Overview
+##Overview##
 
 In this tutorial you will:
 
--[Create a virtual machine and install MongoDB](#virtualmachine)
--[Create and run the My Task List ASP.NET application on your development computer](#createapp)
--[Create a Windows Azure web site](#createwebsite)
--[Deploy the ASP.NET application to the web site using Git](#deployapp)
+- [Create a virtual machine and install MongoDB](#virtualmachine)
+- [Create and run the My Task List ASP.NET application on your development computer](#createapp)
+- [Create a Windows Azure web site](#createwebsite)
+- [Deploy the ASP.NET application to the web site using Git](#deployapp)
 
 
-##Background knowledge
+##Background knowledge##
 
 Knowledge of the following is useful for this tutorial, though not required:
 
@@ -29,11 +29,12 @@ Knowledge of the following is useful for this tutorial, though not required:
 * Windows Azure. You can get started reading at [Windows Azure][WindowsAzure].
 
 
-##Preparation
+##Preparation##
 
 In this section you will learn how to create a virtual machine in Windows Azure and install MongoDB, and set up your development environment.
 
-###<a id="virtualmachine"></a> Create a virtual machine and install MongoDB
+<a id="virtualmachine"></a> 
+###Create a virtual machine and install MongoDB###
 
 This tutorial assumes you have created a virtual machine in Windows Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:
 
@@ -42,18 +43,18 @@ This tutorial assumes you have created a virtual machine in Windows Azure. After
 
 After you have created the virtual machine in Windows Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.
 
-### Install Visual Studio
+### Install Visual Studio###
 
 Start by installing and running  [Visual Studio Express 2013 for Web] [VSEWeb] or [Visual Studio 2013] [VSUlt].
 
 Visual Studio is an IDE, or integrated development environment. Just like you use Microsoft Word to write documents, you'll use an IDE to create applications. This tutorial uses Microsoft Visual Studio 2013, but you can use Microsoft Visual Studio Express 2013, which is a free version of Microsoft Visual Studio.
 
-
-<h2><a id="createapp"></a>Create and run the My Task List ASP.NET application on your development computer</h2>
+<a id="createapp"></a>
+##Create and run the My Task List ASP.NET application on your development computer##
 
 In this section you will create an ASP.NET application called "My Task List" by using Visual Studio.  You will run the application locally, but it will connect to your virtual machine on Windows Azure and use the MongoDB instance that you created there.
 
-###Create the application
+###Create the application###
 In Visual Studio, click **New Project**.
 
 ![Start Page New Project][StartPageNewProject]
@@ -94,7 +95,7 @@ The MongoDB C# driver is now installed.  References to the **MongoDB.Driver.dll*
 
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
-###Add a model
+###Add a model###
 In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** and name it *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
 
 	using System;
@@ -127,7 +128,7 @@ In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Cl
 	    }
 	}
 
-###Add the data access layer
+###Add the data access layer###
 In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.  Right-click the *DAL* folder and **Add** a new **Class**. Name the class file *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
 
 	using System;
@@ -233,7 +234,7 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	    }
 	}
 
-###Add a controller
+###Add a controller###
 Open the *Controllers\HomeController.cs* file in **Solution Explorer** and replace the existing code with the following:
 
 	using System;
@@ -314,7 +315,7 @@ Open the *Controllers\HomeController.cs* file in **Solution Explorer** and repla
 	    }
 	}
 
-###Set up the site style
+###Set up the site style###
 To change the title at the top of the page, open the *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
@@ -403,7 +404,7 @@ To add the ability to create a new task, right-click the *Views\Home\\* folder a
 
 ![Solution Explorer][SolutionExplorerMyTaskListApp]
 
-###Set the MongoDB connection string
+###Set the MongoDB connection string###
 In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of code:
 
 	private string connectionString = "mongodb://<vm-dns-name>";
@@ -420,7 +421,7 @@ If the virtual machine endpoint specifies a different external port for MongoDB,
 
 For more information on MongoDB connection strings, see [Connections][MongoConnectionStrings].
 
-###Test the local deployment
+###Test the local deployment###
 
 To run your application on your development computer, select **Start Debugging** from the **Debug** menu or hit **F5**. IIS Express starts and a browser opens and launches the application's home page.  You can add a new task, which will be added to the MongoDB database running on your virtual machine in Windows Azure.
 
@@ -430,7 +431,8 @@ To run your application on your development computer, select **Start Debugging**
 
 In this section you will create a web site and deploy the My Task List ASP.NET application using Git.
 
-###<a id="createwebsite"></a> Create a Windows Azure web site
+<a id="createwebsite"></a> 
+###Create a Windows Azure web site###
 In this section you will create a Windows Azure web site.
 
 1. Open a web browser and browse to the [Windows Azure Management Portal][AzurePortal]. Sign in with your Windows Azure account. 
@@ -439,13 +441,14 @@ In this section you will create a Windows Azure web site.
 4. Select a region.
 5. Click **Create Web Site**.
 
-	![Create a new web site][WAWSCreateWebSite]
+![Create a new web site][WAWSCreateWebSite]
 
 6. Your web site will be created quickly and will be listed in **Web sites**.
 
-	![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
+![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
 
-###<a id="deployapp"></a> Deploy the ASP.NET application to the web site using Git
+<a id="deployapp"></a> 
+###Deploy the ASP.NET application to the web site using Git
 In this section you will deploy the My Task List application using Git.
 
 1. Click your web site name in **Web sites**, then click **Dashboard**.  On the right side, under Quick Glance, click **Set up deployment from source control**.
@@ -457,6 +460,7 @@ In this section you will deploy the My Task List application using Git.
 4. Under **Push my local files to Windows Azure** there are instructions for pushing your code to Windows Azure. The instructions will look similar to the following:
 
 	![Push local files to Windows Azure][Image10]
+	
 5. If you do not have Git installed, install it using the **Get it here** link in step 1.
 6. Following the instructions in step 2, commit your local files.  
 7. Add the remote Windows Azure repository and push your files to the Windows Azure web site by following the instructions in step 3.
@@ -466,7 +470,7 @@ In this section you will deploy the My Task List application using Git.
 
 9. Your Windows Azure web site is now available.  Check the **Dashboard** page for your site and the **Site URL** field to find the URL for your site. Following the procedures in this tutorial, your site would be available at this URL: http://mytasklistapp.azurewebsites.net.
 
-<h2>Summary</h2>
+##Summary##
 
 You have now successfully deployed your ASP.NET application to a Windows Azure web site.  To view the site, click the link in the **Site URL** field of the **Dashboard** page. For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 

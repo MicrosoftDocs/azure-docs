@@ -164,7 +164,7 @@ For example, the following DNS example forwards all traffic from *contoso.com* t
 
 <!-- Links -->
 
-[PricingDetails]: https://www.windowsazure.com/en-us/pricing/details/
+[PricingDetails]: /en-us/pricing/details/
 [portal]: http://manage.windowsazure.com
 
 

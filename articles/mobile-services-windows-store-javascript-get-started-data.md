@@ -46,13 +46,16 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-5. In Solution Explorer, expand the **services**, **mobile services**, **&lt;your_service&gt;** folders, open the service.js script file, and notice the new global variable, which looks like the following example: 
+<ol start="7">
+<li><p>In Solution Explorer, expand the **services**, **mobile services**, **&lt;your_service&gt;** folders, open the service.js script file, and notice the new global variable, which looks like the following example:</p> 
 
-		var todolistClient = new WindowsAzure.MobileServiceClient(
+		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");</code></pre>
 
-	This code provides access to your new mobile service in your app by using a global variable. The client is created by supplying the URI and the application key of the new mobile service. Because a reference to this script was was added to the default.html file, this variable is available to all script files that are also referenced from this page.
+	<p>This code provides access to your new mobile service in your app by using a global variable. The client is created by supplying the URI and the application key of the new mobile service. Because a reference to this script was was added to the default.html file, this variable is available to all script files that are also referenced from this page.</p>
+</li>
+</ol>
 
 <h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
 

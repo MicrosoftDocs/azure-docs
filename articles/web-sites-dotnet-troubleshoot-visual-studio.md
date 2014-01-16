@@ -44,20 +44,20 @@ Visual Studio provides access to a subset of the site management functions and c
 1. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
 
 
-    * Sign in to the Windows Azure account by entering your credentials.
+	* Sign in to the Windows Azure account by entering your credentials.
 
-      This method is quicker and easier, but if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
+		This method is quicker and easier, but if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
 
-      In **Server Explorer**, click the **Connect to Windows Azure** button. An alternative is to right-click the **Windows Azure** node, and then click **Connect to Windows Azure** in the context menu.
+		In **Server Explorer**, click the **Connect to Windows Azure** button. An alternative is to right-click the **Windows Azure** node, and then click **Connect to Windows Azure** in the context menu.
 
-    * Install a management certificate that enables access to your account.
+	* Install a management certificate that enables access to your account.
 
-      In **Server Explorer**, right-click the **Windows Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Windows Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Windows Azure account.
+		In **Server Explorer**, right-click the **Windows Azure** node, and then click **Manage Subscriptions** in the context menu. In the **Manage Windows Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and then import a subscription file (also called a *.publishsettings* file) for your Windows Azure account.
 
-      <div class="dev-callout"><strong>Security Note:</strong>
-      <p>Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Windows Azure services.</p></div>
+		> [WACOM.NOTE]
+		> Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Windows Azure services.
 
-    For more information, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+	For more information, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
 2. In **Server Explorer**, expand **Windows Azure**, and then expand **Web Sites**.
 
@@ -300,7 +300,7 @@ In this section you'll do the following tasks:
 
 	The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
 
-3. Add a [trace element](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) under `<system.web>` in the Web.config file, such as the following example:
+3. Add a <a href="http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx">trace element</a> under `<system.web>` in the Web.config file, such as the following example:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 

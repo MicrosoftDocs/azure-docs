@@ -75,14 +75,14 @@ Windows Azure SQL Database is a cloud-based relational database service that is 
 
 1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
 
-	![New button in Management Portal][rxWSnew]
+![New button in Management Portal][rxWSnew]
 
 2. Click **CUSTOM CREATE**.
 
 	![Create with Database link in Management Portal][rxCreateWSwithDB]
 
-	The **New Web Site - Custom Create** wizard opens.
- 
+The **New Web Site - Custom Create** wizard opens. 
+
 3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see next to the text box. The illustration shows "contactmgr2", but that URL is probably taken so you will have to choose a different one.
 
 	![Create with Database link in Management Portal][rxCreateWSwithDB_2]
@@ -142,9 +142,9 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application. The application home page appears in the default browser.
-	![To Do List home page][rxa]
+![To Do List home page][rxa]
 
-	This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
+This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
@@ -193,9 +193,10 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
     
 	![download pub file](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDown2.png)
     
-		[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+	> [WACOM.NOTE]
+	> The .publishsettings file contains your  credentials (unencoded) that are used to administer your Windows Azure subscriptions and services. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then  delete it once the import has completed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your Windows Azure services.
 	
-	
+    
 	d. In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.
     
 	![download sub](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzDownLoad.png)
@@ -223,11 +224,11 @@ You begin by creating a simple data model in code.
 
 1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.
 
-	![Add Class in Models folder context menu][adddb001]
+![Add Class in Models folder context menu][adddb001]
 
 2. In the **Add New Item** dialog box, name the new class file *Contact.cs*, and then click **Add**.
 
-	![Add New Item dialog box][adddb002]
+![Add New Item dialog box][adddb002]
 
 3. Replace the contents of the Contacts.cs file with the following code.
 
@@ -275,7 +276,7 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 
 	![Add Controller message box][rxOverwrite] 
 
-	Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
+Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
@@ -398,7 +399,7 @@ This tutorial does not show all of the steps you must perform to register with t
 
 Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and log in if necessary. Click the **Register as a Developer** button and complete the registration process. Once you complete registration, click **Create New App**. Enter a name for the app. You don't need to enter an app namespace.
 
-	![Create New FB app][rxFBapp]
+	![Create New FB app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png)
 
 
 Enter localhost for the **App Domain** and http://localhost/ for the **Site URL**. Click **Enabled** for **Sandbox Mode**, then click **Save Changes**.
@@ -410,7 +411,7 @@ You will need the **App ID** and the **App Secret** to implement OAuth in this a
 ## Creating test users ##
 In the left pane under **Settings** click **Developer Roles**. Click the **Create** link on the **Test Users** row (not the **Testers** row).
 
-	![FB testers][rxFBt]
+	![FB testers](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png)
 
 Click on the **Modify** link to get the test users email (which you will use to log into the application). Click the **See More** link, then click **Edit** to set the test users password.
 
@@ -592,7 +593,7 @@ You can skip the **Choose Objects** step because the default is Script entire da
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 	![Publish in project context menu][firsdeploy003]
 
-	The **Publish Web** wizard opens.
+The **Publish Web** wizard opens.
 
 1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for the **ContactManagerContext** and  **DefaultConnectionDeploy**. The three Databases listed will all use the same connection string. The **ContactManagerContext** database stores the contacts, the **DefaultConnectionDeploy** is used only to deploy the user account data to the membership database and the **UsersContext** database is the membership database.
 	
@@ -616,6 +617,7 @@ You can skip the **Choose Objects** step because the default is Script entire da
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
 Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
+
 	![settings][rxSettings] 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
@@ -627,9 +629,6 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 	Initial Catalog=ContactDB2;User Id=ricka0@d015lxyze;Password=xyzxyz
 1. Close the publish dialog.
 1. In the **View** menu click **Server Explorer**. 
-	![Publish][rxP3] 
-
-	![Publish][rxP2]
 
 1. Click on the **Connect to Database** icon.
 	
@@ -650,11 +649,15 @@ If you get an error dialog stating "Cannot open server" you will need to add you
 	![firewall error][rx5]
 
 1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
+
 	![Select SQL][rx6]
+
 1. Select the database you wish to open.
+
 1. Click the **Set up Windows Azure firewall rules for this IP address** link.
 
 	![firewall rules][rx7]
+
 1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough, you will need to add a range of IP addresses.
 
 ## Adding a Range of Allowed IP Addresses ##
@@ -776,9 +779,7 @@ To learn more about the Entity Framework and Code First Migrations, see the foll
 [rxE]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxE.png
 [rx2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rx2.png
 [rxP]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxP.png
-[rxFBapp]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png
 [rxFB]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png
-[rxFBt]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png
 [rxSTD]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSTD.png
 [rxUid]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxUid.png
 [rxRoleID]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxRoleID.png

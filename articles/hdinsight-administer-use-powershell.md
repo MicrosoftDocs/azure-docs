@@ -45,10 +45,13 @@ After you have imported the publishsettings file, you can use the following comm
 <p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
 
 <ul>
-<li>US East</li>
-<li>US West</li>
-<li>Europe North</li>
+<li>Southeast Asia</li>
+<li>North Europe</li>
+<li>West Europe</li>
+<li>East US</li>
+<li>West US</li>
 </ul>
+
 </div>
 
 For information on creating a Windows Azure storage account using the management portal, see [How to Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).

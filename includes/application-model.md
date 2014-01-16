@@ -563,6 +563,7 @@ article.<a id="Ref" name="Ref"></a>
 -   [Configuring a Windows Azure Application][]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
+
 <p>Written by Jeffrey Richter (Wintellect)</p>
 
 </div>

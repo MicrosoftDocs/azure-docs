@@ -100,8 +100,7 @@ these modules in your application:
 
 2.  Add the code below after the line that ends with express.createServer() to include the node-uuid, home, and azure  modules. The home module does not exist yet, but you will create it shortly.
 
-	![The server.js code with line 'var app = modules.exports =
-    express.createServer();' highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png)
+	![The server.js code with line app = modules.exports line highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node38.png)
 
         var uuid = require('node-uuid');
         var Home = require('./home');
@@ -139,9 +138,7 @@ these modules in your application:
 
 5.  Replace the existing code in the route section with the code below, which creates a home controller instance and routes all requests to **/** or **/home** to it.
 
-	![The server.js file with the lines containing //routes app.get('/',
-    routes.index); app.get('/home',function(req,res){ res.render('home',
-    { title: 'Home'});}); selected.](./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png)
+	![The server.js file with the routes section highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node39.png)
 
         var home = new Home(client);
         app.get('/', home.showItems.bind(home));
@@ -263,7 +260,7 @@ items:
 
 	Your browser displays the following page, showing the task item that was retrieved from Windows Azure Storage:
 
-	![Internet explorer displaying a 'My Tasklist' page with one item in a table.](./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png)
+	![Internet explorer displaying a My Tasklist page with one item in a table.](./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png)
 
 ## Adding New Task Functionality
 
@@ -273,9 +270,9 @@ items.
 ### Adding a New Route to Server.js
 
 In the server.js file, add the following line after the last route entry
-for**/home**, and then save the file.
+for **/home**, and then save the file.
 
-![The server.js file with the line containing app.get('/home', home.showItems.bind(home)); highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png)
+![The server.js file with the line containing the route for home highlighted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node41.png)
 
         app.post('/home/newitem', home.newItem.bind(home));
 
@@ -304,7 +301,7 @@ To implement the new item functionality, create a **newItem** function.
 In your home.js file, paste the following code after the last function
 and then save the file.
 
-![The showresults: function is highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png)
+![The showresults function is highlighted](./media/storage-nodejs-use-table-storage-cloud-service-app/node43.png)
 
        newItem: function (req, res) {
            var self = this;

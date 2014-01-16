@@ -102,46 +102,30 @@ Once your changes have been successfully merged into the central repository you 
 
 Congratulations, you have successfully contributed to the project.
 
-## Folder Structure of the Repository
+##Repository organization
 
-The goal of the folder structure in the GitHub repository was to make it as easy to navigate as possible while mimicing the windowsazure.com site layout as much as possible.  In this vein we have created the folder structure detailed below:
+The content in this repository is organized in a specific way in order to support publishing the content into WindowsAzure.com. This repository must contain the following two root directories: 
 
-	/DevCenter
-		/<languages>
-			/<IA type>
-			/media
-		/Shared
-			/<IA type>
-			/media
-	/ITPro
-		/<platform>
-			/<IA type>
-			/media
-		/<shared>
-			/<IA type>
-			/media
-	/Shared
-		/<IA type>
-		/media
-	/GettingStarted
+	•\articles - The articles directory contains the documentation articles represented as markdown files with a .md extension. Articles in this directory can be selected for publishing to WindowsAzure.com by a content manager. Articles that are published to WindowsAzure.com will be published in the following path http://www.windowsazure.com/en-us/documentation/articles/{article-name-without-md}/. 
+	◦ Article File names - Since the markdown file names will become segments of the WindowsAzure.com URLs, it is important that the filenames are selected carefully so they are descriptive and discoverable. 
 
-In this layout the following principles are applied:
+	◦ Media sub-directories - The \articles directory can contain one sub-directory named \media the media directory is designed to capture the images used within an article. The media directory should not contain any images in its root, but rather will contain a sub-directory for every article file with the same name as the article (if the article has images). If the article does not have images, than a corresponding media directory is not required. 
 
-1. Shared folders are used for articles that could be placed in multiple different sub-folders.  The most specific Shared folder should be used.  For instance, if there was a Common Task article that was used by Java, Node and PHP, it would be placed in the `/DevCenter/Shared` folder.  If however, that same article was also used by Linux in ITPro, the article would instead go in the root `/Shared/` folder.
-2. The media folders are for images related to the articles under the `/<IA type>` folders in the same level.  For instance a "How to: Blob Storage (Java)" article would go in `/DevCenter/Java/HowTo` and the images for this article would go in `/DevCenter/Java/media`.
-	- If however, a second unique article uses images from a different article (Two blob How To articles, one Java and one Node) the images will only be in the media folder of the first article, and the second article should reference them there.
-3. The GettingStarted folder is for getting started with the GitHub repository, and not correlated to any getting started or tutorial content on WindowsAzure.com.
-4. In general, only files in the 3 main folders will be published, and even then not everything there (README.md files for instance) will be published.
-5. As a best practice, the README.md files in the `/<IA type>` folders should contain a list of all the documents of this type on windowsazure.com and a link to their location on the github site (most will be in that folder, but some will be in shared locations).
+
+	•\includes - The WindowsAzure.com site provides the ability for content authors to create reusable content sections or chunks that can be included into one or more documentation articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the \includes directory in the root of the repository. 
+	◦ Referencing Include Files - There is a specific syntax required for referencing include files.[WACOM.INCLUDE [include-short-name](../includes/include-file-name.md)]
+	◦ Media sub-directories - Just as with articles, the \includes directory can contain one sub-directory named \media the media directory is designed to capture the images used within an include. The media directory should not contain any images in its root, but rather will contain a sub-directory for every include file with the same name as the include (if the include has images). If the include does not have images, than a corresponding media directory is not required. 
+
+Note: An include file cannot reference to other includes. 
+
 
 
 ## Writing an Article using Markdown
 
 All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevent basics will be covered here.
 
-If you are looking for a good editor [Markdown Pad] [] is a great editor for Windows.
+If you are looking for a good editor [Markdown Pad][] is a great editor for Windows.
 
-Until the script for porting the content from GitHub to Umbraco is complete, a simple method that can be used is highlighting all the markdown text in MarkdownPad and then Copy HTML to Clipboard (Ctrl+Shift+C), and then pasting this in Umbraco in the appropriate location.
 
 ### Markdown Basics
 
@@ -162,7 +146,7 @@ Below is a list of the most common markdown syntax.
 
 	Links can also have references, which will be discussed in the "Link and Image References" section below.
 
-*	**Images** - The base syntax for an image is `![alt text for the image] (image url)`.
+*	**Images** - The base syntax for an image is `![alt text for the image](image url)`.
 
 	Images can also have references, which will be discussed in the "Link and Image References" section below.
 
@@ -176,9 +160,9 @@ In order to make the transition into using markdown as easy as possible, each of
 
 Markdown has a really nice feature that allows a user to insert a reference instead of a url for images and links.  The syntax for using this feature is:
 
-	The image below is from [Google] [googleweb]
+	The image below is from [Google][googleweb]
 	
-	![Google's logo] [logo]
+	![Google's logo][logo]
 	
 	[googleweb]: google.com
 	[logo]: https://www.google.com/images/srpr/logo3w.png
@@ -187,7 +171,7 @@ At first glance this format seems inefficient.  However, it allows us to have a 
 
 ## Additional Information
 
-* For more information on Markdown go to [their site] [Markdown Home].
+* For more information on Markdown go to [their site][Markdown Home].
 * For more information on using Git and GitHub first check out the [GitHub Help Section] [GitHub Help] and if necessary contact the site adminstrators.
 
 [GitHub Home]: github.com

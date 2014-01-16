@@ -18,26 +18,26 @@ A Windows Azure BizTalk Service consists of the following components:
 </tr>
 <tr>
 <td>Windows Azure Subscription</td>
-<td><p>The subscription governs access to the Windows Azure Management Portal and is created by the Windows Azure account holder at <a HREF="https://account.windowsazure.com/Subscriptions"> Windows Azure Subscriptions</a>.</p>
+<td align="left"><p>The subscription governs access to the Windows Azure Management Portal and is created by the Windows Azure account holder at <a HREF="https://account.windowsazure.com/Subscriptions"> Windows Azure Subscriptions</a>.</p>
 <p>The Windows Azure account can have multiple subscriptions and can be managed by the Windows Azure account holder or by different people or groups. For example, your Windows Azure account holder creates a subscription named <em>BizTalkServiceSubscription</em> and gives the BizTalk Administrators within your company (e.g. ContosoBTSAdmins@live.com) access to this subscription. In this scenario, the BizTalk Administrators log into the Windows Azure Management Portal and have full Administrator rights to all the hosted services in the subscription, including Windows Azure BizTalk Services. The BizTalk Administrators are not the Windows Azure account holders and therefore don't have access to any billing information.</p>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Manage Subscriptions and Storage Accounts in the Windows Azure Management Portal</a> provides more information on Windows Azure Accounts and Subscriptions.
 </td>
 </tr>
 <tr>
 <td>Windows Azure SQL Database</td>
-<td><p>A SQL Database stores the tables, views and stored procedures used by Windows Azure BizTalk Services.</p>
+<td align="left"><p>A SQL Database stores the tables, views and stored procedures used by Windows Azure BizTalk Services.</p>
 <p>When you provision a BizTalk Service, you can use an existing Azure SQL Server, Azure SQL Database, or automatically create a new Server or Database. When you choose to create a new Windows Azure SQL Server and Database, Windows Azure Services is automatically enabled.</p>
 <p>If you create a new Azure SQL Database on an existing Azure SQL Server, the firewall rules of the Server are not modified. As a result, it's possible other Windows Azure Services are not allowed access to the Server's databases.</p>
 There are no minimum scale requirements for the SQL Database settings.</td>
 </tr>
 <tr>
 <td>Windows Azure Access Control namespace</td>
-<td>The Access Control namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control Namespace. When you provision a BizTalk Service, the Access Control Namespace is automatically created.</td>
+<td align="left">The Access Control namespace authenticates with Windows Azure BizTalk Services. When you deploy a BizTalk Service project from Visual Studio, you enter this Access Control Namespace. When you provision a BizTalk Service, the Access Control Namespace is automatically created.</td>
 </tr>
 
 <tr>
 <td>Windows Azure Storage Account</td>
-<td><p>The Windows Azure Storage Account gives access to tables, blobs, and queues. When you provision a BizTalk Service, you can use an existing Storage Account or automatically create a new Storage Account. The tables, blobs, and queues are used by your BizTalk Service to do the following:</p>
+<td align="left"><p>The Windows Azure Storage Account gives access to tables, blobs, and queues. When you provision a BizTalk Service, you can use an existing Storage Account or automatically create a new Storage Account. The tables, blobs, and queues are used by your BizTalk Service to do the following:</p>
 <ul>
 <li>Log files that monitor the BizTalk Service are stored. The monitoring output is also displayed in Monitoring tab in the Windows Azure Management Portal.</li>
 <li>When creating an X12 or AS2 agreement between partners, you can enable the Archiving feature to store message properties. This tracking data is saved in this Storage Account.</li>
@@ -47,7 +47,7 @@ There are no minimum scale requirements for the SQL Database settings.</td>
 
 <tr>
 <td>SSL private certificate</td>
-<td><p>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. When you provision a BizTalk Service, a self-signed certificate is automatically created. </p>
+<td align="left"><p>When you provision Windows Azure BizTalk Services, you create a URL that includes your  BizTalk Service name. This private SSL certificate (.pfx) is used as the HTTPS Server Authentication certificate when requests are made to your BizTalk Service URL. When you provision a BizTalk Service, a self-signed certificate is automatically created. </p>
 <strong>Important SSL Certificate Information</strong>
 
 <ul>
@@ -98,7 +98,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 	<table border="1">
 	<tr>
 	<td><strong>BizTalk Service Name</strong></td>
-	<td>Enter a name for your BizTalk Service. ".biztalk.windows.net" is automatically added to the name you enter. This results in a URL that is used to access your BizTalk Service. You can enter any name but it's best to be specific. Some examples include:<br/><br/>
+	<td align="left">Enter a name for your BizTalk Service. ".biztalk.windows.net" is automatically added to the name you enter. This results in a URL that is used to access your BizTalk Service. You can enter any name but it's best to be specific. Some examples include:<br/><br/>
 	<em>mycompany</em>.biztalk.windows.net<br/>
 	<em>mycompanymyapplication</em>.biztalk.windows.net<br/>
 	<em>myapplication</em>.biztalk.windows.net
@@ -106,7 +106,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 	</tr>
 	<tr>
 	<td><strong>Domain URL</strong></td>
-	<td><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
+	<td align="left"><strong>Optional</strong>. By default, the domain URL is <em>YourBizTalkServiceName</em>.biztalk.windows.net. A custom domain can also be entered. For example, if your domain is <em>contoso</em>, you can enter: <br/><br/>
 	<em>MyCompany</em>.contoso.com<br/>
 	<em>MyCompanyMyApplication</em>.contoso.com<br/>
 	<em>MyApplication</em>.contoso.com<br/>
@@ -115,7 +115,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 	</tr>
 	<tr>
 	<td><strong>Edition</strong></td>
-	<td>Options include:
+	<td align="left">Options include:
 	<ul>
 	<li>Developer</li>
 	<li>Standard</li>
@@ -127,11 +127,11 @@ The following steps provision a new Windows Azure BizTalk Service:
 	</tr>
 	<tr>
 	<td><strong>Region</strong></td>
-	<td>Select the geographic region to host your BizTalk Service.</td>
+	<td align="left">Select the geographic region to host your BizTalk Service.</td>
 	</tr>
 	<tr>
 	<td><strong>Tracking Database</strong></td>
-	<td><p>Select your SQL Database to store the tables used by your BizTalk Service. Choose from the following options:</p>
+	<td align="left"><p>Select your SQL Database to store the tables used by your BizTalk Service. Choose from the following options:</p>
 	<ul>
 	<li><strong>Use an existing SQL Database instance</strong>: Select this option to use an existing Azure SQL Database. An existing Azure SQL Database can be used if it's not used by another BizTalk Service. You need the login name and password specified when that Azure SQL Database Server was created.</li>
 	<li><p><strong>Create a new SQL Database instance</strong>: Select this option to create a new SQL Database.</p></li>
@@ -144,7 +144,7 @@ The following steps provision a new Windows Azure BizTalk Service:
 	</tr>
 	<tr>
 	<td><strong>Subscription</strong></td>
-	<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription to host your BizTalk Service.</td>
+	<td align="left"><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription to host your BizTalk Service.</td>
 	</tr>
 	</table>
 Select the NEXT arrow.
@@ -154,35 +154,35 @@ Select the NEXT arrow.
 	<table border="1">
 	<tr>
 	<td><strong>Subscription</strong></td>
-	<td><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription to host the Windows Azure SQL Database.</td>
+	<td align="left"><strong>Optional</strong>. Available only when there is more than one subscription. Select your subscription to host the Windows Azure SQL Database.</td>
 	</tr>
 	<tr>
 	<td><strong>Database</strong></td>
-	<td><p>Available when <strong>Use an existing SQL Database instance</strong> is selected in the previous screen.</p>
+	<td align="left"><p>Available when <strong>Use an existing SQL Database instance</strong> is selected in the previous screen.</p>
 	Select your SQL Database to store the tables used by your BizTalk Service.
 	</td>
 	</tr>
 	<tr>
 	<td><strong>Name</strong></td>
-	<td><p>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.</p>
+	<td align="left"><p>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.</p>
 	Enter the SQL Database name to be used by your BizTalk Service. By Default, <em>YourBizTalkServiceName</em>_db is entered.</td>
 	</tr>
 	<tr>
 	<td><strong>Server</strong></td>
-	<td><p>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.</p>
+	<td align="left"><p>Available when <strong>Create a new SQL Database instance</strong> is selected in the previous screen.</p>
 	Select an existing SQL Database Server. Or, select <strong>New SQL database server</strong> to create a new SQL Database server.</td>
 	</tr>
 	<tr>
 	<td><strong>Server Login Name</strong></td>
-	<td>Enter the login user name.</td>
+	<td align="left">Enter the login user name.</td>
 	</tr>
 	<tr>
 	<td><strong>Server Login Password</strong></td>
-	<td>Enter the login password.</td>
+	<td align="left">Enter the login password.</td>
 	</tr>
 	<tr>
 	<td><strong>Region</strong></td>
-	<td>Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
+	<td align="left">Available when <strong>Create a new SQL Database instance</strong> is selected. Select the geographic region to host your SQL Database.</td>
 	</tr>
 	</table>
 Select the NEXT arrow.
@@ -192,10 +192,10 @@ Select the NEXT arrow.
 	<table border="1">
 	<tr>
 	<td><strong>Monitoring/Archiving Storage Account</strong></td>
-	<td>Select an existing storage account or select <strong>Create a new storage account</strong>.</td>
+	<td align="left">Select an existing storage account or select <strong>Create a new storage account</strong>.</td>
 	</tr><tr>
 	<td><strong>Storage Account Name</strong></td>
-	<td>Available when <strong>Create a new storage account</strong> is selected. Enter a name for the Storage Account used by your BizTalk Service.</td>
+	<td align="left">Available when <strong>Create a new storage account</strong> is selected. Enter a name for the Storage Account used by your BizTalk Service.</td>
 	</tr>
 	</table>
 

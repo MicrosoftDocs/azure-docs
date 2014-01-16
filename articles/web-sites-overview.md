@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="What are Web Sites" metaKeywords="Windows Azure Web Sites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" metaDescription="Learn how to configure Web Sites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Web sites" headerExpose="" footerExpose="" disqusComments="1" />
+<properties umbracoNaviHide="0" pageTitle="What are Web Sites" metaKeywords="Windows Azure Web Sites, Azure deployment, Azure configuration changes, Azure deployment update, Windows Azure .NET deployment, Azure .NET deployment" description="Learn how to configure Web Sites in Windows Azure to use a SQL or MySQL database, and learn how to configure diagnostics and download logs." linkid="itpro-windows-howto-configure-websites" urlDisplayName="How to Configure Web sites" title="What are Web Sites" />
 
 
 

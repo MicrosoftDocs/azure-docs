@@ -372,7 +372,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
-[pricing]: https://www.windowsazure.com/en-us/pricing/details/
+[pricing]: /en-us/pricing/details/
 [configure]: ./media/configure-ssl-web-site/sslconfig.png
 [uploadcert]: ./media/configure-ssl-web-site/ssluploadcert.png
 [uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png

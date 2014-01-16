@@ -205,7 +205,7 @@ from the queue by calling the **peekMessages** method. By default,
 	});
 
 
->WACOM.NOTE 
+> [WACOM.NOTE] 
 >Using <strong>peekMessage</strong> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="get-message"> </a>How To: Dequeue the Next Message
@@ -237,8 +237,8 @@ after the message has been processed.
 	    }
 	});
 
->WACOM.NOTE 
->Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
+> [WACOM.NOTE]
+> Using <b>getMessages</b> when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## <a name="change-contents"> </a>How To: Change the Contents of a Queued Message
 

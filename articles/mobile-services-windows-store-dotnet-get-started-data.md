@@ -45,14 +45,17 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-5. In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the **App** class, which looks like the following example: 
+<ol start="7"><li><p>In Solution Explorer, open the App.xaml.cs code file, and notice the new static field that was added to the **App** class, which looks like the following example:</p> 
 
-		public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
 		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
 		        "https://todolist.azure-mobile.net/",
 		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		</code></pre>
 
-	This code provides access to your new mobile service in your app by using an instance of the [MobileServiceClient class]. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.
+	<p>This code provides access to your new mobile service in your app by using an instance of the <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">MobileServiceClient class</a>. The client is created by supplying the URI and the application key of the new mobile service. This static field is available to all pages in your app.</p>
+</li>
+</ol>
 
 <h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service and update the app</h2>
 
@@ -197,7 +200,7 @@ Once you have completed the data series, try one of these other tutorials:
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[Get started with push notifications]: ../mobile-services-windows-store-dotnet-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

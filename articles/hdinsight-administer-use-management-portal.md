@@ -15,7 +15,7 @@ In this topic, you will learn how to use Windows Azure Management Portal to crea
 Before you begin this article, you must have the following:
 
 - **Windows Azure subscription**. Windows Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-- **Windows Azure storage account**. This storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can only be provisioned in three data centers: US East, US West, and Europe North. So your Windows Azure storage account needs to be created in one of these data centers. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+- **Windows Azure storage account**. This storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can only be provisioned in five data centers: Southeast Asia, North Europe, West Europe, East US and West US. So your Windows Azure storage account needs to be created in one of these data centers. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 ##In this article
 
