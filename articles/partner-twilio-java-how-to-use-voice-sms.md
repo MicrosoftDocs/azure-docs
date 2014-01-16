@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Windows Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
+<properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Windows Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors=""   solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
 
 
 
@@ -223,8 +223,8 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
-[howto_phonecall_java]: partner-twilio-java-phone-call-example.md
+[add_ca_cert]: ../java-add-certificate-ca-store
+[howto_phonecall_java]: ../partner-twilio-java-phone-call-example
 [misc_role_config_settings]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690945.aspx
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
