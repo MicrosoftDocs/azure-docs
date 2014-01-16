@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors=""  solutions="" videoId="" scriptId="" writer="" manager="" editor="mollybos"  />
 
 
 
@@ -8,17 +8,10 @@
 
 In this tutorial, you will learn how to create an application that uses Table Storage with the Windows Azure Client Libraries for Python. If this is your first Python Azure app, you may wish to take a look at [Django Hello World Web Application][] first.
 
-For this guide, you will create a web-based task-list application
-that you can deploy to Windows Azure. The task list allows a user to
-retrieve tasks, add new tasks, and mark tasks as completed.  We'll be using Django as the web framework.
+For this guide, you will create a web-based task-list application that you can deploy to Windows Azure. The task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.  We'll be using Django as the web framework.
 
-The task items are stored in Windows Azure Storage. Windows Azure
-Storage provides unstructured data storage that is fault-tolerant and
-highly available. Windows Azure Storage includes several data structures
-where you can store and access data, and you can leverage the storage
-services from the APIs included in the Windows Azure SDK for Python or
-via REST APIs. For more information, see [Storing and Accessing Data in
-Windows Azure].
+The task items are stored in Windows Azure Storage. Windows Azure Storage provides unstructured data storage that is fault-tolerant and highly available. Windows Azure Storage includes several data structures where you can store and access data, and you can leverage the storage services from the APIs included in the Windows Azure SDK for Python or
+via REST APIs. For more information, see [Storing and Accessing Data in Windows Azure].
 
 You will learn:
 
@@ -189,6 +182,6 @@ Now that you have learned the basics of the Windows Azure Table storage service,
 
 [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-[Installation Guide]: ../python-how-to-install.md 
+[Installation Guide]: ../python-how-to-install 
 
 [Django Hello World Web Application]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
