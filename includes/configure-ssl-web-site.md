@@ -1,33 +1,36 @@
-#Configuring an SSL certificate for a Windows Azure web site
+#Enable HTTPS for a Windows Azure web site
 
-Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet, and assures visitors to your site that their transactions with your site are secure. This article discusses how to enable SSL for a Windows Azure Web Site that uses a custom domain name, such as contoso.com. 
+When someone visits your web site using HTTPS, the communication between the web site and the browser is secured using Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to enable HTTPS for a Windows Azure Web Site. 
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>If you are not using a custom domain name, SSL is already provided for your web site using a wildcard certificate for *.azurewebsites.net. You can verify this by using the HTTPS protocol to access your web site. For example, https://mywebsite.azurewebsites.net.</p>
-</div>
+> [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
-In order to enable SSL for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
+<a href="bkmk_azurewebsites"></a><h2>The \*.azurewebsites.net domain</h2>
 
-<a href="bkmk_domainname"></a><h2>Determine domain names</h2>
+If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Windows Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely.
 
-Before requesting a certificate, you should first determine the domain names that you need to secure and whether you need a basic certificate, a wildcard certificate, or a certificate with Subject Alternate Name (subjectAltName, SAN).
+The rest of this document provides details on enabling HTTPS for custom domain names, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
-Most browsers will display a warning if the CN (or subjectAltName) of the certificate does not match the domain name that was entered in the browser. For example, if the certificate only lists www.contoso.com, but login.contoso.com is the domain name used to access the site in Internet Explorer, you will receive a warning that "The security certificate presented by this website was issued for a different website's address."
+<a href="bkmk_domainname"></a><h2>Custom domain names</h2>
 
-**Basic certificates** are certificates where the Common Name (CN) of the certificate is set to the specific domain or subdomain that clients will use to visit the site. For example, *www.contoso.com*.
+To enable HTTPS for a custom domain name, such as **contoso.com**, you must register a custom domain name with a domain name registrar. For more information on how to configure the domain name of a Windows Azure Web Site, see [Configuring a custom domain name for a Windows Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your web site to respond to the custom name, you must request an SSL certificate for the domain. 
 
-**Wildcard certificates** are certificates where the CN of the certificate contains a wildcard '\*' at the subdomain level. This allows the certificate to match a single level of subdomains for a given domain. For example, a wildcard certificate for *\*.contoso.com* would be valid for *www.contoso.com*, *payment.contoso.com*, and *login.contoso.com*. It would not be valid for *test.login.contoso.com*, as this adds an extra subdomain level. It would also not be valid for contoso.com, as this is the domain level and not a subdomain.
+Registering a domain name also enables you to create subdomains such as **www.contoso.com** or **mail.contoso.com**. Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as **contoso.com** or **www.contoso.com** a basic certificate will probably be sufficient. If you need to secure multiple domain names, such as **contoso.com**, **www.contoso.com**, and **mail.contoso.com**, then a wildcard certificate, or a certificate with Subject Alternate Name (subjectAltName, SAN) will be required.
 
-**subjectAltName** is an certificate extension that allows various values, or Subject Alternate Names, to be associated with a certificate. For the purpose of SSL certificates, this allows you to add additional DNS names that the certificate will be valid against. For example, a certificate using subjectAltName may have a CN of *contoso.com*, but may also have alternate names of *www.contoso.com*, *payment.contoso.com*, *test.login.contoso.com*, and even *fabrikam.com*. Such a certificate would be valid for all domain names specified in the Common Name and subjectAltName.
+> [WACOM.NOTE] Most browsers will display a warning if the domain name specified in the certificate does not match the domain name that was entered in the browser. For example, if the certificate only lists www.contoso.com, but login.contoso.com is the domain name used to access the site in Internet Explorer, you will receive a warning that "The security certificate presented by this website was issued for a different website's address."
 
-It is possible for a certificate to provide support for bth wildcards and subjectAltName.
+**Basic certificates** are certificates where the Common Name (CN) of the certificate is set to the specific domain or subdomain that clients will use to visit the site. For example, **www.contoso.com**. These certificates only secure the single domain name specified by the CN.
 
-For more information on how to configure the domain name of a Windows Azure Web Site, see [Configuring a custom domain name for a Windows Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/).
+**Wildcard certificates** are certificates where the CN of the certificate contains a wildcard '\*' at the subdomain level. This allows the certificate to match a single level of subdomains for a given domain. For example, a wildcard certificate for **\*.contoso.com** would be valid for **www.contoso.com**, **payment.contoso.com**, and **login.contoso.com**. It would not be valid for **test.login.contoso.com**, as this adds an extra subdomain level. It would also not be valid for **contoso.com**, as this is the root domain level and not a subdomain.
+
+A wildcard certificate is what Microsoft provides for the \*.azurewebsites.net domain name automatically created for your web site.
+
+**subjectAltName** is an certificate extension that allows various values, or Subject Alternate Names, to be associated with a certificate. For the purpose of SSL certificates, this allows you to add additional DNS names that the certificate will be valid against. For example, a certificate using subjectAltName may have a CN of **contoso.com**, but may also have alternate names of **www.contoso.com**, **payment.contoso.com**, **test.login.contoso.com**, and even **fabrikam.com**. Such a certificate would be valid for all domain names specified in the Common Name and subjectAltName.
+
+It is possible for a certificate to provide support for both wildcards and subjectAltName.
 
 <a href="bkmk_getcert"></a><h2>Get a certificate</h2>
 
-To configure SSL for an custom domain, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
+SSL certificates used with Windows Azure Web Sites must be signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
 The certificate must meet the following requirements for SSL certificates in Windows Azure:
 
@@ -37,45 +40,95 @@ The certificate must meet the following requirements for SSL certificates in Win
 
 * The certificate's subject name must match the domain used to access the web site. If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.
 
-	* You cannot obtain an SSL certificate from a certificate authority (CA) for the azurewebsites.net domain. You must acquire a custom domain name to use when accessing your web site. 
-
 	* For information on configuring a custom domain name for a Windows Azure Web Site, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
+	
+	> [WACOM.NOTE] Do not attempt to obtain or generate a certificate for the azurewebsites.net domain.
 
-* The certificate must use a minimum of 2048-bit encryption.
+* The certificate should use a minimum of 2048-bit encryption.
 
-To get an SSL certificate from a Certificate Authority you must generate a Certificate Signing Request (CSR), which is sent to the CA. The CA will then return a certificate that is used to complete the CSR. Two common ways to generate a CSR are by using the IIS Manager or [OpenSSL][openssl]. IIS Manager is only available on Windows, while OpenSSL is available for most platforms. The steps for using both of these utilities are below.
+> [WACOM.NOTE] Certificates issued from private CA servers are not supported by Windows Azure Web Sites.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>When following either series of steps, you will be prompted to enter a <strong>Common Name</strong>. If you will be obtaining a wildcard certificate for use with multiple domains (www.contoso.com, sales.contoso.com,) then this value should be *.domainname (for example, *.contoso.com). If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com.</p>
-<p>If you need to support both a wildcard name like *.contoso.com and a bare domain name like contoso.com, you can use a wildcard Subject Alternative Name (SAN) certificate. For an example of creating a certificate request that uses the SubjectAltName extensions, see <a href="#bkmk_subjectaltname">SubjectAltName certificate</a>.</p>
+To get an SSL certificate from a Certificate Authority you must generate a Certificate Signing Request (CSR), which is sent to the CA. The CA will then return a certificate that is used to complete the CSR. Two common ways to generate a CSR are by using the certmgr.exe or [OpenSSL][openssl] applications. Certmgr.exe is only available on Windows, while OpenSSL is available for most platforms. The steps for using both of these utilities are below.
 
-<p>For more information on how to configure the domain name of a Windows Azure Web Site, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure Web Site</a>.</p>
-</div>
+You may also need to obtain **intermediate certificates** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs web site. The steps in this article provide steps on how to ensure that any intermediate certificates are merged with the certificate uploaded to your Windows Azure web site. 
 
-###Get a certificate using the IIS Manager
+> [WACOM.NOTE] When following either series of steps, you will be prompted to enter a **Common Name**. If you will be obtaining a wildcard certificate for use with multiple domains (www.contoso.com, sales.contoso.com,) then this value should be \*.domainname (for example, \*.contoso.com). If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com.
+>
+> If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard Subject Alternative Name (SAN) certificate. For an example of creating a certificate request that uses the SubjectAltName extensions, see [SubjectAltName certificate](#bkmk_subjectaltname).
+> 
+> For more information on how to configure the domain name of a Windows Azure Web Site, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure Web Site</a>.
 
-This section describes the steps to obtain a certificate from a trusted Certificate Authority. If you wish to create a self-signed certificate for testing, see the [Self-signed Certificates](#bkmk_selfsigned) section of this document.
+###Get a certificate using Certreq.exe (Windows only)
 
-1. Generate a Certificate Signing Request (CSR) with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
+Certreq.exe is Windows utility for creating certificate requests. It has been part of the base Windows installation since Windows XP/Windows Server 2000, so should be available on recent Windows systems. Use the following steps to obtain an SSL certificate using certreq.exe.
 
-2. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+If you wish to create a self-signed certificate for testing, see the [Self-signed Certificates](#bkmk_selfsigned) section of this document.
 
-3. Complete the CSR with the certificate provided by the Certificate Authority vendor. For more information on completing the CSR, see [Install an Internet Server Certificate (IIS 7)][installcertiis].
+If you wish to use the IIS Manager to create a certificate request, see the [Get a certificate using IIS Manager](#bkmk_iismgr) section.
 
-4. If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA.
+1. Open **Notepad** and create a new document that contains the following. Replace **mysite.com** on the Subject line with the custom domain name of your web site. For example, Subject = "CN=www.contoso.com".
 
-4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Windows Azure for use with your Windows Azure Web Site.
+		[NewRequest]
+		Subject = "CN=mysite.com"
+		Exportable = TRUE
+		KeyLength = 2048
+		KeySpec = 1
+		KeyUsage = 0xA0
+		MachineKeySet = True
+		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+		ProviderType = 12
+		RequestType = CMC
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.</p>
-	</div>
+		[EnhancedKeyUsageExtension]
+		OID=1.3.6.1.5.5.7.3.1
 
-	<div class="dev-callout"> 
-	<b>Note</b>
-	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong>. This will include any intermediate certificates in the exported certificate.</p>
-	</div>
+	For more information on the options specified above, as well as other available options, see the [Certreq reference documentationn](http://technet.microsoft.com/library/cc725793.aspx).
+
+2. Save the text file as **myrequest.txt**.
+
+3. From the **Start Screen** or **Start Menu**, run **cmd.exe**.
+
+4. From the command prompt, use the following command to create the certificate request file:
+
+		certreq -new \path\to\myrequest.txt \path\to\create\myrequest.csr
+
+	Specify the path to the **myrequest.txt** file created in step 1, and the path to use when creating the **myrequest.csr** file.
+
+5. Submit the **myrequest.csr** to a Certificate Authority to obtain an SSL certificate. This may involve uploading the file, or opening the file in Notepad and pasting the contents directly into a web form.
+
+	For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+
+6. Once the Certificate Authority has provided you with a certificate (.CER) file, save this file to the computer used to generate the request, and then use the following command to accept the request and complete the certificate generation process.
+
+		certreq -accept -user mycert.cer
+
+	In this case, the **mycert.cer** certificate received from the Certificate Authority will be used to complete the signature of the certificate. No file will be created; instead, the certificate will be stored in the Windows certificate store.
+
+6. If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next steps. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided for Microsoft IIS.
+
+	Once you have downloaded the certificate, right click on it in explorer and select **Install certificate**. Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
+
+7. To export the certificate from the certificate store, run **certmgr.msc** from the **Start Screen** or **Start Menu**. When **Certificate Manager** appears, expand the **Personal** folder, and then select **Certificates**. In the **Issued To** field, look for an entry with the custom domain name you requested a certificate for. In the **Issued By** field, it should list the Certificate Authority you used for this certificate.
+
+	![insert image of cert manager here](.\media\configure-ssl-web-site\waws-certmgr.png)
+
+9. Right click the certificate and select **All Tasks**, and then select **Export**. In the **Certificate Export Wizard**, click **Next** and then select **Yes, export the private key**. Click **Next**.
+
+	![Export the private key](.\media\configure-ssl-web-site\waws-certwiz1.png)
+
+10. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate chain**, and **Export all extended properties**. Click **Next**.
+
+	![include all certs and extended properties](.\media\configure-ssl-web-site\waws-certwiz2.png)
+
+11. Select **Password**, and then enter and confirm the password. Click **Next**.
+
+	![specify a password](.\media\configure-ssl-web-site\waws-certwiz3.png)
+
+12. Provide a path and filename that will contain the exported certificate. The filename should have an extension of **.pfx**. Click **Next** to complete the process.
+
+	![provide a file path](.\media\configure-ssl-web-site\waws-certwiz4.png)
+
+You can now upload the exported PFX file to your Windows Azure Web Site.
 
 ###Get a certificate using OpenSSL
 
@@ -101,10 +154,26 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 3. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
-4. Once you have obtained a certificate from a CA, save it to a file named **myserver.crt**. If your CA provided the certificate in a text format, simply paste the certificate text into the **myserver.crt** file. The file should appear as follows when viewed in a text editor:
+4. Once you have obtained a certificate from a CA, save it to a file named **myserver.crt**. If your CA provided the certificate in a text format, simply paste the certificate text into the **myserver.crt** file. The file contents should be similar to the following when viewed in a text editor:
 
 		-----BEGIN CERTIFICATE-----
-		<certificate contents omitted>
+		MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+		UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+		c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+		NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+		ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+		ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+		enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+		3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+		xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+		ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+		Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+		AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+		Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+		F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+		7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+		lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+		A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
 		-----END CERTIFICATE-----
 
 	Save the file.
@@ -117,7 +186,7 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 	<div class="dev-callout"> 
 	<b>Note</b>
-	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a seperate download from your CA.</p>
+	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)</p>
 	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
 	<pre><code>
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
@@ -128,7 +197,9 @@ This section describes the steps to obtain a certificate from a trusted Certific
 
 <a href="bkmk_standardmode"></a><h2>Configure standard mode</h2>
 
-Enabling SSL on a web site is only available for the standard mode of Windows Azure web sites. Before switching a web site from the free web site mode to the standard web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
+Enabling HTTPS for a custom domain is only available for the standard mode of Windows Azure web sites. Use the following steps to switch to standard mode.
+
+> [WACOM.NOTE] Before switching a web site from the free web site mode to the standard web site mode, you should remove spending caps in place for your Web Site subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 1. In your browser, open the [Management Portal][portal].
 
@@ -146,12 +217,9 @@ Enabling SSL on a web site is only available for the standard mode of Windows Az
 
 5. Click **Save**. When prompted, click **Yes**.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>If you receive a "Configuring scale for web site '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, you will need to try again later to upgrade your account.</p> 
-	</div>
+	> [WACOM.NOTE] If you receive a "Configuring scale for web site '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Windows Azure support](http://www.windowsazure.com/en-us/support/options/).
 
-<a href="bkmk_getcert"></a><h2>Configure SSL</h2>
+<a href="bkmk_configuressl"></a><h2>Configure SSL</h2>
 
 Before performing the steps in this section, you must have associated a custom domain name with your Windows Azure Web Site. For more information, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
 
@@ -179,19 +247,16 @@ Before performing the steps in this section, you must have associated a custom d
 
 6. Click **Save** to save the changes and enable SSL.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>If you selected <b>IP based SSL</b> and your custom domain is configured using an A record, you must perform the following additional steps:</p>
-<ol>
-<li><p>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the <b>Dashboard</b> page of your web site, in the <b>quick glance</b> section. It will be listed as <b>Virtual IP Address</b>:</p>
-![staticip](./media/configure-ssl-web-site/staticip.png)
-<p>Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain.</p><p>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</p>
-</li>
-<li><p>Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.</p>
-</li>
-<!--<li><p>If you had created a CNAME pointing to yoursite.azurewebsites.net, you must now remove this entry.</p></li>-->
-</ol>
-</div>
+> [WACOM.NOTE] If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
+>
+> 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the **Dashboard** page of your web site, in the **quick glance** section. It will be listed as **Virtual IP Address**:
+>    
+>     <img src="./media/configure-ssl-web-site/staticip.png">
+>    
+>     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
+>
+> 2. Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.
+
 
 At this point, you should be able to visit your web site using HTTPS to verify that the certificate has been configured correctly.
 
@@ -252,10 +317,26 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 3. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
-4. Once you have obtained a certificate from a CA, save it to a file named **myserver.crt**. If your CA provided the certificate in a text format, simply paste the certificate text into the **myserver.crt** file. The file should appear as follows when viewed in a text editor:
+4. Once you have obtained a certificate from a CA, save it to a file named **myserver.crt**. If your CA provided the certificate in a text format, simply paste the certificate text into the **myserver.crt** file. The file contents should be similar to the following when viewed in a text editor:
 
 		-----BEGIN CERTIFICATE-----
-		<certificate contents omitted>
+		MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+		UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+		c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+		NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+		ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+		ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+		enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+		3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+		xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+		ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+		Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+		AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+		Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+		F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+		7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+		lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+		A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
 		-----END CERTIFICATE-----
 
 	Save the file.
@@ -268,7 +349,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	<div class="dev-callout"> 
 	<b>Note</b>
-	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a seperate download from your CA.</p>
+	<p>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided as a PEM file (.pem file extension.)</p>
 	<p>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <b>intermediate-cets.pem</b> file:</p>
 	<pre><code>
 	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
@@ -277,6 +358,31 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
 
+##<a name="bkmk_iismgr"></a>Get a certificate using the IIS Manager (Optional)
+
+If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Windows Azure Web Sites.
+
+1. Generate a Certificate Signing Request (CSR) with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
+
+2. Submit your CSR to a Certificate Authority to obtain an SSL certificate. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+
+3. Complete the CSR with the certificate provided by the Certificate Authority vendor. For more information on completing the CSR, see [Install an Internet Server Certificate (IIS 7)][installcertiis].
+
+4. If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step. Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types. Select the version that is provided for Microsoft IIS.
+
+	Once you have downloaded the certificate, right click on it in explorer and select **Install certificate**. Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
+
+4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Windows Azure for use with your Windows Azure Web Site.
+
+	<div class="dev-callout"> 
+	<b>Note</b>
+	<p>During the export process, be sure to select the option <strong>Yes, export the private key</strong>. This will include the private key in the exported certificate.</p>
+	</div>
+
+	<div class="dev-callout"> 
+	<b>Note</b>
+	<p>During the export process, be sure to select the option <strong>include all certs in the certification path</strong> and and <strong>Export all extended properties</strong>. This will include any intermediate certificates in the exported certificate.</p>
+	</div>
 
 <a href="bkmk_selfsigned"></a><h2>Self-signed certificates (Optional)</h2>
 
@@ -359,7 +465,6 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 	The **myserver.pfx** produced by this command can be used to secure your Windows Azure Web Site for testing purposes.
 
-
 [customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
 [iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
@@ -372,7 +477,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
-[pricing]: /en-us/pricing/details/
+[pricing]: https://www.windowsazure.com/en-us/pricing/details/
 [configure]: ./media/configure-ssl-web-site/sslconfig.png
 [uploadcert]: ./media/configure-ssl-web-site/ssluploadcert.png
 [uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png
