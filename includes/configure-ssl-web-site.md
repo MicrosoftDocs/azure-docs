@@ -110,23 +110,23 @@ If you wish to use the IIS Manager to create a certificate request, see the [Get
 
 7. To export the certificate from the certificate store, run **certmgr.msc** from the **Start Screen** or **Start Menu**. When **Certificate Manager** appears, expand the **Personal** folder, and then select **Certificates**. In the **Issued To** field, look for an entry with the custom domain name you requested a certificate for. In the **Issued By** field, it should list the Certificate Authority you used for this certificate.
 
-	![insert image of cert manager here](.\media\configure-ssl-web-site\waws-certmgr.png)
+	![insert image of cert manager here][certmgr]
 
 9. Right click the certificate and select **All Tasks**, and then select **Export**. In the **Certificate Export Wizard**, click **Next** and then select **Yes, export the private key**. Click **Next**.
 
-	![Export the private key](.\media\configure-ssl-web-site\waws-certwiz1.png)
+	![Export the private key][certwiz1]
 
 10. Select **Personal Information Exchange - PKCS #12**, **Include all certificates in the certificate chain**, and **Export all extended properties**. Click **Next**.
 
-	![include all certs and extended properties](.\media\configure-ssl-web-site\waws-certwiz2.png)
+	![include all certs and extended properties][certwiz2]
 
 11. Select **Password**, and then enter and confirm the password. Click **Next**.
 
-	![specify a password](.\media\configure-ssl-web-site\waws-certwiz3.png)
+	![specify a password][certwiz3]
 
 12. Provide a path and filename that will contain the exported certificate. The filename should have an extension of **.pfx**. Click **Next** to complete the process.
 
-	![provide a file path](.\media\configure-ssl-web-site\waws-certwiz4.png)
+	![provide a file path][certwiz4]
 
 You can now upload the exported PFX file to your Windows Azure Web Site.
 
@@ -483,3 +483,8 @@ You can create a test certificate from a Windows system that has Visual Studio i
 [uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png
 [sslbindings]: ./media/configure-ssl-web-site/sslbindings.png
 [sni]: http://en.wikipedia.org/wiki/Server_Name_Indication
+[certmgr]: ./media/configure-ssl-web-site/waws-certmgr.png
+[certwiz1]: ./media/configure-ssl-web-site/waws-certwiz1.png
+[certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
+[certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
+[certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
