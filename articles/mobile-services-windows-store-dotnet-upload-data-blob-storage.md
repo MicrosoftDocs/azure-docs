@@ -33,7 +33,7 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for `WindowsAzure.Storage-Preview`, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
+2. In the left pane, select the **Online** category, search for `WindowsAzure.Storage`, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
 
   	![][2]
 
@@ -136,24 +136,27 @@ Next, you will update the quickstart app to capture and upload images.
             // If we have a returned SAS, then upload the blob.
             if (!string.IsNullOrEmpty(todoItem.SasQueryString))
             {
+                // Get the URI generated that contains the SAS 
+                // and extract the storage credentials.
+                StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
+                var imageUri = new Uri(todoItem.ImageUri);
+				
+                // Instantiate a Blob store container based on the info in the returned item.
+                CloudBlobContainer container = new CloudBlobContainer(
+                    new Uri(string.Format("https://{0}/{1}",
+                        imageUri.Host, todoItem.ContainerName)), cred);
+
                 // Get the new image as a stream.
                 using (var fileStream = await media.OpenStreamForReadAsync())
-                {                   
-                    // Get the URI generated that contains the SAS 
-                    // and extract the storage credentials.
-                    StorageCredentials cred = new StorageCredentials(todoItem.SasQueryString);
-                    var imageUri = new Uri(todoItem.ImageUri);
-					
-                    // Instantiate a Blob store container based on the info in the returned item.
-                    CloudBlobContainer container = new CloudBlobContainer(
-                        new Uri(string.Format("https://{0}/{1}",
-                            imageUri.Host, todoItem.ContainerName)), cred);
-					
+                {                   					
                     // Upload the new image as a BLOB from the stream.
                     CloudBlockBlob blobFromSASCredential =
                         container.GetBlockBlobReference(todoItem.ResourceName);
                     await blobFromSASCredential.UploadFromStreamAsync(fileStream.AsInputStream());
                 }
+				
+				// When you request an SAS at the container-level instead of the blob-level,
+				// you are able to upload multiple streams using the same container credentials.
             }
 			
             // Add the new item to the collection.
