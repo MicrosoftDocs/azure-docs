@@ -139,5 +139,5 @@ This example demonstrates creating an A record for the root domain. If you wish 
   [Windows Azure Management Portal]: https://manage.windowsazure.com
   [Validate Custom Domain dialog box]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
-  [vip]: ../media/csvip.png
-  [csurl]: ../media/csurl.png
+  [vip]: ./media/custom-dns/csvip.png
+  [csurl]: ./media/custom-dns/csurl.png
