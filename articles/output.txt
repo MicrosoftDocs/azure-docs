@@ -1,0 +1,1006 @@
+
+---------- ACTIVE-DIRECTORY-DOTNET-HOW-TO-USE-ACCESS-CONTROL.MD
+
+---------- ACTIVE-DIRECTORY-DOTNET-INTEGRATE-MULTITENANT-CLOUD-APPLICATIONS.MD
+
+---------- ACTIVE-DIRECTORY-DOTNET-SINGLE-TENANT-CLOUD-APP.MD
+
+---------- ACTIVE-DIRECTORY-DOTNET-WEB-SINGLE-SIGN-ON.MD
+
+---------- ACTIVE-DIRECTORY-ENABLE-MULTI-FACTOR-AUTHENTICATION.MD
+
+---------- ACTIVE-DIRECTORY-JAVA-AUTHENTICATE-USERS-ACCESS-CONTROL-ECLIPSE.MD
+
+---------- ACTIVE-DIRECTORY-JAVA-VIEW-SAML-RETURNED-BY-ACCESS-CONTROL.MD
+
+---------- ACTIVE-DIRECTORY-JAVA-WEB-SINGLE-SIGN-ON.MD
+
+---------- ACTIVE-DIRECTORY-NEW-FOREST-VIRTUAL-MACHINE.MD
+
+---------- ACTIVE-DIRECTORY-ORGANIZATIONAL-ACCOUNT-SIGNUP.MD
+
+---------- ACTIVE-DIRECTORY-PHP-WEB-SINGLE-SIGN-ON.MD
+
+---------- ACTIVE-DIRECTORY-WHATIS.MD
+
+---------- ARCHITECTURE-DOTNET-APPLICATION-LOAD-TESTING.MD
+
+---------- ARCHITECTURE-OVERVIEW.MD
+
+---------- BACKUP-CONFIGURE-VAULT.MD
+
+---------- BEST-PRACTICES-PERFORMANCE.MD
+
+---------- BEST-PRACTICES-SECURITY.MD
+
+---------- BEST-PRACTICES-TROUBLESHOOTING.MD
+
+---------- BIZTALK-BACKUP-RESTORE.MD
+
+---------- BIZTALK-DASHBOARD-MONITOR-SCALE-TABS.MD
+
+---------- BIZTALK-EDITIONS-FEATURE-CHART.MD
+
+---------- BIZTALK-ISSUER-NAME-ISSUER-KEY.MD
+
+---------- BIZTALK-PROVISION-SERVICES.MD
+
+---------- BIZTALK-SERVICE-STATE-CHART.MD
+
+---------- BIZTALK-THROTTLING-THRESHOLDS.MD
+
+---------- CACHE-DOTNET-HOW-TO-USE-IN-ROLE.MD
+
+---------- CACHE-DOTNET-HOW-TO-USE-SERVICE.MD
+
+---------- CDN-HOW-TO-USE.MD
+
+---------- CHOOSE-WEB-SITE-CLOUD-SERVICE-VM.MD
+
+---------- CLOUD-SERVICES-CONFIGURE-SSL-CERTIFICATE.MD
+
+---------- CLOUD-SERVICES-CONNECT-VIRTUAL-MACHINE.MD
+
+---------- CLOUD-SERVICES-CONTINOUS-DELIVERY-USE-TFS.MD
+
+---------- CLOUD-SERVICES-CUSTOM-DOMAIN-NAME.MD
+
+---------- CLOUD-SERVICES-DOTNET-AUTOSCALING-APPLICATION-BLOCK.MD
+
+---------- CLOUD-SERVICES-DOTNET-CONTINUOUS-DELIVERY.MD
+
+---------- CLOUD-SERVICES-DOTNET-DIAGNOSTICS.MD
+
+---------- CLOUD-SERVICES-DOTNET-HYBRID-APP-USING-SERVICE-BUS-RELAY.MD
+
+---------- CLOUD-SERVICES-DOTNET-MULTI-TIER-APP-STORAGE-1-OVERVIEW.MD
+
+---------- CLOUD-SERVICES-DOTNET-MULTI-TIER-APP-STORAGE-2-DOWNLOAD-RUN.MD
+
+---------- CLOUD-SERVICES-DOTNET-MULTI-TIER-APP-STORAGE-3-WEB-ROLE.MD
+
+---------- CLOUD-SERVICES-DOTNET-MULTI-TIER-APP-STORAGE-4-WORKER-ROLE-A.MD
+
+---------- CLOUD-SERVICES-DOTNET-MULTI-TIER-APP-STORAGE-5-WORKER-ROLE-B.MD
+
+---------- CLOUD-SERVICES-DOTNET-MULTI-TIER-APP-USING-SERVICE-BUS-QUEUES.MD
+
+---------- CLOUD-SERVICES-DOTNET-USE-PERFORMANCE-COUNTERS.MD
+
+---------- CLOUD-SERVICES-HOW-TO-APPDYNAMICS.MD
+
+---------- CLOUD-SERVICES-HOW-TO-CONFIGURE.MD
+
+---------- CLOUD-SERVICES-HOW-TO-CREATE-DEPLOY.MD
+
+---------- CLOUD-SERVICES-HOW-TO-MANAGE.MD
+
+---------- CLOUD-SERVICES-HOW-TO-MONITOR.MD
+
+---------- CLOUD-SERVICES-HOW-TO-SCALE.MD
+
+---------- CLOUD-SERVICES-LINUX-PARTNERS.MD
+
+---------- CLOUD-SERVICES-NODEJS-CHAT-APP-SOCKETIO.MD
+
+---------- CLOUD-SERVICES-NODEJS-CONFIGURE-SSL-CERTFICATE-WORKER-ROLE.MD
+
+---------- CLOUD-SERVICES-NODEJS-CONFIGURE-SSL-CERTIFICATE.MD
+
+---------- CLOUD-SERVICES-NODEJS-DEVELOP-DEPLOY-APP.MD
+
+---------- CLOUD-SERVICES-NODEJS-DEVELOP-DEPLOY-CLOUD9.MD
+
+---------- CLOUD-SERVICES-NODEJS-DEVELOP-DEPLOY-EXPRESS-APP.MD
+
+---------- CLOUD-SERVICES-NODEJS-ENABLE-REMOTE-DESKTOP.MD
+
+---------- CLOUD-SERVICES-NODEJS-STAGE-APPLICATION.MD
+
+---------- CLOUD-SERVICES-PERFORMANCE-TESTING-VISUAL-STUDIO-PROFILER.MD
+
+---------- CLOUD-SERVICES-PHP-CREATE-WEB-ROLE.MD
+
+---------- CLOUD-SERVICES-PHP-HOW-TO-USE-SERVICE-MANAGEMENT.MD
+
+---------- CLOUD-SERVICES-PYTHON-HOW-TO-USE-SERVICE-MANAGEMENT.MD
+
+---------- CLOUD-SERVICES-WEB-SITES-PYTHON-DJANGO-APP-WITH-PTVS.MD
+
+---------- CLOUD-SERVICES-WHAT-IS.MD
+
+---------- COMMAND-LINE-TOOLS.MD
+
+---------- CREATE-VIRTUAL-NETWORK.MD
+
+---------- CREATE-WINDOWS-AZURE-ACCOUNT.MD
+
+---------- DOTNET-CREATE-ACCOUNT.MD
+
+---------- DOTNET-DEVELOP-MULTITENANT-APPLICATIONS.MD
+
+---------- FUNDAMENTALS-APPLICATION-MODELS.MD
+
+---------- FUNDAMENTALS-DATA-MANAGEMENT-BUSINESS-ANALYTICS.MD
+
+---------- FUNDAMENTALS-IDENTITY.MD
+
+---------- FUNDAMENTALS-INTRODUCTION-TO-WINDOWS-AZURE.MD
+
+---------- FUNDAMENTALS-NETWORKING.MD
+
+---------- FUNDAMENTALS-SERVICE-BUS-HYBRID-SOLUTIONS.MD
+
+---------- GET-STARTED-USE-SCHEDULER-API.MD
+
+---------- GET-STARTED-USE-SCHEDULER.MD
+
+---------- HDINSIGHT-ADMINISTER-USE-COMMAND-LINE.MD
+
+---------- HDINSIGHT-ADMINISTER-USE-MANAGEMENT-PORTAL.MD
+
+---------- HDINSIGHT-ADMINISTER-USE-POWERSHELL.MD
+
+---------- HDINSIGHT-ANALYZE-TWITTER-DATE-HIVE.MD
+
+---------- HDINSIGHT-AVOID-BLOB-STORAGE-THROTTLING.MD
+
+---------- HDINSIGHT-COMPONENT-VERSIONING.MD
+
+---------- HDINSIGHT-CONNECT-EXCEL-HIVE-ODBC-DRIVER.MD
+
+---------- HDINSIGHT-CONNECT-EXCEL-POWER-QUERY.MD
+
+---------- HDINSIGHT-DEBUG-JOBS.MD
+
+---------- HDINSIGHT-DEVELOP-DEPLOY-JAVA-MAPREDUCE.MD
+
+---------- HDINSIGHT-GET-STARTED-EMULATOR.MD
+
+---------- HDINSIGHT-GET-STARTED.MD
+
+---------- HDINSIGHT-HADOOP-DEVELOP-DEPLOY-STREAMING-JOBS.MD
+
+---------- HDINSIGHT-HADOOP-RECOMMENDATION-ENGINE.MD
+
+---------- HDINSIGHT-INSTALL-CONFIGURE-POWERSHELL.MD
+
+---------- HDINSIGHT-INTERACTIVE-CONSOLE.MD
+
+---------- HDINSIGHT-INTRODUCTION.MD
+
+---------- HDINSIGHT-MONITOR.MD
+
+---------- HDINSIGHT-PROVISION-CLUSTERS.MD
+
+---------- HDINSIGHT-RUN-SAMPLES.MD
+
+---------- HDINSIGHT-SAMPLE-10GB-GRAYSORT.MD
+
+---------- HDINSIGHT-SAMPLE-CSHARP-STREAMING.MD
+
+---------- HDINSIGHT-SAMPLE-PI-ESTIMATOR.MD
+
+---------- HDINSIGHT-SAMPLE-SQOOP-IMPORT-EXPORT.MD
+
+---------- HDINSIGHT-SAMPLE-WORDCOUNT.MD
+
+---------- HDINSIGHT-SUBMIT-HADOOP-JOBS-PROGRAMMATICALLY.MD
+
+---------- HDINSIGHT-UNDERSTAND-NOSQL.MD
+
+---------- HDINSIGHT-UPLOAD-DATA.MD
+
+---------- HDINSIGHT-USE-BLOB-STORAGE.MD
+
+---------- HDINSIGHT-USE-HADOOP-DOTNET-SDK.MD
+
+---------- HDINSIGHT-USE-HIVE.MD
+
+---------- HDINSIGHT-USE-MAPREDUCE.MD
+
+---------- HDINSIGHT-USE-PIG.MD
+
+---------- HOWTO-VIRTUAL-MACHINES-QUICK-CREATE2.MD
+
+---------- HYPER-V-RECOVERY-MANAGER-CONFIGURE-VAULT.MD
+
+---------- INSTALL-CONFIGURE-POWERSHELL.MD
+
+---------- INTEGRATION-AZURE-GOOGLE-APPS.MD
+
+---------- INTRODUCTION-LINUX.MD
+
+---------- JAVA-ADD-CERTIFICATE-CA-STORE.MD
+
+---------- JAVA-CREATE-ACCOUNT.MD
+
+---------- JAVA-DOWNLOAD-LINUX.MD
+
+---------- JAVA-DOWNLOAD-MAC.MD
+
+---------- JAVA-DOWNLOAD-WINDOWS.MD
+
+---------- JAVA-REFERENCE.MD
+
+---------- LINUX-CREATE-MANAGEMENT-CERT.MD
+
+---------- LINUX-ENDORSED-DISTRIBUTIONS.MD
+
+---------- LINUX-USE-SSH-KEY.MD
+
+---------- LOAD-BALANCE-VIRTUAL-MACHINES.MD
+
+---------- MANAGE-ACS-NAMESPACE.MD
+
+---------- MANAGE-AVAILABILITY-VIRTUAL-MACHINES.MD
+
+---------- MEDIA-SERVICES-BUILD-SMOOTH-STREAMING-APPS.MD
+
+---------- MEDIA-SERVICES-CHECK-JOB-PROGRESS.MD
+
+---------- MEDIA-SERVICES-CREATE-ACCOUNT.MD
+
+---------- MEDIA-SERVICES-CREATE-ENCRYPTED-ASSET-UPLOAD-STORAGE.MD
+
+---------- MEDIA-SERVICES-DELIVER-ASSET-DOWNLOAD.MD
+
+---------- MEDIA-SERVICES-DELIVER-HTTP-LIVE-STREAMING-CONTENT.MD
+
+---------- MEDIA-SERVICES-DELIVER-STREAMING-CONTENT.MD
+
+---------- MEDIA-SERVICES-DOTNET-GET-STARTED.MD
+
+---------- MEDIA-SERVICES-DOTNET-HOW-TO-USE.MD
+
+---------- MEDIA-SERVICES-ENCODE-ASSET.MD
+
+---------- MEDIA-SERVICES-GET-MEDIA-PROCESSOR.MD
+
+---------- MEDIA-SERVICES-HOW-TO-SCALE.MD
+
+---------- MEDIA-SERVICES-JAVA-HOW-TO-USE.MD
+
+---------- MEDIA-SERVICES-MANAGE-ASSETS.MD
+
+---------- MEDIA-SERVICES-MANAGE-CONTENT.MD
+
+---------- MEDIA-SERVICES-MANAGE-ORIGINS.MD
+
+---------- MEDIA-SERVICES-MONITOR-SERVICES-ACCOUNT.MD
+
+---------- MEDIA-SERVICES-PROTECT-ASSET.MD
+
+---------- MEDIA-SERVICES-SET-UP-COMPUTER.MD
+
+---------- MEDIA-SERVICES-USE-IOS-MEDIA-PLAYER-FRAMEWORK.MD
+
+---------- MEDIA-SERVICES-USE-OSMF-SMOOTH-STREAMING-CLIENT-PLUGIN.MD
+
+---------- MOBILE-SERVICES-ANDROID-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a>
+
+---------- MOBILE-SERVICES-ANDROID-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-ANDROID-CALL-CUSTOM-API.MD
+
+---------- MOBILE-SERVICES-ANDROID-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
+
+---------- MOBILE-SERVICES-ANDROID-GET-STARTED-PUSH.MD
+
+---------- MOBILE-SERVICES-ANDROID-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- MOBILE-SERVICES-ANDROID-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
+
+---------- MOBILE-SERVICES-ANDROID-HOW-TO-USE-CLIENT-LIBRARY.MD
+
+---------- MOBILE-SERVICES-ANDROID-PUSH-NOTIFICATIONS-APP-USERS.MD
+
+---------- MOBILE-SERVICES-ANDROID-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-APP-ACTIVE-DIRECTORY-LOGIN.MD
+
+---------- MOBILE-SERVICES-CREATE-ACCOUNT.MD
+
+---------- MOBILE-SERVICES-DISASTER-RECOVERY.MD
+
+---------- MOBILE-SERVICES-DOTNET-GET-STARTED-USERS.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- MOBILE-SERVICES-HOW-TO-REGISTER-FACEBOOK-AUTHENTICATION.MD
+
+---------- MOBILE-SERVICES-HOW-TO-REGISTER-GOOGLE-AUTHENTICATION.MD
+
+---------- MOBILE-SERVICES-HOW-TO-REGISTER-MICROSOFT-AUTHENTICATION.MD
+
+---------- MOBILE-SERVICES-HOW-TO-REGISTER-STORE-APP-PACKAGE-MICROSOFT-AUTHENTICATION.MD
+
+---------- MOBILE-SERVICES-HOW-TO-REGISTER-TWITTER-AUTHENTICATION.MD
+
+---------- MOBILE-SERVICES-HOW-TO-REGISTER-WINDOWS-LIVE-CONNECT-SINGLE-SIGN-ON.MD
+
+---------- MOBILE-SERVICES-HOW-TO-USE-MULTIPLE-CLIENTS-SINGLE-SERVICE.MD
+
+---------- MOBILE-SERVICES-HOW-TO-USE-SERVER-SCRIPTS.MD
+
+---------- MOBILE-SERVICES-HTML-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-HTML-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-HTML-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
+
+---------- MOBILE-SERVICES-HTML-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-HTML-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
+
+---------- MOBILE-SERVICES-HTML-HOW-TO-USE-CLIENT-LIBRARY.MD
+
+---------- MOBILE-SERVICES-HTML-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-IOS-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-IOS-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-IOS-BUILD-REALTIME-APPS-PUSHER.MD
+
+---------- MOBILE-SERVICES-IOS-CALL-CUSTOM-API.MD
+
+---------- MOBILE-SERVICES-IOS-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>  
+
+---------- MOBILE-SERVICES-IOS-GET-STARTED-PUSH.MD
+
+---------- MOBILE-SERVICES-IOS-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
+
+---------- MOBILE-SERVICES-IOS-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
+
+---------- MOBILE-SERVICES-IOS-HOW-TO-USE-CLIENT-LIBRARY.MD
+
+---------- MOBILE-SERVICES-IOS-PUSH-NOTIFICATIONS-APP-USERS.MD
+
+---------- MOBILE-SERVICES-IOS-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-MANAGE-COMMAND-LINE-INTERFACE.MD
+
+---------- MOBILE-SERVICES-SCHEDULE-RECURRING-TASKS.MD
+
+---------- MOBILE-SERVICES-STORE-SCRIPTS-SOURCE-CONTROL.MD
+
+---------- MOBILE-SERVICES-WINDOWS-DOTNET-HOW-TO-USE-CLIENT-LIBRARY.MD
+
+---------- MOBILE-SERVICES-WINDOWS-HOW-TO-IMPORT-PUBLISHSETTINGS.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-CALL-CUSTOM-API.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-GET-STARTED-PUSH.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-GET-STARTED.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> <a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a>
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-HANDLE-DATABASE-CONFLICTS.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-PUSH-NOTIFICATIONS-APP-USERS.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-SINGLE-SIGN-ON.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-UPLOAD-DATA-BLOB-STORAGE.MD
+
+---------- MOBILE-SERVICES-WINDOWS-PHONE-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-AUTHORIZE-USERS-IN-SCRIPTS.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-CALL-CUSTOM-API.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-CREATE-PULL-NOTIFICATIONS.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-GET-STARTED-DATA-VS2012.MD
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-GET-STARTED-DATA.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-GET-STARTED-PUSH-VS2012.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-GET-STARTED-PUSH.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-HANDLE-DATABASE-CONFLICTS.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-SINGLE-SIGN-ON.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-UPLOAD-DATA-BLOB-STORAGE.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-DOTNET-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-CALL-CUSTOM-API.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-CREATE-PULL-NOTIFICATIONS.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-GET-STARTED-DATA-VS2012.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-GET-STARTED-PUSH-VS2012.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-GET-STARTED-PUSH.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-SINGLE-SIGN-ON.MD
+
+---------- MOBILE-SERVICES-WINDOWS-STORE-JAVASCRIPT-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- MULTI-FACTOR-AUTHENTICATION.MD
+
+---------- NETWORKING.MD
+
+---------- NODEJS-CREATE-ACCOUNT.MD
+
+---------- NODEJS-SPECIFY-NODE-VERSION-WINDOWS-AZURE-APPS.MD
+
+---------- NODEJS-USE-NODE-MODULES-WINDOWS-AZURE-APPS.MD
+
+---------- NOTIFICATION-HUBS-ANDROID-GET-STARTED.MD
+
+---------- NOTIFICATION-HUBS-ASPNET-CROSS-PLATFORM-NOTIFY-USERS.MD
+
+---------- NOTIFICATION-HUBS-ASPNET-NOTIFY-USERS.MD
+
+---------- NOTIFICATION-HUBS-IOS-ASPNET-REGISTER-USER-PUSH-NOTIFICATIONS.MD
+
+---------- NOTIFICATION-HUBS-IOS-GET-STARTED.MD
+
+---------- NOTIFICATION-HUBS-IOS-MOBILE-SERVICES-REGISTER-USER-PUSH-NOTIFICATIONS.MD
+
+---------- NOTIFICATION-HUBS-IOS-SEND-BREAKING-NEWS.MD
+
+---------- NOTIFICATION-HUBS-IOS-SEND-LOCALIZED-BREAKING-NEWS.MD
+
+---------- NOTIFICATION-HUBS-MOBILE-SERVICES-CROSS-PLATFORM-NOTIFY-USERS.MD
+
+---------- NOTIFICATION-HUBS-MOBILE-SERVICES-NOTIFY-USERS.MD
+
+---------- NOTIFICATION-HUBS-NODEJS-HOW-TO-USE-NOTIFICATION-HUBS.MD
+
+---------- NOTIFICATION-HUBS-OVERVIEW.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-PHONE-GET-STARTED.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-PHONE-SEND-BREAKING-NEWS.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-STORE-ASPNET-REGISTER-USER-PUSH-NOTIFICATIONS.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-STORE-DOTNET-GET-STARTED.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-STORE-DOTNET-SEND-BREAKING-NEWS.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-STORE-DOTNET-SEND-LOCALIZED-BREAKING-NEWS.MD
+
+---------- NOTIFICATION-HUBS-WINDOWS-STORE-MOBILE-SERVICES-REGISTER-USER-PUSH-NOTIFICATIONS.MD
+
+---------- PARTNER-SENCHA-MOBILE-SERVICES-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" class="current" title="Sencha">Sencha</a></div>
+
+---------- PARTNER-TWILIO-CLOUD-SERVICES-DOTNET-PHONE-CALL-WEB-ROLE.MD
+
+---------- PARTNER-TWILIO-JAVA-HOW-TO-USE-VOICE-SMS.MD
+
+---------- PARTNER-TWILIO-JAVA-PHONE-CALL-EXAMPLE.MD
+
+---------- PARTNER-TWILIO-MOBILE-SERVICES-HOW-TO-USE-VOICE-SMS.MD
+
+---------- PARTNER-TWILIO-NODEJS-HOW-TO-USE-VOICE-SMS.MD
+
+---------- PARTNER-TWILIO-PHP-HOW-TO-USE-VOICE-SMS.MD
+
+---------- PARTNER-TWILIO-PHP-MAKE-PHONE-CALL.MD
+
+---------- PARTNER-TWILIO-PYTHON-HOW-TO-USE-VOICE-SMS.MD
+
+---------- PARTNER-TWILIO-RUBY-HOW-TO-USE-VOICE-SMS.MD
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS">iOS C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android" class="current">Android C#</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-GET-STARTED-PUSH.MD
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-ANDROID-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-HOW-TO-USE-CLIENT-LIBRARY.MD
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-ADD-PAGING-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios" title="Xamarin.iOS" class="current">iOS C#</a><a href="/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android" title="Xamarin.Android">Android C#</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-AUTHORIZE-USERS-IN-SCRIPTS.MD
+	<a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios" title="Xamarin.iOS" class="current">iOS C#</a><a href="/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android" title="Xamarin.Android">Android C#</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-GET-STARTED-DATA.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-GET-STARTED-PUSH.MD
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-GET-STARTED-USERS.MD
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-GET-STARTED.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
+
+---------- PARTNER-XAMARIN-MOBILE-SERVICES-IOS-VALIDATE-MODIFY-DATA-SERVER-SCRIPTS.MD
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+---------- PARTNER-XAMARIN-NOTIFICATION-HUBS-ANDROID-GET-STARTED.MD
+
+---------- PARTNER-XAMARIN-NOTIFICATION-HUBS-IOS-GET-STARTED.MD
+
+---------- PHP-CREATE-ACCOUNT.MD
+
+---------- PHP-DOWNLOAD-SDK.MD
+
+---------- PYTHON-CREATE-ACCOUNT.MD
+
+---------- PYTHON-DJANGO-APP-TOOLS-VISUAL-STUDIO.MD
+
+---------- PYTHON-HOW-TO-INSTALL.MD
+
+---------- RESOURCES-TRAINING-KIT.MD
+
+---------- RESOURCES-WHITE-PAPERS.MD
+
+---------- SENDGRID-DOTNET-HOW-TO-SEND-EMAIL.MD
+
+---------- SERVICE-BUS-AMQP-OVERVIEW.MD
+
+---------- SERVICE-BUS-DOTNET-ADVANCED-MESSAGE-QUEUING.MD
+
+---------- SERVICE-BUS-DOTNET-HOW-TO-USE-QUEUES.MD
+
+---------- SERVICE-BUS-DOTNET-HOW-TO-USE-RELAY.MD
+
+---------- SERVICE-BUS-DOTNET-HOW-TO-USE-TOPICS-SUBSCRIPTIONS.MD
+
+---------- SERVICE-BUS-JAVA-AMQP-OVERVIEW.MD
+
+---------- SERVICE-BUS-JAVA-HOW-TO-USE-AMQP.MD
+
+---------- SERVICE-BUS-JAVA-HOW-TO-USE-JMS-API-AMQP.MD
+
+---------- SERVICE-BUS-JAVA-HOW-TO-USE-QUEUES.MD
+
+---------- SERVICE-BUS-JAVA-HOW-TO-USE-TOPICS-SUBSCRIPTIONS.MD
+
+---------- SERVICE-BUS-MANAGE-MESSAGE-ENTITIES.MD
+
+---------- SERVICE-BUS-MONITOR-MESSAGE-ENTITIES.MD
+
+---------- SERVICE-BUS-NODEJS-HOW-TO-USE-QUEUES.MD
+
+---------- SERVICE-BUS-NODEJS-HOW-TO-USE-TOPICS-SUBSCRIPTIONS.MD
+
+---------- SERVICE-BUS-PHP-HOW-TO-USE-QUEUES.MD
+
+---------- SERVICE-BUS-PHP-HOW-TO-USE-TOPICS-SUBSCRIPTIONS.MD
+
+---------- SERVICE-BUS-PYTHON-HOW-TO-USE-QUEUES.MD
+
+---------- SERVICE-BUS-PYTHON-HOW-TO-USE-TOPICS-SUBSCRIPTIONS.MD
+
+---------- SERVICE-BUS-RUBY-HOW-TO-USE-QUEUES.MD
+
+---------- SERVICE-BUS-RUBY-HOW-TO-USE-TOPICS-SUBSCRIPTIONS.MD
+
+---------- SET-UP-HYBRID-CLUSTER-MICROSOFT-HPC-PACK-2012-SP1.MD
+
+---------- SIGN-UP-ORGANIZATION.MD
+
+---------- SQL-DATA-JAVA-HOW-TO-USE-SQL-DATABASE.MD
+
+---------- SQL-DATABASE-CREATE-CONFIGURE.MD
+
+---------- SQL-DATABASE-DEPLOY.MD
+
+---------- SQL-DATABASE-DOTNET-HOW-TO-USE.MD
+
+---------- SQL-DATABASE-GET-STARTED-SQL-DATA-SYNC.MD
+
+---------- SQL-DATABASE-GET-STARTED.MD
+
+---------- SQL-DATABASE-MANAGE-WINDOWS-AZURE-SSMS.MD
+
+---------- SQL-DATABASE-MANAGEMENT-TASKS.MD
+
+---------- SQL-DATABASE-MONITOR.MD
+
+---------- SQL-DATABASE-NODEJS-HOW-TO-USE.MD
+
+---------- SQL-DATABASE-NODEJS-USE-WEB-SITE.MD
+
+---------- SQL-DATABASE-OVERVIEW.MD
+
+---------- SQL-DATABASE-PHP-HOW-TO-USE.MD
+
+---------- SQL-DATABASE-PREMIUM-SIGN-UP.MD
+
+---------- SQL-DATABASE-SCALE-OUT.MD
+
+---------- STORAGE-ACCOUNT-CONCEPTS.MD
+
+---------- STORAGE-CREATE-STORAGE-ACCOUNT.MD
+
+---------- STORAGE-CUSTOM-DOMAIN-NAME.MD
+
+---------- STORAGE-DOTNET-HOW-TO-USE-BLOBS-17.MD
+
+---------- STORAGE-DOTNET-HOW-TO-USE-BLOBS-20.MD
+
+---------- STORAGE-DOTNET-HOW-TO-USE-QUEUES-17.MD
+
+---------- STORAGE-DOTNET-HOW-TO-USE-QUEUES-20.MD
+
+---------- STORAGE-DOTNET-HOW-TO-USE-TABLE-STORAGE-17.MD
+
+---------- STORAGE-DOTNET-HOW-TO-USE-TABLE-STORAGE-20.MD
+
+---------- STORAGE-DOTNET-SHARED-ACCESS-SIGNATURE-PART-1.MD
+
+---------- STORAGE-DOTNET-SHARED-ACCESS-SIGNATURE-PART-2.MD
+
+---------- STORAGE-IMPORT-EXPORT-SERVICE.MD
+
+---------- STORAGE-JAVA-HOW-TO-USE-BLOB-STORAGE.MD
+
+---------- STORAGE-JAVA-HOW-TO-USE-QUEUE-STORAGE.MD
+
+---------- STORAGE-JAVA-HOW-TO-USE-TABLE-STORAGE.MD
+
+---------- STORAGE-JAVA-HUDSON-CONTINUOUS-INTEGRATION-SOLUTION.MD
+
+---------- STORAGE-JAVA-JENKINS-CONTINUOUS-INTEGRATION-SOLUTION.MD
+
+---------- STORAGE-JAVA-USE-BLOB-STORAGE-ON-PREMISES-APP.MD
+
+---------- STORAGE-MANAGE-STORAGE-ACCOUNT.MD
+
+---------- STORAGE-MONITOR-STORAGE-ACCOUNT.MD
+
+---------- STORAGE-NODEJS-HOW-TO-USE-BLOB-STORAGE.MD
+
+---------- STORAGE-NODEJS-HOW-TO-USE-QUEUES.MD
+
+---------- STORAGE-NODEJS-HOW-TO-USE-TABLE-STORAGE.MD
+
+---------- STORAGE-NODEJS-USE-TABLE-STORAGE-CLOUD-SERVICE-APP.MD
+
+---------- STORAGE-NODEJS-USE-TABLE-STORAGE-WEB-SITE.MD
+
+---------- STORAGE-PHP-HOW-TO-USE-BLOBS.MD
+
+---------- STORAGE-PHP-HOW-TO-USE-QUEUES.MD
+
+---------- STORAGE-PHP-HOW-TO-USE-TABLE-STORAGE.MD
+
+---------- STORAGE-PYTHON-HOW-TO-USE-BLOB-STORAGE.MD
+
+---------- STORAGE-PYTHON-HOW-TO-USE-QUEUE-STORAGE.MD
+
+---------- STORAGE-PYTHON-HOW-TO-USE-TABLE-STORAGE.MD
+
+---------- STORAGE-PYTHON-USE-TABLE-STORAGE-WEB-APP.MD
+
+---------- STORAGE-RUBY-HOW-TO-USE-BLOB-STORAGE.MD
+
+---------- STORAGE-RUBY-HOW-TO-USE-QUEUE-STORAGE.MD
+
+---------- STORAGE-RUBY-HOW-TO-USE-TABLE-STORAGE.MD
+
+---------- STORAGE-USE-STORAGE-SQL-SERVER-BACKUP-RESTORE.MD
+
+---------- STORAGE-USE-STORE-APPS.MD
+
+---------- STORAGE-WHATIS-ACCOUNT.MD
+
+---------- STORAGE-WINDOWS-ATTACH-DISK.MD
+
+---------- STORAGE-WINDOWS-DETACH-DISK.MD
+
+---------- STORE-BLITLINE-HOW-TO-USE.MD
+
+---------- STORE-MONGODB-VIRTUAL-MACHINES-LINUX-CENTOS.MD
+
+---------- STORE-MONGODB-VIRTUAL-MACHINES-LINUX-INSTALL-CENTOS.MD
+
+---------- STORE-MONGOLAB-PHP-CREATE-MONGODB.MD
+
+---------- STORE-MONGOLAB-WEB-SITES-DOTNET-STORE-DATA-MONGODB.MD
+
+---------- STORE-MONGOLAB-WEB-SITES-NODEJS-STORE-DATA-MONGODB.MD
+
+---------- STORE-NEW-RELIC-CLOUD-SERVICES-DOTNET-APPLICATION-PERFORMANCE-MANAGEMENT.MD
+
+---------- STORE-NEW-RELIC-MOBILE-SERVICES-MONITOR.MD
+
+---------- STORE-NEW-RELIC-WEB-SITES-DOTNET-APPLICATION-PERFORMANCE-MANAGEMENT.MD
+
+---------- STORE-PHP-CREATE-MYSQL-DATABASE.MD
+
+---------- STORE-SENDGRID-JAVA-HOW-TO-SEND-EMAIL-EXAMPLE.MD
+
+---------- STORE-SENDGRID-JAVA-HOW-TO-SEND-EMAIL.MD
+
+---------- STORE-SENDGRID-MOBILE-SERVICES-SEND-EMAIL-SCRIPTS.MD
+
+---------- STORE-SENDGRID-NODEJS-HOW-TO-SEND-EMAIL.MD
+
+---------- STORE-SENDGRID-PHP-HOW-TO-SEND-EMAIL.MD
+
+---------- TRAFFIC-MANAGER-CONFIGURE-SETTINGS.MD
+
+---------- TWILIO-DOTNET-HOW-TO-USE-FOR-VOICE-SMS.MD
+
+---------- VIRTUAL-MACHINES-CAPTURE-IMAGE-WINDOWS-SERVER.MD
+
+---------- VIRTUAL-MACHINES-CONNECT-CLOUD-SERVICE.MD
+
+---------- VIRTUAL-MACHINES-CREATE-CUSTOM.MD
+
+---------- VIRTUAL-MACHINES-CREATE-UPLOAD-VHD-WINDOWS-SERVER.MD
+
+---------- VIRTUAL-MACHINES-DEPLOY-SHAREPOINT-2010.MD
+
+---------- VIRTUAL-MACHINES-DOTNET-RUN-COMPUTE-INTENSIVE-TASK.MD
+
+---------- VIRTUAL-MACHINES-INSTALL-MONGODB-WINDOWS-SERVER-2008R2.MD
+
+---------- VIRTUAL-MACHINES-JAVA-RUN-COMPUTE-INTENSIVE-TASK.MD
+
+---------- VIRTUAL-MACHINES-JAVA-RUN-TOMCAT-APPLICATION-SERVER.MD
+
+---------- VIRTUAL-MACHINES-LINUX-AGENT-USER-GUIDE.MD
+
+---------- VIRTUAL-MACHINES-LINUX-CAPTURE-IMAGE.MD
+
+---------- VIRTUAL-MACHINES-LINUX-CREATE-UPLOAD-VHD.MD
+
+---------- VIRTUAL-MACHINES-LINUX-HOW-TO-ATTACH-DISK.MD
+
+---------- VIRTUAL-MACHINES-LINUX-HOW-TO-DETACH-DISK.MD
+
+---------- VIRTUAL-MACHINES-LINUX-HOW-TO-LOG-ON.MD
+
+---------- VIRTUAL-MACHINES-LINUX-HOW-TO-PREPARE.MD
+
+---------- VIRTUAL-MACHINES-LINUX-HOW-TO-SERVICE-API.MD
+
+---------- VIRTUAL-MACHINES-LINUX-INSTALL-LAMP-STACK.MD
+
+---------- VIRTUAL-MACHINES-LINUX-INSTALL-MYSQL-OPENSUSE.MD
+
+---------- VIRTUAL-MACHINES-LINUX-INSTALL-SOFTWARE.MD
+
+---------- VIRTUAL-MACHINES-LINUX-MYSQL-USE-OPENSUSE.MD
+
+---------- VIRTUAL-MACHINES-LINUX-NODEJS-RUNNING-CASSANDRA.MD
+
+---------- VIRTUAL-MACHINES-LINUX-TUTORIAL.MD
+
+---------- VIRTUAL-MACHINES-LINUX-USE-ROOT-PRIVILEGES.MD
+
+---------- VIRTUAL-MACHINES-LINUX-USERNAMES.MD
+
+---------- VIRTUAL-MACHINES-LOAD-BALANCE.MD
+
+---------- VIRTUAL-MACHINES-LOG-ON-WINDOWS-SERVER.MD
+
+---------- VIRTUAL-MACHINES-MANAGE-AVAILABILITY.MD
+
+---------- VIRTUAL-MACHINES-MYSQL-WINDOWS-SERVER-2008R2.MD
+
+---------- VIRTUAL-MACHINES-PROVISION-SQL-SERVER.MD
+
+---------- VIRTUAL-MACHINES-PYTHON-DJANGO-WEB-APP-LINUX.MD
+
+---------- VIRTUAL-MACHINES-PYTHON-DJANGO-WEB-APP-WINDOWS-SERVER.MD
+
+---------- VIRTUAL-MACHINES-PYTHON-IPYTHON-NOTEBOOK.MD
+
+---------- VIRTUAL-MACHINES-PYTHON-USE-MYSQL-DJANGO.MD
+
+---------- VIRTUAL-MACHINES-QUICK-CREATE.MD
+
+---------- VIRTUAL-MACHINES-RUBY-DEPLOY-CAPISTRANO-HOST-NGINX-UNICORN.MD
+
+---------- VIRTUAL-MACHINES-RUBY-RAILS-WEB-APP-LINUX.MD
+
+---------- VIRTUAL-MACHINES-SET-UP-ENDPOINTS.MD
+
+---------- VIRTUAL-MACHINES-SQL-SERVER.MD
+
+---------- VIRTUAL-MACHINES-USE-RUBY.MD
+
+---------- VIRTUAL-MACHINES-WINDOWS-TUTORIAL.MD
+
+---------- VIRTUAL-NETWORKS-ADD-VIRTUAL-MACHINE.MD
+
+---------- VIRTUAL-NETWORKS-CREATE-SITE-TO-SITE-CROSS-PREMISES-CONNECTIVITY.MD
+
+---------- VIRTUAL-NETWORKS-INSTALL-REPLICA-ACTIVE-DIRECTORY-DOMAIN-CONTROLLER.MD
+
+---------- WEB-SITES-AVAILABLE-OPERATING-SYSTEM-FUNCTIONALITY.MD
+
+---------- WEB-SITES-BUSINESS-APPLICATION-SOLUTION-OVERVIEW.MD
+
+---------- WEB-SITES-CONFIGURE-SSL-CERTIFICATE.MD
+
+---------- WEB-SITES-CONFIGURE.MD
+
+---------- WEB-SITES-CREATE-DEPLOY.MD
+
+---------- WEB-SITES-CREATE-WEB-JOBS.MD
+
+---------- WEB-SITES-CUSTOM-DOMAIN-NAME.MD
+
+---------- WEB-SITES-DEPLOY.MD
+
+---------- WEB-SITES-DIGITAL-MARKETING-APPLICATION-SOLUTION-OVERVIEW.MD
+
+---------- WEB-SITES-DOTNET-DEPLOY-ASPNET-MVC-APP-MEMBERSHIP-OAUTH-SQL-DATABASE-VS2012.MD
+
+---------- WEB-SITES-DOTNET-DEPLOY-ASPNET-MVC-APP-MEMBERSHIP-OAUTH-SQL-DATABASE.MD
+
+---------- WEB-SITES-DOTNET-DEPLOY-ASPNET-MVC-MOBILE-APP.MD
+
+---------- WEB-SITES-DOTNET-GET-STARTED-VS2012.MD
+
+---------- WEB-SITES-DOTNET-GET-STARTED.MD
+
+---------- WEB-SITES-DOTNET-ORCHARD-CMS-GALLERY.MD
+
+---------- WEB-SITES-DOTNET-REST-SERVICE-ASPNET-API-SQL-DATABASE.MD
+
+---------- WEB-SITES-DOTNET-SESSION-STATE-CACHING.MD
+
+---------- WEB-SITES-DOTNET-STORE-DATA-MONGODB-VM.MD
+
+---------- WEB-SITES-DOTNET-TROUBLESHOOT-VISUAL-STUDIO.MD
+
+---------- WEB-SITES-DOTNET-USING-WEBMATRIX.MD
+
+---------- WEB-SITES-DOTNET-WEB-FORMS-OUTPUT-CACHING.MD
+
+---------- WEB-SITES-ENABLE-DIAGNOSTIC-LOG.MD
+
+---------- WEB-SITES-GLOBAL-WEB-PRESENCE-SOLUTION-OVERVIEW.MD
+
+---------- WEB-SITES-MANAGE.MD
+
+---------- WEB-SITES-MONITOR.MD
+
+---------- WEB-SITES-NODEJS-CHAT-APP-SOCKETIO.MD
+
+---------- WEB-SITES-NODEJS-DEBUG.MD
+
+---------- WEB-SITES-NODEJS-DEVELOP-DEPLOY-MAC.MD
+
+---------- WEB-SITES-NODEJS-STORE-DATA-MONGODB.MD
+
+---------- WEB-SITES-NODEJS-TRANSFORM-EXTEND.MD
+
+---------- WEB-SITES-NODEJS-USE-WEBMATRIX.MD
+
+---------- WEB-SITES-OVERVIEW.MD
+
+---------- WEB-SITES-PHP-CONFIGURE.MD
+
+---------- WEB-SITES-PHP-CONVERT-WORDPRESS-MULTISITE.MD
+
+---------- WEB-SITES-PHP-CREATE-WEB-SITES.MD
+
+---------- WEB-SITES-PHP-MIGRATE-DRUPAL.MD
+
+---------- WEB-SITES-PHP-MYSQL-DEPLOY-USE-FTP.MD
+
+---------- WEB-SITES-PHP-MYSQL-DEPLOY-USE-GIT.MD
+
+---------- WEB-SITES-PHP-MYSQL-USE-WEBMATRIX.MD
+
+---------- WEB-SITES-PHP-SQL-DATABASE-DEPLOY-USE-GIT.MD
+
+---------- WEB-SITES-PHP-SQL-DATABASE-USE-WEBMATRIX.MD
+
+---------- WEB-SITES-PHP-STORAGE.MD
+
+---------- WEB-SITES-PHP-WEB-SITE-GALLERY.MD
+
+---------- WEB-SITES-PUBLISH-SOURCE-CONTROL-GIT.MD
+
+---------- WEB-SITES-PUBLISH-SOURCE-CONTROL.MD
+
+---------- WEB-SITES-PYTHON-CONFIGURE.MD
+
+---------- WEB-SITES-PYTHON-CREATE-DEPLOY-DJANGO-APP.MD
+
+---------- WEB-SITES-SCALE.MD
+
+---------- WEB-SITES-STAGED-PUBLISHING.MD
+
+---------- WEB-SITES-TRANSFORM-EXTEND.MD
+
+---------- XPLAT-CLI.MD
