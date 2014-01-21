@@ -374,7 +374,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 [hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
 
-[web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&amp;clcid=0x409/
+[web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=9811175&clcid=0x409 
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
@@ -385,7 +385,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [apache-hadoop]: http://hadoop.apache.org/
 
 [powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
-[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+[powershell-install-configure]: /en-us/documentation/articles/hdinsight-install-configure-powershell/
 [powershell-open]: /en-us/manage/install-and-configure-windows-powershell/#Install
 
 
