@@ -101,7 +101,7 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: ./mobile-services-get-started-with-data-dotnet.md
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
 [JavaScript and HTML]: mobile-services-win8-javascript/

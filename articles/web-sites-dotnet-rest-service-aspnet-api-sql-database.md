@@ -206,11 +206,9 @@ This is all you need to do for now to create the application that you'll deploy 
 	-In your browser window, save the *.publishsettings* file.<br/>
     
 	![download pub file](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDown2.png)
-
     
-		[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
-    
 	-In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
     
 	![download sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDownLoad.png)
@@ -789,7 +787,7 @@ After the deployment completes, the browser opens to the home page of the applic
 
 When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.<br/>
 
-	![Index page with contacts][addwebapi004]
+![Index page with contacts][addwebapi004]
 
 The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Windows Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
