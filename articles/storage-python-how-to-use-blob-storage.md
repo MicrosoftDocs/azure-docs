@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) - Windows Azure feature guide" services=”Storage” metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Blob service from Python"/>
+<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) - Windows Azure feature guide" services=”Storage” metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Blob service from Python"/>
 
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
@@ -28,7 +28,7 @@ see the [Next Steps][] section.
 
 ## <a name="create-container"> </a>How to: Create a Container
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python.md).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python/).
 
 
 The **BlobService** object lets you work with containers and blobs. The
