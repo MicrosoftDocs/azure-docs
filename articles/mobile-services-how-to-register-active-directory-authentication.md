@@ -62,16 +62,16 @@ You are now ready to use a Windows Azure Active Directory for authentication in 
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
-[2]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-identity-tab.png
-[3]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png
-[4]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-select-ad-waad-auth.png
-[5]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-add-app-wizard-1-waad-auth.png
-[6]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-add-app-wizard-2-waad-auth.png
-[7]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-add-app-wizard-3-waad-auth.png
-[8]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-clientid-waad-auth.png
-[9]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-clientid-pasted-waad-auth.png
-[10]: ./Media/mobile-services-how-to-register-active-directory-authentication/mobile-services-waad-idenity-tab-selection.png
+[1]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-selection.png
+[2]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-identity-tab.png
+[3]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-copy-app-url-waad-auth.png
+[4]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-select-ad-waad-auth.png
+[5]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-add-app-wizard-1-waad-auth.png
+[6]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-add-app-wizard-2-waad-auth.png
+[7]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-add-app-wizard-3-waad-auth.png
+[8]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-clientid-waad-auth.png
+[9]: ./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-clientid-pasted-waad-auth.png
+[10]:./media/mobile-services-how-to-register-active-directory-authentication/mobile-services-waad-idenity-tab-selection.png
 
 <!-- URLs. -->
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
