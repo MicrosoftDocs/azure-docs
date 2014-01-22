@@ -29,7 +29,7 @@ You'll learn:
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the login page for the completed application:
 
-	![login page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png)
+![login page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png)
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -165,7 +165,7 @@ This is all you need to do for now to create the application that you'll deploy 
 	![saving the .publishsettings file][firsdeploy002]
 
 
-		[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
 5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -399,7 +399,7 @@ This tutorial does not show all of the steps you must perform to register with t
 
 Navigate to  [https://developers.facebook.com/apps](https://developers.facebook.com/apps/)  page and log in if necessary. Click the **Register as a Developer** button and complete the registration process. Once you complete registration, click **Create New App**. Enter a name for the app. You don't need to enter an app namespace.
 
-	![Create New FB app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png)
+![Create New FB app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png)
 
 
 Enter localhost for the **App Domain** and http://localhost/ for the **Site URL**. Click **Enabled** for **Sandbox Mode**, then click **Save Changes**.
@@ -411,7 +411,7 @@ You will need the **App ID** and the **App Secret** to implement OAuth in this a
 ## Creating test users ##
 In the left pane under **Settings** click **Developer Roles**. Click the **Create** link on the **Test Users** row (not the **Testers** row).
 
-	![FB testers](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png)
+![FB testers](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png)
 
 Click on the **Modify** link to get the test users email (which you will use to log into the application). Click the **See More** link, then click **Edit** to set the test users password.
 
@@ -549,7 +549,7 @@ Install SSMS  from [Microsoft SQL Server 2012 Express Download Center](http://ww
 
 On the first page of the SQL Server Installation Center, click **New SQL Server stand-alone installation or add features to an existing installation**, and follow the instructions, accepting the default choices. The following image shows the step that install SSMS.
 
-	![SQL Install][rxSS] 
+![SQL Install][rxSS] 
 
 ### Create the development database script ###
 
@@ -591,6 +591,7 @@ You can skip the **Choose Objects** step because the default is Script entire da
 
 1. Build the application.
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
+
 	![Publish in project context menu][firsdeploy003]
 
 The **Publish Web** wizard opens.
@@ -613,12 +614,13 @@ The **Publish Web** wizard opens.
 1. Test the application. Verify only the users in the *canEdit* role can change data. Verify anonymous users can only view the home page. Verify authenticated users can navigate to all links that don't change data.
 1. The next time you publish the application be sure to uncheck **Update database** under **DefaultConnectionDeploy**.
 	
-	![settings][rxSettings] 
+	![settings][rxSettings]
+
 <h2><a name="ppd2"></a><span class="short-header">Update DB</span>Update the Membership Database</h2>
 
 Once the site is deployed to Windows Azure and you have more registered users you might want to make some of them members of the *canEdit* role. In this section we will use Visual Studio to connect to the SQL database and add users to the *canEdit* role.
 
-	![settings][rxSettings] 
+![settings][rxSettings] 
 
 1. In **Solution Explorer**, right click the project and click **Publish**.
 	![Publish][rxP]
@@ -646,7 +648,8 @@ Once the site is deployed to Windows Azure and you have more registered users yo
 
 ## Cannot open server login error ##
 If you get an error dialog stating "Cannot open server" you will need to add your IP address to the allowed IPs.
-	![firewall error][rx5]
+
+![firewall error][rx5]
 
 1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
 

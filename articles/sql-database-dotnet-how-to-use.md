@@ -90,7 +90,7 @@ Notice that you did not specify a server name. SQL Database auto-generates the s
 After the database is created, click on it to open its dashboard. The dashboard provides connection strings that you can copy and use in application code. It also shows the management URL that you'll need to specify if you are connecting to the database from Management Studio or other administrative tool.
 
 
-	![image](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
+![image](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
 
 
 In the next step, you will configure the firewall so that connections from applications running on your network are allowed access.
