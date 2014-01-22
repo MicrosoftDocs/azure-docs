@@ -130,11 +130,6 @@ Next, you will update the app to authenticate users with Live Connect before req
 
     This creates a member variable for storing the current Live Connect session and a method to handle the authentication process.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>This code forces a logout, when possible, to make sure that the user is prompted for credentials each time the application runs. This makes it easier to test the application with different Microsoft Accounts to ensure that the authentication is working correctly. This mechanism will only work if the logged in user does not have a connected Microsoft account.</p>
-    </div>
-	
-
 7. Update string _<< INSERT CLIENT ID HERE >>_ from the previous step with the client ID value that was generated when you registered your app with Live Connect.
 
     <div class="dev-callout"><b>Note</b>

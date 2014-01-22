@@ -7,38 +7,45 @@ When you create a web site, Windows Azure provides a friendly subdomain on the a
 	<p>The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Windows Azure</a>.</p> 
 </div>
 
-The steps in this task require you to configure your web sites for Shared or Standard mode. 
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>The steps in this task require you to configure your web sites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.</p>
+</div>
 
-You can use a CNAME record to point your domain name to your Windows Azure web site. You can also configure an A record to point the domain name to Windows Azure web site. The process requires that you wait for the CNAME and A records propagate before you can finally set the domain name in the management portal.
+In this article:
 
-There are two ways you can configure the Domain Name Server (DNS) settings on your domain registrar to point to your Windows Azure web site:
+-   [Understanding CNAME and A records](#understanding-records)
+-   [Configure your web sites for shared mode](#bkmk_configsharedmode)
+-   [Add a CNAME for your custom domain](#bkmk_configurecname)
+-   [Add an A record for your custom domain](#bkmk_configurearecord)
 
-1.  **CNAME or Alias record**
 
-    With a CNAME, you map a *specific* domain, such as www.contoso.com or myblog.contoso.com, to the <*mysite*>.azurewebsites.net domain name of your Windows Azure web site.
 
-	Using the Microsoft sample domain, contoso.com, as an example:
-	
-	- You can typically map subdomains such as www.contoso.com or MySubSite.contoso.com.
-	- Typically you cannot map bare domains such as contoso.com or wildcard names such as \*.contoso.com.
 
-2.  **A record**
+<h2><a name="understanding-records"></a>Understand CNAME and A records</h2>
 
-    With an A record, you map a domain (e.g., contoso.com or www.contoso.com) or a wildcard domain (e.g., \*.contoso.com) to the single public IP address of a deployment within a Windows Azure web site. 
+CNAME (or alias records) and A records both allow you to associate a domain name with a web site, however they each work differently.
 
-    The main benefit of this approach over using CNAMEs is that you can map root domains (e.g., contoso.com) and wildcard domains (e.g., \*.contoso.com), in addition to subdomains (e.g., www.contoso.com).
- 
-The task includes the following steps: 
+###CNAME or Alias record
 
-1. Prerequisite: [Configure your web sites for shared mode][]
-2. Prerequisite: [Configure the CNAME on your domain registrar][]
-3. [Set the domain name in management portal][]
+A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **&lt;myapp>.azurewebsites.net** domain name of your Windows Azure web site. Once created, the CNAME creates an alias for the **&lt;myapp>.azurewebsites.net**. The CNAME entry will resolve to the IP address of your **&lt;myapp>.azurewebsites.net** service automatically, so if the IP address of the web site changes, you do not have to take any action.
 
-You can also optionally [Configure an A record for the domain name][].
+<div class="dev-callout"> 
+<b>Note</b> 
+	<p>Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.</p>
+</div>
+
+###A record
+
+An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of a Windows Azure Web Site, the virtual IP of the service. So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as ***.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
+
+<div class="dev-callout"> 
+<b>Note</b>
+<p>Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web site. An IP address for use with A records is provided when you configure custom domain name settings for your web site; however, this value may change if you delete and recreate your web site, or change the web site mode to back to free.</p>
+</div>
+
  
 <a name="bkmk_configsharedmode"></a><h2>Configure your web sites for shared mode</h2>
-
-Setting a CNAME record is the recommend way to map your domain name to your Windows Azure web site. Mapping a CNAME record insulates your web site from changes that could affect the underlying IP address of the site.
 
 Setting a custom domain name on a web site is only available for the Shared and Standard modes for Windows Azure web sites. Before switching a web site from the Free web site mode to the Shared or Standard web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on Shared and Standard mode pricing, see [Pricing Details][PricingDetails].
 
@@ -64,47 +71,84 @@ Setting a custom domain name on a web site is only available for the Shared and 
 	If you receive a "Configuring scale for web site 'web site name' failed" error, you can use the details button to get more information. 
 	
 
-<a name="bkmk_configurecname"></a><h2>Configure the CNAME on your domain registrar</h2>
+<a name="bkmk_configurecname"></a><h2>Add a CNAME for your custom domain</h2>
 
-To configure a custom domain name, you must create a CNAME record in your custom domain name's DNS table. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept is the same. Once you have configured the CNAME record, it will take some time to propagate.
+To create a CNAME record, you must add a new entry in the DNS table for your custom domain by using tools provided by your registrar. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concepts are the same.
 
-1. In your browser, open the [Windows Azure Management Portal][portal].
-2. In the **Web Sites** tab, locate the name of your site. 
-3. Log on to your DNS registrar's web site, and go to the page for managing DNS. You might find this in a section, such as Domain Name, DNS, or Name Server Management.
-4. Now find the section for managing CNAMEs. You may have to go to an advanced settings page and look for the words CNAME, Alias, or Subdomains.
-5. Finally, you must provide a subdomain alias, such as www. Then, you must provide a hostname, which is your application's azurewebsites.net domain which consists of the name you located in step two and the azurewebsites.net domain. 
-For example, using the Microsoft sample domain of contoso.com, the following CNAME record example forwards all traffic from *www.contoso.com* to *mysite.azurewebsites.net*, the DNS name of your deployed application:
+1. Use one of these methods to find the **.azurewebsite.net** domain name assigned to your web site.
 
-	<br/>
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tr>
-			<th><strong>Alias</strong></th>
-			<th><strong>TTL</strong></th>
-			<th><strong>Type</strong></th>
-			<th>Value</th>
-		</tr>
-		<tr>
-		  	<td>www.contoso.com</td>
-		  	<td>86400</td>
-		    <td>CNAME</td>
-			<td>mysite.azurewebsites.net</td>
-		</tr>
-	</table>
-	<br/>
+	* Login to the [Windows Azure Management Portal][portal], select your web site, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
+
+	* Install and configure [Windows Azure Powershell](http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/), and then use the following command:
+
+			get-azurewebsite yoursitename | select hostnames
+
+	* Install and configure the [Windows Azure Cross-Platform Command Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/), and then use the following command:
+
+			azure site domain list yoursitename
+
+	Save this **.azurewebsite.net** name, as it will be used in the following steps.
+
+3. Log on to your DNS registrar's web site, and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
+
+4. Now find where you can select or enter CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
+
+5. You must also provide the domain or subdomain alias for the CNAME. For example, **www** if you want to create an alias for **www.customdomain.com**. If you want to create an alias for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+
+5. You must also provide a host name that is the canonical domain name for this CNAME alias. This is the **.azurewebsite.net** name for your web site.
+
+For example, the following CNAME record forwards all traffic from **www.contoso.com** to **contoso.azurewebsite.net**, the domain name of a web site:
+
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tr>
+<td><strong>Alias/Host name/Subdomain</strong></td>
+<td><strong>Canonical domain</strong></td>
+</tr>
+<tr>
+<td>www</td>
+<td>contoso.azurewebsite.net</td>
+</tr>
+</table>
+
+A visitor of **www.contoso.com** will never see the true host
+(contoso.azurewebsite.net), so the forwarding process is invisible to the
+end user.
+
+<div class="dev-callout">
+<b>Note</b>
+<p>The example above only applies to traffic at the <strong>www</strong> subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as *.contoso.com, to your azurewebsite.net address, you can configure a <strong>URL Redirect</strong> or <strong>URL Forward</strong> entry in your DNS settings, or create an A record.</p>
+</div>
 
 <div class="dev-callout"> 
 <b>Note</b> 
 <p>It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
 </div>
 
-<a name="bkmk_setcname"></a><h2>Set the domain name in management portal</h2>
+###Add the domain name to your web site
 
-After the CNAME or A record for domain name has propagated, you must associate it with your web site.
+After the CNAME record for domain name has propagated, you must associate it with your web site. You can add the custom domain name defined by the CNAME record to your web site by using either the Windows Azure Cross-Platform Command-Line Interface or by using the Windows Azure Management Portal.
+
+**To add a domain name using the command-line tools**
+
+Install and configure the [Windows Azure Cross-Platform Command-Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/), and then use the following command:
+
+	azure site domain add customdomain yoursitename
+
+For example, the following will add a custom domain name of **www.contoso.com** to the **contoso.azurewebsite.net** web site:
+
+	azure site domain add www.contoso.com contoso
+
+You can confirm that the custom domain name was added to the web site by using the following command:
+
+	azure site domain list yoursitename
+
+The list returned by this command should contain the custom domain name, as well as the default **.azurewebsite.net** entry.
+
+**To add a domain name using the Windows Azure Management Portal**
 
 1. In your browser, open the [Windows Azure Management Portal][portal].
-2. In the **Web Sites** tab, click the name of your site.
-4. Click the **Dashboard** tab.
-5. At the bottom of the screen, click **Manage Domains**.
+
+2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
 
 	![][setcname2]
 
@@ -114,45 +158,121 @@ After the CNAME or A record for domain name has propagated, you must associate i
 
 6. Click the check mark to accept the domain name.
 
-Windows Azure validates the existence of the hostname in the public DNS before it save changes and updates the internal Windows Azure DNS. Windows Azure validates the hostname before committing the save. By waiting until the CNAME change propagates, Windows Azure can verify that the custom domain belongs to the site owner. Verification allows Windows Azure routing to set up the route for each hostname, and ensures that every hostname belongs to one and only one site.  
+Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your web site. 
 
-<a name="bkmk_configurearecord"></a><h2>Configure an A record for the domain name</h2>
+<a name="bkmk_configurearecord"></a><h2Add an A Record for your custom domain</h2>
 
-To configure an A record, you must configure a CNAME record used to verify the domain name. This process is the same as the one used to configure a CNAME record to point to your web site, except that you configure the CNAME record domain names that will be used for verification purposes. For example, using the Microsoft sample domain contoso.com, the hostname will be awverify.www.contoso.com and the value will be awverify.mysite.azurewebsites.net. Once this has propagated, you can configure the A record. 
+To create an A record, you must first find the IP address of your web site. Then add an entry in the DNS table for your custom domain by using the tools provided by your registrar. Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same. In addition to creating an A record, you must also create a CNAME record that Windows Azure uses to verify the A record.
 
 1. In your browser, open the [Windows Azure Management Portal][portal].
-2. In the **Web Sites** tab, click the name of your site.
-3. Click the **Dashboard** tab.
-4. At the bottom of the screen click **Manage Domains**.
+
+2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the screen.
 
 	![][setcname2]
 
-5. On the **Manage custom domains** dialog, locate **The IP Address to use when configuring A records**. Copy the IP address. 
-6. Log on to your DNS registrar's web site, and go to the page for managing DNS. You might find this in a section such as Domain Name, DNS, or Name Server Management.
-7. Configure the domain name and the IP address you copied in step 5.
-For example, the following DNS example forwards all traffic from *contoso.com* to *172.16.48.1*.
+5. On the **Manage custom domains** dialog, locate **The IP Address to use when configuring A records**. Copy the IP address. This will be used when creating the A record.
 
-	<br/>
+5. On the **Manage custom domains** dialog, note awverify domain name at the end of the text at the top of the dialog. It should be **awverify.mysite.azurewebsites.net** where **mysite** is the name of your web site. Copy this, as it is the domain name used when creating the verification CNAME record.
+
+6. Log on to your DNS registrar's web site, and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
+
+6. Find where you can select or enter A and CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page.
+
+7. Perform the following steps to create the A record:
+
+	1. Select or enter the domain or subdomain that will use the A record. For example, select **www** if you want to create an alias for **www.customdomain.com**. If you want to create a wildcard entry for all subdomains, enter '__*__'. This will cover all sub-domains such as **mail.customdomain.com**, **login.customdomain.com**, and **www.customdomain.com**.
+
+		If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+
+	2. Enter the IP address of your cloud service in the provided field. This associates the domain entry used in the A record with the IP address of your cloud service deployment.
+
+		For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of our deployed application:
+
+		<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+		<tr>
+		<td><strong>Host name/Subdomain</strong></td>
+		<td><strong>IP address</strong></td>
+		</tr>
+		<tr>
+		<td>@</td>
+		<td>137.135.70.239</td>
+		</tr>
+		</table>
+
+		This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
+
+7. Next, create a CNAME record that has an alias of **awverify**, and a canonical domain of **awverify.mysite.azurewebsites.net** that you obtained earlier.
+
+	<div class="dev-callout>
+	<b>Note</b>
+	<p>While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.</p>
+	</div>
+
+	For example, the following will create an CNAME record that Windows Azure can use to verify the A record configuration.
+
 	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tr>
-			<th><strong>Alias</strong></th>
-			<th><strong>TTL</strong></th>
-			<th><strong>Type</strong></th>
-			<th><strong>Value</strong></th>
-		</tr>
-		<tr>
-		  	<td>awverify.www.contoso.com</td>
-		  	<td>86400</td>
-		    <td>CNAME</td>
-			<td>awverify.mysite.azurewebsites.net</td>
-		</tr>
-		<tr>
-		  	<td>contoso.com</td>
-		  	<td>7200</td>
-		    <td>A</td>
-			<td>172.16.48.1</td>
-		</tr>
+	<tr>
+	<td><strong>Alias/Host name/Subdomain</strong></td>
+	<td><strong>Canonical domain</strong></td>
+	</tr>
+	<tr>
+	<td>awverify</td>
+	<td>awverify.contoso.azurewebsites.net</td>
+	</tr>
 	</table>
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>It can take some time for the awverify CNAME to propagate through the DNS system. You cannot set the custom domain name defined by the A record for the web site until the awverify CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
+</div>
+
+###Add the domain name to your web site
+
+After the **awverify** CNAME record for domain name has propagated, you can then associate the custom domain defined by the A record with your web site. You can add the custom domain name defined by the A record to your web site by using either the Windows Azure Cross-Platform Command-Line Interface or by using the Windows Azure Management Portal.
+
+**To add a domain name using the command-line tools**
+
+Install and configure the [Windows Azure Cross-Platform Command-Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/), and then use the following command:
+
+	azure site domain add customdomain yoursitename
+
+For example, the following will add a custom domain name of **contoso.com** to the **contoso.azurewebsite.net** web site:
+
+	azure site domain add contoso.com contoso
+
+You can confirm that the custom domain name was added to the web site by using the following command:
+
+	azure site domain list yoursitename
+
+The list returned by this command should contain the custom domain name, as well as the default **.azurewebsite.net** entry.
+
+**To add a domain name using the Windows Azure Management Portal**
+
+1. In your browser, open the [Windows Azure Management Portal][portal].
+
+2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
+
+	![][setcname2]
+
+6. In the **DOMAIN NAMES** text box, type the domain name that you have configured. 
+
+	![][setcname3]
+
+6. Click the check mark to accept the domain name.
+
+Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your web site.
+
+<div class="dev-callout"> 
+<b>Note</b> 
+<p>After you have added the custom domain name defined by the A record to your web site, you can remove the awverify CNAME record using the tools provided by your registrar. However, if you wish to add another A record in the future, you will have to recreate the awverify record before you can associate the new domain name defined by the new A record with the web site.</p> 
+</div>
+
+## Next steps
+
+-   [How to manage web sites](http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/)
+
+-   [Configure an SSL certificate for Web Sites](http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/)
+
 
 <!-- Bookmarks -->
 
@@ -164,9 +284,14 @@ For example, the following DNS example forwards all traffic from *contoso.com* t
 
 <!-- Links -->
 
-[PricingDetails]: /en-us/pricing/details/
+[PricingDetails]: https://www.windowsazure.com/en-us/pricing/details/
 [portal]: http://manage.windowsazure.com
+[digweb]: http://www.digwebinterface.com/
+[cloudservicedns]: ../custom-dns/
 
+<!-- images -->
+
+[setcname1]: ../media/dncmntask-cname-5.png
 
 
 <!-- images -->

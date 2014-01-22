@@ -78,8 +78,8 @@ Includes Agreements, Message Types, BizTalk Services Portal</strong></td>
 <td>25 connections</td>
 </tr>
 <tr>
-<td><strong>Supported protocols/Systems:</strong>
-<bl>
+<td align="left"><strong>Supported protocols/Systems:</strong>
+<ul>
 <li>HTTP</li>
 <li>HTTPS</li>
 <li>FTP</li>
@@ -88,7 +88,7 @@ Includes Agreements, Message Types, BizTalk Services Portal</strong></td>
 <li>Service Bus (SB)</li>
 <li>Azure Blob</li>
 <li>REST APIs</li>
-</bl>
+</ul>
 </td>
 <td>Included</td>
 <td>Included</td>
