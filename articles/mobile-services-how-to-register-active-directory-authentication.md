@@ -4,50 +4,50 @@
 
 This topic shows you how to register your apps to be able to use Windows Azure Active Directory as an authentication provider for Windows Azure Mobile Services. 
 
-[WACOM.NOTE] When you intend to also provide client-driven authentication for single sign-on (SSO) or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">Register your Windows Store apps for Windows Live Connect authentication</a>.
+> [WACOM.NOTE] When you intend to also provide client-driven authentication for single sign-on (SSO) or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">Register your Windows Store apps for Windows Live Connect authentication</a>.
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   ![][1]
+    ![][1]
 
 2. Click the **Identity** tab for your mobile service. 
 
-   ![][2]
+    ![][2]
 
 3. Scroll down to the **windows azure active directory** identity provider section and copy the **APP URL** listed there.
 
-   ![][3]
+    ![][3]
 
 4. Navigate to **Active Directory** in the management portal, then click your directory.
 
-   ![][4] 
+    ![][4] 
 
 5. Click the **Applications** tab at the top, then click to **ADD** an app. 
 
-	![][10]
+    ![][10]
 
 6. Click **Add an application my organization is developing**.
 
 7. In the Add Application Wizard, enter a **Name** for your application and click the  **Web Application And/Or Web API** type. Then click to continue.
 
-   ![][5]
+    ![][5]
 
 8. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your mobile service. Also enter a unique resource identifier in the **App ID URI** box. The application will use the URI to submit single sign-on requests to the Windows Azure Active Directory. Then click to continue.
 
-   ![][6]
+    ![][6]
 
 9. Click to enable the **Single Sign-On** access type for the application. Click to complete the Add Application Wizard.
 
-   ![][7]
+    ![][7]
 
 10. Once the application has been added, scroll to the bottom. Then click the **Enable your app to read or write directory data** section to expand it. Then click to copy the **Client ID** for the app.
 
-	![][8]
+    ![][8]
 
 
 11. Return to your mobile service's **Identity** tab. At the bottom, paste in the **Client ID** setting for the azure active directory identity provider. Then click **Save**.
 
-	![][9]
+    ![][9]
 
 
 
