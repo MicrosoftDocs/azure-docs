@@ -91,17 +91,13 @@ After you create the load-balanced set, add the other virtual machines to the se
 
 <!-- LINKS -->
 
-[Create a Virtual Machine Running Linux]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial
+[Create a Virtual Machine Running Linux]: ../virtual-machines-linux-tutorial
 
-[Create a Virtual Machine Running Windows Server]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-tutorial
+[Create a Virtual Machine Running Windows Server]: ../virtual-machines-windows-tutorial
 
-[How to quickly create a virtual machine]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-quick-create
+[How to quickly create a virtual machine]: ../virtual-machines-quick-create
 
-[Manage the availability of virtual machines]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-manage-availability
-
-[How to set up communication with a virtual machine]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-how-to-setup-endpoints
-
-[How to connect virtual machines in a cloud service]: http://windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine
+[How to connect virtual machines in a cloud service]: ../virtual-machines-connect-cloud-service
 
 [Get Started with Windows Azure PowerShell]:http://msdn.microsoft.com/en-us/library/jj156055.aspx
 
