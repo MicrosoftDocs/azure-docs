@@ -125,7 +125,7 @@ HDInsight emulator comes with the *javac* compiler.
 
 	The command creates a WordCount.jar file in the current folder.
 
-	![HDI.EMulator.WordCount.Compile][image-emulator.wordcount.compile]
+	![HDI.EMulator.WordCount.Compile][image-emulator-wordcount-compile]
 
 
 
@@ -226,7 +226,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory as the 
 
 	If the job completes successfully, you should get an output similar to the following screenshot:
 
-	![HDI.EMulator.WordCount.Run][image-emulator.wordcount.run]
+	![HDI.EMulator.WordCount.Run][image-emulator-wordcount-run]
 
 	From the screenshot, you can see both map and reduce completed 100%. It also lists the job ID, job_201312092021_0002. The same report can be retrieved by opening the **Hadoop MapReduce status** shortcut from your desktop, and looking for the job ID.
 
@@ -578,6 +578,6 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 
 
 
-[image-emulator.wordcount.compile]: ../media/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator.wordcount.run]: ../media/HDI-Emulator-Run-Java-MapReduce.png
+[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
+[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
