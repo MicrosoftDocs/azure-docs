@@ -773,7 +773,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Created Cloud Service with URL $
 Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy script finished."
 </pre>
 
-  [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ../cloud-services-continuous-delivery-use-tfs/
+  [Continuous Delivery to Windows Azure by Using Team Foundation Service]: ../cloud-services-continous-delivery-use-tfs/
   [Step 1: Configure the Build Server]: #step1
   [Step 2: Build a Package using MSBuild Commands]: #step2
   [Step 3: Build a Package using TFS Team Build (Optional)]: #step3
