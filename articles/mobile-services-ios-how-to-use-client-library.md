@@ -286,6 +286,7 @@ Mobile Services enables you to use the following identity providers to authentic
 - Google 
 - Microsoft Account
 - Twitter
+- Windows Azure Active Directory
 
 For more information about configuring an identity provider, see [Get started with authentication]. 
 
@@ -320,7 +321,7 @@ Here is an example of how to login using a Microsoft Account. This code could be
 			[alert show];
 	}];	
 
-Note: if you are using an identity provider other than Facebook, change the value passed to the login method above to one of the following: microsoftaccount, twitter, or google.
+Note: if you are using an identity provider other than the one for a Microsoft Account, change the value passed to the login method above to one of the following: `facebook`, `twitter`, `google`, or `windowsazureactivedirectory`.
 
 You can also get a reference to the MSLoginController and display it yourself using:
 

@@ -28,7 +28,7 @@ see the [Next Steps][] section.
 
 ## <a name="create-container"> </a>How to: Create a Container
 
-**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../commontasks/how-to-install-python/).
+**Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
 
 
 The **BlobService** object lets you work with containers and blobs. The

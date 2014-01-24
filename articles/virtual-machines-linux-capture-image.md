@@ -48,5 +48,5 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 	When you create a virtual machine by using the **From Gallery** method, you can use the image that you captured by clicking **My Images** on the **Select the virtual machine operating system** page.
 	
-[How to Log on to a Virtual Machine Running Linux]: ./howto-logon-linux-vm.md
+[How to Log on to a Virtual Machine Running Linux]: ../virtual-machines-linux-how-to-log-on
 
