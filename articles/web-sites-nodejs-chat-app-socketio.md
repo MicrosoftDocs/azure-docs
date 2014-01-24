@@ -107,7 +107,7 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 	<p>During module installation, you may notice errors that 'The imported project ... was not found'. These can safely be ignored.</p>
 	</div>
 
-3. Socket.IO uses WebSockets, which are not enabled by default on Windows Azure. To enable web sockets, use the following command:
+4. Socket.IO uses WebSockets, which are not enabled by default on Windows Azure. To enable web sockets, use the following command:
 
 		azure site set -w
 
@@ -119,10 +119,8 @@ Follow these steps to create a Windows Azure Web Site, and then enable Git publi
 	>To enable WebSockets using the [Windows Azure Management Portal](https://manage.windowsazure.com), select the Configure page for your web site, select 'ON' for the Web Sockets entry, and then click Save.
 	>	
 	>![websockets](./media/web-sites-nodejs-chat-app-socketio/websockets.png)
-	</div>
-
-
-4. To view the web site on Windows Azure, use the following command to launch your web browser and navigate to the hosted web site:
+	
+5. To view the web site on Windows Azure, use the following command to launch your web browser and navigate to the hosted web site:
 
 		azure site browse
 
