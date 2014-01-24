@@ -35,7 +35,7 @@ To be able to use an SAS to upload images to Blob storage, you must first add th
 
 1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
 
-2. In the left pane, select the **Online** category, select **Include Prerelease**, search for **WindowsAzure.Storage-Preview**, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
+2. In the left pane, select the **Online** category, search for **WindowsAzure.Storage**, click **Install** on the **Windows Azure Storage** package, then accept the license agreements. 
 
   	![][2]
 
@@ -186,6 +186,9 @@ In this section you will update the project from the [Get started with Mobile Se
                     container.GetBlockBlobReference(todoItem.ResourceName);
                 await blobFromSASCredential.UploadFromStreamAsync(imageStream);
 				
+				// When you request an SAS at the container-level instead of the blob-level,
+				// you are able to upload multiple streams using the same container credentials.
+
                 imageStream = null;
             }              
 			
