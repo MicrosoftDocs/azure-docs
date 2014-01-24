@@ -40,7 +40,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
-<h2><a name="certificates"></a><span class="short-header">Generate CSR file</span>Generate the Certificate Signing Request file</h2>
+## Generate the Certificate Signing Request file
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
@@ -62,7 +62,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
+## Register your app for push notifications
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
@@ -135,7 +135,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 
-<h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
+## Create a provisioning profile for the app
  
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
 
@@ -173,7 +173,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to Mobile Services.
 
-<h2><a name="configure"></a><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
+## Configure Mobile Services to send push requests
 
 After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.
 
@@ -207,7 +207,7 @@ After you have registered your app with APNS and configured your project, you mu
 
 Both your mobile service is now configured to work with APNS.
 
-<h2><a name="add-push"></a><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+## Add push notifications to your app
 
 1. In Xcode, open the QSAppDelegate.h file and add the following property below the ***window** property:
 
@@ -289,7 +289,7 @@ Both your mobile service is now configured to work with APNS.
 
 Your app is now updated to support push notifications.
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
+## Update the registered insert script in the Management Portal
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -324,7 +324,7 @@ Your app is now updated to support push notifications.
    <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
    </div> 
 
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+## Test push notifications in your app
 
 1. Press the **Run** button to build the project and start the app in an iOS capable device, then click **OK** to accept push notifications
 
@@ -348,7 +348,7 @@ Your app is now updated to support push notifications.
 
 You have successfully completed this tutorial.
 
-## <a name="next-steps"> </a>Next steps
+## Next steps
 
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 

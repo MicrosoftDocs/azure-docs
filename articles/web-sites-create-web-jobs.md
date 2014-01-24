@@ -10,8 +10,8 @@ Windows Azure Web Sites enables you to run custom jobs (running executables or s
 - [Create an On Demand Web Job](#CreateOnDemand)
 - [Create a Continuous Web Job](#CreateContinuous)
 - [Create a Scheduled Web Job](#CreateScheduled)
-- [Run a Job Manually](#RunManually)
 - [View the Web Job History](#ViewJobHistory)
+- [Do More with the Windows Azure WebJobs SDK](#WebJobsSDK)
 
 <a name="acceptablefiles"></a>
 ##Acceptable File Types for Scripts##
@@ -100,12 +100,6 @@ The following file types are accepted as runnable scripts that can be used as a 
 	
 	![Schedule Particular Week Days on Particular Weeks in a Month][SchdMonthsOnPartWeekDaysOccurences]
 
-<a name="RunManually"></a>	
-##Run a Job Manually##
-To run a job manually, select the job that you want to run and click **Run Once** in the command bar at the bottom of the portal.
-
-![Run Once][RunOnce]
-
 <a name="ViewJobHistory"></a>
 ##View the Web Job History##
 To view the execution history of a web job, click on its link under the **Logs** column of the dashboard. (You can also use the clipboard icon to copy the URL of the log file page to the clipboard.)
@@ -129,6 +123,14 @@ An Output.log file is downloaded to your computer in text format and will be sim
 	[01/08/2014 03:12:28 > 543efe: SYS INFO] Status changed to Success
 
 Historical information for the last 30 job runs is maintained.
+
+
+<a name="WebJobsSDK"></a>
+##Do More with the Windows Azure WebJobs SDK##
+The Windows Azure WebJobs SDK simplifies the task of adding background processing to your Windows Azure web sites. The SDK integrates Windows Azure Storage, triggering a function in your program when items are added to Queues, Blobs or Tables. A dashboard provides rich monitoring and diagnostics for the programs that you write by using the SDK. The monitoring and diagnostics features are built into the SDK and do not require you to add any special code in your program.
+ 
+For more information, see the tutorial [Getting Started with Windows Azure WebJobs SDK](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). The tutorial provides an overview of the features of the WebJobs SDK and walks you through creating and running a simple Hello World background process.
+
 
 <!-- IMAGES -->
 

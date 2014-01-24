@@ -1,4 +1,4 @@
-<properties title="How to make a phone call from Twilio (PHP) - Windows Azure" pageTitle="How to make a phone call from Twilio (PHP) - Windows Azure" metaKeywords="Windows Azure PHP Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Samples are for PHP application." documentationCenter="PHP services="" solutions="" authors="" writer="waltpo" manager="bjsmith" editor="mollybos"/>
+<properties title="How to make a phone call from Twilio (PHP) - Windows Azure" pageTitle="How to make a phone call from Twilio (PHP) - Windows Azure" metaKeywords="Windows Azure PHP Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Samples are for PHP application." documentationCenter="PHP services="" solutions="" videoId="" scriptId="" authors="" writer="waltpo" manager="bjsmith" editor="mollybos"/>
 
 # How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure 
 
@@ -101,7 +101,7 @@ This code was provided to show you basic functionality using Twilio in PHP on Wi
 For additional information about Twilio, see [https://www.twilio.com/docs][twilio_docs].
 
 ## See Also
-* [How to Use Twilio for Voice and SMS Capabilities in PHP](../twilio-php-how-to-use-voice-sms)
+* [How to Use Twilio for Voice and SMS Capabilities in PHP](../partner-twilio-php-how-to-use-voice-sms)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio
@@ -114,7 +114,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
-[howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
+[howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
 [howto_blob_storage_php]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674502(v=vs.103).aspx
 [howto_sql_azure_php]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674500(v=vs.103).aspx
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties
