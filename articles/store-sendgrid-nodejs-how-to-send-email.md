@@ -42,7 +42,7 @@ include:
 -   Forwarding customer inquiries
 -   Email notifications from your application
 
-For more information, see [http://sendgrid.com](9http://sendgrid.com).
+For more information, see [http://sendgrid.com](http://sendgrid.com).
 
 ## <a name="createaccount"> </a>Create a SendGrid Account
 

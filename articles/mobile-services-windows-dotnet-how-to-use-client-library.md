@@ -82,16 +82,17 @@ All of the code that accesses or modifies data in the Mobile Services table call
     IMobileServiceTable<TodoItem> todoTable = 
 		client.GetTable<TodoItem>();
 
-This is the typed serialization model; see discussion of <a href="#untyped">the untyped serialization model</a> below.
+This is the typed serialization model; see discussion of the <a href="#untyped">untyped serialization model</a> below.
 			
 <h2><a name="querying"></a><span class="short-header">Querying data</span>How to: Query data from a mobile service</h2>
 
 This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging. 
+
+>[WACOM.NOTE] A server-driven page size is used by default to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].  
 			
 ### <a name="filtering"></a>How to: Filter returned data
 
 The following code illustrates how to filter data by including a `Where` clause in a query. It returns all items from `todoTable` whose `Complete` property is equal to `false`. The `Where` function applies a row filtering predicate to the query against the table. 
-	
 
 	// This query filters out completed TodoItems and 
 	// items without a timestamp. 
@@ -138,11 +139,7 @@ The `where` clause supports operations that be translated into the Mobile Servic
 
 ### <a name="sorting"></a>How to: Sort returned data
 
-The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field. By default, the server returns only the first 50 elements. 
-
-<div class="dev-callout"><strong>Note</strong> <p>A server-driven page size is used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service. </p> </div>
-
-You may increase the number of items to be returned by calling `Take` as described in the next section.
+The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field. 
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -156,7 +153,7 @@ You may increase the number of items to be returned by calling `Take` as describ
 
 ### <a name="paging"></a>How to: Return data in pages
 
-The following code shows how to implement paging in returned data by using the `Take` and `Skip` clauses in the query.  The following query, when executed, returns the top three items in the table. 
+By default, the server returns only the first 50 rows. You can increase the number of returned rows by calling the [Take] method. Use `Take` along with the [Skip] method to request a specific "page" of the total dataset returned by the query. The following query, when executed, returns the top three items in the table. 
 
 	// Define a filtered query that returns the top 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -171,7 +168,7 @@ The following revised query skips the first three results and returns the next t
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-You can also use the [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx) method to ensure that the query will get the total count for <i>all</i> the records that would have been returned, ignoring any take paging/limit clause specified:
+You can also use the [IncludeTotalCount] method to ensure that the query will get the total count for <i>all</i> the records that would have been returned, ignoring any take paging/limit clause specified:
 
 	query = query.IncludeTotalCount();
 
@@ -720,3 +717,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Optimistic Concurrency Tutorial]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
+
+[IncludeTotalCount]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250560.aspx 
+[Skip]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250573.aspx
+[Take]: http://msdn.microsoft.com/en-us/library/windowsazure/dn250574.aspx 
