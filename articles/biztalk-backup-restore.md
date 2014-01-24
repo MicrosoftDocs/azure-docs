@@ -2,7 +2,7 @@
 
 
 
-# BizTalk Services: Backup and Restore
+# BizTalk Services: Backup and Restore Test
 
 Windows Azure BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the Windows Azure BizTalk Services configuration is taken.
 
