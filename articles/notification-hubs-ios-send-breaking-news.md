@@ -16,7 +16,7 @@ This tutorial walks you through these basic steps to enable this scenario:
 3. [Send notifications from your back-end]
 4. [Run the app and generate notifications]
 
-This topic builds on the app you created in [Get started with Notification Hubs]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs].
+This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
 
 ##<a name="adding-categories"></a>Add category selection to the app
 
@@ -255,5 +255,5 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[get-started]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/
 

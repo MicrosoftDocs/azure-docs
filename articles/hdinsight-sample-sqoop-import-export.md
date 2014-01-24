@@ -13,7 +13,8 @@ Sqoop is an open source software product of Cloudera, Inc. Software development 
 In Windows Azure HDInsight, Sqoop is deployed from the Hadoop Command Shell on the head node of the HDFS cluster. You use the Remote Desktop feature available in the Hadoop on Azure portal to access the head node of the cluster for this deployment.
 
  
-**You will learn:**		
+**You will learn:**	
+	
 * How to use Windows Azure PowerShell to run a MapReduce program on Windows Azure HDInsight that analyzes data contained in a file.
 
 
@@ -34,7 +35,11 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 <h2><a id="set-up-sql"></a>Set up a SQL database</h2>
 TBD: screen shots for this section - this is the RDP approach still.
 
-1. Log in into your Windows Azure account. To create a database server, click the **Database** icon in the lower left-hand corner on the page.
+**To create a SQL database**
+
+1. Sign on to the Windows Azure Management portal. 
+2. Click NEW on the lower left corner, click DATA SERVICES, click SQL DATABASE.
+Log in into your Windows Azure account. To create a database server, click the **Database** icon in the lower left-hand corner on the page.
 
 2. On the **Getting Started** page, click the **Create a new SQL Database Server** option.
 
@@ -45,6 +50,8 @@ TBD: screen shots for this section - this is the RDP approach still.
 5. Specify the login and password of the server-level principal of your SQL Database server and then press **Next**.
 
 6. Press **Add** to specify a firewall rule that allows your current location access to SQL Database to upload the AdventureWorks database. The firewall grants access based on the originating IP address of each request. Use the IP address found with the configuration preliminaries of this tutorial for the values to add. Specify a Rule name, such as shown, but remember to use your IP address, not the one used for illustration purposes below. (You must also add the outward IP address of the head node in you Hadoop cluster. If you know it already, add it now.) Then press the **Finish** button.
+
+**To import AdventureWorks2012**
 
 7. Download the AdventureWorks2012 database onto your local machine from Recommended Downloads link on the Adventure Works for SQL Database site.
 
