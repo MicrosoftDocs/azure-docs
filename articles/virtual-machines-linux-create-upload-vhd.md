@@ -10,23 +10,23 @@ A virtual machine in Windows Azure runs the operating system that you choose whe
 
 **Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
-**Important**: The Windows Azure platform SLA will be applicable for virtual machines running the Linux OS only when one of the [endorsed distributions](http://support.microsoft.com/kb/2805216) is used with the configuration details as specified in [this article](http://support.microsoft.com/kb/2805216). All Linux distributions that are provided in the Azure Platform Image Gallery are endorsed distributions with the required configuration.
+**Important**: The Windows Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified in [this article](http://support.microsoft.com/kb/2805216). All Linux distributions that are provided in the Windows Azure image gallery are endorsed distributions with the required configuration.
 
 
 ##Prerequisites##
 This article assumes that you have the following items:
 
-- **A management certificate** - You have created a management certificate for the subscription for which you want to upload a VHD, and exported the certificate to a .cer file. For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx). 
+- **A management certificate** - You have created a management certificate for the subscription for which you want to upload a VHD, and exported the certificate to a .cer file. For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx). 
 
-- **Linux operating system installed in a .vhd file.**  - You have installed a supported Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solutions such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/en-us/library/hh846766.aspx). 
+- **Linux operating system installed in a .vhd file.**  - You have installed a supported Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solutions such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
 
 	**Important**: The newer VHDX format is not supported in Windows Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../otherresources/linux-on-endorsed-distributions.md). Note: This article includes a section at the end with [Information for Non Endorsed Distributions][].
+	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../linux-endorsed-distributions). 
 
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 
-- **Add-AzureVhd cmdlet**, which is part of the Windows Azure PowerShell module. To download the module, see [Windows Azure Downloads](/en-us/develop/downloads/). For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+- **Add-AzureVhd cmdlet**, which is part of the Windows Azure PowerShell module. To download the module, see [Windows Azure Downloads](/en-us/develop/downloads/). For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
 For all distributions note the following:
 
