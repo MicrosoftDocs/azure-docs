@@ -110,7 +110,9 @@ After you answer **Yes** to the confirmation message, one or both sites will be 
 
 - Linked resource management is not supported for non-production site slots. 
 
-- You can still publish directly to your production site slot if you wish. 
+- You can still publish directly to your production site slot if you wish.
+
+- Your staging slots (sites) share the same resources as your production slots (sites) and run on the same VMs. If you run stress testing on a stage slot, your production environment will experience a comparable stress load. 
 
 <!-- IMAGES -->
 [EnableStagedPub]:  ./media/web-sites-staged-publishing/EnableStagedPub.png

@@ -100,7 +100,7 @@ In this article, you have learned how to create an HDInsight cluster using the W
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
-
+* [What version of Hadoop is in Windows Azure HDInsight?][hdinsight-version]
 
 [hdinsight-admin-cross-platform]: /en-us/manage/services/hdinsight/administer-hdinsight-using-command-line-interface/
 [hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
@@ -108,6 +108,7 @@ In this article, you have learned how to create an HDInsight cluster using the W
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
+[hdinsight-version]: /en-us/manage/services/hdinsight/versioning-in-hdinsight/
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/

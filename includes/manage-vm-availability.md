@@ -173,6 +173,6 @@ You can easily add an existing virtual machine to an availability set that was p
 
 
 <!-- LINKS -->
-[Load Balancing Virtual Machines]:../../Windows/CommonTasks/LoadBalancingVirtualMachines.md
-[About Affinity Groups for Virtual Network]:http://msdn.microsoft.com/en-us/library/jj156085.aspx
-[How to connect virtual machines in a cloud service]:../../Windows/HowTo/howto-connect-vm-cloud-service.md
+[Load Balancing Virtual Machines]: ../load-balance-virtual-machines
+[About Affinity Groups for Virtual Network]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
+[How to connect virtual machines in a cloud service]: ../virtual-machines-connect-cloud-service

@@ -34,7 +34,7 @@ Before you begin this tutorial, you must have the following:
 
 ##<a id="setup"></a> Set up local environment for running PowerShell
 
-In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer](web-platform-installer). Click **Run** when prompted, click **Install**, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight](powershell-install-configure).
+In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer][web-platform-installer]. Click **Run** when prompted, click **Install**, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
 
 The PowerShell cmdlets require your subscription information so that it can be used to manage your services.
 
@@ -374,7 +374,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 [hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
 
-[web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=9811175&clcid=0x409 
+[web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409 
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
