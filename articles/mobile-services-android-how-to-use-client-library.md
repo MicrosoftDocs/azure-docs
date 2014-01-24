@@ -585,7 +585,7 @@ You must also call the adapter any time you modify the *ToDoItem* table if you w
 
 <h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
 
-Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
+Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Windows Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see [Get started with authentication](http://go.microsoft.com/fwlink/p/?LinkId=296316).
 
 Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
 
@@ -599,10 +599,11 @@ Three steps are required to enable authentication in your app:
 
 Mobile Services supports the following existing identity providers that you can use to authenticate users:
 
-- Facebook
-- Google 
 - Microsoft Account
+- Facebook
 - Twitter
+- Google 
+- Windows Azure Active Directory
 
 You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the ID of an authenticated user to modify requests. 
 
@@ -635,7 +636,7 @@ These first two tasks are done using the [Windows Azure Management Portal](https
     This code authenticates the user using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
 
     <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <i>MicrosoftAccount</i>, <i>Facebook</i>, or <i>Twitter</i>.</p>
+	<p>If you are using an identity provider other than Google, change the value passed to the <strong>login</strong> method above to one of the following: <i>MicrosoftAccount</i>, <i>Facebook</i>, <i>Twitter</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
     </div>
 
 

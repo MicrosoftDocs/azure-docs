@@ -253,7 +253,7 @@ You can create the first VM either by using the Windows Azure management portal 
 
 		Dcdiag /c /v
 
-4.	Verify that the tests ran successfully. Some tests related to validating IP addresses may not pass. To prevent validation errors related to Time server, [configure the Windows Time Service](http://technet.microsoft.com/en-us/library/cc731191(WS.10).aspx) on the new DC.
+4.	Verify that the tests ran successfully. Some tests related to validating IP addresses may not pass. To prevent validation errors related to Time Server, [configure the Windows Time Service](http://technet.microsoft.com/en-us/library/cc731191.aspx) on the new DC.
 
 
 <h2><a id="Step5"></a>Step 5: Backup the domain controller</h2>
