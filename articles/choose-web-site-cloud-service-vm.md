@@ -138,7 +138,108 @@ The following table compares the capabilities of Web Sites, Cloud Services, and 
    <td valign="middle"><img src="media\checkmark.png"/></td>
    <td valign="middle"><img src="media\checkmark.png"/></td>
 </tr>
-
+<tr>
+   <td valign="middle"><p>Visual Studio integration</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Remote Debugging</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Deploy code with TFS</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Deploy code with GIT, FTP</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Deploy code with Web Deploy</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><sup>4</sup></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>WebMatrix support</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Near-instant deployment</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+   <td valign="middle"></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Instances share content and configuration</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+   <td valign="middle"></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Scale up to larger machines without redeploy</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+   <td valign="middle"></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Multiple deployment environments (production and staging)</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Network isolation with Windows Azure Virtual Network</p></td>
+   <td valign="middle"></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Support for Windows Azure Traffic Manager</p></td>
+   <td valign="middle"></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Remote desktop access to servers</p></td>
+   <td valign="middle"></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Ability to define/execute start-up tasks</p></td>
+   <td valign="middle"></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Automatic OS update management</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Integrated Endpoint Monitoring</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Seamless platform switching (32bit/64bit)</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"></td>
+</tr>
 </table>
 
 <sup>1</sup> Web or worker roles can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.
