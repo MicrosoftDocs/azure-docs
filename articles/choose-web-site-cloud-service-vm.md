@@ -103,7 +103,7 @@ The following table compares the capabilities of Web Sites, Cloud Services, and 
    <td valign="middle"><img src="media\checkmark.png"/></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Host Web or Web Services tier of a multi-tier architecture</p></td>
+   <td valign="middle"><p>Host web or web services tier of a multi-tier architecture</p></td>
    <td valign="middle"><img src="media\checkmark.png"/></td>
    <td valign="middle"><img src="media\checkmark.png"/></td>
    <td valign="middle"><img src="media\checkmark.png"/></td>
