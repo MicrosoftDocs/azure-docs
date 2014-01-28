@@ -8,7 +8,7 @@
 
 This topic shows you how to register your apps to be able to use Windows Azure Active Directory as an authentication provider for Windows Azure Mobile Services. 
 
-> [WACOM.NOTE] The Windows Azure Active Directory authentication provider for Mobile Services is currently in preview and requires activation for your Windows Azure subscription. Otherwise, it will not be visible from the `Identity` tab of your mobile service. To activate these features for your subscription, see <a href="http://go.microsoft.com/fwlink/?LinkId=390727">Enable Windows Azure Active Directory authentication provider</a>.
+> [WACOM.NOTE] The Windows Azure Active Directory authentication provider for Mobile Services is currently in preview. If you would like to enroll in the preview, please contact <a href="mailto:mobileservices@microsoft.com">mobileservices@microsoft.com</a>. Otherwise, the authentication provider will not currently be visible from the `Identity` tab of your mobile service.
 
 > [WACOM.NOTE] When you intend to also provide client-driven authentication for single sign-on (SSO) or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">Register your Windows Store apps for Windows Live Connect authentication</a>.
 
