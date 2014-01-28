@@ -35,7 +35,7 @@ Decompose a task that performs complex processing into a series of discrete elem
 
 Use a token or key that provides clients with restricted direct access to a specific resource or service in order to offload data transfer operations from the application code. This pattern is particularly useful in applications that use cloud-hosted storage systems or queues, and can minimize cost and maximize scalability and performance.
 
-###[See all](http://msdn.microsoft.com/en-us/library/windowsazure/dn568099.aspx)
+###[See all Cloud Design Patterns](http://msdn.microsoft.com/en-us/library/windowsazure/dn568099.aspx)
 
 
 [competing_consumers]: ./media/architecture-overview/CompetingConsumers.png
