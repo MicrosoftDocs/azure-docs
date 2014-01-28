@@ -89,7 +89,21 @@ If you want to create a line-of-business application, your web site might requir
 
 The following table compares the capabilities of Web Sites, Cloud Services, and Virtual Machines to help you make the best choice. Boxes with an asterisk are explained more in the notes following the table.
 
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Feature</th>
+   <th align="left" valign="middle">Web Sites</th>
+   <th align="left" valign="middle">Cloud Services (web roles)</th>
+   <th align="left" valign="middle">Virtual Machines</th>
+</tr>
+<tr>
+   <td valign="middle"><p>Access to services like Service Bus, Storage, SQL Database</p></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+   <td valign="middle"><img src="media\checkmark.png"/></td>
+</tr>
 
+</table>
 
 <sup>1</sup> Web or worker roles can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.
 
