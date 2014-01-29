@@ -23,13 +23,12 @@ In this tutorial, you will:
 
 3. On the **Create a Virtual Machine** page, select a virtual machine image containing SQL Server, and then click the next arrow at the bottom right of the page. For the most up-to-date information on the supported SQL Server images on Windows Azure, see [Getting Started with SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294720) topic in the [SQL Server in Windows Azure Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=294719) documentation set. 
 
-    <div class="dev-callout"> 
-    <b>Important note:</b> 
-    <p>If you have a virtual machine created by using the platform image SQL Server 2012 Evaluation edition that was available during the Preview period, you cannot upgrade it to a per-hour paid edition image in the gallery. You can choose one of the following two options: </p> 
-- You can create a new virtual machine by using the per-hour paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Windows Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
-- You can upgrade an existing instance of SQL Server 2012 Evaluation edition to a different edition of SQL Server 2012 under the [License Mobility through Software Assurance on Windows Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2012](http://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
+    >[WACOM.NOTE] If you have a virtual machine created by using the platform image SQL Server 2012 Evaluation edition that was available during the Preview period, you cannot upgrade it to a per-hour paid edition image in the gallery. You can choose one of the following two options:
+    > - You can create a new virtual machine by using the per-hour paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at [How to migrate SQL Server database files and schema between virtual machines in Windows Azure using data disks](http://go.microsoft.com/fwlink/p/?LinkId=294738). **Or**,
 
-    </div>
+    > - You can upgrade an existing instance of SQL Server 2012 Evaluation edition to a different edition of SQL Server 2012 under the [License Mobility through Software Assurance on Windows Azure](http://www.windowsazure.com/en-us/pricing/license-mobility/) agreement by following the steps at [Upgrade to a Different Edition of SQL Server 2012](http://msdn.microsoft.com/library/cc707783.aspx). For information on how to purchase the licensed copy of SQL Server, see [How to Buy SQL Server](http://www.microsoft.com/en-us/sqlserver/get-sql-server/how-to-buy.aspx).
+
+    
 
 4. On the **Virtual Machine Configuration** page, provide the following information:
 	- Provide a **VIRTUAL MACHINE NAME**.
@@ -38,9 +37,7 @@ In this tutorial, you will:
 	- In the **CONFIRM PASSWORD** box, retype the password.
 	- Select the appropriate **SIZE** from the drop down list. 
 
-	>[WACOM.NOTE]Note:
- 
-	>The size of the virtual machine is specified during provisioning:
+	>[WACOM.NOTE] The size of the virtual machine is specified during provisioning:
  	>- Medium is the smallest size recommended for production workloads. 
     >- The minimum recommended size for a virtual machine is Large when using SQL Server Enterprise Edition.
     >- Select Large or higher when using SQL Server Enterprise Edition. 
@@ -48,9 +45,7 @@ In this tutorial, you will:
    	>- Select A7 when using SQL Server 2014 Evaluation for Data Warehousing image. 
    	>- The size selected limits the number of data disks you can configure. For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=294819).
 
-	
-
-   Click the next arrow on the bottom right to continue.
+	Click the next arrow on the bottom right to continue.
 
 	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
