@@ -41,7 +41,7 @@ The following code instantiates the mobile service client object.
 
 In your web editor, open the HTML file and add the following to the script references for the page:
 
-	        <script src='//client/MobileServices.Web-1.0.0.min.js'></script>
+	        <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
 
 In the editor, open or create a JavaScript file, and add the following code that defines the `MobileServiceClient` variable, and supply the application URL and application key from the mobile service in the `MobileServiceClient` constructor, in that order. You must replace the placeholder `AppUrl` with the application URL of your mobile service and `AppKey` with the application key. To learn how to obtain the application URL and application key for the mobile service, consult the tutorial [Getting Started with Data in Windows Store JavaScript] or [Getting Started with Data in HTML/JavaScript].
 
