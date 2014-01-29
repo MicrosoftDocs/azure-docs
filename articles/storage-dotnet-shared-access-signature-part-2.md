@@ -6,7 +6,7 @@
 
 # Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service
 
-[Part 1](./storage-dotnet-shared-access-signature-part-1/) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Windows Azure Blob service. The examples are written in C# and use the Windows Azure Storage Client Library for .NET (Version 2.0). The scenarios covered include these aspects of working with shared access signatures:
+[Part 1](../storage-dotnet-shared-access-signature-part-1/) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Windows Azure Blob service. The examples are written in C# and use the Windows Azure Storage Client Library for .NET (Version 2.0). The scenarios covered include these aspects of working with shared access signatures:
 
 - Generating a shared access signature on a container
 - Generating a shared access signature on a blob
@@ -520,7 +520,7 @@ Run the console application and observe the output to see which operations are p
 
 # Next Steps #
 
-[Shared Access Signatures, Part 1: Understanding the SAS Model](./storage-dotnet-shared-access-signature-part-1/)
+[Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/)
 
 [Manage Access to Windows Azure Storage Resources](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
 
