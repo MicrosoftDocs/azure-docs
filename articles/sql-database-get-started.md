@@ -813,7 +813,7 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 Using just Excel, you can import only one table at a time. A better approach is to use the PowerPivot for Excel add-in, which lets you import and work with multiple tables as a single data set. Working with PowerPivot is beyond the scope of this tutorial, but you can get more information on this [Microsoft web site](http://www.microsoft.com/en-us/bi/powerpivot.aspx).
 
-<h2><a id="ConfigureDataSync"></a>Step 9: Configure SQL Data Sync</h2>
+<h2><a id="ConfigureDataSync"></a>Step 10: Configure SQL Data Sync</h2>
 
 <h4>SQL Data Sync</h4>
 
