@@ -16,7 +16,7 @@ This tutorial walks you through these basic steps to enable this scenario:
 3. [Send notifications from your back-end]
 4. [Run the app and generate notifications]
 
-This topic builds on the app you created in [Get started with Notification Hubs]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs].
+This topic builds on the app you created in [Get started with Notification Hubs][get-started]. Before starting this tutorial, you must have already completed [Get started with Notification Hubs][get-started].
 
 ##<a name="adding-categories"></a>Add category selection to the app
 
@@ -212,7 +212,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
+[get-started]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Use Notification Hubs to broadcast localized breaking news]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users
 [Mobile Service]: /en-us/develop/mobile/tutorials/get-started/
