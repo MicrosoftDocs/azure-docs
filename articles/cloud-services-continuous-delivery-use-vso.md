@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-publishing-with-tfs" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Team Foundation Service in Windows Azure" metaKeywords="" description="Learn how to configure your Team Foundation Service team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Windows Azure using Visual Studio Online" authors=""  solutions="" writer="ghogen" manager="" editor=""  />
+<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with TFS" pageTitle="Continuous delivery with Visual Studio Online in Windows Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Windows Azure using Visual Studio Online" authors=""  solutions="" writer="ghogen" manager="" editor=""  />
 
 
 
@@ -171,39 +171,39 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [Step 4: Make changes and trigger a rebuild and redeployment.]: #step4
 [Step 5: Redeploy an earlier build (optional)]: #step5
 [Step 6: Change the Production deployment (cloud services only)]: #step6
-[0]: ./media/cloud-services-continous-delivery-use-tfs/tfs0.PNG
-[1]: ./media/cloud-services-continous-delivery-use-tfs/tfs1.png
-[2]: ./media/cloud-services-continous-delivery-use-tfs/tfs2.png
+[0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
+[1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
+[2]: ./media/cloud-services-continuous-delivery-use-vso/tfs2.png
 
 
-[5]: ./media/cloud-services-continous-delivery-use-tfs/tfs5.png
-[6]: ./media/cloud-services-continous-delivery-use-tfs/tfs6.png
-[7]: ./media/cloud-services-continous-delivery-use-tfs/tfs7.png
-[8]: ./media/cloud-services-continous-delivery-use-tfs/tfs8.png
-[9]: ./media/cloud-services-continous-delivery-use-tfs/tfs9.png
-[10]: ./media/cloud-services-continous-delivery-use-tfs/tfs10.png
-[11]: ./media/cloud-services-continous-delivery-use-tfs/tfs11.png
-[12]: ./media/cloud-services-continous-delivery-use-tfs/tfs12.png
-[13]: ./media/cloud-services-continous-delivery-use-tfs/tfs13.png
-[14]: ./media/cloud-services-continous-delivery-use-tfs/tfs14.png
-[15]: ./media/cloud-services-continous-delivery-use-tfs/tfs15.png
-[16]: ./media/cloud-services-continous-delivery-use-tfs/tfs16.png
-[17]: ./media/cloud-services-continous-delivery-use-tfs/tfs17.png
-[18]: ./media/cloud-services-continous-delivery-use-tfs/tfs18.png
-[19]: ./media/cloud-services-continous-delivery-use-tfs/tfs19.png
-[20]: ./media/cloud-services-continous-delivery-use-tfs/tfs20.png
-[21]: ./media/cloud-services-continous-delivery-use-tfs/tfs21.png
-[22]: ./media/cloud-services-continous-delivery-use-tfs/tfs22.png
-[23]: ./media/cloud-services-continous-delivery-use-tfs/tfs23.png
-[24]: ./media/cloud-services-continous-delivery-use-tfs/tfs24.png
-[25]: ./media/cloud-services-continous-delivery-use-tfs/tfs25.png
-[26]: ./media/cloud-services-continous-delivery-use-tfs/tfs26.png
-[27]: ./media/cloud-services-continous-delivery-use-tfs/tfs27.png
-[28]: ./media/cloud-services-continous-delivery-use-tfs/tfs28.png
-[29]: ./media/cloud-services-continous-delivery-use-tfs/tfs29.png
-[30]: ./media/cloud-services-continous-delivery-use-tfs/tfs30.png
-[31]: ./media/cloud-services-continous-delivery-use-tfs/tfs31.png
-[32]: ./media/cloud-services-continous-delivery-use-tfs/tfs32.png
-[33]: ./media/cloud-services-continous-delivery-use-tfs/tfs33.png
-[34]: ./media/cloud-services-continous-delivery-use-tfs/tfs34.png
-[35]: ./media/cloud-services-continous-delivery-use-tfs/tfs35.png
+[5]: ./media/cloud-services-continuous-delivery-use-vso/tfs5.png
+[6]: ./media/cloud-services-continuous-delivery-use-vso/tfs6.png
+[7]: ./media/cloud-services-continuous-delivery-use-vso/tfs7.png
+[8]: ./media/cloud-services-continuous-delivery-use-vso/tfs8.png
+[9]: ./media/cloud-services-continuous-delivery-use-vso/tfs9.png
+[10]: ./media/cloud-services-continuous-delivery-use-vso/tfs10.png
+[11]: ./media/cloud-services-continuous-delivery-use-vso/tfs11.png
+[12]: ./media/cloud-services-continuous-delivery-use-vso/tfs12.png
+[13]: ./media/cloud-services-continuous-delivery-use-vso/tfs13.png
+[14]: ./media/cloud-services-continuous-delivery-use-vso/tfs14.png
+[15]: ./media/cloud-services-continuous-delivery-use-vso/tfs15.png
+[16]: ./media/cloud-services-continuous-delivery-use-vso/tfs16.png
+[17]: ./media/cloud-services-continuous-delivery-use-vso/tfs17.png
+[18]: ./media/cloud-services-continuous-delivery-use-vso/tfs18.png
+[19]: ./media/cloud-services-continuous-delivery-use-vso/tfs19.png
+[20]: ./media/cloud-services-continuous-delivery-use-vso/tfs20.png
+[21]: ./media/cloud-services-continuous-delivery-use-vso/tfs21.png
+[22]: ./media/cloud-services-continuous-delivery-use-vso/tfs22.png
+[23]: ./media/cloud-services-continuous-delivery-use-vso/tfs23.png
+[24]: ./media/cloud-services-continuous-delivery-use-vso/tfs24.png
+[25]: ./media/cloud-services-continuous-delivery-use-vso/tfs25.png
+[26]: ./media/cloud-services-continuous-delivery-use-vso/tfs26.png
+[27]: ./media/cloud-services-continuous-delivery-use-vso/tfs27.png
+[28]: ./media/cloud-services-continuous-delivery-use-vso/tfs28.png
+[29]: ./media/cloud-services-continuous-delivery-use-vso/tfs29.png
+[30]: ./media/cloud-services-continuous-delivery-use-vso/tfs30.png
+[31]: ./media/cloud-services-continuous-delivery-use-vso/tfs31.png
+[32]: ./media/cloud-services-continuous-delivery-use-vso/tfs32.png
+[33]: ./media/cloud-services-continuous-delivery-use-vso/tfs33.png
+[34]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
+[35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png

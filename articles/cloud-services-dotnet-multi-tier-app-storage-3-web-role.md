@@ -1649,7 +1649,7 @@ In the [next tutorial][nexttutorial] you'll configure and program worker role A,
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
+<div><a href="../cloud-services-dotnet-multi-tier-app-storage-4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
 
 
 

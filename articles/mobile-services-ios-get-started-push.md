@@ -11,9 +11,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-ios-180x120.png') !important;" href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>
 </div>
 
-   <div class="dev-callout"><b>Note</b>
-   <p>This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.</p>
-   </div>
+   > [WACOM.NOTE] This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -32,9 +30,7 @@ This tutorial requires the following:
 + An iOS 5.0 (or later version) capable device
 + iOS Developer Program membership
 
-   <div class="dev-callout"><b>Note</b>
-   <p>Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</p>
-   </div>
+   > [WACOM.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
@@ -82,9 +78,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    
    	![][105]
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.</p>
-    </div>
+    > [WACOM.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.
 
 3. Locate the app ID that you just created, and click on its row. 
 
@@ -103,9 +97,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
    	![][108] 
 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
-    </div>
+    > [WACOM.NOTE] This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
 
 5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
 
@@ -119,9 +111,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
   	![][9] 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
-    </div>
+    > [WACOM.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
@@ -129,9 +119,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
    	![][10]
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
-    </div>
+    > [WACOM.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Notification Services:**.
 
 Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
 
@@ -183,9 +171,7 @@ After you have registered your app with APNS and configured your project, you mu
 
   Make a note of the file name and location of the exported certificate.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.</p>
-    </div>
+	> [WACOM.NOTE] This tutorial creates a QuickstartPusher.p12 file. Your file name and location might be different.
 
 2. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -201,9 +187,7 @@ After you have registered your app with APNS and configured your project, you mu
 
    	![][20] 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial uses developement certificates.</p>
-    </div>
+    > [WACOM.NOTE] This tutorial uses developement certificates.
 
 Both your mobile service is now configured to work with APNS.
 
@@ -213,9 +197,7 @@ Both your mobile service is now configured to work with APNS.
 
         @property (strong, nonatomic) NSString *deviceToken;
 
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
-    </div>
+    > [WACOM.NOTE] When dynamic schema is enabled on your mobile service, a new 'deviceToken' column is automatically added to the **TodoItem** table when a new item that contains this property is inserted.
 
 2. In QSAppDelegate.m, replace the following handler method inside the implementation: 
 
@@ -283,9 +265,7 @@ Both your mobile service is now configured to work with APNS.
 
    	This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
-   	<div class="dev-callout"><b>Note</b>
-   <p>You must add this code before to the call to the <strong>addItem</strong> method.</p>
-   </div>
+   	> [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
@@ -320,9 +300,7 @@ Your app is now updated to support push notifications.
    	This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
 
-   	<div class="dev-callout"><b>Note</b>
-   <p>This script delays sending the notification to give you time to close the app to receive a toast notification.</p>
-   </div> 
+   	> [WACOM.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
 
 ## Test push notifications in your app
 
@@ -330,9 +308,7 @@ Your app is now updated to support push notifications.
 
   	![][23]
 
-    <div class="dev-callout"><b>Note</b>
-    <p>You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.</p>
-    </div>
+    > [WACOM.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 
