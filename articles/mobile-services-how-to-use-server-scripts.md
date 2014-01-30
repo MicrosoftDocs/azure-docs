@@ -83,9 +83,7 @@ Here are the canonical main-function signatures for the table operations:
 + [Delete][delete function]: `function del (id, user, request) { ... }`
 + [Read][read function]: `function read (query, user, request) { ... }`
 
-<div class="dev-callout"><strong>Note</strong>
-<p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
-</div> 
+>[WACOM.NOTE]A function that's registered to the delete operation must be named _del_ because delete is a reserved keyword in JavaScript. 
 
 Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
@@ -141,9 +139,7 @@ When the **execute** function is called, the `item`, [query][query object], or `
 	    request.execute(); 
 	}
  
-<div class="dev-callout"><strong>Note</strong>
-<p>In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.</p>
-</div>
+>[WACOM.NOTE]In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.
 
 For more examples, see [Read and write data], [Modify the request] and [Validate data].
 
@@ -183,8 +179,7 @@ By passing in a **success** handler when you call execute, you can modify the re
 
 When you provide a **success** handler to the **execute** function, you must also call the **respond** function as part of the **success** handler so that the runtime knows that the script has completed and that a response can be written. When you call **respond** without passing any arguments, Mobile Services generates the default response. 
 
-<div class="dev-callout"><strong>Note</strong>
-<p>You can call <strong>respond</strong> without arguments to invoke the default response only after you first call the <strong>execute</strong> function.</p></div>
+>[WACOM.NOTE]You can call **respond** without arguments to invoke the default response only after you first call the **execute** function.
  
 ###<a name="override-error"></a>How to: Override default error handling
 
