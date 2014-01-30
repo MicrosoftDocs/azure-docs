@@ -453,15 +453,17 @@ Mobile Services exposes a set of modules that scripts can load by using the glob
 	} 
 
 
-
 ###<a name="shared-code-source-control"></a>How to: Share code by using source control
 
-You can use source control with the Node.js package manager (NPM) to upload modules that are not included in the core modules, including your own modules. To do this, you must use NPM to install the module into the `.\service\node_modules` directory. Then, after you push the modules up to your mobile service, you can use **require** to reference the uploaded Node.js module by name. For more information, see [Leverage shared code and Node.js modules in your server scripts]. 
+You can use source control with the Node.js package manager (npm) to upload modules that are not included in the core modules, including your own modules. There are two ways to do this:
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
-</div>
++ •	For modules that are published to and installed by npm, you use the package.json file to declare which packages you want to be installed by your mobile service. In this way, your service always has access to the latest version of the required packages. The package.json file lives in the `.\service` directory. For more information, see [Support for package.json in Azure Mobile Services].
+
++ For private or custom modules, you can use npm to install the module into the `.\service\node_modules` directory of your source control. 
+
+	>[WACOM.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
+
+After you push the package.json file or custom modules up to your mobile service, you can use **require** to reference the modules by name. For more information, see [Leverage shared code and Node.js modules in your server scripts]. 
 
 ###<a name="helper-functions"></a>How to: Use helper functions
 
@@ -1000,3 +1002,4 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
 [App settings]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
 [config module]: http://msdn.microsoft.com/en-us/library/dn508125.aspx
+[Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
