@@ -103,25 +103,28 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    	![][14]
 
-3. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Under the latest version of the Android SDK, choose **Google APIs**. Scroll down to **Extras** and choose **Google Play Services**, as shown below. Click **Install Packages**. Restart Eclipse.
-
-	<div class="dev-callout"><b>Note</b>
-    <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-    </div> 
+3. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Under the latest version of the Android SDK, choose **Google APIs**. Scroll down to **Extras** and choose **Google Play Services**, as shown below. Click **Install Packages**. Note the SDK path, for use in the following step. Restart Eclipse.
 
    	![][15]
 
-4. Browse to the SDK path, and copy the following file to the \libs directory of your project in the Package Explorer: \extras\google\google_play_services\libproject\google-play-services_lib\libs\google-play-services.jar.
 
-5. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-sdk.jar to the \libs directory of your project in the Package Explorer.
+4. (NEED TO VERIFY) Install the Google Play Services SDK in your project. In Eclipse, click **File**, then **Import**. Select **Android**, then **Existing Android Code into Workspace**, and click **Next**. Click **Browse**, navigate to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), then go to the `\extras\google\google_play_services\libproject` subfolder, and there select the google-play-services-lib folder, and click **OK**. Check the **Copy projects into workspace** checkbox, and then click **Finish**.
 
-6. Right-click on the project in the Package Explorer, and click **Properties**. Then click **Android** in the left-hand pane. Check the **Google APIs** target. Click **OK**.
+	![][29]
+
+5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
+
+4. (PROBABLY NOY) Browse to the SDK path, and copy the following file to the \libs directory of your project in the Package Explorer: \extras\google\google_play_services\libproject\google-play-services_lib\libs\google-play-services.jar.
+
+5. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-sdk.jar (TBD: get actual names) to the \libs directory of your project in the Package Explorer.
+
+6. Right-click on the project in the Package Explorer, and click **Properties**. Then click **Android** in the left-hand pane. Check the **Google APIs** target for the highest version of the SDK. Click **OK**.
 
    	![][16]
 
 	Now, set up the application to obtain a *registrationId* from GCM, and use the *registrationId* to register the app instance to the notification hub.
 
-7. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace `<your package>` with the package you selected for your app in step 1 (`com.microsoft.testnotificationhub`s in this example).
+7. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace `<your package>` with the package you selected for your app in step 1 (`com.yourCompany.wams_notificationhubs` in this example).
 
         <uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -131,7 +134,11 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
-8. In the **MainActivity** class, add the following private members.
+8. In the **MainActivity** class, add the following statements.
+
+	import com.microsoft.windowsazure.notifications.NotificationsManager;
+
+8. Add the following private members at the top of the class.
 
 	<div class="dev-callout"><b>Note</b>
     <p>Make sure to use the sender ID you obtained earlier.</p>
@@ -359,6 +366,7 @@ In this simple example you broadcast notifications to all your Android devices. 
 [21]: ./media/notification-hubs-android-get-started/notification-hub-android-toast.png
 [22]: ./media/notification-hubs-android-get-started/notification-hub-scheduler1.png
 [23]: ./media/notification-hubs-android-get-started/notification-hub-scheduler2.png
+[29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
