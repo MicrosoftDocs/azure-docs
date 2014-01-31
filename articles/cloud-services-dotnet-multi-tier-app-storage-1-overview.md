@@ -882,7 +882,6 @@ In a production application you would implement an authentication and authorizat
 For more information about how to implement authentication and authorization in an ASP.NET MVC web project, see the following resources:
 
 * [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization/authentication-and-authorization-in-aspnet-web-api)
-* [Using Forms Authentication](http://msdn.microsoft.com/en-us/library/ff398049(VS.98).aspx)
 * [Music Store Part 7: Membership and Authorization](http://www.asp.net/mvc/tutorials/mvc-music-store/mvc-music-store-part-7)
 
 **Note**: We planned to include a mechanism for securing the Web API service method by using a shared secret, but that was not completed in time for the initial release. Therefore the third tutorial does not show how to build the Web API controller for the subscription process. We hope to include instructions for implementing a secure subscription process in the next version of this tutorial. Until then, you can test the application by using the administrator web pages to subscribe email addresses to lists.

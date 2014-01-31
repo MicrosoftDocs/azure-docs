@@ -25,11 +25,11 @@ For more information on ACS, see the [Next steps](#next_steps) section.
 -   [Next steps][]
 
 
-## <a name="pre">Prerequisites</a>
+## <a name="pre"></a>Prerequisites
 
 To complete the tasks in this guide, complete the sample at [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse][] and use it as the starting point for this tutorial.
 
-## <a name="add_library">Add the JspWriter library to your build path and deployment assembly</a>
+## <a name="add_library"></a>Add the JspWriter library to your build path and deployment assembly
 
 Add the library that contains the **javax.servlet.jsp.JspWriter** class to your build path and deployment assembly. If you are using Tomcat, the library is **jsp-api.jar**, which is located in the Apache **lib** folder.
 
@@ -41,7 +41,7 @@ Add the library that contains the **javax.servlet.jsp.JspWriter** class to your 
 6. Select the appropriate library and click **Finish**.
 7. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
 
-## <a name="modify_jsp">Modify the JSP file to display SAML</a>
+## <a name="modify_jsp"></a>Modify the JSP file to display SAML
 
 Modify **index.jsp** to use the following code.
 
@@ -175,12 +175,12 @@ Modify **index.jsp** to use the following code.
 	</body>
 	</html>
 
-## <a name="run_application">Run the application</a>
+## <a name="run_application"></a>Run the application
 
 1. Run your application in the computer emulator or deploy to Windows Azure, using the steps documented at [How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse][].
 2. Launch a browser and open your web application. After you log on to your application, you'll see SAML information, including the security assertion provided by the identity provider.
 
-## <a name="next_steps">Next steps</a>
+## <a name="next_steps"></a>Next steps
 
 To further explore ACS's functionality and to experiment with more sophisticated scenarios, see [Access Control Service 2.0][].
 
