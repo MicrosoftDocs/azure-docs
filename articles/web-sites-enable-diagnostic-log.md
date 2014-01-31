@@ -18,6 +18,7 @@ Windows Azure provides built-in diagnostics to assist with debugging an applicat
 - [How to: Enable diagnostics](#enablediag)
 - [How to: Download logs](#download)
 - [How to: Stream logs](#streamlogs)
+- [How to: Understand diagnostics logs](#understandlogs)
 - [Next Steps](#nextsteps)
 
 <a name="whatisdiag"></a><h2>What is Web Site diagnostics?</h2>
@@ -28,9 +29,9 @@ Windows Azure Web Sites provide diagnostic functionality for logging information
 
 Site diagnostics allow to you enable or disable the following:
 
-- **Detailed Error Logging** - Logs detailed error information for HTTP status codes that indicate a failure (status code 400 or greater).
-- **Failed Request Tracing** - Logs detailed information on failed requests, including a trace of the components used to process the request and the time taken in each component.
-- **Web Server Logging** - Logs all HTTP transactions on a web site using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561).
+- **Detailed Error Logging** - Logs detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
+- **Failed Request Tracing** - Logs detailed information on failed requests, including a trace of the components used to process the request and the time taken in each component. This report shows all the IIS components that are involved in processing a request, and how long each component takes. This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
+- **Web Server Logging** - Logs all HTTP transactions on a web site using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). This report is useful when determining overall site metrics such as the number of requests handled, how many requests are from a specific IP address, etc.
 
 <div class="dev-callout"> 
 	<b>Note</b> 
@@ -43,13 +44,15 @@ Application diagnostics allows you to capture information produced by a web appl
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-For information on Application Diagnostics, see [Troubleshooting Windows Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Application diagnostics allows you to troubleshoot your running application by emitting information when certain pieces of code are used. This is most useful when you are trying to determine why a specific path is being taken by the code, usually when the path results in an error or other undesirable behavior.
 
-Windows Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging.
+For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Windows Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 <div class="dev-callout"> 
 	<b>Note</b> 
 	<p>Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.</p> </div>
+
+Windows Azure Web Sites also logs deployment information when you publish an application to a web site. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 <a name="enablediag"></a><h2>How to: Enable diagnostics</h2>
 
@@ -78,14 +81,13 @@ Diagnostic information stored to the web site file system can be accessed direct
 
 The directory structure that the logs are stored in is as follows:
 
-* **Application logs** - /LogFiles/Application/. This folder contains one or more text files containing information produced by application logging. The information logged includes the date and time, the Process ID (PID) of the application, and the value produced by the application instrumentation.
+* **Application logs** - /LogFiles/Application/. This folder contains one or more text files containing information produced by application logging.
 
-* **Failed Request Traces** - /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.
+* **Failed Request Traces** - /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in a browser.
 
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred. 
 
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://go.microsoft.com/fwlink/?LinkID=90561). These can be viewed using a text editor, or parsed with a utility such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619). Windows Azure Web Sites do not support the s-computername, s-ip and cs-version fields for W3C logging.
-
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://msdn.microsoft.com/en-us/library/windows/desktop/aa814385(v=vs.85).aspx). 
 
 * **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Windows Azure Web Sites, as well as logs for Git deployments.
 
@@ -175,17 +177,19 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 	<b>Note</b> 
 	<p>If you have not installed the Windows Azure Command-Line Tools, or have not configured it to use your Windows Azure Subscription, see <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">How to Use Windows Azure Command-Line Tools</a>.</p></div>
 
-<a name="understandlogs"></a><h2>How to: Understand application diagnostics logs</h2>
+<a name="understandlogs"></a><h2>How to: Understand diagnostics logs</h2>
+
+###Application diagnostics logs
 
 Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage.
 
-###File system
+__File system__
 
 Each line logged to the file system or received using streaming will be in the following format:
 
 	{Date}  PID[{process id}] {event type/level} {message}
 
-###Table storage
+__Table storage__
 
 When logging to table storage, the following properties (columns) are used for each entity (row) stored in the table.
 
@@ -242,15 +246,32 @@ When logging to table storage, the following properties (columns) are used for e
 </tr>
 </table>
 
-###Blob storage
+__Blob storage__
 
 When logging to blob storage, data is stored in comma-separated values (CSV) format as follows:
 
 	Timestamp(DateTime), Level, ApplicationName, InstanceID, Timestamp(ticks), EventID , ProcessID , ThreadID , Message
 
+###Failed request traces
+
+Failed request traces are stored in XML files named __fr######.xml__. To make it easier to view the logged information, an XSL stylesheet named __freb.xsl__ is provided in the same directory as the XML files. Opening one of the XML files in a browser, such as Internet Explorer, will use the XSL stylesheet to provide a formatted display of the trace information. This will appear similar to the following:
+
+![failed request viewed in the browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+###Detailed error logs
+
+Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred. Since they are simply HTML documents, they can be viewed using a web browser.
+
+###Web server logs
+
+The web server logs are formatted using the [W3C extended log file format](C:\Users\larryfr\AppData\Local\Temp\43.html). This information can be read using a text editor or parsed using utilities such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+
+> [WACOM.NOTE] The logs produced by Windows Azure Web Sites do not support the __s-computername__, __s-ip__, or __cs-version__ fields.
+
 <a name="nextsteps"></a><h2>Next steps</h2>
 
 - [How to Monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
 - [Tutorial - Troubleshooting Web Sites](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
-- [Troubleshooting Windows Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [Troubleshooting Windows Azure Web Sites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+- [Analyze Web Site Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
