@@ -619,7 +619,7 @@ You have now built worker role A and verified that it creates the queue messages
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
+<div><a href="../cloud-services-dotnet-multi-tier-app-storage-5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
 
 
 
