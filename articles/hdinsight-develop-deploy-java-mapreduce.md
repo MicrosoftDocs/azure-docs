@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy Java MapReduce jobs | Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" metaDescription="Learn developing MapReduce jobs on HDInsight emulator, and deploying it to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-develop-deploy-Java-MapReduce-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy Java MapReduce jobs | Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Develop MapReduce jobs on HDInsight emulator, and deploy them to Windows Azure HDInsight."  title="Develop and deploy Java MapReduce jobs to HDInsight" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
 # Develop and deploy Java MapReduce jobs to HDInsight
 This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator, to deploying and running it on Windows Azure HDInsight.
@@ -125,7 +125,7 @@ HDInsight emulator comes with the *javac* compiler.
 
 	The command creates a WordCount.jar file in the current folder.
 
-	![HDI.EMulator.WordCount.Compile][image-emulator.wordcount.compile]
+	![HDI.EMulator.WordCount.Compile][image-emulator-wordcount-compile]
 
 
 
@@ -226,7 +226,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory as the 
 
 	If the job completes successfully, you should get an output similar to the following screenshot:
 
-	![HDI.EMulator.WordCount.Run][image-emulator.wordcount.run]
+	![HDI.EMulator.WordCount.Run][image-emulator-wordcount-run]
 
 	From the screenshot, you can see both map and reduce completed 100%. It also lists the job ID, job_201312092021_0002. The same report can be retrieved by opening the **Hadoop MapReduce status** shortcut from your desktop, and looking for the job ID.
 
@@ -578,6 +578,6 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 
 
 
-[image-emulator.wordcount.compile]: ../media/HDI-Emulator-Compile-Java-MapReduce.png
-[image-emulator.wordcount.run]: ../media/HDI-Emulator-Run-Java-MapReduce.png
+[image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
+[image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 

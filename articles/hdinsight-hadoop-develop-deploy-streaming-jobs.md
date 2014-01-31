@@ -1,8 +1,8 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Develop and deploy a Hadoop streaming job to HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="" pageTitle="Develop and deploy Hadoop streaming MapReduce jobs for HDInsight | Windows Azure" metaKeywords="hdinsight hdinsight development, hadoop development, dhinsight deployment, development, deployment, tutorial, MapReduce" description="Develop Hadoop streaming MapReduce jobs on HDInsight emulator, and deploy them to Windows Azure HDInsight." metaCanonical="" services="" documentationCenter="" title="Develop and deploy Hadoop streaming jobs to HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
 
 
 
-# Develop and deploy a Hadoop streaming job to HDInsight
+# Develop and deploy Hadoop streaming jobs to HDInsight
 Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Windows Azure HDInsight and to retrieving the results.
 
 **Prerequisites:**
@@ -159,9 +159,9 @@ This tutorial uses the following folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>The Hadoop HDFS commands are case sensitive.</p> 
+<div class="dev-callout">Â 
+<b>Note</b>Â 
+<p>The Hadoop HDFS commands are case sensitive.</p>Â 
 </div>
 
 **To copy the text files to the emulator HDFS**
@@ -291,7 +291,7 @@ Windows Azure HDInsight uses Windows Azure Blob storage as the default file syst
 				
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+		$destContext = New-AzureStorageContext â€“StorageAccountName $storageAccountName â€“StorageAccountKey $storageAccountKey  
 		New-AzureStorageContainer -Name $containerName -Context $destContext
 
 4. Run the following commands to verify the storage account and the container:
@@ -446,7 +446,7 @@ The following PowerShell script performs the following tasks:
 		# Create a Blob storage container
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
-		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
+		$destContext = New-AzureStorageContext â€“StorageAccountName $storageAccountName_Default â€“StorageAccountKey $storageAccountKey_Default
 		
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
 		
@@ -516,7 +516,7 @@ This section shows you how to download and display the output.  For the informat
 		
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
+		$storageContext = New-AzureStorageContext â€“StorageAccountName $storageAccountName â€“StorageAccountKey $storageAccountKey  
 
 4. Run the following commands to download and display the output:
 
