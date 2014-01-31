@@ -1,5 +1,4 @@
-<properties linkid="develop-mobile-tutorials-call-custom-api-android" urlDisplayName="call custom api android" pageTitle="Call a custom API from an Android app | Mobile Services" metaKeywords="call custom api android mobile services" description="Learn how to define a custom API and then call it from an Android app that use Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Troubleshooting Windows Azure Web Sites in Visual Studio" authors=""  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
-
+<properties title="Troubleshooting Windows Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Windows Azure Web Sites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot a Windows Azure Web Site by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter="Web Sites" authors="tdykstra"  solutions="" />
 
 
 # Troubleshooting Windows Azure Web Sites in Visual Studio

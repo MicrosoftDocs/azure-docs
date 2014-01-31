@@ -10,7 +10,7 @@ A virtual machine in Windows Azure runs the operating system that you choose whe
 
 **Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
-**Important**: The Windows Azure platform SLA will be applicable for virtual machines running the Linux OS only when one of the [endorsed distributions](http://support.microsoft.com/kb/2805216) is used with the configuration details as specified in [this article](http://support.microsoft.com/kb/2805216). All Linux distributions that are provided in the Azure Platform Image Gallery are endorsed distributions with the required configuration.
+**Important**: The Windows Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified in [this article](http://support.microsoft.com/kb/2805216). All Linux distributions that are provided in the Windows Azure image gallery are endorsed distributions with the required configuration.
 
 
 ##Prerequisites##
@@ -22,7 +22,7 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Windows Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../otherresources/linux-on-endorsed-distributions.md). Note: This article includes a section at the end with [Information for Non Endorsed Distributions][].
+	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../linux-endorsed-distributions). Alternatively, see the section at the end of this article for [Information for Non Endorsed Distributions][].
 
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 
@@ -568,7 +568,7 @@ It is for this reason that we recommend that you start with one of our [partners
 
 The list below replaces step 1 of the process to create your own VHD:
 
-1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper V or that you have successfully compiled them ( They have been Open Sourced). The Drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)
+1.	You will need to ensure that you are running a kernel that either incorporates the latest LIS drivers for Hyper-V or that you have successfully compiled them ( They have been Open Sourced). The Drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)
 
 2.	Your kernel should also include the latest version of the ATA PiiX driver that is used to to provision the iamges and has the fixes committed to the kernel with commit cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date:   Fri May 4 22:15:11 2012 +0100   ata_piix: defer disks to the Hyper-V drivers by default
 

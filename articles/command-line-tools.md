@@ -562,7 +562,7 @@ Some systems impose per-process file descriptor limits. If this limit is exceede
 
 This command allows you to upload a vm disk
 
-	~$ azure vm disk upload ???http://sourcestorage.blob.core.windows.net/vhds/sample.vhd??? ???http://destinationstorage.blob.core.windows.net/vhds/sample.vhd??? ???DESTINATIONSTORAGEACCOUNTKEY???
+	~$ azure vm disk upload "http://sourcestorage.blob.core.windows.net/vhds/sample.vhd" "http://destinationstorage.blob.core.windows.net/vhds/sample.vhd" "DESTINATIONSTORAGEACCOUNTKEY"
 	info:   Executing command vm disk upload                                                      
 	info:   Uploading 12351.5 KB
 	info:   vm disk upload command OK
