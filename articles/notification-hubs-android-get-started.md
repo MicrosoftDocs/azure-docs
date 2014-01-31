@@ -1,4 +1,4 @@
-<properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" description="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors=""  solutions="" writer="elioda" manager="" editor=""  />
+<properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Windows Azure Notification Hubs" metaKeywords="" description="Learn how to use Windows Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors=""  solutions="" writer="ricksal" manager="dwrede" editor=""  />
 # Get started with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/services/notification-hubs/getting-started-windows-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios" title="iOS">iOS</a><a href="/en-us/manage/services/notification-hubs/get-started-notification-hubs-android" title="Android" class="current">Android</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/manage/services/notification-hubs/getting-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
@@ -31,7 +31,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
 </div> 
 
-1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
+1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
 
    	![][1]   
 
@@ -39,17 +39,21 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
     </div>
 
-2. Click **Overview** in the left column, and make a note of the project number in the **Dashboard** section. 
+2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
+
+3. Make a note of the project number in the **Dashboard** section. 
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
-3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+3. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
 
-4. Click **API Access**, and then click **Create new Server key...** 
+	![][5]
+
+4. Click **Credentials**, and then click **CREATE NEW KEY** 
 
    	![][2]
 
-5. In **Configure Server Key for API Project**, click **Create**.
+5. In **Create a new key**, click **Server key**. In the next window click **Create**.
 
    	![][3]
 
@@ -83,9 +87,9 @@ Next, you will use this API key value to enable your notification hub to authent
 
    	![][11]
 
-7. Select the **Dashboard** tab at the top, then click **Connection Information**. Take note of the two connection strings.
+7. Select the **Dashboard** tab at the top, then click **View Connection String**. Take note of the two connection strings.
 
-   	![][12]
+<!--   	![][12] -->
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
 
@@ -95,11 +99,11 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    	![][13]
 
-2. Set Minimum Required SDK to API 8: Android 2.2 (Froyo). Then follow the wizard, making sure to click **Create activity** to create a blank activity.
+2. Ensure that the **Minimum Required SDK** is set to *API 8: Android 2.2 (Froyo)*, and that the next two SDK entries are set to the latest available version. Choose Next, and follow the wizard, making sure **Create activity** is selected to create a blank activity. Accept the default Launcher Icon on the next box, and click **Finish** in the last box.
 
    	![][14]
 
-3. Open the Android SDK Manager from the top toolbar of Eclipse. Click **Google APIs**, **Google Cloud Messaging for Android Library**, and **Google Play Service**, as shown below. Click Install Packages. Restart Eclipse.
+3. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Under the latest version of the Android SDK, choose **Google APIs**. Scroll down to **Extras** and choose **Google Play Services**, as shown below. Click **Install Packages**. Restart Eclipse.
 
 	<div class="dev-callout"><b>Note</b>
     <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
@@ -107,7 +111,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    	![][15]
 
-4. Browse to the SDK path, and copy the following files to the \libs directory of your project in the Package Explorer: \extras\google\gcm\gcm-client\dist\gcm.jar; \extras\google\google_play_services\libproject\google-play-services_lib\libs\google-play-services.jar.
+4. Browse to the SDK path, and copy the following file to the \libs directory of your project in the Package Explorer: \extras\google\google_play_services\libproject\google-play-services_lib\libs\google-play-services.jar.
 
 5. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-sdk.jar to the \libs directory of your project in the Package Explorer.
 
@@ -329,10 +333,11 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-developers.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server3.png
+[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
+[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
+[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
+[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
+[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 
 [7]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
