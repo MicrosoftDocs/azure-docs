@@ -271,21 +271,19 @@ Both your mobile service is now configured to work with APNS.
  
    Replace this with the following code:
 
-        // Get a reference to the AppDelegate to easily retrieve the deviceToken
-        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    
-        NSDictionary *item = @{
-            @"text" : itemText.text,
-            @"complete" : @(NO),
-            // add the device token property to our todo item payload
-            @"deviceToken" : delegate.deviceToken
-        };
-
+		// Get a reference to the AppDelegate to easily retrieve the deviceToken
+		QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+		
+		NSDictionary *item = @{
+		    @"text" : itemText.text,
+		    @"complete" : @(NO),
+		    // add the device token property to our todo item payload
+		    @"deviceToken" : delegate.deviceToken
+		};
+		
    	This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
-   	<div class="dev-callout"><b>Note</b>
-   <p>You must add this code before to the call to the <strong>addItem</strong> method.</p>
-   </div>
+   >[WACOM.NOTE]You must add this code before to the call to the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
