@@ -4,7 +4,7 @@
 
 # Administer HDInsight clusters using Management Portal
 
-In this topic, you will learn how to use Windows Azure Management Portal to create an HDInsight cluster, and how to access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the portal. 
+Using the Windows Azure management portal, you can provision HDInsight clusters, change the Hadoop user password, and enable RDP so you can access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the portal. 
 
 - For more information on administering HDInsight using the Cross-platform Command-line Tools, see [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. 
 
@@ -19,17 +19,18 @@ Before you begin this article, you must have the following:
 
 ##In this article
 
-* [Create an HDInsight cluster](#create)
+* [Provision HDInsight clusters](#create)
+* [Change HDInsight cluster username and password](#password)
 * [Enable remote desktop access](#enablerdp)
 * [Open Hadoop command console](#hadoopcmd)
 * [Next steps](#nextsteps)
 
-##<a id="create"></a> Create an HDInsight cluster
+##<a id="create"></a> Provision HDInsight clusters
 
 An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 
-**To create an HDInsight cluster**
+**To provision an HDInsight cluster**
 
 1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
@@ -38,7 +39,7 @@ An HDInsight cluster uses a Windows Azure Blob Storage container as the default 
 
 	![HDI.QuickCreate][image-cluster-quickcreate]
 
-	When using the Quick Create option to create a cluster, the default username for the administrator account is *admin*. To give the account a different username, you must use the Custom Create option instead of Quick Create option.
+	When using the Quick Create option to create a cluster, the default username for the administrator account is *admin*. To give the account a different username, you can use the Custom Create option instead of Quick Create option. Or change the account name after it is provisioned.
 
 	When using the Quick Create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name of the container to be used by default by the cluster, you must use the custom create option. 
 
@@ -51,6 +52,22 @@ An HDInsight cluster uses a Windows Azure Blob Storage container as the default 
 
 	![HDI.ClusterLanding][image-cluster-landing]
 
+##<a id="password"></a> Change the HDInsight cluster username and password
+An HDInsight cluster can have two user accounts.  The HDInsight cluster user account is created during the provision processs.  You can also create a RDP user account for accessing the cluster via RDP. See [Enable remote desktop](#enablerdp).
+
+**To change HDInsight cluster username and password**
+
+1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+2. Click **HDINSIGHT** on the left pane. You will see a list of deployed HDInsight clusters.
+3. Click the HDInsight cluster that you want to reset the username and password.
+4. From the top of the page, click **CONFIGURATION**.
+5. Click **OFF** next  to **HADOOP SERVICES**.
+6. Click **SAVE** on the bottom of the page, and wait for the disabling to complete.
+7. After the service has been disabled, click **ON** next to **HADOOP SERVICES**.
+8. Enter **USER NAME** and **NEW PASSWORD**.  These will be the new username and password for the cluster.
+8. Click **SAVE**.
+
+
 
 ##<a id="enablerdp"></a> Enable remote desktop
 
@@ -59,7 +76,7 @@ The credentials for the cluster that you provided at its creation give access to
 **To enable remote desktop**
 
 1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
-2. Click **HDINSIGHT** on the left pane. You will see a list of deployed Hadoop clusters.
+2. Click **HDINSIGHT** on the left pane. You will see a list of deployed HDInsight clusters.
 3. Click the HDInsight cluster that you want to connect to.
 4. From the top of the page, click **CONFIGURATION**.
 5. From the bottom of the page, click **ENABLE REMOTE**.
