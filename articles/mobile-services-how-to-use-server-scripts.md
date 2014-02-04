@@ -83,9 +83,7 @@ Here are the canonical main-function signatures for the table operations:
 + [Delete][delete function]: `function del (id, user, request) { ... }`
 + [Read][read function]: `function read (query, user, request) { ... }`
 
-<div class="dev-callout"><strong>Note</strong>
-<p>A function that's registered to the delete operation must be named <em>del</em> because delete is a reserved keyword in JavaScript. </p>
-</div> 
+>[WACOM.NOTE]A function that's registered to the delete operation must be named _del_ because delete is a reserved keyword in JavaScript. 
 
 Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
@@ -141,9 +139,7 @@ When the **execute** function is called, the `item`, [query][query object], or `
 	    request.execute(); 
 	}
  
-<div class="dev-callout"><strong>Note</strong>
-<p>In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.</p>
-</div>
+>[WACOM.NOTE]In a delete script, changing the value of the supplied userId variable does not affect which record gets deleted.
 
 For more examples, see [Read and write data], [Modify the request] and [Validate data].
 
@@ -183,8 +179,7 @@ By passing in a **success** handler when you call execute, you can modify the re
 
 When you provide a **success** handler to the **execute** function, you must also call the **respond** function as part of the **success** handler so that the runtime knows that the script has completed and that a response can be written. When you call **respond** without passing any arguments, Mobile Services generates the default response. 
 
-<div class="dev-callout"><strong>Note</strong>
-<p>You can call <strong>respond</strong> without arguments to invoke the default response only after you first call the <strong>execute</strong> function.</p></div>
+>[WACOM.NOTE]You can call **respond** without arguments to invoke the default response only after you first call the **execute** function.
  
 ###<a name="override-error"></a>How to: Override default error handling
 
@@ -453,15 +448,19 @@ Mobile Services exposes a set of modules that scripts can load by using the glob
 	} 
 
 
-
 ###<a name="shared-code-source-control"></a>How to: Share code by using source control
 
-You can use source control with the Node.js package manager (NPM) to upload modules that are not included in the core modules, including your own modules. To do this, you must use NPM to install the module into the `.\service\node_modules` directory. Then, after you push the modules up to your mobile service, you can use **require** to reference the uploaded Node.js module by name. For more information, see [Leverage shared code and Node.js modules in your server scripts]. 
+You can use source control with the Node.js package manager (npm) to control which modules are available to your mobile service. There are two ways to do this:
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>When <code>node_modules</code> already exists in the directory hierarchy, NPM will create the <code>\node-uuid</code> subdirectory there instead of creating a new <code>node_modules</code> in the repository. In this case, just delete the existing <code>node_modules</code> directory.</p>
-</div>
++ For modules that are published to and installed by npm, use the package.json file to declare which packages you want to be installed by your mobile service. In this way, your service always has access to the latest version of the required packages. The package.json file lives in the `.\service` directory. For more information, see [Support for package.json in Azure Mobile Services].
+
++ For private or custom modules, you can use npm to manually install the module into the `.\service\node_modules` directory of your source control. For an example of how to manually upload a module, see [Leverage shared code and Node.js modules in your server scripts].
+
+	>[WACOM.NOTE]When `node_modules` already exists in the directory hierarchy, NPM will create the `\node-uuid` subdirectory there instead of creating a new `node_modules` in the repository. In this case, just delete the existing `node_modules` directory.
+
+After you commit the package.json file or custom modules to the repository for your mobile service, use **require** to reference the modules by name.   
+
+>[WACOM.NOTE] Modules that you specify in package.json or upload to your mobile service are only used in your server script code. These modules are not used by the Mobile Services runtime.
 
 ###<a name="helper-functions"></a>How to: Use helper functions
 
@@ -1000,3 +999,4 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [service object]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx
 [App settings]: http://msdn.microsoft.com/en-us/library/dn529070.aspx
 [config module]: http://msdn.microsoft.com/en-us/library/dn508125.aspx
+[Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
