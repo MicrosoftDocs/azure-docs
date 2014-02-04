@@ -8,7 +8,7 @@ Operation Logs is a Management Services feature available in the Windows Azure M
 
 <div class="dev-callout"><b>Note</b>
 <p>This feature only captures logs for management operations on BizTalk Services, such as when the service was started, backed up, etc. Such operations are tracked irrespective of whether they are performed from the Azure Management Portal or by using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn232347.aspx">BizTalk Service REST APIs</a>. For a complete list of operations that are tracked using Management Services, see <a href="#bizops">Operations Tracked Using Azure Management Services</a>.</p>
-<p>This does not capture the logs for activities related to BizTalk Service runtime activities (such as message processed by bridges), or for activities performed from the BizTalk Services portal. To view such logs, you must use the Tracking view from the BizTalk Services portal. For more information, see <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Tracking Messages</a>.</p>
+<p>This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, etc.). To view such logs, you must use the Tracking view from the BizTalk Services portal. For more information, see <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Tracking Messages</a>.</p>
 </div>
 
 ##<a name="viewlogs"></a>Viewing BizTalk Services Operation Logs
@@ -77,9 +77,12 @@ Operation Logs is a Management Services feature available in the Windows Azure M
 </tr>
 <tr>
 <td>ServiceUpdateBizTalkService</td> 
-<td align="left">Operation to upgrade or downgrade a BizTalk Service to a different edition</td> 
+<td align="left">Operation to upgrade or downgrade a BizTalk Service to a different version</td> 
 </tr>
-
+<tr>
+<td>PurgeBackupBizTalkService</td> 
+<td align="left">Operation to purge backups of the BizTalk Service outside the retention period</td> 
+</tr>
 </table>
 
 
