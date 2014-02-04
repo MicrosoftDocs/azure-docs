@@ -34,7 +34,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 In addition, HDInsight provides the ability to access data stored in Blob storage. The syntax to access Blob storage is:
 
-	WASB
+	WASB[S]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 
 Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, user must specify a Blob storage container used as the default file system. 
