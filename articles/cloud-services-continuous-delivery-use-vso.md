@@ -5,7 +5,7 @@
 
 # Continuous delivery to Windows Azure using Visual Studio Online
 
-Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft's popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/continuous-delivery/).
+Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft's popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](../cloud-services-continuous-delivery-use-vso).
 
 This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don't already have Visual Studio 2013, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 

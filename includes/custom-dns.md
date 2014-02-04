@@ -2,7 +2,7 @@
 
 When you create an application in Windows Azure, Windows Azure provides a subdomain on the cloudapp.net domain so your users can access your application on a URL like http://&lt;*myapp*>.cloudapp.net. However, you can also expose your application on your own domain name, such as contoso.com.
 
-> [WACOM.NOTE] The procedures in this task apply to Windows Azure Cloud Services. For storage accounts, see [Configuring a Custom Domain Name for a Windows Azure Storage Account](../articles/storage-custom-domain-name/). For Web Sites, see [Configuring a Custom Domain Name for a Windows Azure Web Site](../articles/web-sites-custom-domain-name/).
+> [WACOM.NOTE] The procedures in this task apply to Windows Azure Cloud Services. For storage accounts, see [Configuring a Custom Domain Name for a Windows Azure Storage Account](../storage-custom-domain-name/). For Web Sites, see [Configuring a Custom Domain Name for a Windows Azure Web Site](../web-sites-custom-domain-name/).
 
 In this article:
 
