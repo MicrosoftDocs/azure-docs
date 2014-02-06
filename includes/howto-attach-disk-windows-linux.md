@@ -19,7 +19,7 @@ You can attach a data disk to a virtual machine to store application data. A dat
 
 You can use the Management Portal to upload and attach a data disk that contains data to the virtual machine, as well as add an empty disk from the same storage account used by the virtual machine. This article describes these processes. To attach an empty disk located in a different storage account, use the [Add-AzureDataDisk](http://go.microsoft.com/fwlink/p/?LinkId=391661) cmdlet, available in the Windows Azure PowerShell module. To download the module, see the [Downloads](http://www.windowsazure.com/en-us/downloads/) page.
 
-The virtual machine is not stopped to add the disk. The number of disks that you can attach to a virtual machine is based on the size of the virtual machine. The following table lists the number of attached disks that are allowed for each size of virtual machine. For more information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
+The virtual machine is not stopped to add the disk. The number of disks that you can attach to a virtual machine is based on the size of the virtual machine. For information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
 
 [WACOM.NOTE] Windows Azure storage supports blobs up to 1 TB in size, which accommodates a VHD with a maximum virtual size of 999 GB. However, if you use Hyper-V to create a new VHD, the size you specify represents the virtual size. To use the VHD in Windows Azure, specify a size no larger than 999 GB.
 
