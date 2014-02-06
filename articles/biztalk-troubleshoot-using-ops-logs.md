@@ -11,16 +11,16 @@ Operation Logs is a Management Services feature available in the Windows Azure M
 <p>This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, etc.). To view such logs, you must use the Tracking view from the BizTalk Services portal. For more information, see <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Tracking Messages</a>.</p>
 </div>
 
-##<a name="viewlogs"></a>Viewing BizTalk Services Operation Logs
-<ol>
-<li>From the Windows Azure Management Portal, click Management Services, and then click the Operation Logs tab.</li>
-<li>You can filter the logs based on various parameters like subscription, date range, service type (e.g. BizTalk Services, Web Sites), service name or status (of the operation e.g. Succeeded, Failed)</li>
-<li>Click the checkmark to view the filtered list.</li>
-<li>To view more about a specific operation, select the row and click <b>Details</b> from the bottom of the page.</li>
-</ol>
+##<a name="viewlogs"></a>View BizTalk Services Operation Logs
+1. From the Windows Azure Management Portal, click Management Services, and then click the Operation Logs tab.
+2. You can filter the logs based on various parameters like subscription, date range, service type (e.g. BizTalk Services), service name, or status (of the operation e.g. Succeeded, Failed)
+3. Click the checkmark to view the filtered list. The following illustration shows activities related to testbiztalkservice.
+	![View operation logs][ViewLogs] 
+4. To view more about a specific operation, select the row and click <b>Details</b> from the bottom of the page.
+
 
 ##<a name="bizops"></a>Operations Tracked Using Azure Management Services
-<p>The following table lists the operations that are tracked using the Azure Management Services.</p>
+The following table lists the operations that are tracked using the Azure Management Services.
 
 <table border="1" cellpadding="5">
 <tr>
@@ -86,15 +86,15 @@ Operation Logs is a Management Services feature available in the Windows Azure M
 </table>
 
 
-
-
 ## See Also
-- [Backup BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)<br/>
-- [Restore BizTalk Service from Backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)<br/>
-- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [Backup BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
+- [Restore BizTalk Service from Backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
+- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)
+- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+- [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)
+- [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)
+- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)
+- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
+- [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+
+[ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
