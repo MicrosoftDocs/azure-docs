@@ -254,7 +254,7 @@ The errors a user can encounter in Windows Azure PowerShell or in the Windows Az
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
-[image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/HDI.Debug.ErrorMessages.Portal.PNG
+[image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
 
 
