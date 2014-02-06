@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Errors" pageTitle="Debug HDInsight: Error Messages" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" metaDescription="Error messages to debug Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Errors" pageTitle="Debug HDInsight: Error messages | Windows Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" metaDescription="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." umbracoNaviHide="0" disqusComments="1" title="Debug HDInsight: Error messages" authors="bradsev"  solutions="" writer="bradsev" editor="cgronlun" manager="paulettm" />
 
-# Debug HDInsight: error messages
+# Debug HDInsight: Error messages
 
 ##Introduction
 The error messages itemized in this topic are provided to help the users of Windows Azure HDInsight understand possible error conditions that they can encounter when administering the service using Windows Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
