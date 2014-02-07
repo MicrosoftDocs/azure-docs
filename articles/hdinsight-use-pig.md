@@ -20,7 +20,7 @@ For more information on Pig Latin, see [Pig Latin Reference Manual 1][piglatin-m
 Note the following requirements before you begin this article:
 
 * A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+* Install and configure Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 **Estimated time to complete:** 30 minutes
 
@@ -202,7 +202,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 
 **To run Pig Latin using PowerShell**
 
-1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 2. Set the variable in the following script, and run it:
 
 		# Provide the HDInsight cluster name
@@ -291,6 +291,8 @@ While Pig allows you to perform data analysis, other languages included with HDI
 
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 [image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

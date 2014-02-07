@@ -10,33 +10,37 @@ This topic shows you how to register your apps to be able to use Facebook to aut
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook Developers</a> web site and sign-in with your Facebook account credentials.
 
-2. (Optional) If you have not already registered, click **Register Now** button, accept the policy, provide any and then click **Done**. 
+2. (Optional) If you have not already registered, click **Apps** then click **Register as a Developer**, accept the policy and follow the registration steps. 
 
    	![][0]
 
-3. Click **Apps**, then click **Create New App**.
+3. Click **Apps**, then click **Create a New App**.
 
    	![][1]
 
-4. Choose a unique name for your app, select **OK**.
+4. Choose a unique name for your app, select **Apps for Pages**, click **Create App** and complete the challenge question.
 
    	![][2]
 
 	This registers the app with Facebook 
 
-5.  Under **Select how your app integrates with Facebook**, expand **Web Site with Facebook Login**, type the URL of your mobile service in **Site URL**, disable **Sandbox Mode**, and then click **Save Changes**.
+5. Click **Settings**, type the domain of your mobile service in **App Domains**, then click **Add Platform** and select **Website**.
 
    	![][3]
 
-6. Make a note of the values of **App ID** and **App Secret**. 
+6. Type the URL of your mobile service in **Site URL**, then click **Save Changes**.
 
-   	![][4]
+	![][4]
+
+7. Click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. 
+
+   	![][5]
 
     <div class="dev-callout"><b>Security Note</b>
 	<p>The app secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
     </div>
 
-You are now ready to use a Facebook login for authentication in your app by providing the App ID and App Secret values to Mobile Services. 
+You are now ready to use a Facebook login for authentication in your app by providing the App ID and App Secret values to Mobile Services.  
 
 <!-- Anchors. -->
 
@@ -45,11 +49,10 @@ You are now ready to use a Facebook login for authentication in your app by prov
 [1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
 [2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
 [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
-[4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
+[4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png
+[5]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
 
 <!-- URLs. -->
-
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
