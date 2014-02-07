@@ -10,7 +10,7 @@ Hadoop provides a streaming API to MapReduce that enables you to write map and r
 Before you begin this tutorial, you must have the following:
 
 - Install Windows Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
-- Install Windows Azure HDInsight PowerShell on the emulator computer. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]
+- Install Windows Azure PowerShell on the emulator computer. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure]
 - Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
@@ -203,7 +203,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory.
 
 **To run the MapReduce job using HDInsight PowerShell**
 
-1. Open Windows Azure PowerShell. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]. 
+1. Open Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure]. 
 3. Run the following commands to set variables:
 
 		$clusterName = "http://localhost:50111"
@@ -554,6 +554,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-powerquery]:/en-us/manage/services/hdinsight/connect-excel-with-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 
 

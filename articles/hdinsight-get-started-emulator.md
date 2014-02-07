@@ -25,7 +25,7 @@ Before you begin this tutorial, you must have the following:
 	- Windows 8 
 	- Windows Server 2012.
 
-- Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. 
+- Install and configure Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure]. 
 
 ## In this tutorial
 
@@ -616,5 +616,8 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 [hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 

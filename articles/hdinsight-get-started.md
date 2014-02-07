@@ -7,7 +7,9 @@
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Windows Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Windows Azure Blob storage. 
 
-In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, run a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
+In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
+
+[WACOM.NOTE] This tutorial uses HDInsight 2.0 clusters. For the tutorial using HDInsight 3.0 (preview), see [Get started using Windows Azure HDInsight 3.0 (preview)][hdinsight-get-started-3.0].
 
 In conjunction with the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -17,7 +19,7 @@ Before you begin this tutorial, you must have the following:
 
 
 - A Windows Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
+- A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2. This computer will be used to submit MapReduce jobs.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 **Estimated time to complete:** 30 minutes
@@ -34,7 +36,7 @@ Before you begin this tutorial, you must have the following:
 
 ##<a id="setup"></a> Set up local environment for running PowerShell
 
-In this tutorial, you'll use Windows Azure PowerShell to run a MapReduce job. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer][web-platform-installer]. Click **Run** when prompted, click **Install**, and then follow the instructions. For more information, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+There are several ways to submit MapReduce jobs to HDInsight. In this tutorial, you will use Windows Azure PowerShell. To install Windows Azure PowerShell, run the [Microsoft Web Platform Installer][powershell-download]. Click **Run** when prompted, click **Install**, and then follow the instructions. For more information, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 The PowerShell cmdlets require your subscription information so that it can be used to manage your services.
 
@@ -68,7 +70,7 @@ You must choose one of the five data centers for your Windows Azure Storage acco
 
 	![HDI.StorageAccount.QuickCreate][image-hdi-storageaccount-quickcreate]
 
-3. Enter **URL** and **LOCATION**, and then click **CREATE STORAGE ACCOUNT**. You will see the new storage account in the storage list. Affinity groups are not supported.
+3. Enter **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Affinity groups are not supported. You will see the new storage account in the storage list. 
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 5. Click the new storage account from the list to select it.
 6. Click **MANAGE ACCESS KEYS** from the bottom of the page.
@@ -144,27 +146,20 @@ For information on using the **CUSTOM CREATE** option, see [Provision HDInsight 
 
 ##<a name="sample"></a>Run a WordCount MapReduce job
 
-Now you have an HDInsight cluster provisioned. The next step is to run a MapReduce job to count words in an input file. The following diagram illustrates how MapReduce works for the word count scenario:
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-
-
-The output is a set of key-value pairs. The key is a string that specifies a word and the value is an integer that specifies the total number of occurrences of that word in the text. This is done in two stages: 
-
-* The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. 
-
-* The reducer then sums these individual counts for each word and emits a single key/value pair containing the word followed by the sum of its occurrences.
+Now you have an HDInsight cluster provisioned. The next step is to run a MapReduce job to count words in a text file. 
 
 Running a MapReduce job requires the following elements:
 
-* A MapReduce program. In this tutorial, you will use the WordCount sample that comes with the HDInsight cluster distribution so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Using MapReduce with HDInsight][hdinsight-mapreduce].
+* A MapReduce program. In this tutorial, you will use the WordCount sample that comes with the HDInsight cluster distribution so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop and deploy Java MapReduce jobs for HDInsight][hdinsight-develop-MapReduce].
+
 * An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist.
 
 The URI scheme for accessing files in Blob storage is:
 
 	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
+
+[WACOM.NOTE] By default, the Blob container used for the default file system has the same name as the HDInsight cluster.
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
@@ -273,6 +268,12 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 **To retrieve the results of the MapReduce job**
 
 1. Open **Windows Azure PowerShell**.
+2. Run the following command to change directory to c:\ root.
+
+	 cd\
+
+	The default Windows Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to either the C:\ root directory or a folder where you have write permission.
+	
 2. Set the three variables in the following commands, and then run them:
 
 		$subscriptionName = "<SubscriptionName>"       
@@ -306,10 +307,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains *"there"*.
 
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>If you open <i>./example/data/WordCountOutput/part-r-00000</i>, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.</p> 
-</div>
+[WACOM.NOTE] If you open <i>./example/data/WordCountOutput/part-r-00000</i>, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
 
 
 	
@@ -332,7 +330,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 
 3. Enter the **Account Name** of the Azure Blob Storage Account associated with your cluster, and then click **OK**. This is the storage account you created earlier in the tutorial.
 4. Enter the **Account Key** for the Azure Blob Storage Account, and then click **Save**. 
-5. In the Navigator pane, click the Blob storage container name. By default the container name is the same name as the cluster name. 
+5. In the Navigator pane on the right, double-click the Blob storage container name. By default the container name is the same name as the cluster name. 
 
 6. Locate **part-r-00000** in the **Name** column, and then click **Binary**.
 
@@ -359,35 +357,33 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
 - [Develop and deploy Hadoop streaming jobs to HDInsight][hdinsight-develop-deploy-streaming]
+- [Develop and deploy Java MapReduce jobs to HDInsight][hdinsight-develop-mapreduce]
 
 
-
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
-[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-admin-powershell]: /en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-get-started-3.0]: /en-us/documentation/articles/hdinsight-get-started-3.0/
+[hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
+[hdinsight-admin-powershell]: /en-us/documentation/articles/hdinsight-administer-use-powershell/
+[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
 [hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
-[hdinsight-hive]:/en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-hive]:/en-us/documentation/articles/hdinsight-use-hive/
+[hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-[hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
-
-[web-platform-installer]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409 
+[hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
+[hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
+[hdinsight-develop-deploy-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
+[azure-create-storageaccount]: /en-us/documentation/articles/storage-create-storage-account/ 
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-[powershell-download]: http://www.windowsazure.com/en-us/manage/downloads/
-[powershell-install-configure]: /en-us/documentation/articles/hdinsight-install-configure-powershell/
-[powershell-open]: /en-us/manage/install-and-configure-windows-powershell/#Install
-
+[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[powershell-open]: /en-us/documentation/articles/install-configure-powershell/#install
 
 [image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
