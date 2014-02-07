@@ -21,7 +21,7 @@ You can use the Management Portal to upload and attach a data disk that contains
 
 The virtual machine is not stopped to add the disk. The number of disks that you can attach to a virtual machine is based on the size of the virtual machine. For information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
 
-[WACOM.NOTE] Windows Azure storage supports blobs up to 1 TB in size, which accommodates a VHD with a maximum virtual size of 999 GB. However, if you use Hyper-V to create a new VHD, the size you specify represents the virtual size. To use the VHD in Windows Azure, specify a size no larger than 999 GB.
+[WACOM.NOTE]Windows Azure storage supports blobs up to 1 TB in size, which accommodates a VHD with a maximum virtual size of 999 GB. However, if you use Hyper-V to create a new VHD, the size you specify represents the virtual size. To use the VHD in Windows Azure, specify a size no larger than 999 GB.
 
 **Data Disk vs. Resource Disk**  
 Data disks reside on Windows Azure Storage and can be used for persistent storage of files and application data.
@@ -61,10 +61,7 @@ For more information about using data disks, see [Manage disks and images](http:
 
 ##<a id="attachempty"></a>How to: Attach an empty disk
 
-
-
-When you create a new data disk, you decide the size of the disk. After you attach an empty disk to a virtual machine, the disk will be offline. You must connect to the virtual machine, and then use Server Manager to initialize the disk before you can use it.
-
+After you have created and uploaded a .vhd file to use as an empty disk, you can attach it to a virtual machine. Use the [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) cmdlet to upload the .vhd file to the storage account.  
 
 1. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the data disk.
 
@@ -105,20 +102,17 @@ When you create a new data disk, you decide the size of the disk. After you atta
 	![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
 
-
-##<a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server 2008 R2
-
+[WACOM.NOTE]After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.
 
 
-The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must access the machine and initialize the disk to use it for storing data. 
 
-
+##<a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server
 
 1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Windows Server][logon].
 
 
 
-2. After you log on to the machine, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
+2. After you log on, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
 
 
 
@@ -235,7 +229,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	**Note:** blkid may not require sudo access in all cases, however, it may be easier to run with `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
+	[WACOM.NOTE]blkid may not require sudo access in all cases, however, it may be easier to run with `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 	**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
@@ -250,7 +244,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 		`sudo umount /mnt/datadrive`
 		`sudo mount /mnt/datadrive`
 
-	If the second command produces an error please check the /etc/fstab file for correct syntax.
+	If the second command produces an error, check the /etc/fstab file for correct syntax.
 
 
 
