@@ -10,7 +10,7 @@ You will learn:
 - [How to log on to the virtual machine after you create it] []
 - [How to attach a data disk to the new virtual machine] []
 
-**Note:** This tutorial creates a virtual machine that is not connected to a virtual network. If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Note:** This tutorial creates a virtual machine that is not connected to a virtual network.  If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 ## <a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
 
