@@ -125,3 +125,4 @@ Because we are rewriting all URLs to handler.fcgi and handing that path via Fast
 Browse to your web site to test correct configuration. For this example the "Hello from Windows Azure Websites" message is visible on access.
 
 ![](./media/web-sites-python-configure/configure-python-result.png)
+
