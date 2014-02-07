@@ -11,5 +11,5 @@ Installation steps:
 2. Enter the site location <http://dl.msopentech.com/eclipse> and press **Enter**.
 3. Select the items to be installed and click **Finish**.
 
-This plugin uses the latest version of the Windows Azure SDK. This can be downloaded using the Web Platform Installer (WebPI) at <http://go.microsoft.com/fwlink/?LinkID=252838>. However, if you don???t have it installed, when you create your first Windows Azure deployment project, the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) will automatically install the appropriate version of the Windows Azure SDK. 
+This plugin uses the latest version of the Windows Azure SDK. This can be downloaded using the Web Platform Installer (WebPI) at <http://go.microsoft.com/fwlink/?LinkID=252838>. However, if you don't have it installed, when you create your first Windows Azure deployment project, the Windows Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) will automatically install the appropriate version of the Windows Azure SDK. 
 

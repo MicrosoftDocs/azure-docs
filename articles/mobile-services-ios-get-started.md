@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-ios" urlDisplayName="Get Started (iOS)" pageTitle="Get Started with Windows Azure Mobile Services for iOS apps" metaKeywords="Windows Azure iOS application, mobile service iOS, getting started Azure iOS" description="Follow this tutorial to get started using Windows Azure Mobile Services for iOS development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
 
-
+ 
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -87,10 +87,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-<!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
--->
+
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
