@@ -1,5 +1,4 @@
 
-
 1. If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click **App name**.
 
    	![][0]
@@ -38,9 +37,7 @@
 
    	![][6]
 
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.</p>
-    </div> 
+    >[WACOM.NOTE]The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.
 
 10. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
