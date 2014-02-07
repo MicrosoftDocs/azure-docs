@@ -20,8 +20,9 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p>
-<p>This tutorial requires Visual Studio 2013. To connect a Windows Store app using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/">Get started with data in Mobile Services using Visual Studio 2012</a>.</p></div>
+>[WACOM.NOTE] To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F).
+
+>This tutorial requires Visual Studio 2013. To connect a Windows Store app using Visual Studio 2012, follow the steps in the topic [Get started with data in Mobile Services using Visual Studio 2012](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/).
 
 
 ## <a name="create-new-service"> </a>Create a new mobile service
@@ -69,10 +70,7 @@ The final stage of this tutorial is to build and run your new app.
 
    	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.</p> 
- 	</div>
+	>[WACOM.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
@@ -94,9 +92,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * **Get started with push notifications** ( [C#][Get started with push notifications] / [JavaScript][Get started with push notifications JS] )
   <br/>Learn how to send a very basic push notification to your app.
 
-<div class="dev-callout"><b>Note</b>
-<p>Visual Studio 2013 includes new features that make it easy to connect an existing Windows Store app to your mobile service. For more information, see <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/">Get started with data in Mobile Services</a>.</p>
-</div>
+>[WACOM.NOTE] Visual Studio 2013 includes new features that make it easy to connect an existing Windows Store app to your mobile service. For more information, see [Get started with data in Mobile Services](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/).
+
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
