@@ -8,7 +8,7 @@ Both backends send notifications to both Windows Store and iOS devices. You can 
 
 <h3><a name="console"></a>To send notifications from a console app in C#</h3>
 
-Skip steps 1-3 if you created a console app when you completed [Get started with Notification Hubs].
+Skip steps 1-3 if you created a console app when you completed [Get started with Notification Hubs][get-started].
 
 1. In Visual Studio create a new Visual C# console application: 
 
@@ -160,7 +160,7 @@ You can now proceed to [Run the app and generate notifications].
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: ../notificationhubs/getting-started-windowsdotnet.md
+[get-started]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Use Notification Hubs to send notifications to users]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Windows Azure Management Portal]: https://manage.windowsazure.com/

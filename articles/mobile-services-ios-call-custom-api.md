@@ -1,7 +1,7 @@
 <properties linkid="manage-services-media-services" urlDisplayName="Media Services" pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Call a custom API from the client" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
 
 
-# Call a custom API from the client
+# Call a custom API from the client 
 
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/develop/mobile/tutorials/call-custom-api-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-wp8" title="Windows Phone" >Windows Phone</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/call-custom-api-android/" title="Android">Android</a>

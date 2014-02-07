@@ -173,9 +173,9 @@ The Mobile Service client will ignore any data in a response that it cannot seri
    Notice that the timestamp is only displayed for items inserted after you updated the insert script.
 
 7. Replace the existing **RefreshTodoItems** method with the following code:
-
+ 
         private void RefreshTodoItems()
-        {
+        { 
             // This query filters out completed TodoItems and 
             // items without a timestamp. 
             items = todoTable

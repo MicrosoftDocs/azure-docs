@@ -20,6 +20,7 @@ Before you begin this article, you must have the following:
 ##In this article
 
 * [Provision HDInsight clusters](#create)
+* [Customize HDInsight clusters](#customize)
 * [Change HDInsight cluster username and password](#password)
 * [Enable remote desktop access](#enablerdp)
 * [Open Hadoop command console](#hadoopcmd)
@@ -51,6 +52,16 @@ An HDInsight cluster uses a Windows Azure Blob Storage container as the default 
 4. Click the newly created cluster.  It shows the landing page:
 
 	![HDI.ClusterLanding][image-cluster-landing]
+
+
+##<a id="customize"></a> Customize HDInsight clusters
+
+HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, see [What version of Hadoop is in Windows Azure HDInsight][hdinsight-version]. HDInsight customization can be done using one of the following options:
+
+- Use the cluster customization parameters in HDInsight .NET SDK or Windows Azure PowerShell during cluster provision. For more information, see [Provision HDInsight clusters][hdinsight-provision].
+- Some native Java components, like Mahout, Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Windows Azure Blob storage (WASB), and submitted to HDInsight clusters using Hadoop job submission mechanisms. For more information see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+
+Installation of custom software on the cluster using remote desktop connection is not supported. You should avoid storing any files on the drives of the head node as they are lost if you need to recreate the clusters. We recommend to store files on Windows Azure Blob storage. Blob storage is persistent.
 
 ##<a id="password"></a> Change the HDInsight cluster username and password
 An HDInsight cluster can have two user accounts.  The HDInsight cluster user account is created during the provision processs.  You can also create a RDP user account for accessing the cluster via RDP. See [Enable remote desktop](#enablerdp).
