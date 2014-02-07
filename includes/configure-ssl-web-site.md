@@ -251,7 +251,7 @@ Before performing the steps in this section, you must have associated a custom d
 >
 > 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the **Dashboard** page of your web site, in the **quick glance** section. It will be listed as **Virtual IP Address**:
 >    
->     <img src="./media/configure-ssl-web-site/staticip.png">
+>     <img src="./media/configure-ssl-web-site/staticip.png" alt="Virtual IP Address">
 >    
 >     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 >
@@ -473,7 +473,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.com/
 [tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
-
+[staticip]./media/configure-ssl-web-site/staticip.png
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
