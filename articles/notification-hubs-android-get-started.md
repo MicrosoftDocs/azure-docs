@@ -114,7 +114,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
 
-4. (PROBABLY NOY) Browse to the SDK path, and copy the following file to the \libs directory of your project in the Package Explorer: \extras\google\google_play_services\libproject\google-play-services_lib\libs\google-play-services.jar.
+<!--4. (PROBABLY NOY) Browse to the SDK path, and copy the following file to the \libs directory of your project in the Package Explorer: \extras\google\google_play_services\libproject\google-play-services_lib\libs\google-play-services.jar.-->
 
 5. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-sdk.jar (TBD: get actual names) to the \libs directory of your project in the Package Explorer.
 
@@ -122,7 +122,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    	![][16]
 
-	Now, set up the application to obtain a *registrationId* from GCM, and use the *registrationId* to register the app instance to the notification hub.
+	Now, set up the application to obtain a *registrationId* from GCM, and use it to register the app instance to the notification hub.
 
 7. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace `<your package>` with the package you selected for your app in step 1 (`com.yourCompany.wams_notificationhubs` in this example).
 
@@ -136,12 +136,16 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 8. In the **MainActivity** class, add the following statements.
 
-	import com.microsoft.windowsazure.notifications.NotificationsManager;
+	import android.os.AsyncTask;
+
+	import com.google.android.gms.gcm.*;
+
+	import com.microsoft.windowsazure.messaging.*;
 
 8. Add the following private members at the top of the class.
 
 	<div class="dev-callout"><b>Note</b>
-    <p>Make sure to use the sender ID you obtained earlier.</p>
+    <p>Make sure to set the SENDER_ID to the Project Number you obtained earlier.</p>
     </div> 
 
 		private String SENDER_ID = "<your project number>";
@@ -175,6 +179,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		   }.execute(null, null, null);
 		}
 
+<!--
 11. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application/>` element.
 
 	<div class="dev-callout"><b>Note</b>
@@ -235,7 +240,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		     mBuilder.setContentIntent(contentIntent);
 		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
-
+-->
 
 <h2><a name="run-app"></a><span class="short-header">Run your app</span>Run your app in the emulator</h2>
 
@@ -379,7 +384,7 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
