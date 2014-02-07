@@ -1,8 +1,8 @@
-﻿<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="" videoId="" scriptId="" />
 
 # How to use Service Management from PHP
 
-This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy]  class in the [Widows Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
+This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy]  class in the [Windows Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
 
 ##Table of Contents
 
@@ -55,7 +55,7 @@ To create the `.cer` certificate, execute this:
 
 For more information about Windows Azure certificates, see [Overview of Certificates in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-If you have downloaded and imported your publish settings file using the [Windows Azure Command Line Tools](http://www.windowsazure.com/en-us/develop/php/how-to-guides/command-line-tools/) (see details [here](http://www.windowsazure.com/en-us/develop/php/how-to-guides/command-line-tools/#Account)), you can use the `.pem` file that the tools create instead of creating your own. The tools create a `.cer` for you and upload it to Windows Azure, and they put the corresponding `.pem` file in the `.azure` directory on your computer (in your user directory).
+If you have downloaded and imported your publish settings file using the [Windows Azure Command Line Tools][command-line-tools], you can use the `.pem` file that the tools create instead of creating your own. The tools create a `.cer` for you and upload it to Windows Azure, and they put the corresponding `.pem` file in the `.azure` directory on your computer (in your user directory).
 
 After you have created these files, you will need to upload the `.cer` file to Windows Azure via the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
@@ -532,27 +532,28 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
 [win-azure-account]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[storage-account]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
+[storage-account]: ../storage-create-storage-account/
 
-[download-SDK-PHP]: https://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
+[download-SDK-PHP]: ../download-php-sdk/
+[command-line-tools]: ../command-line-tools/
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[cloud service]: http://www.windowsazure.com/en-us/manage/services/cloud-services/what-is-a-cloud-service/
+[cloud service]: ../cloud-services-what-is/
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
 [service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
-[Windows Azure PowerShell cmdlets]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/powershell-cmdlets/
+[Windows Azure PowerShell cmdlets]: ../install-configure-powershell/
 [cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
 [Overview of Managing Deployments in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
-[storage service]: https://www.windowsazure.com/en-us/manage/services/storage/what-is-a-storage-account/
-[azure-blobs]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/blob-service/
-[azure-tables]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/
-[azure-queues]: https://www.windowsazure.com/en-us/develop/php/how-to-guides/queue-service/
+[storage service]: ../storage-whatis-account/
+[azure-blobs]: ../storage-php-how-to-use-blobs/
+[azure-tables]: ../storage-php-how-to-use-table-storage/
+[azure-queues]: ../storage-php-how-to-use-queues/
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
