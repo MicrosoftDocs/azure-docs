@@ -895,7 +895,7 @@ In the [next tutorial][tut2], you'll download the sample project, configure your
 
 For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../2-download-and-run/" class="site-arrowboxcta download-cta">Tutorial 2</a></div>
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/" class="site-arrowboxcta download-cta">Tutorial 2</a></div>
 
 [tut2]: /en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/
 [tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/

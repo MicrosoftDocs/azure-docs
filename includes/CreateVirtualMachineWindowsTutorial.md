@@ -1,4 +1,3 @@
-
 # Create a Virtual Machine Running Windows Server #
 
 It's easy to create a virtual machine that is running the Windows Server operating system when you use the Image Gallery in the Windows Azure Management Portal. This tutorial will teach you how to create a virtual machine running Windows Server in the cloud that you can then access and customize. You don't need prior experience with Windows Azure to use this tutorial. 
@@ -12,7 +11,7 @@ You will learn:
 
 **Note:** This tutorial creates a virtual machine that is not connected to a virtual network.  If you want a virtual machine to use a virtual network, you must specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-## <a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
+##<a id="virtualmachine"> </a>About virtual machines in Windows Azure ##
 
 A virtual machine in Windows Azure is a server in the cloud that you can control and manage. After you create a virtual machine in Windows Azure, you can delete and re-create it whenever you need to, and you can access the virtual machine just like any other server. Virtual hard disks (.vhd files) are used to create a virtual machine. You can use the following types of virtual hard disks to create a virtual machine:
 
