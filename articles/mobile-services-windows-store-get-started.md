@@ -12,7 +12,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:08</span></div>
 </div>
 
-In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the [.NET version] of this topic.
 
 A screenshot from the completed app is below:
 
@@ -46,7 +46,7 @@ In this section you will create a new Windows Store app that is connected to you
 
   	![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2013 Express for Windows 8.1] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2013 Express for Windows] on your local computer or virtual machine.
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
@@ -58,7 +58,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 The final stage of this tutorial is to build and run your new app.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows 8.1.
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows.
 
    	![][8]
 
@@ -104,10 +104,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
 
-
-
-
-
 [6]: ./media/mobile-services-windows-store-get-started/mobile-portal-quickstart.png
 [7]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png
 [8]: ./media/mobile-services-windows-store-get-started/mobile-vs2013-project.png
@@ -124,8 +120,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data JS]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [Get started with authentication JS]: /en-us/develop/mobile/tutorials/get-started-with-users-js
 [Get started with push notifications JS]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio 2013 Express for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-
 [Management Portal]: https://manage.windowsazure.com/
+[.NET version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
+[Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
