@@ -110,7 +110,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 * The component versions associated with HDInsight cluster versions may change in future updates to HDInsight. One way to determine the available components and to verify which versions are being used for a cluster is to login to a cluster using remote desktop and examine the contents of the "C:\apps\dist\" directory directly.
 
-[image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/HDI.Versioning.VersionScreen.png
+[image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
 [connect-excel-with-hive-ODBC]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
 
