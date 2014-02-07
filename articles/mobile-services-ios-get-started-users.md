@@ -84,7 +84,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
         [self refresh];
 
-2.	Just after the **viewDidLoad** method, add the following code:
+2.	Just after the **viewDidLoad** method, add the following code:  
 
         - (void)viewDidAppear:(BOOL)animated
         {

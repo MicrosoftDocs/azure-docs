@@ -176,7 +176,7 @@ In the following example, a simple function requests 20 records from the server 
 	}
 
 #### <a name="selecting"></a>Limiting the returned fields
-
+ 
 To limit which field are returned from your query, simply specify the names of the fields you want in the **selectFields** property. The following example returns only the text and completed fields:
 
 	query.selectFields = @[@"text", @"completed"];
