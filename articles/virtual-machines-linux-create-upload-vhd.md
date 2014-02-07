@@ -22,7 +22,7 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Windows Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../linux-endorsed-distributions). 
+	For a list of endorsed distributions, see [Linux on Windows Azure-Endorsed Distributions](../linux-endorsed-distributions). Alternatively, see the section at the end of this article for [Information for Non Endorsed Distributions][].
 
 - **Linux Azure command-line tool.** If you are using a Linux operating system to create your image, you use this tool to upload the VHD file. To download the tool, see [Windows Azure Command-Line Tools for Linux and Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 
