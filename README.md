@@ -6,6 +6,11 @@ Learn the basics of contributing articles to the azure-content repository for Wi
 
 Thank you for your interest in Windows Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
+<<<<<<< HEAD
+###Who needs a CLA?
+* Members of the Microsoft Open Technologies group.
+* Contributors who don't work for Microsoft.
+
 ##Repository organization
 
 The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
@@ -41,6 +46,43 @@ Use the following syntax to reference an include file in your article:
 
 ## Using GitHub, Git and this repository
 
+=======
+##Repository organization
+
+The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
+
+### \articles 
+
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to WindowsAzure.com in the path *http://www.windowsazure.com/en-us/documentation/articles/{article-name-without-md}/*. 
+
+* **Article filenames:** Begin with the service name, such as *hdinsight*, and include the development language and a description of the subject matter. Use all lowercase letters and dashes (-) to separate the words. 
+
+* **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
+
+### \includes
+
+Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
+
+* **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
+
+## Working with Windows Azure articles
+
+### Article template
+
+*Information to come.*
+
+### Referencing include files
+
+Use the following syntax to reference an include file in your article:
+
+	[WACOM.INCLUDE [include-short-name](../includes/include-file-name.md)]
+	
+
+**Note:** An include file cannot reference other includes. 
+
+## Using GitHub, Git and this repository
+
+>>>>>>> 83da1629f1e2c238afd4d4bfa156758a941d2d8a
 **Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribut and edit content" section for the particulars of the code/content flow of this repository.
 
 ### Setting up your fork of the repository
