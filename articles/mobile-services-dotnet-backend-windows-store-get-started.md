@@ -120,12 +120,12 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Get started with data JS]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[Get started with authentication JS]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications JS]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push-notification-hubs
+[Get started with data JS]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
+[Get started with authentication JS]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
+[Get started with push notifications JS]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push-notification-hubs
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
