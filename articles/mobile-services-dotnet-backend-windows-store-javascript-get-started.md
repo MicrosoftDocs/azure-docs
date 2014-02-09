@@ -71,28 +71,25 @@ In this section you will create a new Windows Store app that is connected to you
 
 ## Publish your mobile service
 
-After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Windows Azure and run the app against the live service.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1. In Solution Explorer, right-click the mobile service project and click **Publish**, then in the Publish Web dialog box, click **Import**, click **Browse**, navigate to the location where you earlier saved the publish profile file, Select the publish profile file, click **OK**, then click **Publish**.
+<ol start="4">
+<li><p>In the Windows Store app project, open the App.xaml.cs file, locate the code that creates a <a href="http://msdn.microsoft.com/en-us/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx" target="_blank">MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
 
-	![][11]
-
-	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Windows Azure.
-
-2. In the Windows Store app project, open the default.js file, locate the code that creates a **MobileServiceClient** instance, comment-out the code that creates this client using _localhost_ and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:
-
-		var client = new WindowsAzure.MobileServiceClient(
+        <pre><code>var client = new WindowsAzure.MobileServiceClient(
             "https://<your_mobile_service>.azure-mobile.net/",
             "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        );
+        );</code></pre>
 
-	The client will now access the mobile service published to Windows Azure. 
- 
-3. Press the **F5** key to rebuild the project and start the app.
+	<p>The client will now access the mobile service published to Windows Azure.</p></li>
 
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+<li><p>Press the <strong>F5</strong> key to rebuild the project and start the app.</p></li>
 
-	![][10]
+<li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, in <strong>Insert a TodoItem</strong>, and then click <strong>Save</strong>.</p>
+
+	<p><img src="./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png" alt="" /></p>
+</li>
+</ol>
 
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
