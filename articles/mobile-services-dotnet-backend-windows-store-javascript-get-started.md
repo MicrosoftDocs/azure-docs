@@ -6,7 +6,7 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a>
 <!--<a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a>--></div>
 
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript version] of this topic.
+This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app in HTML and JavaSript that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript version] of this topic.
 
 A screenshot from the completed app is below:
 
@@ -14,7 +14,7 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
->[WACOM.NOTE]To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-get-started%2F" target="_blank">Windows Azure Free Trial</a>.<br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
+>[WACOM.NOTE]To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started%2F" target="_blank">Windows Azure Free Trial</a>.<br />This tutorial requires <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. A free trial version is available.
 
 ## Create a new mobile service
 
@@ -56,7 +56,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 	A web page is displayed after the mobile service starts successfully.
 
-3. In Solution Explorer in Visual Studio, right-click your Windows Store app project and click **Debug** and then **Start new instance**.
+3. In Solution Explorer in Visual Studio, right-click your Windows Store app project and click **Set as StartUp Project** and then press the **F5** key to rebuild the project and start the app.
 
 	This starts the Windows Store app, which connects to the local mobile service instance.	
 
@@ -64,14 +64,14 @@ In this section you will create a new Windows Store app that is connected to you
 
 	![][10]
 
-	This sends a POST request to the mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.
+	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
 
 
 ## Publish your mobile service
 
-After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Windows Azure and run the app against this live service.
+After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Windows Azure and run the app against the live service.
 
 1. In Solution Explorer, right-click the mobile service project and click **Publish**, then in the Publish Web dialog box, click **Import**, click **Browse**, navigate to the location where you earlier saved the publish profile file, Select the publish profile file, click **OK**, then click **Publish**.
 
@@ -79,7 +79,12 @@ After testing the Windows Store app against the local mobile service, the final 
 
 	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Windows Azure.
 
-2. In the Windows Store app project, open either App.xaml.cs (C#/XAML project) or default.js (JavaScript/HTML project), locate the code that creates a **MobileServiceClient** instance, comment-out the code that creates this client using _localhost_ and uncomment the code that creates the client using the remote mobile service URL.
+2. In the Windows Store app project, open the default.js file, locate the code that creates a **MobileServiceClient** instance, comment-out the code that creates this client using _localhost_ and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:
+
+		var client = new WindowsAzure.MobileServiceClient(
+            "https://<your_mobile_service>.azure-mobile.net/",
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        );
 
 	The client will now access the mobile service published to Windows Azure. 
  
@@ -92,13 +97,13 @@ After testing the Windows Store app against the local mobile service, the final 
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* **Get started with data** ( [C#][Get started with data] / [JavaScript][Get started with data JS] )
+* [Get started with data]
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* **Get started with authentication** ( [C#][Get started with authentication] / [JavaScript][Get started with authentication JS] )
+* [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* **Get started with push notifications** ( [C#][Get started with push notifications] / [JavaScript][Get started with push notifications JS] )
+* [Get started with push notifications]
   <br/>Learn how to send a very basic push notification to your app.
 
 <!-- Anchors. -->
@@ -108,24 +113,21 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-quickstart-completed.png
+[0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-completed.png
 
-[6]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-portal-quickstart.png
-[7]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-quickstart-steps.png
-[8]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-service-startup.png
+[6]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
+[7]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
+[8]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-service-startup.png
 
-[10]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-quickstart-startup.png
-[11]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-quickstart-publish.png
-[12]: ./media/mobile-services-dotnet-backend-windows-store-get-started/mobile-data-browse.png
+[10]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-startup.png
+[11]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-publish.png
+[12]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-data-browse.png
 
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push-notification-hubs
-[Get started with data JS]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
-[Get started with authentication JS]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-[Get started with push notifications JS]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push-notification-hubs
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push-notification-hubs
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
