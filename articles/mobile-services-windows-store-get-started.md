@@ -24,7 +24,6 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 >This tutorial requires Visual Studio 2013. To connect a Windows Store app using Visual Studio 2012, follow the steps in the topic [Get started with data in Mobile Services using Visual Studio 2012](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/).
 
-
 ## Create a new mobile service
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
