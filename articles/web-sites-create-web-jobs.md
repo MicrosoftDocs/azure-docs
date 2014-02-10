@@ -20,6 +20,8 @@ The following file types are accepted as runnable scripts:
 
 .cmd, .bat, .exe (using windows cmd)
 
+.ps1 (using powershell)
+
 .sh (using bash)
 
 .php (using php)
@@ -27,8 +29,6 @@ The following file types are accepted as runnable scripts:
 .py (using python)
 
 .js (using node)
-
-> [WACOM.NOTE] Uploading PowerShell scripts directly is not supported at this time. However, for information on an alternate approach, see [Running Powershell Web Jobs on Azure websites][PSonWebJobs].
 
 <a name="CreateOnDemand"></a>
 ##Create an On Demand Task##
