@@ -361,7 +361,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Develop and deploy Java MapReduce jobs to HDInsight][hdinsight-develop-mapreduce]
 
 
-[hdinsight-get-started-3.0]: /en-us/documentation/articles/hdinsight-get-started-3.0/
+[hdinsight-get-started-3.0]: /en-us/documentation/articles/hdinsight-get-started-30/
 [hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
 [hdinsight-admin-powershell]: /en-us/documentation/articles/hdinsight-administer-use-powershell/
 [hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
