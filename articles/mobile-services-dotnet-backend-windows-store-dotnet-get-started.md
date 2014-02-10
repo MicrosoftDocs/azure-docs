@@ -6,7 +6,7 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a>
 <!--<a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a>--></div>
 
-This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript version] of this topic.
+This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
 A screenshot from the completed app is below:
 
@@ -42,30 +42,11 @@ In this section you will create a new Windows Store app that is connected to you
 
   	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
-5. Under **Publish your service to the cloud**, click to download your publish profile. Save the downloaded file to your local computer, and make a note of where you save it.
+5. Under **Publish your service to the cloud**, download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
 
 ## Test the app against the local mobile service
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows.
-
-2. Press the **F5** key to rebuild the project and start the mobile service locally.
-
-	![][8]
-
-	A web page is displayed after the mobile service starts successfully.
-
-3. In Solution Explorer in Visual Studio, right-click your Windows Store app project and click **Set as StartUp Project** and then press the **F5** key to rebuild the project and start the app.
-
-	This starts the Windows Store app, which connects to the local mobile service instance.	
-
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
-
-	![][10]
-
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
-
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the MainPage.xaml.cs file.
-
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet](../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md)]
 
 ## Publish your mobile service
 
@@ -86,6 +67,7 @@ In this section you will create a new Windows Store app that is connected to you
 <li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, in <strong>Insert a TodoItem</strong>, and then click <strong>Save</strong>.</p>
 
 	<p><img src="./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png" alt="" /></p>
+<p>This sends a POST request to the new mobile service hosted in Windows Azure.</p>
 </li>
 </ol>
 
