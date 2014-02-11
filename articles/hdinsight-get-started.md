@@ -9,7 +9,7 @@ HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the clo
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-> [WACOM.NOTE] This tutorial uses HDInsight 2.0 clusters. For the tutorial using HDInsight 3.0 (preview), see [Get started using Windows Azure HDInsight 3.0 (preview)][hdinsight-get-started-3.0].
+> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight (preview), see [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-3.0].
 
 In conjunction with the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -150,7 +150,7 @@ Now you have an HDInsight cluster provisioned. The next step is to run a MapRedu
 
 Running a MapReduce job requires the following elements:
 
-* A MapReduce program. In this tutorial, you will use the WordCount sample that comes with the HDInsight cluster distribution so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop and deploy Java MapReduce jobs for HDInsight][hdinsight-develop-MapReduce].
+* A MapReduce program. In this tutorial, you will use the WordCount sample that comes with the HDInsight cluster distribution so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce].
 
 * An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist.
@@ -357,8 +357,8 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Use MapReduce with HDInsight][hdinsight-mapreduce]
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
-- [Develop and deploy Hadoop streaming jobs to HDInsight][hdinsight-develop-deploy-streaming]
-- [Develop and deploy Java MapReduce jobs to HDInsight][hdinsight-develop-mapreduce]
+- [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
+- [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
 [hdinsight-get-started-3.0]: /en-us/documentation/articles/hdinsight-get-started-30/
@@ -371,7 +371,7 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 [hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
 [hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
-[hdinsight-develop-deploy-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
