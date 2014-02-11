@@ -37,7 +37,7 @@ Windows Azure HDInsight now supports Hadoop 2.2. It is based on the Hortonworks 
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
 <tr><td>Apache Templeton</td><td>Merged with Hive</td></tr>
 <tr><td>Ambari</td><td>API v1.0</td></tr>
-</table><br/
+</table>
 
 ###Cluster version 2.1
 
@@ -53,7 +53,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
 <tr><td>Apache Templeton</td><td>Merged with Hive</td></tr>
 <tr><td>Ambari</td><td>API v1.0</td></tr>
-</table><br/>
+</table>
 
 
 ###Cluster version 1.6
@@ -70,7 +70,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>Apache HCatalog</td><td>0.4.1</td></tr>
 <tr><td>Apache Templeton</td><td>0.1.4</td></tr>
 <tr><td>SQL Server JDBC Driver</td><td>3.0</td></tr>
-</table><br/>
+</table>
 
 
 ## Select a version when provisioning an HDInsight cluster
@@ -91,6 +91,7 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>10/28/2013</td></tr>
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>10/28/2013</td></tr>
 </table><br/>
+
 
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions 
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Support.  An HDInsight cluster is outside the Support Window if its version has a Support Expiration Date past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
