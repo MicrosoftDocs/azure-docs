@@ -35,11 +35,9 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
   	![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2012 Express for Windows Phone] on your local computer.
+3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.
 
-4. Click **Create TodoItem table** to create a table to store app data.
-
-5. Under **Download and run app**, click **Download**. 
+4. Under **Download and publish you service to the cloud**, click **Download**. 
 
   	This downloads a solution contains projects for both the mobile service and for the sample _To do list_ application that is connected to your mobile service. Save the compressed project file to your local computer, and make a note of where you save it.
 
