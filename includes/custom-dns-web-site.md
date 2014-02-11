@@ -160,7 +160,7 @@ The list returned by this command should contain the custom domain name, as well
 
 Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your web site. 
 
-<a name="bkmk_configurearecord"></a><h2Add an A Record for your custom domain</h2>
+<a name="bkmk_configurearecord"></a><h2>Add an A Record for your custom domain</h2>
 
 To create an A record, you must first find the IP address of your web site. Then add an entry in the DNS table for your custom domain by using the tools provided by your registrar. Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same. In addition to creating an A record, you must also create a CNAME record that Windows Azure uses to verify the A record.
 
