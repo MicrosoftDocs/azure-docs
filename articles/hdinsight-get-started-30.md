@@ -9,7 +9,7 @@ HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the clo
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-[WACOM.NOTE] This tutorial uses HDInsight 3.0 preview clusters. For the tutorial using HDInsight 2.1, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
+> [WACOM.NOTE] This tutorial uses HDInsight 3.0 preview clusters. For the tutorial using HDInsight 2.1, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
 
 In conjunction with the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -159,7 +159,7 @@ The URI scheme for accessing files in Blob storage is:
 
 	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
-[WACOM.NOTE] By default, the Blob container used for the default file system has the same name as the HDInsight cluster.
+> [WACOM.NOTE] By default, the Blob container used for the default file system has the same name as the HDInsight cluster.
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
@@ -307,7 +307,7 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains *"there"*.
 
 
-[WACOM.NOTE] If you open <i>./example/data/WordCountOutput/part-r-00000</i>, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
+> [WACOM.NOTE] If you open <i>./example/data/WordCountOutput/part-r-00000</i>, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
 
 
 	

@@ -5,7 +5,7 @@
 
 Windows Azure HDInsight now supports Hadoop 2.2 with HDinsight cluster version 3.0 and takes full advantage of this platform to provide a range of significant benefits to customers. These include, most notably:
 
-- Hive: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the Optimized Row Columnar (ORC) format. Streaming API for Hcatalog.
+- Hive: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the Optimized Row Columnar (ORC) format.
 
 - YARN: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.
 
@@ -18,7 +18,7 @@ Creation of HDInsight 3.0 clusters on Hadoop 2.2 is supported by the Windows Azu
 With the release of Windows Azure HDInsight on Hadoop 2.2, Microsoft has make HDInsight available in all major Azure geographies with the exception of Greater China. Specifically, west Europe and southeast Asia data centers have been brought online. This enables customers to locate clusters in a data center that is close and potentially in a zone of similar compliance requirements. 
 
 **Breaking Changes**	
-The “asv://” syntax is not supported in HDI 3.0 clusters and will not be supported in later versions. This means that any jobs submitted to an HDI 3.0 cluster that explicitly use the “asv://” syntax will fail. The wasb:// syntax should be used instead. Also, jobs submitted to any HDI 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
+Only the "wasb://" syntax is supported in HDInsight 3.0 clusters. The older "asv://" syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions. This means that any jobs submitted to an HDInsight 3.0 cluster that explicitly use the “asv://” syntax will fail. The wasb:// syntax should be used instead. Also, jobs submitted to any HDInsight 3.0 clusters that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
 
 ##HDInsight versions
 HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the HortonWorks Data Platform (HDP) distribution and a set of components that are contained within that distribution.
@@ -36,8 +36,8 @@ Windows Azure HDInsight now supports Hadoop 2.2. It is based on the Hortonworks 
 <tr><td>Apache Oozie</td><td>4.0.0</td></tr>
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
 <tr><td>Apache Templeton</td><td>Merged with Hive</td></tr>
-<tr><td>Ambari</td><td>API v2.0</td></tr>
-</table><br/
+<tr><td>Ambari</td><td>API v1.0</td></tr>
+</table>
 
 ###Cluster version 2.1
 
@@ -53,7 +53,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>Apache HCatalog</td><td>Merged with Hive</td></tr>
 <tr><td>Apache Templeton</td><td>Merged with Hive</td></tr>
 <tr><td>Ambari</td><td>API v1.0</td></tr>
-</table><br/>
+</table>
 
 
 ###Cluster version 1.6
@@ -70,7 +70,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 <tr><td>Apache HCatalog</td><td>0.4.1</td></tr>
 <tr><td>Apache Templeton</td><td>0.1.4</td></tr>
 <tr><td>SQL Server JDBC Driver</td><td>3.0</td></tr>
-</table><br/>
+</table>
 
 
 ## Select a version when provisioning an HDInsight cluster
@@ -92,11 +92,14 @@ The following table lists the versions of HDInsight currently available, the cor
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>10/28/2013</td></tr>
 </table><br/>
 
+
 ### The Service-Level Agreement (SLA) for HDInsight cluster versions 
 The SLA is defined in terms of a "Support Window". A Support Window refers to the period of time that an HDInsight cluster version is supported by Microsoft Customer Support.  An HDInsight cluster is outside the Support Window if its version has a Support Expiration Date past the current date.  A list of supported HDInsight cluster versions may be found in the table above.  The Support Expiration Date for a given HDInsight version (denoted as version X) is calculated as the later of:  
 
 - Formula 1:  Add 180 days to the date HDInsight cluster version X was released
 - Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Windows Azure Management Portal.
+
+Note that while an HDInsight version is in preview, support is provided in the [Windows Azure Forums][wa-forums]. 
 
 **Additional notes and information on versioning**	
 
@@ -108,11 +111,13 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 * HDInsight cluster version 1.6 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 1.1][hdp-1-1-0]. 
 
-* The component versions associated with HDInsight cluster versions may change in future updates to HDInsight. One way to determine the available components and to verify which versions are being used for a cluster is to login to a cluster using remote desktop and examine the contents of the "C:\apps\dist\" directory directly.
+* The component versions associated with HDInsight cluster versions may change in future updates to HDInsight. One way to determine the available components and to verify which versions are being used for a cluster to use the Ambari REST API. The GetComponentInformation command can be used to retrieve information about a service component. For details, see the [Ambari documentation][ambari-docs]. Another way to obtain this information is to login to a cluster using remote desktop and examine the contents of the "C:\apps\dist\" directory directly.
 
-[image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/HDI.Versioning.VersionScreen.png
+[image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[connect-excel-with-hive-ODBC]: /en-us/manage/services/hdinsight/connect-excel-with-hive-ODBC/
+[wa-forums]: http://www.windowsazure.com/en-us/support/forums/
+
+[connect-excel-with-hive-ODBC]: /en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver
 
 [hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
@@ -120,3 +125,4 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 [hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
 
+[ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
