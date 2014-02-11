@@ -220,5 +220,5 @@ To provision Windows Azure BizTalk Services in the Windows Azure Management Port
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
 - [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-[BackupStatus]: ./media/biztalk-backup-restore/Last-Backup-Status.png
-[Restore]: ./media/biztalk-backup-restore/Restore.png
+[BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
+[Restore]: ./media/biztalk-backup-restore/restore-ui.png
