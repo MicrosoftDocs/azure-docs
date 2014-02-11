@@ -444,15 +444,15 @@ Warning: Keep your app ID and secret secure. A malicious user who has your app I
 In this section you will add the *canEdit* role to the membership database. Only those users in the canEdit role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than *superAdmin*.
 
 1. In the **View** menu click **Server Explorer**. 
-	![Publish][rxP3] 
-	![Publish][rxP2]
 
 1. In **Server Explorer**, expand **DefaultConnection** then expand **Tables**.
+
 1. Right click **UserProfile** and click **Show Table Data**.
  
 	![Show table data][rxSTD]
  
 1. Record the **UserId** for the user that will have the canEdit role. In the image below, the user *ricka* with **UserId** 2 will have the canEdit role for the site.
+
 	![user IDs][rxUid]
  
 1. Right click **webpages_Roles** and click **Show Table Data**.

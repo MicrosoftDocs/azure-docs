@@ -145,7 +145,7 @@ The example command will not only create the new directory *newdirectory* but, i
 
 The URI scheme for accessing files in Blob storage is: 
 
-	WASB
+	WASB[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with *WASBS*. We recommend using *WASBS* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 	
