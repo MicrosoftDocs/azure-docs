@@ -88,13 +88,25 @@ The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform I
 
 Now you have the HDInsight emulator configured on your workstation. You can run a MapReduce job to test the installation. You will first upload some text files to HDFS, and then run a word count MapReduce job to count the word frequencies of those files. 
 
+The word counting MapReduce program has been packaged into *hadoop-examples.jar*.  The jar file is located at the *C:\Hadoop\hadoop-1.1.0-SNAPSHOT* folder.
+
+The syntax for the jar command is:
+
+	hadoop jar <jar> [mainClass] args...
+
+You will also use some fs commands. For more information on Hadoop commands, see [Hadoop commands manual][hadoop-commands-manual].
+
+The word counting MapReduce job takes two arguments: an input folder and an output folder.  You will use *hdfs://localhost/user/HDIUser* as the input folder, and *hdfs://localhost/user/HDIUser/WordCount_Output* as the output directory. The output folder can not be an existing folder, otherwise the MapReduce job will fail. If you want to run the MapReduce job for the second time, you must either specify a different output folder or delete the existing output folder. 
+
 **To run the word count MapReduce job**
 
 1. From the desktop, double-click **Hadoop Command Line** to open the Hadoop command line window.  The current folder should be:
 
 		c:\Hadoop\hadoop-1.1.0-SNAPSHOT>
 
-	If not, use the *cd* command to change directory to the folder.
+	If not, run the following command:
+
+		cd %hadoop_home%
 
 2. Run the following Hadoop command to make a HDFS folder for storing the input and output files:
 
@@ -619,5 +631,6 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
+[hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
