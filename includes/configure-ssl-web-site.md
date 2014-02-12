@@ -473,7 +473,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 [openssl]: http://www.openssl.org/
 [portal]: https://manage.windowsazure.com/
 [tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
-[staticip]./media/configure-ssl-web-site/staticip.png
+[staticip]: ./media/configure-ssl-web-site/staticip.png
 [website]: ./media/configure-ssl-web-site/sslwebsite.png
 [scale]: ./media/configure-ssl-web-site/sslscale.png
 [standard]: ./media/configure-ssl-web-site/sslreserved.png
