@@ -43,9 +43,11 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
 5. Under **Publish your service to the cloud**, download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.
 
-## Test the app against the local mobile service
+## Test the mobile service on your local computer
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet](../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+
+>[WACOM.NOTE]There are additional configuration steps needed to run a Windows Phone app that connects a local service. We don't show how to do this in this topic, but you can learn more in [How to connect to a local web service from the Windows Phone 8 emulator]. 
 
 ## Publish your mobile service
 
@@ -66,7 +68,11 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 <li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, and then click <strong>Save</strong>.</p>
 
 	<p><img src="./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-startup-wp8.png" alt="" /></p>
-<p>This sends a POST request to the new mobile service hosted in Windows Azure.</p>
+<p>This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.</p>
+	<div class="dev-callout"> 
+	<b>Note</b> 
+   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the MainPage.xaml.cs file.</p> 
+ 	</div>
 </li>
 </ol>
 
@@ -113,3 +119,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 [Management Portal]: https://manage.windowsazure.com/
 [JavaScript version]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[How to connect to a local web service from the Windows Phone 8 emulator]: http://go.microsoft.com/fwlink/p/?LinkId=391930

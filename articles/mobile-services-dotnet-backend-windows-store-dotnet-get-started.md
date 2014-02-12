@@ -108,5 +108,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
-[JavaScript version]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-store-get-started
 [Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
