@@ -41,10 +41,10 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 1. From the Utilities folder, run the Keychain Access tool.
 
 2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
-
+ 
   	![][5]
 
-3. Select your **User Email Address**, type **Common Name** and **CA Email Address** values, make sure that **Saved to disk** is selected, and then click **Continue**.
+3. Select your **User Email Address** and **Common Name** , make sure that **Saved to disk** is selected, and then click **Continue**. Leave the **CA Email Address** field blank as it is not required.
 
   	![][6]
 
@@ -62,80 +62,65 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
 
-   	![][105] 
+   	![][B102] 
 
-2. Type a name for your app in **Description**, and a value for **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**.
+2. Type a name for your app in **Description**, enter the value _MobileServices.Quickstart_ in **Bundle Identifier**, check the "Push Notifications" option in the "App Services" section, and then click **Continue**. This example uses the ID **MobileServices.Quickstart** but you may not reuse this same ID, as app IDs must be unique across all users. As such, it is recommended that you append your full name or initials after the app name. 
 
-   	![][106]
-
-   	![][107] 
-
-   	![][108]
+   	![][B103]
    
-
-   	This generates your app ID and requests that you submit the information. Click **Submit**.
+   	This generates your app ID and requests you to **Submit** the information. Click **Submit**
    
-	![][109] 
+   	![][B104] 
    
    	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
    
-	![][110]
-	
-    <div class="dev-callout"><b>Note</b>
-	<p>If you choose to supply a <strong>Bundle Identifier</strong> value other than <b>MobileServices.Quickstart</b>, you must also update the bundle identifier value in your Xcode project.</p>
-    </div>
+   	![][B105]
+
+    > [WACOM.NOTE] If you choose to supply a <strong>Bundle Identifier</strong> value other than <i>MobileServices.Quickstart</i>, you must also update the bundle identifier value in your Xcode project.
 
 3. Locate the app ID that you just created, and click on its row. 
 
-	![][111]
+   	![][B106]
    
-	Clicking on the app ID will display details about the app and the app ID:
+   	Clicking on the app ID will display details on the app and app ID. Click the **Settings** button.
    
-	![][112] 
+   	![][B107] 
    
-	![][113]
+4. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
 
-4. Click **Edit**, then scroll to the bottom of the screen and click **Create Certificate...** under the section **Development Push SSL Certificate**.
+   	![][B108] 
 
-   	![][114] 
-
-	This displays the "Add iOS Certificate" assistant.
+   	This displays the "Add iOS Certificate" assistant.
    
-	![][115] 
-	
-    <div class="dev-callout"><b>Note</b>
-	<p>This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</p>
-    </div>
+   	![][B108] 
 
-5. Click **Choose File**, browse to the location in which you saved the CSR file that you created in the first task, and then click **Generate**. 
 
-  	![][116]
+    > [WACOM.NOTE] This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.
+
+5. Click **Choose File**, browse to the location where you saved the CSR file that you created in the first task, then click **Generate**. 
+
+  	![][B110]
   
-6. After the certificate is created by the portal, click **Download**, and then click **Done**.
+6. After the certificate is created by the portal, click the **Download** button, and click **Done**.
  
-  	![][118]
+  	![][B111]  
 
-  	![][119]  
-  
-	This downloads the signing certificate and saves it to your computer in your **Downloads** folder. 
+   	This downloads the signing certificate and saves it to your computer in your Downloads folder. 
 
-  	![][9] 
+  	![][B9] 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>By default, the downloaded file a development certificate is named <strong>aps_development.cer</strong>.</p>
-    </div>
+    > [WACOM.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
 
 7. Double-click the downloaded push certificate **aps_development.cer**.
 
-	This installs the new certificate in the Keychain, as shown below:
+   	This installs the new certificate in the Keychain, as shown below:
 
-	![][10]
+   	![][B10]
 
-    <div class="dev-callout"><b>Note</b>
-	<p>The name in your certificate might be different, but it will be prefixed with <strong>Apple Development iOS Push Notification Services:</strong>.</p>
-    </div>
+    > [WACOM.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Notification Services:**.
 
-Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
+Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.
+
 
 <h2><a name="profile"></a><span class="short-header">Provision the app</span>Create a provisioning profile for the app</h2>
  
@@ -399,6 +384,19 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [31]: ./media/notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/notification-hubs-ios-get-started/notification-hub-create-ios-app2.png
 [33]: ./media/notification-hubs-ios-get-started/notification-hub-create-ios-app3.png
+
+
+[B102]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-02.png
+[B103]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-03.png
+[B104]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-04.png
+[B105]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-05.png
+[B106]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-06.png
+[B107]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-07.png
+[B108]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-08.png
+[B110]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-10.png
+[B111]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-11.png
+[B9]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-step9.png
+[B10]: ./media/notification-hubs-ios-get-started/notification-hub-clone-mobile-services-ios-push-step10.png
 
 
 <!-- URLs. -->
