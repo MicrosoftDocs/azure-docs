@@ -12,7 +12,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:08</span></div>
 </div>
 
-In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the [.NET backend version] of this topic.
 
 A screenshot from the completed app is below:
 
@@ -20,15 +20,15 @@ A screenshot from the completed app is below:
 
 Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p>
-<p>This tutorial requires Visual Studio 2013. To connect a Windows Store app using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/">Get started with data in Mobile Services using Visual Studio 2012</a>.</p></div>
+>[WACOM.NOTE] To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F).
 
+>This tutorial requires Visual Studio 2013. To connect a Windows Store app using Visual Studio 2012, follow the steps in the topic [Get started with data in Mobile Services using Visual Studio 2012](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/).
 
-## <a name="create-new-service"> </a>Create a new mobile service
+## Create a new mobile service
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2><span class="short-header">Create a new app</span>Create a new Windows Store app</h2>
+## Create a new Windows Store app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -45,7 +45,7 @@ In this section you will create a new Windows Store app that is connected to you
 
   	![][7]
 
-3. If you haven't already done so, download and install [Visual Studio 2013 Express for Windows 8.1] on your local computer or virtual machine.
+3. If you haven't already done so, download and install [Visual Studio 2013 Express for Windows] on your local computer or virtual machine.
 
 4. Click **Create TodoItem table** to create a table to store app data.
 
@@ -57,9 +57,7 @@ In this section you will create a new Windows Store app that is connected to you
 
 The final stage of this tutorial is to build and run your new app.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows 8.1.
-
-   	![][8]
+1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows.
 
 2. Press the **F5** key to rebuild the project and start the app.
 
@@ -69,10 +67,7 @@ The final stage of this tutorial is to build and run your new app.
 
    	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
 
-	<div class="dev-callout"> 
-	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.</p> 
- 	</div>
+	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in either the MainPage.xaml.cs file (C#/XAML project) or the default.js (JavaScript/HTML project) file.
 
 4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
 
@@ -82,7 +77,7 @@ The final stage of this tutorial is to build and run your new app.
 
    	![][12]
 
-## <a name="next-steps"> </a>Next Steps
+## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
 * **Get started with data** ( [C#][Get started with data] / [JavaScript][Get started with data JS] )
@@ -94,10 +89,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * **Get started with push notifications** ( [C#][Get started with push notifications] / [JavaScript][Get started with push notifications JS] )
   <br/>Learn how to send a very basic push notification to your app.
 
-<div class="dev-callout"><b>Note</b>
-<p>Visual Studio 2013 includes new features that make it easy to connect an existing Windows Store app to your mobile service. For more information, see <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/">Get started with data in Mobile Services</a>.</p>
-</div>
-
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
 [Create a new mobile service]:#create-new-service
@@ -106,10 +97,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
-
-
-
-
 
 [6]: ./media/mobile-services-windows-store-get-started/mobile-portal-quickstart.png
 [7]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-steps.png
@@ -127,8 +114,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with data JS]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [Get started with authentication JS]: /en-us/develop/mobile/tutorials/get-started-with-users-js
 [Get started with push notifications JS]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio 2013 Express for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-
 [Management Portal]: https://manage.windowsazure.com/
+[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
+[Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012

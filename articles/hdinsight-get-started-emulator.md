@@ -25,7 +25,7 @@ Before you begin this tutorial, you must have the following:
 	- Windows 8 
 	- Windows Server 2012.
 
-- Install and configure PowerShell for HDInsight. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]. 
+- Install and configure Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure]. 
 
 ## In this tutorial
 
@@ -88,13 +88,25 @@ The Microsoft HDInsight Emulator is installable via the Microsoft Web Platform I
 
 Now you have the HDInsight emulator configured on your workstation. You can run a MapReduce job to test the installation. You will first upload some text files to HDFS, and then run a word count MapReduce job to count the word frequencies of those files. 
 
+The word counting MapReduce program has been packaged into *hadoop-examples.jar*.  The jar file is located at the *C:\Hadoop\hadoop-1.1.0-SNAPSHOT* folder.
+
+The syntax for the jar command is:
+
+	hadoop jar <jar> [mainClass] args...
+
+You will also use some fs commands. For more information on Hadoop commands, see [Hadoop commands manual][hadoop-commands-manual].
+
+The word counting MapReduce job takes two arguments: an input folder and an output folder.  You will use *hdfs://localhost/user/HDIUser* as the input folder, and *hdfs://localhost/user/HDIUser/WordCount_Output* as the output directory. The output folder can not be an existing folder, otherwise the MapReduce job will fail. If you want to run the MapReduce job for the second time, you must either specify a different output folder or delete the existing output folder. 
+
 **To run the word count MapReduce job**
 
 1. From the desktop, double-click **Hadoop Command Line** to open the Hadoop command line window.  The current folder should be:
 
 		c:\Hadoop\hadoop-1.1.0-SNAPSHOT>
 
-	If not, use the *cd* command to change directory to the folder.
+	If not, run the following command:
+
+		cd %hadoop_home%
 
 2. Run the following Hadoop command to make a HDFS folder for storing the input and output files:
 
@@ -596,7 +608,8 @@ For more information for submitting Hadoop jobs, see [Submit Hadoop jobs program
 In this tutorial, you have an HDInsight Emulator installed, and have ran some Hadoop jobs. To learn more, see the following articles:
 
 - [Get started using Windows Azure HDInsight][hdinsight-get-started]
-- [Develop and deploy Hadoop streaming jobs to HDInsight][hdinsight-develop-deploy-streaming]
+- [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
+- [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-deploy-streaming]
 - [HDInsight emulator release notes](https://gettingstarted.hadooponazure.com/releaseNotes.html)
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
 
@@ -606,6 +619,7 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 [azure-create-storage-account]: /en-us/manage/services/storage/how-to-create-a-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
 
+[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
 [hdinsight-emulator-release-notes]: http://gettingstarted.hadooponazure.com/releaseNotes.html
@@ -616,5 +630,9 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
 [hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-develop-deploy-streaming]: /en-us/manage/services/hdinsight/develop-deploy-hadoop-streaming-jobs/
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+
+[hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 

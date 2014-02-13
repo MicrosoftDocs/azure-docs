@@ -29,7 +29,7 @@ Follow these steps to change configuration options for a web site.
 	<ul>
 
 	<!-- GENERAL -->
-	<li style="margin-left: 40px"><strong>general</strong>
+	<li><strong>general</strong>
 <ul>
 <li><strong>.NET Framework Version</strong> - If your web application uses the .NET Framework, set the version of the framework that the web application requires.</li>
 
@@ -53,19 +53,19 @@ Follow these steps to change configuration options for a web site.
 </ul></li>
 
 <!-- CERTIFICATES -->
-<li style="margin-left: 40px"><strong>certificates</strong> - In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
+<li><strong>certificates</strong> - In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
 <br /><strong>Note:</strong>
 Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.
 </li>
 
 <!-- DOMAIN NAMES -->
-<li style="margin-left: 40px"><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
+<li><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
 
 <!-- SSL BINDINGS -->
-<li style="margin-left: 40px"><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
+<li><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
 
 <!-- DEPLOYMENTS  -->
-<li style="margin-left: 40px"><strong>deployments</strong> - Use these settings to configure deployments.
+<li><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
 <li><strong>Git URL</strong> - If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
 <li><strong>Deployment Trigger URL</strong> - This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
@@ -74,8 +74,8 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 </li>
 
 <!-- APPLICATION DIAGNOSTICS  -->
-<li style="margin-left: 40px"><strong>application diagnostics</strong> - Set options for gathering diagnostic traces from a web application whose code has been instrumented with traces. The logging options for application diagnostics include:<ul>
-
+<li><strong>application diagnostics</strong> - Set options for gathering diagnostic traces from a web application whose code has been instrumented with traces. The logging options for application diagnostics include:
+<ul>
 <!-- APPLICATION LOGGING (FILE SYSTEM) -->
 <li><strong>Application Logging (File System)</strong> - Choose <strong>On</strong> to have the application logs written to the web site's file system. When enabled, file system logging lasts for a period of 12 hours. You can access the logs from the FTP share for the web site. The link to the FTP share can be found on the <strong>Dashboard</strong>. Under <strong>Quick Glance</strong>, choose <strong>FTP Diagnostic Logs</strong> or <strong>FTPS Diagnostic Logs</strong>.</li>
 
@@ -97,12 +97,11 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 </li></ul></li></ul></li>
 
 <!-- SITE DIAGNOSTICS  -->
-<li style="margin-left: 40px"><strong>site diagnostics</strong> - Set options for gathering diagnostic 
+<li><strong>site diagnostics</strong> - Set options for gathering diagnostic 
 	information for your web site, including:
-	<ul>
-
+<ul>
 <!-- WEB SERVER LOGGING -->
-	<li style="margin-left: 60px"><strong>Web Server Logging</strong> - Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
+	<li><strong>Web Server Logging</strong> - Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
 <br /><strong>Tip</strong>: The maximum size of log storage in the file system is 100 megabytes. If you need to retain more history than that, use Windows Azure Storage, which has a much greater storage capacity.
 	<ul>
 		<li>To save web server logs to a Windows Azure Storage Account, choose <strong>Storage</strong>, and then choose <strong>manage storage</strong>. In the <strong>Manage Storage for Site Diagnostics</strong> dialog box, use the <strong>Storage Account</strong> option to choose the Windows Azure Storage Account for the container that will hold the logs. Use the <strong>Azure Blob Container</strong> option to choose the container that will hold the logs, or select <strong>Create a new blob container</strong> to enable the <strong>Blob Name</strong> box where you can specify a name for the new container.
@@ -113,12 +112,12 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 </li>
 
 <!-- DETAILED ERROR MESSAGES -->
-	<li style="margin-left: 60px"><strong>Detailed Error Messages</strong> - Specify whether to log detailed error messages for the web site. 
+	<li><strong>Detailed Error Messages</strong> - Specify whether to log detailed error messages for the web site. 
 	If enabled, detailed error messages are saved as .htm files to the FTP site listed under FTP Diagnostic Logs on the Dashboard management page. 
 	After connecting to the specified FTP site navigate to /LogFiles/DetailedErrors/ to retrieve the .htm files which contain detailed error messages.</li>
 
 <!-- FAILED REQUEST TRACING -->
-	<li style="margin-left: 60px"><strong>Failed Request Tracing</strong> - Specify whether to enable failed request tracing. If enabled, 
+	<li><strong>Failed Request Tracing</strong> - Specify whether to enable failed request tracing. If enabled, 
 	failed request tracing output is written to XML files and saved to the FTP site listed under FTP Diagnostic Logs on the Dashboard management page. 
 	After connecting to the specified FTP site navigate to /LogFiles/W3SVC######### (where ######### represent a unique identifier for the web site) 
 	to retrieve the XML files that contain the failed request tracing output.<br /><strong>Important</strong><br />The /LogFiles/W3SVC#########/ 
@@ -126,7 +125,7 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 	the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</li>
 
 <!-- REMOTE DEBUGGING -->
-<li style="margin-left: 60px"><strong>Remote Debugging</strong> - Set this option to <strong>On</strong> to enable remote debugging in your choice of Visual Studio 2012 or Visual Studio 2013. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Windows Azure web site.
+<li><strong>Remote Debugging</strong> - Set this option to <strong>On</strong> to enable remote debugging in your choice of Visual Studio 2012 or Visual Studio 2013. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Windows Azure web site.
 <br />
 <strong>Note</strong>:  Remote debugging will be enabled only for 48 hours and will not work with a site name or user name that is longer than 20 characters. 
 </li>

@@ -43,11 +43,11 @@ For more information, see [AzCopy - Uploading/Downloading files for Windows Azur
 
 ##<a id="powershell"></a>Upload data to Blob storage using Windows Azure PowerShell##
 
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. You can use Windows Azure PowerShell to upload data to Blob storage, so the data can be processed by MapReduce jobs. For information on configuring your workstation to run Windows Azure PowerShell, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 **To upload a local file to Blob storage**
 
-1. Open Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open Windows Azure PowerShell console window as instructed in [Install and configure Windows Azure PowerShell][powershell-install-configure].
 2. Set the values of the first five variables in the following script:
 
 		$subscriptionName = "<WindowsAzureSubscriptionName>"
@@ -222,7 +222,7 @@ The following procedure uses PowerShell to submit a Sqoop job. This is only supp
 
 **To import data to HDInsight using Sqoop and PowerShell**
 
-1. Open Windows Azure PowerShell console window as instructed in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open Windows Azure PowerShell console window as instructed in [Install and configure Windows Azure PowerShell][powershell-install-configure].
 2. Set the values of the first eight variables in the following script:
 
 		$subscriptionName = "<WindowsAzureSubscriptionName>"
@@ -266,7 +266,7 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 
 Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *WASB://*. To secure the connection, use *WASBS://*. The scheme for accessing data in Blob storage is:
 
-	WASB
+	WASB[S]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
 
 The following is a sample PowerShell script for submitting a MapReduce job:
 
@@ -314,6 +314,10 @@ Now that you understand how to get data into HDInsight, use the following articl
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html
 
 [whatismyip]: http://www.whatismyip.com
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+
+
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png

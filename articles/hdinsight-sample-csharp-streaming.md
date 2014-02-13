@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" title="The HDInsight C# streaming wordcount sample" />
+<properties linkid="manage-services-hdinsight-sample-csharp-streaming" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight C# streaming wordcount sample | Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a sample TBD." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" title="The HDInsight C# streaming wordcount sample" />
 
 # The HDInsight C# streaming wordcount sample
  
@@ -24,7 +24,7 @@ For more information on the Hadoop streaming interface, see [Hadoop Streaming][h
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 
 ##In this article
@@ -167,7 +167,8 @@ For tutorials running other samples and providing instructions on using Pig, Hiv
 * [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
-[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 
 [getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
