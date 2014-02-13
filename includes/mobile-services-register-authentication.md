@@ -4,11 +4,11 @@ To be able to authenticate users, you must register your app with an identity pr
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
-   	![][4]
+   	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
 
 2. Click the **Dashboard** tab and make a note of the **Mobile Service URL** value.
 
-   	![][5]
+   	![](./media/mobile-services-register-authentication/mobile-service-uri.png)
 
     You may need to provide this value to the identity provider when you register your app.
 
@@ -29,6 +29,9 @@ To be able to authenticate users, you must register your app with an identity pr
 
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
 
-   	![][13]
+   	![](./media/mobile-services-register-authentication/mobile-identity-tab.png)
 
 	Both your mobile service and your app are now configured to work with your chosen authentication provider.
+
+<!-- URLs. -->
+[Windows Azure Management Portal]: https://manage.windowsazure.com/
