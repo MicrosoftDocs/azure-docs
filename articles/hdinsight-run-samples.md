@@ -22,7 +22,7 @@ Much additional documentation exists on the web for Hadoop-related technologies 
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight](/en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/)
+- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 ## The samples ##
 
@@ -48,6 +48,8 @@ From this article and the articles on each of the samples, you learned how to ru
 * [Submit Hadoop Jobs Programmatically][submit-jobs-programmatically]
 * [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 * [Debug HDInsight: Error Messages][hdinsight-debug-error-messages]
+
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 [hdinsight-debug-error-messages]: /en-us/manage/services/hdinsight/debug-error-messages/
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

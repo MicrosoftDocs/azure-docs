@@ -40,7 +40,7 @@ include:
 -   Generating reports to help identify trends.
 -   Forwarding customer inquiries.
 
-For more information, see [http://sendgrid.com][].
+For more information, see [http://sendgrid.com](http://sendgrid.com).
 
 <h2><a name="createaccount"></a><span  class="short-header">Create a SendGrid account</span>Create a SendGrid account</h2>
 
@@ -70,7 +70,7 @@ To install the SendGrid NuGet package in your application, do the following:
 3.  Search for **SendGrid** and select the **SendGrid** item in the
     results list.
 
-    ![SendGrid NuGet package][SendGrid NuGet package]
+    ![SendGrid NuGet package][SendGrid-NuGet-package]
 
 4.  Click **Install** to complete the installation, and then close this
     dialog.
@@ -280,7 +280,7 @@ these links to learn more.
 
 * SendGrid C\# library repo: [sendgrid-csharp][]
 *   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
-*   SendGrid special offer for Windows Azure customers: [http://sendgrid.com/azure.html][]
+*   SendGrid special offer for Windows Azure customers: [http://sendgrid.com](http://sendgrid.com)
 
   [Next steps]: #nextsteps
   [What is the SendGrid Email Service?]: #whatis
@@ -297,7 +297,7 @@ these links to learn more.
   
   
   
-  [SendGrid NuGet package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
+  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

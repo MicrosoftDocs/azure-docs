@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="Samples topic title TBD - Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" title="The HDInsight WordCount sample"/>
+<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight WordCount sample | Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" title="The HDInsight WordCount sample"/>
 
-# The HDInsight WordCount sample
+#The HDInsight WordCount sample
  
 This sample topic shows how to run a MapReduce program that counts word occurrences in a text file with Windows Azure HDInsight using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on an HDInsight cluster. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
@@ -19,7 +19,7 @@ The Hadoop MapReduce program reads the text file and counts how often each word 
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Get Started with Windows Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell]
+- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure]
 
 ##In this article	
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
@@ -206,7 +206,7 @@ For tutorials runnng other samples and providing instructions on using Pig, Hive
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 [hdinsight-get-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
-[powershell-install-configure]: /en-us/manage/install-and-configure-windows-powershell/
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 

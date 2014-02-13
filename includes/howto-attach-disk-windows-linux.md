@@ -11,34 +11,32 @@
 
 
 
-<h2><a id="concepts"></a>Concepts</h2>
+##<a id="concepts"></a>Concepts
 
 
 
-You can attach a data disk to a virtual machine to store application data. A data disk is a Virtual Hard Disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
+You can attach a data disk to a virtual machine to store application data. A data disk is a virtual hard disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure. You manage data disks in the virtual machine the same way you do on a server in your office.
 
-You can upload and attach a data disk that already contains data to the virtual machine, or you can attach an empty disk to the machine. The virtual machine is not stopped to add the disk. You are limited in the number of disks that you can attach to a virtual machine based on the size of the machine. The following table lists the number of attached disks that are allowed for each size of virtual machine. For more information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
+You can use the Management Portal to upload and attach a data disk that contains data to the virtual machine, as well as add an empty disk from the same storage account used by the virtual machine. This article describes these processes. To attach an empty disk located in a different storage account, use the [Add-AzureDataDisk](http://go.microsoft.com/fwlink/p/?LinkId=391661) cmdlet, available in the Windows Azure PowerShell module. To download the module, see the [Downloads](http://www.windowsazure.com/en-us/downloads/) page.
+
+The virtual machine is not stopped to add the disk. The number of disks that you can attach to a virtual machine is based on the size of the virtual machine. For information about virtual machine and disk sizes, see [Virtual Machine Sizes for Windows Azure](http://go.microsoft.com/FWLink/p/?LinkID=294683).
+
+> [WACOM.NOTE] 
+> Windows Azure storage supports blobs up to 1 TB in size, which accommodates a VHD with a maximum virtual size of 999 GB. However, if you use Hyper-V to create a new VHD, the size you specify represents the virtual size. To use the VHD in Windows Azure, specify a size no larger than 999 GB.
 
 **Data Disk vs. Resource Disk**  
-Data Disks reside on Windows Azure Storage and can be used for persistent storage of files and application data.
+Data disks reside on Windows Azure Storage and can be used for persistent storage of files and application data.
 
-Each virtual machine created also has a temporary local *Resource Disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and temporary storage of data. It is also used to store page or swap files for the operating system.
+Each virtual machine also has a temporary, local *resource disk* attached. Because data on a resource disk may not be durable across reboots, it is often used by applications and processes running in the virtual machine for transient and temporary storage of data. It is also used to store page or swap files for the operating system.
 
-On Windows, the Resource Disk is labeled as the **D:** drive.  On Linux, the Resource Disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
+On Windows, the resource disk is labeled as the **D:** drive.  On Linux, the resource disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
 
-For more information about using data disks, see [Manage disks and images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+For more information about using data disks, see [Manage disks and images](http://go.microsoft.com/fwlink/p/?LinkId=391660).
 
-
-
-
-<h2><a id="attachexisting"></a>How to: Attach an existing disk</h2>
-
-
+##<a id="attachexisting"></a>How to: Attach an existing disk
 
 
 1. If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
-
-
 
 2. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the disk.
 
@@ -62,15 +60,9 @@ For more information about using data disks, see [Manage disks and images](http:
 
 	![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachSuccess.png)
 
-<h2><a id="attachempty"></a>How to: Attach an empty disk</h2>
+##<a id="attachempty"></a>How to: Attach an empty disk
 
-
-
-When you create a new data disk, you decide the size of the disk. After you attach an empty disk to a virtual machine, the disk will be offline. You must connect to the virtual machine, and then use Server Manager to initialize the disk before you can use it.
-
-**Note:** Windows Azure storage supports blobs up to 1TB in size, which accommodates a VHD with a maximum virtual size 999GB. When you enter "1TB" in Hyper-V for a new hard disk, the value represents the virtual size.  This yields a file that is oversized by 512 bytes.
-
-
+After you have created and uploaded a .vhd file to use as an empty disk, you can attach it to a virtual machine. Use the [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) cmdlet to upload the .vhd file to the storage account.  
 
 1. Click **Virtual Machines**, and then select the virtual machine to which you want to attach the data disk.
 
@@ -111,20 +103,18 @@ When you create a new data disk, you decide the size of the disk. After you atta
 	![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
 
-
-<h2><a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server 2008 R2</h2>
-
-
-
-The data disk that you just attached to the virtual machine is offline and not initialized after you add it. You must access the machine and initialize the disk to use it for storing data. 
+> [WACOM.NOTE] 
+> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.
 
 
+
+##<a id="initializeinWS"></a>How to: Initialize a new data disk in Windows Server
 
 1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Windows Server][logon].
 
 
 
-2. After you log on to the machine, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
+2. After you log on, open **Server Manager**, in the left pane, expand **Storage**, and then click **Disk Management**.
 
 
 
@@ -158,7 +148,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 
 
-<h2><a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux </h2>
+##<a id="initializeinlinux"></a>How to: Initialize a new data disk in Linux
 
 
 
@@ -241,7 +231,7 @@ The data disk that you just attached to the virtual machine is offline and not i
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	**Note:** blkid may not require sudo access in all cases, however, it may be easier to run with `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
+	>[WACOM.NOTE] blkid may not require sudo access in all cases, however, it may be easier to run with `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 	**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
@@ -256,16 +246,13 @@ The data disk that you just attached to the virtual machine is offline and not i
 		`sudo umount /mnt/datadrive`
 		`sudo mount /mnt/datadrive`
 
-	If the second command produces an error please check the /etc/fstab file for correct syntax.
+	If the second command produces an error, check the /etc/fstab file for correct syntax.
 
 
 
 
 
-[logon]: /en-us/manage/windows/how-to-guides/log-on-a-windows-vm/
-[logonlinux]: /en-us/manage/linux/how-to-guides/log-on-a-linux-vm/
-[Manage disks and images]: http://go.microsoft.com/fwlink/?LinkId=263439
+[logon]: ../virtual-machines-log-on-windows-server/
+[logonlinux]: ../virtual-machines-linux-how-to-log-on/
 
-[Volume successfully initialized]: ./media/howto-attach-disk-window-linux/InitializeSuccess.png
-[Write the disk changes]: ./media/howto-attach-disk-window-linux/DiskWrite.png
 

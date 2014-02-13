@@ -11,8 +11,10 @@ Windows Azure Web Sites enables you to run programs or scripts in your web site 
 - [Create a Continuously Running Task](#CreateContinuous)
 - [Create a Scheduled Task](#CreateScheduled)
 - [View the History](#ViewJobHistory)
-- [Do More with the Windows Azure WebJobs SDK](#WebJobsSDK)
-- [Alternative Methods of Deployment](#AlternateDeployments)
+- [Next Steps](#NextSteps)
+	- [Do More with the Windows Azure WebJobs SDK](#WebJobsSDK)
+	- [Alternative Methods of Deployment](#AlternateDeployments)
+	- [Additional Resources](#AdditionalResources)
 
 <a name="acceptablefiles"></a>
 ##Acceptable File Types for Scripts##
@@ -129,18 +131,24 @@ The output log is in text format and will be similar to the following:
 
 Historical information for the last 30 tasks that were run is maintained.
 
+<a name="NextSteps"></a>
+##Next Steps##
 
 <a name="WebJobsSDK"></a>
-##Do More with the Windows Azure WebJobs SDK##
+###Do More with the Windows Azure WebJobs SDK###
 The Windows Azure WebJobs SDK simplifies the task of adding background processing to your Windows Azure web sites. The SDK integrates Windows Azure Storage, triggering a function in your program when items are added to Queues, Blobs or Tables. A dashboard provides rich monitoring and diagnostics for the programs that you write by using the SDK. The monitoring and diagnostics features are built into the SDK and do not require you to add any special code in your program.
  
 For more information, see the tutorial [Getting Started with Windows Azure WebJobs SDK](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). The tutorial provides an overview of the features of the WebJobs SDK and walks you through creating and running a simple Hello World background process. 
 
-To see a walkthrough of a sample command line app created with the Windows Azure WebJobs SDK, see Scott Hanselman's blog post [Introducing Windows Azure WebJobs][HanselIntro].
+To see a walkthrough of a sample command line app created with the Windows Azure WebJobs SDK, see [Introducing Windows Azure WebJobs][HanselIntro].
 
 <a name="AlternateDeployments"></a>
-##Alternative Methods of Deployment##
-If you don't want to use the WebJobs portal page to upload your scripts, you can use FTP, git, or Web Deploy. For more information, see Amit Apple's blog posts [How to deploy Windows Azure WebJobs][AmitDeploy] and [Git deploying a .NET console app to Azure using WebJobs][AmitConsole].
+###Alternative Methods of Deployment###
+If you don't want to use the WebJobs portal page to upload your scripts, you can use FTP, git, or Web Deploy. For more information, see  [How to deploy Windows Azure WebJobs][AmitDeploy] and [Git deploying a .NET console app to Azure using WebJobs][AmitConsole].
+
+<a name="AdditionalResources"></a>
+###Additional Resources###
+For additional resources, see the annotated list of links [Using the WebJobs feature of Windows Azure Web Sites][RickWebJobsCurah]. 
 
 
 
@@ -152,6 +160,7 @@ If you don't want to use the WebJobs portal page to upload your scripts, you can
 
 [AmitConsole]:http://blog.amitapple.com/post/73574681678/git-deploy-console-app
 
+[RickWebJobsCurah]:http://go.microsoft.com/fwlink/?LinkId=390226
 
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png

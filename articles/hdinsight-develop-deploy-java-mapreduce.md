@@ -8,7 +8,7 @@ This tutorial walks you through an end-to-end scenario from developing and testi
 Before you begin this tutorial, you must have the following:
 
 - Install Windows Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
-- Install Windows Azure PowerShell on the emulator computer. For instructions, see [Install and configure PowerShell for HDInsight][hdinsight-powershell]
+- Install Windows Azure PowerShell on the emulator computer. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 - Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
@@ -222,7 +222,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory as the 
 
 2. Run the following command:
 
-		hadoop jar c:\Tutorials\WordCountJava\wordcount\target\wordcount-1.0-SNAPSHOT.jar com.microsoft.hdinsight.samples.WordCount /WordCount/Input /WordCount/Output
+		hadoop jar c:\Tutorials\WordCountJava\wordcount\target\wordcount-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /WordCount/Input /WordCount/Output
 
 	If the job completes successfully, you should get an output similar to the following screenshot:
 
@@ -562,7 +562,8 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
 [hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-[hdinsight-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+
+
 [hdinsight-emulator-wasb]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/#blobstorage
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
@@ -574,7 +575,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-powerquery]:/en-us/manage/services/hdinsight/connect-excel-with-power-query/
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[powershell-configure]: /en-us/manage/install-and-configure-windows-powershell/
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 
 

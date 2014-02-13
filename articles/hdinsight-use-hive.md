@@ -10,11 +10,9 @@
 
 **Prerequisites:**
 
-- You must have a **Windows Azure subscription**. Windows Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-
 - You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Windows Azure portal, see [Get started with Windows Azure HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
 
-- You must have installed **Windows Azure PowerShell**, and have configured them for use with your account. For instructions on how to do this, see [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+- You must have installed **Windows Azure PowerShell**, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 **Estimated time to complete:** 30 minutes
 
@@ -72,18 +70,18 @@ In this article, you use a log4j sample file distributed with the HDInsight clus
 
 To access files, use the following syntax: 
 
-		wasb
+	wasb://<containerName>@<AzureStorageName>.blob.core.windows.net
 
 For example:
 
-		wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log
+	wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log
 
 replace *mycontainer* with the container name, and *mystorage* with the Blob storage account name. 
 
 Because the file is stored in the default file system, you can also access the file using the following:
 
-		wasb:///example/data/sample.log
-		/example/data/sample.log
+	wasb:///example/data/sample.log
+	/example/data/sample.log
 
 To generate your own log4j files, use the [Apache Log4j][apache-log4j] logging utility. For information on uploading data to Azure Blob Storage, see [Upload Data to HDInsight][hdinsight-upload-data].
 
@@ -116,7 +114,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 **To run the Hive queries using Start-AzureHDInsightJob**
 
-1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure PowerShell for HDInsight][hdinsight-configure-powershell].
+1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure Windows Azure PowerShell][powershell-install-configure].
 2. Set the variables in the following script and run it:
 
 		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
@@ -228,6 +226,7 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
+[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
 
 
