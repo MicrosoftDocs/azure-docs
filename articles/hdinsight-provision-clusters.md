@@ -48,7 +48,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><td>DATA NODES</td>
 			<td>Specify the number of nodes in the cluster. The default value is 4.</td></tr>
 		<tr><td>HDINSIGHT VERSION</td>
-			<td>Choose the HDInsight version to use for this cluster. The default is 2.0.</td></tr>
+			<td>Choose the version. The default is 2.0 running Hadoop 1.2 clusters.  The 3.0 uses Hadoop 2.2 clusters. For more information, see <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">What version of Hadoop is in Windows Azure HDInsight?</a>.</td></tr>
 		<tr><td>REGION</td>
 			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *Southeast Asia*, *North Europe*, *West Europe*, *East US* or *West US*.</td>
 		</tr>
@@ -685,6 +685,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
+[hdinsight-version]: /en-us/manage/services/hdinsight/versioning-in-hdinsight/
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/

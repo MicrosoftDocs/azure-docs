@@ -82,7 +82,7 @@ HDInsight uses a Windows Azure Blob storage container as the default file system
 
 To access files, use the following syntax: 
 
-		wasb[s]://[[<containername>@]<storageaccountname>.blob.core.windows.net]/<path>/<filename>
+		WASB[S]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
 
 For example:
 
