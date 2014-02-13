@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-develop-deploy-Java-MapReduce-program" urlDisplayName="HDInsight Tutorials" pageTitle="Develop and deploy Java MapReduce jobs | Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Follow this end-to-end scenario to learn how to develop and test a word-counting MapReduce job on HDInsight Emulator, and then deploy and run it on HDInsight."  title="Develop and deploy Java MapReduce jobs to HDInsight" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
+<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for HDInsight | Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight."  title="Develop Java MapReduce programs for HDInsight" umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" />
 
-# Develop and deploy Java MapReduce jobs to HDInsight
+# Develop Java MapReduce programs for HDInsight
 This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator, to deploying and running it on Windows Azure HDInsight.
 
 **Prerequisites:**
@@ -415,7 +415,7 @@ The following PowerShell script performs the following tasks:
 
 2. submit the MapReduce job
 
-	1. create a streaming MapReduce job definition
+	1. create a MapReduce job definition
 	2. submit a MapReduce job
 	3. wait for the job to complete
 	4. display standard error
@@ -546,8 +546,9 @@ This section shows you how to download and display the output.  For the informat
 After the job is completed, you have the options to export the data to SQL Server or Windows Azure SQL database using Sqoop, or to export the data to Excel.  
 
 ##<a id="nextsteps"></a>Next steps
-In this tutorial, you have learned how to develop a Hadoop streaming MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
+In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
 
+- [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 - [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
@@ -561,9 +562,11 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
+
+[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
+
+
 [hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
-
-
 [hdinsight-emulator-wasb]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/#blobstorage
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 [hdinsight-emulator]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/

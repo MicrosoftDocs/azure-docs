@@ -608,7 +608,8 @@ For more information for submitting Hadoop jobs, see [Submit Hadoop jobs program
 In this tutorial, you have an HDInsight Emulator installed, and have ran some Hadoop jobs. To learn more, see the following articles:
 
 - [Get started using Windows Azure HDInsight][hdinsight-get-started]
-- [Develop and deploy Hadoop streaming jobs to HDInsight][hdinsight-develop-deploy-streaming]
+- [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
+- [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-deploy-streaming]
 - [HDInsight emulator release notes](https://gettingstarted.hadooponazure.com/releaseNotes.html)
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/en-US/hdinsight)
 
@@ -618,6 +619,7 @@ In this tutorial, you have an HDInsight Emulator installed, and have ran some Ha
 [azure-create-storage-account]: /en-us/manage/services/storage/how-to-create-a-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
 
+[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
 [hdinsight-emulator-release-notes]: http://gettingstarted.hadooponazure.com/releaseNotes.html

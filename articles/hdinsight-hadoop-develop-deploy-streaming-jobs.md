@@ -1,8 +1,9 @@
-<properties linkid="manage-services-hdinsight-develop-deploy-hadoop-streaming-program" urlDisplayName="" pageTitle="Develop and deploy Hadoop streaming MapReduce jobs for HDInsight | Windows Azure" metaKeywords="hdinsight hdinsight development, hadoop development, dhinsight deployment, development, deployment, tutorial, MapReduce" description="Develop Hadoop streaming MapReduce jobs on HDInsight emulator, and deploy them to Windows Azure HDInsight." metaCanonical="" services="" documentationCenter="" title="Develop and deploy Hadoop streaming jobs to HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-develop-hadoop-streaming-programs-for-hdinsight" urlDisplayName="" pageTitle="Develop C# Hadoop streaming programs for HDInsight | Windows Azure" metaKeywords="hdinsight hdinsight development, hadoop development, dhinsight deployment, development, deployment, tutorial, MapReduce" description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Windows Azure HDInsight." metaCanonical="" services="" documentationCenter="" title="Develop C# Hadoop streaming programs for HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
 
 
 
-# Develop and deploy Hadoop streaming jobs to HDInsight
+# Develop C# Hadoop streaming programs for HDInsight
+
 Hadoop provides a streaming API to MapReduce that enables you to write map and reduce functions in languages other than Java. This tutorial walks you through an end-to-end scenario from developing/testing a Hadoop streaming MapReduce program using C# on an HDInsight emulator to running the MapReduce job on Windows Azure HDInsight and to retrieving the results.
 
 **Prerequisites:**
@@ -530,6 +531,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 
 - [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
+- [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 - [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
@@ -540,6 +542,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
+[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
 
 [hdinsight-emulator-get-started]: /en-us/manage/services/hdinsight/get-started-with-windows-azure-hdinsight-emulator/
 [hdinsight-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
