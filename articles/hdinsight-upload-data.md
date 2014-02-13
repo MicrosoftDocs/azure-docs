@@ -266,7 +266,7 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 
 Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *WASB://*. To secure the connection, use *WASBS://*. The scheme for accessing data in Blob storage is:
 
-	WASB
+	WASB[S]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
 
 The following is a sample PowerShell script for submitting a MapReduce job:
 
