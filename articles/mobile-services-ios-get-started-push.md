@@ -46,7 +46,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
   	![][5]
 
-3. Select your **User Email Address**, type **Common Name** and **CA Email Address** values, make sure that **Saved to disk** is selected, and then click **Continue**.
+3. Select your **User Email Address** and **Common Name** , make sure that **Saved to disk** is selected, and then click **Continue**. Leave the **CA Email Address** field blank as it is not required.
 
   	![][6]
 
@@ -62,7 +62,7 @@ Next, you will register your app with Apple, enable push notifications, and uplo
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to .
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
 
    	![][102] 
 
@@ -253,20 +253,19 @@ Both your mobile service is now configured to work with APNS.
  
    Replace this with the following code:
 
-		// Get a reference to the AppDelegate to easily retrieve the deviceToken
-		QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-		
-		NSDictionary *item = @{
-		    @"text" : itemText.text,
-		    @"complete" : @(NO),
-		    // add the device token property to our todo item payload
-		    @"deviceToken" : delegate.deviceToken
-		};
-		
+        // Get a reference to the AppDelegate to easily retrieve the deviceToken
+        QSAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+        NSDictionary *item = @{
+            @"text" : itemText.text,
+            @"complete" : @(NO),
+            // add the device token property to our todo item payload
+            @"deviceToken" : delegate.deviceToken
+        };
+
    	This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
 
-
-   >[WACOM.NOTE]You must add this code before to the call to the <strong>addItem</strong> method.
+   	> [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
 
 Your app is now updated to support push notifications.
 
