@@ -40,7 +40,7 @@ The same subset of Multi-Factor Authentication capabilities for Office 365 will 
 
 The following shows the versions of multi-factor authentication that are available and a brief summary of the features it provides. You can use this in determining which version of multi-factor authentication is right for you. [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
 
-![Windows Azure Multi-Factor Authentication Feature Comparison](./media/multi-factor-authentication/mfacomparison3.png)
+![Windows Azure Multi-Factor Authentication Feature Comparison](./media/multi-factor-authentication/mfacomparison1.png)
 
 
 **Additional Resources**
