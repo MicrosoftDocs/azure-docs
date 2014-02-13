@@ -19,18 +19,33 @@ Windows Azure Multi-Factor Authentication is the multi-factor authentication ser
 
 <h3>Securing cloud Windows Azure Active Directory</h3>
 
-Enable Multi-Factor Authentication for Windows Azure AD identities, and users will be prompted to set up additional verification the next time they sign in. Use Multi-Factor Authentication to secure access to Windows Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, as well as 3rd party cloud services that integrate Windows Azure AD with no additional set up. Multi-factor authentication can be rapidly enabled for large numbers of global users and applications.  [Learn more](http://technet.microsoft.com/en-us/library/dn249466.aspx)
+Enable Multi-Factor Authentication for Windows Azure AD identities, and users will be prompted to set up additional verification the next time they sign in. Use Multi-Factor Authentication to secure access to Windows Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, as well as 3rd party cloud services that integrate Windows Azure AD with no additional set up. Multi-factor authentication can be rapidly enabled for large numbers of global users and applications.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249466.aspx)
 
 <h3>Securing on-premises resources and Active Directory</h3>
 
-Enable Multi-Factor Authentication for your on-premise resources such as IIS and Active Directory using the Windows Azure Multi-Factor Authentication Server.  The Windows Azure Multi-Factor Authentication Server allows the administrator integrate with IIS authentication to secure Microsoft IIS web applications, RADIUS authentication, LDAP authentication, and Windows authentication.  [Learn more](http://technet.microsoft.com/en-us/library/dn249467.aspx)
+Enable Multi-Factor Authentication for your on-premise resources such as IIS and Active Directory using the Windows Azure Multi-Factor Authentication Server.  The Windows Azure Multi-Factor Authentication Server allows the administrator integrate with IIS authentication to secure Microsoft IIS web applications, RADIUS authentication, LDAP authentication, and Windows authentication.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249467.aspx)
 <h3>Securing custom applications</h3>
 
-An SDK enables direct integration with your cloud services. Build Active Authentication phone call and text message verification into your application's sign-in or transaction processes and leverage your application's existing user database. [Learn more](http://msdn.microsoft.com/en-us/library/windowsazure/dn422962.aspx)
+An SDK enables direct integration with your cloud services. Build Active Authentication phone call and text message verification into your application's sign-in or transaction processes and leverage your application's existing user database. [Learn more](http://msdn.microsoft.com/en-us/library/dn249464.aspx)
+
+<h3>Multi-Factor Authentication for Office 365</h3>
+
+Multi-Factor Authentication for Office 365, powered by Windows Azure Multi-Factor Authentication, works exclusively with Office 365 applications and is managed from the Office 365 portal. So administrators can now secure their Office 365 resources with multi-factor authentication. [Learn more](http://msdn.microsoft.com/en-us/library/dn383636.aspx)
+
+<h3>Multi-Factor Authentication for Windows Azure Administrators<h3>
+
+The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Windows Azure administrators. Every administrative account of a Windows Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Windows Azure portal to create a VM, a web site, manage storage, mobile services or any other Windows Azure Service can add multi-factor authentication to his administrator account.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+
+<h3>Multi-Factor Authentication feature comparison</h3>
+
+The following shows the versions of multi-factor authentication that are available and a brief summary of the features it provides. You can use this in determining which version of multi-factor authentication is right for you. [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
+
+![Windows Azure Multi-Factor Authentication Feature Comparison](./media/multi-factor-authentication/mfacomparison1.png)
+
 
 **Additional Resources**
 
 * [Sign up for Windows Azure as an organization](/en-us/manage/services/identity/organizational-account/)
 * [Windows Azure Identity](/en-us/manage/windows/fundamentals/identity/)
-* [Windows Azure Multi-Factor Authentication Library on TechNet](http://technet.microsoft.com/en-us/library/dn249471.aspx)
-* [Windows Azure Multi-Factor Authentication AD Library on MSDN](http://msdn.microsoft.com/en-us/library/windowsazure/dn422962.aspx)
+* [Windows Azure Multi-Factor Authentication Library](http://technet.microsoft.com/en-us/library/dn249471.aspx)
+

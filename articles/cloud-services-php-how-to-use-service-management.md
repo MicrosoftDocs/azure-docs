@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="" videoId="" scriptId="" />
+<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
 
 # How to use Service Management from PHP
 
@@ -534,7 +534,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [win-azure-account]: http://www.windowsazure.com/en-us/pricing/free-trial/
 [storage-account]: ../storage-create-storage-account/
 
-[download-SDK-PHP]: ../download-php-sdk/
+[download-SDK-PHP]: ../php-download-sdk/
 [command-line-tools]: ../command-line-tools/
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
