@@ -66,10 +66,13 @@ In this section you will create a new Windows Store app that is connected to you
 
 <li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, in <strong>Insert a TodoItem</strong>, and then click <strong>Save</strong>.</p>
 
-	<p><img src="./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png" alt="" /></p>
+<!--	<p><img src="./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png" alt="" /></p>-->
 <p>This sends a POST request to the new mobile service hosted in Windows Azure.</p>
 </li>
 </ol>
+
+<!--This should be in the list HTMLK, but there is a bug-->
+![][10]
 
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
@@ -108,5 +111,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
-[JavaScript version]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-store-get-started
 [Get started with data in Mobile Services using Visual Studio 2012]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012

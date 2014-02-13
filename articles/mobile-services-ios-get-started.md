@@ -7,11 +7,13 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a></div>
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>This tutorial shows you how to add a cloud-based backend service to an iOS app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.</p>
+<p>This tutorial shows you how to add a cloud-based backend service to an iOS app using Windows Azure Mobile Services.</p>
 <p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-ios-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/iOS-Creating-your-first-app-using-the-Windows-Azure-Mobile-Services-Quickstart" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">9:38</span></div>
 </div>
+
+In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the [.NET backend version] of this topic.
 
 A screenshot from the completed app is below:
 
@@ -49,34 +51,20 @@ In this section you will create a new iOS app that is connected to your mobile s
 
   	This downloads the project for the sample _To do list_ application that is connected to your mobile service, along with the Mobile Services iOS SDK. Save the compressed project file to your local computer, and make a note of where you saved it.
 
-<h2><span class="short-header">Run your app</span>Run your new iOS app</h2>
+## Run your new iOS app
 
-The final stage of this tutorial is to build and run your new app.
+[WACOM.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+<ol start="4">
+<li><p>Back in the Management Portal, click the <strong>Data</strong> tab and then click the <strong>TodoItems</strong> table.<p>
 
-   	![][8]
+<p><img src="./media/mobile-services-ios-get-started/mobile-data-tab.png" alt=""></p>
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
+   	<p>This lets you browse the data inserted by the app into the table.</p>
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+   	<p><img src="./media/mobile-services-ios-get-started/mobile-data-browse.png" alt=""></p></li>
+</ol>
 
-   	![][10]
-
-   	This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-   	<p>You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
- 	</div>
-
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
-
-   	![][11]
-
-   	This lets you browse the data inserted by the app into the table.
-
-   	![][12]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
@@ -100,10 +88,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- Images. -->
 [0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
 
-
-
-
-
 [6]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
 [7]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png
 [8]: ./media/mobile-services-ios-get-started/mobile-xcode-project.png
@@ -119,5 +103,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
 [Management Portal]: https://manage.windowsazure.com/
+[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
