@@ -66,7 +66,6 @@ In this section you will create a new Windows Store app that is connected to you
 
 <li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, in <strong>Insert a TodoItem</strong>, and then click <strong>Save</strong>.</p>
 
-<!--	<p><img src="./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started/mobile-quickstart-startup.png" alt="" /></p>-->
 <p>This sends a POST request to the new mobile service hosted in Windows Azure.</p>
 </li>
 </ol>
