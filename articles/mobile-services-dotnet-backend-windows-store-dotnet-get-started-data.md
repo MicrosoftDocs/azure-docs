@@ -195,7 +195,7 @@ In this section you will use Visual Studio to host the mobile service locally on
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-<h2><a name="test-azure-hosted"></a><span class="short-header">Test the mobile service on Windows Azure</span>Test the mobile mervice published to Windows Azure</h2>
+<h2><a name="test-azure-hosted"></a><span class="short-header">Test the mobile service on Windows Azure</span>Test the mobile service published to Windows Azure</h2>
 
 1. In Visual Studio, open App.xaml.cs.  Comment out the code that creates the `MobileServiceClient` that connects to the locally hosted mobile service. Uncomment the code that creates the `MobileServiceClient` that connects to your service in Windows Azure. Save your changes to the file.
 
