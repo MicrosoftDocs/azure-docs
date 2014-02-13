@@ -39,7 +39,7 @@ The output of the MapReduce job is a set of key-value pairs. The key is a string
 
 Running a MapReduce job requires the following elements:
 
-* A MapReduce program. In this tutorial, you will use the word counting sample that comes with HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop and deploy Java MapReduce jobs for HDInsight][hdinsight-develop-Jave-MapReduce].
+* A MapReduce program. In this tutorial, you will use the word counting sample that comes with HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce].
 * An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist. The MapReduce job will fail if the folder exists.  If you want to run the MapReduce job for the second time, make sure to delete the output folder or specify another output folder.
 
@@ -206,17 +206,18 @@ The following is the source code for the word counting Java MapReduce program:
 While MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages such as Pig and Hive provide an easier way to work with data stored in HDInsight. To learn more, see the following articles:
 
 * [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
-* [Develop and deploy Java MapReduce jobs for HDInsight][hdinsight-develop-Jave-MapReduce]
-* [Develop and deploy Hadoop streaming jobs for HDInsight][hdinsight-develop-streaming-mapreduce]
+* [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce]
+* [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 * [Use Hive with HDInsight][hdinsight-hive]
 * [Use Pig with HDInsight][hdinsight-pig] 
 * [Run the HDInsight Samples][hdinsight-samples]
 
 
+[hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
 
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-develop-Jave-MapReduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-develop-streaming-mapreduce]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
 [hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
 [hdinsight-samples]: /en-us/documentation/articles/hdinsight-run-samples/
