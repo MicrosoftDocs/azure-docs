@@ -76,7 +76,7 @@
 
 * View and download job history and results.
 
-### Release Notes: 
+### Release Notes 
 
 Port numbers 
 
@@ -152,21 +152,21 @@ Port numbers
 
 * Fixed some Sqoop bugs with export and some types of imports. 
 
-* Release issues 
+### Release issues 
 
-	* JavaScript console fails to load, see release notes for version 0.2.0.0 for details. 
-	* Sqoop command line will display warnings as shown below. These will be fixed in a future update and can be safely ignored. 
+* JavaScript console fails to load, see release notes for version 0.2.0.0 for details. 
+* Sqoop command line will display warnings as shown below. These will be fixed in a future update and can be safely ignored. 
 	
-			c:\Hadoop\sqoop-1.4.2\bin>sqoop version 
-			Setting HBASE_HOME to 
-			Warning: HBASE_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\hbase-0.94.2] does not exist HBase imports will fail. 
-			Please set HBASE_HOME to the root of your HBase installation. 
-			Setting ZOOKEEPER_HOME to 
-			Warning: ZOOKEEPER_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\zookeeper-3.4.3] does not exist 
-			Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation. 
-			Sqoop 1.4.2 
-			git commit id 3befda0a456124684768348bd652b0542b002895 
-			Compiled by  on Thu 11/29/2012- 3:26:26.10
+		c:\Hadoop\sqoop-1.4.2\bin>sqoop version 
+		Setting HBASE_HOME to 
+		Warning: HBASE_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\hbase-0.94.2] does not exist HBase imports will fail. 
+		Please set HBASE_HOME to the root of your HBase installation. 
+		Setting ZOOKEEPER_HOME to 
+		Warning: ZOOKEEPER_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\zookeeper-3.4.3] does not exist 
+		Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation. 
+		Sqoop 1.4.2 
+		git commit id 3befda0a456124684768348bd652b0542b002895 
+		Compiled by  on Thu 11/29/2012- 3:26:26.10
 
 ## v0.2.0.0, Released 12/3/2012
 
@@ -180,7 +180,7 @@ Port numbers
 
 * Minor updates to getting started content 
 
-Release issues 
+### Release issues 
 
 * JavaScript console fails to load 
 
@@ -195,11 +195,11 @@ Release issues
 
 * Initial release 
 
-* Release Issues 
+### Release Issues 
 
-	* Hive Console 
+* Hive Console 
 
-		* If a newline is included in the Hive command submitted, you will get a "syntax error." Remove newlines and the query should execute as intended. 
+	* If a newline is included in the Hive command submitted, you will get a "syntax error." Remove newlines and the query should execute as intended. 
 
 
 
@@ -210,15 +210,12 @@ Release issues
 	The password for the Hadoop user may expire, dependent upon your AD policies pushed to the machine. The following PowerShell script will set the password to not expire, and can be run from an administrative command prompt. 	
 
 		$username = "hadoop"
-	
 		$ADS_UF_DONT_EXPIRE_PASSWD = 0x10000 # (65536, from ADS_USER_FLAG_ENUM enumeration)
- 
+
 		$computer = [ADSI]("WinNT://$ENV:COMPUTERNAME,computer")
-
 		$users = $computer.psbase.children | where { $_.psbase.schemaclassname -eq "User" }
- 
-		foreach($user in $users)
 
+		foreach($user in $users)
 		{
 			if($user.Name -eq $username)
 			{
