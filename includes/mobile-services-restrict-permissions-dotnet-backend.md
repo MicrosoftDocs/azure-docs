@@ -24,3 +24,5 @@ By default, all requests to mobile service resources are restricted to clients t
 	
 	>[WACOM.NOTE]These credentials are only used when your service runs locally. The settings are overwritten with the values that you set in the Management Portal.
 
+6. Republish your service project.
+
