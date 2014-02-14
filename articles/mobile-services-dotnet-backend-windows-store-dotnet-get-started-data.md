@@ -6,9 +6,9 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
-<p>This topic shows you how to use Windows Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.</p>
+This topic shows you how to use Windows Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
-<p>The mobile service that you will create in this tutorial will support the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic</p>
+The mobile service that you will create in this tutorial will support the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
 <div class="dev-callout"><b>Note</b>
 <p>This tutorial requires Visual Studio 2013.</p>
@@ -61,16 +61,16 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
     ![][2]
 
-2. Click the **Windows Store** platform. Under the GET STARTED section, expand CONNECT AN EXISTING WINDOWS STORE APP and, click the **Download** button to download a personalized starter project for the mobile service. 
+2. Click the **Windows Store** platform. Under the **Get Started** section, expand **Connect an existing Windows Store app** and, click the **Download** button to download a personalized starter project for the mobile service. 
 
     ![][3]
 
-3. Scroll down to the bottom of that GET STARTED section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. Save the file in a safe place because it does contain sensitive information pertaining to your Windows Azure account. You will delete this file after publishing the mobile service later in this tutorial.
+3. Scroll down to the bottom of that **Get Started** section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. Save the file in a safe place because it does contain sensitive information pertaining to your Windows Azure account. You will delete this file after publishing the mobile service later in this tutorial.
 
     ![][5]
 
 
-4. Unzip the personalized service starter project you downloaded. Then in Solution Explorer in Visual Studio, right click your solution for the Getting Started with Data Windows Store application. Click **Add** and then click **Existing Project**.
+4. Unzip the personalized service starter project you downloaded. Then in Visual Studio's Solution Explorer, right click your solution for the Getting Started with Data Windows Store app. Click **Add** and then click **Existing Project**.
 
     ![][4]
 
@@ -92,7 +92,7 @@ In this section you will update the Windows Store app to use the mobile service 
 
     ![][8]
 
-3. Back in the Windows Azure Management Portal, copy the code snippet from the mobile service overview page that creates the `MobileServiceClient` connection. You will find this in the step labeled "Connect your app and store data in your service".
+3. Back in the Windows Azure Management Portal, find the step labeled **Connect your app and store data in your service**. Make sure **C#** language is selected. Copy the code snippet that creates the `MobileServiceClient` connection.
 
     ![][9]
 
@@ -183,7 +183,7 @@ In this section you will use Visual Studio to host the mobile service locally on
 
     ![][15]
 
-5. In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections. Right click the TodoItems table under MS_TableConnectionString and click **Show Table Data**
+5. In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections. Right click the TodoItems table under **MS_TableConnectionString** and click **Show Table Data**
 
     ![][14]
 
@@ -226,7 +226,9 @@ In this section you will use Visual Studio to host the mobile service locally on
 
     ![][17]
 
-5. In the Management portal execute a query to view the changes made by the Windows Store app.
+5. In the Management portal execute a query to view the changes made by the Windows Store app. Your query will be similar to the following query but use your database name instead of `todolist`.
+
+        SELECT * FROM [todolist].[todoitems]
 
     ![][18]
 
