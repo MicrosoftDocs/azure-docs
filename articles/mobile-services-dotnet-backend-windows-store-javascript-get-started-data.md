@@ -25,7 +25,7 @@ This tutorial walks you through these basic steps:
 7. [Test the Windows Store App against the service hosted in Windows Azure]
 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F" target="_blank">Windows Azure Free Trial</a>.</p></div> 
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -65,7 +65,9 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
     ![][3]
 
-3. Scroll down to the bottom of that **Get Started** section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. Save the file in a safe place because it does contain sensitive information pertaining to your Windows Azure account. You will delete this file after publishing the mobile service later in this tutorial.
+3. Scroll down to the bottom of that **Get Started** section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded.
+
+    > [WACOM.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Windows Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![][5]
 
@@ -77,6 +79,22 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 5. In the Add Existing Project dialog, navigate to the folder where you unzipped the personalized starter project and select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
 
     ![][6]
+
+6. In Visual Studio in Solution Explorer, right click the service project you just added and click **Build** to verify that it builds with no errors. During the build, NuGet package manager may need to restore some NuGet packages that are referenced in the project.
+
+    ![][20]
+
+7. Right click the service project again. This time click **Start new instance** under the **Debug** context menu.
+
+    ![][21]
+
+    Visual Studio opens the default web page for your service.
+
+    ![][22]
+
+    Visual Studio hosted your mobile service locally in IIS Express by default. You can see this by right clicking the tray icon for IIS Express on your taskbar.
+
+    ![][23]
 
 
 <h2><a name="update-app"></a><span class="short-header">Update the Windows Store app</span>Update the Windows Store app to use the mobile service</h2>
@@ -275,6 +293,11 @@ Once you have completed the data series, try one of these other tutorials:
 [17]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/sql-azure-query.png
 [19]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-mobileservices-script-reference.png
+[20]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-build-service-project.png
+[21]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-start-debug-service-project.png
+[22]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/service-welcome-page.png
+[23]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/iis-express-tray.png
+
 
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
