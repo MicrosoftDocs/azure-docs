@@ -349,7 +349,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 4. Run the following commands to write the Hive script file to workstation and upload it to WASB:
 
 		# Write the Hive script into a local file
-		$hqlScript | Out-File $hqlLocalFileName
+		$hqlScript | Out-File $hqlLocalFileName -Encoding ascii
 		
 		# Create a storage context object
 		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
