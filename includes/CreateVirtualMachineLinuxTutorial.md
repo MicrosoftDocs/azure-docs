@@ -56,7 +56,10 @@ On the command bar, click **New**.
 
 13. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the check mark to create the virtual machine, and then click the arrow to continue.
 
-14. Under **Endpoint**s, a new endpoint is automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
+14.  Under **Endpoints**, do the following: 
+- Decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093).
+	**Important**: The VM Agent can be installed only when you create the virtual machine.  
+- Review the endpoint that's automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/).
   
 After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
 
@@ -201,9 +204,9 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 To learn more about Linux on Windows Azure, see the following articles:
 
-- [Introduction to Linux on Windows Azure](/en-us/manage/linux/tutorials/intro-to-linux/)
+- [Introduction to Linux on Windows Azure](http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/)
 
-- [How to use the Windows Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/command-line-tools/)
+- [How to use the Windows Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/)
 
 
 [Next Steps]: #next
