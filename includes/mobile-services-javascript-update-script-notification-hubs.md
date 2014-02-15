@@ -6,21 +6,27 @@ Finally, you must update the script registered to the insert operation on the To
 
    	![](./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png)
 
-5. Replace the insert function with the following code, and then click **Save** <strong><em>CODE NOT VERIFIED OR CORRECT YET</em></strong>:
+5. Replace the insert function with the following code, and then click **Save**:
 
-	    function insert(item, user, request) {
-    	    request.execute({
-        	    success: function() {
-            	    request.respond();
-	        	    push.wns.sendToastText04(registration.handle, {
-	            	    text1: item.text
-	        	    }, {
-	            	    success: function(pushResponse) {
-	                	    console.log("Sent push:", pushResponse);
-	            	    }
-	        	    });
-        	    }
-    	    });
-	    }
+	   function insert(item, user, request) {
+    // Define a payload for the Windows Store toast notification.
+    var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
+        '<binding template="ToastText01">  <text id="1">' +
+        item.text + '</text></binding></visual></toast>';
+    
+    request.execute({
+        success: function() {
+            // If the insert succeeds, send a notification.
+        	push.wns.send(null,payload, 'wns/toast', {
+                success: function(pushResponse) {
+                    console.log("Sent push:", pushResponse);
+                    },              
+                    error: function (pushResponse) {
+                        console.log("Error Sending push:", pushResponse);
+                        }
+                    });
+                }
+            });
+}
 
-    This insert script sends a push notification (with the text of the inserted item) to all registrations.
+    This insert script sends a push notification (with the text of the inserted item) to all registrations after the insert succeeds.
