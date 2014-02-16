@@ -3,8 +3,22 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store" class="current">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a>
-<!--<a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a>--></div>
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS">iOS</a>
+	<!--<a href="/en-us/documentation/articles/get-started-android" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/get-started-html" title="HTML">HTML</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap" class="current">PhoneGap</a>-->
+</div>
+
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-get-started/"  title="JavaScript backend" >JavaScript backend</a>
+</div>
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Store app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app in HTML and JavaSript that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript version] of this topic.
 
@@ -48,26 +62,9 @@ In this section you will create a new Windows Store app that is connected to you
 
 ## Test the app against the local mobile service
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio 2013 Express for Windows.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service-dotnet](../includes/mobile-services-dotnet-backend-test-local-service-dotnet.md)]
 
-2. Press the **F5** key to rebuild the project and start the mobile service locally.
-
-	![][8]
-
-	A web page is displayed after the mobile service starts successfully.
-
-3. In Solution Explorer in Visual Studio, right-click your Windows Store app project and click **Set as StartUp Project** and then press the **F5** key to rebuild the project and start the app.
-
-	This starts the Windows Store app, which connects to the local mobile service instance.	
-
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
-
-	![][10]
-
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
-
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
-
+>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the default.js file.
 
 ## Publish your mobile service
 
@@ -77,8 +74,8 @@ In this section you will create a new Windows Store app that is connected to you
 <li><p>In the Windows Store app project, open the App.xaml.cs file, locate the code that creates a <a href="http://msdn.microsoft.com/en-us/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx" target="_blank">MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
 
         <pre><code>var client = new WindowsAzure.MobileServiceClient(
-            "https://<your_mobile_service>.azure-mobile.net/",
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            "https://todolist.azure-mobile.net/",
+            "XXXXXX-APPLICATION-KEY-XXXXXX"
         );</code></pre>
 
 	<p>The client will now access the mobile service published to Windows Azure.</p></li>
@@ -91,7 +88,7 @@ In this section you will create a new Windows Store app that is connected to you
 </li>
 </ol>
 
-<!--This should be in the list HTMLK, but there is a bug-->
+<!--This should be in the list HTML, but there is a bug-->
 ![][10]
 
 ## Next Steps
