@@ -4,16 +4,16 @@
 # Get started with push notifications in Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#" class="current">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
 	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
@@ -40,60 +40,71 @@ Both your mobile service and your app are now configured to work with WNS and No
 
 Before your app can receive push notifications, you must register a notification channel.
 
-1. In Visual Studio, open the file App.xaml.cs and add the following `using` statements:
+1. In Visual Studio, open the file App.xaml.cs and add the following `using` statement:
 
-        using Windows.Networking.PushNotifications;
-		using Windows.UI.Popups;
+        using Microsoft.Phone.Notification;
 
-2. Add the following method to **App** class: 
+3. Add the following to App.xaml.cs:
 	
-        private async void InitNotificationsAsync()
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
+        private void AcquirePushChannel()
         {
-            // Request a push notification channel.
-            var channel =
-                await PushNotificationChannelManager
-					.CreatePushNotificationChannelForApplicationAsync();
+            CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
 
-            // Register for notifications using the new channel
-            var notification = MobileService.GetPush();
-            var result = await notification.RegisterNativeAsync(channel.Uri);
-            string message;
-
-            // Display the registration ID so you know it was successful
-            if (result.RegistrationId != null)
+            if (CurrentChannel == null)
             {
-                message = "Registration successful: " + result.RegistrationId;
-            }
-            else
-            {
-                message = "Registration failed.";
+                CurrentChannel = new HttpNotificationChannel("MyPushChannel");
+                CurrentChannel.Open();
+                CurrentChannel.BindToShellToast();
             }
 
-            // Show the message dialog.
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
+            CurrentChannel.ChannelUriUpdated +=
+                new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+                {
+
+                    // Register for notifications using the new channel
+                    var notification = MobileService.GetPush();
+                    var result = await notification.RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
+                    string message;
+
+                    // Display the registration ID so you know it was successful
+                    if (result.RegistrationId != null)
+                    {
+                        message = "Registration successful: " + result.RegistrationId;
+                    }
+                    else
+                    {
+                        message = "Registration failed.";
+                    }
+
+                    // Show the message dialog.
+                    MessageBox.Show(message);                    
+                });
         }
 
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
-    
-4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
-        InitNotificationsAsync();
+	>[WACOM.NOTE]In this this tutorial, the mobile service sends a toast notification to the device. When you send a tile notification, you must instead call the **BindToShellTile** method on the channel.
+
+4. At the top of the **Application_Launching** event handler in App.xaml.cs, add the following call to the new **AcquirePushChannel** method:
+
+        AcquirePushChannel();
 
 	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current. 
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
   
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+5.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
-   	![][2]
+   	![][1]
 
    	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
 [WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
+
 
 <ol start="2">
 <li>
@@ -120,20 +131,18 @@ request.execute({
         });
 }</code></pre></p>
 
-<p>This insert script sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.</p></li>
+<p>This insert script sends a push notification (with the text of the inserted item) to all Windows Phone app registrations after the insert succeeds.</p></li>
 </ol>
 
 ##<a id="test"></a> Test push notifications in your app
 
 1. In Visual Studio, press the F5 key to run the app.
 
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
+5. In the app, enter the text "hello push" in the textbox, and then click **Save**.
 
-   	![][13]
+   	![][4]
 
-   	Note that after the insert completes, the app receives a push notification from WNS.
-
-   	![][14]
+  	This sends an insert request to the mobile service to store the added item. Notice that the application receives a toast notification that says **hello push**.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -168,21 +177,21 @@ Consider finding out more about the following Mobile Services topics:
 <!-- Anchors. -->
 
 <!-- Images. -->
-
-
-[13]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
-[14]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
-[2]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-
+[1]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+[2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
+[3]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png
+[4]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
+[5]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
+[10]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-push
 
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
 [What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
