@@ -88,7 +88,7 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
     ![][21]
 
-    Visual Studio opens the default web page for your service.
+    Visual Studio opens the default web page for your service. You can click **try it now** to test methods in your mobile service from the default web page.
 
     ![][22]
 
@@ -240,6 +240,8 @@ In this section you will use Visual Studio to host the mobile service locally on
 3. Enter some new todoitems and click **Save** for each one. Click the checkbox to complete some of the new items. Each new todoItem will be stored and updated in the SQL database you previously configured for your mobile service in the Windows Azure Management Portal. 
 
     ![][16]
+
+    You can restart the app to see that the changes were persisted to the database in Windows Azure. You can also examine the database using the Windows Azure Management portal or Visual Studio's SQL Server Object Explorer. The next two steps will use the Windows Azure Management portal to view the changes in your database.
 
 
 4. In the Windows Azure Management Portal, click manage for the database associated with your mobile service.
