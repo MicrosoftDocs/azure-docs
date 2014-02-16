@@ -103,35 +103,34 @@ The final stage of this tutorial is to build and run your new app.
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-browse.png)
 	
 
-## Rebuild projects for each platform
+## Make app updates and rebuild projects for each platform
 
-To modify the application, make edits in the ZUMOAPPNAME/www directory and rebuild for the target platforms.
+1. Make changes to code files in the ZUMOAPPNAME/www directory.
 
-Open a command prompt in the root project directory and ensure that all target platform tools are accessible in the system path. 
+2. Verify that all of the target platform tools are accessible in the system path. 
 
-### Windows Phone
+2. Open a command prompt in the root project directory, and run one of the following platform-specific commands: 
 
-To rebuild the Windows Phone project, run the following in the Visual Studio Developer Command Prompt:
+	+ **Windows Phone**
 
-    phonegap local build wp8
+		Run the following command from the Visual Studio Developer command prompt:
 
-Then, open the project in Visual Studio as outlined in the previous section.
+    		phonegap local build wp8
 
-### iOS
+	+ **iOS**
  
-To rebuild the iOS project, open terminal and run the following command:
+		Open terminal and run the following command:
 
-    phonegap local build ios
+    		phonegap local build ios
 
-Then, open the project in Xcode as outlined in the previous section.
+	+ **Android**
 
-### Android
+		Open a command prompt or terminal window and run the following command. 
 
-To rebuild the Android project, open a command prompt or terminal window and run the following command. Ensure that the Android platform tools are accessible in the system path.
+		    phonegap local build android
 
-    phonegap local build android
 
-Then, open the project in Eclipse as outlined in the previous section.
+4. Open each project in the appropriate development environment as outlined in the previous section.
 
 >[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the js/index.js file.
 
