@@ -48,17 +48,8 @@ Before your app can receive push notifications, you must register a notification
             .createPushNotificationChannelForApplicationAsync()
             .then(function (channel) {
                 // Register for notifications using the new channel
-                var result = client.push.registerNative(channel.uri);
-                var message = "Registration successful: " + result.RegistrationId;
-
-                // Display a message with the registration ID.
-                var dialog = new Windows.UI.Popups.MessageDialog(message);
-                dialog.showAsync();
-            }, function (error) {
-                var message = "Registration failed: " + error.description;
-                var dialog = new Windows.UI.Popups.MessageDialog(message);
-                dialog.showAsync();
-            });        
+                client.push.registerNative(channel.uri);                    
+            });      
 
          This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
 

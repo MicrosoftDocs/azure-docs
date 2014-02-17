@@ -52,27 +52,10 @@ Before your app can receive push notifications, you must register a notification
             // Request a push notification channel.
             var channel =
                 await PushNotificationChannelManager
-					.CreatePushNotificationChannelForApplicationAsync();
+                    .CreatePushNotificationChannelForApplicationAsync();
 
             // Register for notifications using the new channel
-            var notification = MobileService.GetPush();
-            var result = await notification.RegisterNativeAsync(channel.Uri);
-            string message;
-
-            // Display the registration ID so you know it was successful
-            if (result.RegistrationId != null)
-            {
-                message = "Registration successful: " + result.RegistrationId;
-            }
-            else
-            {
-                message = "Registration failed.";
-            }
-
-            // Show the message dialog.
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
+            await MobileService.GetPush().RegisterNativeAsync(channel.Uri);
         }
 
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
@@ -85,11 +68,11 @@ Before your app can receive push notifications, you must register a notification
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
   
-6. Open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
    	![][2]
 
-   	This makes sure that your app can raise toast notifications. 
+   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
