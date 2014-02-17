@@ -72,19 +72,23 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
     ![][5]
 
 
-4. Unzip the personalized service starter project you downloaded. Then in Visual Studio's Solution Explorer, right click your solution for the Getting Started with Data Windows Store app. Click **Add** and then click **Existing Project**.
+4. Unzip the personalized service starter project you downloaded. Copy the folders that were in the zip file into the same **C#** directory where the Get Started with Data solution file (.sln) is located. This makes it easier for NuGet Package Manager to keep all the packages in sync.
+
+    ![][26]
+
+5. Then in Visual Studio's Solution Explorer, right click your solution for the Getting Started with Data Windows Store app. Click **Add** and then click **Existing Project**.
 
     ![][4]
 
-5. In the Add Existing Project dialog, navigate to the folder where you unzipped the personalized starter project and select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
+6. In the Add Existing Project dialog, navigate to the mobile service project folder that you moved into the **C#** directory. Select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
 
     ![][6]
 
-6. In Visual Studio in Solution Explorer, right click the service project you just added and click **Build** to verify that it builds with no errors. During the build, NuGet package manager may need to restore some NuGet packages that are referenced in the project.
+7. In Visual Studio in Solution Explorer, right click the service project you just added and click **Build** to verify that it builds with no errors. During the build, NuGet package manager may need to restore some NuGet packages that are referenced in the project.
 
     ![][20]
 
-7. Right click the service project again. This time click **Start new instance** under the **Debug** context menu.
+8. Right click the service project again. This time click **Start new instance** under the **Debug** context menu.
 
     ![][21]
 
@@ -314,6 +318,7 @@ Once you have completed the data series, try one of these other tutorials:
 [22]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/service-welcome-page.png
 [23]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/iis-express-tray.png
 
+[26]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/copy-service-and-packages-folder.png
 
 
 <!-- URLs. -->
