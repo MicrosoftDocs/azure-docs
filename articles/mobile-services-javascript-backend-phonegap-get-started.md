@@ -158,10 +158,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
-
-* [Get started with push notifications] 
-  <br/>Learn how to send a very basic push notification to your app.
-
   
 <!-- Images. -->
 [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
