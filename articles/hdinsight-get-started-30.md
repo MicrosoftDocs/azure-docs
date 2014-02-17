@@ -270,11 +270,12 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 **To retrieve the results of the MapReduce job**
 
 1. Open **Windows Azure PowerShell**.
-2. Run the following command to change directory to c:\ root.
+2. Run the following commands to create a C:\Tutorials folder, and change directory to the folder:
 
-	 cd\
-
-	The default Windows Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to either the C:\ root directory or a folder where you have write permission.
+		mkdir \Tutorials
+		cd \Tutorials
+	
+	The default Windows Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to a folder where you have write permission.
 	
 2. Set the three variables in the following commands, and then run them:
 
@@ -349,29 +350,33 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
+- [Get started with HDInsight][hdinsight-get-started]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
-- [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-deploy-streaming]
+- [Use Oozie with HDInsight][hdinsight-oozie]
+- [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
 [hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
+[hdinsight-get-started-3.0]: /en-us/documentation/articles/hdinsight-get-started-30/
 [hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
 [hdinsight-admin-powershell]: /en-us/documentation/articles/hdinsight-administer-use-powershell/
-[hdinsight-admin-portal]: /en-us/documentation/articles/hdinsight-administer-use-management-portal/
 [hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
-[hdinsight-hive]:/en-us/documentation/articles/hdinsight-use-hive/
+[hdinsight-mapreduce]: /en-us/documentation/articles/hdinsight-use-mapreduce
+[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
 [hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
 [hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
 [hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
-[hdinsight-develop-deploy-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-admin-portal]: /en-us/documentation/articles/hdinsight-administer-use-management-portal/
+[hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
