@@ -74,7 +74,7 @@
 [6]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-app-push-auth.png
 [7]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-selection.png
 [8]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-push-tab.png
-[9]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-enable-enhanced-push.pnG
+[9]: ./media/mobile-services-javascript-backend-register-windows-store-app/mobile-enable-enhanced-push.png
 
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
