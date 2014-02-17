@@ -216,6 +216,8 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
 * [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
+* [Use Oozie with HDInsight][hdinsight-oozie]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
@@ -229,6 +231,11 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+
+
+[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
+[hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
+
 
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
 

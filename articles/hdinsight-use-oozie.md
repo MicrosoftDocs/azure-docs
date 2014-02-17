@@ -181,8 +181,7 @@ You will run a Windows Azure PowerShell script to perform the following:
 
 HDInsight uses Windows Azure Blob storage for data storage.  It is called *WASB* or *Windows Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Windows Azure Blob storage. For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
 
-When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add additional containers from either the same Windows Azure storage account or different Windows Azure storage accounts during the provision process. To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container. By default this container has the same name as the HDInsight cluster name.
-
+When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add additional containers from either the same Windows Azure storage account or different Windows Azure storage accounts during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/useoozie*. By default this container has the same name as the HDInsight cluster name. 
 The WASB syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
@@ -200,8 +199,6 @@ For a file stored in the default file system container. it can be accessed from 
 If you want to access the file directly from the storage account, the blob name for the file is:
 
 	tutorials/useoozie/workflow.xml
-
-The files used in this tutorial are stored in */tutorials/useoozie*.
 
 **Understand Hive internal table and external table**
 

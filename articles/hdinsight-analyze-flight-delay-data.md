@@ -3,7 +3,7 @@
 
 #Analyze flight delay data using HDInsight
 
-Hive provides a means of running MapReduce job through an SQL-like scripting language, called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarization, querying, and analysis of large volumes of data. This tutorial shows you how to use Hive to calculate average delay among airports, and how to use Sqoop to export the results to SQL Database.
+Hive provides a means of running MapReduce job through an SQL-like scripting language, called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarization, querying, and analysis of large volumes of data. This tutorial shows you how to use Hive to calculate average delays among airports, and how to use Sqoop to export the results to SQL Database. 
 
 **Prerequisites:**
 
@@ -29,17 +29,53 @@ This tutorial uses the on-time performance of airline flights data from [Researc
 2. upload the data to HDInsight using Windows Azure PowerShell
 3. prepare the SQL Database for data export using Windows Azure PowerShell
 
-HDInsight uses Windows Azure Blob storage (WASB) for storing files. During the provision process, you must specify one Blob storage container of a Windows Azure storage account to be used for the default HDInsight file system. In addition to this storage account, you can connect the cluster to other storage accounts. For more information, see [Provision HDInsight clusters][hdinsight-provision].
+**Understand HDInsight storage**
 
-Thought-out the tutorial, the project needs to store several types of files. The PowerShell scripts used in this tutorial are designed to use the default file system storage account and container for all these files:
+HDInsight uses Windows Azure Blob storage for data storage.  It is called *WASB* or *Windows Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Windows Azure Blob storage. For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+
+When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add additional containers from either the same Windows Azure storage account or different Windows Azure storage accounts during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
+
+To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/flightdelays*. By default this container has the same name as the HDInsight cluster name. 
+
+The WASB syntax is:
+
+	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
+
+> [WACOM.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
+
+> [WACOM.NOTE] The WASB path is virtual path.  For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+
+For a file stored in the default file system container. it can be accessed from HDInsight using any of the following URIs (use flightdelays.hql as an example):
+
+	wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/flightdelays/flightdelays.hql
+	wasb:///tutorials/flightdelays/flightdelays.hql
+	/tutorials/flightdelays/flightdelays.hql
+
+If you want to access the file directly from the storage account, the blob name for the file is:
+
+	tutorials/flightdelays/flightdelays.hql
+
+The following table lists the files used in this tutorial:
 
 <table border="1">
-<tr><td><strong>Files</strong></td><td><strong>Location</strong></td></tr>
-<tr><td>input flights data for Hive</td><td>\tutotirals\flightdelays\data</td></tr>
-<tr><td>output for Hive</td><td>\tutorials\flightdelays\output</td></tr>
-<tr><td>HiveQL script file</td><td>\tutorials\flightdelays\flightdelays.hql</td></tr>
-<tr><td>Hadoop job status</td><td>\tutorials\flightdelays\jobstatus</td></tr>
+<tr><td><strong>Files</strong></td><td><strong>Description</strong></td></tr>
+<tr><td>\tutotirals\flightdelays\data</td><td>input flights data for Hive</td></tr>
+<tr><td>\tutorials\flightdelays\output</td><td>output for Hive</td></tr>
+<tr><td>\tutorials\flightdelays\flightdelays.hql</td><td>HiveQL script file</td></tr>
+<tr><td>\tutorials\flightdelays\jobstatus</td><td>Hadoop job status</td></tr>
 </table>
+
+**Understand Hive internal table and external table**
+
+There are a few things you need to know about Hive internal table and external table:
+
+- The CREATE TABLE command creates an internal table. The data file must be located in the default container.
+- The CREATE TABLE command moves the data file to the /hive/warehouse/<TableName> folder.
+- The CREATE EXTERNAL TABLE command creates an external table. The data file can be located outside the default container.
+- The CREATE EXTERNAL TABLE command does not move the data file.
+- The CREATE EXTERNAL TABLE command doesn't allow any folders in the LOCATION. This is the reason why the tutorial makes a copy of the sample.log file.
+
+For more information, see [HDInsight: Hive Internal and External Tables Intro][cindygross-hive-tables].
 
 > [WACOM.NOTE] One of the HiveQL statements creates an Hive external table. Hive external table keeps the data file in the original location. Hive internal table moves the data file to hive\warehouse. Hive external table requires the data file to be located in the default file system WASB container. If you choose to store the flight data files in a container other than the default Blob container, you must use the Hive internal tables.
 
@@ -60,11 +96,6 @@ Thought-out the tutorial, the project needs to store several types of files. The
 4. Unzip the file to the **C:\Tutorials\FlightDelays\Data** folder.  Each file is a CSV file and is approximately 60 GB in size.
 5.	Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
 6. Repeat step 2 and 5 to download a file for each of the 12 months in 2012. You will need minimum one file to run the tutorial.  
-
-
-HDInsight uses Windows Azure Blob storage for storing data. For more information, see [Using Windows Azure Blob Storage with HDInsight][hdinsight-storage]. There are many methods for uploading files to Blob storage.  For more information, see [Upload Data to HDInsight][HDinsight-upload-data]. 
-
-In this article, you will upload the data to Blob storage container that serves as the default file system for your HDInsight cluster. The path is *tutorials\flightdelays\data*. When provision an HDInsight cluster, you can connect multiple storage accounts to the cluster. The data can be uploaded to any of the connected storage accounts.
 
 **To upload the flight delay data to Windows Azure Blob storage**
 
@@ -163,9 +194,9 @@ If you choose to use a different method for uploading the files, please make sur
 	        )
 	        )"
 
-	These are the variables and their description:
+	These are the variables and their descriptions:
 	<table border="1">
-	<tr><td><strong>Variable Name</strong></td><td><strong>Note</strong></td></tr>
+	<tr><td><strong>Variable Name</strong></td><td><strong>Description</strong></td></tr>
 	<tr><td>$subscriptionName</td><td>Your Windows Azure subscription name.</td></tr>
 	<tr><td>$sqlDatabaseServer</td><td>The SQL Database server name used by Sqoop to export data to. If you leave it as it is, the script will create one for you. Otherwise, specify an existing SQL Datbase  or SQL Server.</td></tr>
 	<tr><td>$sqlDatabaseUsername</td><td>SQL Database/SQL Server user name.</td></tr>
@@ -512,8 +543,9 @@ The last steps is to run Sqoop export to export the data to SQL Database. You ha
 Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Windows Azure SQL Database. To learn more, see the following articles:
 
 * [Getting Started with HDInsight][hdinsight-get-started]
-* [Using Hive with HDInsight][hdinsight-hive]
-* [Using Pig with HDInsight][hdinsight-pig]
+* [Use Hive with HDInsight][hdinsight-hive]
+* [Use Oozie with HDInsight][hdinsight-oozie]
+* [Use Pig with HDInsight][hdinsight-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 * [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 
@@ -521,6 +553,7 @@ Now that you understand how to upload file to Blob storage, how to populate a Hi
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
+[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
 [hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
 [hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
 [hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
