@@ -6,9 +6,9 @@
 <div class="dev-center-tutorial-selector sublanding">
 	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
 	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/get-started-ios" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/get-started-android" title="Android">Android</a>
-	<a href="/en-us/documentation/articles/get-started-html" title="HTML" class="current">HTML</a>
+	<a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML" class="current">HTML</a>
 	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
 	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
 	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>

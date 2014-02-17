@@ -1,11 +1,11 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Windows Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga"  solutions="" writer="glenga" manager="" editor=""  />
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/get-started" title="Windows Store">Windows Store</a>
-	<a href="/en-us/documentation/articles/get-started-wp8" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/get-started-ios" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/get-started-android" title="Android">Android</a>
-	<a href="/en-us/documentation/articles/get-started-html" title="HTML">HTML</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-ios-get-started" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/mobile-services-android-get-started" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/mobile-services-html-get-started" title="HTML">HTML</a>
 	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
 	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
 	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
@@ -34,7 +34,7 @@ Completing this tutorial requires the PhoneGap tools (v3.2+ required for Windows
 
 PhoneGap supports developing for multiple platforms. In addition to the PhoneGap tools themselves, you must install the tools for each platform you are targeting:
 
-- Windows Phone: Install [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/?LinkID=268374&clcid=0x409)
+- Windows Phone: Install [Visual Studio 2012 Express for Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
 - iOS: Install [Xcode] (v4.4+ required)
 - Android: Install the [Android Developer Tools][Android SDK]
 	<br/>(The Mobile Services SDK for Android supports apps for Android 2.2 or a later version. Android 4.2 or higher is required to run the quick start app.)
@@ -121,7 +121,7 @@ The final stage of this tutorial is to build and run your new app.
 
 ## Make app updates and rebuild projects for each platform
 
-1. Make changes to code files in the ZUMOAPPNAME/www directory.
+1. Make changes to code files in the ´www´ directory, which in this case is ´todolist/www´.
 
 2. Verify that all of the target platform tools are accessible in the system path. 
 
@@ -171,9 +171,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-html
+[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-html-get-started-users
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
