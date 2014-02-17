@@ -81,9 +81,11 @@ request.execute({
     	push.wns.send(null,payload, 'wns/toast', {
             success: function(pushResponse) {
                 console.log("Sent push:", pushResponse);
+				request.respond();
                 },              
                 error: function (pushResponse) {
                     console.log("Error Sending push:", pushResponse);
+					request.respond(500, { error: pushResponse });
                     }
                 });
             }
