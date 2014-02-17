@@ -11,6 +11,8 @@ In this tutorial, you will provision an HDInsight cluster using the Windows Azur
 
 > [WACOM.NOTE] This tutorial covers using Hadoop 2.2 clusters on HDInsight. It is currently in preview. For the tutorial using Hadoop 1.2 clusters on HDInsight, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
 
+> [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. The *wasb://* syntax should be used instead. 
+
 In conjunction with the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
 **Prerequisites:**
@@ -157,11 +159,11 @@ Running a MapReduce job requires the following elements:
 
 The URI scheme for accessing files in Blob storage is:
 
-	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
+	wasb[s]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
 > [WACOM.NOTE] By default, the Blob container used for the default file system has the same name as the HDInsight cluster.
 
-The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with wasbs. We recommend using wasbs wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
 Because HDInsight uses a Blob Storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths.
 
@@ -332,20 +334,17 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 4. Enter the **Account Key** for the Azure Blob Storage Account, and then click **Save**. 
 5. In the Navigator pane on the right, double-click the Blob storage container name. By default the container name is the same name as the cluster name. 
 
-6. Locate **part-r-00000** in the **Name** column, and then click **Binary**.
+6. Locate **part-r-00000** in the **Name** column (the path is *.../example/data/WordCountOutput*), and then click **Binary** on the left of **part-r-00000**.
 
 	![HDI.GettingStarted.PowerQuery.ImportData2][image-hdi-gettingstarted-powerquery-importdata2]
-
-6. Right-click **Column1**, point to **Split Column**, and then click **By Delimiter**.
-7. Select **Tab** in **Select or enter delimiter**, and **At the right-most delimiter**, and then click **OK**.
-
-	![HDI.GettingStarted.PowerQuery.ImportData3][image-hdi-gettingstarted-powerquery-importdata3]
 
 8. Right-click **Column1.1**, and then select **Rename**.
 9. Change the name to **Word**.
 10. Repeat the process to rename **Column1.2** to **Count**.
-9. Click **Done** on the bottom right corner. The query then imports the Hive Table into Excel.
 
+	![HDI.GettingStarted.PowerQuery.ImportData3][image-hdi-gettingstarted-powerquery-importdata3]
+
+9. Click **Apply & Close** in the upper left corner. The query then imports the Hive Table into Excel.
 
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:

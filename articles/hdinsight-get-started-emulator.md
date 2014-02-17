@@ -465,7 +465,7 @@ The process cannot access the file because it is being used by another process.
 
 The syntax for access the storage emulator is: 
 
-	WASB://<ContainerName>@storageemulator
+	wasb://<ContainerName>@storageemulator
 
 For example:
 
@@ -511,7 +511,7 @@ Before you can access a Windows Azure Storage account, you must add the account 
 
 Use the following syntax to access the storage account:
 
-	WASB://<ContainerName>@<StorageAccountName>.blob.core.windows.net/
+	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/
 
 For example:
 
