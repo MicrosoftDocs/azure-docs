@@ -19,7 +19,7 @@
 
 This topic shows how Visual Studio 2013 lets you use Windows Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]This tutorial shows you how to get started with legacy push notifications. Mobile Services also provides enhanced push notifications functionality provided by Windows Azure Notification Hubs. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
+>[WACOM.NOTE]This tutorial shows you how to get started with legacy push notifications. Mobile Services also integrates with Windows Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 

@@ -24,7 +24,7 @@ This topic shows how Visual Studio 2013 lets you use Windows Azure Mobile Servic
 <p>This tutorial requires Visual Studio 2013, which makes it easier to send push notifications to your Windows Store app using Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012/">Get started with push notifications in Mobile Services using Visual Studio 2012</a>.</p>
 </div>-->
 
->[WACOM.NOTE]This tutorial shows you how to get started with legacy push notifications. Mobile Services also provides enhanced push notifications functionality provided by Windows Azure Notification Hubs. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[WACOM.NOTE]This tutorial shows you how to get started with legacy push notifications. Mobile Services also integrates with Windows Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
