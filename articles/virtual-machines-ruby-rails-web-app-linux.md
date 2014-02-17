@@ -244,7 +244,7 @@ The list of files returned should match the files contained in the **blog_app** 
 
 	* **PRIVATE PORT**: &lt;port information from step 3 above&gt;
 
-	This will create a public port of 80 that will route traffic to the private port of 300 - where the Rails server is listening.
+	This will create a public port of 80 that will route traffic to the private port of 3000 - where the Rails server is listening.
 
 	![new endpoint dialog][new-endpoint]
 
