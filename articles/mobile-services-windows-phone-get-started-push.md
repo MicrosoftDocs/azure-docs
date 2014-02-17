@@ -21,7 +21,7 @@
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Phone 8 app. 
 In this tutorial you add push notifications using the Microsoft Push Notification Service (MPNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]This tutorial shows you how to get started with legacy push notifications. Mobile Services also provides enhanced push notifications functionality provided by Windows Azure Notification Hubs. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+>[WACOM.NOTE]This tutorial shows you how to get started with legacy push notifications. Mobile Services also integrates with Windows Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
