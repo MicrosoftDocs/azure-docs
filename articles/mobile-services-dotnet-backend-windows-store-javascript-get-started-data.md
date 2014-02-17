@@ -72,23 +72,27 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
     ![][5]
 
 
-4. Unzip the personalized service starter project you downloaded. Then in Solution Explorer in Visual Studio, right click your solution for the Getting Started with Data Windows Store application. Click **Add** and then click **Existing Project**.
+4. Unzip the personalized service starter project you downloaded. Copy the folders that were in the zip file into the same **JavaScript** directory where the Get Started with Data solution file (.sln) is located. This makes it easier for NuGet Package Manager to keep all the packages in sync. 
+
+    ![][26]
+
+5. In Visual Studio's Solution Explorer, right click your solution for the Getting Started with Data Windows Store application. Click **Add** and then click **Existing Project**.
 
     ![][4]
 
-5. In the Add Existing Project dialog, navigate to the folder where you unzipped the personalized starter project and select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
+6. In the Add Existing Project dialog, navigate to the mobile service project folder that you moved into the **JavaScript** directory. Select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
 
     ![][6]
 
-6. In Visual Studio in Solution Explorer, right click the service project you just added and click **Build** to verify that it builds with no errors. During the build, NuGet package manager may need to restore some NuGet packages that are referenced in the project.
+7. In Visual Studio in Solution Explorer, right click the service project you just added and click **Build** to verify that it builds with no errors. During the build, NuGet package manager may need to restore some NuGet packages that are referenced in the project.
 
     ![][20]
 
-7. Right click the service project again. This time click **Start new instance** under the **Debug** context menu.
+8. Right click the service project again. This time click **Start new instance** under the **Debug** context menu.
 
     ![][21]
 
-    Visual Studio opens the default web page for your service.
+    Visual Studio opens the default web page for your service. You can click **try it now** to test methods in your mobile service from the default web page.
 
     ![][22]
 
@@ -227,6 +231,7 @@ In this section you will use Visual Studio to host the mobile service locally on
 
     ![][16]
 
+    You can restart the app to see that the changes were persisted to the database in Windows Azure. You can also examine the database using the Windows Azure Management portal or Visual Studio's SQL Server Object Explorer. The next two steps will use the Windows Azure Management portal to view the changes in your database.
 
 4. In the Windows Azure Management Portal, click manage for the database associated with your mobile service.
 
@@ -259,7 +264,7 @@ Once you have completed the data series, try one of these other tutorials:
   <br/>Learn how to send a very basic push notification to your app.
 
 * [Mobile Services .NET How-to Conceptual Reference]
-  <br/>Learn more about how to use Mobile Services with .NET.
+  <br/>Learn more about how to use Mobile Services with HTML and JavaScript.
   
 <!-- Anchors. -->
 
@@ -298,20 +303,21 @@ Once you have completed the data series, try one of these other tutorials:
 [22]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/service-welcome-page.png
 [23]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/iis-express-tray.png
 
+[26]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/copy-service-and-packages-folder.png
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: ../mobile-services-windows-store-dotnet-get-started-push/
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-js
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-javascript
+[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
