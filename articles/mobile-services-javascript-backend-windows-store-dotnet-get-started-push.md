@@ -52,27 +52,10 @@ Before your app can receive push notifications, you must register a notification
             // Request a push notification channel.
             var channel =
                 await PushNotificationChannelManager
-					.CreatePushNotificationChannelForApplicationAsync();
+                    .CreatePushNotificationChannelForApplicationAsync();
 
             // Register for notifications using the new channel
-            var notification = MobileService.GetPush();
-            var result = await notification.RegisterNativeAsync(channel.Uri);
-            string message;
-
-            // Display the registration ID so you know it was successful
-            if (result.RegistrationId != null)
-            {
-                message = "Registration successful: " + result.RegistrationId;
-            }
-            else
-            {
-                message = "Registration failed.";
-            }
-
-            // Show the message dialog.
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
+            await MobileService.GetPush().RegisterNativeAsync(channel.Uri);
         }
 
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.

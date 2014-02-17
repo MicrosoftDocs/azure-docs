@@ -48,27 +48,18 @@ Before your app can receive push notifications, you must register a notification
             .createPushNotificationChannelForApplicationAsync()
             .then(function (channel) {
                 // Register for notifications using the new channel
-                var result = client.push.registerNative(channel.uri);
-                var message = "Registration successful: " + result.RegistrationId;
-
-                // Display a message with the registration ID.
-                var dialog = new Windows.UI.Popups.MessageDialog(message);
-                dialog.showAsync();
-            }, function (error) {
-                var message = "Registration failed: " + error.description;
-                var dialog = new Windows.UI.Popups.MessageDialog(message);
-                dialog.showAsync();
-            });        
+                client.push.registerNative(channel.uri);                    
+            });      
 
          This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
 
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+6. Open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
    	![][2]
 
-   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+   	This makes sure that your app can raise toast notifications. 
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 

@@ -64,22 +64,8 @@ Before your app can receive push notifications, you must register a notification
                 {
 
                     // Register for notifications using the new channel
-                    var notification = MobileService.GetPush();
-                    var result = await notification.RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
-                    string message;
-
-                    // Display the registration ID so you know it was successful
-                    if (result.RegistrationId != null)
-                    {
-                        message = "Registration successful: " + result.RegistrationId;
-                    }
-                    else
-                    {
-                        message = "Registration failed.";
-                    }
-
-                    // Show the message dialog.
-                    MessageBox.Show(message);                    
+                    await MobileService.GetPush()
+                        .RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
                 });
         }
 
@@ -99,7 +85,7 @@ Before your app can receive push notifications, you must register a notification
 
    	![][1]
 
-   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+   	This makes sure that your app can raise toast notifications. 
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
