@@ -124,7 +124,7 @@ In this article, you will upload the data to Blob storage container that serves 
 
 If you choose to use a different method for uploading the files, please make sure the file path is *tutorials/flightdelays/data*. The syntax for accessing the files is:
 
-	WASB://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelays/data
+	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelays/data
 
 *tutorials/flightdelays/data* is the virtual folder you created when you uploaded the files. Verify that there are 12 files, one for each month.
 
@@ -310,7 +310,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 			"ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' " +
 			"LINES TERMINATED BY '\n' " +
 			"STORED AS TEXTFILE " +
-			"LOCATION 'WASB://$containerName@$storageAccountName.blob.core.windows.net/$srcDataFolder';" 
+			"LOCATION 'wasb://$containerName@$storageAccountName.blob.core.windows.net/$srcDataFolder';" 
 		
 		$hqlDropDelays = "DROP TABLE delays;"
 		
@@ -337,7 +337,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 				"LATE_AIRCRAFT_DELAY AS late_aircraft_delay " +
 			"FROM delays_raw;" 
 		
-		$hqlInsertLocal = "INSERT OVERWRITE DIRECTORY 'WASB://$containerName@$storageAccountName.blob.core.windows.net/$dstDataFolder' " +
+		$hqlInsertLocal = "INSERT OVERWRITE DIRECTORY 'wasb://$containerName@$storageAccountName.blob.core.windows.net/$dstDataFolder' " +
 			"SELECT regexp_replace(origin_city_name, '''', ''), " +
 		        "avg(weather_delay) " +
 			"FROM delays " +
@@ -389,7 +389,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 There are several Windows Azure PowerShell cmdlets you can use to run Hive. This tutorial uses Invoke-Hive. For other methods, see [Use Hive with HDInsight][hdinsight-hive]. Using Invoke-Hive, you can run either a HiveQL statement or a HiveQL script. You will use the HiveQL script you have created and uploaded to Windows Azure Blob storage.
 
-There is an known Hive path issue. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
+There is a known Hive path issue. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
 
 **To run the Hiver queries using PowerShell**
 
@@ -409,7 +409,7 @@ There is an known Hive path issue. The instructions for fixing the issue can be 
 		$clusterName = "<HDInsightClusterName>"
 		$storageAccountName = "<WindowsAzureStorageAccountName>"
 		$containerName = "<WindowsAzureBlobStorageContainerName>"
-		$hqlScriptFile = "WASB://$containerName@$storageAccountName.blob.core.windows.net/tutorials/flightdelays/flightdelays.hql"
+		$hqlScriptFile = "wasb://$containerName@$storageAccountName.blob.core.windows.net/tutorials/flightdelays/flightdelays.hql"
 		$outputBlobName = "tutorials/flightdelays/output/000000_0"
 
 	These are the variables and their description: 
