@@ -162,8 +162,6 @@ Later, you will use this certificate to generate a .p12 file and upload it to Mo
 
 	Make a note of the file name and location of the exported certificate.
 
-This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
-
 <h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
 
 1. Log on to the [Windows Azure Management Portal], and click **+NEW** at the bottom of the screen.
@@ -200,7 +198,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
    	![][31]
 
-2. Under **Targets**, click your project name, then  expand **Code Signing Identity**, then under **Debug** select the provisioning profile.
+2. Under **Targets**, click your project name, then  expand **Code Signing Identity**, then under **Debug** select the code-signing identity profile. Additionally, if using a newer version of XCode, toggle **Levels** from **Basic** to **All** and set the **Provisioning Profile** line item to the provisioning profile. 
 
    	![][32]
 
