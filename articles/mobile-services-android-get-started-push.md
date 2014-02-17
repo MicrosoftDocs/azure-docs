@@ -15,14 +15,17 @@
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
 </div>
 
+<!--
 <div class="dev-onpage-video-wrapper">
 <a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> 
 <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-push-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">17:11</span></div>
 </div>
+-->
+
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Register your app for push notifications]
+1. [Enable Google Cloud Messaging]
 2. [Configure Mobile Services]
 2. [Add push notifications to your app]
 3. [Update scripts to send push notifications]
@@ -35,7 +38,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
+<h2><a name="register"></a><span class="short-header">Enable GCM</span>Enable Google Cloud Messaging</h2>
 
 <div class="dev-callout"><b>Note</b>
 <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
@@ -61,7 +64,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 	![][10]
 
 6. Choose **Registered apps**,
--->
+
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
 
@@ -89,6 +92,9 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 6. Make a note of the **API key** value.
 
 	![][4] 
+-->
+
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
 
@@ -324,7 +330,7 @@ In this simple example a user receives a push notification with the data that wa
 
 <!-- Anchors. -->
 
-[Register your app for push notifications]: #register
+[Enable Google Cloud Messaging]: #GCM
 [Configure Mobile Services]: #configure
 [Update scripts to send push notifications]: #update-scripts
 [Add push notifications to your app]: #add-push
