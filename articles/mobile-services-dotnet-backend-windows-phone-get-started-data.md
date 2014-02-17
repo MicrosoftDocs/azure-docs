@@ -195,37 +195,7 @@ In this section you will update the Windows Phone app to use the mobile service 
 In this section you will use Visual Studio to test the app and mobile service locally on your development workstation. In order to test the mobile service hosted locally in IIS Express from a Windows Phone device or one of the Windows Phone emulators, you have to configure IIS Express and the workstation to allow connections to the workstation's IP address and port. Windows Phone devices and emulators connect as non-local network clients.
 
 
-1. Make sure to stop the mobile service if it is currently running in IIS Express. Right click the IIS Express tray icon and click **stop** for the mobile service.
-
-    ![][24]
-
-2. In a command prompt window, run the **ipconfig** command to look up a valid local IP address for your workstation.
-
-    ![][25]
-
-3. In Visual Studio, open the applicationhost.config file for IIS Express. This file is located in the following subdirectory of your user profile directory.
-
-        C:\Users\<your profile name>\Documents\IISExpress\config\applicationhost.config
-
-4. Configure IIS Express to allow remote connection requests to the service. To do this, in the applicationhost.config file, find the site element for your mobile service and add a new `binding` element for the port using the IP address you noted above. Then save the applicationhost.config file. 
-
-    Your updated site element should look similar to the following:
-
-        <site name="todolist_Service(1)" id="2">
-            <application path="/" applicationPool="Clr4IntegratedAppPool">
-                <virtualDirectory path="/" physicalPath="C:\Archive\GetStartedDataWP8\C#\todolist_Service" />
-            </application>
-            <bindings>
-                <binding protocol="http" bindingInformation="*:58203:localhost" />
-                <binding protocol="http" bindingInformation="*:58203:192.168.137.72" />
-            </bindings>
-        </site>
-
-5. Open the Windows Firewall console and create a new port rule to allow connections to the port. For more information on creating a new Windows Firewall port rule, see [How to add a new Windows Firewall port rule].
-
-    You should now be configured to allow testing with a Windows Phone device or emulator. 
-
->[WACOM.NOTE] Once you finish your testing of the service locally, you should delete the Windows Firewall rule you created. 
+[WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
 
 6. In Visual Studio open the App.xaml.cs file and comment out the `MobileService` definition you recently pasted to the file. Add a new definition to make the connection based on the IP address and port that you configured on the workstation. Then save the file. Your code should look similar to the following...
 
@@ -363,8 +333,6 @@ Once you have completed the data series, try one of these other tutorials:
 [21]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-start-debug-service-project.png
 [22]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/service-welcome-page.png
 [23]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/iis-express-tray.png
-[24]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/iis-express-tray-stop-site.png
-[25]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/ipconfig.png
 [26]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/copy-service-and-packages-folder.png
 
 
