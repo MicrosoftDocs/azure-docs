@@ -64,11 +64,11 @@ Before your app can receive push notifications, you must register a notification
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
 
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+6. Open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
    	![][2]
 
-   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+   	This makes sure that your app can raise toast notifications. 
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 

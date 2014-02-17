@@ -99,7 +99,7 @@ Before your app can receive push notifications, you must register a notification
 
    	![][1]
 
-   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+   	This makes sure that your app can raise toast notifications. 
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
