@@ -18,9 +18,7 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-This tutorial shows you how to add a cloud-based backend service to an app using Windows Azure Mobile Services.
-
-In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the [.NET backend version] of this topic.
+This tutorial shows you how to add a cloud-based backend service to an app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
 A screenshot from the completed app is below:
 
