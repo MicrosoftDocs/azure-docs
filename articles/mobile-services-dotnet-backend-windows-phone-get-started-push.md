@@ -1,25 +1,25 @@
-<properties pageTitle="Get started with push notification hubs using .NET runtime mobile services" metaKeywords="" description="Learn how to use Windows Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="wesmc"  solutions="" writer="wesmc" manager="" editor=""  />
+<properties pageTitle="Get started with push notification hubs using .NET runtime mobile services" metaKeywords="" description="Learn how to use Windows Azure .Net runtime mobile services and Notification Hubs to send push notifications to your Windows phone app." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="wesmc"  solutions="" writer="wesmc" manager="" editor=""  />
 
 
-# Get started with push notifications in Mobile Services
+# Get started with push notifications Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#" class="current">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
 	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
 </div>
 
-This topic shows you how to use Windows Azure .Net runtime Mobile Services to send push notifications to a Windows Store app. 
+This topic shows you how to use Windows Azure .Net runtime Mobile Services to send push notifications to a Windows Phone 8 app. 
 In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your .Net runtime mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE] For guidance on how to use the legacy support for push notifications, see [this version of the topic](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/).
+>[WACOM.NOTE] For guidance on how to use the legacy support for push notifications, see [this version of the topic](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -87,7 +87,7 @@ Before your app can receive push notifications, you must register a notification
   
 6. In Visual Studio, open the Package.appxmanifest file and make sure that **Toast capable** is set to **Yes** on the **Application UI** tab.
 
-   	![][2]
+   	![][1]
 
    	This makes sure that your app can raise toast notifications. 
 
@@ -108,7 +108,7 @@ Before your app can receive push notifications, you must register a notification
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-    This code sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.
+    This code sends a push notification (with the text of the inserted item) to all app registrations after the insert succeeds.
 
 ##<a id="test"></a> Test push notifications in your app
 
@@ -116,11 +116,11 @@ Before your app can receive push notifications, you must register a notification
 
 2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
 
-   	![][13]
+   	![][2]
 
    	Note that after the insert completes, the app receives a push notification from WNS.
 
-   	![][14]
+   	![][3]
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -157,18 +157,18 @@ Consider finding out more about the following Mobile Services topics:
 <!-- Images. -->
 
 
-[13]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
-[14]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
-[2]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+[1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+[2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
+[3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push
 
 [Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/

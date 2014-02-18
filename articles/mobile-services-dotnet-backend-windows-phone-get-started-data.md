@@ -4,7 +4,22 @@
 
 # Get started with data in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>
+
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/"  title="JavaScript backend">JavaScript backend</a>
+</div>
+
 
 This topic shows you how to use Windows Azure Mobile Services as a backend datasource for a Windows Phone 8 app. In this tutorial, you will download a Visual Studio 2012 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
@@ -340,10 +355,10 @@ Once you have completed the data series, try one of these other tutorials:
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
 
