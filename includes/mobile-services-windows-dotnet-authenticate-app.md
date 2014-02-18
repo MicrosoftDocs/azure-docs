@@ -6,7 +6,7 @@
 6. Add the following code snippet to the MainPage class:
 	
         private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+        private async System.Threading.Tasks.Task AuthenticateAsync()
         {
             while (user == null)
             {
@@ -35,7 +35,7 @@
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            await Authenticate();
+            await AuthenticateAsync();
             RefreshTodoItems();
         }
 		
