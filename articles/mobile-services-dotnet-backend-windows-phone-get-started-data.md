@@ -150,29 +150,27 @@ In this section you will update the Windows Phone app to use the mobile service 
 
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. In Visual Studio in MainPage.xaml.cs, replace the `MainPage` class definition with the following definition and save the file: 
+6. In Visual Studio in MainPage.xaml.cs, replace the `MainPage` class definition with the following definition and save the file.
+
+    This code uses the Mobile Services SDK to enable the app to store it's data in a table provided by the service instead of being stored locally in-memory. The main three methods are `InsertTodoItem`, `RefreshTodoItems`, and `UpdateCheckedTodoItem`. These three methods allow you to asynchronously insert, query, and update your data collection to a table in Windows Azure. 
 
         public sealed partial class MainPage : PhoneApplicationPage
         {
             private MobileServiceCollection<TodoItem, TodoItem> items;
             private IMobileServiceTable<TodoItem> todoTable = 
-            App.MobileService.GetTable<TodoItem>();            
+                App.MobileService.GetTable<TodoItem>();            
             public MainPage()
             {
                 this.InitializeComponent();
             }
             private async void InsertTodoItem(TodoItem todoItem)
             {
-                // TODO: Delete or comment the following statement; Mobile Services auto-generates the ID. 
-                //       You can also leave this line if you want to generate your own unique id values.
-                todoItem.Id = Guid.NewGuid().ToString();
                 await todoTable.InsertAsync(todoItem); 
                 items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
                 items = await todoTable 
-                //   .Where(todoItem => todoItem.Complete == false) 
                     .ToCollectionAsync(); 
                 ListItems.ItemsSource = items;
             }
@@ -228,6 +226,8 @@ In this section you will use Visual Studio to test the app and mobile service lo
     ![][11]
 
 8. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu to run the app and host the mobile service locally in IIS Express. 
+
+    >[WACOM.NOTE] Make you you did run Visual Studio with the **Run as administrator** option. Otherwise, IIS Express may not load your applicationhost.config changes.
 
     ![][12]
 

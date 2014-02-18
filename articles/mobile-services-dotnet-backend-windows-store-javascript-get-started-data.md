@@ -140,19 +140,22 @@ In this section you will update the Windows Store app to use the mobile service 
 
 5. In the default.js, replace the rest of the code for the `app.onactiviated` event handler with the following code that defines the `todoItems` and the operations that we will test with the mobile service. Then save the file.
 
+    This code uses the Mobile Services SDK for JavaScript to enable the app to store it's data in a table provided by the service instead of locally in-memory. The main three methods are `insertTodoItem`, `refreshTodoItems`, and `updateCheckedTodoItem`. These three methods allow you to asynchronously insert, query, and update your data collection with a table in Windows Azure.
+
             var todoTable = client.getTable('TodoItem');
             var todoItems = new WinJS.Binding.List();
             var insertTodoItem = function (todoItem) {
-                // This code inserts a new TodoItem into the database. When the operation completes
-                // and Mobile Services has assigned an id, the item is added to the Binding List
+                // This code inserts a new TodoItem into the database. 
+                // Mobile Services assigns each item an id and the 
+                // item is added to the Binding List
                 todoTable.insert(todoItem).done(function (item) {
                     todoItems.push(item);
                 });
             };
             var refreshTodoItems = function () {
-                // This code refreshes the entries in the list view be querying the TodoItems table.
-                // The query excludes completed TodoItems
-                todoTable.where({ Complete: false })
+                // This code refreshes the entries in the list view 
+                // by querying the TodoItems table.
+                todoTable.where()
                     .read()
                     .done(function (results) {
                         todoItems = new WinJS.Binding.List(results);
@@ -160,8 +163,9 @@ In this section you will update the Windows Store app to use the mobile service 
                     });
             };
             var updateCheckedTodoItem = function (todoItem) {
-                // This code takes a freshly completed TodoItem and updates the database. When the MobileService 
-                // responds, the item is removed from the list 
+                // This code updates the database. 
+                // When the MobileService responds, 
+                // the item is removed from the list 
                 todoTable.update(todoItem).done(function (item) {
                     todoItems.splice(todoItems.indexOf(item), 1);
                 });

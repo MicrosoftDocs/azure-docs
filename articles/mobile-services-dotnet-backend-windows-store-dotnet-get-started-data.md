@@ -146,30 +146,27 @@ In this section you will update the Windows Store app to use the mobile service 
 
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. In Visual Studio in MainPage.xaml.cs, replace the `MainPage` class definition with the following definition and save the file: 
+6. In Visual Studio in MainPage.xaml.cs, replace the `MainPage` class definition with the following definition and save the file. 
+
+    This code uses the Mobile Services SDK to enable the app to store it's data in a table provided by the service instead of locally in-memory. The main three methods are `InsertTodoItem`, `RefreshTodoItems`, and `UpdateCheckedTodoItem`. These three methods allow you to asynchronously insert, query, and update your data collection with a table in Windows Azure.
 
         public sealed partial class MainPage : Page
         {
             private MobileServiceCollection<TodoItem, TodoItem> items;
             private IMobileServiceTable<TodoItem> todoTable = 
-            App.MobileService.GetTable<TodoItem>();            
+                App.MobileService.GetTable<TodoItem>();            
             public MainPage()
             {
                 this.InitializeComponent();
             }
             private async void InsertTodoItem(TodoItem todoItem)
             {
-                // TODO: Delete or comment the following statement; Mobile Services auto-generates the ID. 
-                //       You can also leave this line if you want to generate your own unique id values.
-                todoItem.Id = Guid.NewGuid().ToString();
                 await todoTable.InsertAsync(todoItem); 
                 items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
-                items = await todoTable 
-                //   .Where(todoItem => todoItem.Complete == false) 
-                  .ToCollectionAsync(); 
+                items = await todoTable.ToCollectionAsync(); 
                 ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
