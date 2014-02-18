@@ -20,19 +20,19 @@
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
-3. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
 
 	![][5]
 
-4. Click **Credentials**, and then click **CREATE NEW KEY** 
+5. Click **Credentials**, and then click **CREATE NEW KEY** 
 
    	![][2]
 
-5. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. In **Create a new key**, click **Server key**. In the next window click **Create**.
 
    	![][3]
 
-6. Make a note of the **API key** value.
+7. Make a note of the **API key** value.
 
    	![][4] 
 
