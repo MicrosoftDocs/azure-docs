@@ -1,11 +1,13 @@
 
 1. Make sure to stop the mobile service if it is currently running in IIS Express. Right click the IIS Express tray icon and click **stop** for the mobile service.
 
-    ![][0]
+    ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
+
 
 2. In a command prompt window, run the **ipconfig** command to look up a valid local IP address for your workstation.
 
-    ![][1]
+    ![](./media/mobile-services-how-to-configure-iis-express/ipconfig.png)
+
 
 3. In Visual Studio, open the applicationhost.config file for IIS Express. This file is located in the following subdirectory of your user profile directory.
 
@@ -31,14 +33,7 @@
 
     You should now be configured to test with IIS Express hosting your mobile service. 
 
->[WACOM.NOTE] Once you finish your testing of the service locally, you should delete the Windows Firewall rule 
-you created. 
-
-
-<!-- Images. -->
-[0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
-[1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
-
+    >[WACOM.NOTE] Once you finish your testing of the service locally, you should delete the Windows Firewall rule you created. 
 
 
 <!-- URLs. -->
