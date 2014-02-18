@@ -9,27 +9,17 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
 
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
-</div>
-
-<!--
-<div class="dev-onpage-video-wrapper">
-<a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> 
-<a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-push-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">17:11</span></div>
-</div>
--->
 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Enable Google Cloud Messaging]
-2. [Configure Mobile Services]
-2. [Add push notifications to your app]
-3. [Update scripts to send push notifications]
-4. [Insert data to receive notifications]
+* [Enable Google Cloud Messaging](#register)
+* [Configure Mobile Services](#configure)
+* [Add push notifications to your app](#add-push)
+* [Update scripts to send push notifications](#update-scripts)
+* [Insert data to receive notifications](#test)
 
 This tutorial requires the following:
 
@@ -38,7 +28,7 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="register"></a><span class="short-header">Enable GCM</span>Enable Google Cloud Messaging</h2>
+##<a id="register"></a>Enable Google Cloud Messaging
 
 <div class="dev-callout"><b>Note</b>
 <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
@@ -98,7 +88,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
 
-<a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
+##<a id="configure"></a>Configure Mobile Services to send push requests
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -110,7 +100,7 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 You mobile service is now configured to work with GCM to send push notifications.
 
-<a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+##<a id="add-push"></a>Add push notifications to your app
 
 
 
@@ -253,7 +243,7 @@ Your app is now updated to support push notifications.
 	The `google-play-services.jar` library file is now shown in your project.
 -->
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
+##<a id="update-scripts"></a>Update the registered insert script in the Management Portal
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -285,7 +275,7 @@ Your app is now updated to support push notifications.
 
    	This registers a new insert script, which uses the [gcm object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+##<a id="test"></a>Test push notifications in your app
 
 <div class="dev-callout"><b>Note</b>
 	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
@@ -327,15 +317,6 @@ You have successfully completed this tutorial.
 
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
-
-<!-- Anchors. -->
-
-[Enable Google Cloud Messaging]: #GCM
-[Configure Mobile Services]: #configure
-[Update scripts to send push notifications]: #update-scripts
-[Add push notifications to your app]: #add-push
-[Insert data to receive notifications]: #test
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 

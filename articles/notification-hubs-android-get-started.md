@@ -8,11 +8,11 @@ In this tutorial, you create a blank Android app that receives push notification
 
 The tutorial walks you through these basic steps to enable push notifications:
 
-1. [Enable Google Cloud Messaging]
-2. [Configure your Notification Hub]
-3. [Connecting your app to the Notification Hub]
-4. [Testing your app]
-5. [Send notifications from your back-end]
+* [Enable Google Cloud Messaging](#register)
+* [Configure your Notification Hub](#configure-hub)
+* [Connecting your app to the Notification Hub](#connecting-app)
+* [Testing your app](#run-app)
+* [Send notifications from your back-end](#send)
 
 This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. 
 
@@ -23,7 +23,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 <div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Windows Azure Free Trial</a>.</p></div>
 
-<h2><a name="register"></a><span class="short-header">Enable Google Cloud Messaging</span>Enable Google Cloud Messaging</h2>
+##<a id="register"></a>Enable Google Cloud Messaging
 
 <p></p>
 
@@ -63,7 +63,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
 
-<h2><a name="configure-hub"></a><span class="short-header">Configure your Notification Hub</span>Configure your Notification Hub</h2>
+##<a id="configure-hub"></a>>Configure your Notification Hub
 
 1. Log on to the [Windows Azure Management Portal], and then click **+NEW** at the bottom of the screen.
 
@@ -93,7 +93,7 @@ Next, you will use this API key value to enable your notification hub to authent
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
 
-<h2><a name="connecting-app"></a><span class="short-header">Connecting your app</span>Connecting your app to the Notification Hub</h2>
+##><a id="connecting-app"></a>Connecting your app to the Notification Hub
 
 1. In Eclipse ADT, create a new Android project (File, New, Android Application).
 
@@ -239,7 +239,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		}
 
 
-<h2><a name="run-app"></a><span class="short-header">Test your app</span>Testing your app</h2>
+##<a name="run-app"></a>Testing your app
 
 You can test this app with an actual Android phone, or with the emulator. When you run it in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -259,7 +259,7 @@ You can test this app with an actual Android phone, or with the emulator. When y
     <p>In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to <strong>Settings</strong> and click <strong>Add Account</strong>). Also, make sure that the emulator is connected to the Internet.</p>
     </div> 
 
-<h2><a name="send"></a><span class="short-header">Send notification</span>Send notification from your back-end</h2>
+##<a name="send"></a>Send notification from your back-end
 
 You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
 
@@ -333,13 +333,6 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
 
 In this simple example you broadcast notifications to all your Android devices. In order to target specific users refer to the tutorial [Use Notification Hubs to push notifications to users], while if you want to segment your users by interest groups you can read [Use Notification Hubs to send breaking news]. Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and on the [Notification Hubs How-To for Android].
 
-<!-- Anchors. -->
-[Enable Google Cloud Messaging]: #register
-[Configure your Notification Hub]: #configure-hub
-[Connecting your app to the Notification Hub]: #connecting-app
-[Testing your app]: #run-app
-[Send notifications from your back-end]: #send
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
