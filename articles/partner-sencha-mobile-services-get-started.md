@@ -2,7 +2,22 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" class="current" title="Sencha">Sencha</a></div>
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-get-started" title="Windows Store">Windows Store</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/get-started-ios" title="iOS">iOS</a>
+	<a href="/en-us/documentation/articles/get-started-android" title="Android">Android</a>
+	<a href="/en-us/documentation/articles/get-started-html" title="HTML">HTML</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha" class="current">Sencha</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>
+</div>
+
+<!--<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-dotnet-backend-get-started/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>-->
 
 This tutorial shows you how to leverage Windows Azure Mobile Services in your Sencha Touch application. In this tutorial, you will create a simple To Do List app using Sencha Touch that utilizes the mobile service created when you complete the topic <a href="/en-us/develop/mobile/tutorials/get-started-html" target="_blank">Getting started with Mobile Services</a>.
 
