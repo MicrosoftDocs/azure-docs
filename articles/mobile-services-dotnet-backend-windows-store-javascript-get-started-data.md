@@ -4,7 +4,22 @@
 
 # Get started with data in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>
+
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/"  title="JavaScript backend">JavaScript backend</a>
+</div>
 
 This topic shows you how to use Windows Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
 
@@ -125,19 +140,22 @@ In this section you will update the Windows Store app to use the mobile service 
 
 5. In the default.js, replace the rest of the code for the `app.onactiviated` event handler with the following code that defines the `todoItems` and the operations that we will test with the mobile service. Then save the file.
 
+    This code uses the Mobile Services SDK for JavaScript to enable the app to store it's data in a table provided by the service instead of locally in-memory. The main three methods are `insertTodoItem`, `refreshTodoItems`, and `updateCheckedTodoItem`. These three methods allow you to asynchronously insert, query, and update your data collection with a table in Windows Azure.
+
             var todoTable = client.getTable('TodoItem');
             var todoItems = new WinJS.Binding.List();
             var insertTodoItem = function (todoItem) {
-                // This code inserts a new TodoItem into the database. When the operation completes
-                // and Mobile Services has assigned an id, the item is added to the Binding List
+                // This code inserts a new TodoItem into the database. 
+                // Mobile Services assigns each item an id and the 
+                // item is added to the Binding List
                 todoTable.insert(todoItem).done(function (item) {
                     todoItems.push(item);
                 });
             };
             var refreshTodoItems = function () {
-                // This code refreshes the entries in the list view be querying the TodoItems table.
-                // The query excludes completed TodoItems
-                todoTable.where({ Complete: false })
+                // This code refreshes the entries in the list view 
+                // by querying the TodoItems table.
+                todoTable.where()
                     .read()
                     .done(function (results) {
                         todoItems = new WinJS.Binding.List(results);
@@ -145,8 +163,9 @@ In this section you will update the Windows Store app to use the mobile service 
                     });
             };
             var updateCheckedTodoItem = function (todoItem) {
-                // This code takes a freshly completed TodoItem and updates the database. When the MobileService 
-                // responds, the item is removed from the list 
+                // This code updates the database. 
+                // When the MobileService responds, 
+                // the item is removed from the list 
                 todoTable.update(todoItem).done(function (item) {
                     todoItems.splice(todoItems.indexOf(item), 1);
                 });
@@ -308,10 +327,10 @@ Once you have completed the data series, try one of these other tutorials:
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 

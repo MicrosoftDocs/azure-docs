@@ -3,17 +3,18 @@
 
 # Get started with push notifications in Mobile Services
 
+
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
 	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
 	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
 </div>
 
 This topic shows you how to use Windows Azure .Net runtime mobile services to send push notifications to a Windows Store JavaScript app. 
@@ -40,7 +41,7 @@ Both your mobile service and your app are now configured to work with WNS and No
 
 Before your app can receive push notifications, you must register a notification channel.
 
-1. Open the file default.js and insert the following code after the code that creates the **MobileServiceClient** instance:
+1. Open the file default.js and insert the following code after the code that creates the **MobileServiceClient** instance. This code creates a push notification channel and registers for push notifications:
 
         // Request a push notification channel.
         Windows.Networking.PushNotifications
@@ -60,13 +61,13 @@ Before your app can receive push notifications, you must register a notification
                 dialog.showAsync();
             });        
 
-         This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
+    This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
 
-6. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+6. In Visual Studio, open the Package.appxmanifest file and make sure **Toast capable** is set to **Yes** on the **Application UI** tab.
 
-   	![][2]
+   	![][1]
 
    	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
 
@@ -95,11 +96,11 @@ This code sends a push notification (with the text of the inserted item) to all 
 
 2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
 
-   	![][13]
+   	![][2]
 
    	Note that after the insert completes, the app receives a push notification from WNS.
 
-   	![][14]
+   	![][3]
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -135,10 +136,9 @@ Consider finding out more about the following Mobile Services topics:
 
 <!-- Images. -->
 
-
-[13]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
-[14]: ./media/mobile-services-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
-[2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+[1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/enable-toast.png
+[2]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/mobile-quickstart-push1.png
+[3]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/mobile-quickstart-push2.png
 
 
 <!-- URLs. -->
