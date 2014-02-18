@@ -81,21 +81,16 @@ After you have created and uploaded a .vhd file to use as an empty disk, you can
 
 	![Attach a new empty disk](./media/howto-attach-disk-window-linux/AttachNewDiskWindows.png)
 
-
-
-3. In **Storage Location**, select the storage account where you want to store the VHD file that is created for the data disk.
  
-
-
-4. In **File Name**, either accept the automatically generated name or enter a name that you want to use for the VHD file that is stored. The data disk that is created from the VHD file will always use the automatically generated name.
-
-
-
-5. In **Size**, enter the size of the data disk. 
+3. In **File Name**, either accept the automatically generated name or enter a name that you want to use for the VHD file that is stored. The data disk that is created from the VHD file will always use the automatically generated name.
 
 
 
-6. Click the check mark to attach the empty data disk.
+4. In **Size**, enter the size of the data disk. 
+
+
+
+5. Click the check mark to attach the empty data disk.
 
 	You will now see the data disk listed on the dashboard of the virtual machine.
 

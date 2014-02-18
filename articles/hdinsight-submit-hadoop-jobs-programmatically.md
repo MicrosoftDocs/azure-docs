@@ -23,7 +23,7 @@ Before you begin this article, you must have the following:
 ##<a id="mapreduce-powershell"></a> Submit MapReduce jobs using PowerShell
 Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
-Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.far*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to use PowerShell from a workstation to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
+Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.jar*, which contains several MapReduce examples. This file has been renamed to hadoop-mapreduce-examples.jar on version 3.0 HDInsight clusters. One of the examples is for counting word frequencies in source files. In this session, you will learn how to use PowerShell from a workstation to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
 
 **To run the word count MapReduce program using PowerShell**
 
@@ -41,7 +41,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
 
 6. Run the following command to run the MapReduce job:
 
@@ -351,7 +351,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             }
         }
 	
-9. In the Main() function, copy and paste the following code:
+10. In the Main() function, copy and paste the following code:
 		
 		// Set the variables
 		string subscriptionID = "<Windows Azure subscription ID>";
@@ -370,7 +370,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
 	The Windows Azure Storage account name is the account you specify when you provision the HDInsight cluster. The default container name is the same as the HDInsight cluster name.
 	
-9. In the Main() function, append the following code to define the MapReduce job:
+11. In the Main() function, append the following code to define the MapReduce job:
 
 
         // Define the MapReduce job
@@ -383,17 +383,17 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
 		
-9. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
+12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certfriendlyname);
+        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 		
-10. In the Main() function, append the following code to run the job and wait the job to complete:
+13. In the Main() function, append the following code to run the job and wait the job to complete:
 
         // Create a hadoop client to connect to HDInsight
         var jobClient = JobSubmissionClientFactory.Connect(creds);
@@ -404,7 +404,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         // Wait for the job to complete
         WaitForJobCompletion(mrJobResults, jobClient);
 
-11. In the Main() function, append the following code to print the MapReduce job output:
+14. In the Main() function, append the following code to print the MapReduce job output:
 
 		// Print the MapReduce job output
 		Stream stream = new MemoryStream();
@@ -501,21 +501,21 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             }
         }
 	
-9. In the Main() function, copy and paste the following code:
+10. In the Main() function, copy and paste the following code:
 		
 		// Set the variables
 		string subscriptionID = "<Windows Azure subscription ID>";
 
 		string clusterName = "<HDInsight cluster name>";
         
-		string certfriendlyname = "<certificate friendly name>";		
+		string certFriendlyName = "<certificate friendly name>";		
 		
 	
 	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription ID from you system administrator. 
 
 	For information on certificate, see [Create and Upload a Management Certificate for Windows Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Windows Azure Tools* for both the *Issued To* and the *Issued By* fields.
 	
-9. In the Main() function, append the following code to define the Hive job:
+11. In the Main() function, append the following code to define the Hive job:
 
         // define the Hive job
         HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
@@ -525,19 +525,19 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             Query = "show tables;"
         };
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the WASB prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
 
 	You can also use the File parameter to specify a HiveQL script file on HDFS.
 		
-9. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
+12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certfriendlyname);
+        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 		
-10. In the Main() function, append the following code to run the job and wait the job to complete:
+13. In the Main() function, append the following code to run the job and wait the job to complete:
 
         // Submit the Hive job
         var jobClient = JobSubmissionClientFactory.Connect(creds);
@@ -546,7 +546,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         // Wait for the job to complete
         WaitForJobCompletion(jobResults, jobClient);
 		
-11. In the Main() function, append the following code to print the Hive job output:
+14. In the Main() function, append the following code to print the Hive job output:
 
         // Print the Hive job output
         System.IO.Stream stream = jobClient.GetJobOutput(jobResults.JobId);

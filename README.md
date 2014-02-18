@@ -40,18 +40,14 @@ Content authors can create reusable content sections to be included into one or 
 Note: An include file cannot reference to other includes. 
 
 ## Using GitHub, Git and this repository
->>>>>>> AUX3154
 
 Thank you for your interest in Windows Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ###Who needs a CLA?
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
-=======
+
 ### Setting up your fork of the repository
->>>>>>> AUX3154
 
 ##Repository organization
 
@@ -88,7 +84,6 @@ Use the following syntax to reference an include file in your article:
 
 ## Using GitHub, Git and this repository
 
-=======
 ##Repository organization
 
 The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
@@ -124,7 +119,6 @@ Use the following syntax to reference an include file in your article:
 
 ## Using GitHub, Git and this repository
 
->>>>>>> 83da1629f1e2c238afd4d4bfa156758a941d2d8a
 **Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribut and edit content" section for the particulars of the code/content flow of this repository.
 
 ### Setting up your fork of the repository
@@ -142,11 +136,8 @@ Use the following syntax to reference an include file in your article:
 		git remote add upstream https://github.com/WindowsAzure/azure-content.git
 		git fetch upstream
 
-<<<<<<< HEAD
-=======
 Congratulations you have now set up your repository.  The above steps will not need to be repeated again.
 
->>>>>>> AUX3154
 ### Contribute and edit content
 
 In order for the contribution process to be as seamless as possible, the following procedure has been established.
