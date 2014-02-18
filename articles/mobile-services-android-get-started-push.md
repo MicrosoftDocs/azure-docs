@@ -1,6 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
-
-
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""  />
 
 
 # Get started with push notifications in Mobile Services
@@ -34,55 +32,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 <p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
 </div> 
 
-<!--
-1. Navigate to the [Google Cloud Console] web site, sign-in with your Google account credentials, and click **Create Project**.
 
-	![][7]
-
-2. Fill in a Project Name and Project ID, and choose **Create**.
-
-	![][8]
-
-3. Choose **Continue** and follow the SMS verification process.
-
-	![][9]
-
-4. Make a note of the Project Number in the Dashboard section. Later in the tutorial you set this value as the PROJECT_ID variable in the client.
-
-5. Choose **APIs**, and scoll down the right pane until **Google Play Android Developer API** appears. Choose the **OFF** button, agree to the Terms Of Service, and choose **Accept**.
-
-	![][10]
-
-6. Choose **Registered apps**,
-
-
-1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
-
-   	![][1]   
-
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
-
-2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 
-
-	Later in the tutorial you use this value to initialize the  `SENDER_ID` variable in the client.
-
-
-3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toogle to turn on **Google Cloud Messaging for Android** and accept the terms of service. 
-
-4. Click **API Access**, and then click **Create new Server key...** 
-
-   	![][2]
-
-5. In **Configure Server Key for API Project**, click **Create**.
-
-	![][3]
-
-6. Make a note of the **API key** value.
-
-	![][4] 
--->
 
 [WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
