@@ -12,7 +12,7 @@
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
 </div>
 
 This topic shows you how to use Windows Azure .Net runtime mobile services to send push notifications to a Windows Store JavaScript app. 
@@ -72,21 +72,8 @@ Before your app can receive push notifications, you must register a notification
 ##<a id="update-server"></a> Update the server to send push notifications
 
 
-1. In Visual Studio, open TodoItemController.cs and update the following code for the `PostTodoItem` method definition so that it will send the push notification on inserting a todo item.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-            WindowsPushMessage message = new WindowsPushMessage();
-            message.XmlPayload = @"<?xml version=""1.0"" encoding=""utf-8""?><toast><visual>     
-                                    <binding template=""ToastText01"">  <text id=""1"">" +
-                                        item.Text + @"</text></binding></visual></toast>";
-            var result = await Services.Push.SendAsync(message);
-            Services.Log.Info(result.State.ToString());
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
-
-This code sends a push notification (with the text of the inserted item) to all registrations after the insert succeeds.
 
 ##<a id="test"></a> Test push notifications in your app
 
