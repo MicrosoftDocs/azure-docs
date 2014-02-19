@@ -1,4 +1,4 @@
-<properties pageTitle="Configure IIS Express for local testing of Mobile Service" metaKeywords="Windows Azure Mobile Services, .NET Backend, IIS Express" description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing." title="Configure the local web server to allow connections to a local mobile service" />
+<properties pageTitle="Configure IIS Express for local testing of Mobile Service" metaKeywords="Windows Azure Mobile Services, .NET Backend, IIS Express" description="Learn how to configure IIS Express to allow connections to a local mobile service project for testing." authors="glenga" title="Configure the local web server to allow connections to a local mobile service" />
 
 # Configure the local web server to allow connections to a local mobile service 
 
