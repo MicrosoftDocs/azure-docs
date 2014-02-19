@@ -39,7 +39,7 @@ The output of the MapReduce job is a set of key-value pairs. The key is a string
 
 Running a MapReduce job requires the following elements:
 
-* A MapReduce program. In this tutorial, you will use the word counting sample that comes with HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce].
+* A MapReduce program. In this tutorial, you will use the word counting sample that comes with HDInsight clusters so you don't need to write your own. It is located on */example/jars/hadoop-examples.jar*. The file name is *hadoop-mapreduce-examples.jar* on version 3.0 HDInsight clusters. For instructions on writing your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce].
 * An input file. You will use */example/data/gutenberg/davinci.txt* as the input file. For information on upload files, see [Upload Data to HDInsight][hdinsight-upload-data].
 * An output file folder. You will use */example/data/WordCountOutput* as the output file folder. The system will create the folder if it doesn't exist. The MapReduce job will fail if the folder exists.  If you want to run the MapReduce job for the second time, make sure to delete the output folder or specify another output folder.
 
@@ -61,6 +61,8 @@ Running a MapReduce job requires the following elements:
 		# Define the MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput" 
 
+	> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
+	
 	The hadoop-examples.jar file comes with the HDInsight cluster distribution. There are two arguments for the MapReduce job. The first one is the source file name, and the second is the output file path. The source file comes with the HDInsight cluster distribution, and the output file path will be created at the run-time.
 
 6. Run the following command to submit the MapReduce job:

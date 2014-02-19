@@ -16,9 +16,8 @@ This topic shows you how to register your apps to be able to use Twitter to auth
 
    	![][2]
 
-    <div class="dev-callout"><b>Note</b>
-    <p>The <strong>Web Site</strong> value is required but is not used.</p>
-    </div> 
+    
+	>[WACOM.NOTE]For a .NET backend mobile service published to Windows Azure by using Visual Studio, the redirect URL is the  URL of your mobile service appended with the path _signin-google_ your mobile service as a .NET service, such as <code>https://todolist.azure-mobile.net/signin-twitter</code>. <br />The <strong>Web Site</strong> value is required but is not used.
 
 3.  At the bottom the page, read and accept the terms, type the correct CAPTCHA words, and then click **Create your Twitter application**. 
 
