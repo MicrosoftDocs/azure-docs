@@ -264,9 +264,9 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 
 ##<a id="blob"></a>Access data in Blob storage
 
-Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *WASB://*. To secure the connection, use *WASBS://*. The scheme for accessing data in Blob storage is:
+Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *wasb://*. To secure the connection, use *wasbs://*. The scheme for accessing data in Blob storage is:
 
-	WASB[S]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
+	wasb[s]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
 
 The following is a sample PowerShell script for submitting a MapReduce job:
 
@@ -279,6 +279,8 @@ The following is a sample PowerShell script for submitting a MapReduce job:
 	# Run the job and show the standard error 
 	Select-AzureSubscription $subscriptionName
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName  | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
+
+> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
 
 For more information on accessing the files stored in Blob storage, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 

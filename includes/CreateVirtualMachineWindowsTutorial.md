@@ -58,9 +58,12 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 14. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the arrow to continue.
 
-15. Under **Endpoints**, new endpoints are created to allow connections for Remote Desktop and Windows PowerShell remoting. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/setup-endpoints/).
+15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093). **Important**: The VM Agent can be installed only when you create the virtual machine. 
+ 
+16. Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such as through Remote Desktop
+and Windows PowerShell remoting. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/).
 
-16. Click the check mark to create the virtual machine.
+17. Click the check mark to create the virtual machine.
     
 	After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
 
@@ -140,9 +143,9 @@ Your application might need to store data. To set this up, attach a data disk to
 
 To learn more about configuring Windows virtual machines on Windows Azure, see the following articles:
 
--[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/connect-to-a-cloud-service/)
+-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
 
--[Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/manage/windows/common-tasks/manage-vm-availability/)
+-[Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
 
 [About virtual machines in Windows Azure]: #virtualmachine
 [How to create the virtual machine]: #custommachine

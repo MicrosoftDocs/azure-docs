@@ -4,11 +4,21 @@
 
 # Get started with data in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#" class="current">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+</div>
 
-<p>This topic shows you how to use Windows Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.</p>
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/"  title="JavaScript backend">JavaScript backend</a>
+</div>
 
-<p>The mobile service that you will create in this tutorial will support the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic</p>
+
+This topic shows you how to use Windows Azure Mobile Services as a backend datasource for a Windows Store app. In this tutorial, you will download a Visual Studio 2013 project for an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and view the changes to data made when running the app.
+
+The mobile service that you will create in this tutorial will support the .NET runtime in the Mobile Service. This will allow you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
 <div class="dev-callout"><b>Note</b>
 <p>This tutorial requires Visual Studio 2013.</p>
@@ -25,7 +35,7 @@ This tutorial walks you through these basic steps:
 7. [Test the Windows Store App against the service hosted in Windows Azure]
 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Windows Azure Free Trial</a>.</p></div> 
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
@@ -61,22 +71,46 @@ This tutorial is built on the [GetStartedWithMobileServices app][Developer Code 
 
     ![][2]
 
-2. Click the **Windows Store** platform. Under the GET STARTED section, expand CONNECT AN EXISTING WINDOWS STORE APP and, click the **Download** button to download a personalized starter project for the mobile service. 
+2. Click the **Windows Store** platform. Under the **Get Started** section, expand **Connect an existing Windows Store app** and, click the **Download** button to download a personalized starter project for the mobile service. 
 
     ![][3]
 
-3. Scroll down to the bottom of that GET STARTED section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. Save the file in a safe place because it does contain sensitive information pertaining to your Windows Azure account. You will delete this file after publishing the mobile service later in this tutorial.
+3. Scroll down to the bottom of that **Get Started** section to the step titled **Publish your service to the cloud**. Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded. 
+
+    > [WACOM.NOTE] Save the file in a safe place because it does contain sensitive information pertaining to your Windows Azure account. You will delete this file after publishing the mobile service later in this tutorial. 
 
     ![][5]
 
 
-4. Unzip the personalized service starter project you downloaded. Then in Solution Explorer in Visual Studio, right click your solution for the Getting Started with Data Windows Store application. Click **Add** and then click **Existing Project**.
+4. Unzip the personalized service starter project you downloaded. Copy the folders that were in the zip file into the same **C#** directory where the Get Started with Data solution file (.sln) is located. This makes it easier for NuGet Package Manager to keep all the packages in sync.
+
+    ![][26]
+
+5. Then in Visual Studio's Solution Explorer, right click your solution for the Getting Started with Data Windows Store app. Click **Add** and then click **Existing Project**.
 
     ![][4]
 
-5. In the Add Existing Project dialog, navigate to the folder where you unzipped the personalized starter project and select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
+6. In the Add Existing Project dialog, navigate to the mobile service project folder that you moved into the **C#** directory. Select the C# project file (.csproj) in the service subdirectory. Click **Open** to add the project to your solution.
 
     ![][6]
+
+7. In Visual Studio in Solution Explorer, right click the service project you just added and click **Build** to verify that it builds with no errors. During the build, NuGet package manager may need to restore some NuGet packages that are referenced in the project.
+
+    ![][20]
+
+8. Right click the service project again. This time click **Start new instance** under the **Debug** context menu.
+
+    ![][21]
+
+    Visual Studio opens the default web page for your service. You can click **try it now** to test methods in your mobile service from the default web page.
+
+    ![][22]
+
+    Visual Studio hosted your mobile service locally in IIS Express by default. You can see this by right clicking the tray icon for IIS Express on your taskbar.
+
+    ![][23]
+
+
 
 
 <h2><a name="update-app"></a><span class="short-header">Update the Windows Store app</span>Update the Windows Store app to use the mobile service</h2>
@@ -92,7 +126,7 @@ In this section you will update the Windows Store app to use the mobile service 
 
     ![][8]
 
-3. Back in the Windows Azure Management Portal, copy the code snippet from the mobile service overview page that creates the `MobileServiceClient` connection. You will find this in the step labeled "Connect your app and store data in your service".
+3. Back in the Windows Azure Management Portal, find the step labeled **Connect your app and store data in your service**. Make sure **C#** language is selected. Copy the code snippet that creates the `MobileServiceClient` connection.
 
     ![][9]
 
@@ -107,30 +141,27 @@ In this section you will update the Windows Store app to use the mobile service 
 
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. In Visual Studio in MainPage.xaml.cs, replace the `MainPage` class definition with the following definition and save the file: 
+6. In Visual Studio in MainPage.xaml.cs, replace the `MainPage` class definition with the following definition and save the file. 
+
+    This code uses the Mobile Services SDK to enable the app to store it's data in a table provided by the service instead of locally in-memory. The main three methods are `InsertTodoItem`, `RefreshTodoItems`, and `UpdateCheckedTodoItem`. These three methods allow you to asynchronously insert, query, and update your data collection with a table in Windows Azure.
 
         public sealed partial class MainPage : Page
         {
             private MobileServiceCollection<TodoItem, TodoItem> items;
             private IMobileServiceTable<TodoItem> todoTable = 
-            App.MobileService.GetTable<TodoItem>();            
+                App.MobileService.GetTable<TodoItem>();            
             public MainPage()
             {
                 this.InitializeComponent();
             }
             private async void InsertTodoItem(TodoItem todoItem)
             {
-                // TODO: Delete or comment the following statement; Mobile Services auto-generates the ID. 
-                //       You can also leave this line if you want to generate your own unique id values.
-                todoItem.Id = Guid.NewGuid().ToString();
                 await todoTable.InsertAsync(todoItem); 
                 items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
-                items = await todoTable 
-                //   .Where(todoItem => todoItem.Complete == false) 
-                  .ToCollectionAsync(); 
+                items = await todoTable.ToCollectionAsync(); 
                 ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
@@ -183,7 +214,7 @@ In this section you will use Visual Studio to host the mobile service locally on
 
     ![][15]
 
-5. In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections. Right click the TodoItems table under MS_TableConnectionString and click **Show Table Data**
+5. In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections. Right click the TodoItems table under **MS_TableConnectionString** and click **Show Table Data**
 
     ![][14]
 
@@ -221,12 +252,16 @@ In this section you will use Visual Studio to host the mobile service locally on
 
     ![][16]
 
+    You can restart the app to see that the changes were persisted to the database in Windows Azure. You can also examine the database using the Windows Azure Management portal or Visual Studio's SQL Server Object Explorer. The next two steps will use the Windows Azure Management portal to view the changes in your database.
+
 
 4. In the Windows Azure Management Portal, click manage for the database associated with your mobile service.
 
     ![][17]
 
-5. In the Management portal execute a query to view the changes made by the Windows Store app.
+5. In the Management portal execute a query to view the changes made by the Windows Store app. Your query will be similar to the following query but use your database name instead of `todolist`.
+
+        SELECT * FROM [todolist].[todoitems]
 
     ![][18]
 
@@ -285,13 +320,20 @@ Once you have completed the data series, try one of these other tutorials:
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png
 
+[20]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-build-service-project.png
+[21]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-start-debug-service-project.png
+[22]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/service-welcome-page.png
+[23]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/iis-express-tray.png
+
+[26]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/copy-service-and-packages-folder.png
+
+
 <!-- URLs. -->
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: ../mobile-services-windows-store-dotnet-get-started-push/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
 

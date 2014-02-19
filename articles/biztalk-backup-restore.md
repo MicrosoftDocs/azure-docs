@@ -25,7 +25,7 @@ This topic describes how to backup and restore BizTalk Services using the Window
 
 [What gets backed up?](#budata)
 
-[Create a Backup](#createbu)
+[Create a backup](#createbu)
 
 [Restore](#restore)
 
@@ -115,11 +115,11 @@ Make sure you adhere to the following considerations before you create a backup:
 2. Optional: In the BizTalk Services Portal, stop any management operations.
 4. Create the backup to the Storage account using the <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=325584">Backup BizTalk Service</a> commands available with the REST API.
 
-[Ad hoc Backups](#backupnow)
+[Ad hoc backups](#backupnow)
 
-[Schedule a Backup](#backupschedule)
+[Schedule a backup](#backupschedule)
 
-###<a name="backupnow"></a>Ad hoc Backups
+###<a name="backupnow"></a>Ad hoc backups
 1. From the Windows Azure Management Portal, click BizTalk Services, and then click the BizTalk Service name you want to back up.
 2. From the BizTalk Service <b>Dashboard</b> tab, click <b>Back up</b> from the bottom of the page.
 3. In the <b>Back up BizTalk Service</b> dialog box, provide a backup name.
@@ -129,7 +129,7 @@ Make sure you adhere to the following considerations before you create a backup:
 Once the backup completes, a container with the backup name you specified is created under the storage account. This container contains your BizTalk Service backup configuration.
 
 
-###<a name="backupschedule"></a>Schedule a Backup
+###<a name="backupschedule"></a>Schedule a backup
 
 1. From the Windows Azure Management Portal, click BizTalk Services, click the BizTalk Service name for which you want to schedule automated backups, and then click the **Configure** tab.
 2. For **Backup Status**, select **None** if you do not want to schedule automated backups. To schedule automated backups, click **Automatic**.
@@ -161,7 +161,7 @@ When restoring a backup, consider the following:
 
 - The same EDI Runtime data is restored. The EDI Runtime backup stores the control numbers. The restored control numbers are in sequence from the time of the backup. If messages are processed after the last backup, restoring this backup content can cause duplicate control numbers.
 
-####To restore a Backup
+####To restore a backup
 
 1. From the Windows Azure Management Portal, click <b>New</b>, point to <b>App Services</b>, <b>BizTalk Service</b>, and then click <b>Restore</b>.
 
@@ -191,7 +191,7 @@ When restoring a backup, consider the following:
 
 8. Once the restoration successfully completes, a new BizTalk Service is listed in a suspended state on the BizTalk Services page in the Windows Azure Management Portal.
 
-###After restoring a backup
+###<a name="postrestore"></a>After restoring a backup
 
 BizTalk Service is always restored in a **Suspended** state. This enables you to make any configuration changes in your applications, as required, in your BizTalk Service applications before the new environment is functional. Following are some such considerations that you must make before starting the newly restored BizTalk Service:
 
