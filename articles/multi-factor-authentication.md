@@ -32,7 +32,7 @@ An SDK enables direct integration with your cloud services. Build Active Authent
 
 Multi-Factor Authentication for Office 365, powered by Windows Azure Multi-Factor Authentication, works exclusively with Office 365 applications and is managed from the Office 365 portal. So administrators can now secure their Office 365 resources with multi-factor authentication. [Learn more](http://msdn.microsoft.com/en-us/library/dn383636.aspx)
 
-<h3>Multi-Factor Authentication for Windows Azure Administrators<h3>
+<h3>Multi-Factor Authentication for Windows Azure Administrators</h3>
 
 The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Windows Azure administrators. Every administrative account of a Windows Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality. So an administrator that wants to access Windows Azure portal to create a VM, a web site, manage storage, mobile services or any other Windows Azure Service can add multi-factor authentication to his administrator account.  [Learn more](http://msdn.microsoft.com/en-us/library/dn249471.aspx)
 
