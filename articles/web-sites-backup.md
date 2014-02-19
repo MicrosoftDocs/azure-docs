@@ -37,7 +37,7 @@ To make a manual, on-demand backup, choose **Backup Now** in the command bar at 
 
 > [WACOM.NOTE] Although you can back up more than one web site to the same storage account, for ease of maintenance, consider creating a separate storage account for each web site.
 
-After you have made one or more backups, they will be visible on the **Containers** tab of your storage account. Manual backups will be in a container called **websitebackups**; automated backups will be in a container called **automatedwebsitebackups**. Each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents.
+After you have made one or more backups, they will be visible on the **Containers** tab of your storage account. Your backups will be in a container called **websitebackups**. Each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents.
 
 **Frequency** - Choose how often you want automatic backups to be made. During Preview, the number of days is the only time unit available. The number of days must be between 1 and 90, inclusive. 
 
