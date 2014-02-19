@@ -1,6 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
-
-
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""  />
 
 
 # Get started with push notifications in Mobile Services
@@ -9,24 +7,17 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
 
 <p>This topic shows you how to use Windows Azure Mobile Services to send push notifications to an Android app. In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.</p>
-</div>
 
-<div class="dev-onpage-video-wrapper">
-<a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> 
-<a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-push-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Add-Push-Notifications-to-your-Apps-with-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">17:11</span></div>
-</div>
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Register your app for push notifications]
-2. [Configure Mobile Services]
-2. [Add push notifications to your app]
-3. [Update scripts to send push notifications]
-4. [Insert data to receive notifications]
+* [Enable Google Cloud Messaging](#register)
+* [Configure Mobile Services](#configure)
+* [Add push notifications to your app](#add-push)
+* [Update scripts to send push notifications](#update-scripts)
+* [Insert data to receive notifications](#test)
 
 This tutorial requires the following:
 
@@ -35,64 +26,14 @@ This tutorial requires the following:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for push notifications</h2>
-
-<div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
-
-<!--
-1. Navigate to the [Google Cloud Console] web site, sign-in with your Google account credentials, and click **Create Project**.
-
-	![][7]
-
-2. Fill in a Project Name and Project ID, and choose **Create**.
-
-	![][8]
-
-3. Choose **Continue** and follow the SMS verification process.
-
-	![][9]
-
-4. Make a note of the Project Number in the Dashboard section. Later in the tutorial you set this value as the PROJECT_ID variable in the client.
-
-5. Choose **APIs**, and scoll down the right pane until **Google Play Android Developer API** appears. Choose the **OFF** button, agree to the Terms Of Service, and choose **Accept**.
-
-	![][10]
-
-6. Choose **Registered apps**,
--->
-
-1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> web site, sign-in with your Google account credentials, and then click **Create project...**.
-
-   	![][1]   
-
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
-
-2. Click the Overview button in the left column, and make a note of the Project Number in the Dashboard section. 
-
-	Later in the tutorial you use this value to initialize the  `SENDER_ID` variable in the client.
+##<a id="register"></a>Enable Google Cloud Messaging
 
 
-3. On the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> page, click **Services**, then click the toogle to turn on **Google Cloud Messaging for Android** and accept the terms of service. 
-
-4. Click **API Access**, and then click **Create new Server key...** 
-
-   	![][2]
-
-5. In **Configure Server Key for API Project**, click **Create**.
-
-	![][3]
-
-6. Make a note of the **API key** value.
-
-	![][4] 
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Next, you will use this API key value to enable Mobile Services to authenticate with GCM and send push notifications on behalf of you app.
 
-<a name="configure"></a><h2><span class="short-header">Configure the service</span>Configure Mobile Services to send push requests</h2>
+##<a id="configure"></a>Configure Mobile Services to send push requests
 
 1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -104,7 +45,7 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 You mobile service is now configured to work with GCM to send push notifications.
 
-<a name="add-push"></a><h2><span class="short-header">Add push notifications</span>Add push notifications to your app</h2>
+##<a id="add-push"></a>Add push notifications to your app
 
 
 
@@ -247,7 +188,7 @@ Your app is now updated to support push notifications.
 	The `google-play-services.jar` library file is now shown in your project.
 -->
 
-<h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert script in the Management Portal</h2>
+##<a id="update-scripts"></a>Update the registered insert script in the Management Portal
 
 1. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -279,7 +220,7 @@ Your app is now updated to support push notifications.
 
    	This registers a new insert script, which uses the [gcm object] to send a push notification (the inserted text) to the device provided in the insert request. 
 
-<h2><a name="test"></a><span class="short-header">Test the app</span>Test push notifications in your app</h2>
+##<a id="test"></a>Test push notifications in your app
 
 <div class="dev-callout"><b>Note</b>
 	<p>When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</p>
@@ -321,15 +262,6 @@ You have successfully completed this tutorial.
 
 In this simple example a user receives a push notification with the data that was just inserted. The device token used by APNS is supplied to the mobile service by the client in the request. In the next tutorial, [Push notifications to app users], you will create a separate Devices table in which to store device tokens and send a push notification out to all stored channels when an insert occurs. 
 
-
-<!-- Anchors. -->
-
-[Register your app for push notifications]: #register
-[Configure Mobile Services]: #configure
-[Update scripts to send push notifications]: #update-scripts
-[Add push notifications to your app]: #add-push
-[Insert data to receive notifications]: #test
-[Next Steps]:#next-steps
 
 <!-- Images. -->
 

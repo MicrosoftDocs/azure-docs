@@ -2,9 +2,22 @@
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started" title="Windows Store">Windows Store</a><a href="/en-us/develop/mobile/tutorials/get-started-wp8" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-ios" title="iOS">iOS</a> <a href="/en-us/develop/mobile/tutorials/get-started-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android" title="Xamarin.Android">Xamarin.Android</a><a href="/en-us/develop/mobile/tutorials/get-started-sencha/" title="Sencha">Sencha</a>
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started" title="iOS">iOS</a>
+	<!--<a href="/en-us/documentation/articles/get-started-android" title="Android">Android</a>
+		<a href="/en-us/documentation/articles/get-started-html" title="HTML">HTML</a>
+		<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started" title="Xamarin.iOS">Xamarin.iOS</a>
+		<a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started" title="Xamarin.Android">Xamarin.Android</a>
+		<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/" title="Sencha">Sencha</a>
+		<a href="/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/" title="PhoneGap">PhoneGap</a>-->
+</div>
 
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/" title=".NET backend" class="current">.NET backend</a> | 
+	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started/"  title="JavaScript backend" >JavaScript backend</a>
 </div>
 
 This tutorial shows you how to add a cloud-based backend service to a Windows Phone 8 app using Windows Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
@@ -57,9 +70,8 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 <li><p>In the Windows Phone app project, open the App.xaml.cs file, locate the code that creates a <a href="http://msdn.microsoft.com/en-us/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx" target="_blank">MobileServiceClient</a> instance, comment-out the code that creates this client using <em>localhost</em> and uncomment the code that creates the client using the remote mobile service URL, which looks like the following:</p>
 
         <pre><code>public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://<your_mobile_service>.azure-mobile.net/",
-            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        );</code></pre>
+            "https://todolist.azure-mobile.net/",
+            "XXXXXXX-APPLICATION-KEY-XXXXXXXX");</code></pre>
 
 	<p>The client will now access the mobile service published to Windows Azure.</p></li>
 
@@ -67,7 +79,6 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
 <li><p>In the app, type meaningful text, such as <em>Complete the tutorial</em>, and then click <strong>Save</strong>.</p>
 
-	<p><img src="./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-startup-wp8.png" alt="" /></p>
 <p>This sends a POST request to the new mobile service hosted in Windows Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.</p>
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -75,6 +86,10 @@ In this section you will create a new Windows Phone 8 app that is connected to y
  	</div>
 </li>
 </ol>
+
+![][10]
+
+This shows how to run your new client app against the mobile service running in Windows Azure. Before you can test the Windows Phone app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Windows Phone device or emulator. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
@@ -97,17 +112,13 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-completed-wp8.png
 
-
-
-
-
 [6]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-portal-quickstart-wp8.png
 [7]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-steps-wp8.png
 [8]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-service-startup.pnG
 
-[10]: ./media/mobile-services-windows-phone-get-started/mobile-quickstart-startup-wp8.png
-[11]: ./media/mobile-services-windows-phone-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-windows-phone-get-started/mobile-data-browse.png
+[10]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-quickstart-startup-wp8.png
+[11]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-data-tab.png
+[12]: ./media/mobile-services-dotnet-backend-windows-phone-get-started/mobile-data-browse.png
 
 
 <!-- URLs. -->
@@ -118,5 +129,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Management Portal]: https://manage.windowsazure.com/
-[JavaScript version]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
+[JavaScript backend version]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
 [How to connect to a local web service from the Windows Phone 8 emulator]: http://go.microsoft.com/fwlink/p/?LinkId=391930

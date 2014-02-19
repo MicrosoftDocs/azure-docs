@@ -10,9 +10,9 @@
 
 **Prerequisites:**
 
-- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Windows Azure portal, see [Get started with Windows Azure HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
+- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Windows Azure portal, see [Get started with HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
 
-- You must have installed **Windows Azure PowerShell**, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+- You must have installed **Windows Azure PowerShell** on your workstation. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
 
 **Estimated time to complete:** 30 minutes
 
@@ -115,6 +115,12 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 **To run the Hive queries using Start-AzureHDInsightJob**
 
 1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure Windows Azure PowerShell][powershell-install-configure].
+2. Run the following command to connect to your Windows Azure subscription:
+
+		Add-AzureAccount
+
+	You will be prompted to enter your Windows Azure account credentials.
+
 2. Set the variables in the following script and run it:
 
 		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
@@ -145,7 +151,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 	Use the DROP TABLE first in case you run the script again and the log4jlogs table already exists.
 
-4. Run the following script to create an Hive job definition:
+4. Run the following script to create a Hive job definition:
 		
 		# Create a Hive job definition 
 		$hiveJobDefinition = New-AzureHDInsightHiveJobDefinition -Query $queryString 
@@ -177,36 +183,44 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 **To submit Hive queries using Invoke-Hive**
 
 1. Open a Windows Azure PowerShell console window.
-2. Set the variables for the following script and run it:
+2. Run the following command to connect to your Windows Azure subscription:
 
-		$subscriptionName = "<SubscriptionName>"
+		Add-AzureAccount
+
+	You will be prompted to enter your Windows Azure account credentials.
+2. Set the variable, and then run it:
+
 		$clusterName = "<HDInsightClusterName>"
-		$queryString = "show tables;"  # This query lists the existing Hive tables
 
 3. Run the following script to invoke HiveQL queries:
 
-		Select-AzureSubscription -SubscriptionName $subscriptionName
 		Use-AzureHDInsightCluster $clusterName 
-		
-		Invoke-Hive -Query $queryString
+		Invoke-Hive -Query @"
+		    SELECT * FROM hivesampletable
+		        WHERE devicemake LIKE "HTC%"
+		        LIMIT 10; 
+		"@
 
 	The output is:
 
-		hivesampletable
+	![PowerShell Invoke-Hive output][img-hdi-hive-powershell-output]
 
-You can use the same command to run a HiveQL file:
+	For longer HiveQL queries, it is recommended to use PowerShell Here-Strings or HiveQL script file. The following samples shows how to use the Invoke-Hive cmdlet to run a HiveQL script file.  The HiveQL script file must be uploaded to WASB.
 
-	Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
+		Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"
 
-		
+	For more information about Here-Strings, see [Using Windows PowerShell Here-Strings][powershell-here-strings].
+	
 ##<a id="nextsteps"></a>Next steps
 
 While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
 * [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
+* [Use Oozie with HDInsight][hdinsight-oozie]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
-* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)??
+* [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
 * [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
@@ -218,6 +232,11 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 
+
+[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
+[hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
+
+
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
 
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
@@ -227,7 +246,7 @@ While Hive makes it easy to query data using a SQL-like query language, other co
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
-
-
+[powershell-here-strings]: http://technet.microsoft.com/en-us/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 
+[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png 

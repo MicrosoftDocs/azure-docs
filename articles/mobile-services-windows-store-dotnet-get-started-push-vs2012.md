@@ -83,11 +83,11 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
    This guarantees that the **CurrentChannel** property is initialized each time the application is launched.
 		
-5. (Optional) If you are not using the Management Portal-generated quickstart project, open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
+5. Open the Package.appxmanifest file and make sure that in the **Application UI** tab, **Toast capable** is set to **Yes**.
 
    	![][15]
 
-   	This makes sure that your app can raise toast notifications. These notifications are already enabled in the downloaded quickstart project.
+   	This makes sure that your app can raise toast notifications. 
 
 <h2><a name="update-scripts"></a><span class="short-header">Update the insert script</span>Update the registered insert scripts in the Management Portal</h2>
 
