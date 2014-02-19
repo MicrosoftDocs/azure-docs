@@ -9,11 +9,6 @@
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
