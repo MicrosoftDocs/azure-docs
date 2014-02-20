@@ -7,12 +7,14 @@
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#" class="current">Windows Store C#</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+<!--	
+    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+-->
 </div>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
 </div>
 
 This topic shows you how to use Windows Azure .Net runtime Mobile Services to send push notifications to a Windows Store app. 
@@ -49,38 +51,37 @@ Before your app can receive push notifications, you must register a notification
         private async void InitNotificationsAsync()
         {
             // Request a push notification channel.
-            var channel =
-                await PushNotificationChannelManager
-                    .CreatePushNotificationChannelForApplicationAsync();
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
 
             // Register for notifications using the new channel
-            var notification = MobileService.GetPush();
-            string message = "Registation completed";
+            System.Exception exception = null;
             try
             {
-                await notification.RegisterNativeAsync(channel.Uri);
+                await MobileService.GetPush().RegisterNativeAsync(channel.Uri);
             }
-            catch (MobileServiceInvalidOperationException mob_ex)
+            catch (System.Exception ex)
             {
-                message = mob_ex.Message;
+                exception = ex;
             }
-
-            var dialog = new MessageDialog(message, "Registering Channel URI");
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
+            if (exception != null)
+            {
+                var dialog = new MessageDialog(exception.Message, "Registering Channel URI");
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
         }
+
 
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
     
-4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
+3. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
 
         InitNotificationsAsync();
 
 	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current. 
 
-5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
-  
-6. In Visual Studio, open the Package.appxmanifest file and make sure that **Toast capable** is set to **Yes** on the **Application UI** tab. Save the file.
+4. In Visual Studio, open the Package.appxmanifest file and make sure that **Toast capable** is set to **Yes** on the **Application UI** tab. Save the file.
 
    	![][1]
 
@@ -89,21 +90,7 @@ Before your app can receive push notifications, you must register a notification
 ##<a id="update-server"></a> Update the server to send push notifications
 
 
-1. In Visual Studio, open TodoItemController.cs and update the following code for the `PostTodoItem` method definition so that it will send the push notification on inserting a todo item.
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-            WindowsPushMessage message = new WindowsPushMessage();
-            message.XmlPayload = @"<?xml version=""1.0"" encoding=""utf-8""?><toast><visual>     
-                                    <binding template=""ToastText01"">  <text id=""1"">" +
-                                        item.Text + @"</text></binding></visual></toast>";
-            var result = await Services.Push.SendAsync(message);
-            Services.Log.Info(result.State.ToString());
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
-
-    This code sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
 ##<a id="test"></a> Test push notifications in your app
 
