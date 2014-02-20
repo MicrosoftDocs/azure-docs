@@ -49,6 +49,8 @@ This topic shows you how to run the sample, presents the Java code for the Pi Es
 
 		$piEstimatorJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "pi" -Arguments "16", "10000000" 
 
+	> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
+	
 	The first argument indicates how many maps to create (default is 16). The second argument indicates how many samples are generated per map (10 million by default). So this program uses 10*10 million = 160 million random points to make its estimate of Pi. 
 
 5. Run the following commands to submit the MapReduce job and wait for the job to complete:

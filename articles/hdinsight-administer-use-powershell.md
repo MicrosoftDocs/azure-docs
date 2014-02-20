@@ -10,7 +10,7 @@ Before you begin this article, you must have the following:
 
 - A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-- Install and configure Windows Azure PowerShell. For the detailed instructions, see [Install and configure Windows Azure PowerShell][Powershell-install-configure].
+- A workstation with Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][Powershell-install-configure].
 
 			
 	
@@ -140,7 +140,10 @@ The following PowerShell script submits the word count sample job:
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-For information about the WASB prefix, see [Use Windows Azure Blob storage for HDInsight][hdinsight-storage].
+> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
+
+For information about the WASB prefix, see [Use Windows Azure Blob storage for HDInsight][hdinsight-
+storage].
 
 **To download the MapReduce job output**
 
@@ -207,15 +210,17 @@ The HDInsight cluster distribution comes with a sample Hive table called *hivesa
 
 The following script submit a hive job to list the Hive tables:
 	
-	$subscriptionName = "<SubscriptionName>"     
 	$clusterName = "<HDInsightClusterName>"               
 	
 	# HiveQL query
-	$querystring = "show tables;SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+	$querystring = @"
+		SHOW TABLES;
+		SELECT * FROM hivesampletable 
+			WHERE Country='United Kingdom'
+			LIMIT 10;
+	"@
 
-	Select-AzureSubscription -SubscriptionName $subscriptionName
 	Use-AzureHDInsightCluster -Name $clusterName
-	
 	Invoke-Hive $querystring
 
 The Hive job will first show the Hive tables created on the cluster, and the data returned from the hivesampletable.

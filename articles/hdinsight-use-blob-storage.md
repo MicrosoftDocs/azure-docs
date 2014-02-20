@@ -10,6 +10,8 @@
 
 Windows Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Windows Azure Blob storage for storing data. Blob storage is a robust, general purpose Windows Azure storage solution. Blob storage provides a full-featured HDFS interface for a seamless experience by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data. Blob storage is not just a low-cost solution; storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
 
+> [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. This means that any jobs submitted to an HDInsight cluster version 3.0 that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight clusters version 3.0 that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
+
 > [WACOM.NOTE]
 > Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Windows Azure Blob storage.
 
@@ -34,7 +36,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 In addition, HDInsight provides the ability to access data stored in Blob storage. The syntax to access Blob storage is:
 
-	WASB[S]://<containername>@<accountname>.blob.core.windows.net/<path>
+	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 
 Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, user must specify a Blob storage container used as the default file system. 
@@ -145,9 +147,9 @@ The example command will not only create the new directory *newdirectory* but, i
 
 The URI scheme for accessing files in Blob storage is: 
 
-	WASB[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
-The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with *WASBS*. We recommend using *WASBS* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with *wasbs*. We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 	
 The &lt;container&gt; identifies the name of the Blob storage container. If no container name is specified but the domain is, then it refers to the [root container](http://msdn.microsoft.com/en-us/library/windowsazure/ee395424.aspx) of the domain's storage account. Note that root containers are read-only.
 	
