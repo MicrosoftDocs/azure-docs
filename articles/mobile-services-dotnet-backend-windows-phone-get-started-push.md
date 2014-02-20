@@ -17,8 +17,6 @@
 This topic shows you how to use Windows Azure .Net runtime Mobile Services to send push notifications to a Windows Phone 8 app. 
 In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your .Net runtime mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE] For guidance on how to use the legacy support for push notifications, see [this version of the topic](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/).
-
 This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app with WNS and configure Mobile Services](#register)
@@ -40,46 +38,66 @@ Before your app can receive push notifications, you must register a notification
 
 1. In Visual Studio, open the file App.xaml.cs and add the following `using` statements:
 
-        using Windows.Networking.PushNotifications;
-		using Windows.UI.Popups;
+        using Microsoft.Phone.Notification;
 
-2. Add the following method to **App** class: 
+2. Add the following `AcquirePushChannel` method to `App` class: 
 	
-        private async void InitNotificationsAsync()
+        private void AcquirePushChannel()
         {
-            // Request a push notification channel.
-            var channel =
-                await PushNotificationChannelManager
-					.CreatePushNotificationChannelForApplicationAsync();
-
-            // Register for notifications using the new channel
-            var notification = MobileService.GetPush();
-            var result = await notification.RegisterNativeAsync(channel.Uri);
-            string message;
-
-            // Display the registration ID so you know it was successful
-            if (result.RegistrationId != null)
+            CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
+            if (CurrentChannel == null)
             {
-                message = "Registration successful: " + result.RegistrationId;
+                CurrentChannel = new HttpNotificationChannel("MyPushChannel");
+                CurrentChannel.Open();
+                CurrentChannel.BindToShellToast();
             }
-            else
-            {
-                message = "Registration failed.";
-            }
-
-            // Show the message dialog.
-            var dialog = new MessageDialog(message);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
+            CurrentChannel.ChannelUriUpdated +=
+                new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
+                {
+                    // Register for notifications using the new channel
+                    System.Exception exception = null;
+                    try
+                    {
+                        await MobileService.GetPush()
+                            .RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
+                    }
+                    catch (System.Exception ex)
+                    {
+                        CurrentChannel.Close();
+                        exception = ex;
+                    }
+                    if (exception != null)
+                    {
+                        Deployment.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            MessageBox.Show(exception.Message, 
+                                            "Registering for Push Notifications",
+                                            MessageBoxButton.OK);
+                        });
+                    }
+            });
+            CurrentChannel.ShellToastNotificationReceived += 
+                new EventHandler<NotificationEventArgs>((o, args) =>
+                {
+                    string message = "";
+                    foreach (string key in args.Collection.Keys)
+                    {
+                        message += key + " : " + args.Collection[key] + ", ";
+                    }
+                    Deployment.Current.Dispatcher.BeginInvoke(() =>
+                    {
+                        MessageBox.Show(message);
+                    });
+            });
         }
 
-    This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
+    This code retrieves the channel URI for the app if it exists. Otherwise, it will be created. The channel URI is then opened and bound for toast notifications. Once the channel URI is completely opened, the handler for the `ChannelUriUpdated` method is called and the channel is registered to received push notifications. If the registration should fail, the channel is closed so that subsequent executions of the app can try registration again. The `ShellToastNotificationReceived` handler is setup so that the app can receive and handle push notifications while running.
     
-4. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
+4. In the `Application_Launching` event handler in App.xaml.cs, add the following call to the new `AcquirePushChannel` method:
 
-        InitNotificationsAsync();
+        AcquirePushChannel();
 
-	This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current. 
+	This makes sure that registration is requested every time that the app is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current. 
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
   
@@ -92,21 +110,8 @@ Before your app can receive push notifications, you must register a notification
 ##<a id="update-server"></a> Update the server to send push notifications
 
 
-1. In Visual Studio, open TodoItemController.cs and update the following code for the `PostTodoItem` method definition so that it will send the push notification on inserting a todo item.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-            WindowsPushMessage message = new WindowsPushMessage();
-            message.XmlPayload = @"<?xml version=""1.0"" encoding=""utf-8""?><toast><visual>     
-                                    <binding template=""ToastText01"">  <text id=""1"">" +
-                                        item.Text + @"</text></binding></visual></toast>";
-            var result = await Services.Push.SendAsync(message);
-            Services.Log.Info(result.State.ToString());
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
-
-    This code sends a push notification (with the text of the inserted item) to all app registrations after the insert succeeds.
 
 ##<a id="test"></a> Test push notifications in your app
 
@@ -116,7 +121,7 @@ Before your app can receive push notifications, you must register a notification
 
    	![][2]
 
-   	Note that after the insert completes, the app receives a push notification from WNS.
+   	Note that after the insert completes, the app receives a push notification from MPNS.
 
    	![][3]
 
@@ -157,7 +162,7 @@ Consider finding out more about the following Mobile Services topics:
 
 [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
-[3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
+[3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
 
 
 <!-- URLs. -->

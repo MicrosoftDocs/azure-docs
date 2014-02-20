@@ -50,6 +50,8 @@ When you configure a web site as Standard, you can specify the size of the web s
 You also specify a value for **Instance Count** (from 1 to 10).
 A web site running in **Standard** mode benefits from high availability even with a single instance, but scaling out (that is, increasing the value for **Instance Count**) will provide even greater performance and fault tolerance. 
 
+> [WACOM.NOTE] Unlike Shared mode, Standard mode web sites are priced based on instance count, not the number of web sites. A Standard mode instance can host multiple Standard mode web sites
+
 The Autoscale feature, available in Standard mode only, lets you have Windows Azure automatically scale the instance count and instance size depending on load (scale by metric), or time (scheduled scaling), which makes running your web site more cost effective.
 
 ##<a name="howtochangescale"></a>How to Change Scale Options for a Web Site
