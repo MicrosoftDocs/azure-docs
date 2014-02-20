@@ -304,8 +304,10 @@ Once you have completed the data series, try one of these other tutorials:
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app.
 
+<!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
+-->
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.

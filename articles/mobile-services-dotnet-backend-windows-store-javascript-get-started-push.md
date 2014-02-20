@@ -7,7 +7,9 @@
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+<!--
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+-->
 </div>
 
 <div class="dev-center-tutorial-subselector">
@@ -56,9 +58,7 @@ Before your app can receive push notifications, you must register a notification
 
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications. If the registration fails, the error message will be displayed in a message dialog.
 
-5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
-
-6. In Visual Studio, open the Package.appxmanifest file and make sure **Toast capable** is set to **Yes** on the **Application UI** tab.
+2. In Visual Studio, open the Package.appxmanifest file and make sure **Toast capable** is set to **Yes** on the **Application UI** tab.
 
    	![][1]
 
