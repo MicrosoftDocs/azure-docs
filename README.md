@@ -32,50 +32,9 @@ Content authors can create reusable content sections to be included into one or 
 
 ### Article template
 
-*Information to come.*
+*Detailed information to come.*
 
-**Referencing include files** - There is a specific syntax required for referencing include files.[WACOM.INCLUDE [include-short-name](../includes/include-file-name.md)]
-	
-
-Note: An include file cannot reference to other includes. 
-
-## Using GitHub, Git and this repository
->>>>>>> AUX3154
-
-Thank you for your interest in Windows Azure documentation. Before we can accept your pull request, we need you to sign a Contribution License Agreement (CLA). Full details are available at [http://windowsazure.github.io/guidelines.html#cla](http://windowsazure.github.io/guidelines.html#cla). Please email a copy of the signed CLA to [cla@microsoft.com](mailto:cla@microsoft.com).
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-###Who needs a CLA?
-* Members of the Microsoft Open Technologies group.
-* Contributors who don't work for Microsoft.
-=======
-### Setting up your fork of the repository
->>>>>>> AUX3154
-
-##Repository organization
-
-The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
-
-### \articles 
-
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to WindowsAzure.com in the path *http://www.windowsazure.com/en-us/documentation/articles/{article-name-without-md}/*. 
-
-* **Article filenames:** Begin with the service name, such as *hdinsight*, and include the development language and a description of the subject matter. Use all lowercase letters and dashes (-) to separate the words. 
-
-* **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
-
-### \includes
-
-Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
-
-* **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
-
-## Working with Windows Azure articles
-
-### Article template
-
-*Information to come.*
+If you are creating an article from scratch, start by copying one of the files from the */articles* folder.
 
 ### Referencing include files
 
@@ -86,48 +45,11 @@ Use the following syntax to reference an include file in your article:
 
 **Note:** An include file cannot reference other includes. 
 
-## Using GitHub, Git and this repository
+## Using GitHub, Git, and this repository
 
-=======
-##Repository organization
+**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribute and edit content" section for the particulars of the code/content flow of this repository.
 
-The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
-
-### \articles 
-
-The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to WindowsAzure.com in the path *http://www.windowsazure.com/en-us/documentation/articles/{article-name-without-md}/*. 
-
-* **Article filenames:** Begin with the service name, such as *hdinsight*, and include the development language and a description of the subject matter. Use all lowercase letters and dashes (-) to separate the words. 
-
-* **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
-
-### \includes
-
-Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
-
-* **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
-
-## Working with Windows Azure articles
-
-### Article template
-
-*Information to come.*
-
-### Referencing include files
-
-Use the following syntax to reference an include file in your article:
-
-	[WACOM.INCLUDE [include-short-name](../includes/include-file-name.md)]
-	
-
-**Note:** An include file cannot reference other includes. 
-
-## Using GitHub, Git and this repository
-
->>>>>>> 83da1629f1e2c238afd4d4bfa156758a941d2d8a
-**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribut and edit content" section for the particulars of the code/content flow of this repository.
-
-### Setting up your fork of the repository
+### Set up your fork of the repository
 
 1.	The first step to contributing to this project is setting up a GitHub account. If you have not done so already go to [GitHub Home] [] and do so now.
 2.	Now that you have an account, you also need a copy of Git on your computer. Follow the instructions in the [Setting up Git Tutorial] [Set Up Git].
@@ -142,11 +64,8 @@ Use the following syntax to reference an include file in your article:
 		git remote add upstream https://github.com/WindowsAzure/azure-content.git
 		git fetch upstream
 
-<<<<<<< HEAD
-=======
-Congratulations you have now set up your repository.  The above steps will not need to be repeated again.
+Congratulations! You have now set up your repository.
 
->>>>>>> AUX3154
 ### Contribute and edit content
 
 In order for the contribution process to be as seamless as possible, the following procedure has been established.
@@ -156,7 +75,7 @@ In order for the contribution process to be as seamless as possible, the followi
 3. Submit a pull request to the main repository
 4. Delete the branch
 
-Each branch should be limited to a single concept/article both to streamline workflow and reduce the possiblity of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
+Each branch should be limited to a single concept/article both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new article (and associated images)
 * Spelling and grammar edits on an article.
@@ -178,7 +97,7 @@ If you are editing files, open them in an editor of your choice and start modify
 The files in `C:\Users\<yourusername>\azure-content` are a working copy of the new branch that you created in your local repository. Changing anything in this folder does not affect the local repository until you commit a change. To commit a change to the local repository, type the following commands in GitBash:
 
 	git add .
-	git commit -v -a -m "<Describe the changes made since last commit> submitted for publishing on <date>"
+	git commit -v -a -m "<Describe the changes made in this commit>"
 
 The `add` command adds your changes to a staging area in preparation for committing them to the repository. The period after the `add` command specifies that you want to stage all of the files that you have added or modified, checking subfolders recursively. (If you don't want to commit all of the changes, you can add specific files. You can also undo a commit. For help, type `git add -help` or `git status`.)
 
@@ -204,7 +123,7 @@ One of the site administrators will now process your pull request.  Your pull re
 
 After a branch has been successfully merged (i.e. your pull request has been accepted), do not continue working in the local branch that was successfully merged upstream. This can lead to merge conflicts if you submit another pull request. Instead, if you want to do another update, create a new local branch from the successfully merged upstream branch.
 
-For example, suppose your local branch X was successfully merged into the WindowsAzure/Azure-Content master branch and you want to make further updates to the content that was merged. Create a new local branch, X2, from the WindowsAzure/Azure-Content master branch. To do this, open GitBash and execute the following commands:
+For example, suppose your local branch X was successfully merged into the WindowsAzure/azure-content master branch and you want to make further updates to the content that was merged. Create a new local branch, X2, from the WindowsAzure/Azure-Content master branch. To do this, open GitBash and execute the following commands:
 
 	cd azure-content
 	git pull upstream master:X2
@@ -214,7 +133,7 @@ You now have local copies (in a new local branch) of the work that you submitted
 
 	git checkout X2
 
-...and verifying the content. (The `checkout` command updates the files in `C:\Users\<yourusername>\Azure-Content` to the current state of the X2 branch.) Once you have checked out the new branch, you can make updates to the content and commit them as usual. However, to avoid working in the merged branch (X) by mistake, it is best to delete it (see the following "Delete a Branch" section).
+...and verifying the content. (The `checkout` command updates the files in `C:\Users\<yourusername>\azure-content` to the current state of the X2 branch.) Once you have checked out the new branch, you can make updates to the content and commit them as usual. However, to avoid working in the merged branch (X) by mistake, it is best to delete it (see the following "Delete a Branch" section).
 
 #### Delete a branch
 
@@ -226,9 +145,9 @@ Once your changes have been successfully merged into the central repository you 
 
 Congratulations, you have successfully contributed to the project.
 
-## Writing an article using Markdown
+## Write an article using Markdown
 
-All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevent basics will be covered here.
+All of the articles in this repository use Markdown.  While a complete introduction (and listing of all the syntax) can be found here [Markdown Home] [], the relevant basics will be covered here.
 
 If you are looking for a good editor, try [Markdown Pad][].
 
@@ -274,7 +193,7 @@ By using references grouped at the bottom of your file, you can easily find, edi
 ## Additional information
 
 * For more information on Markdown go to [their site][Markdown Home].
-* For more information on using Git and GitHub first check out the [GitHub Help Section] [GitHub Help] and if necessary contact the site adminstrators.
+* For more information on using Git and GitHub first check out the [GitHub Help Section] [GitHub Help] and if necessary contact the site administrators.
 
 [GitHub Home]: http://github.com
 [GitHub Help]: http://help.github.com/
