@@ -9,7 +9,7 @@ HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the clo
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight (preview), see [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-3.0].
+> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight (preview), see [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-30].
 
 In conjunction with the general availability of Windows Azure HDInsight, Microsoft has also released HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -157,11 +157,11 @@ Running a MapReduce job requires the following elements:
 
 The URI scheme for accessing files in Blob storage is:
 
-	WASB[S]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
+	wasb[s]://<containername>@<storageaccountname>.blob.core.windows.net/<path>
 
 > [WACOM.NOTE] By default, the Blob container used for the default file system has the same name as the HDInsight cluster.
 
-The URI scheme provides both unencrypted access with the *WASB:* prefix, and SSL encrypted access with WASBS. We recommend using WASBS wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with WASBS. We recommend using wasbs wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 
 Because HDInsight uses a Blob Storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths.
 
@@ -268,11 +268,12 @@ For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsi
 **To retrieve the results of the MapReduce job**
 
 1. Open **Windows Azure PowerShell**.
-2. Run the following command to change directory to c:\ root.
+2. Run the following commands to create a C:\Tutorials folder, and change directory to the folder:
 
-	 cd\
-
-	The default Windows Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to either the C:\ root directory or a folder where you have write permission.
+		mkdir \Tutorials
+		cd \Tutorials
+	
+	The default Windows Azure Powershell directory is *C:\Windows\System32\WindowsPowerShell\v1.0*. By default, you don't have the write permission on this folder. You must change directory to a folder where you have write permission.
 	
 2. Set the three variables in the following commands, and then run them:
 
@@ -332,24 +333,23 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 4. Enter the **Account Key** for the Azure Blob Storage Account, and then click **Save**. 
 5. In the Navigator pane on the right, double-click the Blob storage container name. By default the container name is the same name as the cluster name. 
 
-6. Locate **part-r-00000** in the **Name** column, and then click **Binary**.
+6. Locate **part-r-00000** in the **Name** column (the path is *.../example/data/WordCountOutput*), and then click **Binary** on the left of **part-r-00000**.
 
 	![HDI.GettingStarted.PowerQuery.ImportData2][image-hdi-gettingstarted-powerquery-importdata2]
-
-6. Right-click **Column1**, point to **Split Column**, and then click **By Delimiter**.
-7. Select **Tab** in **Select or enter delimiter**, and **At the right-most delimiter**, and then click **OK**.
-
-	![HDI.GettingStarted.PowerQuery.ImportData3][image-hdi-gettingstarted-powerquery-importdata3]
 
 8. Right-click **Column1.1**, and then select **Rename**.
 9. Change the name to **Word**.
 10. Repeat the process to rename **Column1.2** to **Count**.
-9. Click **Done** on the bottom right corner. The query then imports the Hive Table into Excel.
+
+	![HDI.GettingStarted.PowerQuery.ImportData3][image-hdi-gettingstarted-powerquery-importdata3]
+
+9. Click **Apply & Close** in the upper left corner. The query then imports the Hive Table into Excel.
 
 
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
+- [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-30]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
@@ -357,18 +357,19 @@ In this tutorial, you have learned how to provision a cluster with HDInsight, ru
 - [Use MapReduce with HDInsight][hdinsight-mapreduce]
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
+- [Use Oozie with HDInsight][hdinsight-oozie]
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
-[hdinsight-get-started-3.0]: /en-us/documentation/articles/hdinsight-get-started-30/
+[hdinsight-get-started-30]: /en-us/documentation/articles/hdinsight-get-started-30/
 [hdinsight-provision]: /en-us/documentation/articles/hdinsight-provision-clusters/
 [hdinsight-admin-powershell]: /en-us/documentation/articles/hdinsight-administer-use-powershell/
 [hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
-[hdinsight-mapreduce]: /en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/
-[hdinsight-hive]:/en-us/documentation/articles/hdinsight-use-hive/
+[hdinsight-mapreduce]: /en-us/documentation/articles/hdinsight-use-mapreduce
+[hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
 [hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-oozie]: /en-us/documentation/articles/hdinsight-use-oozie/
 [hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
 [hdinsight-emulator]: /en-us/documentation/articles/hdinsight-get-started-emulator/
 [hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/

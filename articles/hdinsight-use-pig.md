@@ -82,7 +82,7 @@ HDInsight uses a Windows Azure Blob storage container as the default file system
 
 To access files, use the following syntax: 
 
-		WASB[S]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
+		wasb[s]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
 
 For example:
 
@@ -203,13 +203,16 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 **To run Pig Latin using PowerShell**
 
 1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+2. Run the following command to connect to your Windows Azure subscription:
+
+		Add-AzureAccount
+
+	You will be prompted to enter your Windows Azure account credentials.
 2. Set the variable in the following script, and run it:
 
-		# Provide the HDInsight cluster name
-		$subscriptionName = "<SubscriptionName>"
 		$clusterName = "<HDInsightClusterName>" 
 
-3. Run the following script to define the Pig Latin query string:
+3. Run the following commands to define the Pig Latin query string:
 
 		# Create the Pig job definition
 		$0 = '$0';
@@ -223,7 +226,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 		
 		$pigJobDefinition = New-AzureHDInsightPigJobDefinition -Query $QueryString 
 
-		You can also use the -File switch to specify a Pig script file on HDFS.
+	You can also use the -File switch to specify a Pig script file on HDFS.
 
 4. Run the following script to submit the Pig job:
 		
@@ -234,7 +237,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 5. Run the following script to wait for the Pig job to complete:		
 
 		# Wait for the Pig job to complete
-		$Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
+		Wait-AzureHDInsightJob -Job $pigJob -WaitTimeoutInSeconds 3600
 
 6. Run the following script to print the Pig job output:
 		
