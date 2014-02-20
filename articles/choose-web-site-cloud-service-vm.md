@@ -72,10 +72,19 @@ All three options allow you to host open source languages and frameworks. **Clou
 
 ### I have a line-of-business application that needs to connect to the corporate network
 
-If you want to create a line-of-business application, your web site might require direct access to services or data on the corporate network. This is possible on **Web Sites**, Cloud Services****, and **Virtual Machines**. There are differences in the approach you take, which include the following:
+If you want to create a line-of-business application, your web site might require direct access to services or data on the corporate network. This is possible on **Web Sites**, **Cloud Services**, and **Virtual Machines**. There are differences in the approach you take, which include the following:
 
 - Web Sites can securely connect to on-premises resources through the use of Service Bus Relay. This allows services on the corporate network to perform tasks on behalf of the web application without moving everything to the Cloud or setting up a virtual network. 
 - Cloud Services and Virtual Machines can take advantage of Virtual Network. In effect, Virtual Network allows machines running in Windows Azure to connect to an on-premises network. Windows Azure then becomes an extension of your corporate datacenter.
+
+### I want to host a REST API or web service for mobile clients
+
+HTTP-based web services allows you to support a wide variety of clients, including mobile clients. Frameworks like the ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Windows Azure to support this scenario. However, **Web Sites** is a great choice for hosting REST APIs. With Web Sites, you can:
+
+- Quickly create a Web Site to host the HTTP web service in one of Windows Azure’s globally distributed datacenters.
+- Migrate existing services or create new ones, potentially taking advantage of the ASP.NET Web API in Visual Studio.
+- Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines. 
+- Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
 
 ##<a name="services"></a>Service Summaries
 
@@ -117,7 +126,7 @@ The following table compares the capabilities of Web Sites, Cloud Services, and 
 <tr>
    <td valign="middle"><p>Integrated MySQL-as-a-service support</p></td>
    <td valign="middle">X</td>
-   <td valign="middle">X<sup>1</sup></td>
+   <td valign="middle">X <sup>1</sup></td>
    <td valign="middle">X</td>
 </tr>
 <tr>
@@ -130,11 +139,11 @@ The following table compares the capabilities of Web Sites, Cloud Services, and 
    <td valign="middle"><p>Scale out to multiple instances without redeploy</p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">X<sup>2</sup></td>
+   <td valign="middle">X <sup>2</sup></td>
 </tr>
 <tr>
    <td valign="middle"><p>Support for SSL</p></td>
-   <td valign="middle">X<sup>3</sup></td>
+   <td valign="middle">X <sup>3</sup></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
 </tr>

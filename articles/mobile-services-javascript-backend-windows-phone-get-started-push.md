@@ -98,14 +98,15 @@ Before your app can receive push notifications, you must register a notification
 
 <p><pre><code>function insert(item, user, request) {
 // Define a payload for the Windows Store toast notification.
-var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
-    '<binding template="ToastText01">  <text id="1">' +
-    item.text + '</text></binding></visual></toast>';
+var payload = '&lt;?xml version="1.0" encoding="utf-8"?&gt;' +
+    '&lt;wp:Notification xmlns:wp="WPNotification"&gt;&lt;wp:Toast&gt;' +
+    '&lt;wp:Text1&gt;New Item&lt;/wp:Text1&gt;&lt;wp:Text2&gt;' + item.text + 
+    '&lt;/wp:Text2&gt;&lt;/wp:Toast&gt;&lt;/wp:Notification&gt;';
 
 request.execute({
     success: function() {
         // If the insert succeeds, send a notification.
-    	push.wns.send(null,payload, 'wns/toast', {
+    	push.mpns.send(null, payload, 'toast', 22, {
             success: function(pushResponse) {
                 console.log("Sent push:", pushResponse);
 				request.respond();
@@ -116,7 +117,7 @@ request.execute({
                     }
                 });
             }
-        });
+        });      
 }</code></pre></p>
 
 <p>This insert script sends a push notification (with the text of the inserted item) to all Windows Phone app registrations after the insert succeeds.</p></li>

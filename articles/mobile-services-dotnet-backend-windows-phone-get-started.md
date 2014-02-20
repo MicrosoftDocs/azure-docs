@@ -89,6 +89,8 @@ In this section you will create a new Windows Phone 8 app that is connected to y
 
 ![][10]
 
+This shows how to run your new client app against the mobile service running in Windows Azure. Before you can test the Windows Phone app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your Windows Phone device or emulator. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
+
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 

@@ -84,9 +84,9 @@ Before your app can receive push notifications, you must register a notification
 
 <p><pre><code>function insert(item, user, request) {
 // Define a payload for the Windows Store toast notification.
-var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
-    '<binding template="ToastText01">  <text id="1">' +
-    item.text + '</text></binding></visual></toast>';
+var payload = '&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;toast&gt;&lt;visual&gt;' +    
+    '&lt;binding template="ToastText01"&gt;  &lt;text id="1"&gt;' +
+    item.text + '&lt;/text&gt;&lt;/binding&gt;&lt;/visual&gt;&lt;/toast&gt;';
 
 request.execute({
     success: function() {
