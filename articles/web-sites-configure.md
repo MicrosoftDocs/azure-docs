@@ -12,7 +12,9 @@ In the Windows Azure Management Portal you can change the configuration options 
 - [How to: Change configuration options for a web site](#howtochangeconfig)
 - [How to: Configure a web site to use a SQL database](#howtoconfigSQL)
 - [How to: Configure a web site to use a MySQL database](#howtoconfigMySQL)
+- [How to: Configure a custom domain name](#howtodomain)
 - [How to: Configure a web site to use SSL](#howtoconfigSSL)
+- [Next steps](#next)
 
 
 
@@ -203,10 +205,15 @@ To configure a web site to use a MySQL database, follow the same steps to use a 
 
 Alternatively, you can create the web site with the **Custom Create** option. In the **Database** dropdown, choose either **Create a new MySQL database** or **Use an existing MySQL database**. 
 
+##<a name="howtodomain"></a>How to: Configure a custom domain name
+
+For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for a Windows Azure Web Site](/en-us/documentation/articles/web-sites-custom-domain-name/).
+
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
 For information about configuring SSL for a custom domain on Windows Azure, see [Configuring an SSL certificate for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/). 
 
+##<a name="next"></a>Next steps
 
+* [How to scale a web site](/en-us/documentation/articles/web-sites-scale/)
 
-
-
+* [How to monitor a web site](/en-us/documentation/articles/web-sites-monitor/)
