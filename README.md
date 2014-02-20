@@ -10,25 +10,25 @@ Thank you for your interest in Windows Azure documentation. Before we can accept
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
 
+## Working with Windows Azure articles
+
 ##Repository organization
 
-The content in this repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
+The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
 
 ### \articles 
 
-The articles folder contains the documentation articles formatted as markdown files with a .md extension. Articles are published to WindowsAzure.com in the following path http://www.windowsazure.com/en-us/documentation/articles/{article-name-without-md}/. 
+The *\articles* folder contains the documentation articles formatted as markdown files with an *.md* extension. Articles are published to WindowsAzure.com in the path *http://www.windowsazure.com/en-us/documentation/articles/{article-name-without-md}/*. 
 
-* **Article filenames:** Begin with the service name, such as *hdinsight*, and include the development language and a description of the subject matter. Dashes (-) separate the words. 
+* **Article filenames:** Begin with the service name, such as *hdinsight*, and include the development language and a description of the subject matter. Use all lowercase letters and dashes (-) to separate the words. 
 
-* **Media subfolders:** The *\articles* folder contains the *\media* folder inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
+* **Media subfolders:** The *\articles* folder contains the *\media* folder, inside which are subfolders with the images for each article. The article image folders are named identically to the article file, minus the *.md* file extension.
 
 ### \includes
 
 Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
 
-* **Media subfolders:** The *\includes* folder contains a *\media* folder with folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
-
-## Working with Windows Azure articles
+* **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
 
 ### Article template
 
@@ -45,11 +45,11 @@ Use the following syntax to reference an include file in your article:
 
 **Note:** An include file cannot reference other includes. 
 
-## Using GitHub, Git, and this repository
+## Using GitHub, Git and this repository
 
-**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribute and edit content" section for the particulars of the code/content flow of this repository.
+**Note:** Most of the information in this section can be found in [GitHub Help] [] articles.  If you are familiar with Git and GitHub, skip to the "Contribut and edit content" section for the particulars of the code/content flow of this repository.
 
-### Set up your fork of the repository
+### Setting up your fork of the repository
 
 1.	The first step to contributing to this project is setting up a GitHub account. If you have not done so already go to [GitHub Home] [] and do so now.
 2.	Now that you have an account, you also need a copy of Git on your computer. Follow the instructions in the [Setting up Git Tutorial] [Set Up Git].
@@ -64,7 +64,7 @@ Use the following syntax to reference an include file in your article:
 		git remote add upstream https://github.com/WindowsAzure/azure-content.git
 		git fetch upstream
 
-Congratulations! You have now set up your repository.
+Congratulations you have now set up your repository.  The above steps will not need to be repeated again.
 
 ### Contribute and edit content
 
