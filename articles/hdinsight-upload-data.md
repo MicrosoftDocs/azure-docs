@@ -29,7 +29,6 @@ Note the following requirements before you begin this article:
 * [Upload data to Blob storage using Azure Storage Explorer](#storageexplorer)
 * [Upload data to Blob storage using Hadoop command line](#commandline)
 * [Import data from Windows Azure SQL Database to Blob storage using Sqoop](#sqoop)
-* [Access data in Blob storage](#blob)
 
 ##<a id="azcopy"></a>Upload data to Blob storage using AzCopy##
 
@@ -262,27 +261,7 @@ Note: When specifying an escape character as delimiter with the arguments *--inp
 			--input-fields-terminated-by \t 
 			--input-lines-terminated-by \n
 
-##<a id="blob"></a>Access data in Blob storage
 
-Data stored in Blob storage can be accessed directly by prefixing the protocol scheme of the URI for the assets you are accessing with *wasb://*. To secure the connection, use *wasbs://*. The scheme for accessing data in Blob storage is:
-
-	wasb[s]://[<containerName>@<storageAccountName>.blob.core.windows.net]/<path>/<filename>
-
-The following is a sample PowerShell script for submitting a MapReduce job:
-
-	$subscriptionName = "<SubscriptionName>"   
-	$clusterName = "<HDInsightClusterName>" 
-
-	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
-	
-	# Run the job and show the standard error 
-	Select-AzureSubscription $subscriptionName
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName  | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
-
-> [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
-
-For more information on accessing the files stored in Blob storage, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
 
 ## Next steps
 Now that you understand how to get data into HDInsight, use the following articles to learn how to perform analysis:
