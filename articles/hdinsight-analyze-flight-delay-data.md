@@ -470,17 +470,17 @@ There is a known Hive path issue. The instructions for fixing the issue can be f
 
 	The output shall be similar to:
 
-		Champaign/Urbana19.023255813953487
-		Charleston24.93975903614458
-		Charleston/Dunbar16.954545454545453
-		Charlotte16.88616981831665
-		Charlotte Amalie12.88888888888889
-		Charlottesville25.444444444444443
-		Chattanooga19.883561643835616
-		Cheyenne9.875
-		Chicago16.77321649680922
-		Chico12.340909090909092
-		Christiansted12.318181818181818
+		Champaign/Urbana 19.023255813953487
+		Charleston 24.93975903614458
+		Charleston/Dunbar 16.954545454545453
+		Charlotte 16.88616981831665
+		Charlotte Amalie 12.88888888888889
+		Charlottesville 25.444444444444443
+		Chattanooga 19.883561643835616
+		Cheyenne 9.875
+		Chicago 16.77321649680922
+		Chico 12.340909090909092
+		Christiansted 12.318181818181818
 
 	Between each city and delay time, there is a delimiter that is not visible in the PowerShell output window. It is "\001". You will use this delimiter when you run Sqoop export.
 
@@ -545,6 +545,7 @@ Now that you understand how to upload file to Blob storage, how to populate a Hi
 * [Getting Started with HDInsight][hdinsight-get-started]
 * [Use Hive with HDInsight][hdinsight-hive]
 * [Use Oozie with HDInsight][hdinsight-oozie]
+* [Use Sqoop with HDInsight][hdinsight-sqoop]
 * [Use Pig with HDInsight][hdinsight-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 * [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
@@ -559,6 +560,7 @@ Now that you understand how to upload file to Blob storage, how to populate a Hi
 [hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
 [hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
 [hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
+[hdinsight-sqoop]: /../hdinsight-use-sqoop/
 [hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
 [hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/

@@ -109,7 +109,7 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 **Microsoft: Business intelligence**		
 
-* [Connect Excel to Windows Azure HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+* [Connect Excel to HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Learn how to import data from Windows Azure HDInsight with the Microsoft Hive ODBC Driver.
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Windows Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Windows Azure Blob storage with HDInsight" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Windows Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Windows Azure Blob storage with HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="mollybos"  />
 
 
 
@@ -12,10 +12,12 @@ Windows Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and
 
 > [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. This means that any jobs submitted to an HDInsight cluster version 3.0 that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight clusters version 3.0 that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
 
+> [WACOM.NOTE] HDInsight currently only supports block blobs.
+
 > [WACOM.NOTE]
 > Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Windows Azure Blob storage.
 
-For information on provisioning an HDInsight cluster, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
+For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 ##In this article
 
@@ -39,18 +41,17 @@ In addition, HDInsight provides the ability to access data stored in Blob storag
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 
-Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, user must specify a Blob storage container used as the default file system. 
+Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, a Windows Azure Storage account and a specific Blob storage container from that account is designated as the default file system.
 
+In addition to this storage account, you can add additional storage accounts from either the same Windows Azure subscription or different Windows Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
 
-Other than the Blob storage container designated as the default file system, you can also access containers that reside in the same Windows Azure storage account or different Windows Azure storage accounts located on the same data center as the HDInsight cluster:
-
-* **Container in the same storage account:** Because the account name and key are stored in the *core-site.xml*, you have full access to the files in the container.
-* **Container in a different storage account with the *public container* or the *public blob* access level:** You have read-only permission to the files in the container.
+* **Containers in the storage accounts that are connected to an  cluster:** Because the account name and key are stored in the *core-site.xml*, you have full access to the blobs in those containers.
+* **Public containers or public blobs in the storage accounts that are NOT connected to an cluster:** You have read-only permission to the blobs in the containers.
 
 	> [WACOM.NOTE]
         > Public container allows you to get a list of all blobs available in that container and get container metadata. Public blob allows  you to access the blobs only if you know the exact URL. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a>.
 
-* **Container in a different storage account with the *private* access levels:** you must add those containers during the provision process.
+* **Private containers in the storage accounts that are NOT connected to an cluster:** You can not access the blobs in the containers.
 
 
 Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the "/" character can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the "/" character in the key name, it has the appearance of a file path.
@@ -82,59 +83,44 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 
 
 ##<a id="preparingblobstorage"></a>Prepare a container for Blob storage
-To use blobs, you first create a [Windows Azure storage account](/en-us/manage/services/storage/how-to-create-a-storage-account/). As part of this, you specify a Windows Azure data center that will store the objects you create using this account. This data center must also used to host the HDInsight cluster. Wherever it lives, each blob you create belongs to some container in your storage account. This container may be an artitary Blob storage container created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
+To use blobs, you first create a [Windows Azure storage account](/en-us/manage/services/storage/how-to-create-a-storage-account/). As part of this, you specify a Windows Azure data center that will store the objects you create using this account. Both the cluster and the storage account must be hosted in the same data center (Hive metastore SQL database and Oozie metastore SQL database must also located in the same data center). Wherever it lives, each blob you create belongs to some container in your storage account. This container may be an existing Blob storage container created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
 
 
 
-###Provision the container used as the default file system
+###Create a Blob container for HDInsight using the Management portal
 
-When provisioning an HDInsight cluster from Windows Azure Management Portal, there are two options: *quick create* and *custom create*. Using either of the options, a Windows Azure Storage account must be created beforehand.  For instructions, see [How to Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
+When provisioning an HDInsight cluster from Windows Azure Management Portal, there are two options: *quick create* and *custom create*. The quick create option requires the Windows Azure Storage account created beforehand.  For instructions, see [How to Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
 
 Using the quick create option, you can choose an existing storage account. The provision process creates a new container with the same name as the HDInsight cluster name. This container is used as the default file system.
 
 ![HDI.QuickCreate](./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png "HDInsight Cluster Quick Create")
  
-Using the custom create, you can either choose an existing Blob storage container or create a new container to be provisioned as the default file system. The new container has the same name as the HDInsight cluster name.
+Using the custom create, you can either choose an existing Blob storage container or create a default container. The default container has the same name as the HDInsight cluster name.
 
-![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png "Custom Create Storage Account")
-
-
-
+![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  "Custom Create Storage Account" )
+  
 
 
 
 
+### Create a container using Windows Azure PowerShell.
+[Windows Azure PowerShell][powershell-install] can be used to create Blob containers. The following is a sample PowerShell script:
 
+	Add-AzureAccount
+	Select-AzureSubscription "<SubscriptionName>"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###Use APIs to create containers
-
-Creating an HDInsight default file system can be done by creating a new Blob storage container through the commonly-used APIs in a storage account for which core-site.xml contains the storage key. In addition, you can also create a new container by referring to it in an HDFS command from Hadoop command line. For example:
-
-	hadoop fs -mkdir wasbs://<newcontainer>@<accountname>.blob.core.windows.net/<newdirectory>
-
-The example command will not only create the new directory *newdirectory* but, if it doesn't exist, will also create a new container called *newcontainer*.
-
-
+	$storageAccountName = "<WindowsAzureStorageAccountName>"
+	
+	$containerName="<BlobContainerToBeCreated>"
+	
+	$storageAccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+	
+	
+	# Create a storage context object
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	
+	# Create a Blob storage container
+	New-AzureStorageContainer -Name $containerName -Context $destContext 
 
 
 
@@ -190,6 +176,9 @@ To learn more, see the following articles:
 * [Use Hive with HDInsight][hdinsight-hive]
 * [Use Pig with HDInsight][hdinsight-pig]
 
+[Powershell-install]: ../install-configure-powershell/
+
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
 [hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
 
