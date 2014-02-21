@@ -560,7 +560,7 @@ Now that you understand how to upload file to Blob storage, how to populate a Hi
 [hdinsight-storage]: /en-us/documentation/articles/hdinsight-use-blob-storage/
 [hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
 [hdinsight-get-started]: /en-us/documentation/articles/hdinsight-get-started/
-[hdinsight-sqoop]: /../hdinsight-use-sqoop/
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-pig]: /en-us/documentation/articles/hdinsight-use-pig/
 [hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-develop-mapreduce]: /en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/
