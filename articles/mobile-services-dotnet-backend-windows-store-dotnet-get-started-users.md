@@ -58,10 +58,6 @@ Next, you will update the app to authenticate users before requesting resources 
 
 >[WACOM.NOTE]If you registered your Windows Store app package information with Mobile Services, you should call the <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> method by supplying a value of <strong>true</strong> for the <em>useSingleSignOn</em> parameter. If you do not do this, your users will still be presented with a login prompt every time that the login method is called.
 
-<!--## <a name="next-steps"> </a>Next steps
-
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]
--->
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

@@ -19,7 +19,15 @@
 	<a href="/en-us/documentation/articles/partner-sencha-mobile-services-get-started/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>-->
 
-This tutorial shows you how to leverage Windows Azure Mobile Services in your Sencha Touch application. In this tutorial, you will create a simple To Do List app using Sencha Touch that utilizes the mobile service created when you complete the topic <a href="/en-us/develop/mobile/tutorials/get-started-html" target="_blank">Getting started with Mobile Services</a>.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>This tutorial shows you how to leverage Windows Azure Mobile Services in your Sencha Touch application. In this tutorial, you will create a simple To Do List app using Sencha Touch that utilizes the mobile service created when you complete the topic <a href="/en-us/develop/mobile/tutorials/get-started-html" target="_blank">Getting started with Mobile Services</a>.</p>
+<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Arthur Kay will explain how to build a Sencha Touch application using a Windows Azure Mobile Services backend.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('./media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">14:37</span></div>
+</div>
+
+
 
 A screenshot from the completed app is shown below:
 
@@ -630,8 +638,26 @@ You now have finished putting together all the pieces of this sample ToDo List a
 
 To launch your application, you need only open up your browser of choice and point it to the directory where your Touch application was created (in this example /path/to/application).
 
+##Next Steps
+Now that you have completed the Getting Started Guide, learn how to perform additional important tasks in Mobile Services with Sencha.
 
-###Summary
+[Download](https://github.com/arthurakay/sencha-touch-azure-example) a completed sample app with additional styling and features to see what else Sencha Touch can do!
+
+Then, dive into more information about the Sencha Touch Extensions for Windows Azure:
+
+  * Sample app [walkthrough](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
+  * Get help in the [Sencha Forums](http://www.sencha.com/forum)
+  * Browse the [Sencha Documentation](http://docs.sencha.com/)
+  * Using Sencha With Windows Azure Mobile Services: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+
+
+##Additional Resources
+
+  * [Download Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
+  * [Sencha Touch Extensions for Windows Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+ 
+
+##Summary
 
 The example outlined here is provided in the Sencha Touch Extension for Windows Azure package and is located in the examples directory as the Basic Data example. There are a few more examples which are provided which demonstrated other functionality of this extension along with detailed comments and explanations.
 
