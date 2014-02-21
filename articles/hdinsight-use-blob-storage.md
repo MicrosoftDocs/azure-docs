@@ -97,7 +97,7 @@ Using the quick create option, you can choose an existing storage account. The p
  
 Using the custom create, you can either choose an existing Blob storage container or create a default container. The default container has the same name as the HDInsight cluster name.
 
-![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  "Custom Create Storage Account" )
+![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount1.png   "Custom Create Storage Account" )
   
 
 
