@@ -19,18 +19,11 @@ In this tutorial you enable push notifications using Windows Azure Notification 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Register your app with WNS and configure Mobile Services](#register)
-2. [Update the app to register for notifications](#update-app)
+1. [Update the app to register for notifications](#update-app)
 3. [Update the server to send push notifications](#update-server)
 3. [Insert data to receive push notifications](#test)
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
-
-##<a id="register"></a> Register your app with WNS and configure Mobile Services
-
-[WACOM.INCLUDE [mobile-services-javascript-backend-register-windows-store-app](../includes/mobile-services-javascript-backend-register-windows-store-app.md)]
-
-Both your mobile service and your app are now configured to work with WNS and Notification Hubs. Next, you will update your Windows Store app to register for notifications.
 
 ##<a id="update-app"></a> Update the app to register for notifications
 
@@ -109,21 +102,31 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="update-server"></a> Update the server to send push notifications
 
-
 [WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
+<ol start="2">
+<li><p>Log on to the <a href=" https://manage.windowsazure.com/" target="_blank">Windows Azure Management Portal</a>, click <strong>Mobile Services</strong>, and then click your app.</p></li>
+
+<li><p>Click the <strong>Push</strong> tab, check <strong>Enable unauthenticated push notifications</strong>, then click <strong>Save</strong>.</p>
+
+</li>
+</ol>
+
+   ![][4]
+
+>[WACOM.NOTE]This tutorial uses MPNS in unauthenticated mode. In this mode, MPNS limits the number of notifications that can be sent to a device channel. To remove this restriction, you must generate and upload a certificate by clicking <strong>Upload</strong> and selecting the certificate. For more information on generating the certificate, see <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx">Setting up an authenticated web service to send push notifications for Windows Phone</a>.
+
+This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.
 
 ##<a id="test"></a> Test push notifications in your app
 
 1. In Visual Studio, press the F5 key to run the app.
 
-2. In the app, type text in **Insert a TodoItem**, and then click **Save**.
+5. In the app, enter the text "hello push" in the textbox, and then click **Save**.
 
    	![][2]
 
-   	Note that after the insert completes, the app receives a push notification from MPNS.
-
-   	![][3]
+  	This sends an insert request to the mobile service to store the added item. Notice that the application receives a toast notification that says **hello push**.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -163,7 +166,7 @@ Consider finding out more about the following Mobile Services topics:
 [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
-
+[4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
