@@ -124,7 +124,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push-notification-hubs
+[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
