@@ -16,6 +16,7 @@ Before you begin this article, you must have the following:
 
 * [Submit MapReduce jobs using PowerShell](#mapreduce-powershell)
 * [Submit Hive jobs using PowerShell](#hive-powershell)
+* [Submit Sqoop jobs using PowerShell](#sqoop-powershell)
 * [Submit MapReduce jobs using HDInsight .NET SDK](#mapreduce-sdk)
 * [Submit Hive Jobs using HDInsight .NET SDK](#hive-sdk)
 * [Next steps](#nextsteps)
@@ -274,9 +275,11 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 For more information about Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
+##<a id=""></a>Submit Sqoop jobs using PowerShell
 
+See [Use Sqoop with HDInsight][hdinsight-sqoop].
 
-##<a id="mapreduce-sdk"></a> Submit MapReduce Jobs Using HDInsight .NET SDK
+##<a id="mapreduce-sdk"></a> Submit MapReduce jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.jar*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
 
 
@@ -575,6 +578,12 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
 * [Use Hive with HDInsight][hdinsight-hive]
 * [Use Pig with HDInsight][hdinsight-pig]
+
+
+
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
+
+
 
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/

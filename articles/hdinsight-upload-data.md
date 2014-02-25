@@ -215,9 +215,11 @@ To use Hadoop command line, you must first connect to the cluster using remote d
 
 Sqoop is a tool designed to transfer data between Hadoop and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL or MySQL or Oracle into the Hadoop Distributed File System (HDFS), transform the data in Hadoop with MapReduce or Hive, and then export the data back into a RDBMS. For more information, see [Sqoop User Guide][apache-sqoop-guide].
 
-Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password, and database name. You must also configure a firewall rule for the database server to allow connections from your HDInsight cluster head node. For instruction on creating SQL database and configuring firewall rules, see [How to use Windows Azure SQL Database in .NET applications][sqldatabase-howto]. To obtain the outward facing IP Address for your HDInsight cluster head node, you can use Remote Desktop to connect to the head node, and then browse to [www.whatismyip.com][whatismyip].
+Before importing data, you must know the Windows Azure SQL Database server name, database account name, account password, and database name. 
 
-The following procedure uses PowerShell to submit a Sqoop job. This is only supported by version 1.2 or later HDInsight clusters.  Optionally, you can use Hadoop command line to run Sqoop commands.
+By default a Windows Azure SQL database allows connections from Windows Azure services like Windows Azure HDinsight. If this firewall setting is disabled, you must enabled it from Windows Azure Management portal. For instruction on creating SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue]. 
+
+The following procedure uses PowerShell to submit a Sqoop job. 
 
 **To import data to HDInsight using Sqoop and PowerShell**
 
@@ -235,9 +237,7 @@ The following procedure uses PowerShell to submit a Sqoop job. This is only supp
 		
 		$hdfsOutputDir = "<OutputPath>"  # This is the HDFS path for the output file, for example "/lineItemData".
 		
-		Select-AzureSubscription $subscriptionName
-		Use-AzureHDInsightCluster $clusterName
-		
+		Select-AzureSubscription $subscriptionName		
 		$sqoopDef = New-AzureHDInsightSqoopJobDefinition -Command "import --connect jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseDatabaseName --table $tableName --target-dir $hdfsOutputDir -m 1" 
 
 		$sqoopJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $sqoopDef #-Debug -Verbose
@@ -248,20 +248,9 @@ The following procedure uses PowerShell to submit a Sqoop job. This is only supp
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-3. Paste the script into the Windows Azure PowerShell console window to run it.
-		
-See [Get started with HDInsight][hdinsight-getting-started] for a PowerShell sample for retrieving the data file outputed to HDFS/WASB.
+3. Paste the script into the Windows Azure PowerShell console window to run it. See [Get started with HDInsight][hdinsight-getting-started] for a PowerShell sample for retrieving the data file from Windows Azure Blob storage.
 
-Note: When specifying an escape character as delimiter with the arguments *--input-fields-terminated-by* and *--input-fields-terminated-by*, do not put quotes around the escape character.  For example. 
-
-		sqoop export 
-			--connect "jdbc:sqlserver://localhost;username=sa;password=abc;database=AdventureWorks2012" 
-			--table Result 
-			--export-dir /hive/warehouse/result 
-			--input-fields-terminated-by \t 
-			--input-lines-terminated-by \n
-
-
+For more information on using Sqoop, see [Use Sqoop with HDInsight][hdinsight-sqoop].
 
 ## Next steps
 Now that you understand how to get data into HDInsight, use the following articles to learn how to perform analysis:
@@ -281,6 +270,8 @@ Now that you understand how to get data into HDInsight, use the following articl
 [azure-azcopy-download]: https://github.com/downloads/WindowsAzure/azure-sdk-downloads/AzCopy.zip
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
 
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
+
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
@@ -290,11 +281,9 @@ Now that you understand how to get data into HDInsight, use the following articl
 [hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
 [hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 
-[sqldatabase-howto]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/
+[sqldatabase-create-configue]: ../sql-database-create-configure/
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.2/SqoopUserGuide.html
-
-[whatismyip]: http://www.whatismyip.com
+[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
 
