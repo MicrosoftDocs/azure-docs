@@ -7,7 +7,7 @@
 
 One key feature of Microsoft's Big Data Solution is the integration of  Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by the Windows Azure HDInsight. An example of this integration is the ability to connect Excel to the Hive data warehouse of an HDInsight Hadoop cluster using the Microsoft Hive Open Database Connectivity (ODBC) Driver. 
 
-It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to Windows Azure HDInsight with Power Query][hdinsight-power-query].
+It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
 **Prerequisites**:
 
@@ -100,13 +100,14 @@ The steps below describe the way to import data from a hive table into an Excel 
 
 ##<a id="nextsteps"></a>Next steps
 
-In this article you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service.
+In this article you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
 
-* For information on using Sqoop to copy data from an HDInsight Service to SQL Database, see [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]. 
+- [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
+- [Upload Data to HDInsight][hdinsight-upload-data]
+- [Use Sqoop with HDInsight][hdinsight-sqoop]
 
-* For information on using Sqoop or Windows Azure Blob Storage to load data into an HDInsight Service, see [Upload Data to HDInsight][hdinsight-upload-data].
 
-
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-analyze-flight-delay-data]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
 [hdinsight-hive]: /en-us/documentation/articles/hdinsight-use-hive/
 [hdinsight-upload-data]: /en-us/documentation/articles/hdinsight-upload-data/
