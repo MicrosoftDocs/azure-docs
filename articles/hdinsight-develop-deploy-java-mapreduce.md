@@ -518,7 +518,7 @@ The following PowerShell script performs the following tasks:
 
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
-This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to Windows Azure HDInsight with Power Query][hdinsight-powerquery].
+This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
 
 
 **To retrieve the output**
@@ -543,7 +543,7 @@ This section shows you how to download and display the output.  For the informat
 		Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-After the job is completed, you have the options to export the data to SQL Server or Windows Azure SQL database using Sqoop, or to export the data to Excel.  
+After the job is completed, you have the options to export the data to SQL Server or Windows Azure SQL database using [Sqoop][hdinsight-sqoop], or to export the data to Excel.  
 
 ##<a id="nextsteps"></a>Next steps
 In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
@@ -556,12 +556,16 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 - [Upload data to HDInsight][hdinsight-upload-data]
 - [Use Hive with HDInsight][hdinsight-hive]
 - [Use Pig with HDInsight][hdinsight-pig]
-
+- [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
+- [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/
 [azure-member-offers]: https://www.windowsazure.com/en-us/pricing/member-offers/
 [azure-free-trial]: https://www.windowsazure.com/en-us/pricing/free-trial/
 
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-power-query]: /en-us/documentation/articles/hdinsight-connect-excel-power-query/
 
 [hdinsight-develop-streaming]: /en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/
 

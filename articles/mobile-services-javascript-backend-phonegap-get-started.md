@@ -24,8 +24,6 @@ A screenshot from the completed app is below:
 
 ![][3]
 
-[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
-
 ### <a name="additional-requirements"></a>Additional Requirements
 
 Completing this tutorial requires the PhoneGap tools (v3.2+ required for Windows Phone 8 projects). 

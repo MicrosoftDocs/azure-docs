@@ -55,9 +55,27 @@ Before your app can receive push notifications, you must register a notification
                 new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
                 {
                     // Register for notifications using the new channel
-                    await MobileService.GetPush()
-                        .RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
-                });
+                    System.Exception exception = null;
+                    try
+                    {
+                        await MobileService.GetPush()
+                            .RegisterNativeAsync(CurrentChannel.ChannelUri.ToString());
+                    }
+                    catch (System.Exception ex)
+                    {
+                        CurrentChannel.Close();
+                        exception = ex;
+                    }
+                    if (exception != null)
+                    {
+                        Deployment.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            MessageBox.Show(exception.Message, 
+                                            "Registering for Push Notifications",
+                                            MessageBoxButton.OK);
+                        });
+                    }
+            });
             CurrentChannel.ShellToastNotificationReceived += 
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
@@ -70,10 +88,10 @@ Before your app can receive push notifications, you must register a notification
                     {
                         MessageBox.Show(message);
                     });
-                });
+            });
         }
 
-    This code retrieves the ChannelURI for the app from MPNS, and then registers that ChannelURI for push notifications. It also allows the application to handle the push notification while running by implementing a `ShellToastNotificationReceived` event handler.
+    This code retrieves the channel URI for the app if it exists. Otherwise, it will be created. The channel URI is then opened and bound for toast notifications. Once the channel URI is completely opened, the handler for the `ChannelUriUpdated` method is called and the channel is registered to received push notifications. If the registration should fail, the channel is closed so that subsequent executions of the app can try registration again. The `ShellToastNotificationReceived` handler is setup so that the app can receive and handle push notifications while running.
     
 4. In the `Application_Launching` event handler in App.xaml.cs, add the following call to the new `AcquirePushChannel` method:
 
