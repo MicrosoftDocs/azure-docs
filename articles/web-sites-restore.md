@@ -42,7 +42,7 @@ The Restore feature, available on the Backups tab in the Windows Azure Web Sites
 	![Browse Cloud Storage][BrowseCloudStorage]
 	
 
-4. Expand the name of the storage account that you want to use, and then select **websitebackups** (which contains manual backups) or **automatedwebsitebackups** (which contains scheduled backups) depending on the container that you will be using.
+4. Expand the name of the storage account that you want to use, and then select **websitebackups**, which contains your backups.
 5. Select the zip file containing the backup that you want to restore, and then click **Open**.
 6. The Storage account file has been selected and shows in the storage account box. Click the right arrow to continue.
 	

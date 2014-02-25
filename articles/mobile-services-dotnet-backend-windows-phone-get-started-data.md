@@ -8,11 +8,6 @@
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#">Windows Store C#</a>
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
@@ -207,8 +202,11 @@ In this section you will update the Windows Phone app to use the mobile service 
 
 In this section you will use Visual Studio to test the app and mobile service locally on your development workstation. In order to test the mobile service hosted locally in IIS Express from a Windows Phone device or one of the Windows Phone emulators, you have to configure IIS Express and the workstation to allow connections to the workstation's IP address and port. Windows Phone devices and emulators connect as non-local network clients.
 
+#### Configure IIS Express to allow remote connections
 
 [WACOM.INCLUDE [mobile-services-how-to-configure-iis-express](../includes/mobile-services-how-to-configure-iis-express.md)]
+
+#### Test the app against the mobile service in IIS Express
 
 6. In Visual Studio open the App.xaml.cs file and comment out the `MobileService` definition you recently pasted to the file. Add a new definition to make the connection based on the IP address and port that you configured on the workstation. Then save the file. Your code should look similar to the following...
 
@@ -306,8 +304,10 @@ Once you have completed the data series, try one of these other tutorials:
 * [Get started with authentication]
   <br/>Learn how to authenticate users of your app.
 
+<!--
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
+-->
 
 * [Mobile Services .NET How-to Conceptual Reference]
   <br/>Learn more about how to use Mobile Services with .NET.

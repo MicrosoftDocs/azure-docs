@@ -7,14 +7,14 @@
 <div class="dev-center-tutorial-selector sublanding"> 
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+<!--
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+-->
 </div>
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/"  title="JavaScript backend">JavaScript backend</a>
 </div>
 
 This topic shows you how to use Windows Azure .Net runtime mobile services to send push notifications to a Windows Store JavaScript app. 
@@ -49,23 +49,16 @@ Before your app can receive push notifications, you must register a notification
             .createPushNotificationChannelForApplicationAsync()
             .then(function (channel) {
                 // Register for notifications using the new channel
-                var result = client.push.registerNative(channel.uri);
-                var message = "Registration successful: " + result.RegistrationId;
-
-                // Display a message with the registration ID.
-                var dialog = new Windows.UI.Popups.MessageDialog(message);
-                dialog.showAsync();
+                client.push.registerNative(channel.uri);
             }, function (error) {
-                var message = "Registration failed: " + error.description;
+                var message = "Registration failed: " + error.message;
                 var dialog = new Windows.UI.Popups.MessageDialog(message);
                 dialog.showAsync();
-            });        
+            });
 
-    This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications.
+    This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI for push notifications. If the registration fails, the error message will be displayed in a message dialog.
 
-5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
-
-6. In Visual Studio, open the Package.appxmanifest file and make sure **Toast capable** is set to **Yes** on the **Application UI** tab.
+2. In Visual Studio, open the Package.appxmanifest file and make sure **Toast capable** is set to **Yes** on the **Application UI** tab.
 
    	![][1]
 
@@ -74,21 +67,8 @@ Before your app can receive push notifications, you must register a notification
 ##<a id="update-server"></a> Update the server to send push notifications
 
 
-1. In Visual Studio, open TodoItemController.cs and update the following code for the `PostTodoItem` method definition so that it will send the push notification on inserting a todo item.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-            WindowsPushMessage message = new WindowsPushMessage();
-            message.XmlPayload = @"<?xml version=""1.0"" encoding=""utf-8""?><toast><visual>     
-                                    <binding template=""ToastText01"">  <text id=""1"">" +
-                                        item.Text + @"</text></binding></visual></toast>";
-            var result = await Services.Push.SendAsync(message);
-            Services.Log.Info(result.State.ToString());
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
-
-This code sends a push notification (with the text of the inserted item) to all registrations after the insert succeeds.
 
 ##<a id="test"></a> Test push notifications in your app
 
