@@ -78,36 +78,6 @@ Before your app can receive push notifications, you must register a notification
 
 [WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
-<ol start="2">
-<li>
-<p>Replace the insert function with the following code, and then click <strong>Save</strong>:</p>
-
-<p><pre><code>function insert(item, user, request) {
-// Define a payload for the Windows Store toast notification.
-var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
-    '<binding template="ToastText01">  <text id="1">' +
-    item.text + '</text></binding></visual></toast>';
-
-request.execute({
-    success: function() {
-        // If the insert succeeds, send a notification.
-    	push.wns.send(null,payload, 'wns/toast', {
-            success: function(pushResponse) {
-                console.log("Sent push:", pushResponse);
-				request.respond();
-                },              
-                error: function (pushResponse) {
-                    console.log("Error Sending push:", pushResponse);
-					request.respond(500, { error: pushResponse });
-                    }
-                });
-            }
-        });
-}</code></pre></p>
-
-<p>This insert script sends a push notification (with the text of the inserted item) to all Windows Store app registrations after the insert succeeds.</p></li>
-</ol>
-
 ##<a id="test"></a> Test push notifications in your app
 
 1. In Visual Studio, press the F5 key to run the app.

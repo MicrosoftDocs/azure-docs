@@ -8,11 +8,6 @@
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="Windows Store C#" class="current">Windows Store C#</a>
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="Windows Store JavaScript">Windows Store JavaScript</a>
 <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
@@ -208,8 +203,6 @@ In this section you will use Visual Studio to host the mobile service locally on
 
 2. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu to run the app and host the mobile service locally in IIS Express. 
 
-    ![][12]
-
 
 3. Enter a new todoitem's text. Then click **Save**. This inserts a new todoItem in the database created by the mobile service hosted locally in IIS Express. 
 
@@ -249,8 +242,6 @@ In this section you will use Visual Studio to host the mobile service locally on
 
 
 2. In Visual Studio, press the F5 key or click **Start Debugging** from the Debug menu. This will cause the Windows Store app to be rebuilt with the previous change before running the app to connect to the mobile service hosted remotely in Windows Azure. 
-
-    ![][12]
 
 
 3. Enter some new todoitems and click **Save** for each one. Click the checkbox to complete some of the new items. Each new todoItem will be stored and updated in the SQL database you previously configured for your mobile service in the Windows Azure Management Portal. 

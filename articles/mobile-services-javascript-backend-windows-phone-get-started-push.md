@@ -3,18 +3,9 @@
 
 # Get started with push notifications in Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-</div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a></div>
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">.NET backend</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
-</div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
 
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
@@ -23,18 +14,11 @@ In this tutorial you enable push notifications using Windows Azure Notification 
 
 This tutorial walks you through these basic steps to enable push notifications:
 
-1. [Register your app with WNS and configure Mobile Services](#register)
-2. [Update the app to register for notifications](#update-app)
-3. [Update server scripts to send push notifications](#update-scripts)
+1. [Update the app to register for notifications](#update-app)
+2. [Update server scripts to send push notifications](#update-scripts)
 3. [Insert data to receive push notifications](#test)
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
-
-##<a id="register"></a> Register your app with WNS and configure Mobile Services
-
-[WACOM.INCLUDE [mobile-services-javascript-backend-register-windows-store-app](../includes/mobile-services-javascript-backend-register-windows-store-app.md)]
-
-Both your mobile service and your app are now configured to work with WNS and Notification Hubs. Next, you will update your Windows Store app to register for notifications.
 
 ##<a id="update-app"></a> Update the app to register for notifications
 
@@ -81,7 +65,7 @@ Before your app can receive push notifications, you must register a notification
 
 5. Press the **F5** key to run the app. A popup dialog with the registration key is displayed.
   
-5.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
+6.	In the Solution Explorer, expand **Properties**, open the WMAppManifest.xml file, click the **Capabilities** tab and make sure that the **ID___CAP___PUSH_NOTIFICATION** capability is checked.
 
    	![][1]
 
@@ -89,38 +73,47 @@ Before your app can receive push notifications, you must register a notification
 
 ##<a id="update-scripts"></a> Update server scripts to send push notifications
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
+Finally, you must update the script registered to the insert operation on the TodoItem table to send notifications.
 
+1. Click **TodoItem**, click **Script** and select **Insert**. 
 
-<ol start="2">
-<li>
-<p>Replace the insert function with the following code, and then click <strong>Save</strong>:</p>
+   	![][10]
 
-<p><pre><code>function insert(item, user, request) {
-// Define a payload for the Windows Store toast notification.
-var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
-    '<binding template="ToastText01">  <text id="1">' +
-    item.text + '</text></binding></visual></toast>';
+2. Replace the insert function with the following code, and then click **Save**:
 
-request.execute({
-    success: function() {
-        // If the insert succeeds, send a notification.
-    	push.wns.send(null,payload, 'wns/toast', {
-            success: function(pushResponse) {
-                console.log("Sent push:", pushResponse);
-				request.respond();
-                },              
-                error: function (pushResponse) {
-                    console.log("Error Sending push:", pushResponse);
-					request.respond(500, { error: pushResponse });
-                    }
-                });
-            }
-        });
-}</code></pre></p>
+		function insert(item, user, request) {
+		// Define a payload for the Windows Phone toast notification.
+		var payload = '<?xml version="1.0" encoding="utf-8"?>' +
+		    '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
+		    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+		    '</wp:Text2></wp:Toast></wp:Notification>';
+		
+		request.execute({
+		    success: function() {
+		        // If the insert succeeds, send a notification.
+		    	push.mpns.send(null, payload, 'toast', 22, {
+		            success: function(pushResponse) {
+		                console.log("Sent push:", pushResponse);
+						request.respond();
+		                },              
+		                error: function (pushResponse) {
+		                    console.log("Error Sending push:", pushResponse);
+							request.respond(500, { error: pushResponse });
+		                    }
+		                });
+		            }
+		        });      
+		}
 
-<p>This insert script sends a push notification (with the text of the inserted item) to all Windows Phone app registrations after the insert succeeds.</p></li>
-</ol>
+	This insert script sends a push notification (with the text of the inserted item) to all Windows Phone app registrations after the insert succeeds.
+
+3. Click the **Push** tab, check **Enable unauthenticated push notifications**, then click **Save**.
+
+	![][11]
+
+	This enables the mobile service to connect to MPNS in unauthenticated mode to send push notifications.
+
+	>[WACOM.NOTE]This tutorial uses MPNS in unauthenticated mode. In this mode, MPNS limits the number of notifications that can be sent to a device channel. To remove this restriction, you must generate and upload a certificate by clicking **Upload** and selecting the certificate. For more information on generating the certificate, see [Setting up an authenticated web service to send push notifications for Windows Phone](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx).
 
 ##<a id="test"></a> Test push notifications in your app
 
@@ -165,12 +158,13 @@ Consider finding out more about the following Mobile Services topics:
 <!-- Anchors. -->
 
 <!-- Images. -->
-[1]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
-[2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
-[3]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png
-[4]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
-[5]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
-[10]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
+[1]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+[2]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
+[3]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push2-wp8.png
+[4]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
+[5]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
+[10]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-insert-script-push2.png
+[11]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-push-tab.png
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

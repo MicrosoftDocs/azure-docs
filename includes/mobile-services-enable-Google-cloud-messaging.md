@@ -8,7 +8,7 @@
 
 1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
 
-   	![][1]   
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
 	<div class="dev-callout"><b>Note</b>
 	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
@@ -22,25 +22,17 @@
 
 4. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
 
-	![][5]
+	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
 5. Click **Credentials**, and then click **CREATE NEW KEY** 
 
-   	![][2]
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
 6. In **Create a new key**, click **Server key**. In the next window click **Create**.
 
-   	![][3]
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
 7. Make a note of the **API key** value.
 
-   	![][4] 
-
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
-[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
 
