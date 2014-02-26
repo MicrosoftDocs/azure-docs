@@ -12,7 +12,7 @@ The tutorial walks you through these basic steps to enable push notifications:
 * [Configure your Notification Hub](#configure-hub)
 * [Connecting your app to the Notification Hub](#connecting-app)
 * [Testing your app](#run-app)
-* [Send notifications from your back-end](#send)
+* [How to send a notifications from your back-end](#send)
 
 This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. 
 
@@ -25,45 +25,11 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
-<p></p>
-
-<div class="dev-callout"><b>Note</b>
-<p>To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.</p>
-</div> 
-
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> web site, sign-in with your Google account credentials, and then click **CREATE PROJECT**.
-
-   	![][1]   
-
-	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
-    </div>
-
-2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
-
-3. Make a note of the project number in the **Dashboard** section. 
-
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
-
-3. In the left column, click **APIs & auth**, then scoll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
-
-	![][5]
-
-4. Click **Credentials**, and then click **CREATE NEW KEY** 
-
-   	![][2]
-
-5. In **Create a new key**, click **Server key**. In the next window click **Create**.
-
-   	![][3]
-
-6. Make a note of the **API key** value.
-
-   	![][4] 
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 Next, you will use this API key value to enable your notification hub to authenticate with GCM and send push notifications on behalf of your application.
 
-##<a id="configure-hub"></a>>Configure your Notification Hub
+##<a id="configure-hub"></a>Configure your Notification Hub
 
 1. Log on to the [Windows Azure Management Portal], and then click **+NEW** at the bottom of the screen.
 
@@ -93,7 +59,7 @@ Next, you will use this API key value to enable your notification hub to authent
 
 Your notification hub is now configured to work with GCM, and you have the connection strings to register your app and send push notifications.
 
-##><a id="connecting-app"></a>Connecting your app to the Notification Hub
+##<a id="connecting-app"></a>Connecting your app to the Notification Hub
 
 1. In Eclipse ADT, create a new Android project (File, New, Android Application).
 
@@ -239,29 +205,11 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		}
 
 
-##<a name="run-app"></a>Testing your app
 
-You can test this app with an actual Android phone, or with the emulator. When you run it in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
-1. From **Window**, click **Android Virtual Device Manager**, select your device, and then click **Edit**.
+##<a name="send"></a>How to send a notification from your back-end
 
-   	![][18]
-
-2. Select **Google APIs** in **Target**, then click **OK**.
-
-   	![][19]
-
-3. On the top toolbar, click **Run**, and then select your app. This starts the emulator and run the app.
-
-4. The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
-
-	<div class="dev-callout"><b>Note</b>
-    <p>In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to <strong>Settings</strong> and click <strong>Add Account</strong>). Also, make sure that the emulator is connected to the Internet.</p>
-    </div> 
-
-##<a name="send"></a>Send notification from your back-end
-
-You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
+You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we show two ways to send notifications: with a .NET console app, and with a Mobile Service using a node script.
 
 To send notifications using a .NET app:
 
@@ -327,7 +275,45 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
           }
 	    );
 
-6. Click **Run Once** on the bottom bar. You should receive a toast notification.
+6. When you are testing your app, you will click **Run Once** on the bottom bar. You should receive a toast notification.
+
+##<a name="run-app"></a>Testing your app
+
+You can test this app with an actual Android phone, or with the emulator. 
+
+1. When you run it in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
+
+1. From **Window**, click **Android Virtual Device Manager**, select your device, and then click **Edit**.
+
+   	![][18]
+
+2. Select **Google APIs** in **Target**, then click **OK**.
+
+   	![][19]
+
+
+To test with an actual phone, connect it with a USB cable.
+
+
+3. On the Eclipse top toolbar, click **Run**, and then select your app. This starts the emulator and run the app.
+
+4. The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
+
+	<div class="dev-callout"><b>Note</b>
+    <p>In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to <strong>Settings</strong> and click <strong>Add Account</strong>). Also, make sure that the emulator is connected to the Internet.</p>
+    </div> 
+
+5. Now use one of the methods in the preceding section to send a notification to your app.
+
+5. If you are using a .net application, press the F5 key in Visual Studio to run the app. 
+
+
+
+1. If you will generate the notification from a Mobile Service script, click **Run Once** on the bottom bar.
+2. 
+7. You should receive a toast notification.
+
+   	![][21]
 
 ## <a name="next-steps"> </a>Next steps
 
