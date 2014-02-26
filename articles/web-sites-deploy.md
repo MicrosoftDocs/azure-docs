@@ -74,7 +74,7 @@ For information about how to deploy using Mercurial, see the following resources
 
 ##<a name="ide"></a>Deploying from an IDE
 
-[Visual Studio](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) and [WebMatrix](http://www.microsoft.com/web/webmatrix/) are Microsoft IDEs (integrated development environments) that you can use for web development. Both provide built-in features that make it easy to deploy to Windows Azure Web Sites.  Both can use [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) to automate additional deployment-related tasks such as database deployment and connection string changes. Both can also deploy by using [FTP or FTPS]([FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol)). 
+[Visual Studio](http://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) and [WebMatrix](http://www.microsoft.com/web/webmatrix/) are Microsoft IDEs (integrated development environments) that you can use for web development. Both provide built-in features that make it easy to deploy to Windows Azure Web Sites.  Both can use [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) to automate additional deployment-related tasks such as database deployment and connection string changes. Both can also deploy by using [FTP or FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)). 
 
 WebMatrix is quick to install and easy to learn, but Visual Studio offers many more features for working with Windows Azure Web Sites. From within the Visual Studio IDE you can create, stop, start, and delete Windows Azure Web Sites, you can view logs as they are created in real-time, you can debug remotely, and much more. Visual Studio also integrates with source control systems such as [Visual Studio Online](#vso), [Team Foundation Server](#tfs), and [Git repositories](#git).
 
@@ -110,10 +110,10 @@ Regardless of what IDE you use, you can also deploy content to your site by usin
 
 Although it's easy to copy your web site's files to Windows Azure using FTP utilities, they don't automatically take care of or coordinate related deployment tasks such as deploying a database or changing connection strings. Also, many FTP tools don't compare source and destination files in order to skip copying files that haven't changed. For large sites, always copying all files can result in long deployment times even for minor updates since all files are always copied.
 
-For more information, see the following resource:
+For more information, see the following resources:
 
 * [Create a PHP-MySQL Windows Azure Web Site and Deploy Using FTP](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/). 
-* [How to Manage Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/). Includes additional information no included in the PHP tutorial about how to set FTP credentials. See the comments at the bottom of the page for information missing in the document itself about how to get the credentials.
+* [How to Manage Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/). Includes additional information not included in the PHP tutorial about how to set FTP credentials. See the comments at the bottom of the page for information missing in the document itself about how to get the credentials.
 
 
 
@@ -138,11 +138,12 @@ For more information, see the following resource:
 
 In Windows Azure you can enter the URL of any repository that uses Git or Mercurial in order to deploy from that location. You can also directly push from a local Git repository to a Windows Azure Web Site. 
 
-For more information, see the following resource:
+For more information, see the following resources:
 
 * [Publishing from Source Control to Windows Azure Web Sites](/en-us/documentation/articles/web-sites-publish-source-control/). How to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called Local Git). Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.
 * [Publishing to Azure Web Sites from any git/hg repo](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html). Blog by David Ebbo that explains the "External Repository" feature in Windows Azure Web Sites.
 * [Windows Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
+* [Deploying TWO websites to Windows Azure from one Git Repository](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Blog post by Scott Hanselman.
 
 
 
@@ -207,9 +208,9 @@ For more information, see the following resource:
 
 For more information, see the following resource:
 
-* [Web Deployment Tool](http://technet.microsoft.com/en-us/library/dd568996(v=ws.10).aspx). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
+* [Web Deployment Tool](http://technet.microsoft.com/en-us/library/dd568996). Official documentation on the Microsoft TechNet site. Dated but still a good place to start.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Official documentation on the Microsoft IIS.NET site. Also dated but a good place to start.
-* [StackOverflow](www.stackoverflow.com). The best place to go for more current information about how to use Web Deploy from the command line.
+* [StackOverflow](http://www.stackoverflow.com). The best place to go for more current information about how to use Web Deploy from the command line.
 * [ASP.NET Web Deployment using Visual Studio: Command Line Deployment](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild is the build engine used by Visual Studio, and it can also be used from the command line to deploy web applications to Windows Azure Web Sites. This tutorial is part of a series that is mainly about Visual Studio deployment.
 
 
