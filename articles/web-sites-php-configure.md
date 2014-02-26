@@ -35,7 +35,7 @@ PHP 5.5 is also available, but not enabled by default. To enable it, follow thes
 For either of the built-in PHP runtimes, you can change any of the configuration options that are not system-level-only directives by following the steps below. (For information about system-level-only directives, see [List of php.ini directives].)
 
 1. Add a [.user.ini] file to your root directory.
-1. Add configuration settings to the `.user.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to turn the `display_errors` setting on and set `upload_max_filesize` setting to 10 MB, your `.user.ini` file would contain this text:
+1. Add configuration settings to the `.user.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to turn the `display_errors` setting on and set `upload_max_filesize` setting to 10M, your `.user.ini` file would contain this text:
 
 		; Example Settings
 		display_errors=On

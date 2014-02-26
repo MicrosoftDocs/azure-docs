@@ -500,7 +500,7 @@ The following PowerShell script performs the following tasks:
 
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
-This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to Windows Azure HDInsight with Power Query][hdinsight-powerquery].
+This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
 
 
 **To retrieve the output**
