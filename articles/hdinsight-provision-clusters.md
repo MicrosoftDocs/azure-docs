@@ -23,10 +23,7 @@ Before you begin this article, you must have the following:
 HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Currently, only the Southeast Asia, North Europe, West Europe, East US and the West US regions can host HDInsight clusters.</p>
-</div>
+> [WACOM.NOTE] Currently, only the Southeast Asia, North Europe, West Europe, East US and the West US regions can host HDInsight clusters.
 
 This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
 
@@ -114,10 +111,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 
 It can take several minutes to provision a cluster.  When the provision process is completed successfully, the status column for the cluster will show **Running**.
 
-<div class="dev-callout">
-<b>Important</b>
-<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.</p>
-</div>
+> [WACOM.NOTE] Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.
 
 
 
@@ -410,18 +404,9 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 		npm install -g azure-cli
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>If you get an error saying the NPM command is not found, verify the following paths are in the PATH environment variable:
+	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 	
-		C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm
 
-	or
-
-		C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm
-	
-	</p>
-	</div>
 
 5.	Run the following command to verify the installation:
 
@@ -442,10 +427,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
 
 
-<div class="dev-callout">
-<b>Important</b>
-<p>The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>
-</div>
+> [WACOM.NOTE] The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
 
 **To download and import publish settings**
