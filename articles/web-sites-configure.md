@@ -57,14 +57,14 @@ Follow these steps to change configuration options for a web site.
 <!-- CERTIFICATES -->
 <li><strong>certificates</strong> - In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
 <br /><strong>Note:</strong>
-Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>.
+Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>.
 </li>
 
 <!-- DOMAIN NAMES -->
-<li><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
+<li><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
 
 <!-- SSL BINDINGS -->
-<li><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuring an SSL certificate for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
+<li><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
 
 <!-- DEPLOYMENTS  -->
 <li><strong>deployments</strong> - Use these settings to configure deployments.
@@ -95,7 +95,7 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 </li>
 <li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Windows Azure Storage account.
 <br /><strong>Note:</strong> 
-For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a>.
+For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys/">How to: View, copy, and regenerate storage access keys</a>.
 </li></ul></li></ul></li>
 
 <!-- SITE DIAGNOSTICS  -->
@@ -140,7 +140,7 @@ For more information about Windows Azure Storage Access Keys, see <a href="http:
 
 <!-- DEVELOPER ANALYTICS -->
 <li><strong>developer analytics</strong> - Choose <strong>Add-on</strong> to select an analytics add-on from a list, or to go to the Windows Azure store to choose one. Choose <strong>Custom</strong> to select an analytics provider such as New Relic from a list. If you use a custom provider, you must enter the license key in the<strong> Provider Key</strong> box. 
-<br /> <strong>Note</strong>: For more information on using New Relic with Windows Azure Web Sites, see <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/new-relic-app/">New Relic Application Performance Management on Windows Azure Web Sites</a>.
+<br /> <strong>Note</strong>: For more information on using New Relic with Windows Azure Web Sites, see <a href="http://www.windowsazure.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">New Relic Application Performance Management on Windows Azure Web Sites</a>.
 </li>
 
 <!-- APP SETTINGS -->
@@ -207,10 +207,10 @@ Alternatively, you can create the web site with the **Custom Create** option. In
 
 ##<a name="howtodomain"></a>How to: Configure a custom domain name
 
-For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for a Windows Azure Web Site](/en-us/documentation/articles/web-sites-custom-domain-name/).
+For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for a Windows Azure Web Site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
 
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
-For information about configuring SSL for a custom domain on Windows Azure, see [Configuring an SSL certificate for a Windows Azure web site](http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/). 
+For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>. 
 
 ##<a name="next"></a>Next steps
 
