@@ -177,7 +177,7 @@ This step shows you how to add support for federated login using Windows Identit
 ##<a name="summary"></a>Summary
 This tutorial has shown you how to create and configure a single tenant PHP application that uses the single sign-on capabilities of Windows Azure Active Directory.
 
-A sample that shows how to use Windows Azure Active Directory and single sign-on for PHP web sites is available at <http://www.windowsazure.com/en-us/documentation/articles/active-directory-php-web-single-sign-on/>.
+A sample that shows how to use Windows Azure Active Directory and single sign-on for PHP web sites is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
 
 [Step 1: Create a PHP Application]: #createapp
