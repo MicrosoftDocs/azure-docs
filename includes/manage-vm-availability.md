@@ -2,7 +2,7 @@
 
 #Manage the Availability of Virtual Machines#
 
-To help ensure the availability of your application, we strongly recommend using multiple virtual machines that provide redunancy. To provide redunancy, configure more than one virtual machine to perform the same function or role. This redunancy is required to receive a guaranteed level of service. Also be sure to consider dependencies. For example, if virtual machine "IIS1" depends on services provided by virtual machine "SQL1," redundancy for virtual machine "SQL1" is provided by "SQL2" to help avoid service interruptions. For more information about service level agreements,  see the "Cloud Services, Virtual Machines and Virtual Network" section in [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
+To help ensure the availability of your application, we strongly recommend using multiple virtual machines that provide redundancy. To provide redundancy, configure more than one virtual machine to perform the same function or role. This redundancy is required to receive a guaranteed level of service. Also be sure to consider dependencies. For example, if virtual machine "IIS1" depends on services provided by virtual machine "SQL1," redundancy for virtual machine "SQL1" is provided by "SQL2" to help avoid service interruptions. For more information about service level agreements,  see the "Cloud Services, Virtual Machines and Virtual Network" section in [Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/).
 
 This approach can help ensure that your application is available during local network failures, local disk hardware failures, and any planned downtime that the platform may require.
 
