@@ -58,7 +58,7 @@ Before you begin this tutorial, you must have the following:
 - **A workstation** with Windows Azure PowerShell installed and configured. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure]. To execute PowerShell scripts, you must run Windows Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 - **An HDInsight cluster**. For information on creating an HDInsight cluster, see [Provision HDInsight clusters][hdinsight-provision], or [Get started with HDInsight][hdinsight-get-started]. You will need the following data to go through the tutorial:
 
-	<table border = "1" align="left">
+	<table border = "1">
 	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>The HDInsight cluster on which you will run this tutorial.</td></tr>
 	<tr><td>HDInsight cluster username</td><td>$clusterUsername</td><td></td><td>The HDInsight cluster user username. </td></tr>
@@ -69,7 +69,7 @@ Before you begin this tutorial, you must have the following:
 
 - **A Windows Azure SQL Database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions on creating a SQL database and configuring firewall, see [Get started using Windows Azure SQL database][sqldatabase-get-started]. This article provides a PowerShell script for creating the SQL database table needed for this tutorial. 
 
-	<table border = "1" align="left">
+	<table border = "1">
 	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>The SQL Database server to which Sqoop will export data. </td></tr>
 	<tr><td>SQL database login name</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database login name.</td></tr>
@@ -179,21 +179,21 @@ There is a known Hive path issue. You will run into this problem when submitting
 
 	The RunHiveScript has several variables. You will pass the values when you submit the Oozie job from your workstation using Windows Azure PowerShell.
 
-	<table border = "1" align="left">
+	<table border = "1">
 	<tr><th>Workflow variables</th><th>Description</th></tr>
 	<tr><td>${jobTracker}</td><td>Specify the URL of the hadoop job tracker. Use <strong>jobtrackerhost:9010</strong> on HDInsight cluster version 2.0 and 3.0.</td></tr>
 	<tr><td>${nameNode}</td><td>Specify the URL of the hadoop namenode. Use the default file system WASB address. For example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Specifies the queuename that the job will be submitted to. Use <strong>default</strong>.</td></tr>
 	</table>
 
-	<table border = "1" align="left">
+	<table border = "1">
 	<tr><th>Hive action variable</th><th>Description</th></tr>
 	<tr><td>${hiveDataFolder}</td><td>The source directory for the Hive Create Table command.</td></tr>
 	<tr><td>${hiveOutputFolder}</td><td>The output folder for the INSERT OVERWRITE statement.</td></tr>
 	<tr><td>${hiveTableName}</td><td>The name of the Hive table that references the log4j data files.</td></tr>
 	</table>
 
-	<table border = "1" align="left">
+	<table border = "1">
 	<tr><th>Sqoop action variable</th><th>Description</th></tr>
 	<tr><td>${sqlDatabaseConnectionString}</td><td>SQL Database connection string.</td></tr>
 	<tr><td>${sqlDatabaseTableName}</td><td>The SQL Database table where the data will be exported to.</td></tr>
