@@ -25,6 +25,7 @@ For information on provisioning an HDInsight cluster, see [Get Started with HDIn
 * [Benefits of Windows Azure Blob storage](#benefits)
 * [Prepare a container for Blob storage](#preparingblobstorage)
 * [Address files in Blob storage](#addressing)
+* [Access blob using PowerShell](#powershell)
 * [Next steps](#nextsteps)
 
 ##<a id="architecture"></a>HDInsight storage architecture
@@ -97,7 +98,7 @@ Using the quick create option, you can choose an existing storage account. The p
  
 Using the custom create, you can either choose an existing Blob storage container or create a default container. The default container has the same name as the HDInsight cluster name.
 
-![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount1.png   "Custom Create Storage Account" )
+![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  "Custom Create Storage Account" )
   
 
 
@@ -106,64 +107,132 @@ Using the custom create, you can either choose an existing Blob storage containe
 ### Create a container using Windows Azure PowerShell.
 [Windows Azure PowerShell][powershell-install] can be used to create Blob containers. The following is a sample PowerShell script:
 
-	Add-AzureAccount
-	Select-AzureSubscription "<SubscriptionName>"
-
+	$subscriptionName = "<SubscriptionName>"
 	$storageAccountName = "<WindowsAzureStorageAccountName>"
-	
 	$containerName="<BlobContainerToBeCreated>"
-	
-	$storageAccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-	
+
+	Add-AzureAccount # The connection is good for 12 hours.
+	Select-AzureSubscription $subscriptionName #only required if you have multiple subscriptions
 	
 	# Create a storage context object
+	$storageAccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
 	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
 	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext 
 
 
-
-
-
-
-
-
 ##<a id="addressing"></a>Address files in Blob storage
 
 The URI scheme for accessing files in Blob storage is: 
 
-	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
+
+
+> [WACOM.NOTE] The syntax for addressing the files on storage emulator (running on HDInsight emulator) is <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
+
+
 
 The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with *wasbs*. We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
 	
-The &lt;container&gt; identifies the name of the Blob storage container. If no container name is specified but the domain is, then it refers to the [root container](http://msdn.microsoft.com/en-us/library/windowsazure/ee395424.aspx) of the domain's storage account. Note that root containers are read-only.
+The &lt;BlobStorageContainerName&gt; identifies the name of the Blob storage container.
+The &lt;StorageAccountName&gt; identifies the Windows Azure storage account name. A fully qualified domain name (FQDN) is required.
 	
-The &lt;accountname&gt; identifies the storage account name. A fully qualified domain name (FQDN) is required.
-	
-If neither the container nor the accountname has been specified, then the default file system is used.
-	
-The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A "/" inside a blob key is interpreted as a directory separator. Thus, if a blob key is *input/log1.txt*, then it is the file *log1.txt* inside the directory *input*.
+If neither &lt;BlobStorageContainerName&gt; nor &lt;StorageAccountName&gt; has been specified, then the default file system is used. For the files on the default file system, you can use either relative path or absolute path. For example, the hadoop-mapreduce-examples.jar file that comes with HDInsight clusters can be referred to using one of the following:
 
-For example:
-
-	wasbs://dailylogs@myaccount.blob.core.windows.net/input/log1.txt
+	wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+	wasb:///example/jars/hadoop-mapreduce-examples.jar
+	/example/jars/hadoop-mapreduce-examples.jar
 	
-refers to the *file log1.txt* in the directory *input* on the Blob storage container *dailylogs* at the location *myaccount.blob.core.windows.net* using SSL.
-	
-	wasbs://myaccount.blob.core.windows.net/result.txt
-	
-refers to the file *result.txt* on the read-only WASB file system in the root container at the location *myaccount.blob.core.windows.net* that gets accessed through SSL. Note that *wasb://myaccount.blob.core.windows.net/output/result.txt* results in an exception, because Blob storage does not allow "/" inside path names in the root container to avoid ambiguities between paths and folder names. 
-	
-	wasb:///output/result.txt 
-	
-refers to the file *result.txt* in the output directory on the default file system.
-
-Because HDInsight uses a Blob storage container as the default file system, you can refer to files and directories inside the default file system using relative or absolute paths. For example, the following statement lists all top-level directories and files of the default file system from Hadoop command line:
-
-	hadoop fs -ls /output/result.txt
+> [WACOM.NOTE] The file name is <i>hadoop-examples.jar</i> on HDInsight clusters version 1.6 and 2.1.
 
 
+The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage containers are just a key-value store, there is no true hierarchical file system. A "/" inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
+
+	example/jars/hadoop-mapreduce-examples.jar
+	
+
+##<a id="powershell"></a>Access blob using Windows Azure PowerShell
+
+See [Install and configure Windows Azure PowerShell][powershell-install] for information on installing and configuring Windows Azure PowerShell on your workstation. You can use Windows Azure PowerShell console window or PowerShell_ISE to run PowerShell cmdlets. 
+
+Use the following command to list the blob related cmdlets:
+
+	Get-Command *blob*
+
+![Blob.PowerShell.cmdlets][img-hdi-powershell-blobcommands]
+
+
+**PowerShell sample for uploading a file**
+
+See [Upload data to HDInsight][hdinsight-upload-data].
+
+**PowerShell sample for downloading a file**
+
+The following scrip downloads a block blob to the current folder. Before running the script, change the directory to a folder where you have the write permission. 
+
+
+	$storageAccountName = "<WindowsAzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
+	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
+	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
+	
+	# Use Add-AzureAccount if you haven't connected to your Azure subscription
+	#Add-AzureAccount # The connection is good for 12 hours
+	
+	# Use these two commands if you have multiple subscriptions
+	#$subscriptionName = "<SubscriptionName>"       
+	#Select-AzureSubscription $subscriptionName
+	
+	Write-Host "Create a context object ... " -ForegroundColor Green
+	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	
+	Write-Host "Download the blob ..." -ForegroundColor Green
+	Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
+	
+	Write-Host "List the downloaded file ..." -ForegroundColor Green
+	cat "./$blob"
+
+**PowerShell sample for deleting a file**
+
+	$storageAccountName = "<WindowsAzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
+	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
+	$blob = "example/data/sample.log" # The name of the blob to be downloaded.
+	
+	# Use Add-AzureAccount if you haven't connected to your Azure subscription
+	#Add-AzureAccount # The connection is good for 12 hours
+	
+	# Use these two commands if you have multiple subscriptions
+	#$subscriptionName = "<SubscriptionName>"       
+	#Select-AzureSubscription $subscriptionName
+	
+	Write-Host "Create a context object ... " -ForegroundColor Green
+	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	
+	Write-Host "Delete the blob ..." -ForegroundColor Green
+	Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob 
+	
+
+**PowerShell sample for listing files in a folder**
+
+	$storageAccountName = "<WindowsAzureStorageAccountName>"   # The storage account used for the default file system specified at provision.
+	$containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
+	$blobPrefix = "example/data/"
+	
+	# Use Add-AzureAccount if you haven't connected to your Azure subscription
+	#Add-AzureAccount # The connection is good for 12 hours
+	
+	# Use these two commands if you have multiple subscriptions
+	#$subscriptionName = "<SubscriptionName>"       
+	#Select-AzureSubscription $subscriptionName
+	
+	Write-Host "Create a context object ... " -ForegroundColor Green
+	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+
+	Write-Host "List the files in $blobPrefix ..."
+	Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix $blobPrefix
 
 ##<a id="nextsteps"></a>Next steps
 
@@ -177,10 +246,12 @@ To learn more, see the following articles:
 * [Use Pig with HDInsight][hdinsight-pig]
 
 [Powershell-install]: ../install-configure-powershell/
-
 [hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
-[hdinsight-upload-data]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-getting-started]: ../hdinsight-get-started-hdinsight/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-hive]: ../hdinsight-using-hive/
+[hdinsight-pig]: ../hdinsight-using-pig/
 
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
+[Powershell-install]: ../install-configure-powershell/
+
+[img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
