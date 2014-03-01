@@ -2,23 +2,24 @@
 
 # Windows Azure data management: Making the right choice 
 
-##Placeholder content
-**Summary:** Windows Azure offers a broad array of options for your NoSQL workloads, but it can be challenging to determine which one is right for you.  This document explains NoSQL technologies on Windows Azure and how to choose the right service to manage your non-relational data, which includes unstructured or particularly large data sets often referred to as "big data." 
+**Summary:** Windows Azure provides several different ways to store and manage data. This diversity lets users of the platform address a variety of different problems. Yet diversity implies choice: Which data management option is right for a particular situation? 
 
-Relational technology has long been the dominant approach for working with data. However, when you work with very large amounts of different types of data, scaling across many servers is challenging. Also, relational technology is not the best fit for managing some kinds of data, such as JSON documents or graphs. This guide walks through the options, explaining what each one provides and why you might want to use it.
+This short overview is intended to help you answer that question. Get a quick summary of the data management technologies in Windows Azure: SQL Database, SQL Server in a VM, Blob Storage, and Table Storage. Then, read about several different scenarios, and learn which of these technologies is most appropriate in each case. 
 
 **Contents:**
 
-* Data on Windows Azure: The Big Picture	
-* Windows Azure Relational Technologies: A Quick Look	
-* Windows Azure NoSQL Technologies: Operational Data	
-	* Key/Value Stores	
-	* Column Family Stores	
-	* Document Stores	
-	* Graph Databases	
-* Windows Azure NoSQL Technologies: Analytical Data	
-	* Hadoop MapReduce	
-	* HDInsight	
+* Windows Azure Data Management: A Summary
+* Choosing Data Management Technologies: Examples
+	* Creating an Enterprise or Departmental Application for a Single Organization
+	* Creating a SaaS Application for Many Organizations
+	* Creating a Scalable Consumer Application
+	* Creating a Big Data Application
+	* Creating a Data Streaming Application
+	* Moving a Windows Server Application to Windows Azure
+	* Creating an On-Premises Application that Uses Cloud Data
+	* Storing Backup Data in the Cloud
+* Final Thoughts
+* About the Author
 
 **Author:** David Chappell, Principal of Chappell & Associates
 
@@ -26,10 +27,4 @@ Relational technology has long been the dominant approach for working with data.
 
 **Revision:** 1.0
 
-**Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">Windows Azure data management: Making the right choice</a>
-
-
-
-
-
-
+**Download:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=393034&clcid=0x409" target="_blank">Windows Azure data management: Making the right choice</a>
