@@ -90,7 +90,11 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	This filters the items so that completed items are not returned by the query.
 
-7. In the **ToDoActivity.java** file, add the following method:
+7. Make sure that **ToDoActivity.java** is importing ApiOperationCallback in the block of imports at the beginning of the file:
+
+	import com.microsoft.windowsazure.mobileservices.ApiOperationCallback;
+
+8. In the **ToDoActivity.java** file, add the following method:
 
 		public void completeItem(View view) {
 			mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
