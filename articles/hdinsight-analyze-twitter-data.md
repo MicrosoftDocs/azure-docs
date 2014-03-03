@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with Hive" pageTitle="Analyze Twitter data with HDinsight | Windows Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on HDInsight to find usage frequency of a particular word." metaCanonical="" services="" documentationCenter="" title="Analyze Twitter data with Hive" authors="jgao"  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
 
-# Analyzing Twitter Data with HDInsight 
+# Analyze Twitter data with HDInsight 
 
 Learn how to analyze Twitter data using Hive with HDInsight.
 
