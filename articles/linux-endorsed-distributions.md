@@ -39,8 +39,6 @@ The following table shows the different distribution versions, Linux Integration
 
 The table also includes a link to the Kernel compatibility patch required by some distribution versions to work optimally in Windows Azure.
 
-Note that the different distributions will be incorporating the agent to their official distribution archives shortly, but for the time being we are releasing all the RPM and Deb packages for the agent plus the drivers for CentOS on the same ISO. 
-
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
 		<th>Distribution</th>		
@@ -48,8 +46,7 @@ Note that the different distributions will be incorporating the agent to their o
 	    <th>Drivers</th>
 		<th>Kernel Compatibility Patch</th>
 		<th>Agent</th>
-		<th>Base Images</th>
-	</tr>
+			</tr>
 	<tr>
 		<th>  Canonical UBUNTU </th>
 		<td> Ubuntu 12.04.1, 12.10, and 13.04</td>
@@ -57,8 +54,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275152&amp;clcid=0x409">Required for 12.04 or 12.04.01 only</a></td>
 		<td>Package: In package repo under walinuxagent <br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkId=301511">Download base VHD</a></td>
-	</tr>
+			</tr>
 	<tr>
 		<th> CENTOS by Open Logic </th>
 		<td> CentOS 6.3+</td>
@@ -66,7 +62,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Required for 6.3 only</a></td>
 		<td>Package:In <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">Open Logic package repo </a> under walinuxagent<br />
 			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
- 		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=254266">Download ISO</a></td>
+ 		
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
@@ -75,16 +71,16 @@ Note that the different distributions will be incorporating the agent to their o
 		<td>N/A</td>
 		<td>Package: In repo, name: WALinuxAgent
 <br />
-			Source: <A HREF="https://github.com/windowsazure/walinuxagent">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=301278">Create base image</a></td>
+			Source: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+		
 	</tr><tr>
 		<th> SUSE Linux Enterprise </th>
 		<td> SLES 11 SP3+</td>
         <td>In Kernel</td>
 		<td>N/A</td>
 		<td>Package: In <A HREF="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</A> repo, name: WALinuxAgent<br />
-			Source Code: <A HREF="https://github.com/windowsazure/walinuxagent">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=301278">Create base image</a></td>
+			Source Code: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+		
 	</tr>
 	<tr>
 		<th> openSUSE </th>
@@ -92,7 +88,7 @@ Note that the different distributions will be incorporating the agent to their o
 		<td>In Kernel</td>
 		<td>N/A</td>
 		<td>Package: In <A HREF="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</A> repo, name: WALinuxAgent<br />
-			Source Code: <A HREF="https://github.com/windowsazure/walinuxagent">GITHUB</A></td>
-		<td><a href="http://go.microsoft.com/fwlink/p/?LinkID=301281">Create base image</a></td>
+			Source Code: <A HREF="http://go.microsoft.com/fwlink/p/?LinkID=250998">GITHUB</A></td>
+		
 	</tr>
 </table>
