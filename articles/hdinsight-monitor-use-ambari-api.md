@@ -49,7 +49,7 @@ Before you begin this tutorial, you must have the following:
 
 There are several ways to use Ambari to monitor HDInsight clusters.
 
-**use Windows Azure PowerShell**
+**Use Windows Azure PowerShell**
 
 The following is a PowerShell script for getting the MapReduce jobtracker information:
 
@@ -71,7 +71,7 @@ The output is:
 
 ![Jobtracker Output][img-jobtracker-output]
 
-**use curl**
+**Use curl**
 
 The following is an example of getting cluster information using Curl:
 
