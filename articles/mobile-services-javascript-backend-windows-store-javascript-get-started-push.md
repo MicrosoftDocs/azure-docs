@@ -19,7 +19,7 @@
 This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you enable push notifications using Windows Azure Notification Hubs to the quickstart project. When complete, your mobile service will send a push notification using Notification Hubs each time a record is inserted. The notification hub that you create is free with your mobile service, can be managed independent of the mobile service, and can be used by other applications and services.
 
->[WACOM.NOTE]By default, push notifications using Notification Hubs is not enabled. This tutorial creates a new notification hub. Once enabled, the process cannot be reverted. Push notifications using Notification Hubs is currently not supported for iOS and Android clients. For guidance on how to use the legacy support for push notifications, see [this version of the topic](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/).
+>[WACOM.NOTE]By default, sending push notifications using Notification Hubs is not enabled. This tutorial creates a new notification hub. Once enabled, the process cannot be reverted. For guidance on how to use the legacy support for push notifications, see [this version of the topic](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
