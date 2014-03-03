@@ -23,7 +23,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 3. [Update the server to send push notifications](#update-server)
 3. [Insert data to receive push notifications](#test)
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. 
 
 ##<a id="update-app"></a> Update the app to register for notifications
 
