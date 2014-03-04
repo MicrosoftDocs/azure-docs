@@ -36,7 +36,10 @@ Follow these steps to change configuration options for a web site.
 <li><strong>.NET Framework Version</strong> - If your web application uses the .NET Framework, set the version of the framework that the web application requires.</li>
 
 <li><strong>PHP Version</strong> - If your web application uses PHP, set the version of PHP that the web application requires.</li>
-
+<li><strong>Java Version</strong> - Select the displayed version of Java to enable it for your web application, or <strong>OFF</strong> to disable Java. If you enable Java for your web application, the <strong>Web Container</strong> option lets you choose between Tomcat and Jetty versions.
+<p><strong>Note</strong>: For technical reasons, enabling Java for your web site disables the .NET, PHP, and Python options.</p>
+</li>
+<li><strong>Python  Version</strong> - Shows the Python version (non-configurable).</li>
 <li><strong>Managed Pipeline Mode</strong> - Of the two choices, <strong>Classic</strong> and <strong>Integrated</strong>, Integrated is the default. You should use the Classic option only if you have legacy web sites that run exclusively on older versions of IIS.</li>
 
 <li><strong>Platform</strong> - For sites in Standard mode, you can choose whether you want your application to run in a 32-bit or 64-bit environment. Sites in the Free and Shared modes always run in a 32-bit environment.</li>
@@ -47,7 +50,6 @@ Follow these steps to change configuration options for a web site.
 
 <li><strong>Edit in Visual Studio Online</strong> - Select <strong>On</strong> to enable live code editing with Visual Studio Online. After you save this configuration change, the DASHBOARD tab's <strong>Quick Glance</strong> section will display a link called <strong>Edit in Visual Studio Online</strong>. Click the link to edit your web site directly online. If you need to authenticate, you can use your basic deployment credentials. 
 <p><strong>Note</strong>: If you have 'deployment from source control' enabled, it is possible for a deployment to overwrite changes the changes you make in the Visual Studio Online editor. It is therefore best not to use 'deployment from source control' if you want to edit the site contents directly with Visual Studio Online.</p>
-
 </li>
 
 
