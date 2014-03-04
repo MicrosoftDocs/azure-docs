@@ -31,6 +31,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
   
 2. If this isn't the first time you've signed in, you see this screen when you sign in. Click the **Create an account for free** link.<br/>
 ![][36]
+
 3. Create an account URL for your new project. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
 ![][37]
  
@@ -211,5 +212,5 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [33]: ./media/cloud-services-continuous-delivery-use-vso/tfs33.png
 [34]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
 [35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
-[36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.png
-[37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.png
+[36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
+[37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG
