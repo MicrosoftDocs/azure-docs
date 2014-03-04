@@ -104,10 +104,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains "there".
 
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>If you open ./example/data/WordCountOutput/part-r-00000, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.</p> 
-</div>
+> [WACOM.NOTE] If you open ./example/data/WordCountOutput/part-r-00000, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
 
 
 
@@ -269,7 +266,7 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 4. Submit the hive job:
 
 		Use-AzureHDInsightCluster $clusterName
-		Invoke-Hive -Query "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+		Invoke-Hive -Query $queryString
 
 	You can use the -File switch to specify a HiveQL script file on HDFS.
 

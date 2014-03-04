@@ -1,5 +1,4 @@
-<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Windows Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to a Windows Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Windows Azure SQL Database from PHP" authors=""  solutions="" writer="" manager="" editor=""  />
-
+<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Windows Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to a Windows Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Windows Azure SQL Database from PHP" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
 
 #How to Access Windows Azure SQL Database from PHP 
 
@@ -38,7 +37,7 @@ Alternatively, you can set up your environment manually:
 Follow these steps to create a Windows Azure SQL Database:
 
 1. Login to the [Management Portal][preview-portal].
-2. Click the **+ NEW** icon on the bottom left of the portal.
+2. Click **New** on the bottom left of the portal.
 
 	![Create New Windows Azure Web Site][new-website]
 
@@ -106,6 +105,8 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 ##<a id="NextSteps"></a>Next steps
 As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
 
+A sample that shows how to use SQL Database with PHP on Windows Azure is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
+
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
 [limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
 [odbc-php]: http://www.php.net/odbc
@@ -121,9 +122,6 @@ As mentioned earlier, using SQL Database is very similar to using SQL Server. On
 [database-settings]: ./media/sql-database-php-how-to-use-sql-database/new-sql-db.png
 [create-server]: ./media/sql-database-php-how-to-use-sql-database/db-server-settings.png
 [sql-dbs-servers]: ./media/sql-database-php-how-to-use-sql-database/sql-dbs-portal.png
-
-
-
 [wpi-installer]: http://go.microsoft.com/fwlink/?LinkId=253447
 [go-to-db-info]: ./media/sql-database-php-how-to-use-sql-database/go-to-db-info.png
 [show-connection-string]: ./media/sql-database-php-how-to-use-sql-database/show-connection-string-2.png

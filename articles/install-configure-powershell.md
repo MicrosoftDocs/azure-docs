@@ -24,7 +24,7 @@ This guide provides basic information about installing and setting up Windows Az
 
 Windows Azure is a subscription-based platform. This means that a subscription is required to use the platform. In most cases, it also means that the cmdlets require subscription information to perform the tasks with your subscription. (Some of the storage-related cmdlets can be used without this information.) You provide this by configuring your computer to connect to your subscription. Instructions are provided in this article, under "How to: Connect to your subscription."
 
-**Note**: A variety of subscription options are available. For information, see [Get Started with Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
+> [WACOM.NOTE] A variety of subscription options are available. For information, see [Get Started with Windows Azure](http://go.microsoft.com/fwlink/p/?LinkId=320795).
 
 When you install the module, the installer checks your system for the required software and installs all dependencies, such as the correct version of Windows PowerShell and .NET Framework. 
 
@@ -54,7 +54,7 @@ To help you choose the authentication method that's appropriate for your needs, 
 - The Windows Azure AD method can make it easier to manage access to a subscription, but may disrupt automation. The credentials are available to Windows Azure PowerShell for 12 hours. After they expire, you'll need to log in again.  
 - When you use the certificate method, the subscription information is available as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a shared subscription, such as when more than one person is authorized to access the account.    
 
-For more information about authentication and subscription management in Windows Azure, see [this article](http://go.microsoft.com/fwlink/?LinkId=324796).
+For more information about authentication and subscription management in Windows Azure, see [Manage Accounts, Subscriptions, and Administrative Roles](http://go.microsoft.com/fwlink/?LinkId=324796).
 
 <h3>Use the Windows Azure AD method</h3>
 
@@ -106,8 +106,7 @@ location and file name format is:
 
     Import-AzurePublishSettingsFile C:\Users\&lt;UserProfile&gt;\Downloads\&lt;SubscriptionName&gt;-credentials.publishsettings
 
-**Note**:
-If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
+> [WACOM.NOTE] If you are added to other subscriptions as a co-administrator after you import your publish settings, you'll need to repeat this
 process to download a new .publishsettings file, and then import those
 settings. For information about adding co-administrators to help manage
 services for a subscription, see [Add and Remove Co-Administrators for Your Windows Azure Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx).
@@ -125,27 +124,27 @@ To see subscription information, type:
 
 ## <a id="Ex"></a>How to use the cmdlets: An example ##
 
-After you've installed the module and configured your computer to connect to your subscription, you can create a website as a example that shows how to use the cmdlets.
+After you've installed the module and configured your computer to connect to your subscription, you can create a web site as a example that shows how to use the cmdlets.
 
 1. Open the Windows Azure PowerShell shell, unless it's already open.
 
-2. Determine a name to give the site. You'll need to use a name that conforms to DNS naming conventions. Valid names can contain only letters 'a' through 'z', numbers '0' through '9', and can also the hyphen ('-'). The name also must be unique within Windows Azure. An easy way to create a unique name is to use a form of your account name.
+2. Determine a name to give the site. You'll need to use a name that conforms to DNS naming conventions. Valid names can contain only letters 'a' through 'z', numbers '0' through '9', and can also the hyphen ('-'). The name also must be unique within Windows Azure. 
 
 	After you pick a name, type a command similar to the following. For example, to create a website using your account and a number so you can use this convention more than once, type the following, substituting your account name:
 
-	`New-AzureWebsite account-name-1`
+	`New-AzureWebsite my-site-name-1`
 
-	The cmdlet creates the website, and then lists information about the new website.
+	The cmdlet creates the web site, and then lists information about it.
 
 3. To check the state of the website, type:
 
 	`Get-AzureWebsite`
 
-	The cmdlet lists the name and state, and host name of the new website. 
+	The cmdlet lists the name and state, and host name of the new web site. 
 
-	**Note**: Run as shown, this command lists information about all the websites associated with the current subscription. 
+	> [WACOM.NOTE] Run as shown, this command lists information about all the web sites associated with the current subscription. 
 
-4. Websites are started after they are created. To stop the website, type:
+4. Web sites are started after they are created. To stop the web site, type:
 
 	`Stop-AzureWebsite -Name account-name-1`
 

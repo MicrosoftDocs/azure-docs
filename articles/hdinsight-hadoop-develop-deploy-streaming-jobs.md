@@ -160,10 +160,7 @@ This tutorial uses the following folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>The Hadoop HDFS commands are case sensitive.</p> 
-</div>
+> [WACOM.NOTE] The Hadoop HDFS commands are case sensitive.
 
 **To copy the text files to the emulator HDFS**
 

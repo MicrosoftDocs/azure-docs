@@ -251,7 +251,7 @@ Before performing the steps in this section, you must have associated a custom d
 >
 > 1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web site. You can find this IP address on the **Dashboard** page of your web site, in the **quick glance** section. It will be listed as **Virtual IP Address**:
 >    
->     <img src="./media/configure-ssl-web-site/staticip.png" alt="Virtual IP Address">
+>     ![Virtual IP address](./media/configure-ssl-web-site/staticip.png)
 >    
 >     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
 >
