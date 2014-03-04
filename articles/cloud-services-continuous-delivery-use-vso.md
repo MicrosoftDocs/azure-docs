@@ -211,5 +211,5 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [33]: ./media/cloud-services-continuous-delivery-use-vso/tfs33.png
 [34]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
 [35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
-[36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.png
-[37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.png
+[36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
+[37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG
