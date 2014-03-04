@@ -31,6 +31,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
   
 2. If this isn't the first time you've signed in, you see this screen when you sign in. Click the **Create an account for free** link.<br/>
 ![][36]
+
 3. Create an account URL for your new project. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
 ![][37]
  
