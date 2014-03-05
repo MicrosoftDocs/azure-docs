@@ -1,11 +1,10 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Web Sites" authors=""  solutions="" writer="timamm" manager="" editor=""  />
+<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Web Sites" authors=""  solutions="" writer="timamm" manager="" editor="mollybos"  />
 
 
 
 
 
 # How to Configure Web Sites #
-
 In the Windows Azure Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
 
 ## Table of Contents ##
@@ -96,8 +95,7 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 <li><strong>Synchronize Primary Key</strong> - Retrieves the latest primary key of your Windows Azure Storage account.
 </li>
 <li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Windows Azure Storage account.
-<br /><strong>Note:</strong> 
-For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys/">How to: View, copy, and regenerate storage access keys</a>.
+<br /><strong>Note:</strong> For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a>.
 </li></ul></li></ul></li>
 
 <!-- SITE DIAGNOSTICS  -->
@@ -212,10 +210,15 @@ Alternatively, you can create the web site with the **Custom Create** option. In
 For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for a Windows Azure Web Site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
 
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
+<<<<<<< HEAD
+For information about configuring SSL for a custom domain on Windows Azure, see [Enable HTTPS for a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
+=======
 For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>. 
+>>>>>>> 46955d1d62c99dca0240d7a2e7ea2325d2e4595d
 
 ##<a name="next"></a>Next steps
 
-* [How to scale a web site](/en-us/documentation/articles/web-sites-scale/)
+* [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/)
 
-* [How to monitor a web site](/en-us/documentation/articles/web-sites-monitor/)
+* [How to Monitor Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/)
+
