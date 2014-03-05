@@ -5,16 +5,16 @@
 > [WACOM.NOTE] This article provides summary information for Windows Azure Traffic Manager as it relates to Windows Azure Web Sites. More information about Traffic Manager itself can be found by visiting the links at the end of this article.
 
 ## Introduction
-You can use Windows Azure Traffic Manager to control how requests are distributed to Windows Azure Web Sites. When Windows Azure web site endpoints are added to a Windows Azure Traffic Manager profile, Windows Azure Traffic Manager keeps track of the status of your web sites (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.
+You can use Windows Azure Traffic Manager to control how requests from web clients are distributed to Windows Azure Web Sites. When Windows Azure web site endpoints are added to a Windows Azure Traffic Manager profile, Windows Azure Traffic Manager keeps track of the status of your web sites (running, stopped or deleted) so that it can decide which of those endpoints should receive traffic.
 
 ## Load Balancing Methods
 Windows Azure Traffic Manager uses three different load balancing methods. These are described  in the following list as they pertain to Windows Azure Web Sites. 
 
-* **Failover**: If you have web site clones in different regions, you can use this method to configure one web site to service traffic, and configure another web site in a different region to service that traffic in case the first web site becomes unavailable. 
+* **Failover**: If you have web site clones in different regions, you can use this method to configure one web site to service all web client traffic, and configure another web site in a different region to service that traffic in case the first web site becomes unavailable. 
 	
 * **Round Robin**: If you have web site clones in different regions, you can use this method to distribute traffic equally across the web sites in different regions. 
 	
-* **Performance**: The Performance method routes traffic based on the shortest round trip time to clients. The Performance method can be used for web sites within the same region or in different regions. 
+* **Performance**: The Performance method distributes traffic based on the shortest round trip time to clients. The Performance method can be used for web sites within the same region or in different regions. 
 
 For detailed information about load balancing in Windows Azure Traffic Manager, see [About Traffic Manager Load Balancing Methods](http://msdn.microsoft.com/en-us/library/windowsazure/dn339010.aspx).
 
