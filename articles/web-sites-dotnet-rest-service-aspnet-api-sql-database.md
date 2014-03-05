@@ -780,7 +780,7 @@ To publish the application, you repeat the procedure you followed earlier.
 
 1. Under **ContactsManagerContext(ContactsManagerContext)**, click the **v** icon to change *Remote connection string* to the connection string for the contact database. Click **ContactDB**.
 
-	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.pnt)
+	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.png)
 
 7. Check the box for **Execute Code First Migrations (runs on application start)**.
 
