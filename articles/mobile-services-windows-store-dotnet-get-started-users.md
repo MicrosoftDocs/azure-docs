@@ -67,7 +67,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Single sign-on for Windows Store apps by using Live Connect]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
 [Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/

@@ -5,9 +5,9 @@
 
 # Continuous delivery to Windows Azure using Visual Studio Online
 
-Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft's popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Applications in Windows Azure](../cloud-services-continuous-delivery-use-vso).
+Visual Studio Online (previously Team Foundation Service) is a cloud-hosted service version of Microsoft's popular Team Foundation Server (TFS) software that provides highly customizable source code and build management, agile development and team process workflow, issue and work item tracking, and more.  You can configure your Visual Studio Online team projects to automatically build and deploy to Windows Azure web sites or cloud services.  For information on how to set up a continuous build and deploy system using an on-premises Team Foundation Server, see [Continuous Delivery for Cloud Services in Windows Azure](../cloud-services-dotnet-continuous-delivery).
 
-This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don't already have Visual Studio 2013, download it [here](http://www.microsoft.com/visualstudio/eng/downloads). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
+This tutorial assumes you have Visual Studio 2013 and the Windows Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Windows Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 To set up a cloud service to automatically build and deploy to Windows Azure by using Visual Studio Online, follow these steps:
 
@@ -25,26 +25,31 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 
 <h2> <a name="step1"></a><span class="short-header">Sign up for Visual Studio Online</span>Step 1: Sign up for Visual Studio Online</h2>
 
-1. Create a Visual Studio Online account by navigating to [http://www.visualstudio.com](http://www.visualstudio.com). Click the **Sign up for free** link.
-  You will need to sign-in using a Microsoft account. After you log in, provide the requested information and create a TFS account URL. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
+1. Create a Visual Studio Online account by navigating to [http://www.visualstudio.com](http://www.visualstudio.com). Click the **Sign In** link.
+  You will need to sign-in using a Microsoft account. If this is the first time you've signed in, you are asked to provide some information about yourself, such as your name and email address.
 ![][0]
+  
+2. If this isn't the first time you've signed in, you see this screen when you sign in. Click the **Create an account for free** link.<br/>
+![][36]
+
+3. Create an account URL for your new project. Your account will have the form: https://&lt;accountname&gt;.visualstudio.com.<br/>
+![][37]
  
-2. Now you can create your first project. Enter the project name and description. Choose the version control system you want to use. Team Foundation Version Control (TFVC) or Git are both supported. Then choose the process template your organization uses, and choose the **Create Project** button.<br/>
+2. Now you can create your first project. Enter the project name and description. Choose the version control system you want to use. Team Foundation Version Control (TFVC) or Git are both supported.  You can find out more about these options at [Use version control](http://go.microsoft.com/fwlink/?LinkId=324037). This walkthrough assumes you are using TFVC. The steps might be a little different for Git. Then choose the process template your organization uses, and choose the **Create Project** button. For more information about process templates, see [Work with team project artifacts, choose a process template](http://go.microsoft.com/fwlink/?LinkId=324035).<br/>
 ![][1]
 
-3. When project creation is done, click the **Open with Visual Studio to connect** button link to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow.<br/>
+3. When project creation is done, click the **Open with Visual Studio to connect** button to automatically launch Visual Studio connected to your team project. If you see any security dialog boxes, choose Allow. If you encounter an authorization error, you might have to <br/>
 ![][2]
 
 <h2><a name="step2"> </a><span class="short-header">Check in a project to source control.</span>Step 2: Check in a project to source control</h2>
 
 1. In Visual Studio, open the solution you want to deploy, or create a new one.
 You can deploy a web site or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
-If you want to create a new solution, you can either create a new Windows Azure Cloud Service project,
-or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4,
-and add an ASP.NET MVC web role and a worker role. When prompted, choose **Internet Application**.
-If you want to create a web site, choose the ASP.NET MVC Application project template.
+If you want to create a new solution, create a new Windows Azure Cloud Service project,
+or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, add if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
+If you want to create a web site, choose the ASP.NET Web Application project template, and then choose MVC.
 
-2. Open the shortcut menu for the solution, and select **Add Solution to Source Control**.<br/>
+2. Open the context menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
 
 3. Accept or change the defaults and choose the **OK** button. Once the process completes, source control icons appear in Solution Explorer.<br/>
@@ -62,13 +67,13 @@ Note the options to include or exclude specific changes when you check in. If de
 
 <h2> <a name="step3"> </a><span class="short-header">Connect the project to Windows Azure</span>Step 3: Connect the project to Windows Azure</h2>
 
-1. Now that you have a TFS team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up Visual Studio Online publishing** link.<br/>
+1. Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Windows Azure.  In the [Windows Azure Portal](http://manage.windowsazure.com), select your cloud service or web site, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web Site** and then **Quick Create**. Choose the **Set up Visual Studio Online publishing** link.<br/>
 ![][10]
 
 2. In the wizard, type the name of your Visual Studio Online account in the textbox and click the **Authorize Now** link. You might be asked to sign in.<br/>
 ![][11]
 
-3. In the OAuth pop-up dialog, choose **Accept** to authorize Windows Azure to configure your team project in TFS.<br/>
+3. In the OAuth pop-up dialog, choose **Accept** to authorize Windows Azure to configure your team project in VSO.<br/>
 ![][12]
 
 4. When authorization succeeds, you see a dropdown containing a list of your Visual Studio Online team projects.  Select the name of team project that you created in the previous steps, and choose the wizard's checkmark button.<br/>
@@ -118,8 +123,8 @@ In the **Trigger** tab, you will see that the build definition is set to build o
 In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web site.<br/>
 ![][27]
 <br/>
-Specify values for the properties if the values differ from the defaults.
-The following table shows default values of the properties:
+Specify values for the properties if you want different values than the defaults.
+The following table shows default values of the properties for a cloud service:
 	<table>
 <tr><td><b>Property</b></td><td><b>Default Value</b></td></tr>
 <tr><td>Allow Upgrade</td><td>true</td></tr>
@@ -133,7 +138,7 @@ The following table shows default values of the properties:
 <br/>
 If the storage account property is left blank, Windows Azure searches for one. If there is a storage
 account with the same name as the cloud service, it is used. Otherwise, it uses another storage account,
-or if there is no storage account, it creates one.
+or if there is no storage account, it creates one. The storage account provides a place in Windows Azure for storage files and other data. For more information, see [What is a storage account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account).
 
 11. By this time, your build should be completed successfully.<br/>
 ![][28]
@@ -144,26 +149,26 @@ or if there is no storage account, it creates one.
 13. In the [Windows Azure Portal](http://manage.windowsazure.com), you can view the associated deployment on the Deployments tab when the staging environment is selected.<br/>
 ![][30]
 
-14.	Choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. For a web site, just click the Browse button on the command bar. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. Web sites have no Staging or Production environments. <br/>
+14.	Browse to your site's URL. For a web site, just click the Browse button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the Alternate Cloud Service Environment property to Production. This screenshot shows where the site URL is on the cloud service's dashboard page: <br/>
 ![][31]
 <br/>
 A new browser tab will open to reveal your running site.<br/>
 ![][32]
 
-15.	If you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one marked as Active.<br/>
+15.	For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one marked as Active.<br/>
 ![][33]
 
 <h2> <a name="step5"> </a><span class="short-header">Redeploy an earlier build</span>Step 5: Redeploy an earlier build</h2>
 
-This step is optional. Select an earlier deployment and click the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
+This step applies to cloud services and is optional. In the management portal, select an earlier deployment and click the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
 ![][34]
 
 <h2> <a name="step6"> </a><span class="short-header">Change the Production deployment</span>Step 6: Change the Production deployment</h2>
 
-This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
+This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production enviroment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Windows Azure Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-publish-source-control).
 
 [Step 1: Sign up for Visual Studio Online.]: #step1
 [Step 2: Check in a project to source control.]: #step2
@@ -207,3 +212,5 @@ For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/
 [33]: ./media/cloud-services-continuous-delivery-use-vso/tfs33.png
 [34]: ./media/cloud-services-continuous-delivery-use-vso/tfs34.png
 [35]: ./media/cloud-services-continuous-delivery-use-vso/tfs35.png
+[36]: ./media/cloud-services-continuous-delivery-use-vso/tfs36.PNG
+[37]: ./media/cloud-services-continuous-delivery-use-vso/tfs37.PNG

@@ -5,33 +5,30 @@
 
 # REST service using ASP.NET Web API and SQL Database 
 
-***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 26 June 2013.***
+***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated  March 2014.***
 
-This tutorial shows how to deploy an ASP.NET web application that uses the ASP.NET Web API to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2012 or Visual Studio 2012 for Web Express.
+This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. (If you prefer to use Visual Studio 2012, see [the previous version of this tutorial](/en-us/develop/net/tutorials/get-started-vs2012/).)
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2012, the SDK automatically installs Visual Studio 2012 for Web Express. So you can start developing for Windows Azure entirely for free.
+You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Windows Azure entirely for free.
 
-This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a data-driven web application up and running in the cloud and using a cloud database.
-
+This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a simple web application up and running in the cloud.
+ 
 You'll learn:
 
 * How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
-* How to create a Visual Studio ASP.NET MVC 4 project and publish it to a Windows Azure Web Site.
+* How to create a Visual Studio ASP.NET MVC 5 project and publish it to a Windows Azure Web Site.
 * How to use the ASP.NET Web API to enable Restful API calls.
 * How to use a SQL database to store data in Windows Azure.
 * How to publish application updates to Windows Azure.
 
-You'll build a simple contact list web application that is built on ASP.NET MVC 4 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
+You'll build a simple contact list web application that is built on ASP.NET MVC 5 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
 ![screenshot of web site][intro001]
-
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
-
 In this tutorial:
 
 * [Set up the development environment][setupdbenv]
 * [Set up the Windows Azure environment][setupwindowsazureenv]
-* [Create an ASP.NET MVC 4 application][createapplication]
+* [Create an ASP.NET MVC 5 application][createapplication]
 * [Deploy the application to Windows Azure][deployapp1]
 * [Add a database to the application][adddb]
 * [Add a Controller and a view for the data][addcontroller]
@@ -39,22 +36,9 @@ In this tutorial:
 * [Add XSRF Protection][]
 * [Publish the application update to Windows Azure and SQL Database][deploy2]
 
-<h2><a name="bkmk_setupdevenv"></a>Set up the development environment</h2>
-
-To start, set up your development environment by installing the Windows Azure SDK for the .NET Framework. 
-
-
-1. To install the Windows Azure SDK for .NET, click the link below. If you don't have Visual Studio 2012 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2012. <br/>
-
-	[Windows Azure SDK for Visual Studio 2012]( http://go.microsoft.com/fwlink/?LinkId=254364)<br/>
-
-1. When you are prompted to run or save the installation executable, click **Run**.<br/>
-
-1. In the Web Platform Installer window, click **Install** and proceed with the installation.<br/>
-
-	![Web Platform Installer - Windows Azure SDK for .NET][WebPIAzureSdk20NetVS12]<br/>
-
-When the installation is complete, you have everything necessary to start developing.
+<a name="bkmk_setupdevenv"></a>
+<!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/ -->
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
@@ -68,23 +52,21 @@ Your Windows Azure Web Site will run in a shared hosting environment, which mean
 
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.<br/>
+1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
 
-2. Click **CUSTOM CREATE**.<br/>
+2. Click **CUSTOM CREATE**.
 
-	![Create with Database link in Management Portal][rxCreateWSwithDB]<br/>
+	![Create with Database link in Management Portal](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr6.PNG)
 
 	The **New Web Site - Custom Create** wizard opens. 
 
-3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr22", but that URL is probably taken so you'll have to choose a different one.
+3. In the **New Web Site** step of the wizard, enter a string in the **URL** box to use as the unique URL for your application. The complete URL will consist of what you enter here plus the suffix that you see below the text box. The illustration shows "contactmgr11", but that URL is probably taken so you'll have to choose a different one.
 
-1. In the **Region** drop-down list, choose the region that is closest to you.<br/>
+1. In the **Region** drop-down list, choose the region that is closest to you.
 
-1. In the **Database** drop-down list, choose **Create a new SQL database**.
+1. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
 
-	Accept the default connection string.
-
-	![Create a New Web Site step of New Web Site - Create with Database wizard][rxz]<br/>
+	![Create a New Web Site step of New Web Site - Create with Database wizard](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrCWS.png)
 
 6. Click the arrow that points to the right at the bottom of the box.
 
@@ -94,44 +76,55 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 
 8. In the **Server** box, select **New SQL Database server**. Alternatively, if you previously created a SQL Server database, you can select that SQL Server from the dropdown control.
 
-9. Click the arrow that points to the right at the bottom of the box.<br/>
+9. Click the arrow that points to the right at the bottom of the box.
 
 10. Enter an administrator **LOGIN NAME** and **PASSWORD**. If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you've created previously, you'll be prompted for the password to the previous SQL Server account name you created. For this tutorial, we won't check the **Advanced ** box. The **Advanced ** box allows you to set the DB size (the default is 1 GB but you can increase this to 150 GB) and the collation.
 
 11. Click the check mark at the bottom of the box to indicate you're finished.
 
-	![Database Settings step of New Web Site - Create with Database wizard][setup007]<br/>
+	![Database Settings step of New Web Site - Create with Database wizard][setup007]
 
-	<br/> The following image shows using an existing SQL Server and Login.
+	 The following image shows using an existing SQL Server and Login.
 	
-	![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]<br/>
+	![Database Settings step of New Web Site - Create with Database wizard][rxPrevDB]
 
-	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.<br/>
+	The Management Portal returns to the Web Sites page, and the **Status** column shows that the site is being created. After a while (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web Sites** icon, and the number of databases appears next to the **SQL Databases** icon.
 
 <!-- [Web Sites page of Management Portal, web site created][setup009] -->
 
-<h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 4 application</h2>
+<h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
 
 You have created a Windows Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Windows Azure.
 
 ### Create the project
 
-1. Start Visual Studio 2012.
+1. Start Visual Studio 2013.
 1. From the **File** menu click **New Project**.
-3. In the **New Project** dialog box, expand **Visual C#** and select **Web** under **Installed Templates** and then select **ASP.NET MVC 4 Web Application**. Keep the default **.NET Framework 4.5**. Name the application **ContactManager** and click **OK**.<br/>
-	![New Project dialog box][newapp002]
-6. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template. Keep the default Razor **View Engine** and then click **OK**.<br/>
-	![New ASP.NET MVC 4 Project dialog box][rxb2]
+3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET MVC 5 Web Application**. Keep the default **.NET Framework 4.5**. Name the application **ContactManager** and click **OK**.
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+1. In the **New ASP.NET Project** dialog box, select the **MVC** template, check **Web API** and then click **Change Authentication**.
+
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+
+1. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**.
+
+	![No Authentication](./media/web-sites-dotnet-get-started-vs2013/GS13noauth.png)
+
+	The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+
+1. In the **New ASP.NET Project** dialog box, click **OK**.
+
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
 ### Set the page header and footer
 
 
-1. In **Solution Explorer**, expand the *Views\Shared* folder and open the *_Layout.cshtml* file.<br/>
+1. In **Solution Explorer**, expand the *Views\Shared* folder and open the *_Layout.cshtml* file.
 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
 1. Replace the contents of the *_Layout.cshtml* file with the following code:
-<br/>
+
 
 		<!DOCTYPE html>
 		<html lang="en">
@@ -169,83 +162,64 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 		</body>
 		</html>
 			
+The markup above changes the app name from "My ASP.NET App" to "Contact Manager", and it removes the links to **Home**, **About** and **Contact**.
 
 ### Run the application locally
 
 1. Press CTRL+F5 to run the application.
-The application home page appears in the default browser.<br/>
+The application home page appears in the default browser.
 
-	![To Do List home page][rxzz]
+	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.<br/>
+1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
-	![Publish in project context menu][PublishVSSolution]<br/>
+	![Publish in project context menu][PublishVSSolution]
 
 	The **Publish Web** wizard opens.
 
-2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.<br/>
+2. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
 
 	![Import publish settings][ImportPublishSettings]
 
 	The **Import Publish Profile** dialog box appears.
 
-3. If you have not previously added your Windows Azure subscription in Visual Studio, perform the following steps. In these steps you add your subscription so that the drop-down list under **Import from a Windows Azure web site** will include your web site.
+ 3.	Select Import from a Windows Azure Web Site. You must first sign in if you have not previously done so. Click **Sign In**. Enter the user associated with your subscription and follow the steps to sign in.
 
-	-In the **Import Publish Profile** dialog box, click **Add Windows Azure subscription**.<br/> 
-    
-	![add win az sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzAddWAsub.png)
-    
-	-In the **Import Windows Azure Subscriptions** dialog box, click **Download subscription file**.<br/>
-    
-	![download sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDownLoad.png)
-    
-	-In your browser window, save the *.publishsettings* file.<br/>
-    
-	![download pub file](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDown2.png)
-    
-	[WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
+	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
 
-	-In the **Import Windows Azure Subscriptions** dialog box, click **Browse** and navigate to the *.publishsettings* file.<br/>
-    
-	![download sub](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzDownLoad.png)
-    
-	-Click **Import**.<br/>
-    
-	![import](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rzImp.png)
+	Select your web site from the drop-down list, and then click **OK**.
 
-7. In the **Import Publish Profile** dialog box, select **Import from a Windows Azure web site**, select your web site from the drop-down list, and then click **OK**.<br/>
+	![Import Publish Profile](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr8.png)
 
-	![Import Publish Profile][ImportPublishProfile]
+8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.
 
-8. In the **Connection** tab, click **Validate Connection** to make sure that the settings are correct.<br/>
+	![Validate connection][ValidateConnection]
 
-	![Validate connection][ValidateConnection]<br/>
-
-9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.<br/>
+9. When the connection has been validated, a green check mark is shown next to the **Validate Connection** button.
 
 	![connection successful icon and Next button in Connection tab][firsdeploy007]
 
-10. You can accept all of the default settings on this page.  You are deploying a Release build configuration and you don't need to delete files at the destination server. The **UsersContext (DefaultConnection)** entry under **Databases** comes from the *UsersContext:DbContext* class which uses the DefaultConnection string. <br/>
+1. Click **Next**.
 
-	Click **Next**.<br/>
+	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	![connection successful icon and Next button in Connection tab][rxPWS]
+	You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder. If you want to debug on the live Windows Azure site, you will need to deploy a debug configuration (not release). See the [Next Steps](#nextsteps) section at the end of this tutorial.
 
-12. In the **Preview** tab, click **Start Preview**.<br/>
+12. In the **Preview** tab, click **Start Preview**.
 
-	The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.<br/>
+	The tab displays a list of the files that will be copied to the server. Displaying the preview isn't required to publish the application but is a useful function to be aware of. In this case, you don't need to do anything with the list of files that is displayed. The next time you publish, only the files that have changed will be in the preview list.
 
-	![StartPreview button in the Preview tab][firsdeploy009]<br/>
+	![StartPreview button in the Preview tab][firsdeploy009]
 
-12. Click **Publish**.<br/>
+12. Click **Publish**.
 
 	Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
-14. The default browser automatically opens to the URL of the deployed site.<br/>
+14. The default browser automatically opens to the URL of the deployed site.
 
 	The application you created is now running in the cloud.
 	
@@ -259,11 +233,11 @@ Next, you'll update the MVC application to add the ability to display and update
 
 You begin by creating a simple data model in code.
 
-1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.<br/>
+1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.
 
 	![Add Class in Models folder context menu][adddb001]
 
-2. In the **Add New Item** dialog box, name the new class file *Contact.cs*, and then click **Add**.<br/>
+2. In the **Add New Item** dialog box, name the new class file *Contact.cs*, and then click **Add**.
 
 	![Add New Item dialog box][adddb002]
 
@@ -291,7 +265,7 @@ You begin by creating a simple data model in code.
     		}
 		}
 
-The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database.
+The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
 
 ### Create web pages that enable app users to work with the contacts
 
@@ -301,27 +275,21 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 
 1. In **Solution Explorer**, expand the Controllers folder.
 
-3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) <br/>
+3. Build the project **(Ctrl+Shift+B)**. (You must build the project before using scaffolding mechanism.) 
 
-4. Right-click the Controllers folder and click **Add**, and then click **Controller**.<br/>
+4. Right-click the Controllers folder and click **Add**, and then click **Controller**.
 
-	![Add Controller in Controllers folder context menu][addcode001]<br/>
+	![Add Controller in Controllers folder context menu][addcode001]
 
-5. In the **Add Controller** dialog box, enter "HomeController" as your controller name. Set the **Scaffolding options Template** to  **MVC Controller with read/write actions and views, using Entity Framework**.
+1. In the **Add Scaffold** dialog box, select **MVC Controller with views, using Entity Framework** and click **Add**.
 
-6. Select **Contact** as your model class and **&lt;New data context...>** as your data context class.
+ ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
-	![Add Controller dialog box][addcode002]<br/>
+6. Set the controller name to **HomeController**. Select **Contact** as your model class. Click the **New data context** button and accept the default "ContactManager.Models.ContactManagerContext" for the **New data context type**. Click **Add**.
 
-7. On the **New Data Context** dialog box, accept the default value *ContactManager.Models.ContactManagerContext*.
+	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
-	<br/>![Add Controller dialog box][rxNewCtx]<br/>
-
-8. Click **OK**, then click **Add** in the **Add Controller** dialog box.<br/>
-
-9. On the **Add Controller** overwrite dialog, make sure all options are checked and click **OK**.
-
-	![Add Controller message box][rxOverwrite] <br/>
+	A dialog box will prompt you: "A file with the name HomeController already exits. Do you want to replace it?". Click **Yes**. We are overwriting the Home Controller that was created with the new project. We will use the new Home Controller for our contact list.
 
 	Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
 
@@ -333,25 +301,21 @@ The next task is to enable the [Code First Migrations](http://curah.microsoft.co
 
 	![Package Manager Console in Tools menu][addcode008]
 
-2. In the **Package Manager Console** window, enter the following command:<br/>
+2. In the **Package Manager Console** window, enter the following command:
 
-		enable-migrations -ContextTypeName ContactManagerContext
-
-	<br/>![enable-migrations][rxE] <br/>
-	
-	You must specify the context type name (**ContactManagerContext**) because the project contains two [DbContext][dbcontext-link] derived classes, the **ContactManagerContext** we just added and the **UsersContext**, which is used for the membership database. The **ContactManagerContext** class was added by the Visual Studio scaffolding wizard.<br/>
+		enable-migrations 
   
-	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. <br/>
+	The **enable-migrations** command creates a *Migrations* folder and it puts in that folder a *Configuration.cs* file that you can edit to configure Migrations. 
 
-2. In the **Package Manager Console** window, enter the following command:<br/>
+2. In the **Package Manager Console** window, enter the following command:
 
 		add-migration Initial
 
-	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. The first parameter ( *Initial* ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.<br/>
+	The **add-migration Initial** command generates a class named **&lt;date_stamp&gt;Initial** that creates the database. The first parameter ( *Initial* ) is arbitrary and used to create the name of the file. You can see the new class files in **Solution Explorer**.
 
-	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.<br/>
+	In the **Initial** class, the **Up** method creates the Contacts table, and the **Down** method (used when you want to return to the previous state) drops it.
 
-3. Right-click the Migrations folder and open the **Configuration.cs** file. 
+3. Open the *Migrations\Configuration.cs* file. 
 
 4. Add the following namespaces. 
 
@@ -418,25 +382,24 @@ The next task is to enable the [Code First Migrations](http://curah.microsoft.co
 	This code above will initialize the database with the contact information. For more information on seeding the database, see [Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
 
-6. In the **Package Manager Console** enter the command:
+1. In the **Package Manager Console** enter the command:
 
 		update-database
 
 	![Package Manager Console commands][addcode009]
 
-	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database. (Unless you have SQL Server Express installed, in which case the database is created using the SQL Server Express instance.)
+	The **update-database** runs the first migration which creates the database. By default, the database is created as a SQL Server Express LocalDB database.
 
-7. Press CTRL+F5 to run the application. 
+1. Press CTRL+F5 to run the application. 
 
 The application shows the seed data and provides edit, details and delete links.
 
-<br/>![MVC view of data][rxz3]
+![MVC view of data][rxz3]
 
 <h2><a name="bkmk_addview"></a>Edit the View</h2>
 
-1. Expand the Views\Home folder and open the Index.cshtml file.
-	
-	<!--<br/>![Modify index.cshtml in views\home folder context menu][addcode004]-->
+1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
+
 
 2. Replace the contents of the file with the following code.
 
@@ -530,12 +493,12 @@ The application shows the seed data and provides edit, details and delete links.
 
 3. Right-click the Content folder and click **Add**, and then click **New Item...**.
 
-	<br/><br/>![Add style sheet in Content folder context menu][addcode005]
+	![Add style sheet in Content folder context menu][addcode005]
 
 4. In the **Add New Item** dialog box, enter **Style** in the upper right search box and then select **Style Sheet**.
-	<br/>![Add New Item dialog box][rxStyle]
+	![Add New Item dialog box][rxStyle]
 
-5. Name the file Contacts.css and click **Add**. Replace the contents of the file with the following code.
+5. Name the file *Contacts.css* and click **Add**. Replace the contents of the file with the following code.
     
         .column {
             float: left;
@@ -591,50 +554,58 @@ The application shows the seed data and provides edit, details and delete links.
             text-decoration: none;
         }
 
-6. Expand the App\_Start folder and open the BundleConfig.cs file.
+	We will use this style sheet for the layout, colors and styles used in the contact manager app.
 
-	<!--<br/>![Modify BundleConfig.cs in App_Start folder context menu][addcode007]-->
+6. Open the *App_Start\BundleConfig.cs* file.
 
-7. Add the following statement to register the [Knockout](http://knockoutjs.com/index.html "KO") plugin.
+
+7. Add the following code to register the [Knockout](http://knockoutjs.com/index.html "KO") plugin.
 
 		bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
 		            "~/Scripts/knockout-{version}.js"));
 	This sample using knockout to simplify dynamic JavaScript code that handles the screen templates.
 
-8. Modify the contents/css entry to register the contacts.css style sheet. Change the following line:
+8. Modify the contents/css entry to register the *contacts.css* style sheet. Change the following line:
 
-        bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+                 bundles.Add(new StyleBundle("~/Content/css").Include(
+                   "~/Content/bootstrap.css",
+                   "~/Content/site.css"));
 To:
 
         bundles.Add(new StyleBundle("~/Content/css").Include(
-                    "~/Content/site.css",
-                    "~/Content/contacts.css"));
+                   "~/Content/bootstrap.css",
+                   "~/Content/contacts.css",
+                   "~/Content/site.css"));
+
+1. In the Package Manager Console, run the following command to install Knockout.
+
+	Install-Package knockoutjs
 
 <h2><a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface</h2>
 
 1. In **Solution Explorer**, right-click Controllers and click **Add** and then **Controller....** 
 
-4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name, select the **API controller with read/write actions, using Entity Framework** template. 
+1. In the **Add Scaffold** dialog box, enter **Web API 2 Controller with actions, using Entity Framework** and then click **Add**.
 
-5. In **Model Class** select *Contact (ContactManager.Models)* and in **Data Context Class** select *ContactManagerContext (ContactManager.Models)*.
+	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
-	<br/>![Add API controller][rxAddApiController]<br/>
+4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name. Select "Contact (ContactManager.Models)" for the **Model class**.  Keep the default value for the **Data context class**. 
 
 6. Click **Add**.
 
 ### Run the application locally
 
-1. Press CTRL+F5 to run the application.<br/>
+1. Press CTRL+F5 to run the application.
 
 	![Index page][intro001]
 
-2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.<br/>
+2. Enter a contact and click **Add**. The app returns to the home page and displays the contact you entered.
 
 	![Index page with to-do list items][addwebapi004]
 
-3. In the browser, append /api/contacts to the URL.
+3. In the browser, append **/api/contacts** to the URL.
 
-	The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts.<br/> FireFox and Chrome will display the data in XML format.<br/>
+	The resulting URL will resemble http://localhost:1234/api/contacts. The RESTful web API you added returns the stored contacts. Firefox and Chrome will display the data in XML format.
 
 	![Index page with to-do list items][rxFFchrome]
 	
@@ -646,9 +617,11 @@ To:
 	
 	You can open the returned contacts in notepad or a browser.
 	
-	This output can be consumed by another application such as mobile web page or application.<br/>
+	This output can be consumed by another application such as mobile web page or application.
 
 	![Web API save dialog][addwebapi007]
+
+	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks).
 
 <h2><a name="xsrf"></a><span class="short-header">XSRF</span>Add XSRF Protection</h2>
 
@@ -658,7 +631,7 @@ An XSRF attack is distinct from a phishing attack. Phishing attacks require inte
 
 For more information, see the [Open Web Application Security Project](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
-1. In **Solution Explorer**, right click **Filters** and click **Add** and then click **Class**.
+1. In **Solution Explorer**, right **ContactManager** project and click **Add** and then click **Class**.
 
 2. Name the file *ValidateHttpAntiForgeryTokenAttribute.cs* and add the following code:
 
@@ -730,22 +703,69 @@ For more information, see the [Open Web Application Security Project](https://ww
             }
         }
 
-1. You can add the **[ValidateHttpAntiForgeryToken]** attribute to the **ContactsController** to protect it from XSRF threats. A better approach is to add the **ValidateHttpAntiForgeryToken** attribute globally to the *App_Start\WebApiConfig.cs* file as shown below:
-  
-        public static class WebApiConfig
-        {
-            public static void Register(HttpConfiguration config)
-            {
-                config.Routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { id = RouteParameter.Optional }
-                );
+1. Add the following *using* statement to the contracts controller so you have access to the **[ValidateHttpAntiForgeryToken]** attribute.
 
-                GlobalConfiguration.Configuration.Filters.Add(new ValidateHttpAntiForgeryTokenAttribute());
-                //config.EnableQuerySupport();
-            }
-        }
+	using ContactManager.Filters;
+
+1. Add the **[ValidateHttpAntiForgeryToken]** attribute to the Post methods of the **ContactsController** to protect it from XSRF threats. You will add it to the "PutContact",  "PostContact" and **DeleteContact** action methods.
+
+	[ValidateHttpAntiForgeryToken]
+        public IHttpActionResult PutContact(int id, Contact contact)
+        {
+
+1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
+
+         @section Scripts {
+            @Scripts.Render("~/bundles/knockout")
+            <script type="text/javascript">
+                @functions{
+                   public string TokenHeaderValue()
+                   {
+                      string cookieToken, formToken;
+                      AntiForgery.GetTokens(null, out cookieToken, out formToken);
+                      return cookieToken + ":" + formToken;                
+                   }
+                }
+
+               function ContactsViewModel() {
+                  var self = this;
+                  self.contacts = ko.observableArray([]);
+                  self.addContact = function () {
+
+                     $.ajax({
+                        type: "post",
+                        url: "api/contacts",
+                        data: $("#addContact").serialize(),
+                        dataType: "json",
+                        success: function (value) {
+                           self.contacts.push(value);
+                        },
+                        headers: {
+                           'RequestVerificationToken': '@TokenHeaderValue()'
+                        }
+                     });
+
+                  }
+                  self.removeContact = function (contact) {
+                     $.ajax({
+                        type: "DELETE",
+                        url: contact.Self,
+                        success: function () {
+                           self.contacts.remove(contact);
+                        },
+                        headers: {
+                           'RequestVerificationToken': '@TokenHeaderValue()'
+                        }
+
+                     });
+                  }
+
+                  $.getJSON("api/contacts", function (data) {
+                     self.contacts(data);
+                  });
+               }
+               ko.applyBindings(new ContactsViewModel());
+            </script>
 
 
 <h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
@@ -754,28 +774,21 @@ To publish the application, you repeat the procedure you followed earlier.
 
 1. In **Solution Explorer**, right click the project and select **Publish**.
 
-	<br/>![Publish][rxP]<br/><br/>
+	![Publish][rxP]
 
 5. Click the **Settings** tab.
+	
 
-	![Settings tab of Publish Web wizard][rxz4]<br/>
+1. Under **ContactsManagerContext(ContactsManagerContext)**, click the **v** icon to change *Remote connection string* to the connection string for the contact database. Click **ContactDB**.
 
-1. Under **ContactsManagerContext(ContactsManagerContext)**, click the **v** icon to change *Remote connection string* to the connection string for the contact database.
+	![Settings](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt5.PNG)
 
-6. The remote connection string box for the **ContactsManagerContext(ContactsManagerContext)** database now contains the SQL Database connection string that was provided in the *publishsettings* file. Click on the ellipsis (**...**) to see the *ContactDB* settings.<br/>
-
-	<br/>![DB settings][rx22]<br/><br/>
-
-7. Close the **Destination Connections String Dialog** and in the **Publish Web** dialog check the box for **Execute Code First Migrations (runs on application start)** for the **UsersContext(DefaultConnection)** database.<br/>
-
-	![Settings tab of Publish Web wizard][rxz44]<br/>
-
-1. You can click the **^** icon next to the **UsersContext(DefaultConnection)** database, that is the connection information for the membership database and we're not using it in this tutorial. A real application would require authentication and authorization, and you would use the membership database for that purpose. See [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) which is based on this tutorial and shows how to deploy a web application with the membership database.
+7. Check the box for **Execute Code First Migrations (runs on application start)**.
 
 1. Click **Next** and then click **Preview**. Visual Studio displays a list of the files that will be added or updated.
 
-8. Click **Publish**.<br/>
-After the deployment completes, the browser opens to the home page of the application.<br/>
+8. Click **Publish**.
+After the deployment completes, the browser opens to the home page of the application.
 
 	![Index page with no contacts][intro001]
 
@@ -785,7 +798,7 @@ After the deployment completes, the browser opens to the home page of the applic
 
 9. Enter a contact as you did when you ran the app locally, to verify that database deployment succeeded.
 
-When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.<br/>
+When you see that the item you enter is saved and appears on the contact manager page, you know that it has been stored in the database.
 
 ![Index page with contacts][addwebapi004]
 
@@ -794,17 +807,16 @@ The application is now running in the cloud, using SQL Database to store its dat
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
 A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) is based on this tutorial and shows how to deploy a web application with the membership database.
-<br/>
+
 Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
  
 
-* [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs](http://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
 * [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
-* [Intro to ASP.NET MVC 4](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4)
+* [Intro to ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Your First ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api)
+* [Debugging WAWS](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
-
-This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra, Tom FitzMacken and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
+This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
 Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. We are especially interested in finding out how much interest there is in more automation for the process of configuring and deploying the membership database. 
 
@@ -830,7 +842,7 @@ Please leave feedback on what you liked or what you would like to see improved, 
 <!-- images-->
 [rxE]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rxE.png
 [rxP]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rxP.png
-[rx22]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rx22.png
+[rx22]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/
 [rxb2]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rxb2.png
 [rxz]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rxz.png
 [rxzz]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rxzz.png

@@ -4,39 +4,51 @@
 
 # Administer HDInsight clusters using Management Portal
 
-Using the Windows Azure management portal, you can provision HDInsight clusters, change the Hadoop user password, and enable RDP so you can access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the portal. 
-
-- For more information on administering HDInsight using the Cross-platform Command-line Tools, see [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. 
+Using the Windows Azure management portal, you can provision HDInsight clusters, change the Hadoop user password, and enable RDP so you can access the Hadoop command console on the cluster. There are also other tools available for administrating HDInsight in addition to the Management portal. 
 
 - For more information on administering HDInsight using Windows Azure PowerShell, see [Administer HDInsight Using PowerShell][hdinsight-admin-powershell].
+
+- For more information on administering HDInsight using the Cross-platform Command-line Tools, see [Administer HDInsight Using Cross-platform Command-line Interface][hdinsight-admin-cross-platform]. 
 
 **Prerequisites:**
 
 Before you begin this article, you must have the following:
 
 - **Windows Azure subscription**. Windows Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-- **Windows Azure storage account**. This storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can only be provisioned in five data centers: Southeast Asia, North Europe, West Europe, East US and West US. So your Windows Azure storage account needs to be created in one of these data centers. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+
 
 ##In this article
 
 * [Provision HDInsight clusters](#create)
 * [Customize HDInsight clusters](#customize)
 * [Change HDInsight cluster username and password](#password)
-* [Enable remote desktop access](#enablerdp)
+* [Connect to HDInsight clusters using RDP](#rdp)
 * [Open Hadoop command console](#hadoopcmd)
 * [Next steps](#nextsteps)
 
 ##<a id="create"></a> Provision HDInsight clusters
 
+There are several methods for creating HDInsight clusters, this article only covers using the Quick Create option on Windows Azure Management portal. For other options, see [Provision HDInsight clusters][hdinsight-provision].
+
 An HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. For more information about how Windows Azure Blob Storage provides a seamless experience with HDInsight clusters, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage].
+
+A Windows Azure storage account must be created in the same data center in which your HDInsight cluster is to be provisioned. Currently HDInsight clusters can be provisioned in five data centers: 
+
+- Southeast Asia 
+- North Europe
+- West Europe 
+- East US 
+- West US 
+
+For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
 **To provision an HDInsight cluster**
 
 1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
-2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
+2. Click **NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **QUICK CREATE**.
 
-3. Provide **Cluster Name**, **Cluster Size**, **Cluster Admin Password**, and a Windows Azure **Storage Account**, and then click **Create HDInsight Cluster**. Once the cluster is created and running, the status shows *Running*.
+3. Provide **Cluster Name**, **Cluster Size**, **Cluster Admin Password**, and a Windows Azure **Storage Account** and then click **Create HDInsight Cluster**. Once the cluster is created and running, the status shows *Running*.
 
 	![HDI.QuickCreate][image-cluster-quickcreate]
 
@@ -44,10 +56,7 @@ An HDInsight cluster uses a Windows Azure Blob Storage container as the default 
 
 	When using the Quick Create option to create a cluster, a new container with the name of the HDInsight cluster is created automatically in the storage account specified. If you want to customize the name of the container to be used by default by the cluster, you must use the custom create option. 
 
-	<div class="dev-callout">
-	<b>Important</b>
-	<p>Important: Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.</p>
-	</div>
+	> [WACOM.NOTE] Once a Windows Azure storage account is chosen for your HDInsight cluster, the only way to change the storage account is to delete the cluster and create a new cluster with the desired storage account.
 
 4. Click the newly created cluster.  It shows the landing page:
 
@@ -58,8 +67,14 @@ An HDInsight cluster uses a Windows Azure Blob Storage container as the default 
 
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, see [What version of Hadoop is in Windows Azure HDInsight][hdinsight-version]. HDInsight customization can be done using one of the following options:
 
-- Use the cluster customization parameters in HDInsight .NET SDK or Windows Azure PowerShell during cluster provision. For more information, see [Provision HDInsight clusters][hdinsight-provision].
-- Some native Java components, like Mahout, Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Windows Azure Blob storage (WASB), and submitted to HDInsight clusters using Hadoop job submission mechanisms. For more information see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+- Use the cluster customization parameters in HDInsight .NET SDK or Windows Azure PowerShell during cluster provision. By doing so, these configuration changes are preserved through lifetime of the cluster and not affected by cluster node reimages that Windows Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Provision HDInsight clusters][hdinsight-provision].
+- Some native Java components, like Mahout, Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Windows Azure Blob storage (WASB), and submitted to HDInsight clusters using Hadoop job submission mechanisms. For more information see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. 
+
+
+	>[WACOM.NOTE] If you have issues deploying jar files to HDInsight clusters or calling jar files on HDInsight clusters, contact [Microsoft Support][hdinsight-support].
+	
+	> Both Mahout and Cascading aren’t supported by HDInsight, and aren’t eligible for Microsoft Support. For lists of supported components, see [What's new in the cluster versions provided by HDInsight?][hdinsight-version].
+
 
 Installation of custom software on the cluster using remote desktop connection is not supported. You should avoid storing any files on the drives of the head node as they are lost if you need to recreate the clusters. We recommend to store files on Windows Azure Blob storage. Blob storage is persistent.
 
@@ -80,7 +95,7 @@ An HDInsight cluster can have two user accounts.  The HDInsight cluster user acc
 
 
 
-##<a id="enablerdp"></a> Enable remote desktop
+##<a id="rdp"></a> Connect to HDInsight clusters using RDP
 
 The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through remote desktop. Remote Desktop access is turned off by default and so direct access to the cluster using it requires some additional, post-creation configuration.
 
@@ -96,7 +111,16 @@ The credentials for the cluster that you provided at its creation give access to
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 	The expiration date must be in the future, and at most seven days from now. And the time is the midnight of the selected date.
+
+> [WACOM.NOTE] Once RDP is enabled for a cluster, you must refresh the page before you can connect to the cluster.
  
+**To connect to a cluster using RDP**
+
+1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+2. Click **HDINSIGHT** on the left pane. You will see a list of deployed HDInsight clusters.
+3. Click the HDInsight cluster that you want to connect to.
+4. From the top of the page, click **CONFIGURATION**.
+5. Click **CONNECT**, and then follow the instructions.
 
 ##<a id="hadoopcmd"></a> Open Hadoop command line
 
@@ -137,6 +161,7 @@ In this article, you have learned how to create an HDInsight cluster using the W
 [hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
 [hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
 [hdinsight-version]: /en-us/manage/services/hdinsight/versioning-in-hdinsight/
+[hdinsight-support]: http://www.windowsazure.com/en-us/support/options/
 
 [azure-create-storageaccount]: /en-us/manage/services/storage/how-to-create-a-storage-account/ 
 [azure-management-portal]: https://manage.windowsazure.com/

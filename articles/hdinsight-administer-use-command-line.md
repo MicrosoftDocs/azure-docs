@@ -37,18 +37,8 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 		npm install -g azure-cli
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable:
-	
-		C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm
+	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
-	or
-
-		C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm
-	
-	</p>
-	</div>
 
 5.	Run the following command to verify the installation:
 
@@ -70,11 +60,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publishsettings file. The publishsettings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publishsettings once.
 
-
-<div class="dev-callout">
-<b>Important</b>
-<p>The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.</p>
-</div>
+> [WACOM.NOTE] The publishsettings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
 
 
 **To download and import publishsettings**
@@ -105,11 +91,9 @@ After you have imported the publishsettings file, you can use the following comm
 	azure account storage create [options] <StorageAccountName>
 
 
-<div class="dev-callout">
-<b>Important</b>
-<p>The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:</p>
+> [WACOM.NOTE] The storage account must be collocated in the same data center. Currently, you can only provision HDInsight clusters in the following data centers:
 
-<ul>
+><ul>
 <li>Southeast Asia</li>
 <li>North Europe</li>
 <li>West Europe</li>
@@ -117,7 +101,6 @@ After you have imported the publishsettings file, you can use the following comm
 <li>West US</li>
 </ul>
 
-</div>
 
 For information on creating a Windows Azure storage account using Windows Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
 

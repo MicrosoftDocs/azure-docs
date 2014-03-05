@@ -19,7 +19,7 @@ Foundation Server - Team Build definitions to use the MSBuild commands
 and PowerShell scripts. The process is customizable for your build
 environment and Windows Azure target environments.
 
-You can also use Team Foundation Service, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Team Foundation Service][].
+You can also use Visual Studio Online, a version of TFS that is hosted in Windows Azure, to do this more easily. For more information, see [Continuous Delivery to Windows Azure by Using Visual Studio Online][].
 
 Before you start, you should publish your application from Visual Studio.
 This will ensure that all the resources are available and initialized when you 
@@ -43,7 +43,7 @@ you want to use Team Foundation Build Service to manage your build
 server, follow the instructions in the [Team Foundation Build Service][]
 documentation.
 
-1.  On the build server, install the [.NET Framework 4][], which
+1.  On the build server, install the [.NET Framework 4][] or [.NET Framework 4.5][], which
     includes MSBuild.
 2.  Install the [Windows Azure Authoring Tools][] (look for
     WindowsAzureAuthoringTools-x86.msi or WindowsAzureAuthoringTools-x64.msi,
@@ -781,6 +781,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Step 5: Publish a Package using TFS Team Build (Optional)]: #step5
   [Team Foundation Build Service]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [Windows Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Windows Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
