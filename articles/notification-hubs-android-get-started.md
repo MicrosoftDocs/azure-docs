@@ -71,6 +71,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    	![][14]
 
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
+
+<!--
 3. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Under the latest version of the Android SDK, choose **Google APIs**. Scroll down to **Extras** and choose **Google Play Services**, as shown below. Click **Install Packages**. Note the SDK path, for use in the following step. Restart Eclipse.
 
    	![][15]
@@ -81,6 +84,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 	![][29]
 
 5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
+
+-->
+
 
 6. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-0.1.jar to the \libs directory of your project in the Package Explorer.
 

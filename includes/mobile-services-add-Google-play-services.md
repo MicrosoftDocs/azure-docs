@@ -1,6 +1,6 @@
 
 
-1. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Under the latest version of the Android SDK, choose **Google APIs**.
+1. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Locate the target versin the Android SDK specified in your project properties, open it, and choose **Google APIs**.
 
 2. Scroll down to **Extras**, expand it, and choose **Google Play Services**, as shown below. Click **Install Packages**. Note the SDK path, for use in the following step. Restart Eclipse.
 
