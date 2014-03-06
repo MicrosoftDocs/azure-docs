@@ -8,7 +8,7 @@ The Windows Azure Web Sites Restore feature lets restore your web site on-demand
 
 The Restore feature, available on the Backups tab in the Windows Azure Web Sites portal, is available only in Standard mode.
 
-## Table of Contents ##
+##In this article
 - [To Restore a Windows Azure web site from a previously made backup](#PreviousBackup)
 - [To Restore a Windows Azure web site directly from a storage account](#StorageAccount)
 - [Choose Your Web Site Restore Settings and Start the Restore Operation](#RestoreSettings)
@@ -65,7 +65,7 @@ The Restore feature, available on the Backups tab in the Windows Azure Web Sites
 	
 	After you have chosen the server name, specify the name of the target database for the restore in the **Database Name** box.
 	
-	If your restore includes one or more databases, you can select **Automatically adjust connection strings** to update your web site settings to use the connection strings for the new databases. You should verify that all functionality related to databases works as expected after the restore completes.
+	If your restore includes one or more databases, you can select **Automatically adjust connection strings** to update your connection strings stored in the backup to point to your new database, or database server, as appropriate. You should verify that all functionality related to databases works as expected after the restore completes.
 	
 	![Choose database server host][ChooseDBServer]
 	
