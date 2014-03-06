@@ -48,8 +48,8 @@ You mobile service is now configured to work with GCM to send push notifications
 
 ##<a id="add-push"></a>Add push notifications to your app
 
-
-
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
+<!--
 1. In Eclipse, click **Window**, then click **Android SDK Manager**. If you have not installed the highest API level available of the SDK Platform, then click to install it. Make a note of this number so you can modify the manifest file **targetSdkVersion** property to reference this number.  
 
 2. In the Android SDK Manager, expand **Extras**, check **Google Play Services**, make a note of the **SDK Path**, click **Install Package**, select **Accept** to accept the license, then click **Install**.
@@ -66,6 +66,7 @@ You mobile service is now configured to work with GCM to send push notifications
 	![][29]
 
 5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
+-->
 
 6. Open the project file **AndroidManifest.xml**. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. Consult [Set Up Google Play Services SDK] to determine how low you can set this value, if you need to set it below 16 because you are using an older device. Set the property appropriately.
 
