@@ -400,7 +400,7 @@ The two routes in the above custom API example can be invoked by HTTP GET reques
 
 Mobile Services enables you to define server scripts that are executed either as jobs on a fixed schedule or on-demand from the Management Portal. Scheduled jobs are useful for performing periodic tasks such as cleaning-up table data and batch processing. For more information, see [Schedule jobs].
 
-Scripts that are registered to scheduled jobs have a main function with the same name as the scheduled job. Because a scheduled script is not invoked by an HTTP request, there is no context that can be passed by the server runtime and the function takes no parameters. Like other kinds of scripts, you can have subroutine functions and require shared modules. For more information, see [How to: Leverage modules and helper functions].
+Scripts that are registered to scheduled jobs have a main function with the same name as the scheduled job. Because a scheduled script is not invoked by an HTTP request, there is no context that can be passed by the server runtime and the function takes no parameters. Like other kinds of scripts, you can have subroutine functions and require shared modules. For more information, see [Source control, shared code, and helper functions].
 
 ###<a name="scheduler-scripts"></a>How to: Define scheduled job scripts
 
@@ -416,9 +416,7 @@ You define scheduled jobs in one of the following ways:
 
 + From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
 
-<div class="dev-callout"><strong>Note</strong>
-<p>When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [Source control and shared code].</p>
-</div>
+>[WACOM.NOTE]When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [How to: Share code by using source control].
 
 ##<a name="shared-code"></a>Source control, shared code, and helper functions
 
@@ -643,7 +641,7 @@ The next example writes auditing information to an **audit** table:
 		}
 	}
 
-A final example is in the code sample here: [How to: Access custom parameters].
+A final example is in the code sample here: [How to: Access custom parameters][How to: Add custom parameters].
 
 ###<a name="bulk-inserts"></a>How to: Perform Bulk Inserts
 
