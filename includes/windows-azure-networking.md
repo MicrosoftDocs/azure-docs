@@ -33,29 +33,29 @@ And just as Virtual Network makes Windows Azure VMs appear local to on-premises 
 <a name="TrafficMngr"></a>
 ##Windows Azure Traffic Manager
 
-Imagine that you have built a successful Windows Azure application. Your app is used by many people in many countries around the world. This is a great thing, but as is so often the case, success brings new problems. Here, for instance, your application most likely runs in multiple Windows Azure datacenters in different parts of the world. How can you intelligently route traffic across these datacenters so that your users always get the best experience?
+Imagine that you have built a successful Windows Azure application. Your application is used by many people in many countries around the world. This is a great thing, but as is so often the case, success brings new problems. For instance, your application most likely runs in multiple Windows Azure datacenters in different parts of the world. How can you intelligently direct user request traffic across these datacenters so that your users always get the best experience?
 
-Windows Azure Traffic Manager is designed to solve this problem. Figure 3 shows how.
+Windows Azure Traffic Manager is designed to solve this problem. Figure 2 shows how.
 
 <a name="Fig3"></a>
    
 ![03_TrafficManager][03_TrafficManager]
    
-**Figure 3: Windows Azure Traffic Manager intelligently directs requests from users across instances of an application running in different Windows Azure datacenters.**
+**Figure 2: Windows Azure Traffic Manager intelligently directs requests from users across instances of an application running in different Windows Azure datacenters.**
 
 In this example, your application is running in VMs spread across four datacenters: two in the US, one in Europe, and one in Asia. Suppose a user in Berlin wishes to access the application. If you are using Traffic Manager, here is what happens.
 
-As usual, the user system looks up the DNS name of the application (Step 1). This query is redirected to the Windows Azure DNS system (Step 2), which then looks up the Traffic Manager policy for this application. Each policy is created by the owner of a particular Windows Azure application, either through a graphical interface or a REST API. However it is created, the policy specifies one of three options:
+As usual, the user system looks up the DNS name of the application (Step 1). This query is directed to the Windows Azure DNS system (Step 2), which then looks up the Traffic Manager policy for the application. Each policy is created by the owner of a particular Windows Azure application, either through a graphical interface or a REST API. However it is created, the policy specifies one of three load balancing options:
 
-- **Performance:** All requests are sent to the closest datacenter. 
-- **Failover:** All requests are sent to the datacenter specified by the creator of this policy, unless that datacenter is unavailable. In this case, requests are routed to other datacenters in the priority order defined by the creator of the policy.
+- **Performance:** All requests are sent to the datacenter with the lowest latency from the user system. 
+- **Failover:** All requests are sent to the datacenter specified by the creator of this policy, unless that datacenter is unavailable. In this case, requests are directed to other datacenters in the priority order defined by the creator of the policy.
 - **Round Robin:** All requests are spread equally across all datacenters in which the application is running.
 
 Once it has the right policy, Traffic Manager figures out which datacenter this request should go to based on which of the three options is specified (Step 3). It then returns the location of the chosen datacenter to the user (Step 4), who accesses that instance of the application (Step 5).
 
-For this to work, Traffic Manager must have a current picture of which instances of the application are up and running in each datacenter. To make this possible, Traffic Manager periodically pings each copy of the application via an HTTP GET, then records whether it receives a response. If an application instance stops responding, Traffic Manager will stop sending traffic to that instance until it resumes responding to pings. 
+For this to work, Traffic Manager must have a current picture of which instances of the application are up and running in each datacenter. To make this possible, Traffic Manager periodically pings each copy of the application via an HTTP GET, then records whether it receives a response. If an application instance stops responding, Traffic Manager will stop directing users to that instance until it resumes responding to pings. 
 
-Not every application is big enough or global enough to need Traffic Manager. For those that do, however, this can be a quite useful service.
+Not every application is big enough or global enough to need Traffic Manager. For those that do, however, this can be a very useful service.
 
 [01_Networking]: ./media/windows-azure-networking/Networking_01Networking.png
 [03_TrafficManager]: ./media/windows-azure-networking/Networking_03TrafficManager.png
