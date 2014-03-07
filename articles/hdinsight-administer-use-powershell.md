@@ -40,11 +40,9 @@ After you have imported the publishsettings file, you can use the following comm
 
 	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
-<div class="dev-callout">
-<b>Important</b>
-<p>The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:</p>
+> [WACOM.NOTE] The storage account must be located in the same data center as the HDInsight Cluster. Currently, you can only provision HDInsight clusters in the following data centers:
 
-<ul>
+><ul>
 <li>Southeast Asia</li>
 <li>North Europe</li>
 <li>West Europe</li>
@@ -52,7 +50,7 @@ After you have imported the publishsettings file, you can use the following comm
 <li>West US</li>
 </ul>
 
-</div>
+
 
 For information on creating a Windows Azure storage account using the management portal, see [How to Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
 

@@ -1,8 +1,8 @@
-<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors=""  solutions="" writer="waltpo" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="" solutions="" writer="waltpo" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
 
 # How to use Service Management from PHP
 
-This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy]  class in the [Windows Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
+This guide will show you how to programmatically perform common service management tasks from PHP. The [ServiceManagementRestProxy] class in the [Windows Azure SDK for PHP][download-SDK-PHP] supports programmatic access to much of the service management-related functionality that is available in the [management portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, storage services, and affinity groups**). This functionality can be useful in building applications that need programmatic access to service management. 
 
 ##Table of Contents
 
@@ -83,7 +83,7 @@ To list the locations that are available for hosting services, use the **Service
 	try{
 		$serviceManagementRestProxy = ServicesBuilder::getInstance()->createServiceManagementService($conn_string);
 	
-		$serviceManagementRestProxy->listLocations();
+		$result = $serviceManagementRestProxy->listLocations();
 	
 		$locations = $result->getLocations();
 

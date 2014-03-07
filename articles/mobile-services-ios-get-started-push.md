@@ -11,7 +11,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-ios-180x120.png') !important;" href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">10:37</span></div>
 </div>
 
-   > [WACOM.NOTE] This tutorial demonstrates a simplified way of sending push notifications by attaching a push notification device token to the inserted record. Be sure to follow along with the next tutorial to get a better idea of how to incorporate push notifications into your real-world apps.
+>[WACOM.NOTE] This topic shows how to enable push notifications by using the legacy support provided by Mobile Services. Windows Azure Notification Hubs integrates with Mobile Services to enable you to send template-based and cross-platform push notifications to millions of devices. By default, push notifications using Notification Hubs is not enabled, and there is currently no Notification Hub support for iOS in the Mobile Services libraries. However, you can send push notifications from your mobile service by using the Notification Hub libraries. For more information, see [Get started with Notification Hubs](/en-us/documentation/articles/notification-hubs-ios-get-started/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
