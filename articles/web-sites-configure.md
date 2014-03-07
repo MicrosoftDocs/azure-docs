@@ -210,11 +210,8 @@ Alternatively, you can create the web site with the **Custom Create** option. In
 For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for a Windows Azure Web Site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
 
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
-<<<<<<< HEAD
+
 For information about configuring SSL for a custom domain on Windows Azure, see [Enable HTTPS for a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
-=======
-For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>. 
->>>>>>> 46955d1d62c99dca0240d7a2e7ea2325d2e4595d
 
 ##<a name="next"></a>Next steps
 
