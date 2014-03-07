@@ -2,12 +2,9 @@
 
 Windows Azure Web Sites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your web site, and then quickly and easily push changes to your site when you want.
 
-In this article, you will learn how to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, DropBox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Windows Azure by using Team Foundation Service].
+In this article, you will learn how to use Git to publish directly from your local computer to a Windows Azure Web Site (in Windows Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, DropBox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Windows Azure using Visual Studio Online].
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.</p>
-</div>
+> [WACOM.NOTE] Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure Command-Line Tools for Mac and Linux</a>.
 
 The task includes the following steps:
 
@@ -24,20 +21,21 @@ The task includes the following steps:
 
 The steps required to install Git vary between operating systems. See [Installing Git] for operating system specific distributions and installation guidance.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.</p>
-</div>
+<> [WACOM.NOTE] On some operating systems, both a command-line and GUI version of Git will are available. The instructions provided in this article use the command-line version.
 
 <h2><a id="Step2"></a>Create a local repository</h2>
 
 Perform the following tasks to create a new Git repository.
 
-1. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
+1. Create a directory named MyGitRepository to contain your Git repository and web site files.
 
-2. From the command line, change to the directory in which you will create your web site. For example, `cd needsmoregit`.
+2. Open a command-line, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
 
-3. Use the following command to initialize a new Git repository:
+3. From the command line, change to the MyGitRepository directory.
+
+		cd MyGitRepository
+
+4. Use the following command to initialize a new Git repository:
 
 		git init
 
@@ -47,13 +45,19 @@ Perform the following tasks to create a new Git repository.
 
 Windows Azure Web Sites support applications created in a variety of programming languages. For this example, you will use a static .html file. For information on publishing web sites in other programming languages to Windows Azure, see the [Windows Azure Developer Center].
 
-1. Using a text editor, create a new file named **index.html** in the root of the Git repository. Add 'Hello Git!' as the contents, and then save the file.
+1. Using a text editor, create a new file named **index.html** in the root of the Git repository (the MyGitRepository directory that you created earlier).
 
-2. From the command-line, make sure you are in the directory that you created the repository in and use the following command to add the **index.html** file to the repository:
+2. Add the following text as the contents for the index.html file and save it.
+
+		Hello Git!
+
+3. From the command-line, verify that you are in the root of your Git repository. Then use the following command to add the **index.html** file to the repository:
 
 		git add index.html 
 
-3. Next, commit the changes to the repository by using the following command:
+	> [WACOM.NOTE] You can find help for any git command by typing -help or --help after the command. For example, for parameter options for the add command, type ‘git add -help’ for command-line help or ‘git add --help' for more detailed help.
+
+4. Next, commit the changes to the repository by using the following command:
 
 		git commit -m "Adding index.html to the repository"
 
@@ -73,26 +77,34 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 	![An image displaying a selected web site][portal-select-website]
 
-3. In the **quick glance** section, select **Set up deployment from source control**.  A **Set Up Deployment dialog** appears that asks **Where is your source code?**.
+3. Select the **DASHBOARD** tab.
+
+4. In the **quick glance** section, select **Set up deployment from source control**.  The following **SET UP DEPLOYMENT** dialog appears.
 
 	![git-WhereIsYourSourceCode][git-WhereIsYourSourceCode]
 
 4. Choose **Local Git**, and then click the **Next** arrow.
 
 	
-5. After a short delay, you should be presented with a message that your depository is ready. 
+5. After a short delay, you should be presented with a message that your repository is ready. 
+
 	![git-instructions][git-instructions]
 
 <h2><a id="Step5"></a>Deploy your project</h2>
 
 <h3><a id="Step6"></a>Pushing local files to Windows Azure (Local Git)</h3>
 
-Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal. Using the command-line, change directories to your web site directory and use the commands listed in step 3 of the instructions returned by the portal. For example:
+Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal.
+
+1. If you have never set your deployment credentials, look at step 3 in the portal, and click the Reset your deployment credentials link.
+
+2. Using the command-line, verify that you are in the root of your local Git repository that contains the previously created index.html file.
+
+3. Copy git remote add command listed in step 3 of the instructions returned by the portal. It will look similar to the following command:
 
 		git remote add azure http://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
 
-
-The **remote** command adds a named reference to a remote repository, in this case it creates a reference named 'azure' for your Windows Azure web site repository.
+The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your Windows Azure Web Site repository.
 
 <h4>Publish and re-publish the web site</h4>
 
@@ -100,7 +112,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 
 		git push azure master
 
-	You will be prompted for the password you created earlier when setting up your repository. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password) and you should see output similar to the following:
+	You will be prompted for the password you created earlier when you reset your deployment credentials in the portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). You should see output similar to the following:
 
 		Counting objects: 6, done.
 		Compressing objects: 100% (2/2), done.
@@ -114,10 +126,7 @@ The **remote** command adds a named reference to a remote repository, in this ca
 		To http://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The repository created for your Windows Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.</p>
-	</div>
+	> [WACOM.NOTE] The repository created for your Windows Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.
 
 2. In the portal, click the **BROWSE** link at the bottom of the portal to verify that the **index.html** has been deployed. A page containing 'Hello Git!' will appear.
 
@@ -143,9 +152,11 @@ While both methods result in your project being deployed to a Windows Azure Web 
 
 Deploying files from either GitHub, CodePlex, or BitBucket requires that you have published your local project to one of these services. For more information on publishing your project to these services, see [Create a Repo (GitHub)], [Using Git with CodePlex], [Create a Repo (BitBucket)], [Using Dropbox to Share Git Repositories], or [Quick Start - Mercurial].
 
-1. After your web site project has been pushed to a repository web site, in the Windows Azure Portal **quick glance** section, select **Set up deployment from source control**.  The **Set Up Deployment dialog** appears that asks **Where is your source code?**. 
+1. First put your web site files into the selected repository that will be used for continuous deployment.
 
-2. Choose the source control method that you are using.
+2. In the Windows Azure Portal for your web site,  go to the **DASHBOARD** tab. In the **quick glance** section, select **Set up deployment from source control**.  The **Set Up Deployment dialog** appears that asks **Where is your source code?**. 
+
+2. Choose the source control method that you want to use for continuous deployment.
 	
 3. When prompted, enter your credentials for the service you selected.
 
@@ -153,14 +164,11 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 	![git-ChooseARepositoryToDeploy][git-ChooseARepositoryToDeploy]
   
-5. Select the repository that you want to associate with your Windows Azure web site. Click the checkmark to continue.
+5. Select the repository that you want to associate with your Windows Azure Web Site. Click the checkmark to continue.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.</p>
-</div>
+	> [WACOM.NOTE] When enabling continuous deployment with GitHub or BitBucket, both public and private projects will be displayed.
 
-6. Windows Azure will create an association with the selected repository, and will pull in the files from the master branch. After this process completes, the **deployment history** on the **Deployments** page will show an **Active Deployment** message like the following:
+6. Windows Azure creates an association with the selected repository, and pulls in the files from the master branch. After this process completes, the **deployment history** on the **Deployments** page will show an **Active Deployment** message like the following:
 
 	![git-githubdeployed][git-githubdeployed]
 
@@ -278,4 +286,4 @@ The following are errors or problems commonly encountered when using Git to publ
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Windows Azure by using Team Foundation Service]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
+[Continuous delivery to Windows Azure using Visual Studio Online]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
