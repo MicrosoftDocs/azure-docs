@@ -11,13 +11,15 @@ The tutorial walks you through these basic steps to enable push notifications:
 * [Enable Google Cloud Messaging](#register)
 * [Configure your Notification Hub](#configure-hub)
 * [Connecting your app to the Notification Hub](#connecting-app)
+* [How to send a notifications to your app](#send)
 * [Testing your app](#run-app)
-* [How to send a notifications from your back-end](#send)
 
 This tutorial demonstrates the simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to see how to use notification hubs to address specific users and groups of devices. 
 
-This tutorial requires the Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://go.microsoft.com/fwlink/?LinkId=389797">here</a>.
+This tutorial requires the following:
 
++ the Android SDK (it is assumed you will be using Eclipse), which you can download from <a href="http://go.microsoft.com/fwlink/?LinkId=389797">here</a>
++ the [Mobile Services Android SDK]
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Android apps. 
 
@@ -69,6 +71,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
    	![][14]
 
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
+
+<!--
 3. Open the Android SDK Manager by clicking **Window** from the top toolbar of Eclipse. Under the latest version of the Android SDK, choose **Google APIs**. Scroll down to **Extras** and choose **Google Play Services**, as shown below. Click **Install Packages**. Note the SDK path, for use in the following step. Restart Eclipse.
 
    	![][15]
@@ -80,15 +85,24 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
 
+-->
+
+
 6. Download the Notification Hubs Android SDK from <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">here</a>. Extract the .zip file and copy the file notificationhubs\notification-hubs-0.1.jar to the \libs directory of your project in the Package Explorer.
 
-7. Right-click on the project in the Package Explorer, and click **Properties**. Then click **Android** in the left-hand pane. Check the **Google APIs** target for the highest version of the SDK. Click **OK**.
+7. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+
+    <div class="dev-callout"><b>Note</b>
+	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
+    </div>
+
+8. Right-click on the project in the Package Explorer, and click **Properties**. Then click **Android** in the left-hand pane. Check the **Google APIs** target for the highest version of the SDK. Click **OK**.
 
    	![][16]
 
 	Now, set up the application to obtain a *registrationId* from GCM, and use it to register the app instance to the notification hub.
 
-8. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace `<your package>` with the package you selected for your app in step 1 (`com.yourCompany.wams_notificationhubs` in this example).
+9. In the AndroidManifest.xml file, add the following line just below the <uses-sdk/> element. Make sure to replace `<your package>` with the package you selected for your app in step 1 (`com.yourCompany.wams_notificationhubs` in this example).
 
         <uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -98,15 +112,15 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		<permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 		<uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
-9. In the **MainActivity** class, add the following statements.
+10. In the **MainActivity** class, add the following statements.
 
-	import android.os.AsyncTask;
+		import android.os.AsyncTask;	
+		import com.google.android.gms.gcm.*;
+		import com.microsoft.windowsazure.messaging.*;
+		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-	import com.google.android.gms.gcm.*;
 
-	import com.microsoft.windowsazure.messaging.*;
-
-10. Add the following private members at the top of the class.
+11. Add the following private members at the top of the class.
 
 	<div class="dev-callout"><b>Note</b>
     <p>Make sure to set the SENDER_ID to the Project Number you obtained earlier.</p>
@@ -116,7 +130,9 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		private GoogleCloudMessaging gcm;
 		private NotificationHub hub;
 
-11. In the **OnCreate** method add the following code, and make sure to replace the placeholders with your connection string with listen access obtained in the previous section, and the name of your notification hub that appears at the top of the page in Windows Azure for your hub (**not** the full url).
+12. In the **OnCreate** method add the following code, and make sure to replace the placeholders with your connection string with listen access obtained in the previous section, and the name of your notification hub that appears at the top of the page in Windows Azure for your hub (**not** the full url).
+
+		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
 		gcm = GoogleCloudMessaging.getInstance(this);
         
@@ -125,7 +141,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		
 		registerWithNotificationHubs();
 
-12. In MainActivity.java, create the following method:
+13. In MainActivity.java, create the following method:
 
 		@SuppressWarnings("unchecked")
 		private void registerWithNotificationHubs() {
@@ -143,75 +159,80 @@ Your notification hub is now configured to work with GCM, and you have the conne
 		   }.execute(null, null, null);
 		}
 
-13. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application/>` element.
+14. Because Android does not display notifications, you must write your own receiver. In **AndroidManifest.xml**, add the following element inside the `<application/>` element.
 
 	<div class="dev-callout"><b>Note</b>
     <p>Replace the placeholder with your package name.</p>
     </div> 
 
-		<receiver
-		    android:name=".MyBroadcastReceiver"
-		    android:permission="com.google.android.c2dm.permission.SEND" >
-		   <intent-filter>
-		      <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-		      <category android:name="<your package name>" />
-		   </intent-filter>
-		</receiver>
+        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="**my_app_package**" />
+            </intent-filter>
+        </receiver>
 
-14. Create a new class (right-click your app package in Package Explorer and click **New**, then click **Class**). Name the class **MyBroadcastReceiver**, derived from **android.content.BroadcastReceiver**.
 
-   	![][17]
+15. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-15. Add the following code to **MyBroadcastReceiver**, and resolve any errors by hovering over it and choosing the option to add the appropriate **import** statements.
+16. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
+
+	![][6]
+
+	This creates the new MyHandler class.
+
+17. Add the following import statements:
+
+		import android.app.NotificationManager;
+		import android.app.PendingIntent;
+		import android.content.Context;
+		import android.content.Intent;
+		import android.os.Bundle;
+		import android.support.v4.app.NotificationCompat;
+		
+
+18. Add the following code to the class:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
 		NotificationCompat.Builder builder;
 		Context ctx;
+	
 		
 		@Override
-		public void onReceive(Context context, Intent intent) {
-		GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(context);
-		        ctx = context;
-		        String messageType = gcm.getMessageType(intent);
-		        if (GoogleCloudMessaging.MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
-		            sendNotification("Send error: " + intent.getExtras().toString());
-		        } else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
-		            sendNotification("Deleted messages on server: " + 
-		                    intent.getExtras().toString());
-		        } else {
-		            sendNotification("Received: " + intent.getExtras().toString());
-		        }
-		        setResultCode(Activity.RESULT_OK);
+		public void onReceive(Context context, Bundle bundle) {
+		    ctx = context;
+		    String nhMessage = bundle.getString("msg");
+	
+		    sendNotification(nhMessage);
 		}
-		
+	
 		private void sendNotification(String msg) {
-		mNotificationManager = (NotificationManager)
+			mNotificationManager = (NotificationManager)
 		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-		      
-		      PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+	
+		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
 		          new Intent(ctx, MainActivity.class), 0);
-		      
-		      NotificationCompat.Builder mBuilder =
+	
+		    NotificationCompat.Builder mBuilder =
 		          new NotificationCompat.Builder(ctx)
 		          .setSmallIcon(R.drawable.ic_launcher)
 		          .setContentTitle("Notification Hub Demo")
 		          .setStyle(new NotificationCompat.BigTextStyle()
 		                     .bigText(msg))
 		          .setContentText(msg);
-		      
+	
 		     mBuilder.setContentIntent(contentIntent);
 		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
+	
 
+##<a name="send"></a>How to send a notification to your app
 
+You can send notifications using Notification Hubs from any back-end that uses our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we show two ways to send notifications: with a .NET console app, and with a Mobile Service using a node script.
 
-
-##<a name="send"></a>How to send a notification from your back-end
-
-You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we show two ways to send notifications: with a .NET console app, and with a Mobile Service using a node script.
-
-To send notifications using a .NET app:
+###To send notifications using a .NET console app:
 
 1. Create a new Visual C# console application: 
 
@@ -223,11 +244,11 @@ To send notifications using a .NET app:
 
     and press Enter.
 
-2. Open the file Program.cs and add the following using statement:
+3. Open the file Program.cs and add the following using statement:
 
         using Microsoft.ServiceBus.Notifications;
 
-3. In your `Program` class add the following method:
+4. In your `Program` class add the following method:
 
         private static async void SendNotificationAsync()
         {
@@ -235,18 +256,15 @@ To send notifications using a .NET app:
             await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Windows Azure!\"}}");
         }
 
-4. Then add the following lines in your Main method:
+5. Then add the following lines in your Main method:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-5. Press the F5 key to run the app. You should receive a toast notification.
 
-   	![][21]
+###To send a notification using a Mobile Service
 
-To send a notification using a Mobile Service, follow [Get started with Mobile Services], then:
-
-1. Log on to the [Windows Azure Management Portal], and select your Mobile Service.
+1. Log on to the [Windows Azure Management Portal], and select your Mobile Service. If you do not already have a mobile service, then follow [Get started with Mobile Services].
 
 2. Select the tab **Scheduler** on the top.
 
@@ -275,43 +293,39 @@ To send a notification using a Mobile Service, follow [Get started with Mobile S
           }
 	    );
 
-6. When you are testing your app, you will click **Run Once** on the bottom bar. You should receive a toast notification.
 
 ##<a name="run-app"></a>Testing your app
 
-You can test this app with an actual Android phone, or with the emulator. 
+To test this app with an actual phone, just connect it to your computer with a USB cable.
 
-1. When you run it in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
+To test this app with the emulator:
 
-1. From **Window**, click **Android Virtual Device Manager**, select your device, and then click **Edit**.
+1. Make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
+
+2. From **Window**, click **Android Virtual Device Manager**, select your device, and then click **Edit**.
 
    	![][18]
 
-2. Select **Google APIs** in **Target**, then click **OK**.
+3. Select **Google APIs** in **Target**, then click **OK**.
 
    	![][19]
 
-
-To test with an actual phone, connect it with a USB cable.
-
-
-3. On the Eclipse top toolbar, click **Run**, and then select your app. This starts the emulator and run the app.
-
-4. The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
-
-	<div class="dev-callout"><b>Note</b>
-    <p>In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to <strong>Settings</strong> and click <strong>Add Account</strong>). Also, make sure that the emulator is connected to the Internet.</p>
-    </div> 
-
-5. Now use one of the methods in the preceding section to send a notification to your app.
-
-5. If you are using a .net application, press the F5 key in Visual Studio to run the app. 
+4. 	In order to receive push notifications, you must set up a Google account on your Android Virtual Device (in the emulator, navigate to <strong>Settings</strong> and click <strong>Add Account</strong>). Also, make sure that the emulator is connected to the Internet.
 
 
 
-1. If you will generate the notification from a Mobile Service script, click **Run Once** on the bottom bar.
-2. 
-7. You should receive a toast notification.
+Whichever device you chose, next do the following:
+
+1. On the Eclipse top toolbar, click **Run**, and then select your app. This loads your app, either onto the attached phone, or else it starts the emulator , and loads and runs the app.
+
+2. The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
+
+3. Now use one of the methods in the preceding section to send a notification to your app:  
+
+	- If you are using a .Net console application, press the F5 key in Visual Studio to run the application, which will send a notification. 
+	- Otherwise, if you are using a Mobile Services script, click **Run Once** on the bottom bar of your mobile service screen, and the script will send a notification.
+ 
+5. An icon will appear in the notification area (upper left corner). Pull down the notification drawer to see the notification.  
 
    	![][21]
 
@@ -350,6 +364,7 @@ In this simple example you broadcast notifications to all your Android devices. 
 [29]: ./media/mobile-services-android-get-started-push/mobile-eclipse-import-Play-library.png
 
 <!-- URLs. -->
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
