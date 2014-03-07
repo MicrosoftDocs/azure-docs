@@ -1,325 +1,183 @@
-<properties linkid="manage-services-networking-active-directory-forest" urlDisplayName="Active Directory forest" pageTitle="Install Active Directory forest in a Windows Azure network" metaKeywords="" description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on Windows Azure Virtual Network." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-networking-active-directory-forest" urlDisplayName="Active Directory forest" pageTitle="Install Active Directory forest in a Windows Azure network" metaKeywords="" description="A tutorial that explains how to create a new Active Directory forest on a virtual machine (VM) on Windows Azure Virtual Network." metaCanonical="" services="active-directory,virtual-network" documentationCenter="" title="Install a new Active Directory forest in Windows Azure" authors=""  solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft"  />
 
 
 
 
 #Install a new Active Directory forest in Windows Azure
 
-This tutorial walks you through the steps to create a new Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is not connected to the network at your company. For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+This topic shows how to get a new Windows Server Active Directory environment running on Windows Azure in about 30 minutes. The steps cover how to install a new AD DS forest on a virtual machine (VM) on a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this case, the Windows Azure virtual network is not connected to an on-premises network. 
+You can optionally [create a virtual network for site-to-site cross-premises connectivity](../cross-premises-connectivity/) and then either install a new forest or extend an on-premises forest to Windows Azure Virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/). 
+For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 ##Table of Contents##
 
-* [Prerequisites](#Prerequisites)
-* [Step 1: Create the first Virtual Machine (VM)](#Step1)
-* [Step 2: Attach additional disks to the VM](#Step2)
-* [Step 3: Install Active Directory Domain Services](#Step3)
-* [Step 4: Validate the installation](#Step4)
-* [Step 5: Backup the domain controller](#Step5)
-* [Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot](#Step6)
+* [How does this differ from on-premises?](#Differ)
+* [Step 1. Create a Windows Azure virtual network](#CreateVNet)
+* [Step 2: Create a VM to run the domain controller role](#CreateVM)
+* [Step 3: Install Windows Server Active Directory](#InstallAD)
+* [Step 4: Set the DNS server for the Windows Azure virtual network](#DNS)
+* [Step 5: Create VMs for domain members and join the domain](#DomainMembers)
 
 
-<h2><a id="Prerequisites"></a>Prerequisites</h2>
+<h2><a id="Differ"></a>How does this differ from on-premises?</h2>
+There is not much difference between installing a domain controller on Windows Azure versus on-premises. The main differences are listed in the following table. 
 
-Before you install Active Directory Domain Services (AD DS) on a Windows Azure virtual machine, you need to create a virtual network using one of the following options:
-
--	**Create a virtual network *without* connectivity to another network** by doing the following in the order listed: 
-1.  First, [Create a virtual network in Windows Azure](http://www.windowsazure.com/en-us/manage/services/networking/create-a-virtual-network/). 
-2.  Then install AD DS using the steps in the tutorial below. 
+<table border="1">
+	<tr>
+	<th>To configure...</th>
+	<th>On-premises</th>
+	<th>Windows Azure virtual network</th>
+	</tr>
 	
--	**Create a virtual network *with* connectivity to another network**, such as an Active Directory environment on premises by doing the following in the order listed: 
-1.	First, [Create a Virtual Network for Cross-Premises Connectivity](../cross-premises-connectivity/). 
-2.	Next, [Add a Virtual Machine to a Virtual Network](../add-a-vm-to-a-virtual-network/). 
-3.	Finally, install AD DS by following the steps in [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/).
-
-<h2><a id="Step1"></a>Step 1: Create the first Virtual Machine (VM)</h2>
-
-You can create the first VM either by using the Windows Azure management portal or by using Windows Azure PowerShell.
-
-<h3>To create a VM by using Windows Azure management portal</h3>
-1.	Click **New**, click **Compute**, click **Virtual Machine**, and click **From Gallery**. 
-
-	![Create VM From Gallery][create-vm]
-
-2.	Select the image.
-
-	![VM Image][vm-image]
-
-3.	Type the name of the new VM, a user name and password, and select a version release date and size.
-
-	![VM Configuration][vm-configuration]
-
-4.	Select the virtual network and subnet and accept other default values.
-
-	![VM Subnet][vm-subnet]
-
-5.	Accept default endpoints and click the check mark to complete the wizard.
-
-	![VM Ports][vm-ports]
-
-<h3>To create a VM by using Windows Azure PowerShell</h3>
-
-1.	Create a storage account that is in the same region as the affinity group. To check the region of the affinity group, click **Networks**, and click **Affinity Groups**. To create a storage account: 
-
-	a.  Click **Data Services **, click **Storage**, and then click **Quick Create**. 
-
-	b.  Under URL: type the name of the storage account, and for **Region/Affinity Group**, select the region of the affinity group, such as West US. By selecting a region for the storage account, it can be used with any affinity group in the virtual network.
-
-2.	Install [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx). The VM where you plan to install AD DS must be created using Windows Azure PowerShell in order for the DNS client settings of the domain controller to persist after service healing. The installation of Windows Azure PowerShell requires the installation of Microsoft .NET Framework 4.5 and Windows Management Framework 3.0. If they are not already installed, your computer will need to restart to complete their installation. 
-
-	a.  Go to [https://www.windowsazure.com/en-us/](https://www.windowsazure.com/en-us/).
-
-	b.  Click **Downloads**, click **Command-line tools**, then click **Windows Azure PowerShell**.
-
-	c.  Click **Run**. Click **Yes** if prompted by the **User Account Control** dialog. 
-
-	d.  Click **Install** to go through installation wizard, click **I accept**, and when the wizard is done, click **Finish**. 
-
-	e.	Click **Exit** to close the Web Platform Installer 4.0.
-
-3.	If you are running Windows 7, click **Start**, click **All Programs**, click **Windows Azure**, right-click **Windows Azure PowerShell**, and click **Run as Administrator**. Click **Yes** if prompted by the **User Account Control** dialog. If you are running Windows 8, click **Start**, and in the **Search** field, type Windows Azure PowerShell and press ENTER. 
-
-4.	In Windows Azure PowerShell, run the following cmdlet, and then type **Y** to finish the command:
-
-		Set-ExecutionPolicy RemoteSigned
-
-5.	Run the following cmdlet:
-
-		Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1'
-
-6.	Run the following cmdlet:
-
-		Get-AzurePublishSettingsFile
-
-	You will be prompted to sign on to the Windows Azure portal and then prompted to save a .publishsettings file. Save the file in a directory, for example, E:\PowerShell\MyAccount.publishsettings. To subsequently run any other Windows Azure PowerShell cmdlets, steps 4 through 6 do not need to be repeated because they only need to be completed once. 
-
-
-7.	Run the following cmdlet to open Windows Azure PowerShell ISE:
-
-		powershell ise
-
-8.	Paste the following script into Windows Azure PowerShell ISE, replacing the placeholders (such as *subscriptionname*) with your own values, and the run the script. If necessary, click **Networks** in the Management Portal to obtain the subscription name. The storage account name is the name you specified in step 1. The image name used in following script installs Windows Server 2012, but the image names are updated periodically. To get a list of currently available images, run <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj152878.aspx">Get-AzureVMImage</a>. Windows Azure Virtual Networks support the virtualized domain controller safeguards that are present beginning with Windows Server 2012. For more information about virtualized domain controller safeguards, see <a href="http://technet.microsoft.com/en-us/library/hh831734.aspx">Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)</a>. 
-
-		cls
-		
-	    Import-Module "C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1"
-	    Import-AzurePublishSettingsFile 'C:\PowerShell\Justinha001.publishsettings'
-	    Set-AzureSubscription -SubscriptionName 'Networking Demo Subscription' -CurrentStorageAccount 'yourstorageaccount'
-	    Select-AzureSubscription -SubscriptionName 'Networking Demo Subscription'
+	<tr>
+	<td><b>IP address for the domain controller</b></td>
+	<td>Assign static IP address on the network adapter properties</td>
+	<td>Obtain IP address via DHCP and run the Set-AzureStaticVNetIP cmdlet to make it static. </td>
+	</tr>
 	
-	    #Deploy the Domain Controller in a virtual network
-	    #-------------------------------------------------
+	<tr>
+	<td><b>DNS client resolver</b></td>
+	<td>Set Preferred and Alternate DNS server address on the network adapter properties of domain members</td>
+	<td>Set DNS server address on the the virtual network properties</td>
+	</tr>
+
+	<tr>
+	<td><b>Active Directory database storage</b></td>
+	<td>Optionally change the default storage location from C:\</td>
+	<td>You need to change default storage location from C:\ </td>
+	</tr>
+	</table>
+
+<h2><a id="CreateVNet"></a>Step 1: Create a Windows Azure virtual network</h2>
+<ol>
+<li>Sign in to [Windows Azure Management Portal](https://manage.windowsazure.com/). 
+</li>
+<li>Create a virtual network. Click <b>Networks</b> > <b>Create a virtual network</b>. Use the values in the following table to complete the wizard.
+<table border="1">
+	<tr>
+	<th>On this wizard page…</th>
+	<th>Specify these values</th>
+	</tr>
 	
-		#Specify my DC's DNS IP (127.0.0.1)
-		$myDNS = New-AzureDNS -Name 'myDNS' -IPAddress '127.0.0.1'
-		$vmname = 'ContosoDC1'
-		# OS Image to Use
-		$image = 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201306.01-en.us-127GB.vhd'
-		$service = 'ConDC1demosvc'
-        $AG = 'YourAffinityGroup'
-		$vnet = 'YourVirtualNetwork'
+	<tr>
+	<td><b>Virtual Network Details</b></td>
+	<td><p>Name: Enter a name for your virtual network</p><p>Region: Choose the closest region</p><p>Affinity Group: <b>Create a new affinity group</b></p><p>Affinity Group Name: Enter a name for your affinity group</p></td>
+	</tr>
 	
-		#VM Configuration
-		$MyDC = New-AzureVMConfig -name $vmname -InstanceSize 'Small' -ImageName $image |
-			Add-AzureProvisioningConfig -Windows -Password P@$$w0rd |
-				Set-AzureSubnet -SubnetNames 'BackEndSubnet'
-
-		New-AzureVM -ServiceName $service -VMs $MyDC -AffinityGroup $AG -DnsSettings $myDNS -VNetName $vnet
-
-	If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName -Service <i>service name</i>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VM will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VM is provisioned, continue with the next steps.
-
-<h2><a id="Step2"></a>Step 2: Attach additional disks to the VM</h2>
-
-1.	In the management portal, click the name of the VM you created, and on the bottom of the screen, click **Attach**, and click **Attach Empty Disk**.
-
-
-2. Type the size of hard disk (in GB) you want, such as 30. 
-
-	![Specify disk size][specify-disk-size]
-
-3.	Repeat steps 9 and 10 to attach a second disk.
-
-
-4.	Click the name of the VM and click **Connect**.
-
-	![Connect][connect]
-
-
-5.	Click **Open**.
-
-	![Open][open]
-
-6.	In RDP connection dialog, click **Don't ask me again for connections to this computer**, and click **Connect**.
-
-	![Connect with RDP][connect-rdp]
-
-7.	Type your credentials using the format <i>VM Name</i>\<i>AdminUserName</i>. If you provisioned the VM by using Windows Azure PowerShell, type <i>VM Name</i>\Administrator.
-
-	![Credentials][credentials]
-
-
-8. In Remote Desktop Connection, click **Yes**.
-
-	![Remote Desktop][remote-desktop]
-
-
-
-<h2><a id="Step3"></a>Step 3: Install Active Directory Domain Services</h2>
-
-1.	Initialize the disk you attached to the VM and create a new volume to store Active Directory files. 
-
-	a. 	In Server Manager, click **File and Storage Services**. 
-
-	b.	Click **Disks**, right-click the disk you attached, click **Initialize**, and click **Yes** to confirm the operation.
-
-	c.	After initialization is complete, right-click the disk, click **New Volume**. Accept the default values in the New Volume Wizard and finish creating the volume, and then create a new folder named **NTDS** in order to store the Active Directory database and log files.
-
-2.	In Server Manager, click **Manage** and click **Add Roles and Features** to start the Add Roles Wizard. For more information about installing AD DS on Windows Server 2012, see [Install Active Directory Domain Services (Level 100)](http://technet.microsoft.com/en-us/library/hh472162.aspx).
-
-
-	![Add Role][add-role]
-
-
-3.	On the Before you begin page, click **Next**.
-
-
-4.	On the Select installation type page, click **Role-based or feature-based installation** and then click **Next**.
-
-	![Select Installation type][select-installation]
-
-
-5.	On the Select destination server page, click **Select a server from the server pool**, click the name of the server and then click **Next**.
-
-	![Select server][select-server]
-
-6.	On the Select server roles page, click **Active Directory Domain Services**, then on the Add Roles and Features Wizard dialog box, click **Add Features**, and then click **Next**.  
-
-	![Select Server Role][select-server-role]
-
-	![Add tools][add-tools]
-
-
-7.	On the Select features page, select any additional features you want to install and click **Next**. 
-
-	![Select features][select-features]
-
-
-8.	On the Active Directory Domain Services page, review the information and then click **Next**.
-
-9.	On the Confirm installation selections page, click **Install**.
-
-	![Confirm Server Role][confirm-server-role]
-
-10.	On the Results page, verify that the installation succeeded, and click **Promote this server to a domain controller** to start the Active Directory Domain Services Configuration Wizard.
-
-	![Promote][promote]
+	<tr>
+	<td><b>DNS and VPN</b></td>
+	<td><p>Leave DNS server blank</p><p>Don't select either VPN option</p></td>
 	
-	Note: If you close Add Roles Wizard at this point without starting the Active Directory Domain Services Configuration Wizard, you can restart it by clicking Tasks in Server Manager.
+	</tr>
 
-11.	On the Deployment Configuration page, click **Add a new forest** and then type the name of the root domain (for example, fabrikam.com) and click **Next**.
-
-	![New forest][new-forest]
-
-12.	On the Domain Controller Options page, type and confirm the Directory Services Restore Mode password, accept other default values and click **Next**.
-
-	![DC Options][dc-options]
-
-13.	On the DNS Options page (which appears only if you install a DNS server), click **Create DNS delegation** as needed and then click **Next**. If you do, provide credentials that have permission to create DNS delegation records in the parent DNS zone. If a DNS server that hosts the parent zone cannot be contacted, the **Create DNS delegation** option is not available.
-
-14.	On the Additional Options page, type a new NetBIOS name or verify the default NetBIOS name of the domain, and then click **Next**.
-
-	![Additional Options][additional-options]
-
-15.	On the Paths page, type or browse to the locations for the Active Directory database, log files, and SYSVOL folder, and click **Next**. 	
+	<tr>
+	<td><b>Virtual network address spaces</b></td>
+	<td><p>Subnet name: Enter a name for your subnet</p><p>Starting IP: <b>10.0.0.0</b></p><p>CIDR: <b>/24 (256)</b></p></td>
 	
-	![Paths][paths]
+	</tr>
+	</table>
 
-16.	On the Review Options page, confirm your selections, review the selections, and then click **Next**. 
-
-	![Review options][review-options]
-
-17.	On the Prerequisites Check page, confirm that prerequisite validation completed and then click **Install**. 
-
-	![Prerequisite check][prereq-check]
-
-18.	On the Results page, verify that the server was successfully configured as a domain controller. The server will be restarted automatically to complete the AD DS installation. 
-
-<h2><a id="Step4"></a>Step 4: Validate the installation</h2>
-
-1.	Reconnect to the VM.
-
-2.	Click **Start**, type **Command Prompt**, click the Command Prompt icon, and click **Run as Administrator**. 
-
-3.	Type the following command and press ENTER:
-
-		Dcdiag /c /v
-
-4.	Verify that the tests ran successfully. Some tests related to validating IP addresses may not pass. To prevent validation errors related to Time Server, [configure the Windows Time Service](http://technet.microsoft.com/en-us/library/cc731191.aspx) on the new DC.
+</li>
+</ol>
 
 
-<h2><a id="Step5"></a>Step 5: Backup the domain controller</h2>
+<h2><a id="CreateVM"></a> Step 2: Create a VM to run the domain controller role</h2>
+Create a VM to run the domain controller and DNS server roles. 
 
-1.	Connect to the VM.
+<ol>
+<li>Click <b>Compute</b> > <b>Virtual Machine</b> > <b>From Gallery</b>. Use the values in the following table to complete the wizard.
+<table border="1">
+	<tr>
+	<th>On this wizard page…</th>
+	<th>Specify these values</th>
+	</tr>
+	
+	<tr>
+	<td><b>Operating system</b></td>
+	<td>Select <b>Windows Server 2012 R2 Datacenter</b></td>
+	</tr>
+	
+	<tr>
+	<td><b>Virtual machine configuration</b></td>
+	<td><p>Release date: Today's date</p><p>Machine name: Specify a unique value</p><p>Size: Select any size</p><p>User name: Enter a name. This user account will be a member of the built-in Administrators group. </p><p>Password: Must be at least 8 characters, and include 3 of the following types of characters:</p><ul><li>an uppercase letter</li><li>a lowercase letter</li><li>a number</li><li>a special character</li></ul></td>
+	
+	</tr>
 
-2.	In Server Manager, click **Add Roles and Features**, and on the Select Features page, select **Windows Server Backup**. Follow the instructions to install Windows Server Backup.
+	<tr>
+	<td><b>Cloud service</b></td>
+	<td><p>Cloud service: <b>Create a new cloud service</b></p><p>Cloud service name: Accept default value</p><p>Region/AffinityGroup/VirtualNetwork: Select the virtual network you created</p><p>Virtual network subnet: Select the subnet you created. </p><p>Storage account: <b>Use an automatically generated storage account</b></p><p>Availability set: <b>None</b></p></td>
+	
+	<tr>
+	<td><b>Endpoints</b></td>
+	<td><p>Accept default values</p></td>
 
-3.	Click **Start**, click **Administrative Tools**, click **Windows Server Backup**, then click **Backup once**.
- 
-4.	Click **Different options**, then click **Next**.
-
-5.	Click **Full Server**, then click **Next**.
-
-6.	Click **Local drives**, then click **Next**.
-
-7.	Select the destination drive that does not host the operating system files or the Active Directory database, then click **Next**.
-    ![Backup the DC][backup-dc]
-
-8.	Confirm the settings you selected and then click **Backup**. 
+	</tr>
+	</table>
+</li>
+<li><p>The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You may opt to assign a static IP address so that if you ever do need to shut down the VM, the IP address will persist. You can assign it a static IP address by running the Set-AzureStaticVNetIP cmdlet. For example, if the VM has a service name Svc1, a name VM1, and you want to assign it the 10.0.0.4 static IP address, run the following command in Windows Azure PowerShell:</p>
+    `C:\PS>Get-AzureVM -ServiceName "Svc1" -Name "VM1" | Set-AzureStaticVNetIP -IPAddress '10.0.0.4' | Update-AzureVM`
 
 
-<h2><a id="Step6"></a>Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
-After the DC is configured, you can either create VMs using the management portal or you can run the following Windows PowerShell script to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs can be configured when the VMs are provisioned.  
+<p>For more information about how to install Windows Azure PowerShell, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).</p>
 
-If you create VMs using the management portal, specify the Internal IP address of the domain controller as the Preferred DNS server in the the DNS client resolver settings. To determine the Internal IP address of the domain controller, click the name of virtual machine where it is running.
+</li>
+<li>Attach an additional disk to the VM to store the Active Directory database, logs, and SYSVOL. Click the <b>VM</b> > <b>Attach</b> > <b>Attach empty disk</b>. Specify a size (for example, 10 GB) and accept all other default values.
+</li>
+<li><p>Log on to the VM and format the additional disk. Click <b>Connect</b> to log on to the VM, click <b>Open</b> to create an RDP session, and click <b>Connect</b> again.</p>
+<p>Change the credentials to the new user name and password you specified.</p>
+<p>In Server Manager, click <b>Tools</b> > <b>Computer Management</b>. Click <b>Disk Management</b> and click <b>Ok</b> to initialize the new disk. Right-click the disk name and click <b>New Simple Volume</b>. Complete wizard to format the new drive. </p>
+</li>
+</ol>
 
-For more information about using Windows PowerShell, see [Getting Started with Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
 
-1.	To use Windows Azure PowerShell to create an additional virtual machine that is domain-joined when it first boots, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders (such as *ContosoDC13*) with your own values and run it. Specify the name of the domain controller for the -Name parameter for the New-AzureDNS cmdlet. 
+<h2><a id="InstallAD"></a>Step 3: Install Windows Server Active Directory</h2>
+<p>Install AD DS by using the same routine that you use on-premises (that is, you can use the UI, an answer file, or Windows PowerShell). You need to provide Administrator credentials to install a new forest. To specify the location for the Active Directory database, logs, and SYSVOL, change the default storage location from the operating system drive to the additional data disk that you attached to the VM. For help with installing AD DS, see [Install a New Active Directory Forest](http://technet.microsoft.com/library/jj574166.aspx).</p>
+<p>After the DC installation finishes, connect to the VM again and log on to the DC. Remember to specify domain credentials.</p>
 
-	In the following example, the Internal IP address of the domain controller is 10.4.3.1. The Add-AzureProvisioningConfig also takes a -MachineObjectOU parameter which if specified (requires the full distinguished name in Active Directory) allows for setting Group Policy settings on all of the virtual machines in that container.
+<h2><a id="DNS"></a>Step 4: Set the DNS server for the Windows Azure virtual network</h2>
+To configure DNS server for the network, click <b>Virtual Networks</b>, double-click the virtual network you created and click <b>Configure</b>. Under <b>DNS servers</b>, type the name and the DIP of the DC and click <b>Save</B>. Then select the VM and click <b>Restart</b> to trigger the VM to configure DNS resolver settings with the IP address of the new DNS server. 
 
-	After the virtual machines are provisioned, log on by specifying a domain account using User Principal Name (UPN) format, such as administrator@corp.contoso.com. 
+<h2><a id="DomainMembers"></a>Step 5: Create VMs for domain members and join the domain</h2>
+Provision domain member computers. You can create additional VMs either by using the UI or by using Windows Azure PowerShell. If you use the UI, just follow the same steps that you used to create the first VM. Then join the VMs to the domain just as you would on-premises. If you use Windows Azure PowerShell, you can provision VMs and have them domain-joined when they first start, as in the following example.
+	'
 
-		cls
-		
-	    Import-Module "C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\Azure.psd1"
-	    Import-AzurePublishSettingsFile '*E:\PowerShell\MyAccount.publishsettings*'
-	    Set-AzureSubscription -SubscriptionName *subscriptionname* -CurrentStorageAccount *storageaccountname*
-	    Select-AzureSubscription -SubscriptionName *subscriptionname*
-		
-		#Deploy a new VM and join it to the domain
-		#-------------------------------------------
-		#Specify my DC's DNS IP (10.4.3.1)
-		$myDNS = New-AzureDNS -Name '*ContosoDC13*' -IPAddress '*10.4.3.1*'
-		
-		# OS Image to Use
-		$image = 'fb83b3509582419d99629ce476bcb5c8__SQL-Server-2012SP1-CU5-11.0.3373.0-Enterprise-ENU-Win2012'
-		$service = '*myazuresvcindomainM1*'
-		$AG = '*YourAffinityGroup*'
-		$vnet = '*YourVirtualNetwork*'
-		$pwd = '*p@$$w0rd*'
-		$size = 'Small'
-		
-		#VM Configuration
-		$vmname = 'MyTestVM1'
-		$MyVM1 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
-		    Add-AzureProvisioningConfig -WindowsDomain -Password $pwd -Domain '*corp*' -DomainPassword '*p@$$w0rd*' -DomainUserName 'Administrator' -JoinDomain '*corp.contoso.com*'|
-		    Set-AzureSubnet -SubnetNames '*BackEnd*'
-		
-		New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM1 -DnsSettings $myDNS -VNetName $vnet
+	cls
 
-If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName -Service <i>service name</i>, which returns if the name is already taken. After the Windows Azure PowerShell cmdlet successfully completes, the VMs will initially appear in the UI in the management portal in a stopped state, followed by a provisioning process. After the VMs are provisioned, you can log on to them.		
+	Set-AzureSubscription -SubscriptionName "Free Trial" -currentstorageaccountname 'constorageaccount'
+	Select-AzureSubscription -SubscriptionName "Free Trial"
+
+	#Deploy a new VM and join it to the domain
+	#-------------------------------------------
+	#Specify my DC's DNS IP (10.0.0.4)
+	$myDNS = New-AzureDNS -Name 'DC-1' -IPAddress '10.0.0.4'
+	
+	# OS Image to Use
+	$image = 'a699494373c04fc0bc8f2bb1389d6106__Win2K8R2SP1-Datacenter-201310.01-en.us-127GB.vhd'
+	$service = 'ConApp1'
+	$AG = 'YourAffinityGroup'
+	$vnet = 'YourVirtualNetwork'
+	$pwd = 'P@ssw0rd'
+	$size = 'Small'
+
+	#VM Configuration
+	$vmname = 'ConApp1'
+	$MyVM3 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
+    Add-AzureProvisioningConfig -AdminUserName 'PierreSettles' -WindowsDomain -Password $pwd -Domain 'Contoso' -DomainPassword 'P@ssw0rd' -DomainUserName 'PierreSettles' -JoinDomain 'contoso.com'|
+    Set-AzureSubnet -SubnetNames 'FrontEnd' 
+
+	New-AzureVM -ServiceName $service -AffinityGroup $AG -VMs $MyVM3 -DnsSettings $myDNS -VNetName $vnet   
+
+If you rerun the script, you need to supply a unique value for $service. You can run Test-AzureName -Service <i>service name</i>, which returns if the name is already taken. 	
 
 ## See Also
+
+-  [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx)
+
+-  [Create a virtual network in Windows Azure](http://www.windowsazure.com/en-us/manage/services/networking/create-a-virtual-network/)
+
+-  [Create a Virtual Network for Site-to-Site Cross-Premises Connectivity](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/)
+
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/)
 
 -  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
 
@@ -329,29 +187,3 @@ If you rerun the script, you need to supply a unique value for $service. You can
 
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](http://technet.microsoft.com/en-us/library/hh831734.aspx)
 
-[create-vm]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMFromGallery.png
-[vm-image]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMImageSelection.png
-[vm-configuration]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfig.png
-[vm-subnet]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfigSubnet.png
-[vm-ports]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConfigPorts.png
-[specify-disk-size]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMAttachDisk.png
-[connect]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConnect.png
-[open]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMOpenRDP.png
-[connect-rdp]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMConnectRDP.png
-[credentials]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMCreds.png
-[remote-desktop]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetCreateVMRDPCert.png
-[add-role]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAddRole.png
-[select-installation]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectInstallationType.png
-[select-server]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectDestinationServer.png
-[select-server-role]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectServerRole.png
-[add-tools]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAddTools.png
-[select-features]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCSelectFeatures.png
-[confirm-server-role]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCConfirmRole.png
-[promote]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPromote.png
-[new-forest]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCNewForest.png
-[dc-options]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCOptions.png
-[additional-options]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCAdditionalOptions.png
-[paths]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPaths.png
-[review-options]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCReviewOptions.png
-[prereq-check]: ./media/active-directory-new-forest-virtual-machine/ADDS_VNetDCPrereqCheck.png
-[backup-dc]: ./media/active-directory-new-forest-virtual-machine/BackupDC.png
