@@ -16,9 +16,6 @@ In this article:
 -   [Add a CNAME for your custom domain](#bkmk_configurecname)
 -   [Add an A record for your custom domain](#bkmk_configurearecord)
 
-
-
-
 <h2><a name="understanding-records"></a>Understand CNAME and A records</h2>
 
 CNAME (or alias records) and A records both allow you to associate a domain name with a web site, however they each work differently.
@@ -227,7 +224,7 @@ To create an A record, you must first find the IP address of your web site. Then
 
 7. Next, create a CNAME record that has an alias of **awverify**, and a canonical domain of **awverify.mysite.azurewebsites.net** that you obtained earlier.
 
-	> [WACOM.NOTE] >While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.
+	> [WACOM.NOTE] While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.
 
 	For example, the following will create an CNAME record that Windows Azure can use to verify the A record configuration.
 
