@@ -326,7 +326,7 @@ In this simple example you broadcast notifications to all your Android devices. 
 [3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
 [4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
 [5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
-
+[6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 [7]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
 [9]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
