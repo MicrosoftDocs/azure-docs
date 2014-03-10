@@ -121,11 +121,11 @@ You mobile service is now configured to work with GCM to send push notifications
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-11 In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
+11. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-	This code registers the Notification Handler for the device.
+
 
 12. Add the following line of code to the **addItem** method, before the item is inserted into the table:
 
