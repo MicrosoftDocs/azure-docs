@@ -5,9 +5,9 @@
 
 #Install a new Active Directory forest in Windows Azure
 
-This topic shows how to get a new Windows Server Active Directory environment running on Windows Azure in about 30 minutes. The steps cover how to install a new AD DS forest on a virtual machine (VM) on a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this case, the Windows Azure virtual network is not connected to an on-premises network. 
+This topic shows how to create a new Windows Server Active Directory environment on Windows Azure. The steps cover how to install a new AD DS forest on a virtual machine (VM) on a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this case, the Windows Azure virtual network is not connected to an on-premises network. 
 You can optionally [create a virtual network for site-to-site cross-premises connectivity](../cross-premises-connectivity/) and then either install a new forest or extend an on-premises forest to Windows Azure Virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/). 
-For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx). For step-by-step guidance to create a test lab environment on Windows Azure that includes AD DS, see [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Windows Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684).
 
 ##Table of Contents##
 
@@ -114,8 +114,7 @@ Create a VM to run the domain controller and DNS server roles.
 	</tr>
 	</table>
 </li>
-<li><p>The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You may opt to assign a static IP address so that if you ever do need to shut down the VM, the IP address will persist. You can assign it a static IP address by running the Set-AzureStaticVNetIP cmdlet. For example, if the VM has a service name Svc1, a name VM1, and you want to assign it the 10.0.0.4 static IP address, run the following command in Windows Azure PowerShell:</p>
-    `C:\PS>Get-AzureVM -ServiceName "Svc1" -Name "VM1" | Set-AzureStaticVNetIP -IPAddress '10.0.0.4' | Update-AzureVM`
+<li><p>The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You can assign a static IP address by running the Set-AzureStaticVNetIP Windows Azure PowerShell cmdlet so the IP address will persist if you ever do need to shut down the VM. For more information, see [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address).
 
 
 <p>For more information about how to install Windows Azure PowerShell, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).</p>
@@ -186,4 +185,6 @@ If you rerun the script, you need to supply a unique value for $service. You can
 -  [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
 
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](http://technet.microsoft.com/en-us/library/hh831734.aspx)
+
+-  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Windows Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684)
 
