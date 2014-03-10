@@ -73,7 +73,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 </table>
 
 
-## Select a version when provisioning an HDInsight cluster
+### Select a version when provisioning an HDInsight cluster
 
 When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsight .NET SDK, you can choose the version for the HDInsight Hadoop cluster using the "Version" parameter.
 
@@ -100,6 +100,8 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 - Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Windows Azure Management Portal.
 
 Note that while an HDInsight version is in preview, support is provided in the [Windows Azure Forums][wa-forums]. 
+
+> [WACOM.NOTE] Both HDInsight 2.1 and 3.0 preview use the 64-bit version of Windows 2008 R2 SP1 with .NET Framework 4.0. 
 
 **Additional notes and information on versioning**	
 
