@@ -17,7 +17,7 @@ Before you begin this tutorial, you must have the following:
 ##In this tutorial
 
 * [Prepare the tutorial](#prepare)
-* [Create and upload HiveQL script](#creatscript)
+* [Create and upload HiveQL script](#createscript)
 * [Execute HiveQL script](#executehqlscript)
 * [Export the output to Windows Azure SQL Database](#exportdata)
 * [Next steps](#nextsteps)
