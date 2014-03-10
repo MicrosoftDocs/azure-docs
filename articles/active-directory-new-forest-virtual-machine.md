@@ -6,20 +6,20 @@
 #Install a new Active Directory forest in Windows Azure
 
 This topic shows how to create a new Windows Server Active Directory environment on Windows Azure. The steps cover how to install a new AD DS forest on a virtual machine (VM) on a [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this case, the Windows Azure virtual network is not connected to an on-premises network. 
-You can optionally [create a virtual network for site-to-site cross-premises connectivity](../cross-premises-connectivity/) and then either install a new forest or extend an on-premises forest to Windows Azure Virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/). 
+You can optionally [configure a site-to-site VPN using the Management Portal Wizard](http://msdn.microsoft.com/en-us/library/windowsazure/dn133795.aspx) and then either install a new forest or extend an on-premises forest to Windows Azure Virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/). 
 For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx). For step-by-step guidance to create a test lab environment on Windows Azure that includes AD DS, see [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Windows Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41684).
 
 ##Table of Contents##
 
-* [How does this differ from on-premises?](#Differ)
-* [Step 1. Create a Windows Azure virtual network](#CreateVNet)
-* [Step 2: Create a VM to run the domain controller role](#CreateVM)
-* [Step 3: Install Windows Server Active Directory](#InstallAD)
-* [Step 4: Set the DNS server for the Windows Azure virtual network](#DNS)
-* [Step 5: Create VMs for domain members and join the domain](#DomainMembers)
+* [How does this differ from on-premises?](#differ)
+* [Step 1. Create a Windows Azure virtual network](#createvnet)
+* [Step 2: Create a VM to run the domain controller role](#createvm)
+* [Step 3: Install Windows Server Active Directory](#installad)
+* [Step 4: Set the DNS server for the Windows Azure virtual network](#dns)
+* [Step 5: Create VMs for domain members and join the domain](#domainmembers)
 
 
-<h2><a id="Differ"></a>How does this differ from on-premises?</h2>
+<h2><a id="differ"></a>How does this differ from on-premises?</h2>
 There is not much difference between installing a domain controller on Windows Azure versus on-premises. The main differences are listed in the following table. 
 
 <table border="1">
@@ -48,7 +48,7 @@ There is not much difference between installing a domain controller on Windows A
 	</tr>
 	</table>
 
-<h2><a id="CreateVNet"></a>Step 1: Create a Windows Azure virtual network</h2>
+<h2><a id="createvnet"></a>Step 1: Create a Windows Azure virtual network</h2>
 <ol>
 <li>Sign in to [Windows Azure Management Portal](https://manage.windowsazure.com/). 
 </li>
@@ -81,7 +81,7 @@ There is not much difference between installing a domain controller on Windows A
 </ol>
 
 
-<h2><a id="CreateVM"></a> Step 2: Create a VM to run the domain controller role</h2>
+<h2><a id="createvm"></a> Step 2: Create a VM to run the domain controller role</h2>
 Create a VM to run the domain controller and DNS server roles. 
 
 <ol>
@@ -129,14 +129,14 @@ Create a VM to run the domain controller and DNS server roles.
 </ol>
 
 
-<h2><a id="InstallAD"></a>Step 3: Install Windows Server Active Directory</h2>
+<h2><a id="installad"></a>Step 3: Install Windows Server Active Directory</h2>
 <p>Install AD DS by using the same routine that you use on-premises (that is, you can use the UI, an answer file, or Windows PowerShell). You need to provide Administrator credentials to install a new forest. To specify the location for the Active Directory database, logs, and SYSVOL, change the default storage location from the operating system drive to the additional data disk that you attached to the VM. For help with installing AD DS, see [Install a New Active Directory Forest](http://technet.microsoft.com/library/jj574166.aspx).</p>
 <p>After the DC installation finishes, connect to the VM again and log on to the DC. Remember to specify domain credentials.</p>
 
-<h2><a id="DNS"></a>Step 4: Set the DNS server for the Windows Azure virtual network</h2>
+<h2><a id="dns"></a>Step 4: Set the DNS server for the Windows Azure virtual network</h2>
 To configure DNS server for the network, click <b>Virtual Networks</b>, double-click the virtual network you created and click <b>Configure</b>. Under <b>DNS servers</b>, type the name and the DIP of the DC and click <b>Save</B>. Then select the VM and click <b>Restart</b> to trigger the VM to configure DNS resolver settings with the IP address of the new DNS server. 
 
-<h2><a id="DomainMembers"></a>Step 5: Create VMs for domain members and join the domain</h2>
+<h2><a id="domainmembers"></a>Step 5: Create VMs for domain members and join the domain</h2>
 Provision domain member computers. You can create additional VMs either by using the UI or by using Windows Azure PowerShell. If you use the UI, just follow the same steps that you used to create the first VM. Then join the VMs to the domain just as you would on-premises. If you use Windows Azure PowerShell, you can provision VMs and have them domain-joined when they first start, as in the following example.
 	'
 
