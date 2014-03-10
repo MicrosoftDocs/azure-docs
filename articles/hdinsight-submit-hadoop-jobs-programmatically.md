@@ -16,6 +16,7 @@ Before you begin this article, you must have the following:
 
 * [Submit MapReduce jobs using PowerShell](#mapreduce-powershell)
 * [Submit Hive jobs using PowerShell](#hive-powershell)
+* [Submit Sqoop jobs using PowerShell](#sqoop-powershell)
 * [Submit MapReduce jobs using HDInsight .NET SDK](#mapreduce-sdk)
 * [Submit Hive Jobs using HDInsight .NET SDK](#hive-sdk)
 * [Next steps](#nextsteps)
@@ -103,10 +104,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 	The MapReduce job produces a file named *part-r-00000* with the words and the counts.  The script uses the findstr command to list all of the words that contains "there".
 
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>If you open ./example/data/WordCountOutput/part-r-00000, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.</p> 
-</div>
+> [WACOM.NOTE] If you open ./example/data/WordCountOutput/part-r-00000, a multi-line output from a MapReduce job, in Notepad, you will notice the line breaks are not renter correctly. This is expected.
 
 
 
@@ -268,15 +266,17 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 4. Submit the hive job:
 
 		Use-AzureHDInsightCluster $clusterName
-		Invoke-Hive -Query "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
+		Invoke-Hive -Query $queryString
 
 	You can use the -File switch to specify a HiveQL script file on HDFS.
 
 For more information about Hive, see [Use Hive with HDInsight][hdinsight-hive].
 
+##<a id=""></a>Submit Sqoop jobs using PowerShell
 
+See [Use Sqoop with HDInsight][hdinsight-sqoop].
 
-##<a id="mapreduce-sdk"></a> Submit MapReduce Jobs Using HDInsight .NET SDK
+##<a id="mapreduce-sdk"></a> Submit MapReduce jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.jar*, which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
 
 
@@ -505,9 +505,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 		
 		// Set the variables
 		string subscriptionID = "<Windows Azure subscription ID>";
-
 		string clusterName = "<HDInsight cluster name>";
-        
 		string certFriendlyName = "<certificate friendly name>";		
 		
 	
@@ -525,9 +523,16 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             Query = "show tables;"
         };
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	You can also use the File parameter to specify a HiveQL script file on HDFS. For example
 
-	You can also use the File parameter to specify a HiveQL script file on HDFS.
+        // define the Hive job
+        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
+        {
+            JobName = "show tables job",
+            StatusFolder = "/ShowTableStatusFolder",
+            File = "/user/admin/showtables.hql"
+        };
+
 		
 12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	
@@ -575,6 +580,12 @@ In this article, you have learned several ways to provision an HDInsight cluster
 * [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]
 * [Use Hive with HDInsight][hdinsight-hive]
 * [Use Pig with HDInsight][hdinsight-pig]
+
+
+
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
+
+
 
 [azure-certificate]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/

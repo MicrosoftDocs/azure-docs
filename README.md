@@ -10,8 +10,6 @@ Thank you for your interest in Windows Azure documentation. Before we can accept
 * Members of the Microsoft Open Technologies group.
 * Contributors who don't work for Microsoft.
 
-## Working with Windows Azure articles
-
 ##Repository organization
 
 The content in the azure-content repository follows the organization of documentation on WindowsAzure.com. This repository contains two root folders: 
@@ -29,6 +27,8 @@ The *\articles* folder contains the documentation articles formatted as markdown
 Content authors can create reusable content sections to be included into one or more articles. An include file is simple markdown (.md) file that can contain any valid markdown content including text, links, and images. All include markdown files must contained in the *\includes* directory in the root of this repository. 
 
 * **Media subfolders:** The *\includes* folder contains a *\media* folder, inside which are folders for the images in each include. The includes image folders are named identically to the include file, minus the *.md* file extension. 
+
+## Working with Windows Azure articles
 
 ### Article template
 

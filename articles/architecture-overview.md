@@ -3,6 +3,12 @@
 #Architecture
 Learn how to implement common design patterns in Windows Azure.
 
+###Azure Symbol/Icon set
+
+[Download the Windows Azure Symbol/Icon set](http://www.microsoft.com/en-us/download/details.aspx?id=41937) to create technical materials that describe (or use) Windows Azure—things like architecture diagrams, training materials, presentations, datasheets, infographics, and whitepapers. You can download the symbols in PPT, Visio, or PNG formats. We’d like to know what you think, so there are instructions for providing feedback in the download.
+
+![Azure Symbol/Icon set][azure_symbols]
+
 ##Design patterns
 
 ###[Competing Consumers](http://msdn.microsoft.com/en-us/library/dn568101.aspx)
@@ -45,3 +51,4 @@ For information on more common design patterns in Windows Azure, see [Cloud Desi
 [leader_election]: ./media/architecture-overview/LeaderElection.png
 [pipes_and_filters]: ./media/architecture-overview/PipesAndFilters.png
 [valet_key]: ./media/architecture-overview/ValetKey.png
+[azure_symbols]: ./media/architecture-overview/AzureSymbols.png

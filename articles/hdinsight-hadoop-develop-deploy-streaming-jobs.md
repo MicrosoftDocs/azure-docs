@@ -160,10 +160,7 @@ This tutorial uses the following folder structure:
 
 This tutorial uses the .txt files located in the %hadoop_home% directory.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>The Hadoop HDFS commands are case sensitive.</p> 
-</div>
+> [WACOM.NOTE] The Hadoop HDFS commands are case sensitive.
 
 **To copy the text files to the emulator HDFS**
 
@@ -500,7 +497,7 @@ The following PowerShell script performs the following tasks:
 
 
 ##<a name="retrieve"></a>Retrieve the MapReduce job output
-This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to Windows Azure HDInsight with Power Query][hdinsight-powerquery].
+This section shows you how to download and display the output.  For the information on displaying the results on Excel, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-excel], and [Connect Excel to HDInsight with Power Query][hdinsight-powerquery].
 
 
 **To retrieve the output**
