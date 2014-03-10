@@ -555,6 +555,7 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 2. Verify you can edit data while logged into that account.
  	**Note:** You cannot log out of Google from this app and log into a different google account with the same browser. If you are using one browser, you will have to navigate to Google and log out. You can log on with another account from the same third party authenticator (such as Google) by using a different browser.
 
+If you have not filled out the first and last name of your Google account information, a NullReferenceException will occur.
 
 ## Examine the SQL Azure DB ##
 
