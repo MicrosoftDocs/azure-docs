@@ -31,7 +31,7 @@ Each virtual machine also has a temporary, local *resource disk* attached. Becau
 
 On Windows, the resource disk is labeled as the **D:** drive.  On Linux, the resource disk is typically managed by the Windows Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). Please see the [Windows Azure Linux Agent User Guide](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/) for more information.
 
-For more information about using data disks, see [Manage disks and images](http://go.microsoft.com/fwlink/p/?LinkId=391660).
+For more information about using data disks, see [Manage disks and images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
 ##<a id="attachexisting"></a>How to: Attach an existing disk
 
@@ -167,6 +167,7 @@ After you have created and uploaded a .vhd file to use as an empty disk, you can
 
 	`sudo fdisk /dev/sdc`
 
+	>[WACOM.NOTE] In this example you may need to use `sudo -i` on some distributions if /sbin or /usr/sbin are not in your `$PATH`.
 
 
 4. Type **n** to create a new partition.
@@ -193,32 +194,32 @@ After you have created and uploaded a .vhd file to use as an empty disk, you can
 
 	![Write the disk changes](./media/howto-attach-disk-window-linux/DiskWrite.png)
 
-8. You must create the file system on the new partition. Type the following command to create the file system, and then enter the account password:
+8. You must create the file system on the new partition. As an example, type the following command to create the file system, and then enter the account password:
 
 	`sudo mkfs -t ext4 /dev/sdc1`
 
-
 	![Create file system](./media/howto-attach-disk-window-linux/DiskFileSystem.png)
 
-9. Type the following command to make a directory for mounting the drive, and then enter the account password:
+	>[WACOM.NOTE] Note that on SUSE Linux Enterprise 11 systems provide only read-only access for ext4 file systems.  For these systems it is recommended to format the new file system as ext3 rather than ext4.
 
-	`sudo mkdir /mnt/datadrive`
 
+9. Next you must have a directory available to mount the new file system. As an example, type the following command to make a new directory for mounting the drive, and then enter the account password:
+
+	`sudo mkdir /datadrive`
 
 
 10. Type the following command to mount the drive:
 
-	`sudo mount /dev/sdc1 /mnt/datadrive`
+	`sudo mount /dev/sdc1 /datadrive`
 
-	The data disk is now ready to use as **/mnt/datadrive**.
-
+	The data disk is now ready to use as **/datadrive**.
 
 
 11. Add the new drive to /etc/fstab:
 
 	To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). To find the UUID of the new drive you can use the **blkid** utility:
 	
-	`sudo -i blkid`
+		`sudo -i blkid`
 
 	The output will look similar to the following:
 
@@ -230,20 +231,25 @@ After you have created and uploaded a .vhd file to use as an empty disk, you can
 
 	**Caution:** Improperly editing the /etc/fstab file could result in an unbootable system. If unsure, please refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-	Using a text editor, enter the information about the new file system at the end of the /etc/fstab file.  In this example we will use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/mnt/datadrive**:
+	Using a text editor, enter the information about the new file system at the end of the /etc/fstab file.  In this example we will use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**:
 
-	`UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e    /mnt/datadrive    ext4    defaults    1    1`
+		`UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
 
-	If additional data drives or partitions are created you will need to enter them into /etc/fstab as well.
+	Or, on systems based on SUSE Linux you may need to use a slightly different format:
 
-	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/mnt/datadrive` created in the earlier steps: 
+		`/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2`
 
-		`sudo umount /mnt/datadrive`
-		`sudo mount /mnt/datadrive`
+	If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
+
+	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps: 
+
+		`sudo umount /datadrive`
+		`sudo mount /datadrive`
 
 	If the second command produces an error, check the /etc/fstab file for correct syntax.
 
 
+	>[WACOM.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, then most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk is not present. Please consult your distribution's documentation for more information on these parameters.
 
 
 
