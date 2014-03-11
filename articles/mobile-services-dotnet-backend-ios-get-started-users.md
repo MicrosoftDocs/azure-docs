@@ -26,7 +26,7 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-<ol start="3">
+<ol start="7">
 <li><p>In Xcode, open the project that you created when you completed the tutorial <a href="/en-us/documentation/articles/mobile-services-ios-get-started">Get started with Mobile Services</a>.</p></li> 
 <li><p>Press the <strong>Run</strong> button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.<p> 
    
