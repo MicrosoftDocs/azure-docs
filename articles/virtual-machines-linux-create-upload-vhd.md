@@ -28,17 +28,18 @@ This article assumes that you have the following items:
 
 - **Add-AzureVhd cmdlet**, which is part of the Windows Azure PowerShell module. To download the module, see [Windows Azure Downloads](/en-us/develop/downloads/). For reference information, see [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
-For all distributions note the following:
+**For all distributions please note the following:**
 
-The Windows Azure Linux Agent (Waagent) is not compatible with NetworkManager. Networking configuration should use the ifcfg-eth0 file and should be controllable via the ifup/ifdown scripts. Waagent will refuse to install if the NetworkManager package is detected.
+- When installing the Linux system it is recommended to utilize standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.
 
-NUMA is not supported because of a bug in Linux kernel versions below 2.6.37. The installation of waagent will automatically disable NUMA in the GRUB configuration for the Linux kernel command line.
+- The Windows Azure Linux Agent (waagent) is not compatible with NetworkManager. Networking configuration should be controllable via the ifup/ifdown scripts.  Most of the RPM/Deb packages provided by distributions configure NetworkManager as a conflict to the waagent package, and thus will uninstall NetworkManager when you install the Linux agent package.  The Windows Azure Linux Agent also requires that the python-pyasn1 package is installed.
 
-The Windows Azure Linux Agent requires that the python-pyasn1 package is installed.
+- NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37. Manual installation of waagent will automatically disable NUMA in the GRUB configuration for the Linux kernel. This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel.
 
-It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409) (many current distributions/kernels may already include this fix).
+- It is recommended that you do not create a SWAP partition at installation time. You may configure SWAP space by using the Windows Azure Linux Agent. It is also not recommended to use the mainstream Linux kernel with a Windows Azure virtual machine without the patch available at the [Microsoft web site](http://go.microsoft.com/fwlink/?LinkID=253692&clcid=0x409) (many current distributions/kernels may already include this fix).
 
-All of the VHDs must have sizes that are multiples of 1 MB.
+- All of the VHDs must have sizes that are multiples of 1 MB.
+
 
 This task includes the following steps:
 
@@ -49,7 +50,7 @@ This task includes the following steps:
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
-### Prepare the CentOS 6.2+ operating system ###
+### Prepare CentOS 6.2+ ###
 
 You must complete specific configuration steps in the operating system for the virtual machine to run in Windows Azure.
 
@@ -72,18 +73,22 @@ You must complete specific configuration steps in the operating system for the v
 
 		DEVICE=eth0
 		ONBOOT=yes
-		DHCP=yes
 		BOOTPROTO=dhcp
 		TYPE=Ethernet
 		USERCTL=no
 		PEERDNS=yes
 		IPV6INIT=no
 
-6. Enable the network service by running the following command:
+6.	Remove udev rules to avoid generating static rules for the ethernet interface.  This would cause problems when cloning a VM in Windows Azure or Hyper-V.
+
+		sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent
+		sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent
+
+7. Ensure the network service will start at boot time by running the following command:
 
 		chkconfig network on
 
-7. CentOS 6.2 or 6.3: Install the drivers for the Linux Integration Services
+8.	CentOS 6.2 or 6.3: Install the drivers for the Linux Integration Services
 
 	**Note:** The step is only valid for CentOS 6.2 and 6.3.  In CentOS 6.4+ the Linux Integration Services are already available in the kernel.
 
@@ -111,11 +116,11 @@ You must complete specific configuration steps in the operating system for the v
 		/media/install.sh
 		reboot
 
-8. Install python-pyasn1 by running the following command:
+9. Install python-pyasn1 by running the following command:
 
 		sudo yum install python-pyasn1
 
-9. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
+10. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
 
 		[openlogic]
 		name=CentOS-$releasever - openlogic packages for $basearch
@@ -159,20 +164,23 @@ You must complete specific configuration steps in the operating system for the v
 		enabled=0
 		gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
-10.	Add the following lines to /etc/yum.conf
+11.	Add the following line to /etc/yum.conf:
 
 		http_caching=packages
+
+	And on CentOS 6.2 & 6.3 only add the following line:
+
 		exclude=kernel*
 
-11. Disable the yum module "fastestmirror" by editing the file "/etc/yum/pluginconf.d/fastestmirror.conf", and under [main] type the following
+12. Disable the yum module "fastestmirror" by editing the file "/etc/yum/pluginconf.d/fastestmirror.conf", and under [main] type the following
 
 		set enabled=0
 
-12.	Run the following commend to clear the current yum metadata:
+13.	Run the following commend to clear the current yum metadata:
 
 		yum clean all
 
-13. For CentOS 6.2 and 6.3, update a running VM's kernel by running the following commands
+14. For CentOS 6.2 and 6.3, update a running VM's kernel by running the following commands
 
 	For CentOS 6.2, run the following commands:
 
@@ -183,23 +191,25 @@ You must complete specific configuration steps in the operating system for the v
 
 		sudo yum --disableexcludes=all install kernel
 
-14. Modify the kernel boot line in grub to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
+15.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Windows Azure. To do this open /boot/grub/menu.lst in a text editor and ensure that the default kernel includes the following parameters:
 
-		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-15. Ensure that all SCSI devices mounted in your kernel include an I/O timeout of 300 seconds or more.
+	This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition this will disable NUMA due to a bug in the kernel version used by CentOS 6.
 
 16.	In /etc/sudoers, comment out the following line, if it exists:
 
 		Defaults targetpw
 
-17.	Ensure that the SSH server is installed and configured to start at boot time
+17.	Ensure that the SSH server is installed and configured to start at boot time.
 
-18. Install the Windows Azure Linux Agent by running the following command
+18. Install the Windows Azure Linux Agent by running the following command:
 
 		yum install WALinuxAgent
 
-19.	Do not create swap space on the OS disk
+	Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages if they were not already removed as described in step 2.
+
+19.	Do not create swap space on the OS disk.
 
 	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -218,7 +228,7 @@ You must complete specific configuration steps in the operating system for the v
 21. Click **Shutdown** in Hyper-V Manager.
 
 
-### Prepare the Ubuntu 12.04+ operating system ###
+### Prepare Ubuntu 12.04+ ###
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -262,7 +272,7 @@ You must complete specific configuration steps in the operating system for the v
 		(recommended) sudo apt-get dist-upgrade
 		sudo reboot
 	
-	Ubuntu 13.04 and 13.10:
+	Ubuntu 13.04, 13.10 and 14.04:
 
 		sudo apt-get update
 		sudo apt-get install hv-kvp-daemon-init
@@ -277,24 +287,28 @@ You must complete specific configuration steps in the operating system for the v
 
 	c) Change the statement below this line to **set timeout=5**.
 
-	d) Run update-grub.
+	d) Run 'sudo update-grub'.
 
-6. Modify the kernel boot line in Grub or Grub2 to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
+6. Modify the kernel boot line for Grub to include additional kernel parameters for Windows Azure. To do this open /etc/default/grub in a text editor, find the variable called "GRUB_CMDLINE_LINUX_DEFAULT" (or add it if needed) and edit it to include the following parameters:
 
-		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+
+	Save and close this file, and then run 'sudo update-grub'. This will ensure all console messages are sent to the first serial port, which can assist Windows Azure technical support with debugging issues. 
 
 7.	In /etc/sudoers, comment out the following line, if it exists:
 
 		Defaults targetpw
 
-8.	Ensure that the SSH server is installed and configured to start at boot time
+8.	Ensure that the SSH server is installed and configured to start at boot time.
 
-9.	 Install the agent by running the following commands with sudo:
+9.	Install the agent by running the following commands with sudo:
 
 		apt-get update
-		apt-get install walinuxagent 
+		apt-get install walinuxagent
 
-10.	Do not create swap space on the OS disk
+	Note that installing the walinuxagent package will remove the NetworkManager and NetworkManager-gnome packages, if they are installed.
+
+10.	Do not create swap space on the OS disk.
 
 	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -313,11 +327,89 @@ You must complete specific configuration steps in the operating system for the v
 12. Click **Shutdown** in Hyper-V Manager.
 
 
-### Prepare the SUSE Linux Enterprise Server 11 SP2 & SP3 operating system ###
+### Prepare Oracle Linux 6.4+ ###
+
+You must complete specific configuration steps in the operating system for the virtual machine to run in Windows Azure.
+
+1. In the center pane of Hyper-V Manager, select the virtual machine.
+
+2. Click **Connect** to open the window for the virtual machine.
+
+3. Uninstall NetworkManager by running the following command:
+
+		rpm -e --nodeps NetworkManager
+
+	**Note:** If the package is not already installed, this command will fail with an error message. This is expected.
+
+4.	Create a file named **network** in the `/etc/sysconfig/` directory that contains the following text:
+
+		NETWORKING=yes
+		HOSTNAME=localhost.localdomain
+
+5.	Create a file named **ifcfg-eth0** in the `/etc/sysconfig/network-scripts/` directory that contains the following text:
+
+		DEVICE=eth0
+		ONBOOT=yes
+		BOOTPROTO=dhcp
+		TYPE=Ethernet
+		USERCTL=no
+		PEERDNS=yes
+		IPV6INIT=no
+
+6.	Remove udev rules to avoid generating static rules for the ethernet interface.  This would cause problems when cloning a VM in Windows Azure or Hyper-V.
+
+		sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent
+		sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent
+
+7. Ensure the network service will start at boot time by running the following command:
+
+		chkconfig network on
+
+8. Install python-pyasn1 by running the following command:
+
+		sudo yum install python-pyasn1
+
+9.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Windows Azure. To do this open /boot/grub/menu.lst in a text editor and ensure that the default kernel includes the following parameters:
+
+		console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+
+	This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition this will disable NUMA due to a bug in the kernel version used by CentOS 6.
+
+10.	In /etc/sudoers, comment out the following line, if it exists:
+
+		Defaults targetpw
+
+11.	Ensure that the SSH server is installed and configured to start at boot time.
+
+12. Install the Windows Azure Linux Agent by running the following command:
+
+		yum install WALinuxAgent
+
+	Note that installing the WALinuxAgent package will remove the NetworkManager and NetworkManager-gnome packages, if they are installed.
+
+13.	Do not create swap space on the OS disk.
+
+	The Windows Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.  After installing the Windows Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
+
+		ResourceDisk.Format=y
+		ResourceDisk.Filesystem=ext4
+		ResourceDisk.MountPoint=/mnt/resource
+		ResourceDisk.EnableSwap=y
+		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
+14.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Windows Azure:
+
+		waagent -force -deprovision
+		export HISTSIZE=0
+		logout
+
+15. Click **Shutdown** in Hyper-V Manager.
+
+
+### Prepare SUSE Linux Enterprise Server 11 SP2 & SP3 ###
 
 **NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-> - [SLES 11 SP2 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp2-for-windows-azure)
 > - [SLES 11 SP3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
@@ -366,9 +458,11 @@ You must complete specific configuration steps in the operating system for the v
 
 	Note: The version of the WALinuxAgent package might be slightly different.
 
-6. Modify the kernel boot line in Grub to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
+6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Windows Azure. To do this open /boot/grub/menu.lst in a text editor and ensure that the default kernel includes the following parameters:
 
 		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+
+	This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
 
 7.	It is recommended that you set /etc/sysconfig/network/dhcp or equivalent from DHCLIENT_SET_HOSTNAME="yes" to DHCLIENT_SET_HOSTNAME="no"
 
@@ -397,11 +491,11 @@ You must complete specific configuration steps in the operating system for the v
 12. Click **Shutdown** in Hyper-V Manager.
 
 
-### Prepare the openSUSE 12.3 operating system ###
+### Prepare openSUSE 12.3+ ###
 
 **NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-> - [openSUSE 12.3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/opensuse-12-3-for-windows-azure)
+> - [openSUSE 13.1 for Windows Azure on SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -409,7 +503,7 @@ You must complete specific configuration steps in the operating system for the v
 
 3. Update the operating system to the latest available kernel and patches
 
-4. On the shell, run the command '`zypper lr`'. If this command returns
+4. On the shell, run the command '`zypper lr`'. If this command returns output similar to the following (note that version numbers may vary):
 
 		# | Alias                     | Name                      | Enabled | Refresh
 		--+---------------------------+---------------------------+---------+--------
@@ -450,11 +544,11 @@ You must complete specific configuration steps in the operating system for the v
 
 	This message is expected. As the vendor of the package has changed from "Microsoft Corporation" to "obs://build.opensuse.org/Cloud," one has to explicitely install the package as mentioned in the message.
 
-7.	Modify the kernel boot line in Grub to include the following parameters. This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:
+7.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Windows Azure. To do this open /boot/grub/menu.lst in a text editor and ensure that the default kernel includes the following parameters:
 
 		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
- 	And in /boot/grub/menu.lst, remove the following parameters from the kernel command line if they exist:
+	This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.  In addition, remove the following parameters from the kernel boot line if they exist:
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
