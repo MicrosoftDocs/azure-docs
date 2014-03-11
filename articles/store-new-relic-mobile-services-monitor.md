@@ -131,7 +131,7 @@ Next, you will enable New Relic monitoring of your mobile service in the [Manage
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [Store server scripts in source control]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
 [newrelic]: https://npmjs.org/package/newrelic
-[New Relic page in the Windows Azure Store]: http://www.windowsazure.com/en-us/store/service/?id=3ab16c2e-b5aa-48b5-94b4-8ffb2b7cb640
+[New Relic page in the Windows Azure Store]: /en-us/gallery/store/new-relic/new-relic/
 [Applications Overview]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
 [Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet

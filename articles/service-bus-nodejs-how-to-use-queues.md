@@ -269,7 +269,7 @@ links to learn more.
   
   
   
-  [Node.js Cloud Service]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png

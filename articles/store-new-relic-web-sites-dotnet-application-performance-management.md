@@ -28,7 +28,7 @@ New Relic special pricing through the Windows Azure Store
 New Relic Standard is free to Windows Azure users.
 New Relic Pro is offered in multiple packages based on which web site mode you are using, and the instance size if you are using reserved mode.
 
-For pricing information see the [New Relic page in the Windows Azure Store](http://www.windowsazure.com/en-us/store/service/?id=3ab16c2e-b5aa-48b5-94b4-8ffb2b7cb640).
+For pricing information see the [New Relic page in the Windows Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
 
 <div class="dev-callout"> 
 <strong>Note:</strong>
