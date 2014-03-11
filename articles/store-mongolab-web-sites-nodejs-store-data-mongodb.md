@@ -249,7 +249,7 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
-		h1= title
+		h1 #{title}
 		form(action="/completetask", method="post")
 		  table(border="1")
 		    tr

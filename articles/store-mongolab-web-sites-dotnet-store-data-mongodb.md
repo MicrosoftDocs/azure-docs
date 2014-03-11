@@ -16,7 +16,7 @@ Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial, you w
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
 ## Quick start
-If you've already got a Windows Azure application and web site that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] the Database below.
+If you've already got a Windows Azure application and web site that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
  
 1. Open the Windows Azure Store.  
 ![Store][button-store]
@@ -72,7 +72,7 @@ Your sample app will make use of a Visual Studio template to get started. Be sur
 ![PMConsole][focus-mongolab-csharp-pmconsole] 
 The MongoDB C# Driver is integrated with the project, and the following line is automatically added to the _packages.config_ file:
 
-		< package id="mongocsharpdriver" version="1.6" targetFramework="net40" / >
+		< package id="mongocsharpdriver" version="1.8" targetFramework="net40" / >
 
 ### Add a note model
 First, establish a model for Notes, with simply a date and a text content.
