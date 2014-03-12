@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Windows Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to a Windows Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Windows Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to a Windows Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="" solutions="" manager="" editor="" />
 
 
 

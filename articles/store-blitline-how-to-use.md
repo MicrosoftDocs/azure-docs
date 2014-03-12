@@ -1,4 +1,4 @@
-<properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Windows Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within a Windows Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Windows Azure and Windows Azure Storage" authors=""  solutions="" writer="pennij" manager="" editor=""  />
+<properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Windows Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within a Windows Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Windows Azure and Windows Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
 
 

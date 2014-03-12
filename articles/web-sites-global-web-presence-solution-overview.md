@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-resources-java" urlDisplayName="Media Services Java Resources" pageTitle="Windows Azure Media Services - Resources (Java)" metaKeywords="" description="Find resources, tutorials, and documentation about how to use Media Services with Windows Azure in Java." metaCanonical="http://www.windowsazure.com/en-us/develop/media-services/resources/" services="" documentationCenter="" title="Create a Global Web Presence on Windows Azure Web Sites" authors=""  solutions="" writer="jroth" manager="paulettm" editor="mollybos"  />
+<properties linkid="develop-media-services-resources-java" urlDisplayName="Media Services Java Resources" pageTitle="Windows Azure Media Services - Resources (Java)" metaKeywords="" description="Find resources, tutorials, and documentation about how to use Media Services with Windows Azure in Java." metaCanonical="http://www.windowsazure.com/en-us/develop/media-services/resources/" services="" documentationCenter="" title="Create a Global Web Presence on Windows Azure Web Sites" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 
 

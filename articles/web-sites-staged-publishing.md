@@ -1,4 +1,4 @@
-<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Windows Azure" pageTitle="Staged Publishing on Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Staged Publishing, Site Slots" description="Learn how to use staged publishing on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Publishing on Windows Azure Web Sites" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Windows Azure" pageTitle="Staged Publishing on Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Staged Publishing, Site Slots" description="Learn how to use staged publishing on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Publishing on Windows Azure Web Sites" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
 #Staged Publishing on Windows Azure Web Sites#
 

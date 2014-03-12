@@ -1,4 +1,4 @@
-<properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Windows Azure" metaKeywords="new relic windows azure, performance azure" description="Learn how to use New Relic's performance monitoring on Windows Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Windows Azure Web Sites" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+<properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Windows Azure" metaKeywords="new relic windows azure, performance azure" description="Learn how to use New Relic's performance monitoring on Windows Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Windows Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
 
 
 

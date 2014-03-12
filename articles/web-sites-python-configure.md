@@ -1,5 +1,4 @@
-
-<properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Windows Azure Web Sites" pageTitle="Configuring Python with Windows Azure Web Sites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Windows Azure Web Sites" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Windows Azure Web Sites" pageTitle="Configuring Python with Windows Azure Web Sites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Windows Azure Web Sites" authors="" solutions="" manager="" editor="" />
 
 
 

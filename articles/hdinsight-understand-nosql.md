@@ -1,4 +1,4 @@
-<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Windows Azure | Windows Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" writer="dchappell" editor="cgronlun" manager="paulettm" title="Data management: Understanding NoSQL technologies on Windows Azure" />
+<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Windows Azure | Windows Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Data management: Understanding NoSQL technologies on Windows Azure" authors="" />
 
 # Data management: Understanding NoSQL technologies on Windows Azure
 

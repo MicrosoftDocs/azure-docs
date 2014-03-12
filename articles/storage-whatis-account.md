@@ -1,4 +1,4 @@
-<properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account - Windows Azure service management" metaKeywords="" description="An introduction to storage accounts in Windows Azure." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors=""  solutions="" writer="tysonn" manager="" editor=""  />
+<properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account - Windows Azure service management" metaKeywords="" description="An introduction to storage accounts in Windows Azure." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors="tysonn" solutions="" manager="" editor="" />
 
 
 
