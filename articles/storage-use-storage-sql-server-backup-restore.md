@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-SQL-Server-backup" urlDisplayName="Storage for SQL Server backups" pageTitle="How to Use Windows Azure Storage for SQL Server Backup and Restore" metaKeywords="" description="" metaCanonical="" services="storage" documentationCenter="" title="How to Use Windows Azure Storage for SQL Server Backup and Restore" authors=""  solutions="" writer="karaman" manager="clairt" editor="tysonn"  />
+<properties linkid="manage-services-storage-SQL-Server-backup" urlDisplayName="Storage for SQL Server backups" pageTitle="How to Use Windows Azure Storage for SQL Server Backup and Restore" metaKeywords="" description="" metaCanonical="" services="storage" documentationCenter="" title="How to Use Windows Azure Storage for SQL Server Backup and Restore" authors="karaman" solutions="" manager="clairt" editor="tysonn" />
 
 
 

@@ -1,4 +1,4 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: BizTalk Service State Chart" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: BizTalk Service State Chart" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 

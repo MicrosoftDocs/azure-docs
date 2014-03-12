@@ -1,4 +1,4 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory" authors="" solutions="" manager="" editor="" />
 
 # Integrating Multi-Tenant Cloud Applications with Windows Azure Active Directory
 

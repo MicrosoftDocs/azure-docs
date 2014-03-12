@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor HDInsight clusters using Ambari APIs" pageTitle="Monitor HDInsight clusters using Ambari APIs | Windows Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari’s intuitive operator tools and APIs hide the complexity of Hadoop." title="Monitor HDInsight clusters using Ambari APIs" umbracoNaviHide="0" disqusComments="1" authors="jgao" writer="jgao" editor="cgronlun" manager="paulettm"  />
+<properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor HDInsight clusters using Ambari APIs" pageTitle="Monitor HDInsight clusters using Ambari APIs | Windows Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari’s intuitive operator tools and APIs hide the complexity of Hadoop." title="Monitor HDInsight clusters using Ambari APIs" umbracoNaviHide="0" disqusComments="1" authors="jgao" editor="cgronlun" manager="paulettm" />
 
 # Monitor HDInsight clusters using Ambari API
  

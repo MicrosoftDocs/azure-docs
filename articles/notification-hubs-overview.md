@@ -1,4 +1,4 @@
-<properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Windows Azure Notification Hubs" pageTitle="Windows Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Windows Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Windows Azure Notification Hubs" />
+<properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Windows Azure Notification Hubs" pageTitle="Windows Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Windows Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Windows Azure Notification Hubs" authors="" />
 
 
 #Windows Azure Notification Hubs

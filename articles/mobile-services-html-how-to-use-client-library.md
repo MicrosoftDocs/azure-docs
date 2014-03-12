@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+<properties linkid="mobile-services-how-to-html-client" urlDisplayName="HTML Client" pageTitle="How to use an HTML client - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service HTML client, HTML client" description="Learn how to use an HTML client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use an HTML/JavaScript client for Windows Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
 
 # How to use an HTML/JavaScript client for Windows Azure Mobile Services

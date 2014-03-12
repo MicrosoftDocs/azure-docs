@@ -1,4 +1,4 @@
-<properties linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Windows Azure" pageTitle="When to Choose Windows Azure Web Sites, Cloud Services, or Virtual Machines" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Windows Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors=""  solutions="" writer="jroth" manager="paulettm" editor="mollybos"  />
+<properties linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Windows Azure" pageTitle="When to Choose Windows Azure Web Sites, Cloud Services, or Virtual Machines" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Windows Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
 
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Windows Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Windows Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Windows Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Windows Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Windows Azure" authors="" solutions="" manager="" editor="" />
 
 
 

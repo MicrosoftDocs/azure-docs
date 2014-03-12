@@ -1,4 +1,4 @@
-<properties linkid="web-sites-backup" urlDisplayName="Windows Azure Web Sites Backups" pageTitle="Windows Azure Web Sites Backups" metaKeywords="Windows Azure Web Sites, Backups" description="Learn how to create backups of your Windows Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Windows Azure Web Sites Backups" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-backup" urlDisplayName="Windows Azure Web Sites Backups" pageTitle="Windows Azure Web Sites Backups" metaKeywords="Windows Azure Web Sites, Backups" description="Learn how to create backups of your Windows Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Windows Azure Web Sites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
 #Windows Azure Web Sites Backups
 

@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Ruby" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors=""  solutions="" writer="guayan" manager="" editor=""  />
+<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Ruby" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
 
 

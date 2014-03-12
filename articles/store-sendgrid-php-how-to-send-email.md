@@ -1,4 +1,4 @@
-<properties title="How to use the SendGrid email service (PHP) - Windows Azure" pageTitle="How to use the SendGrid email service (PHP) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in PHP." documentationCenter="PHP" services="" />
+<properties title="How to use the SendGrid email service (PHP) - Windows Azure" pageTitle="How to use the SendGrid email service (PHP) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in PHP." documentationCenter="PHP" services="" authors="" />
 
 # How to Use the SendGrid Email Service from PHP
 

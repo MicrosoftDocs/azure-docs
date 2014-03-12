@@ -1,4 +1,4 @@
-<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Windows Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Windows Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Windows Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Windows Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Windows Azure" authors="" solutions="" manager="" editor="" />
 
 
 

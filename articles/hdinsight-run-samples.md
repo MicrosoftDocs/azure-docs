@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-run-samples" urlDisplayName="Run HDInsight Samples" pageTitle="Run the HDInsight Samples | Windows Azure" metaKeywords="" description="Get started using the Windows Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters." metaCanonical="" services="hdinsight" documentationCenter="" title="Run the HDInsight samples" authors=""  solutions="" writer="sburgess" manager="paulettm" editor="mollybos"  />
+<properties linkid="manage-services-hdinsight-howto-run-samples" urlDisplayName="Run HDInsight Samples" pageTitle="Run the HDInsight Samples | Windows Azure" metaKeywords="" description="Get started using the Windows Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters." metaCanonical="" services="hdinsight" documentationCenter="" title="Run the HDInsight samples" authors="sburgess" solutions="" manager="paulettm" editor="mollybos" />
 
 
 

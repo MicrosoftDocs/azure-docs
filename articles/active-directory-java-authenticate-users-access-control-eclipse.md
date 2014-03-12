@@ -1,4 +1,4 @@
-<properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Windows Azure feature guide" metaKeywords="" description="Learn how to develop and use Access Control with Java in Windows Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
+<properties linkid="develop-java-how-to-guides-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (Java) - Windows Azure feature guide" metaKeywords="" description="Learn how to develop and use Access Control with Java in Windows Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Windows Azure Access Control Service Using Eclipse" authors="waltpo" solutions="" manager="" editor="" />
 
 
 

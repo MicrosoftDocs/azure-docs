@@ -1,4 +1,4 @@
-﻿<properties title="Download the Windows Azure SDK for PHP" pageTitle="Download the Windows Azure SDK for PHP" metaKeywords="" description="Learn how to download and install the Windows Azure SDK for PHP." documentationCenter="PHP" services="" solutions="web" />
+<properties title="Download the Windows Azure SDK for PHP" pageTitle="Download the Windows Azure SDK for PHP" metaKeywords="" description="Learn how to download and install the Windows Azure SDK for PHP." documentationCenter="PHP" services="" solutions="web" authors="" />
 
 #Download the Windows Azure SDK for PHP
 

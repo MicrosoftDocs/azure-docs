@@ -1,4 +1,4 @@
-<properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Specifying a Node.js version in a Windows Azure application" authors=""  solutions="" writer="larryfr" manager="paulettm" editor="mollybos"  />
+<properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Specifying a Node.js version in a Windows Azure application" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
 
 
