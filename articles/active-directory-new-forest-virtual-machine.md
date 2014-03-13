@@ -50,7 +50,7 @@ There is not much difference between installing a domain controller on Windows A
 
 <h2><a id="createvnet"></a>Step 1: Create a Windows Azure virtual network</h2>
 <ol>
-<li>Sign in to [Windows Azure Management Portal](https://manage.windowsazure.com/). 
+<li>Sign in to the Windows Azure Management Portal at https://manage.windowsazure.com/. 
 </li>
 <li>Create a virtual network. Click <b>Networks</b> > <b>Create a virtual network</b>. Use the values in the following table to complete the wizard.
 <table border="1">
@@ -114,10 +114,9 @@ Create a VM to run the domain controller and DNS server roles.
 	</tr>
 	</table>
 </li>
-<li><p>The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You can assign a static IP address by running the Set-AzureStaticVNetIP Windows Azure PowerShell cmdlet so the IP address will persist if you ever do need to shut down the VM. For more information, see [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address).
+<li><p>The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You can assign a static IP address by running the Set-AzureStaticVNetIP Windows Azure PowerShell cmdlet so the IP address will persist if you ever do need to shut down the VM. </p>
 
 
-<p>For more information about how to install Windows Azure PowerShell, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).</p>
 
 </li>
 <li>Attach an additional disk to the VM to store the Active Directory database, logs, and SYSVOL. Click the <b>VM</b> > <b>Attach</b> > <b>Attach empty disk</b>. Specify a size (for example, 10 GB) and accept all other default values.
@@ -130,7 +129,7 @@ Create a VM to run the domain controller and DNS server roles.
 
 
 <h2><a id="installad"></a>Step 3: Install Windows Server Active Directory</h2>
-<p>Install AD DS by using the same routine that you use on-premises (that is, you can use the UI, an answer file, or Windows PowerShell). You need to provide Administrator credentials to install a new forest. To specify the location for the Active Directory database, logs, and SYSVOL, change the default storage location from the operating system drive to the additional data disk that you attached to the VM. For help with installing AD DS, see [Install a New Active Directory Forest](http://technet.microsoft.com/library/jj574166.aspx).</p>
+Install AD DS by using the same routine that you use on-premises (that is, you can use the UI, an answer file, or Windows PowerShell). You need to provide Administrator credentials to install a new forest. To specify the location for the Active Directory database, logs, and SYSVOL, change the default storage location from the operating system drive to the additional data disk that you attached to the VM. 
 <p>After the DC installation finishes, connect to the VM again and log on to the DC. Remember to specify domain credentials.</p>
 
 <h2><a id="dns"></a>Step 4: Set the DNS server for the Windows Azure virtual network</h2>
@@ -176,13 +175,19 @@ If you rerun the script, you need to supply a unique value for $service. You can
 
 -  [Create a Virtual Network for Site-to-Site Cross-Premises Connectivity](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-create-site-to-site-cross-premises-connectivity/)
 
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](../replica-domain-controller/)
+-  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks](http://www.windowsazure.com/en-us/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
 
 -  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+
+-  [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/)
 
 -  [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
 
 -  [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
+
+-  [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
+
+-  [Install a New Active Directory Forest](http://technet.microsoft.com/library/jj574166.aspx)
 
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](http://technet.microsoft.com/en-us/library/hh831734.aspx)
 
