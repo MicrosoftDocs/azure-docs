@@ -1,4 +1,4 @@
-<properties linkid="web-sites-create-web-jobs" urlDisplayName="How to create web jobs in Windows Azure" pageTitle="How to Create Web Jobs in Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Web Jobs" description="Learn how to create web jobs in Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create Web Jobs in Windows Azure Web Sites" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-create-web-jobs" urlDisplayName="How to create web jobs in Windows Azure" pageTitle="How to Create Web Jobs in Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Web Jobs" description="Learn how to create web jobs in Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create Web Jobs in Windows Azure Web Sites" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
 #How to Use the WebJobs feature in Windows Azure Web Sites#
 

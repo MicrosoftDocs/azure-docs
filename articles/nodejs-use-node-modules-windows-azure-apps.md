@@ -1,4 +1,4 @@
-<properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Using Node.js Modules with Windows Azure applications" authors=""  solutions="" writer="larryfr" manager="paulettm" editor="mollybos"  />
+<properties linkid="develop-nodejs-common-tasks-working-with-node-modules" urlDisplayName="Working with Node.js Modules" pageTitle="Working with Node.js Modules" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="Node.js" title="Using Node.js Modules with Windows Azure applications" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
 
 

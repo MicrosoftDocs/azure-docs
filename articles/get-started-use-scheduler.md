@@ -1,4 +1,4 @@
-<properties linkid="get-started-with-scheduler" urlDisplayName="Get started with Scheduler" pageTitle="Get started using Scheduler | Windows Azure" metaKeywords="scheduler" description="TBD" umbracoNaviHide="0" disqusComments="1" writer="krisragh" editor="mattshel" manager="carolz" title="Get started with Scheduler" />
+<properties linkid="get-started-with-scheduler" urlDisplayName="Get started with Scheduler" pageTitle="Get started using Scheduler | Windows Azure" metaKeywords="scheduler" description="TBD" umbracoNaviHide="0" disqusComments="1" editor="mattshel" manager="carolz" title="Get started with Scheduler" authors="" />
 
 
 # Get started with Scheduler

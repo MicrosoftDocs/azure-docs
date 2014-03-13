@@ -1,4 +1,4 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Getting started with SQL Server on a Windows Azure virtual machine" authors=""  solutions="" writer="selcint" manager="clairt" editor="tyson"  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Getting started with SQL Server on a Windows Azure virtual machine" authors="selcint" solutions="" manager="clairt" editor="tyson" />
 
 
 

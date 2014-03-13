@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-deploy-websites" urlDisplayName="How to deploy a Windows Azure Web Site" pageTitle="How to deploy a Windows Azure Web Site" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to a Windows Azure Web Site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy a Windows Azure Web Site" authors="tdykstra"  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
+<properties linkid="manage-services-how-to-deploy-websites" urlDisplayName="How to deploy a Windows Azure Web Site" pageTitle="How to deploy a Windows Azure Web Site" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to a Windows Azure Web Site." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy a Windows Azure Web Site" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 #How to Deploy a Windows Azure Web Site
 

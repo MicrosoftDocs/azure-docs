@@ -1,11 +1,11 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: BizTalk Service State Chart" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-biztalk-state-chart" urlDisplayName="BizTalk Services: Service state chart" pageTitle="BizTalk Services: Service state chart | Microsoft Azure" metaKeywords="" description="" metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Service state chart" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
-# BizTalk Services: BizTalk Service State Chart
-Depending on the current state of the BizTalk Service, there are operations that you can or cannot perform on the BizTalk Service.
+# BizTalk Services: Service state chart
+Depending on the current state of the BizTalk service, there are operations that you can or cannot perform on the BizTalk service.
 
-For example, you provision a new BizTalk Service in the Windows Azure Management Portal. When it completes successfully, the BizTalk Service is in Active state. In the Active State, you can Stop the BizTalk Service. If Stop is successful, the BizTalk Service goes to a Stopped state. If Stop fails, the BizTalk Service goes to a StopFailed state. In the StopFailed state, you can Restart the BizTalk Service. If you try an Operation that is not allowed, like Resume the BizTalk Service, the following error occurs:
+For example, you provision a new BizTalk service in the Windows Azure Management Portal. When it completes successfully, the BizTalk service is in Active state. In the Active State, you can Stop the BizTalk service. If Stop is successful, the BizTalk service goes to a Stopped state. If Stop fails, the BizTalk service goes to a StopFailed state. In the StopFailed state, you can Restart the BizTalk service. If you try an Operation that is not allowed, like Resume the BizTalk service, the following error occurs:
 
 **Operation not allowed**
 

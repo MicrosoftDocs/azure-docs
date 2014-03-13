@@ -1,4 +1,4 @@
-<properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Windows Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Windows Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Windows Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Windows Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Windows Azure" authors="" solutions="" manager="" editor="" />
 
 
 <div>

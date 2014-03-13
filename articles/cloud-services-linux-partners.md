@@ -1,4 +1,4 @@
-﻿<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Windows Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Windows Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Windows Azure" />
+<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Windows Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Windows Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Windows Azure" authors="" />
 
 
 #Partner solutions for Linux in Windows Azure

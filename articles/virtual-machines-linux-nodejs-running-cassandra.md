@@ -1,4 +1,4 @@
-<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="Node.js" title="Running Cassandra with Linux on Windows Azure and Accessing it from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="Node.js" title="Running Cassandra with Linux on Windows Azure and Accessing it from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 

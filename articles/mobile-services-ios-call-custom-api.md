@@ -1,4 +1,4 @@
-<properties linkid="manage-services-media-services" urlDisplayName="Media Services" pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Call a custom API from the client" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+<properties linkid="manage-services-media-services" urlDisplayName="Media Services" pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Call a custom API from the client" authors="krisragh" solutions="" manager="" editor="" />
 
 
 # Call a custom API from the client 

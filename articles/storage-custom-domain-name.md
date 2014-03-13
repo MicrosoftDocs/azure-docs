@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Create a custom domain name for a Windows Azure Storage account" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in a Windows Azure storage account." metaCanonical="" services="" documentationCenter="" title="Configuring a custom domain name for blob data in a Windows Azure storage account" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Create a custom domain name for a Windows Azure Storage account" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in a Windows Azure storage account." metaCanonical="" services="" documentationCenter="" title="Configuring a custom domain name for blob data in a Windows Azure storage account" authors="" solutions="" manager="" editor="" />
 
 
 # Configuring a custom domain name for blob data in a Windows Azure storage account

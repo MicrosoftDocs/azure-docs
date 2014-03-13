@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Windows Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors=""  solutions="" writer="mandia" manager="paulettm" editor="cgronlun"  />
+=======
+<properties linkid="manage-services-biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and restore" pageTitle="BizTalk Services: Backup and restore | Microsoft Azure" metaKeywords="" description="Learn how to backup or restore your BizTalk Services configuration. A backup can be restored to the same or a different BizTalk service." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Backup and restore" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+>>>>>>> AUX42
 
 
 
-# BizTalk Services: Backup and Restore
+# BizTalk Services: Backup and restore
 
 Windows Azure BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the Windows Azure BizTalk Services configuration is taken.
 
