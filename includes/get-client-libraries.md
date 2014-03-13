@@ -32,7 +32,7 @@
 
 To download and install the PHP Client Libraries for Windows Azure manually, follow these steps:
 
-1. Download a .zip archive that contains the libraries from [GitHub][chunk-php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
+1. Download a .zip archive that contains the libraries from [GitHub][php-sdk-github]. Alternatively, fork the repository and clone it to your local machine. (The latter option requires a GitHub account and having Git installed locally.)
 
 	<div class="dev-callout"> 
 	<b>Note</b> 
@@ -42,10 +42,10 @@ To download and install the PHP Client Libraries for Windows Azure manually, fol
 
 2. Copy the `WindowsAzure` directory of the downloaded archive to your application directory structure.
 
-For more information about installing the PHP Client Libraries for Windows Azure (including information about installing as a PEAR package), see [Download the Windows Azure SDK for PHP][download-php-sdk].
+For more information about installing the PHP Client Libraries for Windows Azure (including information about installing as a PEAR package), see [Download the Windows Azure SDK for PHP][download-SDK-PHP].
 
 
-[chunk-php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
+[php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[download-php-sdk]: https://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/
+[download-SDK-PHP]: ../php-download-sdk/
 [composer-phar]: http://getcomposer.org/composer.phar

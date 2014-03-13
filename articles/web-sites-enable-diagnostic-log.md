@@ -29,7 +29,7 @@ Site diagnostics allow to you enable or disable the following:
 
 - **Detailed Error Logging** - Logs detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). This may contain information that can help determine why the server returned the error code.
 - **Failed Request Tracing** - Logs detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. This can be useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
-- **Web Server Logging** - Logs all HTTP transactions on a web site using the [W3C extended log file format](http://msdn.microsoft.com/en-us/library/windows/desktop/aa814385(v=vs.85).aspx). This report is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address
+- **Web Server Logging** - Logs all HTTP transactions on a web site using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This report is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address
 
 ###Application diagnostics
 

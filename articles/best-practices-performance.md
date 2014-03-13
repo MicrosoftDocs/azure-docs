@@ -200,9 +200,9 @@ There are four major kinds of non-SQL data storage:
 
 Windows Azure provides direct support for Hadoop, and also enables use of other technologies. For information about Windows Azure HDInsight Service, see: 
 
-* [Big Data](http://go.microsoft.com/fwlink/?LinkId=252727) 
-* [Windows Azure HDInsight Service](http://www.windowsazure.com/en-us/manage/services/hdinsight/)
-* [Getting Started with Windows Azure HDInsight Service](http://www.windowsazure.com/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Big Data](/en-us/solutions/big-data/) 
+* [Windows Azure HDInsight Service](/en-us/documentation/services/hdinsight/)
+* [Getting Started with Windows Azure HDInsight Service](/en-us/documentation/articles/hdinsight-get-started/)
 
 For some discussion of issues involved with various noSQL storage methods, see: 
 

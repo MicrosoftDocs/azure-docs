@@ -7,9 +7,11 @@ This tutorial shows you how to use Microsoft HPC Pack 2012 R2 and Windows Azure 
  
 ![Hybrid HPC cluster][Overview] 
 
-This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Windows Azure to run compute-intensive applications.
+This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Windows Azure to run compute intensive applications.
 
-This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/?LinkID=200493).
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+
+>[WACOM.NOTE] Windows Azure offers a [range of sizes](http://go.microsoft.com/fwlink/p/?LinkId=389844) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. For information, see [A8 and A9 Compute Intensive Instances: Quick Start with HPC Pack](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 This tutorial walks you through these basic steps:
 

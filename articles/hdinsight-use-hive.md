@@ -170,6 +170,7 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 		Wait-AzureHDInsightJob -Job $hiveJob -WaitTimeoutInSeconds 3600
 		
 7. Run the following script to print the standard output:
+8. 
 		# Print the standard error and the standard output of the Hive job.
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $hiveJob.JobId -StandardOutput
 
@@ -195,11 +196,13 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 3. Run the following script to invoke HiveQL queries:
 
 		Use-AzureHDInsightCluster $clusterName 
-		Invoke-Hive -Query @"
+		$response = Invoke-Hive -Query @"
 		    SELECT * FROM hivesampletable
 		        WHERE devicemake LIKE "HTC%"
 		        LIMIT 10; 
 		"@
+		
+		Write-Host $response
 
 	The output is:
 
