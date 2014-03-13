@@ -1,8 +1,8 @@
-<properties linkid="develop-mobile-how-to-guides-register-windows-store-app-server-auth" urlDisplayName="Register your Windows Store app package for Microsoft authentication" pageTitle="Register your Windows Store app package for Microsoft authentication" metaKeywords="" description="Learn how to register your Windows Store app for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and restore" pageTitle="BizTalk Services: Backup and restore | Microsoft Azure" metaKeywords="" description="Learn how to backup or restore your BizTalk Services configuration. A backup can be restored to the same or a different BizTalk service." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Backup and restore" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
-# BizTalk Services: Backup and Restore
+# BizTalk Services: Backup and restore
 
 Windows Azure BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the Windows Azure BizTalk Services configuration is taken.
 
