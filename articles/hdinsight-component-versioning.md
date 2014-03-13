@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in the cluster versions provided by HDInsight?" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." umbracoNaviHide="0" disqusComments="1" writer="bradsev" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?"/>
+<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in the cluster versions provided by HDInsight? | Windows Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
 
 
 #What's new in the cluster versions provided by HDInsight?
@@ -23,7 +23,7 @@ Only the "wasb://" syntax is supported in HDInsight 3.0 clusters. The older "asv
 ##HDInsight versions
 HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice provisions a specific version of the HortonWorks Data Platform (HDP) distribution and a set of components that are contained within that distribution.
 
-###Cluster version 3.0 (preview)
+###Cluster version 3.0
 
 Windows Azure HDInsight now supports Hadoop 2.2. It is based on the Hortonworks Data Platform version 2.0 and provides Hadoop services with the component versions itemized in the following table:
 
@@ -73,7 +73,7 @@ The default cluster version used by [Windows Azure HDInsight](http://go.microsof
 </table>
 
 
-## Select a version when provisioning an HDInsight cluster
+### Select a version when provisioning an HDInsight cluster
 
 When creating a cluster through the HDInsight PowerShell Cmdlets or the HDInsight .NET SDK, you can choose the version for the HDInsight Hadoop cluster using the "Version" parameter.
 
@@ -87,7 +87,7 @@ The following table lists the versions of HDInsight currently available, the cor
 
 <table border="1">
 <tr><th>HDInsight version</th><th>HDP version</a></th><th>Release date</th></tr>
-<tr><td>HDI 3.0 (preview)</td><td>HDP 2.0</td><td>02/11/2014</td></tr>
+<tr><td>HDI 3.0</td><td>HDP 2.0</td><td>02/11/2014</td></tr>
 <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>10/28/2013</td></tr>
 <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>10/28/2013</td></tr>
 </table><br/>
@@ -99,13 +99,13 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 - Formula 1:  Add 180 days to the date HDInsight cluster version X was released
 - Formula 2: Add 90 days to the date HDInsight cluster version X+1 (the subsequent version after X) is made available in the Windows Azure Management Portal.
 
-Note that while an HDInsight version is in preview, support is provided in the [Windows Azure Forums][wa-forums]. 
+> [WACOM.NOTE] Both HDInsight 2.1 and 3.0 use the 64-bit version of Windows 2008 R2 SP1 with .NET Framework 4.0. 
 
 **Additional notes and information on versioning**	
 
 * The SQL Server JDBC Driver is used internally by HDInsight and is not used for external operations. If you wish to connect to HDInsight using ODBC, please use the Microsoft Hive ODBC driver. For more information on using Hive ODBC, [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].
 
-* HDInsight cluster version 3.0 (preview) uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
+* HDInsight cluster version 3.0 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 2.0][hdp-2-0-8].
 
 * HDInsight cluster version 2.1 uses an Hadoop distribution that is based on the [Hortonworks Data Platform 1.3][hdp-1-3-0]. This is the default Hadoop cluster created when using the Windows Azure HDInsight portal.
 

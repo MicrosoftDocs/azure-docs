@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="xamarin" title="How to use the Xamarin Component client for Windows Azure Mobile Services" /> 
+<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Windows Azure Mobile Services feature guide" metaKeywords="Windows Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Windows Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Windows Azure Mobile Services" authors="" />
 
 # How to use the Xamarin Component client for Windows Azure Mobile Services
 

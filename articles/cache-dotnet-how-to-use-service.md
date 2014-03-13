@@ -1,4 +1,4 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Windows Azure Cache Service (Preview)" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use Windows Azure Cache Service (Preview)" authors="" solutions="" manager="" editor="" />
 
 
 

@@ -1,15 +1,15 @@
-<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using Hadoop 2.2 clusters with HDInsight (preview) | Windows Azure" metaKeywords="" description="Get started using Hadoop 2.2 clusters with HDInsight (preview), a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Windows Azure HDInsight" authors=""  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-get-started-hdinsight" urlDisplayName="Get Started" pageTitle="Get started using Hadoop 2.2 clusters with HDInsight | Windows Azure" metaKeywords="" description="Get started using Hadoop 2.2 clusters with HDInsight, a big data solution. Learn how to provision clusters, run MapReduce jobs, and output data to Excel for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using Windows Azure HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
-# Get started using Hadoop 2.2 clusters with HDInsight (preview)
+# Get started using Hadoop 2.2 clusters with HDInsight 
 
 HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the cloud. It makes the MapReduce software framework available in a simpler, more scalable, and cost efficient Windows Azure environment. HDInsight also provides a cost efficient approach to the managing and storing of data using Windows Azure Blob storage. 
 
 In this tutorial, you will provision an HDInsight cluster using the Windows Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-> [WACOM.NOTE] This tutorial covers using Hadoop 2.2 clusters on HDInsight. It is currently in preview. For the tutorial using Hadoop 1.2 clusters on HDInsight, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
+> [WACOM.NOTE] This tutorial covers using Hadoop 2.2 clusters on HDInsight. For the tutorial using Hadoop 1.2 clusters on HDInsight, see [Get started using Windows Azure HDInsight][hdinsight-get-started].
 
 > [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. The *wasb://* syntax should be used instead. 
 
@@ -119,7 +119,7 @@ Provision HDInsight 3.0 clusters is currently only supported using the custom cr
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td><strong>Cluster Name</strong></td><td>Name of the cluster.</td></tr>
 	<tr><td><strong>Data Nodes</strong></td><td>Number of data nodes you want to deploy. For testing purposes, create a single node cluster. <br />The cluster size limit varies for Windows Azure subscriptions. Contact Azure billing support to increase the limit.</td></tr>
-	<tr><td><strong>HDInsight Version</strong></td><td>Choose <strong>3.0 (preview)</strong> to create a Hadoop 2.2 cluster on HDInsight.</td></tr>
+	<tr><td><strong>HDInsight Version</strong></td><td>Choose <strong>3.0</strong> to create a Hadoop 2.2 cluster on HDInsight.</td></tr>
 	<tr><td><strong>Region</strong></td><td>Choose the same region as the storage account you created in the last procedure. HDInsight requires the storage account located in the same region. Later in the configuration, you can only choose a storage account that is in the same region as you specified here.
 	</td></tr>
 	</table>

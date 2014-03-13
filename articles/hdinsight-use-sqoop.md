@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Sqoop with HDInsight Samples" pageTitle="Use Sqoop with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use Windows Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and a Windows Azure SQL database." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" title="Use Sqoop with HDInsight" />
+<properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Sqoop with HDInsight Samples" pageTitle="Use Sqoop with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use Windows Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and a Windows Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Use Sqoop with HDInsight" authors="" />
 
 # Use Sqoop with HDInsight
  
@@ -37,7 +37,7 @@ Before you begin this tutorial, you must have the following:
 
 - **A Windows Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
-	<table>
+	<table border="1">
 	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>This is your HDInsight cluster name.</td></tr>
 	<tr><td>Azure storage account name</td><td>$storageAccountName</td><td></td><td>A Windows Azure Storage account available to the HDInsight cluster. For this tutorial, use the default storage account specified during the cluster provision process.</td></tr>
@@ -46,7 +46,7 @@ Before you begin this tutorial, you must have the following:
 
 - **A Windows Azure SQL Database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions on creating a SQL database and configuring firewall, see [Get started using Windows Azure SQL database][sqldatabase-get-started]. This article provides a PowerShell script for creating the SQL database table needed for this tutorial. 
 
-	<table>
+	<table border="1">
 	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>The SQL Database server to which Sqoop will export data to or import data from. </td></tr>
 	<tr><td>SQL database login name</td><td>$sqlDatabaseUsername</td><td></td><td>SQL Database login name.</td></tr>
@@ -71,7 +71,7 @@ HDInsight cluster comes with some sample data. You will use the following two:
 
 - A Hive table named *hivesampletable* referencing the data file located at */hive/warehouse/hivesampletable*. The table contains some mobile device data. The Hive table schema is:
 
-	<table>
+	<table border="1">
 	<tr><th>Field</th><th>Data type</th></tr>
 	<tr><td>clientid</td><td>string</td></tr>
 	<tr><td>querytime</td><td>string</td></tr>
@@ -374,7 +374,7 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
 		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
-		$databaseName = "SQLDatabaseName"
+		$databaseName = "<SQLDatabaseName>"
 
 		$tableName_log4j = "log4jlogs"
 		
@@ -497,7 +497,7 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 5. Click **Run Script** or press **F5** to run the script. 
 6. To examine the modified data file, you can use Windows Azure Management portal, or a Windows Azure Storage explorer tool, or Windows Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample on using PowerShell to download a file and display the file content.
 
-##<a id="next-steps"></a>Next Steps
+##<a id="nextsteps"></a>Next Steps
 
 Now you have learned how to use Sqoop. To learn more, see:
 

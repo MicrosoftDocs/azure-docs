@@ -1,4 +1,4 @@
-<properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Windows Azure" metaKeywords="" description="Describes how to create a new Media Services account in Windows Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Windows Azure" metaKeywords="" description="Describes how to create a new Media Services account in Windows Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
 
 

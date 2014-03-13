@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal"  solutions="" writer="ricksal" manager="dwrede" editor=""  />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 
 # Get started with push notifications in Mobile Services
@@ -49,37 +49,25 @@ You mobile service is now configured to work with GCM to send push notifications
 ##<a id="add-push"></a>Add push notifications to your app
 
 
+###Add Google Play Services to the project
 
-1. In Eclipse, click **Window**, then click **Android SDK Manager**. If you have not installed the highest API level available of the SDK Platform, then click to install it. Make a note of this number so you can modify the manifest file **targetSdkVersion** property to reference this number.  
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
-2. In the Android SDK Manager, expand **Extras**, check **Google Play Services**, make a note of the **SDK Path**, click **Install Package**, select **Accept** to accept the license, then click **Install**.
+###Add code
 
+1. Open the project file **AndroidManifest.xml**. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. Consult [Set Up Google Play Services SDK] to determine how low you can set this value, if you need to set it below 16 because you are using an older device. Set the property appropriately.
 
-	![][5]
+2. Ensure that in the `uses-sdk` element, the **targetSdkVersion** is set to the number of an SDK platform that has been installed (step 1). It is preferable to set it to the newest version available. 
 
-3. In the Android SDK Manager, under the **Android n.m (API x)** node, check **Google APIs**, then click **Install**. 
-
-
-
-4. Install the Google Play Services SDK in your project. In Eclipse, click **File**, then **Import**. Select **Android**, then **Existing Android Code into Workspace**, and click **Next**. Click **Browse**, navigate to the Android SDK path (usually in a folder named `adt-bundle-windows-x86_64`), then go to the `\extras\google\google_play_services\libproject` subfolder, and there select the google-play-services-lib folder, and click **OK**. Check the **Copy projects into workspace** checkbox, and then click **Finish**.
-
-	![][29]
-
-5. Next you must reference the Google Play Services SDK library that you just imported, from your project. Follow the instructions at [Referencing a library project].
-
-6. Open the project file **AndroidManifest.xml**. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. Consult [Set Up Google Play Services SDK] to determine how low you can set this value, if you need to set it below 16 because you are using an older device. Set the property appropriately.
-
-7. Ensure that in the `uses-sdk` element, the **targetSdkVersion** is set to the number of an SDK platform that has been installed (step 1). It is preferable to set it to the newest version available. 
-
-8. The **uses-sdk** tag might look like this, depending on the choices you made in the preceding steps:
+3. The **uses-sdk** tag might look like this, depending on the choices you made in the preceding steps:
 
 	    <uses-sdk
 	        android:minSdkVersion="17"
 	        android:targetSdkVersion="19" />
 	
-9. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
+4. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
-10. Add the following new permissions after the existing `uses-permission` element:
+5. Add the following new permissions after the existing `uses-permission` element:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -88,7 +76,7 @@ You mobile service is now configured to work with GCM to send push notifications
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-11. Add the following code after the `application` opening tag: 
+6. Add the following code after the `application` opening tag: 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -100,7 +88,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 
 
-12. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
+7. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
 
 			@com.google.gson.annotations.SerializedName("handle")
 			private String mHandle;
@@ -119,48 +107,48 @@ You mobile service is now configured to work with GCM to send push notifications
 	<p>When dynamic schema is enabled on your mobile service, a new <strong>handle</strong> column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
-13. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+8. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
     <div class="dev-callout"><b>Note</b>
 	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
     </div>
 
-14.  Open the file *ToDoItemActivity.java*, and add the following import statement:
+9.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-15. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
+10. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-16. In the **onCreate** method, add this code before the MobileServiceClient is instantiated:
+11. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-	This code registers the Notification Handler for the device.
 
-17. Add the following line of code to the **addItem** method, before the item is inserted into the table:
+
+12. Add the following line of code to the **addItem** method, before the item is inserted into the table:
 
 		item.setHandle(MyHandler.getHandle());
 
 	This code sets the `handle` property of the item to the registration ID of the device.
 
-18. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
+13. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-19. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
+14. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
 
 	![][6]
 
 	This creates the new MyHandler class.
 
-20. Add the following import statements:
+15. Add the following import statements:
 
 		import android.content.Context;
 		
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 		
 
-21. Add the following code:
+16. Add the following code:
 
 		@com.google.gson.annotations.SerializedName("handle")
 		private static String mHandle;
@@ -174,7 +162,7 @@ You mobile service is now configured to work with GCM to send push notifications
 		}
 	
 
-22. Replace the existing **onRegistered** method override with the following code:
+17. Replace the existing **onRegistered** method override with the following code:
 
 		@Override
 		public void onRegistered(Context context, String gcmRegistrationId) {

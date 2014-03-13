@@ -1,4 +1,4 @@
-<properties linkid="web-sites-backup" urlDisplayName="Windows Azure Web Sites Backups" pageTitle="Windows Azure Web Sites Backups" metaKeywords="Windows Azure Web Sites, Backups" description="Learn how to create backups of your Windows Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Windows Azure Web Sites Backups" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-backup" urlDisplayName="Windows Azure Web Sites Backups" pageTitle="Windows Azure Web Sites Backups" metaKeywords="Windows Azure Web Sites, Backups" description="Learn how to create backups of your Windows Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Windows Azure Web Sites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
 #Windows Azure Web Sites Backups
 
@@ -7,7 +7,19 @@ The Windows Azure Web Sites Backup and Restore feature lets you easily create we
 
 For information on restoring a Windows Azure web site from backup, see [Restore a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
-##What is Backed Up 
+##In this article
+
+- [What Gets Backed Up](#whatsbackedup)
+- [Requirements and Restrictions](#requirements)
+- [To Create a Manual Backup](#manualbackup)
+- [To Configure Automated Backups](#automatedbackups)
+- [How Backups Are Stored](#aboutbackups)
+- [Notes](#notes)
+- [Next Steps](#nextsteps)
+	- [More about storage accounts](#moreaboutstorage)
+
+<a name="whatsbackedup"></a>
+##What Gets Backed Up 
 Windows Azure Web Sites backs up the following information:
 
 * Web site configuration
@@ -18,12 +30,15 @@ This information is backed up to the Windows Azure storage account that you spec
 
 > [WACOM.NOTE] Each backup is a complete offline copy of your web site, not an incremental update.
 
+<a name="requirements"></a>
 ##Requirements and Restrictions
-* The Backup and Restore feature requires Standard mode. In the portal, click **Scale your site now** on the Backups tab to use the Scale tab to scale your site..
 
-* The Backups and Restore feature requires an associated Windows Azure storage account. If you do not yet have a storage account, you can create one by selecting the **Storage** button (grid icon) in the left pane of the Windows Azure portal, and then choosing **New** in the command bar at the bottom.
+* The Backup and Restore feature requires requires the site to be in a Standard tier. For more information about scaling your web site use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
 
-## To Make a Manual Backup
+* The Backup and Restore feature requires an Windows Azure storage account that must belong to the same subscription as the web site that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Windows Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Windows Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+
+<a name="manualbackup"></a>
+## To Create a Manual Backup
 
 1. In the Windows Azure portal for your web site, choose the **Backups** tab.
 	
@@ -47,8 +62,9 @@ This information is backed up to the Windows Azure storage account that you spec
 	
 	![Backup progress message][BackupProgress]
 	
-You can make a manual backup at any time. At the beginning of Preview, no more than 2 manual backups can be made in a 24-hour period (subject to change).  
+You can make a manual backup at any time. During Preview, no more than 2 manual backups can be made in a 24-hour period (subject to change).  
 
+<a name="automatedbackups"></a>
 ## To Configure Automated Backups
 
 1. On the Backups page, set **Automated Backup** to ON.
@@ -85,7 +101,8 @@ You can make a manual backup at any time. At the beginning of Preview, no more t
 	
 	![Save button][SaveIcon]
 
-## How backups are stored
+<a name="aboutbackups"></a>
+## How Backups Are Stored
 
 After you have made one or more backups, they will be visible on the Containers tab of your storage account. Your backups will be in a container called **websitebackups**. Each backup consists of a .zip file that contains the backed up data and an .xml file that contains a manifest of the .zip file contents. 
 
@@ -93,6 +110,7 @@ The .zip and .xml backup file names consist of your web site name followed by an
 
 > [WACOM.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 
+<a name="notes"></a>
 ## Notes
 
 * Make sure that you set up the connection strings for each of your databases properly on the Configure tab of the web site so that the Backup and Restore feature can include your databases.
@@ -100,9 +118,20 @@ The .zip and .xml backup file names consist of your web site name followed by an
 * Although you can back up more than one web site to the same storage account, for ease of maintenance, consider creating a separate storage account for each web site.
 * During Preview, backup and restore operations are available only through the Windows Azure Management Portal.
 
-
+<a name="nextsteps"></a>
 ## Next Steps
 For information on restoring a Windows Azure web site from backup, see [Restore a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+
+<a name="moreaboutstorage"></a>
+### More about storage accounts
+
+[What is a Storage Account?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+
+[How to: Create a storage account](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+
+[How To Monitor a Storage Account](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+
+[Understanding Windows Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png

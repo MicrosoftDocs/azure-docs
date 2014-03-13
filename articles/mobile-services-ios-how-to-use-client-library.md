@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Windows Azure Mobile Services" metaKeywords="Windows Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 

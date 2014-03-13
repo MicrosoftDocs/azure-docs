@@ -1,4 +1,4 @@
-<properties linkid="video-center-index" urlDisplayName="index" pageTitle="Video Center Index" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Session State with Windows Azure Web Sites" authors=""  solutions="" writer="jroth" manager="" editor=""  />
+<properties linkid="video-center-index" urlDisplayName="index" pageTitle="Video Center Index" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Use ASP.NET Session State with Windows Azure Web Sites" authors="jroth" solutions="" manager="" editor="" />
 
 
 

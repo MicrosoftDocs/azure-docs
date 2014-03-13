@@ -1,4 +1,4 @@
-<properties linkid="virtual-machines-linux-mysql-use-opensuse" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Windows Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="virtual-machines-linux-mysql-use-opensuse" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Windows Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Windows Azure" authors="" solutions="" manager="" editor="" />
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-import-export" urlDisplayName="Windows Azure Import/Export Service" pageTitle="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" metaKeywords="" description="Learn how to create import and export jobs in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tamram" title="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" />
+<properties linkid="manage-services-import-export" urlDisplayName="Windows Azure Import/Export Service" pageTitle="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" metaKeywords="" description="Learn how to create import and export jobs in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" authors="" />
 
 
 # Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage

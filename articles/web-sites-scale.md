@@ -1,4 +1,4 @@
-<properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Windows Azure service management" metaKeywords="Azure scaling web sites, share web site, reserve web site" description="Learn how to scale web sites in Windows Azure. Also learn how to use Shared Web Site and Reserved Web Site modes." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Windows Azure service management" metaKeywords="Azure scaling web sites, share web site, reserve web site" description="Learn how to scale web sites in Windows Azure. Also learn how to use Shared Web Site and Reserved Web Site modes." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors="" solutions="" manager="" editor="" />
 
 
 

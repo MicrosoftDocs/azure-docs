@@ -1,4 +1,4 @@
-<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="timamm" editor="mollybos" manager="paulettm" title="Transform and extend your site"/>
+<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" manager="paulettm" title="Transform and extend your site" authors="" />
 
 # Transform and extend your site
 

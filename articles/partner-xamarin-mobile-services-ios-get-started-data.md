@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.iOS) - Windows Azure Mobile Services" writer="rpeters" metaKeywords="Windows Azure Xamarin.iOS data, Azure mobile services data, " description="Learn how to store and access data from your Windows Azure Mobile Services Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-ios" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.iOS) - Windows Azure Mobile Services" metaKeywords="Windows Azure Xamarin.iOS data, Azure mobile services data, " description="Learn how to store and access data from your Windows Azure Mobile Services Xamarin.iOS app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="" />
 
 # Get started with data in Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

@@ -1,4 +1,4 @@
-<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Windows Azure" pageTitle="Staged Publishing on Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Staged Publishing, Site Slots" description="Learn how to use staged publishing on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Publishing on Windows Azure Web Sites" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Windows Azure" pageTitle="Staged Publishing on Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Staged Publishing, Site Slots" description="Learn how to use staged publishing on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Publishing on Windows Azure Web Sites" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
 #Staged Publishing on Windows Azure Web Sites#
 
@@ -71,6 +71,10 @@ When a staging site slot is created, the configuration for the staging site slot
 - If you change a site to Free mode or Shared mode, it will no longer be swappable.
 
 - Your staged site needs to be configured exactly as you want to have it in production.
+
+- Your staged site will point to the same database as the production site. 
+
+- If you want the staged site to point to a different database while the site is staged, you can change the database connection string for the staged site manually. You can then restore the original database connection string on the staging slot right before you swap it into production.
 
 <a name="Swap"></a>
 ##To Swap the Staging Site Slot with the Production Site Slot##

@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Windows Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Deploying a Windows Azure App from Cloud9" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Windows Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Deploying a Windows Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
 
 
 

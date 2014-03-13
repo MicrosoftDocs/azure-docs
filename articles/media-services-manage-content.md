@@ -1,4 +1,4 @@
-<properties linkid="manage-services-mediaservices-manage-media-services-content" urlDisplayName="How to manage media content" pageTitle="How to manage media content - Windows Azure Media Services" metaKeywords="" description="Learn how to manage your media content in Windows Azure Media Services." metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="manage-services-mediaservices-manage-media-services-content" urlDisplayName="How to manage media content" pageTitle="How to manage media content - Windows Azure Media Services" metaKeywords="" description="Learn how to manage your media content in Windows Azure Media Services." metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors="migree" solutions="" manager="" editor="" />
 
 
 
