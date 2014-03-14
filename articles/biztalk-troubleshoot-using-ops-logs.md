@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Windows Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors=""  solutions="" writer="nitinme" manager="paulettm" editor="cgronlun"  />
-=======
-<properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="Register your Windows Store app package for Microsoft authentication" pageTitle="BizTalk Services: Troubleshoot using ops logs | Microsoft Azure" metaKeywords="" description="In Azure management portal, you can see and analyze logs going back 180 days for your BizTalk Services subscription, allowing you to troubleshoot issues." metaCanonical="" services="biztalk-services" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="nitinme" solutions="" manager="paulettm" editor="cgronlun" />
->>>>>>> AUX42
 
 
 
