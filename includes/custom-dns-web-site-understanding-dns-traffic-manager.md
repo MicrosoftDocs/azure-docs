@@ -6,6 +6,8 @@ When you create an Azure Web Site, a DNS name is automatically assigned to the s
 
 > [WACOM.NOTE] When your web site is configured as a Traffic Manager endpoint, you will usually use the **.traficmgr.com** address when creating DNS records.
 
+> [WACOM.NOTE] You can only use CNAME records with Traffic Manager
+
 There are also multiple types of records, each with their own functions and limitations, but for web sites configured to as Traffic Manager endpoints, we only care about one; *CNAME* records.
 
 ###CNAME or Alias record
