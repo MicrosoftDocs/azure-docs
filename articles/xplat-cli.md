@@ -77,9 +77,32 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 
 <h2><a id="Configure"></a>How to connect to your Windows Azure subscription</h2>
 
-While some commands provided by the xplat-cli will work without a Windows Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your Windows Azure subscription you must download and import a publish settings file. This file contains your subscription ID, as well as a management certificate used to authenticate management requests to your Windows Azure subscription.
+While some commands provided by the xplat-cli will work without a Windows Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your Windows Azure subscription you can either download and use a publish settings file, or you can log in to Windows Azure using you Microsoft account or an organizational ID. When you log in, Windows Azure Active Directory (AAD) is used to authenticate the credentials.
+
+To help you choose the authentication method that's appropriate for your needs, consider the following:
+
+*  The log in method can make it easier to manage access to subscription, but may disrupt automation. The log in credentials are cached by the xplat-cli for [TBD] hours. After the credentials expire, you will need to login again.
+*  The publish settings file method installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a subscription as anyone with access to the certificate can manage the subscription.
+
+For more information about authentication and subscription management in Windows Azure, see [this article][authandsub].
 
 If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial][free-trial].
+
+###Use the log in method
+
+To log in using a Microsoft account or organizational ID, use the following command:
+
+	azure login [username] [password]
+
+To log out, use the following command:
+
+	azure logout [username]
+
+> [WACOM.NOTE] If the subscriptions associated with the account were only authenticated with AAD, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the AAD related information from the local profile.
+
+> [WACOM.NOTE] The `azure login` and `azure logout` commands are aliases for the `azure account login` and `azure account logout` commands.
+
+###Use the publish settings file method
 
 To download the publish settings for your account, use the following command:
 
@@ -87,33 +110,25 @@ To download the publish settings for your account, use the following command:
 
 This will open your default browser and prompt you to sign in to the Windows Azure Management Portal. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>If your account is associated with multiple Windows Azure Active Directory (AD) tenants, you may be prompted to select which AD you wish to download a publish settings file for.</p>
-<p>Once selected using the download page, or by visiting the Windows Azure Management portal, the selected AD becomes the default used by the portal and download page. Once a default has been established, you will see the text '<b>click here to return to the selection page</b>' at the top of the download page. Use the provided link to return to the selection page.</p>
-</div>
+> [WACOM.NOTE] If your account is associated with multiple Windows Azure Active Directory (AAD) tenants, you may be prompted to select which AAD you wish to download a publish settings file for.
+> 
+> Once selected using the download page, or by visiting the Windows Azure Management portal, the selected AAD becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
-Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
+Next, import the `.publishsettings` file by running the following command, replacing `[path to .publishsettings file]` with the path to your `.publishsettings` file:
 
-	azure account import {path to .publishsettings file}
+	azure account import [path to .publishsettings file]
 
-<div class="dev-callout">
-<b>Note</b>
-<p>When you import publish settings, the information for accessing your Windows Azure subscription is stored in a <code>.azure</code> directory located in your <code>user</code> directory. Your <code>user</code> directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your <code>user</code> directory. You can do so in the following ways:</p>
-
-<ul>
-<li>On Windows, modify the directory properties or use BitLocker.</li>
-<li>On Mac, turn on FileVault for the directory.</li>
-<li>On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.</li>
-</ul>
-
-</div>
+> [WACOM.NOTE] When you import publish settings, the information for accessing your Windows Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+>
+> * On Windows, modify the directory properties or use BitLocker.
+> * On Mac, turn on FileVault for the directory.
+> * On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
 
 After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Command-Line Tools and presents a security risk as it can be used to gain access to your subscription.
 
 ###Multiple subscriptions
 
-If you have multiple Windows Azure subscriptions, the `.publishsettings` file will contain information for all subscriptions. When the file is imported using the `azure account import` command, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
+If you have multiple Windows Azure subscriptions, logging in will grant access to all subscriptions associated with your credentials. If using a publish settings file, the `.publishsettings` file will contain information for all subscriptions. With either method, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -121,16 +136,13 @@ If you have multiple Windows Azure subscriptions, the `.publishsettings` file wi
 	data:    Azure-sub-1       ####################################  true
 	data:    Azure-sub-2       ####################################  false
 
-In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
+In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account select` command, and specify the subscription that you wish to be the default. For example:
 
-	azure account set Azure-sub-2
+	azure account select Azure-sub-2
 
 This will change the default subscription to Azure-sub-2. 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.</p>
-</div>
+> [WACOM.NOTE] Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.
 
 If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
@@ -194,6 +206,18 @@ The `--help` or `-h` parameter can be used to view help for specific commands. A
 
 When in doubt about the parameters needed by a command, refer to help using `--help`, `-h` or `azure help [command]`.
 
+###Setting the configuration mode
+
+Historically, the xplat-cli has required you to work with individual resources. Microsoft Azure recently introduced the concept of a Cloud Service Model (CSM,) which allows you to describe and manage resources, such as a web site, database, and storage, as a single *resource group*. For example, you may have an Azure Web Site that relies on a SQL Database, and instead of managing each separately, you can create a resource group that allows you to manage them as a single unit.
+
+The default xplat-cli (RDFE mode,) allows you to manage individual resources. If you want to work with resource groups, you can use the following command to switch xplat-cli to CSM mode:
+
+	azure config mode asm
+
+To change back to resource management mode, use the following command:
+
+	azure config mode arm 
+
 ###Working with services
 
 The xplat-cli allows you to easily manage Windows Azure services. In this example, you will learn how to use the xplat-cli to manage a Windows Azure Web Site.
@@ -204,10 +228,9 @@ The xplat-cli allows you to easily manage Windows Azure services. In this exampl
 
 	You will be prompted to specify the region that the web site will be created in. Select a region that is geographically near you. After this command completes, the web site will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>If you use Git for project source control, you can specify the <code>--git</code> parameter to create a Git repository on Windows Azure for this web site. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named <b>azure</b>, which can be used to push deployments to the Windows Azure Web Site using the <code>git push azure master</code> command.</p>
-	</div>
+	> [WACOM.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Windows Azure for this web site. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Windows Azure Web Site using the `git push azure master` command.
+
+	> [WACOM.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in ASM mode. To change back to ARM mode, use the `azure config mode arm` command.
 
 2. Use the following command to list web sites for your subscription:
 
@@ -232,6 +255,48 @@ The xplat-cli allows you to easily manage Windows Azure services. In this exampl
 		azure site delete mywebsite
 
 	After the command completes, use the `azure site list` command to verify that the web site no longer exists.
+
+###Working with resource groups
+
+Microsoft Azure recently introduced the concept of a CSM Service Model (CSM) that allows you to describe resources, such as a web site, database, and storage, as single group. You can then perform management operations against this resource group instead of managing each service separately. In this example, you will learn how to use the xplat-cli to manage a CSM resource group.
+
+1. Use the following command to create an empty resource group.
+
+		azure group create mygroup
+
+	You will be prompted to specify the region that the web site will be created in. Select a region that is geographically near you.
+
+2. Use the following command to add a Web Site resource to the group.
+
+		azure resource create mygroup mywebsite "Microsoft.Web/site"
+
+	This will create a new Web Site resource named 'mywebsite' in the previously created group. 
+4. azure group list & azure group show
+3. resource: azure resource create
+4. resource: azure resource list & azure resource show
+5. resource: azure resource set (updates resource)
+6. resource: azure resource delete
+3. azure group delete
+
+
+###Working with resource group templates
+
+[intro]
+
+1. azure group template list
+2. azure group template show
+3. azure group template download
+4. azure group template describe
+5. azure group template validate
+6. azure group template init
+1. azure group deployment create
+2. azure group deployment list & azure group deployment show
+3. azure group deployment stop
+4. azure group log show
+5. azure resource log
+6. azure name validate (maybe put in scripting)
+7. azure location list (scripting)
+8. azure operation log show (scripting)
 
 <h2><a id="script"></a>How to script the Windows Azure Cross-Platform Command-Line Interface</h2>
 
