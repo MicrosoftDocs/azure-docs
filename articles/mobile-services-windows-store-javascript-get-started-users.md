@@ -51,7 +51,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 
 
 <!-- Anchors. -->

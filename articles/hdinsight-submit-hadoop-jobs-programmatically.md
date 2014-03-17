@@ -505,9 +505,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 		
 		// Set the variables
 		string subscriptionID = "<Windows Azure subscription ID>";
-
 		string clusterName = "<HDInsight cluster name>";
-        
 		string certFriendlyName = "<certificate friendly name>";		
 		
 	
@@ -525,9 +523,16 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             Query = "show tables;"
         };
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	You can also use the File parameter to specify a HiveQL script file on HDFS. For example
 
-	You can also use the File parameter to specify a HiveQL script file on HDFS.
+        // define the Hive job
+        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
+        {
+            JobName = "show tables job",
+            StatusFolder = "/ShowTableStatusFolder",
+            File = "/user/admin/showtables.hql"
+        };
+
 		
 12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	

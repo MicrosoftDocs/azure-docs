@@ -72,6 +72,10 @@ When a staging site slot is created, the configuration for the staging site slot
 
 - Your staged site needs to be configured exactly as you want to have it in production.
 
+- Your staged site will point to the same database as the production site. 
+
+- If you want the staged site to point to a different database while the site is staged, you can change the database connection string for the staged site manually. You can then restore the original database connection string on the staging slot right before you swap it into production.
+
 <a name="Swap"></a>
 ##To Swap the Staging Site Slot with the Production Site Slot##
 
