@@ -1,26 +1,20 @@
 #Configuring a custom domain name for a Windows Azure web site
 
-When you create a web site, Windows Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite>.azurewebsites.net. However, if you configure your web sites for Shared or Standard mode, you can map your web site to your own domain name. 
+When you create a web site, Windows Azure provides a friendly subdomain on the azurewebsites.net domain so your users can access your web site using a URL like http://&lt;mysite>.azurewebsites.net. However, if you configure your web sites for Shared or Standard mode, you can map your web site to your own domain name.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-	<p>The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Windows Azure</a>.</p> 
-</div>
+Optionally, you can use Windows Azure Traffic Manager to load balance incoming traffic to your web site. For more information on how Traffic Manager works with Web Sites, see [Controlling Windows Azure Web Sites Traffic with Windows Azure Traffic Manager][trafficmanager].
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>The steps in this task require you to configure your web sites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.</p>
-</div>
+> [WACOM.NOTE] The procedures in this task apply to Windows Azure Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Windows Azure</a>.
+
+> [WACOM.NOTE] The steps in this task require you to configure your web sites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.
 
 In this article:
 
 -   [Understanding CNAME and A records](#understanding-records)
--   [Configure your web sites for shared mode](#bkmk_configsharedmode)
+-   [Configure your web sites for shared or standard mode](#bkmk_configsharedmode)
+-   [Add your web sites to Traffic Manager](#trafficmanager)
 -   [Add a CNAME for your custom domain](#bkmk_configurecname)
 -   [Add an A record for your custom domain](#bkmk_configurearecord)
-
-
-
 
 <h2><a name="understanding-records"></a>Understand CNAME and A records</h2>
 
@@ -28,24 +22,19 @@ CNAME (or alias records) and A records both allow you to associate a domain name
 
 ###CNAME or Alias record
 
-A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the **&lt;myapp>.azurewebsites.net** domain name of your Windows Azure web site. Once created, the CNAME creates an alias for the **&lt;myapp>.azurewebsites.net**. The CNAME entry will resolve to the IP address of your **&lt;myapp>.azurewebsites.net** service automatically, so if the IP address of the web site changes, you do not have to take any action.
+A CNAME record maps a *specific* domain, such as **contoso.com** or **www.contoso.com**, to a canonical domain name. In this case, the canonical domain name is the either the **&lt;myapp>.azurewebsites.net** domain name of your Windows Azure web site or the **&lt;myapp>.trafficmgr.com** domain name of your Traffic Manager profile. Once created, the CNAME creates an alias for the **&lt;myapp>.azurewebsites.net** or **&lt;myapp>.trafficmgr.com** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.azurewebsites.net** or **&lt;myapp>.trafficmgr.com** domain name automatically, so if the IP address of the web site changes, you do not have to take any action.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-	<p>Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.</p>
-</div>
+> [WACOM.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
 
 ###A record
 
-An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of a Windows Azure Web Site, the virtual IP of the service. So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as ***.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
+An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of a Windows Azure Web Site, either the virtual IP of the service or a specific IP address that you purchased for your web site. So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as ***.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
 
-<div class="dev-callout"> 
-<b>Note</b>
-<p>Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web site. An IP address for use with A records is provided when you configure custom domain name settings for your web site; however, this value may change if you delete and recreate your web site, or change the web site mode to back to free.</p>
-</div>
+> [WACOM.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web site. An IP address for use with A records is provided when you configure custom domain name settings for your web site; however, this value may change if you delete and recreate your web site, or change the web site mode to back to free.
 
+> [WACOM.NOTE] A records cannot be used for load balancing with Traffic Manager. For more information, see [Controlling Windows Azure Web Sites Traffic with Windows Azure Traffic Manager][trafficmanager].
  
-<a name="bkmk_configsharedmode"></a><h2>Configure your web sites for shared mode</h2>
+<a name="bkmk_configsharedmode"></a><h2>Configure your web sites for shared or standard mode</h2>
 
 Setting a custom domain name on a web site is only available for the Shared and Standard modes for Windows Azure web sites. Before switching a web site from the Free web site mode to the Shared or Standard web site mode, you must first remove spending caps in place for your Web Site subscription. For more information on Shared and Standard mode pricing, see [Pricing Details][PricingDetails].
 
@@ -57,10 +46,13 @@ Setting a custom domain name on a web site is only available for the Shared and 
 3. Click the **SCALE** tab.
 
 	![][standardmode2]
+
 	
 4. In the **general** section, set the web site mode by clicking **SHARED**.
 
 	![][standardmode3]
+
+	> [WACOM.NOTE] If you will be using Traffic Manager with this web site, you must use select Standard mode instead of Shared.
 
 5. Click **Save**.
 6. When prompted about the increase in cost for Shared mode (or for Standard mode if you choose Standard), click **Yes** if you agree.
@@ -69,7 +61,42 @@ Setting a custom domain name on a web site is only available for the Shared and 
 
 	**Note**<br /> 
 	If you receive a "Configuring scale for web site 'web site name' failed" error, you can use the details button to get more information. 
-	
+
+<a name="trafficmanager"></a><h2>(Optional) Add your web sites to Traffic Manager</h2>
+
+If you want to use your web site with Traffic Manager, perform the following steps.
+
+1. If you do not already have a Traffic Manager profile, use the information in [Create a Traffic Manager profile using Quick Create][createprofile] to create one. Note the **.trafficmgr.com** domain name associated with your Traffic Manager profile. This will be used in a later step.
+
+2. Use the information in [Add or Delete Endpoints][addendpoint] to add your web site as an endpoint in your Traffic Manager profile.
+
+	> [WACOM.NOTE] If your web site is not listed when adding an endpoint, verify that it is configured for Standard mode. You must use Standard mode for your web site in order to work with Traffic Manager.
+
+3. Log on to your DNS registrar's web site, and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
+
+4. Now find where you can select or enter CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
+
+5. You must also provide the domain or subdomain alias for the CNAME. For example, **www** if you want to create an alias for **www.customdomain.com**.
+
+5. You must also provide a host name that is the canonical domain name for this CNAME alias. This is the **.trafficmgr.com** name for your web site.
+
+For example, the following CNAME record forwards all traffic from **www.contoso.com** to **contoso.trafficmgr.com**, the domain name of a web site:
+
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tr>
+<td><strong>Alias/Host name/Subdomain</strong></td>
+<td><strong>Canonical domain</strong></td>
+</tr>
+<tr>
+<td>www</td>
+<td>contoso.trafficmgr.com</td>
+</tr>
+</table>
+
+A visitor of **www.contoso.com** will never see the true host
+(contoso.azurewebsite.net), so the forwarding process is invisible to the end user.
+
+> [WACOM.NOTE] If you are using Traffic Manager with a web site, you do not need to follow the steps in the following sections, '**Add a CNAME for your custom domain**' and '**Add an A record for your custom domain**'. The CNAME record created in the previous steps will route incoming traffic to Traffic Manager, which then routes the traffic to the web site endpoint(s).
 
 <a name="bkmk_configurecname"></a><h2>Add a CNAME for your custom domain</h2>
 
@@ -114,15 +141,9 @@ A visitor of **www.contoso.com** will never see the true host
 (contoso.azurewebsite.net), so the forwarding process is invisible to the
 end user.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>The example above only applies to traffic at the <strong>www</strong> subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as *.contoso.com, to your azurewebsite.net address, you can configure a <strong>URL Redirect</strong> or <strong>URL Forward</strong> entry in your DNS settings, or create an A record.</p>
-</div>
+> [WACOM.NOTE] The example above only applies to traffic at the __www__ subdomain. Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain. If you want to direct  traffic from subdomains, such as *.contoso.com, to your azurewebsite.net address, you can configure a __URL Redirect__ or __URL Forward__ entry in your DNS settings, or create an A record.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
-</div>
+> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
 ###Add the domain name to your web site
 
@@ -203,10 +224,7 @@ To create an A record, you must first find the IP address of your web site. Then
 
 7. Next, create a CNAME record that has an alias of **awverify**, and a canonical domain of **awverify.mysite.azurewebsites.net** that you obtained earlier.
 
-	<div class="dev-callout>
-	<b>Note</b>
-	<p>While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.</p>
-	</div>
+	> [WACOM.NOTE] While an alias of awverify may work for some registrars, others may require the full alias domain name of awverify.www.customdomainname.com or awverify.customdomainname.com.
 
 	For example, the following will create an CNAME record that Windows Azure can use to verify the A record configuration.
 
@@ -221,10 +239,7 @@ To create an A record, you must first find the IP address of your web site. Then
 	</tr>
 	</table>
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>It can take some time for the awverify CNAME to propagate through the DNS system. You cannot set the custom domain name defined by the A record for the web site until the awverify CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.</p> 
-</div>
+> [WACOM.NOTE] It can take some time for the awverify CNAME to propagate through the DNS system. You cannot set the custom domain name defined by the A record for the web site until the awverify CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
 ###Add the domain name to your web site
 
@@ -262,10 +277,7 @@ The list returned by this command should contain the custom domain name, as well
 
 Once configuration has completed, the custom domain name will be listed in the **domain names** section of the **Configure** page of your web site.
 
-<div class="dev-callout"> 
-<b>Note</b> 
-<p>After you have added the custom domain name defined by the A record to your web site, you can remove the awverify CNAME record using the tools provided by your registrar. However, if you wish to add another A record in the future, you will have to recreate the awverify record before you can associate the new domain name defined by the new A record with the web site.</p> 
-</div>
+> [WACOM.NOTE] After you have added the custom domain name defined by the A record to your web site, you can remove the awverify CNAME record using the tools provided by your registrar. However, if you wish to add another A record in the future, you will have to recreate the awverify record before you can associate the new domain name defined by the new A record with the web site.
 
 ## Next steps
 
@@ -288,6 +300,9 @@ Once configuration has completed, the custom domain name will be listed in the *
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
 [cloudservicedns]: ../custom-dns/
+[trafficmanager]: /en-us/documentation/articles/web-sites-traffic-manager/
+[addendpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
+[createprofile]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
 
 <!-- images -->
 

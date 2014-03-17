@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Windows Azure Mobile Services for Android apps" metaKeywords="Windows Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Windows Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Get Started with Windows Azure Mobile Services for Android apps" metaKeywords="Windows Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Windows Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="" solutions="" writer="waltpo" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Windows Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Windows Azure PHP Service Management APIs to manage cloud services and other Windows Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
 
 # How to use Service Management from PHP
 
@@ -26,7 +26,7 @@ This guide will show you how to programmatically perform common service manageme
 ##<a id="WhatIs"></a>What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [management portal][management-portal]. The Windows Azure SDK for PHP allows you to manage your cloud services, storage accounts, and affinity groups.
 
-To use the Service Management API, you will need to [create a Windows Azure account](http://www.windowsazure.com/en-us/pricing/free-trial/). 
+To use the Service Management API, you will need to [create a Windows Azure account][win-azure-account]. 
 
 ##<a id="Concepts"></a>Concepts
 The Windows Azure SDK for PHP wraps the [Windows Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Windows Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
@@ -531,7 +531,7 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-[win-azure-account]: http://www.windowsazure.com/en-us/pricing/free-trial/
+[win-azure-account]: /en-us/pricing/free-trial/
 [storage-account]: ../storage-create-storage-account/
 
 [download-SDK-PHP]: ../php-download-sdk/

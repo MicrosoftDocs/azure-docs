@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically | Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to programmatically submit Hadoop jobs to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" title="Submit Hadoop jobs programmatically"/>
+<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically | Microsoft Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to programmatically submit Hadoop jobs to Azure HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit Hadoop jobs programmatically" authors="jgao" />
 
 # Submit Hadoop jobs programmatically
 
@@ -505,9 +505,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 		
 		// Set the variables
 		string subscriptionID = "<Windows Azure subscription ID>";
-
 		string clusterName = "<HDInsight cluster name>";
-        
 		string certFriendlyName = "<certificate friendly name>";		
 		
 	
@@ -525,9 +523,16 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
             Query = "show tables;"
         };
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	You can also use the File parameter to specify a HiveQL script file on HDFS. For example
 
-	You can also use the File parameter to specify a HiveQL script file on HDFS.
+        // define the Hive job
+        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
+        {
+            JobName = "show tables job",
+            StatusFolder = "/ShowTableStatusFolder",
+            File = "/user/admin/showtables.hql"
+        };
+
 		
 12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 	

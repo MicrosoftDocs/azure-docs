@@ -1,4 +1,4 @@
-<properties title="How to Configure PHP in Windows Azure Web Sites" pageTitle="How to Configure PHP in Windows Azure Web Sites" metaKeywords="Windows Azure, Windows Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Windows Azure Web Sites." services="Web Sites" documentationCenter="PHP" />
+<properties title="How to Configure PHP in Windows Azure Web Sites" pageTitle="How to Configure PHP in Windows Azure Web Sites" metaKeywords="Windows Azure, Windows Azure Web Sites, configuration, PHP" description="Learn how to configure the default PHP installation or add a custom PHP installation in Windows Azure Web Sites." services="Web Sites" documentationCenter="PHP" authors="" />
 
 #How to configure PHP in Windows Azure Web Sites
 

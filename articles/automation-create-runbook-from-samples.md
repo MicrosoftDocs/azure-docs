@@ -1,7 +1,7 @@
-<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Windows Azure Automation" pageTitle="Get Started with Windows Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Windows Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Windows Azure Automation" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Windows Azure Automation" pageTitle="Get Started with Windows Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Windows Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Windows Azure Automation" authors="" solutions="" manager="" editor="" />
 
 
-# Get Started with Windows Azure Automation
+# Get started with Windows Azure Automation
 
 This tutorial walks you through the steps to import and execute an automation job in Windows Azure. 
 
@@ -9,7 +9,7 @@ Windows Azure Automation provides a way for IT pros and developers to automate b
 
 This tutorial walks you through the steps to import a sample runbook into Windows Azure, execute the runbook, and then check its status.
 
-## Samples and Utility Runbooks
+## Samples and utility runbooks
 
 The Windows Azure Automation team has created runbook samples to help you get started with Automation.  These samples cover basic Automation concepts and are intended to help you learn how to write your own runbooks.  
 
@@ -23,7 +23,7 @@ You can view and download the Automation team’s sample and utility runbooks at
 
 Runbooks from the community and other Microsoft teams are also published on the [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681). 
 
-<strong>Give us feedback!</strong>  If you are looking for a runbook solution, PowerShell integration module, or have an idea for a new feature for Automation post them on User Voice.
+<strong>Give us feedback!</strong>  If you are looking for a runbook solution, post a Script Request on the Script Center or if you  or have an idea for a new feature for Automation post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -100,6 +100,6 @@ Runbooks from the community and other Microsoft teams are also published on the 
 
 ## See Also
 
-- [Automation Overview](http://go.microsoft.com/fwlink/p/?LinkId=392861)
+- [Automation Overview](http://go.microsoft.com/fwlink/p/?LinkId=392860)
 - [Runbook Authoring Guide](http://go.microsoft.com/fwlink/p/?LinkID=301740)
 - [Automation Forum](http://go.microsoft.com/fwlink/p/?LinkId=390561)

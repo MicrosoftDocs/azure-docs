@@ -1,4 +1,4 @@
-<properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Windows Azure" metaKeywords="new relic windows azure, performance azure" description="Learn how to use New Relic's performance monitoring on Windows Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Windows Azure Web Sites" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+<properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Windows Azure" metaKeywords="new relic windows azure, performance azure" description="Learn how to use New Relic's performance monitoring on Windows Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Windows Azure Web Sites" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
@@ -28,7 +28,7 @@ New Relic special pricing through the Windows Azure Store
 New Relic Standard is free to Windows Azure users.
 New Relic Pro is offered in multiple packages based on which web site mode you are using, and the instance size if you are using reserved mode.
 
-For pricing information see the [New Relic page in the Windows Azure Store](http://www.windowsazure.com/en-us/store/service/?id=3ab16c2e-b5aa-48b5-94b4-8ffb2b7cb640).
+For pricing information see the [New Relic page in the Windows Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
 
 <div class="dev-callout"> 
 <strong>Note:</strong>

@@ -1,4 +1,4 @@
-<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Windows Azure Mobile Services" authors=""  solutions="" writer="krisragh" manager="" editor=""  />
+<properties linkid="obile-services-how-to-dotnet-client" urlDisplayName=".NET Client Library" pageTitle="Working with the Mobile Services .NET Client Library" metaKeywords="Windows Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to use an .NET client for Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Windows Azure Mobile Services" authors="krisragh" solutions="" manager="" editor="" />
 
  
 

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with Hive" pageTitle="Analyze Twitter data with HDinsight | Windows Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on HDInsight to find usage frequency of a particular word." metaCanonical="" services="" documentationCenter="" title="Analyze Twitter data with Hive" authors="jgao"  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with Hive" pageTitle="Analyze Twitter data with HDinsight | Windows Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on HDInsight to find usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hive" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 # Analyze Twitter data with HDInsight 
 
@@ -106,7 +106,9 @@ The first step to use OAuth is to create a new application on the Twitter Develo
 8. Click **Test OAuth** in the upper right corner of the page.
 9. Write down **consumer key**, **Consumer secret**, **Access token**, and **Access token secret**. You will need the values later in the tutorial.
 
-In this tutorial, you will use PowerShell to make a web service call. The other popular tool to make web service calls is [*Curl*][curl-download].
+In this tutorial, you will use PowerShell to make a web service call. The other popular tool to make web service calls is [*Curl*][curl]. Curl can be downloaded from [here][curl-download].
+
+>[WACOM.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
 
 **To get Tweets**
 
@@ -489,6 +491,7 @@ In this tutorial we have seen how to transform unstructured Json dataset into st
 - [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-hive-odbc]
 - [Use Sqoop with HDInsight][hdinsight-sqoop]
 
+[curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

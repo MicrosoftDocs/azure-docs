@@ -1,4 +1,4 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors=""  solutions="" writer="waltpo" manager="" editor=""  />
+<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="waltpo" solutions="" manager="" editor="" />
 
 
 
@@ -24,8 +24,8 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
-3. In the **Virtual machine image select** dialog, select **JDK 7 (Preview) Windows Server 2012**.
-Note that **JDK 6 (Preview) Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
+3. In the **Virtual machine image select** dialog, select **JDK 7 Windows Server 2012**.
+Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
 4. Click **Next**.
 5. In the <strong>Virtual machine configuration</strong> dialog:
     1. Specify a name for the virtual machine.

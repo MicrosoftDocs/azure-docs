@@ -1,4 +1,4 @@
-<properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) - Windows Azure" metaKeywords="Windows Azure Queue Service messaging Python" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Windows Azure Queue Service messaging Python" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="" solutions="" manager="" editor="" />
 
 
 

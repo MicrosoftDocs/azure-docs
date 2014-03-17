@@ -1,7 +1,7 @@
-<properties linkid="manage-services-import-export" urlDisplayName="Windows Azure Import/Export Service" pageTitle="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" metaKeywords="" description="Learn how to create import and export jobs in the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="tamram" title="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" />
+<properties linkid="manage-services-import-export" urlDisplayName="Windows Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage" authors="" />
 
 
-# Using the Windows Azure Import/Export Service to Transfer Data to Blob Storage
+# Use the Azure Import/Export Service to Transfer Data to Blob Storage
 
 You can use the Windows Azure Import/Export service to transfer large amounts of file data to Windows Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. You can also use the Import/Export service to transfer large quantities of data resident in Blob storage to your on-premises installations in a timely and cost-effective manner.
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" writer="glenga" urlDisplayName="Upload images by using Mobile Services" pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Windows Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Windows Azure Storage by using Mobile Services"/>
+<properties linkid="develop-mobile-tutorials-upload-blob-data-dotnet" urlDisplayName="Upload images by using Mobile Services" pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Windows Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Windows Azure Storage by using Mobile Services" authors="" />
 
 # Upload images to Windows Azure Storage by using Mobile Services
 <div class="dev-center-tutorial-selector sublanding"> 

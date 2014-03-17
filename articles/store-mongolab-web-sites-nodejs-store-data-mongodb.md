@@ -1,4 +1,4 @@
-﻿<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" description="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" description="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -249,7 +249,7 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
-		h1= title
+		h1 #{title}
 		form(action="/completetask", method="post")
 		  table(border="1")
 		    tr
