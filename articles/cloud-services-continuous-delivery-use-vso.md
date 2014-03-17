@@ -47,7 +47,7 @@ To set up a cloud service to automatically build and deploy to Windows Azure by 
 You can deploy a web site or a cloud service (Windows Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Windows Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a web site, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Windows Azure and ASP.NET](http://www.windowsazure.com/documentation/articles/web-sites-dotnet-get-started/).
+If you want to create a web site, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Windows Azure and ASP.NET](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
 
 2. Open the context menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
@@ -168,7 +168,7 @@ This step applies to cloud services and is optional. In the management portal, s
 This step applies only to cloud services, not web sites. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Windows Azure Web Sites](http://www.windowsazure.com/documentation/articles/web-sites-publish-source-control).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publishing from Source Control to Windows Azure Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
 
 [Step 1: Sign up for Visual Studio Online.]: #step1
 [Step 2: Check in a project to source control.]: #step2
