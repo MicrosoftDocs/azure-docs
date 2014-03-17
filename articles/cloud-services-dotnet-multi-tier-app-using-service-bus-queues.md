@@ -6,9 +6,9 @@
 
 # .NET Multi-Tier Application Using Service Bus Queues
 
-Developing for Windows Azure is easy using Visual Studio 2012 and the
+Developing for Windows Azure is easy using Visual Studio 2013 and the
 free Windows Azure SDK for .NET. If you do not already have Visual
-Studio 2012, the SDK will automatically install Visual Studio Express 2012 for Web, so you can start developing for Windows Azure entirely for
+Studio 2013, the SDK will automatically install Visual Studio Express 2013, so you can start developing for Windows Azure entirely for
 free. This guide assumes you have no prior experience using Windows
 Azure. On completing this guide, you will have an application that uses
 multiple Windows Azure resources running in your local environment and
@@ -103,7 +103,7 @@ to get the tools and set-up your development environment.
 
 2. 	Click **install the SDK**.
 
-3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2012:
+3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013:
 
 	![][32]
 
@@ -167,7 +167,7 @@ application.
 
 	![][31]
 
-9.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** entries.
+9.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** values.
 
 10.  Make a note of the key, or copy it to the clipboard.
 
@@ -181,9 +181,9 @@ Queue and displaying status information about the queue.
 ### Create the project
 
 1.  Using administrator privileges, start either Microsoft Visual Studio
-    2012 or Microsoft Visual Studio Express for Web. To start Visual
+    2013 or Microsoft Visual Studio Express. To start Visual
     Studio with administrator privileges, right-click **Microsoft Visual
-    Studio 2012 (or Microsoft Visual Studio Express for Web)** and
+    Studio 2013 (or Microsoft Visual Studio Express)** and
     then click **Run as administrator**. The Windows Azure compute emulator,
     discussed later in this guide, requires that Visual Studio be
     launched with administrator privileges.
@@ -193,23 +193,24 @@ Queue and displaying status information about the queue.
 
     ![][8]
 
-2.  From **Installed Templates**, under **Visual C#**, click Cloud and
-    then click **Windows Azure Project**. Name the project
+
+2.  From **Installed Templates**, under **Visual C#**, click **Cloud** and
+    then click **Windows Azure Cloud Service**. Name the project
     **MultiTierApp**. Then click **OK**.
 
     ![][9]
 
-3.  From **.NET Framework 4** roles, double-click **ASP.NET MVC 4 Web
+3.  From **.NET Framework 4.5** roles, double-click **ASP.NET Web
     Role**.
 
     ![][10]
 
-4.  Hover over **MvcWebRole1** under **Windows Azure Cloud Service solution**, click
+4.  Hover over **WebRole1** under **Windows Azure Cloud Service solution**, click
     the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**. (Make sure you enter "Frontend" with a lower-case "e", not "FrontEnd".)
 
     ![][11]
 
-5.  From the **Select a template** list, click **Internet Application**,
+5.  From the **New ASP.NET Project** dialog, in the **Select a template** list, click **MVC**,
     then click **OK**.
 
     ![][12]
@@ -287,7 +288,7 @@ displays.
                 }
 
                 // POST: /Home/Submit
-                // Controler method for handling submissions from the submission
+                // Controller method for handling submissions from the submission
                 // form 
                 [HttpPost]
 				// Attribute to help prevent cross-site scripting attacks and 
@@ -317,10 +318,9 @@ displays.
 
     ![][14]
 
-6.  A dialog appears for creating the view. Click the checkbox for
-    **Create a strongly-typed view**. In addition, select the
+6.  A dialog appears for creating the view. Select the
     **OnlineOrder** class in the **Model class** dropdown, and choose
-    **Create** under the **Scaffold template** dropdown.
+    **Create** in the **Template** dropdown.
 
     ![][15]
 
@@ -344,7 +344,7 @@ displays.
   
 
 12. Finally, modify the submission page to include some information about
-    the queue. In the **Solution Explorer**, double-click the
+    the queue. In **Solution Explorer**, double-click the
     **Views\Home\Submit.cshtml** file to open it in the Visual Studio
     editor. Add the following line after **&lt;h2>Submit&lt;/h2>**. For now,
     the **ViewBag.MessageCount** is empty. You will populate it later.
@@ -436,8 +436,7 @@ Service Bus Queue.
             }
         }
 
-4.  Now, you will ensure your **Initialize** method gets called. In the
-    **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
+4.  Now, you will ensure your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 
 5.  Add the following line to the bottom of the **Application_Start**
     method:
@@ -445,7 +444,7 @@ Service Bus Queue.
         FrontendWebRole.QueueConnector.Initialize();
 
 6.  Finally, you will update your web code you created earlier, to
-    submit items to the queue. In the **Solution Explorer**,
+    submit items to the queue. In **Solution Explorer**,
     double-click **Controllers\HomeController.cs** that you created
     earlier.
 
@@ -565,7 +564,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 12. Browse to the subfolder for **FrontendWebRole\Models**, and double-click **OnlineOrder.cs** to add it to this project.
 
-13. Replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as in the following code:
+13. In WorkerRole.cs, replace the value of the **QueueName** variable in **WorkerRole.cs** from `"ProcessingQueue"` to `"OrdersQueue"` as in the following code:
 
 		// The name of your queue
 		const string QueueName = "OrdersQueue";

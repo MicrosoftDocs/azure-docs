@@ -1,4 +1,4 @@
-<properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="Register your Windows Store app package for Microsoft authentication" pageTitle="BizTalk Services: Troubleshoot using ops logs" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors=""  solutions="" writer="nitinme" manager="paulettm" editor="cgronlun"  />
+<properties linkid="biztalk-troubleshoot-using-ops-logs" urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="BizTalk Services: Troubleshoot using ops logs | Windows Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors=""  solutions="" writer="nitinme" manager="paulettm" editor="cgronlun"  />
 
 
 

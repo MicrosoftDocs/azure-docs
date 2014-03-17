@@ -4,9 +4,10 @@
 
 
 
-# Node.js Web Application with Storage on MongoDB (Virtual Machine)
+# Create a Node.js Application on Windows Azure with MongoDB in a Virtual Machine
 
-This tutorial shows you how to use [MongoDB] to store and access data from a [node] application hosted on Windows Azure. [MongoDB] is a popular open source, high performance NoSQL database. This tutorial assumes that you have some prior experience using node, MongoDB, and [Git].
+This tutorial shows you how to use [MongoDB] hosted on a Windows Azure Virtual Machine to store data, and access the data from a [node] application hosted in a Windows Azure Web Site. [MongoDB] is a popular open source, high performance NoSQL database.
+
 
 You will learn:
 

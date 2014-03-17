@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-use-Ambari" urlDisplayName="Monitor HDInsight clusters using Ambari APIs" pageTitle="Monitor HDInsight clusters using Ambari APIs | Windows Azure" metaKeywords="" description="Use the Apache Ambari APIs for provisioning, managing, and monitoring Hadoop clusters. Ambari’s intuitive operator tools and APIs hide the complexity of Hadoop." title="Monitor HDInsight clusters using Ambari APIs" umbracoNaviHide="0" disqusComments="1" authors="jgao" writer="jgao" editor="cgronlun" manager="paulettm"  />
 
-# Monitor HDInsight clusters using Ambari APIs
+# Monitor HDInsight clusters using Ambari API
  
 Learn how to monitor HDInsight clusters version 2.1 using Ambari APIs.
 
@@ -30,7 +30,9 @@ Before you begin this tutorial, you must have the following:
 
 - **A workstation** with Windows Azure PowerShell installed and configured. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Windows Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
-	Curl is optional. It can be installed from [here][curl-download].
+	[Curl][curl] is optional. It can be installed from [here][curl-download].
+
+	>[WACOM.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
 
 - **A Windows Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
@@ -94,9 +96,6 @@ The output is:
 	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
 	             "host_name":"workernode0"}}]}
 
-**Use Microsoft .NET SDK for Hadoop**
-
-See [Ambari monitoring client][microsoft-hadoop-SDK].
 
 ##<a id="monitor"></a>Ambari monitoring APIs
 
@@ -124,7 +123,7 @@ The following table lists some of the most common Ambari monitoring API calls. F
 </table>
 
 
-##<a id="next-steps"></a>Next Steps 
+##<a id="nextsteps"></a>Next Steps 
 
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
@@ -139,6 +138,7 @@ Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 [ambari-home]: http://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
+[curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
