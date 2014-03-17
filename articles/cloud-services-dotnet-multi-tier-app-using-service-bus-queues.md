@@ -288,7 +288,7 @@ displays.
                 }
 
                 // POST: /Home/Submit
-                // Controler method for handling submissions from the submission
+                // Controller method for handling submissions from the submission
                 // form 
                 [HttpPost]
 				// Attribute to help prevent cross-site scripting attacks and 

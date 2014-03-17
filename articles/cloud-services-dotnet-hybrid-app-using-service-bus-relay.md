@@ -646,20 +646,6 @@ Run the application to verify that it works.
     3.  Sign-in using your Microsoft Account.
 
 
-    4.  Save the publish profile file to a location on your hard drive
-        where you can retrieve it.
-
-
-    5.  Within the publish dialog, click on **Import**:
-
-        ![][30]
-
-    6.  Browse for and select the file that you just downloaded.
-    7.  Pick the Windows Azure subscription you would like to publish
-        to:
-
-        ![][31]
-
     8.  Click **Next**. If your subscription doesn't already contain any hosted
         services, you will be asked to create one. The hosted service
         acts as a container for your application within your Windows
