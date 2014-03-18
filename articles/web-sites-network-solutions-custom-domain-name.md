@@ -55,11 +55,7 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 	
 		![cname form](./media/web-sites-custom-domain-name/ns-cname.png)
 
-	* When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **Numeric IP** field to the IP address of your Azure Web Site.
-
-		![a record form](./media/web-sites-custom-domain-name/ns-arecord.png)
-
-		> [WACOM.NOTE] When adding an A record, you must also add a CNAME record with one of the following configurations:
+		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
 		> 
 		> * An **Alias** value of **www** with an **Other host** value of **&lt;yourwebsitename&gt;.azurewebsites.net**.
 		> 
@@ -67,7 +63,11 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 		> 
 		> * An **Alias** value of **awverify.www** with an **Other host** value of **awverify.&lt;yourwebsitename&gt;.azurewebsites.net.
 		> 
-		> This CNAME record is used by Azure to validate that you own the domain you are attempting to create an A record for.
+		> This CNAME record is used by Azure to validate that you own the domain described by the A record.
+
+	* When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **Numeric IP** field to the IP address of your Azure Web Site.
+
+		![a record form](./media/web-sites-custom-domain-name/ns-arecord.png)
 
 5. When you have finished adding or modifying records, click **Continue** to review the changes. Select **Save changes only** to save the changes.
 
