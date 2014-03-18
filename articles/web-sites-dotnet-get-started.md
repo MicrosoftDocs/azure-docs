@@ -7,20 +7,20 @@
 
 This tutorial shows how to create an ASP.NET web application and deploy it to a Microsoft Azure Web Site by using Visual Studio 2013 or Visual Studio 2013 for Web Express. 
 
-You can open a Microsoft Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
+You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
 This tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing this tutorial, you'll have a simple web application up and running in the cloud.
  
 You'll learn:
 
-* How to enable your machine for Microsoft Azure development by installing the Microsoft Azure SDK.
-* How to create a Visual Studio ASP.NET web project and publish it to a Microsoft Azure Web Site.
+* How to enable your machine for Azure development by installing the Azure SDK.
+* How to create a Visual Studio ASP.NET web project and publish it to an Azure Web Site.
 
 The following illustration shows the completed application:
 
-![Web site home page](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
+![Web site home page](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
->[WACOM.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.
+>[WACOM.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.
  
 ### Tutorial segments
 
@@ -53,7 +53,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** or the **Web Forms** template, and then click **Change Authentication**.
 
-	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for creating web sites. For this tutorial, you can choose either one.
+	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for creating web sites. For this tutorial you can choose either one.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13changeauth.png)
 
@@ -69,17 +69,17 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
-	This screenshot shows the MVC template selected; if you chose **Web Forms**, **Web Forms** is selected. 
+	The preceding screenshot shows the MVC template selected; if you chose **Web Forms**, **Web Forms** is selected. 
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdbwf.png)
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Click **Sign In**.
 
-	![Sign in to Microsoft Azure](./media/web-sites-dotnet-get-started-vs2013/signin.png)
+	![Sign in to Azure](./media/web-sites-dotnet-get-started-vs2013/signin.png)
 
-6. Enter the ID and password of the account that you use to manage your Microsoft Azure subscription.
+6. Enter the ID and password of the account that you use to manage your Azure subscription.
 
-	![Sign in to Microsoft Azure](./media/web-sites-dotnet-get-started-vs2013/signindb.png)
+	![Sign in to Azure](./media/web-sites-dotnet-get-started-vs2013/signindb.png)
 
 	When you're signed in, the **Configure Microsoft Azure Site Settings** dialog box asks you what resources you want to create.
 
@@ -97,12 +97,6 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	For this tutorial you aren't using a database. The [Next Steps](#next-steps) section at the end of the tutorial links to a tutorial that shows you how to use a database.
 
-6. Click **OK**.<br/>
-
-	![Create a new web site](./media/web-sites-dotnet-get-started-vs2013/GS13createsite.png)
-
-	In a few seconds the web site is created. When you return to the **Import Publish Settings** dialog box, the new site is selected in the drop-down list.
-
 6. Click **OK**.
 
 	In a few seconds, Visual Studio creates the web project in the folder you specified, and it creates the web site in the Azure region you specified.  
@@ -113,12 +107,14 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	The **Web Publish Activity** window shows that the site has been created.
 
-	![Web site created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
+	![Web site created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated1.png)
 
 
 ## Deploy the application to Azure
 
 7. In the **Web Publish Activity** window, click **Publish MyExample to this site now**.
+
+	![Web site created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
 
 	In a few seconds the **Publish Web** wizard appears. The wizard creates a new *publish profile* that contains settings such as the web site URL that Visual Studio needs in order to deploy your project to Azure. The profile is automatically saved so that later when you make changes to the project you can easily redeploy the project to the same site.
 
