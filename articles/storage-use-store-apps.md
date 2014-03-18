@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-using-storage-with-windows-store-apps" urlDisplayName="Windows Azure Storage in Windows Store apps" pageTitle="Use Azure storage in Windows Store Apps | Microsoft Azure" metaKeywords="" description="Learn how to use Windows Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Windows Azure Storage in Windows Store Apps" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-storage-using-storage-with-windows-store-apps" urlDisplayName="Windows Azure Storage in Windows Store apps" pageTitle="Use Azure storage in Windows Store Apps | Azure" metaKeywords="" description="Learn how to use Windows Azure blobs, queues, and tables to store data for a Windows Store app." metaCanonical="" services="storage" documentationCenter="" title="How to use Windows Azure Storage in Windows Store Apps" authors="" solutions="" manager="" editor="" />
 
 
 
