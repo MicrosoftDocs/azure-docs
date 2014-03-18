@@ -28,14 +28,21 @@ The main benefits of an A record over a CNAME record are:
 
 ###Azure Web Site DNS specifics
 
-Using an A record with Azure Web Sites requires you to first create an CNAME record with a name of **awverify**. This must point to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**, and is used to prove to Azure Web Sites that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web site.
+Using an A record with Azure Web Sites requires you to first create an CNAME record that maps either:
 
-You can find the IP address, as well as the **awverify** address and **.azurewebsites.net** address for your web site by performing the following steps:
+* A DNS name of **www** to your **&lt;yourwebsitename&gt;.azurewebsites.net**.
+OR
+* A DNS name of **awverify.www** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
 
-1. In your browser, open the [Windows Azure Management Portal][https://manage.windowsazure.com].
+This CNAME record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web site.
+
+You can find the IP address, as well as the **awverify.www** name and **.azurewebsites.net** names for your web site by performing the following steps:
+
+1. In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
 
 2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
 
-	![][setcname2]
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-6. In the **MANAGE CUSTOM DOMAINS** dialog, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address. 
+6. In the **MANAGE CUSTOM DOMAINS** dialog, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address.
+
