@@ -21,6 +21,6 @@ In order to deploy applications to Windows Azure, you need an account. This arti
 
 
 
-[1]: ./media/create-a-windows-azure-account/antares-iaas-preview-01.png
-[2]: ./media/create-a-windows-azure-account/antares-iaas-preview-05.png
-[3]: ./media/create-a-windows-azure-account/antares-iaas-preview-06.png
+[1]: ./media/create-an-azure-account/antares-iaas-preview-01.png
+[2]: ./media/create-an-azure-account/antares-iaas-preview-05.png
+[3]: ./media/create-an-azure-account/antares-iaas-preview-06.png
