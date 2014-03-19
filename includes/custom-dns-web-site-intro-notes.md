@@ -5,3 +5,6 @@
 
 
 > [WACOM.NOTE] The steps in this task require you to configure your web sites for Shared, Basic, or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.
+
+
+

@@ -47,7 +47,7 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 	> [WACOM.NOTE] Before adding entries to the zone file, note that GoDaddy has already created DNS records for popular sub-domains (called **Host** in editor,) such as **email**, **files**, **mail**, and others. If the name you wish to use already exists, modify the existing record instead of creating a new one.
 
-	When adding a CNAME record, you must set the **host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.trafficmgr.com** domain name of your Azure Web Site. For example, **contoso.trafficmgr.com**.
+	When adding a CNAME record, you must set the **host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.trafficmanager.net** domain name of your Azure Web Site. For example, **contoso.trafficmanager.net**.
 
 	> [WACOM.NOTE] You must only use CNAME records when associating your custom domain name with a web site that is load balanced using Traffic Manager.
 
