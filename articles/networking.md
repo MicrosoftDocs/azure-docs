@@ -3,4 +3,4 @@
 
 
 
-[WACOM.INCLUDE [windows-azure-networking](../includes/windows-azure-networking.md)]
+[WACOM.INCLUDE [azure-networking](../includes/azure-networking.md)]
