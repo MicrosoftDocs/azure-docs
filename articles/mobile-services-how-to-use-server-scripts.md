@@ -39,19 +39,18 @@ This article provides detailed information about and examples of how to work wit
 
 In Mobile Services, you can define custom business logic as JavaScript code that's stored and executed on the server. This server script code is assigned to one of the following server functionalities:
 
-+ Insert, read, update, or delete operations on a given table.
-+ Scheduled jobs.
-+ HTTP methods defined in a custom API. 
++ [Insert, read, update, or delete operations on a given table][Table operations].
++ [Scheduled jobs][Job Scheduler].
++ [HTTP methods defined in a custom API][Custom API anchor]. 
 
 The signature of the main function in the server script depends on the context of where the script is used. You can also define common script code as nodes.js modules that are shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 For descriptions of individual server script objects and functions, see [Mobile Services server script reference]. 
 
-Because REST APIs are stateless, Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see How to: Access tables from scripts.
 
-<h2><a name="table-scripts"></a><span class="short-header">Table operations</span>Table operations</h2>
+##<a name="table-scripts"></a>Table operations
 
-A table operation script is a server script that is registered to an operation on a table--insert, read, update, or delete (*del*). The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request--for example, when a POST request is received to insert an item into the table.
+A table operation script is a server script that is registered to an operation on a table--insert, read, update, or delete (*del*). The name of the script must match the kind of operation for which it is registered. Only one script can be registered for a given table operation. The script is executed every time that the given operation is invoked by a REST request&mdash;for example, when a POST request is received to insert an item into the table. Mobile Services does not preserve state between script executions. Because a new global context is created every time a script is run, any state variables that are defined in the script are reinitialized. If you want to store state from one request to another, create a table in your mobile service, and then read and write the state to the table. For more information, see [How to: Access tables from scripts].
 
 You write table operation scripts if you need to enforce customized business logic when the operation is executed. For example, the following script rejects insert operations where the string length of the `text` field is greater than ten characters: 
 
@@ -286,6 +285,8 @@ When custom API functions are called by the Mobile Services runtime, both a [req
 The **send** function on the [response object] returns your desired response to the client. This code is invoked by sending a POST request to the following URL:
 
 		https://todolist.azure-mobile.net/api/hello  
+
+The global state is maintained between executions. 
 
 ###<a name="define-custom-api"></a>How to: Define a custom API
 

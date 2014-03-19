@@ -2,27 +2,25 @@
 
 1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
 
-	![][0]
+	![](./media/mobile-services-create-custom-api/mobile-services-selection.png)
 
 2. Click the **API** tab, and then click **Create a custom API**.
 
-	![][1]
+	![](./media/mobile-services-create-custom-api/mobile-custom-api-create.png)
 
 	This displays the **Create a new custom API** dialog.
 
 3. Type _completeall_ in **API name**, and then click the check button.
 
-	![][2]
+	![](./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png)
 
 	This creates the new API.
 
-
-	> [WACOM.NOTE]
-	> Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service.
+	> [WACOM.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service.
 
 4. Click the new **completeall** entry in the API table.
 
-	![][3]
+	![](./media/mobile-services-create-custom-api/mobile-custom-api-select2.png)
 
 5. Click the **Script** tab, replace the existing code with the following code, then click **Save**:
 
@@ -49,10 +47,6 @@ Next, you will modify the quickstart app to add a new button and code that async
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-create-custom-api/mobile-services-selection.png
-[1]: ./media/mobile-services-create-custom-api/mobile-custom-api-create.png
-[2]: ./media/mobile-services-create-custom-api/mobile-custom-api-create-dialog2.png
-[3]: ./media/mobile-services-create-custom-api/mobile-custom-api-select2.png
 
 <!-- URLs. -->
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
