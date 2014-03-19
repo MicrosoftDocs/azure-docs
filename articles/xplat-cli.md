@@ -84,7 +84,7 @@ To help you choose the authentication method that's appropriate for your needs, 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation. The log in credentials are cached by the xplat-cli for [TBD] hours. After the credentials expire, you will need to login again.
 *  The publish settings file method installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a subscription as anyone with access to the certificate can manage the subscription.
 
-For more information about authentication and subscription management, see [this article][authandsub].
+For more information about authentication and subscription management, see ["What's the difference between account-based authentication and certificate-based authentication"][authandsub].
 
 If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][free-trial].
 
@@ -210,19 +210,17 @@ When in doubt about the parameters needed by a command, refer to help using `--h
 
 Historically, the xplat-cli has required you to work with individual services, or *resources*, one at a time. While this approach is fine for smaller applications that involve one or two resources, it is not ideal for larger applications that are a composition of many resources.
 
-To address this problem, Microsoft Azure recently introduced a more model based approach to configuration that allows you to manage resources, such as a web site, database, and storage, as a single *resource group*. Changes to a resource group are made through a *deployment*, which the Azure platform keeps a history of. In the event that a new deployment breaks something with your application, you can revert to a previous deployment.
+To address this problem, Microsoft Azure recently introduced a more model based approach to configuration, known as Azure Resource Manager (ARM). ARM allows you to manage resources, such as a web site, database, and storage, as a single *resource group*. Changes to a resource group are made through a *deployment*, which the Azure platform keeps a history of. In the event that a new deployment breaks something with your application, you can revert to a previous deployment.
 
 [TBD disclaimer about preview functionality]
 
 The xplat-cli defaults to resource mode, allows you to manage individual resources. If you want to work with resource groups, you can use the following command to enable commands for working with groups of resources:
 
-	azure config mode asm
+	azure config mode arm
 
-> [WACOM.NOTE] [TBD] language about this is preview, etc.
+To change back to service management mode (known as Azure Service Manager), use the following command:
 
-To change back to resource management mode, use the following command:
-
-	azure config mode arm 
+	azure config mode asm 
 
 ###Working with services
 
@@ -236,7 +234,7 @@ The xplat-cli allows you to easily manage Azure services. In this example, you w
 
 	> [WACOM.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this web site. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Web Site using the `git push azure master` command.
 
-	> [WACOM.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in resource group mode. To change back to resource mode, use the `azure config mode arm` command.
+	> [WACOM.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
 
 2. Use the following command to list web sites for your subscription:
 
@@ -264,87 +262,44 @@ The xplat-cli allows you to easily manage Azure services. In this example, you w
 
 ###Working with resource groups
 
-The new resource group functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. The following is an example of a template file for a Web Site resource.
+The new Azure Resource Manager functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. In this example, you will learn how to use a template to create a new resource group that contains a Web Site.
 
-	{
-	    "$schema": "http://schemas.management.azure.com/deploymentTemplate?api-version=2014-04-01-preview",
-	    "parameters": {
-	        "siteName": {
-	            "type": "string"
-	        },
-	        "hostingPlanName": {
-	            "type": "string"
-	        },
-	        "siteMode": {
-	            "type": "string"
-	        },
-	        "computeMode": {
-	            "type": "string"
-	        },
-	        "siteLocation": {
-	            "type": "string"
-	        },
-	        "sku": {
-	            "type": "string"
-	        },
-	        "workerSize": {
-	            "type": "string"
-	        }
-	    },
-	    "resources": [
-	        {
-	            "apiVersion": "01-01-2014",
-	            "name": "[parameters('siteName')]",
-	            "type": "Microsoft.Web/Sites",
-	            "location": "[parameters('siteLocation')]",
-	            "dependsOn": [
-	                "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
-	            ],
-	            "properties": {
-	                "name": "[parameters('siteName')]",
-	                "serverFarm": "[parameters('hostingPlanName')]",
-	                "computeMode": "[parameters('computeMode')]",
-	                "siteMode": "[parameters('siteMode')]"
-	            }
-	        },
-	        {
-	            "apiVersion": "01-01-2014",
-	            "name": "[parameters('hostingPlanName')]",
-	            "type": "Microsoft.Web/serverFarms",
-	            "location": "[parameters('siteLocation')]",
-	            "properties": {
-	                "name": "[parameters('hostingPlanName')]",
-	                "sku": "[parameters('sku')]",
-	                "workerSize": "[parameters('workerSize')]",
-	                "numberOfWorkers": "1"
-	            }
-        }
-	    ]
-	}
-
-Note the **parameters** used throughout the template. These parameters can be populated by specifying the values as the xplat-cli command when using the template. The following steps demonstrate how to work with templates and resource groups, using the above template examples.
+	
+> [WACOM.NOTE] The parameters referenced throughout the template can be populated by specifying the values when using xplat-cli commands with this template.
 
 1. The new resource group functionality is currently in preview, so the commands are not enabled with the xplat-cli by default. Use the following command to enable the resource group related commands.
 
 		azure config mode asm
 
-1. Use the following command to create an empty resource group.
+2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
 
-		azure group create mygroup
+		azure group template list
+
+3. To view details of a specific template, use the following command.
+
+		azure group template show [templatename]
+
+4. Once you have selected a template, download it with the following command.
+
+		azure group template download [templatename]
+
+1. Use the following command to create a new resource group based on the template
+
+		azure group create mygroup [TBD parameters]
 
 	You will be prompted to specify the region that the web site will be created in. Select a region that is geographically near you.
+
+	When this command completes, [TBD]
+
+3. [TBD would like to say 'web site has been created', go use the browser to check it out]
 
 3. Use the following command to list all groups for your subscription.
 
 		azure group list
 
-	The list should contain the group created in the previous step.
+	The list should contain the group created in the previous step. You can also view details of the group by using the following command.
 
-1. Use the following to create a new deployment for the group, using the specified template and parameter values.
-
-		group deployment create mygroup incremental mydeployment -f mytemplate.json -p '{some values here}' -s mystorage
-	
-	When this command is ran, the values specified by the `-p` parameter are applied to the template to create a deployment named 'mydeployment'. The deployment uploaded to the specified storage account, and is then applied to the group. The 'incremental' parameter instructs Microsoft Azure apply this deployment as an incremental update to any existing deployments.
+		azure group show mygroup
 
 2. Use the following to view a list of the deployments for this group.
 
@@ -352,11 +307,11 @@ Note the **parameters** used throughout the template. These parameters can be po
  
 	The list should contain the deployment created by the previous step.
 
-3. You can also view details at the group level using the following command.
+3. [TBD do we want to stop deployment? what's the actual functionality]
 
-		azure group show mygroup
+4. Use the following command to delete a group.
 
-	This should return a list of the resources contained within this group.
+		azure group delete mygroup
 
 For more information on the templates, see [TBD].
 
@@ -462,7 +417,7 @@ If you are writing a script that relies on the exit status, please verify that t
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
-
+[authandsub]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
 [Windows Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
