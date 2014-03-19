@@ -1,8 +1,8 @@
 <properties title="Custom domain name" pageTitle="Configuring a custom domain name for a Microsoft Azure web site" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="Web Sites" documentationCenter="" authors="" />
 
-#Configuring a custom domain name for an Azure web site (GoDaddy)
+#Configuring a custom domain name for an Azure Web Site using Traffic Manager (GoDaddy)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain" title="Directnic">Directnic</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain" title="Dotster">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain" title="Directnic">Directnic</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Web Sites">Web Site</a> | <a href="/en-us/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Web Site using Traffic Manager" class="current">Web Site using Traffic Manager</a></div>
 
 
@@ -47,13 +47,13 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 	> [WACOM.NOTE] Before adding entries to the zone file, note that GoDaddy has already created DNS records for popular sub-domains (called **Host** in editor,) such as **email**, **files**, **mail**, and others. If the name you wish to use already exists, modify the existing record instead of creating a new one.
 
-	When adding a CNAME record, you must set the **host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.trafficmgr.com** domain name of your Azure Web Site. For example, **contoso.trafficmgr.com**.
+	When adding a CNAME record, you must set the **host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.trafficmanager.net** domain name of your Azure Web Site. For example, **contoso.trafficmanager.net**.
 
 	> [WACOM.NOTE] You must only use CNAME records when associating your custom domain name with a web site that is load balanced using Traffic Manager.
 
 5. When you have finished adding or modifying records, click **Save Zone File** to save changes.
 
-	> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+	> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the custom domain name for the web site in Azure until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
 <h2><a name="enabledomain"></a>Enable Traffic Manager web site</h2>
 
