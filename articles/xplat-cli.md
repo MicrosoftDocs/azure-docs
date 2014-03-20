@@ -90,7 +90,7 @@ If you don't have an account, you can create a free trial account in just a coup
 
 ###Use the log in method
 
-To log in using a Microsoft account or organizational ID, use the following command:
+To log in using an organizational ID, use the following command:
 
 	azure login [username] [password]
 
@@ -212,17 +212,21 @@ Historically, the xplat-cli has required you to work with individual services, o
 
 To address this problem, Microsoft Azure recently introduced a more model based approach to configuration, known as Azure Resource Manager (ARM). ARM allows you to manage resources, such as a web site, database, and storage, as a single *resource group*. Changes to a resource group are made through a *deployment*, which the Azure platform keeps a history of. In the event that a new deployment breaks something with your application, you can revert to a previous deployment.
 
+[sync with matthew for review of conceptual info]
+
 [TBD disclaimer about preview functionality]
 
 The xplat-cli defaults to resource mode, allows you to manage individual resources. If you want to work with resource groups, you can use the following command to enable commands for working with groups of resources:
 
 	azure config mode arm
 
-To change back to service management mode (known as Azure Service Manager), use the following command:
+To change back to Azure service management mode, use the following command:
 
 	azure config mode asm 
 
-###Working with services
+[note, call out that these are mutually exclusive so creating stuff with one, you can't query with the other]
+
+###Working with services in Azure service management mode
 
 The xplat-cli allows you to easily manage Azure services. In this example, you will learn how to use the xplat-cli to manage an Azure Web Site.
 
@@ -260,12 +264,9 @@ The xplat-cli allows you to easily manage Azure services. In this example, you w
 
 	After the command completes, use the `azure site list` command to verify that the web site no longer exists.
 
-###Working with resource groups
+###Working with services in Azure Resource Manager mode
 
 The new Azure Resource Manager functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. In this example, you will learn how to use a template to create a new resource group that contains a Web Site.
-
-	
-> [WACOM.NOTE] The parameters referenced throughout the template can be populated by specifying the values when using xplat-cli commands with this template.
 
 1. The new resource group functionality is currently in preview, so the commands are not enabled with the xplat-cli by default. Use the following command to enable the resource group related commands.
 
@@ -300,6 +301,8 @@ The new Azure Resource Manager functionality allows you to manage resources in a
 	The list should contain the group created in the previous step. You can also view details of the group by using the following command.
 
 		azure group show mygroup
+
+2. [show that they can look at individual resources too and tweak it directly with resource commands like enable diagnostics logging]
 
 2. Use the following to view a list of the deployments for this group.
 
