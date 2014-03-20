@@ -1,30 +1,33 @@
-<properties title="Configure a Dotster domain name for an Azure web site" pageTitle="Configure a Dotster domain name for an Azure web site" metaKeywords="Windows Azure, Windows Azure Web Sites, Dotster" description="Learn how to configure an Azure Web Site to use a custom domain name" services="Web Sites" documentationCenter="" authors="larryfr,jroth" />
+<properties title="Configure a Dotster domain name for an Azure web site using Traffic Manager" pageTitle="Configure a Dotster domain name for an Azure web site using Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, Dotster, Traffic Manager" description="Learn how to configure an Azure Web Site to use a custom domain name" services="Web Sites" documentationCenter="" authors="larryfr,jroth" />
 
-#Configuring a custom domain name for a Windows Azure Web Site (Dotster)
+#Configuring a custom domain name for a Windows Azure Web Site using Traffic Manager (Dotster)
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/en-us/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/en-us/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/en-us/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/en-us/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/en-us/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/en-us/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name/" title="Web Sites" class="current">Web Site</a> | <a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name-traffic-manager/" title="Web Site using Traffic Manager">Web Site using Traffic Manager</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/web-sites-dotster-custom-domain-name/" title="Web Sites">Web Site</a> | <a href="/en-us/documentation/articles/web-sites-dotster-traffic-manager-custom-domain-name/" title="Web Site using Traffic Manager" class="current">Web Site using Traffic Manager</a></div>
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
 This article provides instructions on using a custom domain name purchased from [Dotster.com](https://dotster.com) with Azure Web Sites.
+
+[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
 [WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 In this article:
 
 -   [Understanding DNS records](#understanding-records)
--   [Configure your web sites for basic, shared or standard mode](#bkmk_configsharedmode)
+-   [Configure your web sites for standard mode](#bkmk_configsharedmode)
 -   [Add a DNS record for your custom domain](#bkmk_configurecname)
--   [Enable the domain on your web site](#enabledomain)
+-   [Enable Traffic Manager for your web site](#enabledomain)
 
 <h2><a name="understanding-records"></a>Understanding DNS records</h2>
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
-<h2><a name="bkmk_configsharedmode"></a>Configure your web sites for basic, shared or standard mode</h2>
+<h2><a name="bkmk_configsharedmode"></a>Configure your web sites for standard mode</h2>
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a><h2>Add a DNS record for your custom domain</h2>
 
@@ -50,16 +53,14 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 5. Then specify the **Host** and **Points To** fields for the record. When complete click the **Add** button.
 
-    ![Dotster Domain Configuration Options](.\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME.png)
+    ![Dotster Domain Configuration Options](.\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME_TM.png)
  
-    * When adding a CNAME record, you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points To** field to the **.azurewebsites.net** domain name of your Azure Web Site. For example, **contoso.azurwebsites.net**.
+    * When adding a CNAME record, you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points To** field to the **.trafficmanager.net** domain name of the Traffic Manager profile you are using with your Azure Web Site. For example, **contoso.trafficmanager.net**.
+
+	    > [WACOM.NOTE] You must only use CNAME records when associating your custom domain name with a web site that is load balanced using Traffic Manager.
 
         > [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
 
-    * When adding an A record, you must set the **Host** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**.) You must set the **Points To** field to the IP address of your Azure Web Site.
+<h2><a name="enabledomain"></a>Enable Traffic Manager web site</h2>
 
-        > [WACOM.NOTE] When adding an A record, you must also add a CNAME record with a host of **www** and an **Address** of **&lt;yourwebsitename&gt;.azurewebsites.net**.
-
-<h2><a name="enabledomain"></a>Enable the domain name on your web site</h2>
-
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
