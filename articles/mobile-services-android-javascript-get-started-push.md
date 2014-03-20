@@ -50,12 +50,26 @@ Next, you will use this API key value to enable Mobile Services to authenticate 
 
 3. Enter the **API Key** value obtained from GCM in the previous procedure, and then click **Save**.
 
+
+
    	![](./media/mobile-services-android-get-started-push/mobile-push-tab-android.png)
 
-You mobile service is now configured to work with GCM to send push notifications.
+    <div class="dev-callout"><b>Important</b>
+	<p>When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</p>
+    </div>
+
+
+Both your mobile service and your app are now configured to work with GCM and Notification Hubs.
 
 ##<a id="add-push"></a>Add push notifications to your app
 
+###Verify Android SDK Version
+
+[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+
+Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. 
+
+If you will be testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
 
 ###Add Google Play Services to the project
 
@@ -63,19 +77,9 @@ You mobile service is now configured to work with GCM to send push notifications
 
 ###Add code
 
-1. Open the project file **AndroidManifest.xml**. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to. Consult [Set Up Google Play Services SDK] to determine how low you can set this value, if you need to set it below 16 because you are using an older device. Set the property appropriately.
+1. Open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
 
-2. Ensure that in the `uses-sdk` element, the **targetSdkVersion** is set to the number of an SDK platform that has been installed (step 1). It is preferable to set it to the newest version available. 
-
-3. The **uses-sdk** tag might look like this, depending on the choices you made in the preceding steps:
-
-	    <uses-sdk
-	        android:minSdkVersion="17"
-	        android:targetSdkVersion="19" />
-	
-4. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
-
-5. Add the following new permissions after the existing `uses-permission` element:
+2. Add the following new permissions after the existing `uses-permission` element:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -84,7 +88,7 @@ You mobile service is now configured to work with GCM to send push notifications
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-6. Add the following code after the `application` opening tag: 
+3. Add the following code after the `application` opening tag: 
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -96,7 +100,7 @@ You mobile service is now configured to work with GCM to send push notifications
 
 
 
-7. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
+4. Open the file ToDoItem.java, add the following code to the **TodoItem** class:
 
 			@com.google.gson.annotations.SerializedName("handle")
 			private String mHandle;
@@ -115,48 +119,43 @@ You mobile service is now configured to work with GCM to send push notifications
 	<p>When dynamic schema is enabled on your mobile service, a new <strong>handle</strong> column is automatically added to the <strong>TodoItem</strong> table when a new item that contains this property is inserted.</p>
     </div>
 
-8. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
+5. Download and unzip the [Mobile Services Android SDK], open the **notifications** folder, copy the **notifications-1.0.1.jar** file to the *libs* folder of your Eclipse project, and refresh the *libs* folder.
 
     <div class="dev-callout"><b>Note</b>
 	<p>The numbers at the end of the file name may change in subsequent SDK releases.</p>
     </div>
 
-9.  Open the file *ToDoItemActivity.java*, and add the following import statement:
+6.  Open the file *ToDoItemActivity.java*, and add the following import statement:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
-10. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
+7. Add the following private variable to the class, where _`<PROJECT_NUMBER>`_ is the Project Number assigned by Google to your app in the preceding procedure:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-11. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
+8. In the **onCreate** method, before the MobileServiceClient is instantiated, add this code which registers the Notification Handler for the device:
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
+	Next we define the MyHandler.class referenced in this code.
+	
 
+9. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
 
-12. Add the following line of code to the **addItem** method, before the item is inserted into the table:
+10. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
 
-		item.setHandle(MyHandler.getHandle());
-
-	This code sets the `handle` property of the item to the registration ID of the device.
-
-13. In the Package Explorer, right-click the package (under the `src` node), click **New**, click **Class**.
-
-14. In **Name** type `MyHandler`, in **Superclass** type `com.microsoft.windowsazure.notifications.NotificationsHandler`, then click **Finish**
-
-	![][6]
+	![](./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png)
 
 	This creates the new MyHandler class.
 
-15. Add the following import statements:
+11. Add the following import statements:
 
 		import android.content.Context;
 		
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 		
 
-16. Add the following code:
+12. Add the following code:
 
 		@com.google.gson.annotations.SerializedName("handle")
 		private static String mHandle;
@@ -198,6 +197,11 @@ Your app is now updated to support push notifications.
 3. Replace the insert function with the following code, and then click **Save**:
 
 		function insert(item, user, request) {
+			// Define a payload for the Windows Store toast notification.
+			var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
+			    '<binding template="ToastText01">  <text id="1">' +
+			    item.text + '</text></binding></visual></toast>';
+
 			request.execute({
 				success: function() {
 					// Write to the response and then send the notification in the background
@@ -213,7 +217,7 @@ Your app is now updated to support push notifications.
 			});
 		}
 
-   	This registers a new insert script, which uses the [gcm object] to send a push notification (the inserted text) to the device provided in the insert request. 
+   	This registers a new insert script, which uses the [gcm object] to send a push notification (the text of the inserted item) to all registered devices after the insert succeeds. 
 
 ## <a name="next-steps"> </a>Next steps
 
