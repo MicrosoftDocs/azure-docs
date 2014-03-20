@@ -1,22 +1,22 @@
-<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Windows Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Build and deploy a Node.js application to a Windows Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
 
 
 
-# Build and deploy a Node.js application to a Windows Azure Cloud Service
+# Build and deploy a Node.js application to an Azure Cloud Service
 
 On completing this guide, you will have a simple Node.js application running 
-in a Windows Azure Cloud Service. Cloud Services are the building blocks of 
-scalable cloud applications in Windows Azure. They allow the separation and independent
+in an Azure Cloud Service. Cloud Services are the building blocks of 
+scalable cloud applications in Azure. They allow the separation and independent
 management and scale-out of front-end and back-end components of your application.  Cloud Services 
 provide a robust dedicated virtual machine for hosting each role reliably.
 
-For more information on Cloud Services, and how they compare to Windows Azure Web Sites and Virtual machines, see [Windows Azure Web Sites, Cloud Services, and VMs: When to use which?](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)
+For more information on Cloud Services, and how they compare to Azure Web Sites and Virtual machines, see [Azure Web Sites, Cloud Services, and VMs: When to use which?](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx)
 
 <div class="dev-callout"><strong>Looking to build a simple web site?</strong>
-<p>If your scenario involves just a simple web site front-end, consider <a href="../create-a-website-(mac)">using a lightweight Windows Azure Web Site.</a> You can easily upgrade to a Cloud Service as your web site grows and your requirements change.</p>
+<p>If your scenario involves just a simple web site front-end, consider <a href="../create-a-website-(mac)">using a lightweight Azure Web Site.</a> You can easily upgrade to a Cloud Service as your web site grows and your requirements change.</p>
 </div>
 <br />
 
@@ -26,18 +26,18 @@ using PowerShell command-line tools.
 
 A screenshot of the completed application is below:
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.">
 </p>
 
 
 
 ## Creating a New Node Application
 
-Perform the following tasks to create a new Windows Azure Cloud Service project, along with basic Node.js scaffolding:
+Perform the following tasks to create a new Azure Cloud Service project, along with basic Node.js scaffolding:
 
-1. From the **Start Menu** or **Start Screen**, search for **Windows Azure PowerShell**. Finally, right-click **Windows Azure PowerShell** and select **Run As Administrator**.
+1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
 
-	![Windows Azure PowerShell icon][powershell-menu]
+	![Azure PowerShell icon][powershell-menu]
 
 	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
@@ -54,20 +54,20 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 
 	![The result of the New-AzureService helloworld command](./media/cloud-services-nodejs-develop-deploy-app/node9.png)
 
-	The **New-AzureServiceProject** cmdlet generates a basic structure for creating a new Windows Azure Node application which will be published to a Cloud Service. It contains configuration files necessary for publishing to Windows Azure. The cmdlet also changes your working directory to the directory for the service.
+	The **New-AzureServiceProject** cmdlet generates a basic structure for creating a new Azure Node application which will be published to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
 
 	The files created by the **New-AzureServiceProject** cmdlet are:
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
         **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Windows Azure-specific files necessary for publishing your
+        Azure-specific files necessary for publishing your
         application.
 		
 	For more information about these files, see
-        [Overview of Creating a Hosted Service for Windows Azure][].
+        [Overview of Creating a Hosted Service for Azure][].
 
 	-   **deploymentSettings.json** stores local settings that are used by
-        the Windows Azure PowerShell deployment cmdlets.
+        the Azure PowerShell deployment cmdlets.
 
 4.  Enter the following command to add a new web role using the
     **Add-AzureNodeWebRole cmdlet**:
@@ -100,7 +100,7 @@ Perform the following tasks to create a new Windows Azure Cloud Service project,
 
 ## Running Your Application Locally in the Emulator
 
-One of the tools installed by the Windows Azure SDK is the Windows Azure
+One of the tools installed by the Azure SDK is the Azure
 compute emulator, which allows you to test your application locally. The
 compute emulator simulates the environment your application will run in
 when it is deployed to the cloud. Perform the following steps to test the application in the emulator.
@@ -118,25 +118,25 @@ when it is deployed to the cloud. Perform the following steps to test the applic
 	
 	PS C:\node\helloworld\WebRole1> Stop-AzureEmulator
 
-## Deploying the Application to Windows Azure
+## Deploying the Application to Azure
 
 	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 
 
-###<a id="download_publishing_settings"></a>Downloading the Windows Azure Publishing Settings
+###<a id="download_publishing_settings"></a>Downloading the Azure Publishing Settings
 
-In order to deploy your application to Windows Azure, you must first download the publishing settings for your Windows Azure subscription. The following steps guide you through this process:
+In order to deploy your application to Azure, you must first download the publishing settings for your Azure subscription. The following steps guide you through this process:
 
 1.  From the Windows PowerShell window, launch the download page by running the following cmdlet:
 
         PS C:\node\helloworld\WebRole1> Get-AzurePublishSettingsFile
 
-	This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Windows Azure subscription.
+	This will use your browser to navigate to the publish settings download page. You may be prompted to log in with a Microsoft Account. If so, use the account associated with your Azure subscription.
 
 	Save the downloaded profile to a file location you can easily access.
 
-2.  In the Windows Azure PowerShell window, use the following cmdlet to configure the Windows PowerShell for Node.js cmdlets to use the Windows Azure publishing profile you downloaded:
+2.  In the Azure PowerShell window, use the following cmdlet to configure the Windows PowerShell for Node.js cmdlets to use the Azure publishing profile you downloaded:
 
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
@@ -166,13 +166,13 @@ In order to deploy your application to Windows Azure, you must first download th
 
 	The **Publish-AzureServiceProject** cmdlet performs the following steps:
 
-1.  Creates a package that will be deployed to Windows Azure. The package contains all the files in your node.js application folder.
+1.  Creates a package that will be deployed to Azure. The package contains all the files in your node.js application folder.
 
-2.  Creates a new **storage account** if one does not exist. The Windows Azure storage account is used to store the application package during deployment. You can safely delete the storage account after deployment is done.
+2.  Creates a new **storage account** if one does not exist. The Azure storage account is used to store the application package during deployment. You can safely delete the storage account after deployment is done.
 
-3.  Creates a new **cloud service** if one does not already exist. A **cloud service** is the container in which your application is hosted when it is deployed to Windows Azure. For more information, see [Overview of Creating a Hosted Service for Windows Azure][].
+3.  Creates a new **cloud service** if one does not already exist. A **cloud service** is the container in which your application is hosted when it is deployed to Azure. For more information, see [Overview of Creating a Hosted Service for Azure][].
 
-4.  Publishes the deployment package to Windows Azure.
+4.  Publishes the deployment package to Azure.
 
 
 	> [WACOM.NOTE]
@@ -181,14 +181,14 @@ In order to deploy your application to Windows Azure, you must first download th
 	Once the deployment has completed, a browser window will open and navigate to the cloud service.
 
 
-	![A browser window displaying the hello world page. The URL indicates the page is hosted on Windows Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
+	![A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-app/node21.png)
 
-	Your application is now running on Windows Azure!
+	Your application is now running on Azure!
 
 
 ## Stopping and Deleting Your Application
 
-After deploying your application, you may want to disable it so you can avoid extra costs. Windows Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.
+After deploying your application, you may want to disable it so you can avoid extra costs. Azure bills web role instances per hour of server time consumed. Server time is consumed once your application is deployed, even if the instances are not running and are in the stopped state.
 
 1.  In the Windows PowerShell window, stop the service deployment created in the previous section with the following cmdlet:
 
@@ -211,21 +211,21 @@ After deploying your application, you may want to disable it so you can avoid ex
 	<div class="dev-callout">
 	<strong>Note</strong>
 	<p>Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on
-deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from a Windows Azure Subscription</a>.</p>
+deleting a storage account, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx">How to Delete a Storage Account from an Azure Subscription</a>.</p>
 </div>
 
 
-[The Windows Start menu with the Windows Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
+[The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
 [nodejs.org]: http://nodejs.org/
 [A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
-[Overview of Creating a Hosted Service for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
+[Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
 [A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
-[The menu displayed when right-clicking the Windows Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
+[The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
 [A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
 [A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
 [Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
 
 [The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[How to Delete a Storage Account from a Windows Azure Subscription]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
+[How to Delete a Storage Account from an Azure Subscription]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
