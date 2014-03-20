@@ -143,7 +143,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![StartPreview file output](./media/web-sites-dotnet-get-started-vs2013/GS13previewoutput.png)
 
-	Visual Studio begins the process of copying the files to the Microsoft Azure server. If you get the following error message, it may be a transient network problem:  "*Web deployment task failed. (Web Deploy experienced a connection problem with the server and had to terminate the connection.*" In this case reopen the **Publish Web** wizard and click **Publish** again to restart the deployment process. The [following section of the tutorial](#make-a-change-and-redeploy) explains how to reopen the **Publish Web** wizard.
+	Visual Studio begins the process of copying the files to the Microsoft Azure server.
 
 	The **Output** and **Web Publish Activity** windows show what deployment actions were taken and report successful completion of the deployment.
 
