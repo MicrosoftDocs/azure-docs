@@ -2,7 +2,7 @@
 
 # The HDInsight Pi estimator sample
  
-This topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi with Windows Azure HDinsight using Windows Azure Powershell. 
+This topic shows how to run a simple MapReduce program that estimates the value of the mathematical constant Pi with Azure HDinsight using Azure Powershell. 
 
 The program uses a statistical (quasi-Monte Carlo) method to estimate the value of Pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, Pi/4. The value of Pi can be estimated from the value of 4R where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -16,33 +16,33 @@ The other samples that are available to help you get up to speed using HDInsight
 
 **You will learn:**
 		
-* How to use Windows Azure PowerShell to run the Pi Estimator MapReduce program on Windows Azure HDInsight.	
+* How to use Azure PowerShell to run the Pi Estimator MapReduce program on Azure HDInsight.	
 * What a MapReduce program written in Java looks like.
 
 **Prerequisites**:	
 
-- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 ##In this article	
 This topic shows you how to run the sample, presents the Java code for the Pi Estimator MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
 	
-1. [Run the sample with Windows Azure PowerShell](#run-sample)	
+1. [Run the sample with Azure PowerShell](#run-sample)	
 2. [The Java code for the Pi estimator MapReduce program](#java-code)
 3. [Summary](#summary)	
 4. [Next steps](#next-steps)	
 
-<h2><a id="run-sample"></a>Run the sample with Windows Azure PowerShell</h2>
+<h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
 
 **To submit the MapReduce job**
 
-1. Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+1. Open Azure PowerShell. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
 	
-		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 
 4. Run the following command to create a MapReduce definition:	
@@ -418,15 +418,15 @@ In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use
 
 <h2><a id="next-steps"></a>Next steps</h2>
 
-For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
-* [Get Started with Windows Azure HDInsight][getting-started]
+* [Get Started with Azure HDInsight][getting-started]
 * [Sample: 10GB GraySort][10gb-graysort]
 * [Sample: Wordcount][wordcount]
 * [Sample: C# Steaming][cs-streaming]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
-* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 

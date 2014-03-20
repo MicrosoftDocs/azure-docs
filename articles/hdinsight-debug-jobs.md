@@ -3,13 +3,13 @@
 # Debug HDInsight: Error messages
 
 ##Introduction
-The error messages itemized in this topic are provided to help the users of Windows Azure HDInsight understand possible error conditions that they can encounter when administering the service using Windows Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
+The error messages itemized in this topic are provided to help the users of Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
 
-Some of these error mssages could also be seen in the Windows Azure portal when used manage HDinsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on paramters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
+Some of these error mssages could also be seen in the Azure portal when used manage HDinsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. If the constraints on paramters are violated, for example, the message pops-up in on the right side of the box where the value was entered. Here is a case where too many data nodes have been requested. The remedy is to reduce the number to an allowed value that is 22 or less.
 
 ![HDI.Debugging.ErrorMessages.Portal][image-hdi-debugging-error-messages-portal]
 
-The errors a user can encounter in Windows Azure PowerShell or in the Windows Azure Portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following infomation for the error:
+The errors a user can encounter in Azure PowerShell or in the Azure Portal are listed alphabetically by name in the [HDInsight Errors](#hdinsight-error-messages) section where they are linked to an entry in the [Discription and Mitigation of Errors](#discription-mitigation-errors) section that provide the following infomation for the error:
  	
 - **Description**: the error message users see	
 - **Mitigation**: what steps can be taken to recover from the error. 
@@ -250,7 +250,7 @@ The errors a user can encounter in Windows Azure PowerShell or in the Windows Az
 
 <h2><a id="resources"></a>Additional Debugging Resources</h2> 
 
-* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 

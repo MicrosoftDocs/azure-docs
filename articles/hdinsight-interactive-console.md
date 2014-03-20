@@ -53,7 +53,7 @@ In this section, you use the JavaScript console to run the WordCount sample that
 
 	![HDI.JsConsole.WordCountDownloads][hdi-jsconsole-wordcount]
 
-9. Click **Windows Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
+9. Click **Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
 10. Click **Interactive Cluster** to bring up the JavaScript console. 
 	
 	![HDI.Tiles.InteractiveConsole][hdi-tiles-interactive-console]

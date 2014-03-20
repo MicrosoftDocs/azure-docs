@@ -1,11 +1,11 @@
-<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Windows Azure HDInsight | Azure" metaKeywords="" description="Learn how Windows Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Windows Azure HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Azure HDInsight | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Azure HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
-# Introduction to Windows Azure HDInsight
+# Introduction to Azure HDInsight
 
 ##Overview
-Windows Azure HDInsight is a service that deploys and provisions Apache™ Hadoop® clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.
+Azure HDInsight is a service that deploys and provisions Apache™ Hadoop® clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.
 
 ###Big data
 Data is described as "big data" to indicate that it is being collected in ever escalating volumes, at increasingly high velocities, and for a widening variety of unstructured formats and variable semantic contexts. Big data collection does not provide value to an enterprise on its own. For big data to provide value in the form of actionable intelligence or insight, not only must the right questions be asked and data relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way, often in combination with data from various other sources that establish perspective and context in what is now referred to as a mashup.
@@ -19,18 +19,18 @@ To simplify the complexities of analyzing unstructured data from various sources
 Other Hadoop-related projects such as Pig and Hive are built on top of HDFS and the MapReduce framework. Projects such as these are used to provide a simpler way to manage a cluster than working with the MapReduce programs directly. Pig, for example, enables you to write programs using a procedural language called Pig Latin that are compiled to MapReduce programs on the cluster. It also provides fluent controls to manage data flow. Hive is a data warehouse infrastructure that provides a table abstraction for data in files stored in a cluster which can then be queried using SQL-like statements in a declarative language called HiveQL.
 
 ###HDInsight
-Windows Azure HDInsight makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig and Hive available in a simpler, more scalable, and cost-efficient environment.
+Azure HDInsight makes Apache Hadoop available as a service in the cloud. It makes the HDFS/MapReduce software framework and related projects such as Pig and Hive available in a simpler, more scalable, and cost-efficient environment.
 
-One of the primary efficiencies introduced by HDInsight is in how it manages and stores data. HDInsight uses Windows Azure Blob storage as the default file system. Blob storage and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
+One of the primary efficiencies introduced by HDInsight is in how it manages and stores data. HDInsight uses Azure Blob storage as the default file system. Blob storage and HDFS are distinct file systems that are optimized, respectively, for the storage of data and for computations on that data.
 
-- Windows Azure Blob storage provides a highly scalable and available, low cost, long term, and shareable storage option for data that is to be processed using HDInsight.
+- Azure Blob storage provides a highly scalable and available, low cost, long term, and shareable storage option for data that is to be processed using HDInsight.
 - The Hadoop clusters deployed by HDInsight on HDFS are optimized for running MapReduce computational tasks on the data.
 
 HDInsight clusters are deployed in Azure on compute nodes to execute MapReduce tasks and can be dropped by users once these tasks have been completed. Keeping the data in the HDFS clusters after computations have been completed would be an expensive way to store this data. Blob storage is a robust, general purpose Azure storage solution. So storing data in Blob storage enables the clusters used for computation to be safely deleted without losing user data. But Blob storage is not just a low cost solution: It provides a full-featured HDFS file system interface that provides a seamless experience to customers by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data that it manages.
 
-HDInsight uses Windows Azure PowerShell to configure, run, and post-process Hadoop jobs. HDInsight also provides a Sqoop connector that can be used to import data from a Windows Azure SQL database to HDFS or to export data to a Windows Azure SQL database from HDFS.
+HDInsight uses Azure PowerShell to configure, run, and post-process Hadoop jobs. HDInsight also provides a Sqoop connector that can be used to import data from an Azure SQL database to HDFS or to export data to an Azure SQL database from HDFS.
 
-Microsoft Power Query for Excel is available for importing data from Windows Azure HDInsight or any HDFS into Excel. This add-on enhances the self-service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, the Microsoft Hive ODBC Driver is available to integrate business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
+Microsoft Power Query for Excel is available for importing data from Azure HDInsight or any HDFS into Excel. This add-on enhances the self-service BI experience in Excel by simplifying data discovery and access to a broad range of data sources. In addition to Power Query, the Microsoft Hive ODBC Driver is available to integrate business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and Reporting Services, facilitating and simplifying end-to-end data analysis.
 
 ###Outline
 This topic describes the Hadoop ecosystem supported by HDInsight, the main use scenarios for HDInsight, and a guide to further resources. It contains the following sections:
@@ -42,7 +42,7 @@ This topic describes the Hadoop ecosystem supported by HDInsight, the main use s
  * <a href="#Resources">Resources for HDInsight</a>: This section indicates where to find relevant resources for additional information.
 
 
-<h2 id="ecosystem"> <a name="Ecosystem">The Hadoop ecosystem on Windows Azure </a></h2>
+<h2 id="ecosystem"> <a name="Ecosystem">The Hadoop ecosystem on Azure </a></h2>
 
 ###Introduction
 
@@ -78,7 +78,7 @@ Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Serve
 
 
 <h2> <a name="Scenarios"></a>Big data scenarios for HDInsight</h2>
-An exemplary scenario providing a use case for HDInsight is an ad hoc analysis, in batch fashion, on an entire unstructured dataset stored on Windows Azure nodes, which does not require frequent updates.
+An exemplary scenario providing a use case for HDInsight is an ad hoc analysis, in batch fashion, on an entire unstructured dataset stored on Azure nodes, which does not require frequent updates.
 
 These conditions apply to a wide variety of activities in business, science and governance. These might include, for example, monitoring supply chains in retail, suspicious trading patterns in finance, demand patterns for public utilities and services, air and water quality from arrays of environmental sensors, or crime patterns in metropolitan areas.
 
@@ -87,21 +87,21 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 <h2> <a name="Resources"></a>Next steps: Resources for HDInsight</h2>
 **Microsoft: HDInsight**	
 
-* [HDInsight Documentation](http://go.microsoft.com/fwlink/?LinkID=285601): The documentation page for Windows Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight Documentation](http://go.microsoft.com/fwlink/?LinkID=285601): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
-* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/): A tutorial that provides a quickstart for using HDInsight.
+* [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/): A tutorial that provides a quickstart for using HDInsight.
 
 * [Run the HDInsight samples](/en-us/manage/services/hdinsight/howto-run-samples/): A tutorial on how the run the samples that ship with HDInsight.
 
-* [Big data and Windows Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Big data scenarios that explore what you can build with Windows Azure.	
+* [Big data and Azure](http://www.windowsazure.com/en-us/home/scenarios/big-data/): Big data scenarios that explore what you can build with Azure.	
 
-* [Windows Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
+* [Azure HDInsight SDK](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx): Reference documentation for the HDinsight SDK.
 
 **Microsoft: Windows and SQL Database**	
 
-* [Windows Azure home page](https://www.windowsazure.com/en-us/): Scenarios, free trial sign up, development tools and documentation that you need get started building applications.
+* [Azure home page](https://www.windowsazure.com/en-us/): Scenarios, free trial sign up, development tools and documentation that you need get started building applications.
 		
-* [Windows Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
+* [Azure SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx): MSDN documentation for SQL Database.
 	
 * [Management Portal for SQL Database](http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx): A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
@@ -109,9 +109,9 @@ HDInsight (and Hadoop technologies in general) are most suitable for handling a 
 
 **Microsoft: Business intelligence**		
 
-* [Connect Excel to HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Windows Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
+* [Connect Excel to HDInsight with Power Query][connect-excel-with-power-query]: Learn how to connect Excel to the Azure storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. 
 
-* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Learn how to import data from Windows Azure HDInsight with the Microsoft Hive ODBC Driver.
+* [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC]: Learn how to import data from Azure HDInsight with the Microsoft Hive ODBC Driver.
 
 * [Microsoft BI PowerPivot](http://www.microsoft.com/en-us/bi/PowerPivot.aspx): Download and get information about a powerful data mashup and exploration tool.
 			
