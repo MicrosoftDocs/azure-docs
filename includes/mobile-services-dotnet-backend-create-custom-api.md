@@ -1,10 +1,10 @@
 
 
-1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add** and then **Controllers**.
+1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **Controllers**.
 
 	This displays the Add Scaffold dialog.
 
-2. Click **Web API Controller - Empty**, click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add**.
+2. Click **Web API Controller - Empty**, click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add** again.
 
 	![](./media/mobile-services-dotnet-backend-create-custom-api/create-custom-api-empty-controller.png)
 
@@ -32,7 +32,7 @@
             }
         }
 
-	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) to access the **todoitem** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
+	In the above code, replace `todolistContext` with the name of the DbContext for your data model, which should be the mobile service name appended with `Context`. This code uses the [Database Class](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) to access the **TodoItems** table directly to set the completed flag on all items. This method supports a POST request, and the number of changed rows is returned to the client as an integer value.
 
 	> [WACOM.NOTE] Default permissions are set, which means that any user of the app can call the custom API. However, the application key is not distributed or stored securely and cannot be considered a secure credential. Because of this, you should consider restricting access to only authenticated users on operations that modify data or affect the mobile service. 
 
