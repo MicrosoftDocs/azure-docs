@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-avoid-WASB-throttling" urlDisplayName="HDInsight Administration" pageTitle="Avoid WASB throttling | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to avoid throttling with the Windows Azure Storage Blob service."  services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="TODO: Add title of the guide, using sentence casing" authors="" />
+<properties linkid="manage-services-hdinsight-avoid-WASB-throttling" urlDisplayName="HDInsight Administration" pageTitle="Avoid WASB throttling | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to avoid throttling with the Azure Storage Blob service."  services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="TODO: Add title of the guide, using sentence casing" authors="" />
 
 # TODO: Add title of the guide, using sentence casing
 
@@ -17,7 +17,7 @@ TODO: provide a short description of the article and what skills will be gained 
 <a id="whatis"></a>
 <h2><span>What is &lt;FeatureName&gt;?</span>What is &lt;FeatureName&gt;?</h2>
 
-TODO: Considering this may be the first time the customer encounters information about a feature, the guide should provide a brief description of what the feature/service area is.  For third-party services, this is a good place to mention any special offers for Windows Azure customers.
+TODO: Considering this may be the first time the customer encounters information about a feature, the guide should provide a brief description of what the feature/service area is.  For third-party services, this is a good place to mention any special offers for Azure customers.
 
 <a id="concepts"></a>
 <h2>Concepts</h2>

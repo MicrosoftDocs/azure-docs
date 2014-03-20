@@ -1,18 +1,18 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Windows Azure | Azure" metaKeywords="hdinsight, Windows Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Windows Azure" authors="cgronlun" />
+<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
 
 
 
-# Release notes: Microsoft HDInsight Emulator for Windows Azure 
+# Release notes: Microsoft HDInsight Emulator for Azure 
 
 
 
 > [WACOM.NOTE] 
-> The easiest way to check the version number is to look in Add/Remove Programs at the entry for "Microsoft HDInsight Emulator for Windows Azure" (for version 1.0.0.0 or greater) or "Microsoft HDInsight Developer Preview" (for versions less than 1.0.0.0). 
+> The easiest way to check the version number is to look in Add/Remove Programs at the entry for "Microsoft HDInsight Emulator for Azure" (for version 1.0.0.0 or greater) or "Microsoft HDInsight Developer Preview" (for versions less than 1.0.0.0). 
 
 ## v1.0.0.0, Released 10/28/2013
 
-* This is the generally available (GA) release of the Microsoft HDInsight Emulator for Windows Azure, formerly known as Microsoft HDInsight Developer Preview. 
+* This is the generally available (GA) release of the Microsoft HDInsight Emulator for Azure, formerly known as Microsoft HDInsight Developer Preview. 
 
 * As with the preview releases of this product, this release continues to target developer scenarios and as such only supports single-node deployments. 
 
@@ -24,7 +24,7 @@
 
 * Bug fix in the command used to run Pig samples in the RunSamples.ps1 script installed in the GettingStarted folder. 
 
-* This version contains an update to the Hortonworks Data Platform version 1.1 that matches the Hortonworks Data Platform services available with Windows Azure HDInsight cluster version 1.6. 
+* This version contains an update to the Hortonworks Data Platform version 1.1 that matches the Hortonworks Data Platform services available with Azure HDInsight cluster version 1.6. 
 
 ## v0.11.0.0, Released 09/30/2013
 
@@ -32,19 +32,19 @@
 		
 * The HDInsight dashboard has been removed. 
 
-* This version contains an update to the Hortonworks Data Platform Developer Preview that matches with the Hortonworks Data Platform Preview on Windows Azure HDInsight. 
+* This version contains an update to the Hortonworks Data Platform Developer Preview that matches with the Hortonworks Data Platform Preview on Azure HDInsight. 
 
 ## v0.10.0.0, Released 08/9/2013
 
 ### What's New? 
 	
-* This version contains an update to the Hortonworks Data Platform Developer Preview that matches with the Hortonworks Data Platform Preview on Windows Azure HDInsight.
+* This version contains an update to the Hortonworks Data Platform Developer Preview that matches with the Hortonworks Data Platform Preview on Azure HDInsight.
 
 ## v0.8.0.0, Released 06/7/2013
 
 ### What's New? 
 
-* This version contains an update to the Hortonworks Data Platform Developer Preview that matches with the Hortonworks Data Platform Preview on Windows Azure HDInsight.
+* This version contains an update to the Hortonworks Data Platform Developer Preview that matches with the Hortonworks Data Platform Preview on Azure HDInsight.
 
 ## v0.6.0.0, Released 05/13/2013
 
@@ -64,7 +64,7 @@
 
 * New Microsoft HDInsight Dashboard with the following features: 
  
-* Connect to multiple clusters, including the local installation as well as those running remotely using Windows Azure HDInsight Service. 
+* Connect to multiple clusters, including the local installation as well as those running remotely using Azure HDInsight Service. 
  
 * For more information on HDInsight Service, see http://www.windowsazure.com/en-us/manage/services/hdinsight.
 
@@ -80,7 +80,7 @@
 
 Port numbers 
 
-* The REST API endpoints on a local HDInsight installation and the Windows Azure HDInsight Service are accessed through different port numbers for the same services: 
+* The REST API endpoints on a local HDInsight installation and the Azure HDInsight Service are accessed through different port numbers for the same services: 
 
 	Local: 
 	Oozie: http://localhost:11000/oozie/v1/admin/status 

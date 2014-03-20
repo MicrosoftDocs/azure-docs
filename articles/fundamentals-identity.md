@@ -1,4 +1,4 @@
-<properties linkid="dev-net-fundamentals-identity" urlDisplayName="Identity" pageTitle="Windows Azure Identity" metaKeywords="Azure identity, Azure Active Directory, Azure AD, cloud identity ad, cloud active directory" description="Learn about using Active Directory in Windows Azure." metaCanonical="" services="active-directory" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-fundamentals-identity" urlDisplayName="Identity" pageTitle="Azure Identity" metaKeywords="Azure identity, Azure Active Directory, Azure AD, cloud identity ad, cloud active directory" description="Learn about using Active Directory in Azure." metaCanonical="" services="active-directory" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
 
 
 
