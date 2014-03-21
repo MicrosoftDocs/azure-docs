@@ -15,7 +15,7 @@ information on tables, see the [Next Steps][] section.
 
 [What is the Table Service?][]   
  [Concepts][]   
- [Create a Windows Azure Storage Account][]   
+ [Create an Azure Storage Account][]   
  [How To: Create a Table][]   
  [How To: Add an Entity to a Table][]   
  [How To: Update an Entity][]   
@@ -29,7 +29,7 @@ information on tables, see the [Next Steps][] section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+## <a name="create-account"> </a>Create an Azure Storage Account
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 **Note:** If you need to install Python or the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
@@ -39,7 +39,7 @@ information on tables, see the [Next Steps][] section.
 
 The **TableService** object lets you work with table services. The
 following code creates a **TableService** object. Add the following near
-the top of any Python file in which you wish to programmatically access Windows Azure Storage:
+the top of any Python file in which you wish to programmatically access Azure Storage:
 
 	from azure.storage import *
 
@@ -164,13 +164,13 @@ The following code deletes a table from a storage account.
 Now that you have learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   [Visit the Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Azure][]
+-   [Visit the Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
   [What is the Table Service?]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
+  [Create an Azure Storage Account]: #create-account
   [How To: Create a Table]: #create-table
   [How To: Add an Entity to a Table]: #add-entity
   [How To: Update an Entity]: #update-entity
@@ -180,5 +180,5 @@ to learn how to do more complex storage tasks.
   [How To: Query a Subset of Entity Properties]: #query-entity-properties
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

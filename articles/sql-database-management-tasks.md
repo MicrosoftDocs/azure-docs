@@ -1,23 +1,23 @@
-<properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Windows Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Learn how to manage Windows Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="" />
+<properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Learn how to manage Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="" />
 
 
 <h1><a id="swap"></a>How to Manage SQL Database</h1>
 
-This topic shows you how to perform simple management tasks on Windows Azure SQL Database. 
+This topic shows you how to perform simple management tasks on Azure SQL Database. 
 
 ##Table of Contents##
 
-* [How to: Connect to SQL Database in Windows Azure using Management Studio](#connect)
-* [How to: Add logins and users to SQL Database in Windows Azure](#addlogins)
+* [How to: Connect to SQL Database in Azure using Management Studio](#connect)
+* [How to: Add logins and users to SQL Database in Azure](#addlogins)
 
 
-<h2><a id="connect"></a>How to: Connect to SQL Database in Windows Azure using Management Studio</h2>
+<h2><a id="connect"></a>How to: Connect to SQL Database in Azure using Management Studio</h2>
 
-Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Windows Azure to perform tasks side by side.
+Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Azure to perform tasks side by side.
 
 Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you develop for on-premises server will run on a SQL Database logical server. 
 
-In the following step, you'll use Management Studio to connect to a logical server on Windows Azure. This step requires you to have SQL Server Management Studio version 2008 R2 or 2012. If you need help downloading or connecting to  Management Studio, see [Managing SQL Database using Management Studio][] on this site.
+In the following step, you'll use Management Studio to connect to a logical server on Azure. This step requires you to have SQL Server Management Studio version 2008 R2 or 2012. If you need help downloading or connecting to  Management Studio, see [Managing SQL Database using Management Studio][] on this site.
 
 Before you can connect, it is sometimes necessary to create a firewall exception that allows outbound requests on port 1433 on your local system. Computers that are secure by default typically do not have port 1433 open. 
 
@@ -50,7 +50,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 2. In Authentication, choose **Windows Authentication** and then enter a Windows account that is a member of the sysadmin role.
 
 
-<h2><a id="addlogins"></a>How to: Add logins and users to SQL Database in Windows Azure</h2>
+<h2><a id="addlogins"></a>How to: Add logins and users to SQL Database in Azure</h2>
 
 After you deploy a database, you need to configure logins and assign permissions. In the next step, you’ll run two scripts.
 
@@ -58,11 +58,11 @@ For the first script, you'll connect to master and run a script that creates log
 
 The logins you create must be SQL Server authentication logins. If you already have ready-made scripts that use Windows user identities or claims identities, that script will not work on SQL Database.
 
-The second script assigns database user permissions. For this script, you will connect to a database already loaded on Windows Azure.
+The second script assigns database user permissions. For this script, you will connect to a database already loaded on Azure.
 
 ##Create logins
 
-1. In Management Studio, connect to a logical server on Windows Azure, expand the Databases folder, right-click **master**, and select **New Query**.
+1. In Management Studio, connect to a logical server on Azure, expand the Databases folder, right-click **master**, and select **New Query**.
 
 2. Use the following Transact-SQL statements to create logins. Replace the password with a valid password. Select each one individually, and then click **Execute**. Repeat for the remaining logins.
 

@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Windows Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
+<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
 
 
 
@@ -6,16 +6,16 @@
 
 # Python Web Application using Table Storage
 
-In this tutorial, you will learn how to create an application that uses Table Storage with the Windows Azure Client Libraries for Python. If this is your first Python Azure app, you may wish to take a look at [Django Hello World Web Application][] first.
+In this tutorial, you will learn how to create an application that uses Table Storage with the Azure Client Libraries for Python. If this is your first Python Azure app, you may wish to take a look at [Django Hello World Web Application][] first.
 
-For this guide, you will create a web-based task-list application that you can deploy to Windows Azure. The task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.  We'll be using Django as the web framework.
+For this guide, you will create a web-based task-list application that you can deploy to Azure. The task list allows a user to retrieve tasks, add new tasks, and mark tasks as completed.  We'll be using Django as the web framework.
 
-The task items are stored in Windows Azure Storage. Windows Azure Storage provides unstructured data storage that is fault-tolerant and highly available. Windows Azure Storage includes several data structures where you can store and access data, and you can leverage the storage services from the APIs included in the Windows Azure SDK for Python or
-via REST APIs. For more information, see [Storing and Accessing Data in Windows Azure].
+The task items are stored in Azure Storage. Azure Storage provides unstructured data storage that is fault-tolerant and highly available. Azure Storage includes several data structures where you can store and access data, and you can leverage the storage services from the APIs included in the Azure SDK for Python or
+via REST APIs. For more information, see [Storing and Accessing Data in Azure].
 
 You will learn:
 
--   How to work with Windows Azure Table Storage service
+-   How to work with Azure Table Storage service
 
 A screenshot of the completed application will be similar to the one below (the added tasks items will be different):
 
@@ -31,7 +31,7 @@ A screenshot of the completed application will be similar to the one below (the 
 
 *Note for Windows*: if you used the Windows WebPI installer, you already have Django and the Client Libs installed.
 
-## Create A Storage Account In Windows Azure
+## Create A Storage Account In Azure
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -169,18 +169,18 @@ You can now click **Add Task** to create a task, and then click the **Complete**
 
 ## Running the Application in the Compute Emulator, Publishing and Stopping/Deleting your Application
 
-Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Windows Azure emulator (Windows only) and then publishing to Windows Azure.  For general instructions on how to do this, please refer to the article [Django Hello World Web Application] which discusses these steps in detail.
+Now that you've successfully run your app on the built-in Django server, you can test it out further by deploying it to the Azure emulator (Windows only) and then publishing to Azure.  For general instructions on how to do this, please refer to the article [Django Hello World Web Application] which discusses these steps in detail.
 
 
 <h2><a id="NextSteps"></a>Next Steps</h2>
 
-Now that you have learned the basics of the Windows Azure Table storage service, follow these links to learn how to do more complex storage tasks.
+Now that you have learned the basics of the Azure Table storage service, follow these links to learn how to do more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
-- Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Storing and Accessing Data in Azure] []
+- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
 [Installation Guide]: ../python-how-to-install 
 
