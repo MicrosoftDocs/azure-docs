@@ -9,7 +9,7 @@ Users can run commands with elevated privileges on a Linux virtual machine using
 
 1. **SSH key and password or password only** - the virtual machine was provisioned with either a certificate (`.CER` file) as well as a password, or just a user name and password. In this case `sudo` will prompt for the user's password before executing the command.
 
-2. **SSH key only** - the virtual machine was provisioning with a certificate (`.cer` or `.pem` file), but no password.  In this case `sudo` **will not** prompt for the user's password before executing the command.
+2. **SSH key only** - the virtual machine was provisioned with a certificate (`.cer` or `.pem` file), but no password.  In this case `sudo` **will not** prompt for the user's password before executing the command.
 
 
 ##SSH Key and Password, or Password Only
