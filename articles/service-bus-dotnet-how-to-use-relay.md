@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Windows Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Windows Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
 
 
@@ -11,14 +11,14 @@
 This guide will show you how to use the Service Bus relay service.
 The samples are written in C# and use the Windows Communication
 Foundation API with extensions contained in the Service Bus assembly
-that is part of the .NET libraries for Windows Azure. For more
+that is part of the .NET libraries for Azure. For more
 information on the Service Bus relay, see the [Next Steps][]
 section.
 
 <h2><span class="short-header">What is the Service Bus Relay</span>What is the Service Bus Relay</h2>
 
 The Service Bus **Relay** service enables you to build **hybrid
-applications** that run in both a Windows Azure datacenter and your
+applications** that run in both an Azure datacenter and your
 own on-premises enterprise environment. The Service Bus relay facilitates
 this by enabling you to securely expose Windows Communication
 Foundation (WCF) services that reside within a corporate
@@ -31,8 +31,8 @@ network infrastructure.
 The Service Bus relay allows you to host WCF services within your
 existing enterprise environment. You can then delegate listening for
 incoming sessions and requests to these WCF services to the Service Bus
-running within Windows Azure. This enables you to expose these services to
-application code running in Windows Azure, or to mobile workers or extranet partner
+running within Azure. This enables you to expose these services to
+application code running in Azure, or to mobile workers or extranet partner
 environments. The Service Bus allows you to securely control who can
 access these services at a fine-grain level. It provides a powerful and
 secure way to expose application functionality and data from your
@@ -44,13 +44,13 @@ secured conversation between two parties.
 
 <h2><span class="short-header">Create a Service Namespace</span>Create a Service Namespace</h2>
 
-To begin using the Service Bus relay in Windows Azure, you must first
+To begin using the Service Bus relay in Azure, you must first
 create a service namespace. A service namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -109,7 +109,7 @@ the Service Bus dependencies.
 To install the NuGet package in your application, do the following:
 
 1.  In Solution Explorer, right-click **References**, then click **Manage NuGet Packages**.
-2.  Search for WindowsAzure" and select the **Windows Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog.
+2.  Search for WindowsAzure" and select the **Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
   
@@ -134,7 +134,7 @@ your environment:
 1.  Within Visual Studio, create a console application that contains two
     projects, "Client" and "Service", within the solution.
 2.  Set the target framework for both projects to .NET Framework 4.
-3.  Add the **Windows Azure Service Bus NuGet** package to both projects.
+3.  Add the **Azure Service Bus NuGet** package to both projects.
     This adds all of the necessary assembly references to your projects.
 
 ### How to Create the Service
@@ -338,7 +338,7 @@ follow these links to learn more.
 
 -   Building a service: [Building a Service for the Service Bus][].
 -   Building the client: [Building a Service Bus Client Application][].
--   Service Bus samples: download from [Windows Azure Samples][].
+-   Service Bus samples: download from [Azure Samples][].
 
   [Next Steps]: #next_steps
   [What is the Service Bus Relay]: #what-is
@@ -346,7 +346,7 @@ follow these links to learn more.
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
    [Building a Service for the Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
   [Building a Service Bus Client Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
-  [Windows Azure Samples]: http://code.msdn.microsoft.com/windowsazure
+  [Azure Samples]: http://code.msdn.microsoft.com/windowsazure
