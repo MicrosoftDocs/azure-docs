@@ -1,13 +1,10 @@
-<properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 web site with a SQL Database back-end deploy it to Windows Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title=" OAuth" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="dev-net-tutorials-web-app-with-sql-azure-vs2013" urlDisplayName="Web Site with SQL Database" pageTitle="Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to a Windows Azure Web Site" metaKeywords="Azure hello world tutorial, Azure getting started tutorial, SQL Database tutorial, Azure .NET hello world tutorial, Azure C# hello world tutorial, SQL Azure C# tutorial" description="Learn how to develop an ASP.NET MVC 5 web site with a SQL Database back-end deploy it to Windows Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter=".NET" title=" OAuth" authors=""  solutions="" writer="riande" manager="wpickett" editor="mollybos"  />
 
 
 
 # Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to a Windows Azure Web Site
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated 18 October 2013.***
-
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/web-site-with-sql-database/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to Windows Azure.
 
@@ -26,7 +23,7 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![login page][rxb]
 
-<div class="dev-callout"><p><strong>Note</strong> To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">Windows Azure Free Trial</a>.</p></div>
+>[WACOM.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>
 
 
 In this tutorial:
@@ -44,6 +41,7 @@ In this tutorial:
 
 [WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
+To use the new SSL certificate for localhost, you will need to install [Visual Studio 2013 Update 2 RC](http://go.microsoft.com/fwlink/?LinkId=390521) or higher.
 
 <h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
 
@@ -69,7 +67,7 @@ Windows Azure SQL Database is a cloud-based relational database service that is 
 
 	![Create with Database link in Management Portal][rr1]
 
-1. In the **Database** drop-down list, choose **Create a free 20 MB SQL database**.
+1. In the **Database** drop-down list, choose **Create a free SQL database**.
 
 1. In the **Region** drop-down list, choose the same region you selected for the Web site.
 This setting specifies which data center your VM will run in. 
@@ -110,31 +108,24 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
  
    **Note:** The image shows "MyExample" as the name, but make sure you enter "ContactManager". Code blocks that you'll be copying later assume that the project name is ContactManager. 
 
-5. In the **New ASP.NET Project** dialog box, select the **MVC** template, and then click **Change Authentication**.
+5. In the **New ASP.NET Project** dialog box, select the **MVC** template, **uncheck** the **Create remote resources** check box and then click **OK**.
 
-   ![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13changeauth.png)
-
-6. Keep the default **Individual User Accounts** in the **Change Authentication** dialog box. 
-
-   The dialog explains that **Individual User Accounts** is for apps that store user profiles in a SQL database where users can register using their existing Facebook, Twitter and Google accounts. For information about the other authentication options, see [Creating ASP.NET Web Projects in Visual Studio 2013 - Authentication methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#auth).
-
-7. Click **OK**.
-
-5. In the **New ASP.NET Project** dialog box, click **OK**.
-
-     ![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13changeauth.png)
+   ![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG)
 
 
 ### Set the page header and footer
 
 
 1. In **Solution Explorer** open the *Layout.cshtml* file in the *Views\Shared* folder.
+
 	![_Layout.cshtml in Solution Explorer][newapp004]
+
 1. Replace the two occurrences of "My ASP.NET MVC Application" with "Contact Manager".
 1. Replace "Application name" with "CM Demo". 
+
 2. Update the first Action link and replace *Home* with *Cm* to use the *Cm* Controller.
 
-![code changes](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs3.png)
+	![code changes](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs3.png)
 
 
 ### Run the application locally
@@ -143,49 +134,41 @@ You have created a Windows Azure Web Site, but there is no content in it yet. Yo
 
 	The application home page appears in the default browser.
 
-![Web site running locally](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
+	![Web site running locally](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
 
 This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
 
 <h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
 
-5. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
+1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
    ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
    The **Publish Web** wizard opens.
 
-6. In the **Profile** tab of the **Publish Web** wizard, click **Import**.
+1. In the **Profile** tab of the **Publish Web** wizard, click **Windows Azure Web Sites**.
 
-   ![Import publish settings][ImportPublishSettings]
+   ![Import publish settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss2.PNG)
 
-   The **Import Publish Profile** dialog box appears.
+1. Click the **Sign In** button and log into the Windows Azure portal.
 
-5. Use one of the following methods to enable Visual Studio to connect to your Windows Azure account.
+ ![sign in](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss22.PNG)
 
-   
-	* Click **Sign In**, and then enter the credentials for your Windows Azure account.
 
-		This method is quicker and easier, but if you use this method you won't be able to see Windows Azure SQL Database or Mobile Services in the **Server Explorer** window.
+   After logging in, the **Select Existing Web Site** dialog box appears.
 
-	* Click **Manage subscriptions** in order to install a management certificate that enables access to your account.
+1. Select the web site you created in the first part of this tutorial, and then click **OK**.
 
-		In the **Manage Windows Azure Subscriptions** dialog box, click the **Certificates** tab, and then click **Import**. Follow the directions to download and import a subscription file (also called a *.publishsettings* file) for your Windows Azure account.
+ ![select web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss3.png)
 
-		> [WACOM.NOTE]
-		> Download the subscription file to a folder outside your source code directories (for example, in the Downloads folder), and then delete it once the import has completed. A malicious user who gains access to the subscription file can edit, create, and delete your Windows Azure services.
-
-		For more information, see [How to Connect to Windows Azure from Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
-
-7. In the **Import Publish Profile** dialog box, select your web site from the drop-down list, and then click **OK**.
-
-![Import Publish Profile](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs4.png)
 
 1. In the **Publish Web** dialog box, click **Publish**.
 
 	![Publish](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr3.png)
 
 	The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
+
+	![Running in Cloud](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS4.PNG)
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -197,11 +180,11 @@ You begin by creating a simple data model in code.
 
 1. In **Solution Explorer**, right-click the Models folder, click **Add**, and then **Class**.
 
-![Add Class in Models folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
+	![Add Class in Models folder context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
 
 2. In the **Add New Item** dialog box, name the new class file *Contact.cs*, and then click **Add**.
 
-![Add New Item dialog box][adddb002]
+	![Add New Item dialog box][adddb002]
 
 3. Replace the contents of the Contacts.cs file with the following code.
 
@@ -236,13 +219,14 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 
 5. In the **Add Scaffold** dialog box, select **MVC 5 Controller with views, using EF** and then click **Add**.
 	
-![Add Scaffold dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
+	![Add Scaffold dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
 
-5. In the **Add Controller** dialog box, enter "CmController" for the controller name. (See the image below.)
-1. In the **Model class** dropdown box, select **Contact (ContactManager.Models)**.
+
+1. In the **Model class** dropdown box, select **Contact (ContactManager.Models)**. (See the image below.)
 1. In the **Data context class**, select **ApplicationDbContext (ContactManager.Models)**. The **ApplicationDbContext** will be used for both the membership DB and our contact data.
+1. In the **Controller name** text entry box, enter "CmController" for the controller name. 
 
-![New data ctx dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrCtx.png)
+	![New data ctx dlg](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss5.PNG)
 
 1. Click **Add**.
 
@@ -252,8 +236,9 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 
 The next task is to enable the [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) feature in order to create the database based on the data model you created.
 
-1. In the **Tools** menu, select **Library Package Manager** and then **Package Manager Console**.
-	![Package Manager Console in Tools menu][addcode008]
+1. In the **Tools** menu, select **NuGet Package Manager** and then **Package Manager Console**.
+	![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss6.png)
+
 2. In the **Package Manager Console** window, enter the following command:
 
 		enable-migrations
@@ -339,9 +324,9 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 7. Press CTRL+F5 to run the application, and then click the **CM Demo** link; or navigate to http://localhost:(port#)/Cm. 
 
-The application shows the seed data and provides edit, details and delete links. You can create, edit, delete and view data.
+	The application shows the seed data and provides edit, details and delete links. You can create, edit, delete and view data.
 
-![MVC view of data][rx2]
+	![MVC view of data][rx2]
 
 <h2><a name="addOauth"></a><span class="short-header">OAuth</span>Add an OAuth2 And OpenID Provider</h2>
 
@@ -353,11 +338,15 @@ In addition to authentication, the tutorial will also use roles to implement aut
 
 1. Run the application and click  the **Log In** link. 
 1. Under **Use another service to log in**, click the **Google** button. 
-1. Enter your  credentials.
-1. Click **Accept** to allow the application to access your email and basic information.
-1. You are redirected to the Register page. You can change the **User name** if you like. Click **Register**.
 
-![register](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr8.png)
+	![Goog login](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss23.PNG)
+
+1. Enter your  credentials.
+1. The Google authentication server will ask you for permission for the app to view your email address and basic information about your account. Click **Accept**.
+![GOOG asking for permission](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss7.PNG)
+1. You are redirected to the Register page. The user name defaults to the email alias you used to register, you can change it if you like. Click **Register**.
+
+	![register](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss8.PNG)
 
 <h2><a name="mbrDB"></a><span class="short-header">Membership DB</span>Using the Membership API</h2>
 In this section you will add a local user and the *canEdit* role to the membership database. Only those users in the *canEdit* role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than the less descriptive *superAdmin*.
@@ -380,9 +369,9 @@ In this section you will add a local user and the *canEdit* role to the membersh
                 new UserStore<ApplicationUser>(context));
             var user = new ApplicationUser()
             {
-               UserName = "user1",
+               UserName = "user1@contoso.com",
             };
-            ir = um.Create(user, "Passw0rd1");
+            ir = um.Create(user, "P_assw0rd1");
             if (ir.Succeeded == false)
                return ir.Succeeded;
             ir = um.AddToRole(user.Id, "canEdit");
@@ -398,7 +387,11 @@ In this section you will add a local user and the *canEdit* role to the membersh
                 // Code removed for brevity
         }
 
-   This code creates a new role called *canEdit*, creates a new local user *user1*, and adds *user1* to the *canEdit* role. 
+	The following images shows the changes to *Seed* method:
+
+	![code image](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss24.PNG)
+
+   This code creates a new role called *canEdit*, creates a new local user *user1@contoso.com*, and adds *user1@contoso.com* to the *canEdit* role. For more information, see the [ASP.NET Identity resource page](http://curah.microsoft.com/55636/aspnet-identity).
 
 ## Use Temporary Code to Add New Social Login Users to the canEdit Role  ##
 In this section you will temporarily modify the **ExternalLoginConfirmation** method in the Account controller to add new users registering with an OAuth or OpenID provider to the *canEdit* role. We will temporarily modify the **ExternalLoginConfirmation** method to automatically add new users to an administrative role. Until we provide a tool to add and manage roles, we'll use the temporary automatic registration code below. We hope to provide a tool similar to [WSAT](http://msdn.microsoft.com/en-us/library/ms228053(vs.90).aspx) in the future which allow you to create and edit user accounts and roles. Later in the tutorial I'll show how you can use **Server Explorer** to add users to roles.  
@@ -410,7 +403,7 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
 
    The code above adds the newly registered user to the "canEdit" role, which gives them access to action methods that change (edit) data. An image of the code change is shown below:
 
-   ![code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr9.png)
+   ![code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss9.PNG)
 
 Later in the tutorial you will deploy the application to Windows Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. Anyone who finds your site's URL and has a Google ID can then register and update your database. To prevent other people from doing that, you can stop the site. You'll be able to verify who is in the *canEdit* role by examining the database.
 
@@ -418,7 +411,7 @@ In the **Package Manager Console** hit the up arrow key to bring up the followin
 
 		Update-Database
 
-Run the  **Update-Database** command which will run the **Seed** method, and that will run the **AddUserAndRole** you just added. The **AddUserAndRole** will create the user *user1* and add her to the *canEdit* role.
+Run the  **Update-Database** command which will run the **Seed** method, and that will run the **AddUserAndRole** you just added. The **AddUserAndRole** will create the user *user1@contoso.com* and add her to the *canEdit* role.
 
 ## Protect the Application with SSL and the Authorize Attribute ##
 
@@ -434,19 +427,15 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
             filters.Add(new RequireHttpsAttribute());
         }
 
-   The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(vs.100).aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. You will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(vs.108).aspx) will require all access to the web app be through HTTPS.
+The following image shows the changed code:
 
-1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method of the Home controller. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to white-list the methods you want to opt out of authorization. A portion of the HomeController is shown below:	
+	![code image](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss10.PNG)
 
-         namespace ContactManager.Controllers
-         {
-            public class HomeController : Controller
-            {
-               [AllowAnonymous]
-               public ActionResult Index()
-               {
-                  return View();
-               }
+	The [Authorize](http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(vs.100).aspx) filter applied in the code above will prevent anonymous users from accessing any methods in the application. You will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(vs.108).aspx) will require all access to the web app be through HTTPS.
+
+1. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method of the Home controller. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to white-list the methods you want to opt out of authorization. An image of a portion of the HomeController is shown below:	
+
+  ![code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss11.PNG)
 
 2. Do a global search for *AllowAnonymous*, you can see it is used in the log in and registration methods of the Account controller.
 1. In *CmController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
@@ -465,47 +454,67 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/en-us/l
 
 	![enable SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr1.png)
  
-1. Press CTRL+F5 to run the application. The browser will display a certificate warning. For our application you can safely click on the link **Continue to this website**. 
- 
-	![cert Warn][rxNOT]
+1. Verify Internet Explorer is the browser Visual Studio launches as shown in the image below:
+
+	![default browser](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss12.PNG)
+
+	The browser selector lets you specify the browser Visual Studio launches.
+
+ ![browser selector](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss13.png)
+
+	You can select multiple browsers and have Visual Studio update each browser when you make changes. For more information see [Using Browser Link in Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
 
 
-	![cert Warn][rxNOT2]
+1. Press CTRL+F5 to run the application. Follow the instructions to trust the self-signed certificate that IIS Express has generated.
+
+	 ![instructions to trust the self-signed certificate that IIS Express has generated](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss26.PNG)
+
+1. Read the **Security Warning** dialog and then click **Yes** if you want to install the certificate representing  **localhost**.
+
+ ![localhost IIS Express certificate warning ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss27.PNG)
+
+1. IE shows the *Home* page and there are no SSL warnings.
+
+	 ![IE with localhost SSL and no warnings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss28.PNG)
+
+	Google Chrome also accepts the certificate and will show HTTPS content without a warning. Firefox uses its own certificate store, so it will display a warning. For our application you can safely click **I Understand the Risks**. 
+
+	 ![FireFox Cert Warning](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss30.PNG)
  
-   The default browser shows the **Index** page of the home controller. 
 
 1. If you are still logged in from a previous session, hit the **Log out** link.
 1. Click on the **About** or **Contact** links. You will be redirected to the log in page because anonymous users cannot view those pages. 
-1. Click the **Register** link and add a local user named *Joe*. Verify *Joe* can view the Home, About and Contact pages. 
+1. Click the **Register as a new user** link and add a local user with email *joe@contoso.com*. Verify *Joe* can view the Home, About and Contact pages. 
+
+	![login](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss14.PNG)
+
 1. Click the *CM Demo* link and verify you see the data. 
 1. Click an edit link on the page, you will be redirected to the log in page (because a new local user is not added to the *canEdit* role).
-1. Log in as *user1* with password of "Passw0rd1" (the "0" in "word" is a zero). You will be redirected to the edit page you previously selected. 
+1. Log in as *user1@contoso.com* with password of "P_assw0rd1" (the "0" in "word" is a zero). You will be redirected to the edit page you previously selected. 
 
-   If you can't log in with that account and password, try copying the password from the source code and pasting it. If you still can't log in, check the **AspNetUsers** table to verify *user1* was added. Later on in the tutorial I show how to check the **AspNetUsers** table.
+   If you can't log in with that account and password, try copying the password from the source code and pasting it. If you still can't log in, check the **UserName** column of the **AspNetUsers** table to verify *user1@contoso.com* was added. 
 1. Verify you can make data changes.
 
 <h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Windows Azure</h2>
 
-1. Build the application.
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
 	![Publish in project context menu][firsdeploy003]
 
-The **Publish Web** wizard opens.
+	The **Publish Web** wizard opens.
 
-1. Click the **Settings** tab. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select **ContactDB**.
+1. Click the **Settings** tab on the left side of the **Publish Web** dialog box. Click the **v** icon to select the **Remote connection string** for **ApplicationDbContext** and select **ContactDB**.
 
-   (If you closed and re-opened Visual Studio after you created the publish profile, you might not see the connection string in the drop-down list. In that case, instead of editing the publish profile that you created earlier, create a new one the same way you did earlier, and then follow these steps on the **Settings** tab.)
-
+   
 	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
 
 1. Under **ContactManagerContext**, select **Execute Code First Migrations**.
 
-![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
+	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
 
 1. Click **Publish**.
 
-1. Log in as *user1* and verify you can edit data.
+1. Log in as *user1@contoso.com* and verify you can edit data.
 
 1. Log out.
 
@@ -518,13 +527,13 @@ The **Publish Web** wizard opens.
 
 	![stop web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr2.png) 
 
-Alternatively, from the Windows Azure management portal, you can select the web site, then click the **stop** icon at the bottom of the page.
+	Alternatively, from the Windows Azure management portal, you can select the web site, then click the **stop** icon at the bottom of the page.
 
-![stop web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
+	![stop web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
 
 ### Remove AddToRoleAsync, Publish, and Test
 
-1. Remove the following code from the **ExternalLoginConfirmation** method in the Account controller: 
+1. Comment out or remove the following code from the **ExternalLoginConfirmation** method in the Account controller: 
                 `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. Build the project (which saves the file changes and verify you don't have any compile errors).
 5. Right-click the project in **Solution Explorer** and select **Publish**.
@@ -532,65 +541,70 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 	   ![Publish in project context menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 	
 4. Click the **Start Preview** button. Only the files that need to be updated are deployed.
-5. Start the Web Site. The easiest way to do this is from the Portal. **You won't be able to publish while the web site is stopped**.
+5. Start the web site from Visual Studio or from the Portal. **You won't be able to publish while the web site is stopped**.
+
+	![start web site](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss15.png)
+
 5. Go back to Visual Studio and click **Publish**.
-3. Your Windows Azure App opens up in your default browser. You are viewing the home page as an anonymous user.  
+3. Your Windows Azure App opens up in your default browser. If you are logged in, log out so you can view the home page as an anonymous user.  
 4. Click the **About** link. You'll be redirected to the Log in page.
 5. Click the **Register** link on the Log in page and create local account. We will use this local account to verify you can access the read only pages but you cannot access pages that change data (which are protected by the *canEdit* role). Later on in the tutorial we will remove local account access. 
 <!--
 1. Log out of the local user account and log in with the Google account you previously registered with. Verify you can edit data. 
 -->
 
-![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr6.png)
+	![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss16.PNG)
 
 1. Verify you can navigate to the *About* and *Contact* pages.
 
-![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr7.png)
+	![Log off](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss17.PNG)
 
 1. Click the **CM Demo** link to navigate to the **Cm** controller. Alternatively, you can append *Cm* to the URL. 
 
-![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
  
-1. Click an Edit link. You will be redirected to the log in page. Under **Use another service to log in**, Click Google or Facebook and log in with the account you previously registered.
+1. Click an Edit link. You will be redirected to the log in page. Under **Use another service to log in**, Click Google or Facebook and log in with the account you previously registered. (If you're working quickly and your session cookie has not timed out, you will be automatically logged in with the Google or Facebook account you previously used.)
 2. Verify you can edit data while logged into that account.
  	**Note:** You cannot log out of Google from this app and log into a different google account with the same browser. If you are using one browser, you will have to navigate to Google and log out. You can log on with another account from the same third party authenticator (such as Google) by using a different browser.
-
 
 ## Examine the SQL Azure DB ##
 
 1. In **Server Explorer**, navigate to the **ContactDB**
 2. Right click on **ContactDB** and select **Open in SQL Server Object Explorer**.
  
-![open in SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
+	![open in SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
  
-**Note:** If you can't expand **SQL Databases** and *can't* see the **ContactDB** from Visual Studio, you will have to follow the instructions below to open a firewall port or a range of ports. Follow the instructions under **Adding a Range of Allowed IP Addresses** and **Connecting to a SQL Azure Database from SSOX**. You may have to wait for a few minutes to access the database after adding the firewall rule.
+**Note:** If you can't expand **SQL Databases** and *can't* see the **ContactDB** from Visual Studio, you will have to follow the instructions below to open a firewall port or a range of ports. Follow the instructions under **Set up Windows Azure firewall rules**. You may have to wait for a few minutes to access the database after adding the firewall rule.
  
 1. Right click on the **AspNetUsers** table and select **View Data**.
 
-![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
  
-1. Note the Id from the Google account you registered with to be in the **canEdit** role, and the Id of *user1*. These should be the only users in the **canEdit** role. (You'll verify that in the next step.)
+1. Note the Id from the Google account you registered with to be in the **canEdit** role, and the Id of *user1@contoso.com*. These should be the only users in the **canEdit** role. (You'll verify that in the next step.)
 
-![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr9.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr9.png)
  
 2. In **SQL Server Object Explorer**, right click on **AspNetUserRoles** and select **View Data**.
 
-![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
  
-Verify the **UserId**s are from *user1* and the Google account you registered. 
+Verify the **UserId**s are from *user1@contoso.com* and the Google account you registered. 
 
 
-## Cannot open server login error ##
+## Set up Windows Azure firewall rules ##
 
-Follow the steps in this section only if you get an error dialog stating "Cannot open server".
-	![firewall error][rx5]
+Follow the steps in this section if you can't connect to SQL Azure from Visual Studio or if you get an error dialog stating "Cannot open server".
+
+![firewall error](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png)
 
 You will need to add your IP address to the allowed IPs.
 
 1. In the Windows Azure Portal, Select **SQL Databases** in the left tab.
+
 	![Select SQL][rx6]
 
-1. Select the database you wish to open.
+1. Click on the **ContactDB**.
+
 1. Click the **Set up Windows Azure firewall rules for this IP address** link.
 
 	![firewall rules][rx7]
@@ -600,11 +614,12 @@ You will need to add your IP address to the allowed IPs.
 The next step is to add a range of allowed IP addresses.
 
 1. In the Windows Azure Portal, Click **SQL Databases**.
-1. Click the **Server** hosting your Database.
+1. Select the **Servers** tab, and then click on the server you wish to configure.
 
-	![db server][rx8]
+	![Servers tab in Windows Azure ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss25.PNG)
 
-1. Click the **Configure** link on the top of the page.
+1. Click the **Configure** tab.
+
 1. Add a rule name, starting and ending IP addresses.
 
 	![ip range][rx9]
@@ -612,17 +627,19 @@ The next step is to add a range of allowed IP addresses.
 1. At the bottom of the page, click **Save**.
 1. Please leave feedback and let me know if you needed to add a range of IP address to connect.
 
-Finally, you can connect to the SQL Database instance from SSOX
+Finally, you can connect to the SQL Database instance from SQL Server Object Explorer (SSOX)
 
 1. From the View menu, click **SQL Server Object Explorer**.
 1. Right click **SQL Server** and select **Add SQL Server**.
 1. In the **Connect to Server** dialog box, set the **Authentication** to **SQL Server Authentication**. You will get the **Server name** and **Login** from the Windows Azure Portal.
 1. In your browser, navigate to the portal and select **SQL Databases**.
 1. Select the **ContactDB**, and then click **View SQL Database connection strings**.
-1. From the **Connection Strings** page, copy the **Server**  and **User ID**. 
+1. From the **Connection Strings** page, copy the **Server**  and **User ID**.
+ 
+	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.png)
 1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
 
-![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
+	![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
 
 You can now navigate to the Contact DB using the instructions given earlier.
 
@@ -633,11 +650,11 @@ Earlier in the tutorial you used code to add users to the canEdit role. An alter
 
 2. In **SQL Server Object Explorer**, right click on **AspNetUserRoles** and select **View Data**.
 
-![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
 
 1. Copy the *RoleId* and paste it into the empty (new) row.
 	
-![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs2.png)
+	![CM page](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs2.png)
 	
 2. In the **AspNetUsers** table find the user you want to put in the role, and copy the  user's *Id*, and then paste it into the **UserId** column of the **AspNetUserRoles** table.
 
@@ -658,16 +675,14 @@ The current  ASP.NET membership registration in the project does not provide sup
 
 Follow my tutorial [Create an ASP.NET MVC 5 App with Facebook and Google OAuth2 and OpenID Sign-on](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on ) for instructions on how to add profile data to the user registration DB and for detailed instructions on using Facebook as an authentication provider.
 
+To enable the social login buttons shown at the top of this tutorial, see [Pretty social login buttons for ASP.NET MVC 5](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/).
 
-A good place to learn more about ASP.NET MVC is my [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) tutorial. Tom Dykstra's excellent [Getting Started with EF and MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) will show you more advanced EF programming.
+A good place to learn more about ASP.NET MVC is my [Getting Started with ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) tutorial. Tom Dykstra's excellent [Getting Started with EF and MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) will show you more advanced MVC and EF programming.
 
 This tutorial and the sample application was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) with assistance from Tom Dykstra and Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)). 
 
-Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. 
+Please leave feedback on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. You can also request and vote on new topics at [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
-<!--
-To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post [Customizing External Login Buttons in ASP.NET MVC 5](http://www.beabigrockstar.com/customizing-external-login-buttons-in-asp-net-mvc-4/). 
- -->
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
 [Using the Membership API]:#mbrDB
@@ -681,75 +696,9 @@ To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post
 [adddb]: #bkmk_addadatabase
 
 
-
-
-<!-- links -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- links from Tom's hopefully no collisions -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- images-->
 
 [rx2]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx2.png
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 [rx5]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png
@@ -759,7 +708,6 @@ To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post
 [rx9]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx9.png
 
 [rxb]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxb.png
-
 
 
 [rxSSL]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxSSL.png
@@ -777,62 +725,24 @@ To get the colorful Facebook, Google and Yahoo log on buttons, see the blog post
 
 
 
-
-
-
-
-
-
-
-
 [rxWSnew]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxWSnew2.png
 [rxCreateWSwithDB]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rxCreateWSwithDB.png
 
 [setup007]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-setup-azure-site-004.png
 
-
-
-
-
 [newapp004]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png
-
-
-
-
 
 [firsdeploy003]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-deploy1-publish-001.png
 
-
-
-
-
-
-
 [adddb002]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-adddatabase-002.png
 [addcode001]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-controller-add-context-menu.png
-
-
-
-
-
-
-
 
 [addcode008]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-migrations-package-manager-menu.png
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-migrations-package-manager-console.png
 
 
-
-
-
-
-
-
-
 [Important information about ASP.NET in Windows Azure Web Sites]: #aspnetwindowsazureinfo
 [Next steps]: #nextsteps
-
-
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
 

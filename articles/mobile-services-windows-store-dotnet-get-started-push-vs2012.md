@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" description="Learn how to use push notifications with Windows Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services using Visual Studio 2012" authors="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" description="Learn how to use push notifications with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services using Visual Studio 2012" authors="" />
 # Get started with push notifications in Mobile Services using Visual Studio 2012
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -11,7 +11,7 @@
 	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
 </div>	
 
-This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Store app. 
+This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Store app. 
 In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 <div class="dev-callout"><b>Note</b>
@@ -141,7 +141,7 @@ Both your mobile service and your app are now configured to work with WNS. Next,
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrates the basic push notification functionality provided by Mobile Services. If your app requires more advanced functionalities, such as sending cross-platform notifications, subscription-based routing, or very large volumes, consider using Windows Azure Notification Hubs with your mobile service. For more information, see one of the following Notification Hubs topics:
+This tutorial demonstrates the basic push notification functionality provided by Mobile Services. If your app requires more advanced functionalities, such as sending cross-platform notifications, subscription-based routing, or very large volumes, consider using Azure Notification Hubs with your mobile service. For more information, see one of the following Notification Hubs topics:
 
 + [Get started with Notification Hubs]
   <br/>Learn how to leverage Notification Hubs in your Windows Store app.
@@ -212,7 +212,7 @@ Consider finding out more about the following Mobile Services topics:
 [Authorize users with scripts]: ../tutorials/mobile-services-authorize-users-dotnet.md
 [JavaScript and HTML]: ../tutorials/mobile-services-get-started-with-push-js.md
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
