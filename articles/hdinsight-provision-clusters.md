@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-provision-hdinsight-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision HDInsight clusters - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for the Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Provision HDInsight clusters" authors="" />
+<properties linkid="manage-services-hdinsight-provision-hdinsight-clusters" urlDisplayName="HDInsight Administration" pageTitle="Provision HDInsight clusters | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to provision clusters for Azure HDInsight using the management portal, PowerShell, or the command line." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Provision HDInsight clusters" authors="jgao" />
 
 #Provision HDInsight clusters
 
@@ -8,29 +8,29 @@ In this article, you will learn different ways to provision HDInsight cluster.
 
 Before you begin this article, you must have the following:
 
-- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- An Azure subscription. Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
 
-* [Using Windows Azure Management Portal](#portal)
-* [Using Windows Azure PowerShell](#powershell)
+* [Using Azure Management Portal](#portal)
+* [Using Azure PowerShell](#powershell)
 * [Using Cross-platform Command Line](#cli)
 * [Using HDInsight .NET SDK](#sdk)
 * [Next steps](#nextsteps)
 
-##<a id="portal"></a> Using Windows Azure Management Portal
+##<a id="portal"></a> Using Azure Management Portal
 
-HDInsight cluster uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating a Windows Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+HDInsight cluster uses an Azure Blob Storage container as the default file system. An Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
 > [WACOM.NOTE] Currently, only the Southeast Asia, North Europe, West Europe, East US and the West US regions can host HDInsight clusters.
 
-This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Windows Azure HDInsight][hdinsight-getting-started].
+This session describes the procedure for creating an HDInsight cluster using the custom create option.  For the information on using the quick create option, see [Get Started with Azure HDInsight][hdinsight-getting-started].
 
 
 **To create a HDInsight cluster using the custom create option**
 
-1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+1. Sign in to the [Azure Management Portal][azure-management-portal].
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **CUSTOM CREATE**.
 3. On the Cluster Details page, type or choose the following values:
 
@@ -45,9 +45,9 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><td>DATA NODES</td>
 			<td>Specify the number of nodes in the cluster. The default value is 4.</td></tr>
 		<tr><td>HDINSIGHT VERSION</td>
-			<td>Choose the version. The default is 2.0 running Hadoop 1.2 clusters.  The 3.0 uses Hadoop 2.2 clusters. For more information, see <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">What version of Hadoop is in Windows Azure HDInsight?</a>.</td></tr>
+			<td>Choose the version. The default is 2.0 running Hadoop 1.2 clusters.  The 3.0 uses Hadoop 2.2 clusters. For more information, see <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">What version of Hadoop is in Azure HDInsight?</a>.</td></tr>
 		<tr><td>REGION</td>
-			<td>Specify the data center where the cluster is installed. The location has to be the same as the Windows Azure Blob storage that will be used as the default file system. Currently you can only choose *Southeast Asia*, *North Europe*, *West Europe*, *East US* or *West US*.</td>
+			<td>Specify the data center where the cluster is installed. The location has to be the same as the Azure Blob storage that will be used as the default file system. Currently you can only choose *Southeast Asia*, *North Europe*, *West Europe*, *East US* or *West US*.</td>
 		</tr>
 	</table>
 
@@ -65,7 +65,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 		<tr><td>Enter Hive/Oozie Metastore</td>
 			<td>Specify a SQL database on the same data center to be used as the Hive/Oozie metastore.</td></tr>
 		<tr><td>HIVE META/OOZIESTORE DATABASE</td>
-			<td>Specify the Windows Azure SQL database that will be used as the metastore for Hive/OOzie. This SQL database must be in the same data center as the HDInsight cluster. The list box only lists the SQL databases in the same data center as you specified on the Cluster Details page.</td></tr>
+			<td>Specify the Azure SQL database that will be used as the metastore for Hive/OOzie. This SQL database must be in the same data center as the HDInsight cluster. The list box only lists the SQL databases in the same data center as you specified on the Cluster Details page.</td></tr>
 		<tr><td>DATABASE USER</td>
 			<td>Specify the SQL database user that will be used to connect to the database.</td></tr>
 		<tr><td>DATABASE USER PASSWORD</td>
@@ -83,7 +83,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 	<table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
 		<tr><td>STORAGE ACCOUNT</td>
-			<td>Specify the Windows Azure Storage account that will be used as the default file system for the HDInsight cluster. You can choose one of the three options:
+			<td>Specify the Azure Storage account that will be used as the default file system for the HDInsight cluster. You can choose one of the three options:
 			<ul>
 				<li>Use Existing Storage</li>
 				<li>Create New Storage</li>
@@ -111,7 +111,7 @@ This session describes the procedure for creating an HDInsight cluster using the
 
 It can take several minutes to provision a cluster.  When the provision process is completed successfully, the status column for the cluster will show **Running**.
 
-> [WACOM.NOTE] Once a Windows Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.
+> [WACOM.NOTE] Once an Azure storage account is chosen for your HDInsight cluster, you can neither delete the account, nor change the account to a different account.
 
 
 
@@ -157,26 +157,26 @@ It can take several minutes to provision a cluster.  When the provision process 
 
 
 
-##<a id="powershell"></a> Using Windows Azure PowerShell
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Windows Azure PowerShell][powershell-install-configure]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+##<a id="powershell"></a> Using Azure PowerShell
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information on configuring a workstation to run HDInsight Powershell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure]. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 The following procedures are needed to provision an HDInsight cluster using PowerShell:
 
-- Create a Windows Azure Storage account
-- Create a Windows Azure Blob container
+- Create an Azure Storage account
+- Create an Azure Blob container
 - Create a HDInsight cluster
 
-HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account and storage container are required before you can create an HDInsight cluster. The storage account must be located in the same data center as the HDInsight Cluster.
+HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. The storage account must be located in the same data center as the HDInsight Cluster.
 
 
-**To create a Windows Azure storage account**
+**To create an Azure storage account**
 
-- Run the following commands from a Windows Azure PowerShell console window:
+- Run the following commands from an Azure PowerShell console window:
 
 		$storageAccountName = "<StorageAcccountName>"
 		$location = "<MicrosoftDataCenter>"		# For example, "West US"
 		
-		# Create a Azure storage account
+		# Create an Azure storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 	
 	If you have already had a storage account but do not know the account name and account key, you can use the following PowerShell commands to retrieve the information:
@@ -187,9 +187,9 @@ HDInsight uses a Windows Azure Blob Storage container as the default file system
 		# List the keys for a storage account
 		Get-AzureStorageKey "<StorageAccountName>"
 	
-**To create Windows Azure storage container**
+**To create Azure storage container**
 
-- Run the following commands from a Windows Azure PowerShell window:
+- Run the following commands from an Azure PowerShell window:
 
 		$storageAccountName = "<StorageAccountName>"
 		$storageAccountKey = "<StorageAccountKey>"
@@ -206,11 +206,11 @@ Once you have the storage account and the blob container prepared, you are ready
 
 **To provision an HDInsight cluster**
 
-- Run the following commands from a Windows Azure PowerShell window:		
+- Run the following commands from an Azure PowerShell window:		
 
 		$subscriptionName = "<SubscriptionName>"		# The name of the Azure subscription.
-		$storageAccountName = "<StorageAccountName>"	# The Windows Azure storage account that hosts the default container. The default container will be used as the default file system.
-		$containerName = "<ContainerName>"				# The Windows Azure Blob storage container that will be used as the default file system for the HDInsight cluster.
+		$storageAccountName = "<StorageAccountName>"	# The Azure storage account that hosts the default container. The default container will be used as the default file system.
+		$containerName = "<ContainerName>"				# The Azure Blob storage container that will be used as the default file system for the HDInsight cluster.
 
 		$clusterName = "<HDInsightClusterName>"			# The name you will name your HDInsight cluster.
 		$location = "<MicrosoftDataCenter>"				# The location of the HDInsight cluster. It must in the same data center as the storage account.
@@ -270,7 +270,7 @@ You can also provision cluster and configure it to connect to more than one Azur
 
 **To list HDInsight clusters**
 
-- Run the following commands from a Windows Azure PowerShell window:
+- Run the following commands from an Azure PowerShell window:
 
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
@@ -383,14 +383,14 @@ You can also provision cluster and configure it to connect to more than one Azur
 
 ##<a id="cli"></a> Using Cross-platform command line
 
-Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Windows Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Windows Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
+Another option for provisioning an HDInsight cluster is the Cross-platform Command-line Interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js including Windows, Mac and Linux. The command-line tool is open source.  The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool]. This article only covers using the command-line interface from Windows.
 
 
 The following procedures are needed to provision an HDInsight cluster using Cross-platform command line:
 
 - Install cross-platform command line
-- Download and import Windows Azure account publish settings
-- Create a Windows Azure Storage account
+- Download and import Azure account publish settings
+- Create an Azure Storage account
 - Provision a cluster
 
 The command-line interface can be installed using *Node.js Package Manager (NPM)* or Windows Installer.
@@ -399,7 +399,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 
 1.	Browse to **www.nodejs.org**.
 2.	Click **INSTALL** and following the instructions using the default settings.
-3.	Open **Command Prompt** (or *Windows Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
+3.	Open **Command Prompt** (or *Azure Command Prompt*, or *Developer Command Prompt for VS2012*) from your workstation.
 4.	Run the following command in the command prompt window.
 
 		npm install -g azure-cli
@@ -424,7 +424,7 @@ The command-line interface can be installed using *Node.js Package Manager (NPM)
 1.	Browse to **http://www.windowsazure.com/en-us/downloads/**.
 2.	Scroll down to the **Command line tools** section, and then click **Cross-platform Command Line Interface** and follow the Web Platform Installer wizard.
 
-Before using the command-line interface, you must configure connectivity between your workstation and Windows Azure. Your Windows Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Windows Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
+Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You only need to import your publish settings once.
 
 
 > [WACOM.NOTE] The publish settings file contains sensitive information. It is recommended that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker.
@@ -450,15 +450,15 @@ Before using the command-line interface, you must configure connectivity between
 	In the previous screenshot, the publish settings file was saved to C:\HDInsight folder on the workstation.
 
 
-HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account is required before you can create an HDInsight cluster. The storage account must be located in the same data center.
+HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account is required before you can create an HDInsight cluster. The storage account must be located in the same data center.
 
-**To create a Windows Azure storage account**
+**To create an Azure storage account**
 
 - From the command prompt window, run the following command:
 
 		azure account storage create [options] <StorageAccountName>
 
-For information on creating a Windows Azure storage account using Windows Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
+For information on creating an Azure storage account using Azure Management portal, see [How to Create a Storage Account][azure-create-storageaccount].
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -662,10 +662,10 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
-* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-getting-started]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-version]: /en-us/manage/services/hdinsight/versioning-in-hdinsight/
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx

@@ -1,14 +1,14 @@
-<properties linkid="article" urlDisplayName="Use SSH" pageTitle="Use SSH to connect to Linux virtual machines in Windows Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" description="Learn how to generate and use SSH keys with a Linux virtual machine on Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use SSH with Linux on Windows Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="article" urlDisplayName="Use SSH" pageTitle="Use SSH to connect to Linux virtual machines in Azure" metaKeywords="Azure SSH keys Linux, Linux vm SSH" description="Learn how to generate and use SSH keys with a Linux virtual machine on Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use SSH with Linux on Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-#How to Use SSH with Linux on Windows Azure
+#How to Use SSH with Linux on Azure
 
-This topic describes the steps to generate SSH keys compatible with Windows Azure.
+This topic describes the steps to generate SSH keys compatible with Azure.
 
-The current version of the Windows Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Follow the steps below to generate and use SSH keys with Windows Azure.
+The current version of the Azure Management Portal only accepts SSH public keys that are encapsulated in an X509 certificate. Follow the steps below to generate and use SSH keys with Azure.
 
 ## Get OpenSSL on Linux ##
 To get openssl on a Linux machine, use the native package management solution for your Linux distribution:
@@ -17,7 +17,7 @@ To get openssl on a Linux machine, use the native package management solution fo
 *  Debian: `apt-get install openssl`
 *  Ubuntu: `apt-get install openssl`
 
-## Generate Windows Azure Compatible Keys in Linux ##
+## Generate Azure Compatible Keys in Linux ##
 
 1. Use `openssl` to generate an X509 certificate with a 2048-bit RSA keypair. Please answer the few questions that the `openssl` prompts for (you may leave them blank). The content in these fields is not used by the platform.
 
@@ -31,7 +31,7 @@ To get openssl on a Linux machine, use the native package management solution fo
 
 			openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-## Connect to an Windows Azure Virtual Machine from Linux ##
+## Connect to an Azure Virtual Machine from Linux ##
 Every Linux virtual machine is provisioned with SSH in a particular port that may be different from the standard port used so you 
 
 1.	Find the port you will use to connect to the Linux virtual machine from the Management Portal.

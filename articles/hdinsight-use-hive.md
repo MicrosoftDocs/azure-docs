@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hive with HDInsight" pageTitle="Use Hive with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hive with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="manage-services-hdinsight-howto-hive" urlDisplayName="Use Hive with HDInsight" pageTitle="Use Hive with HDInsight | Azure" metaKeywords="" description="Learn how to use Hive with HDInsight. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data and report basic statistics." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hive with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
@@ -10,9 +10,9 @@
 
 **Prerequisites:**
 
-- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Windows Azure portal, see [Get started with HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
+- You must have provisioned an **HDInsight cluster**. For a walkthrough on how to do this with the Azure portal, see [Get started with HDInsight][hdinsight-getting-started]. For instructions on the various other ways in which such clusters can be created, see [Provision HDInsight Clusters][hdinsight-provision]. 
 
-- You must have installed **Windows Azure PowerShell** on your workstation. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+- You must have installed **Azure PowerShell** on your workstation. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 **Estimated time to complete:** 30 minutes
 
@@ -21,7 +21,7 @@
 ##In this article
 
 * [The Hive usage case](#usage)
-* [Upload data files to Windows Azure Blob storage](#uploaddata)
+* [Upload data files to Azure Blob storage](#uploaddata)
 * [Run Hive queries using PowerShell](#runhivequeries)
 * [Next steps](#nextsteps)
 
@@ -42,7 +42,7 @@ Hive is best suited for the batch processing of large amounts of immutable data 
 
 Generally, applications save errors, exceptions and other coded issues in a log file, so administrators can use the data in the log files to review problems that may arise and to generate metrics that are relevant to errors or other issues like performance. These log files usually get quite large in size and contain a wealth of data that must be processed and mined for intelligence on the application. 
 
-Log files are therefore a paradigmatic example of big data. HDInsight provides a Hive data warehouse system that facilitates easy data summarization, ad-hoc queries, and the analysis of these big datasets stored in Hadoop compatible file systems such as Windows Azure Blob Storage.
+Log files are therefore a paradigmatic example of big data. HDInsight provides a Hive data warehouse system that facilitates easy data summarization, ad-hoc queries, and the analysis of these big datasets stored in Hadoop compatible file systems such as Azure Blob Storage.
 
 
 
@@ -61,7 +61,7 @@ Log files are therefore a paradigmatic example of big data. HDInsight provides a
 
 ##<a id="uploaddata"></a>Upload data files to the Blob storage
 
-HDInsight uses Windows Azure Blob storage container as the default file system.  For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. 
+HDInsight uses Azure Blob storage container as the default file system.  For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. 
 
 In this article, you use a log4j sample file distributed with the HDInsight cluster that is stored in *\example\data\sample.log*. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity. For example:
 
@@ -108,22 +108,22 @@ To generate your own log4j files, use the [Apache Log4j][apache-log4j] logging u
 ##<a id="runhivequeries"></a> Run Hive queries using PowerShell
 In the last section, you uploaded a log4j file called sample.log to the default file system container.  In this section, you will run HiveQL to create a hive table, load data to the hive table, and then query the data to find out how many error logs there were.
 
-This article provides the instructions for using Windows Azure PowerShell cmdlets to run a Hive query. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure as explained in the **Prerequisites** section at the beginning of this topic.
+This article provides the instructions for using Azure PowerShell cmdlets to run a Hive query. Before you go through this section, you must first setup the local environment, and configure the connection to Azure as explained in the **Prerequisites** section at the beginning of this topic.
 
 Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob** cmdlet or the **Invoke-Hive** cmdlet
 
 **To run the Hive queries using Start-AzureHDInsightJob**
 
-1. Open a Windows Azure PowerShell console windows. The instructions can be found in [Install and configure Windows Azure PowerShell][powershell-install-configure].
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open an Azure PowerShell console windows. The instructions can be found in [Install and configure Azure PowerShell][powershell-install-configure].
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 
 2. Set the variables in the following script and run it:
 
-		# Provide Windows Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
+		# Provide Azure subscription name, and the Azure Storage account and container that is used for the default HDInsight file system.
 		$subscriptionName = "<SubscriptionName>"
 		$storageAccountName = "<AzureStorageAccountName>"
 		$containerName = "<AzureStorageContainerName>"
@@ -183,12 +183,12 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 **To submit Hive queries using Invoke-Hive**
 
-1. Open a Windows Azure PowerShell console window.
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open an Azure PowerShell console window.
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 2. Set the variable, and then run it:
 
 		$clusterName = "<HDInsightClusterName>"
@@ -218,13 +218,13 @@ Hive queries can be run in PowerShell either using the **Start-AzureHDInsightJob
 
 While Hive makes it easy to query data using a SQL-like query language, other components available with HDInsight provide complementary functionality such as data movement and transformation. To learn more, see the following articles:
 
-* [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 * [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
 * [Use Oozie with HDInsight][hdinsight-oozie]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Using Pig with HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
-* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/

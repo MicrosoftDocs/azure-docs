@@ -1,4 +1,4 @@
-<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Windows Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Windows Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
 
 
@@ -17,7 +17,7 @@ This how-to guide explains how to use the Service Bus brokered messaging feature
 
 <h2><span class="short-header">Getting Started</span>Getting Started with Service Bus</h2>
 
-This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Windows Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)"
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled "[How to Use Service Bus Queues.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)"
 
 <h2><span class="short-header">Downloading the SDK</span>Downloading the Service Bus SDK.</h2>
 
@@ -50,7 +50,7 @@ The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Servic
 
 	Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
 
-Where [namespace], [issuer name], and [issuer key] are obtained from the Windows Azure Management Portal. For more information, see [How to Use Service Bus Queues][].
+Where [namespace], [issuer name], and [issuer key] are obtained from the Azure Management Portal. For more information, see [How to Use Service Bus Queues][].
 
 When using AMQP, the connection string is appended with ";TransportType=Amqp", which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
@@ -293,7 +293,7 @@ You can also use Service Bus AMQP 1.0 from other languages including Java, C, Py
 
 <h2><span class="short-header">Further information</span>Further information</h2>
 
-* [AMQP 1.0 support in Windows Azure Service Bus](http://aka.ms/pgr3dp)
+* [AMQP 1.0 support in Azure Service Bus](http://aka.ms/pgr3dp)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](http://aka.ms/ll1fm3)
 * [Service Bus AMQP 1.0 Developer's Guide](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
 * [How to Use Service Bus Queues](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)

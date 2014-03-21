@@ -1,10 +1,10 @@
-<properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Windows Azure Notification Hubs" pageTitle="Windows Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Windows Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Windows Azure Notification Hubs" authors="" />
+<properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="" />
 
 
-#Windows Azure Notification Hubs
+#Azure Notification Hubs
 
 
-Push notification support in Windows Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
+Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
 
 <h2><span class="short-header">What are Push Notifications?</span>What are Push Notifications?</h2>
 

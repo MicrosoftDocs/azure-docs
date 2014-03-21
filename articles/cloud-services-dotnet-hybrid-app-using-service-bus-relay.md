@@ -1,4 +1,4 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
 
 
@@ -9,9 +9,9 @@
 
 <h2><span class="short-header">INTRODUCTION</span>INTRODUCTION</h2>
 
-Developing hybrid cloud applications with Windows Azure is easy using
-Visual Studio 2012 and the free Windows Azure SDK for .NET. This guide
-assumes you have no prior experience using Windows Azure. In less than
+Developing hybrid cloud applications with Azure is easy using
+Visual Studio 2013 and the free Azure SDK for .NET. This guide
+assumes you have no prior experience using Azure. In less than
 30 minutes, you will have an application that uses multiple Windows
 Azure resources up and running in the cloud.
 
@@ -19,8 +19,8 @@ You will learn:
 
 -   How to create or adapt an existing web service for consumption by a
     web solution.
--   How to use the Windows Azure Service Bus relay to share data between
-    a Windows Azure application and a web service hosted elsewhere.
+-   How to use the Azure Service Bus relay to share data between
+    an Azure application and a web service hosted elsewhere.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -39,7 +39,7 @@ reach for access by the cloud solution. Many internal services are not
 built or hosted in a way that they can be easily exposed at the
 corporate network edge.
 
-The *Service Bus relay* is designed for the use-case of taking existing
+The *Service Bus Relay* is designed for the use-case of taking existing
 Windows Communication Foundation (WCF) web services and making those
 services securely accessible to solutions that reside outside the
 corporate perimeter without requiring intrusive changes to the corporate
@@ -47,7 +47,7 @@ network infrastructure. Such Service Bus relay services are still hosted
 inside their existing environment, but they delegate listening for
 incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
-using Windows Azure Active Directory Access Control.
+using Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
@@ -61,29 +61,28 @@ on-premises system, and uses the Service Bus relay to reach into that
 system. This is simulated by a web service that is running in a simple
 console application and is backed by an in-memory set of products. You
 will be able to run this console application on your own computer and
-deploy the web role into Windows Azure. By doing so, you will see how
-the web role running in the Windows Azure datacenter will indeed call
+deploy the web role into Azure. By doing so, you will see how
+the web role running in the Azure datacenter will indeed call
 into your computer, even though your computer will almost certainly
 reside behind at least one firewall and a network address translation
 (NAT) layer.
 
-A screenshot of the start page of the completed web application is
-below.
+The following is a screen shot of the start page of the completed web application.
 
 ![][1]
 
 <h2><span class="short-header">SET UP THE ENVIRONMENT</span>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
 
-Before you can begin developing your Windows Azure application, you need
+Before you can begin developing your Azure application, you need
 to get the tools and set-up your development environment.
 
-1.  To install the Windows Azure SDK for .NET, click the button below:
+1.  To install the Azure SDK for .NET, click the button below:
 
     [Get Tools and SDK][]
 
 2. 	Click **install the SDK**.
 
-3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2012:
+3. 	Choose the link for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2013:
 
 	![][42]
 
@@ -98,19 +97,19 @@ to get the tools and set-up your development environment.
 
 6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
-    easily develop Windows Azure applications in Visual Studio. If you
+    easily develop Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
-    Visual Studio Express 2012 for Web.
+    Visual Studio Express.
 
 <h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
 
-To begin using Service Bus features in Windows Azure, you must first
+To begin using Service Bus features in Azure, you must first
 create a service namespace. A service namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -173,7 +172,7 @@ This project will start as a Visual Studio console application. The
 project uses the Service Bus NuGet package to include the service bus
 libraries and configuration settings. The NuGet Visual Studio extension
 makes it easy to install and update libraries and tools in Visual Studio
-and Visual Studio Express 2012 for Web. The Service Bus NuGet package is the easiest
+and Visual Studio Express. The Service Bus NuGet package is the easiest
 way to get the Service Bus API and to configure your application with
 all of the Service Bus dependencies. For details about using NuGet and
 the Service Bus package, see [Using the NuGet Service Bus Package][].
@@ -181,9 +180,9 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 ### CREATE THE PROJECT
 
 1.  Using administrator privileges, launch either Microsoft Visual
-    Studio 2012 or Microsoft Visual Studio Express 2012 for Web. To
+    Studio 2013 or Microsoft Visual Studio Express. To
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express 2012 for Web)** and then click **Run as administrator**.
+    **Microsoft Visual Studio 2013 (or Microsoft Visual Studio Express)** and then click **Run as administrator**.
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 
@@ -196,7 +195,8 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     ![][11]
 
 4.  Click **OK** to create the **ProductsServer** project.
-5.  In the **Solution Explorer**, right-click **ProductsServer**, then
+
+5.  In **Solution Explorer**, right-click **ProductsServer**, then
     click **Properties**.
 6.  Click the **Application** tab on the left, then ensure that **.NET
     Framework 4** or **.NET Framework 4.5** appears in the **Target framework:** dropdown. If not, select it from the dropdown and then click **Yes**
@@ -321,7 +321,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     **&lt;system.ServiceModel>** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
     namespace, and *yourIssuerSecret* with the key you retrieved earlier
-    from the Windows Azure Management Portal:
+    from the Azure Management Portal:
 
         <system.serviceModel>
           <extensions>
@@ -353,29 +353,28 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
 
 14. Press **F6** or from the **Build** menu, click **Build Solution** to build the application to verify the accuracy of your work so far.
 
-<h2><span class="short-header">CREATE AN ASP.NET APPLICATION</span>CREATE AN ASP.NET MVC 4 APPLICATION</h2>
+<h2><span class="short-header">CREATE AN ASP.NET MVC APPLICATION</span>CREATE AN ASP.NET MVC APPLICATION</h2>
 
-In this section you will build a simple MVC 4 application that will
+In this section you will build a simple ASP.NET application that will
 display data retrieved from your product service.
 
 ### CREATE THE PROJECT
 
-1.  Ensure that Microsoft Visual Studio 2012 is runnning with administrator privileges. If not, to
+1.  Ensure that Microsoft Visual Studio 2013 is running with administrator privileges. If not, to
     launch Visual Studio with administrator privileges, right-click
-    **Microsoft Visual Studio 2012 (or Microsoft Visual Studio Express 2012 for Web)** and then click Run as administrator. The Windows
+    **Microsoft Visual Studio 2013 (or Microsoft Visual Studio Express)** and then click **Run as administrator**. The Windows
     Azure compute emulator, discussed later in this guide, requires that
     Visual Studio be launched with administrator privileges.
 
 2.  In Visual Studio, on the **File** menu, click **New**, and then
     click **Project**.
 
-3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET
-    MVC 4 Web Application**. Name the project **ProductsPortal**. Then
+3.  From **Installed Templates**, under **Visual C#**, click **ASP.NET Web Application**. Name the project **ProductsPortal**. Then
     click **OK**.
 
     ![][15]
 
-4.  From the **Select a template** list, click **Internet Application**,
+4.  From the **Select a template** list, click **MVC**,
     then click **OK**.
 
     ![][16]
@@ -430,8 +429,7 @@ display data retrieved from your product service.
 
 4.  Next, double-click _Layout.cshtml to open it in the Visual Studio editor.
 
-5.  Within the body tag, find the title of the page enclosed in `title` tags.
-    Change the title text from **My MVC Application** to **LITWARE's Products**. Also change **your logo here** to **LITWARE's Products**.
+5.  Change all occurrences of **My ASP.NET Application** to **LITWARE's Products**.
 
 6. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
@@ -493,9 +491,9 @@ Run the application to verify that it works.
 
     ![][21]
 
-    <h2><span class="short-header">DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
+    <h2><span class="short-header">DEPLOY TO AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO AZURE</h2>
 
-    You can deploy your application to a Windows Azure Cloud Service or to a Windows Azure Web Site. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels]. To learn how to deploy the application to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to a Windows Azure Cloud Service.
+    You can deploy your application to an Azure Cloud Service or to an Azure Web Site. To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
 
     To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
     The deployment project contains configuration
@@ -504,14 +502,14 @@ Run the application to verify that it works.
 
     1.  To make your application deployable to the cloud, right-click
         the **ProductsPortal** project in **Solution Explorer** and
-        click **Add Windows Azure Cloud Service Project**.
+        click **Convert**, then click **Convert to Azure Cloud Service Project**.
 
         ![][22]
 
     2.  To test your application, press **F5**.
-    3.  This will start the Windows Azure compute emulator. The compute
+    3.  This will start the Azure compute emulator. The compute
         emulator uses the local computer to emulate your application
-        running in Windows Azure. You can confirm the emulator has
+        running in Azure. You can confirm the emulator has
         started by looking at the system tray:
 
         ![][23]
@@ -523,11 +521,11 @@ Run the application to verify that it works.
     <h2><span class="short-header">PUT THE PIECES TOGETHER</span>PUT THE PIECES TOGETHER</h2>
 
     The next step is to hook up the on-premises products server with the
-    ASP.NET MVC4 application.
+    ASP.NET MVC application.
 
     1.  If it is not already open, in Visual Studio re-open the
         **ProductsPortal** project you created in the "Creating an
-        ASP.NET MVC 4 Application" section.
+        ASP.NET MVC Application" section.
 
     2.  Similar to the step in the "Create an On-Premises Server"
         section, add the NuGet package to the project References. In
@@ -552,7 +550,7 @@ Run the application to verify that it works.
         editor and replace the namespace definition with the following
         code. Be sure to replace *yourServiceNamespace* with the name of
         your service namespace, and *yourIssuerSecret* with your key.
-        This will allow the client to call the on-premises service,
+        This will enable the client to call the on-premises service,
         returning the result of the call.
 
             namespace ProductsWeb.Controllers
@@ -634,34 +632,19 @@ Run the application to verify that it works.
 
         ![][1]
 
-    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO WINDOWS AZURE</h2>
+    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO AZURE</h2>
 
     1.  Right-click on the **ProductsPortal** project in **Solution
-        Explorer** and click **Publish to Windows Azure**.
+        Explorer** and click **Publish to Azure**.
 
-    2.  The first time you publish to Windows Azure, you will first have
-        to download credentials via the link provided in Visual Studio.
+    2.  You might have to sign in to see all your subscriptions.
 
-        Click **Sign in to download credentials**:
+        Click **Sign in to see more subscriptions**:
 
         ![][27]
 
-    3.  Sign-in using your Live ID.
+    3.  Sign-in using your Microsoft Account.
 
-
-    4.  Save the publish profile file to a location on your hard drive
-        where you can retrieve it.
-
-
-    5.  Within the publish dialog, click on **Import**:
-
-        ![][30]
-
-    6.  Browse for and select the file that you just downloaded.
-    7.  Pick the Windows Azure subscription you would like to publish
-        to:
-
-        ![][31]
 
     8.  Click **Next**. If your subscription doesn't already contain any hosted
         services, you will be asked to create one. The hosted service
@@ -685,14 +668,14 @@ Run the application to verify that it works.
         ![][34]
 
         This will take approximately 5-7 minutes. Since this is the
-        first time you are publishing, Windows Azure provisions a
+        first time you are publishing, Azure provisions a
         virtual machine (VM), performs security hardening, creates a Web
         role on the VM to host your application, deploys your code to
         that Web role, and finally configures the load balancer and
         networking so your application is available to the public.
 
     11. While publishing is in progress you will be able to monitor the
-        activity in the **Windows Azure Activity Log** window, which is
+        activity in the **Azure Activity Log** window, which is
         typically docked to the bottom of Visual Studio or Visual Web
         Developer:
 
@@ -712,7 +695,7 @@ Run the application to verify that it works.
 
         ![][37]
 
-To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
+To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels].
 
 <h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
 
@@ -720,7 +703,7 @@ After deploying your application, you may want to disable it so you
 can build and deploy other applications within the free 750
 hours/month (31 days/month) of server time.
 
-Windows Azure bills web role instances per hour of server time
+Azure bills web role instances per hour of server time
 consumed. Server time is consumed once your application is deployed,
 even if the instances are not running and are in the stopped state.
 A free account includes 750 hours/month (31 days/month) of dedicated
@@ -729,12 +712,11 @@ virtual machine server time for hosting these web role instances.
 The following steps show you how to stop and delete your
 application.
 
-1.  Login to the [Windows Azure Management Portal],
+1.  Login to the [Azure Management Portal],
         click on Cloud Services, then click the name of your service.
 
 2.  Click the **Dashboard** tab, and then click on **Stop** to temporarily suspend your application. You will
-        be able to start it again just by clicking on Start. Click on
-        Delete to completely remove your application from Windows Azure
+        be able to start it again just by clicking on Start. Click **Delete** to completely remove your application from Azure
         with no ability to restore it.
 
 	![][43]
@@ -743,7 +725,7 @@ application.
 
 To learn more about Service Bus, see the following resources:  
   
-* [Windows Azure Service Bus][sbmsdn]  
+* [Azure Service Bus][sbmsdn]  
 * [Service Bus How To's][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
@@ -756,7 +738,7 @@ To learn more about Service Bus, see the following resources:
   [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
   
   
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
   
@@ -764,11 +746,11 @@ To learn more about Service Bus, see the following resources:
   
   [Using the NuGet Service Bus Package]: http://go.microsoft.com/fwlink/?LinkId=234589
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
-  [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.jpg
+  [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [12]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
   [13]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [14]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-con-4.png
-  [15]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.jpg
+  [15]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
   [16]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-4.png
   [17]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-7.jpg
   [18]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-10.jpg

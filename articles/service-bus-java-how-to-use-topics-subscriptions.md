@@ -1,4 +1,4 @@
-<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Windows Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Windows Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
+<properties linkid="dev-java-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Java) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic Java" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Java applications." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Topics/Subscriptions" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
 
 
 
@@ -9,7 +9,7 @@
 # How to Use Service Bus Topics/Subscriptions
 
 This guide will show you how to use Service Bus topics and
-subscriptions. The samples are written in Java and use the [Windows Azure SDK for Java][]. The scenarios covered include **creating topics
+subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics
 and subscriptions**, **creating subscription filters**, **sending
 messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
@@ -40,7 +40,7 @@ Add the following import statements to the top of the Java file:
     import com.microsoft.windowsazure.services.core.*;
     import javax.xml.datatype.*;
 
-Add the Windows Azure Libraries for Java to your build path and include it in your project deployment assembly.
+Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
 
 ## <a name="bkmk_HowToCreateTopic"> </a>How to Create a Topic
 
@@ -330,7 +330,7 @@ with the topic. Subscriptions can also be deleted independently.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
 
-  [Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+  [Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -343,7 +343,7 @@ topic [Service Bus Queues, Topics, and Subscriptions][] for more information.
   [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
   [Next Steps]: #bkmk_NextSteps
   [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-  [Windows Azure Management Portal]: http://manage.windowsazure.com/
+  [Azure Management Portal]: http://manage.windowsazure.com/
   [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
   [Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png

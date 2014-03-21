@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="Multi-tier web site tutorial - Step 5: Worker role B" metaKeywords="Windows Azure tutorial, adding working role cloud service, C# worker role" description="The fifth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role B (email sender) for the Windows Azure Email Service application - 5 of 5." authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" urlDisplayName="Step 5: Worker Role B" pageTitle="Multi-tier web site tutorial - Step 5: Worker role B" metaKeywords="Azure tutorial, adding working role cloud service, C# worker role" description="The fifth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role B (email sender) for the Azure Email Service application - 5 of 5." authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 
 
@@ -30,9 +30,9 @@
 </div>
 </div>
 
-# Building worker role B (email sender) for the Windows Azure Email Service application - 5 of 5. 
+# Building worker role B (email sender) for the Azure Email Service application - 5 of 5. 
 
-This is the fifth tutorial in a series of five that show how to build and deploy the Windows Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
+This is the fifth tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
 In this tutorial you'll learn:
 
@@ -54,13 +54,13 @@ In this tutorial you'll learn:
 
 <h2><a name="addreference"></a><span class="short-header">Add reference</span>Add a reference to the web project</h2>
 
-You need a reference to the web project because that is where the entity classes are defined. You'll use the entity classes in worker role B to read and write data in the Windows Azure tables that the application uses.
+You need a reference to the web project because that is where the entity classes are defined. You'll use the entity classes in worker role B to read and write data in the Azure tables that the application uses.
 
 4. Right-click the WorkerRoleB project, and choose **Add Reference**.
 
 	![Add reference in WorkerRoleB project][mtas-worker-b-add-reference-menu]
 
-4. In **Reference Manager**, add a reference to the MvcWebRole project (or to the web application project if you are running the web UI in a Windows Azure Web Site).
+4. In **Reference Manager**, add a reference to the MvcWebRole project (or to the web application project if you are running the web UI in an Azure Web Site).
 
 	![Add reference to MvcWebRole][mtas-worker-b-reference-manager]
 
@@ -68,11 +68,11 @@ You need a reference to the web project because that is where the entity classes
 
 <h2><a name="sclpackage"></a><span class="short-header">Add SCL 2.0 Package</span>Add the Storage Client Library 2.0 NuGet package to the project</h2>
 
-When you added the project, it didn't automatically get the updated version of the Storage Client Library NuGet package. Instead, it got the old 1.7 version of the package since that is what is included in the project template. Now the solution has two versions of the Windows Azure Storage NuGet package: the 2.0 version in the MvcWebRole and WorkerRoleA projects, and the 1.7 version in the WorkerRoleB project. You need to uninstall the 1.7 version and install the 2.0 version in the WorkerRoleB project.
+When you added the project, it didn't automatically get the updated version of the Storage Client Library NuGet package. Instead, it got the old 1.7 version of the package since that is what is included in the project template. Now the solution has two versions of the Azure Storage NuGet package: the 2.0 version in the MvcWebRole and WorkerRoleA projects, and the 1.7 version in the WorkerRoleB project. You need to uninstall the 1.7 version and install the 2.0 version in the WorkerRoleB project.
 
 1. From the **Tools** menu choose **Library Package Manager** and then **Manage NuGet Packages for Solution**.
 
-2. With **Installed Packages** selected in the left pane, scroll down until you get to the Windows Azure Storage package.
+2. With **Installed Packages** selected in the left pane, scroll down until you get to the Azure Storage package.
 
 	You'll see the package listed twice, once for the 1.7 version and once for the 2.0 version.
 
@@ -107,7 +107,7 @@ Version 2.0 of the Storage Client Library (SCL) does not have everything needed 
 
 6. Navigate to the following folder:
 
-        C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref
+        C:\Program Files\Microsoft SDKs\Azure\.NET SDK\2012-10\ref
 
 7. Select *Microsoft.WindowsAzure.StorageClient.dll*, and then click **Add**.
 
@@ -190,7 +190,7 @@ For storage account credentials, the procedure is the same as what you saw in [t
 
 3. Open WorkerRoleB.cs and examine the code.
 
-	As you already saw in worker role A, the `OnStart` method initializes the context classes that you need in order to work with Windows Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the `Run` method exist.  
+	As you already saw in worker role A, the `OnStart` method initializes the context classes that you need in order to work with Azure storage entities. It also makes sure that all of the tables, queues, and blob containers you need in the `Run` method exist.  
 
 	The difference compared to worker role A is the addition of the blob container and the subscribe queue among the resources to create if they don't already exist. You'll use the blob container to get the files that contain the HTML and plain text for the email body. The subscribe queue is used for sending subscription confirmation emails.
 
@@ -314,7 +314,7 @@ For storage account credentials, the procedure is the same as what you saw in [t
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-	The purpose of the sleep time is to minimize Windows Azure Storage transaction costs, as explained in [the previous tutorial][tut4]. 
+	The purpose of the sleep time is to minimize Azure Storage transaction costs, as explained in [the previous tutorial][tut4]. 
 
 	When a queue item is pulled from the queue by the [GetMessage][]  method, that queue item becomes invisible for 30 seconds to all other worker and web roles accessing the queue. This is what ensures that only one worker role instance will pick up any given queue message for processing. You can explicitly set this *exclusive lease* time (the time the queue item is invisible) by passing a  [visibility timeout](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) parameter to the  `GetMessage` method. If the worker role could take more than 30 seconds to process a queue message, you should increase the exclusive lease time to prevent other role instances from processing the same message. 
 
@@ -599,35 +599,35 @@ For storage account credentials, the procedure is the same as what you saw in [t
 
 <h2><a name="nextsteps"></a><span class="short-header">Next steps</span>Next steps</h2>
 
-You have now built the Windows Azure Email Service application from scratch, and what you have is the same as the completed project that you downloaded.  To deploy to the cloud, test in the cloud, and promote to production, you can use the same procedures that you saw in [the second tutorial][tut2].  If you chose to build the alternative architecture, see [the Windows Azure Web Sites getting started tutorial][getstartedtutorial] for information about how to deploy the MVC project to a Windows Azure Web Site.
+You have now built the Azure Email Service application from scratch, and what you have is the same as the completed project that you downloaded.  To deploy to the cloud, test in the cloud, and promote to production, you can use the same procedures that you saw in [the second tutorial][tut2].  If you chose to build the alternative architecture, see [the Azure Web Sites getting started tutorial][getstartedtutorial] for information about how to deploy the MVC project to an Azure Web Site.
 
-To learn more about Windows Azure storage, see the following resource:
+To learn more about Azure storage, see the following resource:
 
-* [Essential Knowledge for Windows Azure Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx) (Bruno Terkaly's blog)
+* [Essential Knowledge for Azure Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx) (Bruno Terkaly's blog)
 
-To learn more about the Windows Azure Table service, see the following resources:
+To learn more about the Azure Table service, see the following resources:
 
-* [Essential Knowledge for Windows Azure Table Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (Bruno Terkaly's blog)
-* [How to get the most out of Windows Azure Tables](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Windows Azure Storage team blog)
+* [Essential Knowledge for Azure Table Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (Bruno Terkaly's blog)
+* [How to get the most out of Azure Tables](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Azure Storage team blog)
 * [How to use the Table Storage Service in .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/) 
-* [Windows Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Windows Azure Storage team blog)
-* [Real World: Designing a Scalable Partitioning Strategy for Windows Azure Table Storage](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
+* [Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Azure Storage team blog)
+* [Real World: Designing a Scalable Partitioning Strategy for Azure Table Storage](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
 
-To learn more about the Windows Azure Queue service and Windows Azure Service Bus queues, see the following resources:
+To learn more about the Azure Queue service and Azure Service Bus queues, see the following resources:
 
-* [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison]
+* [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison]
 * [How to use the Queue Storage Service in .NET][queuehowto]
 
-To learn more about the Windows Azure Blob service, see the following resource:
+To learn more about the Azure Blob service, see the following resource:
 
-* [How to use the Windows Azure Blob Storage Service in .NET][blobhowto]
+* [How to use the Azure Blob Storage Service in .NET][blobhowto]
 
-To learn more about autoscaling Windows Azure Cloud Service roles, see
+To learn more about autoscaling Azure Cloud Service roles, see
 the following resources:
 
 * [How to Use the Autoscaling Application Block][autoscalingappblock]
-* [Autoscaling and Windows Azure][autoscaling-and-windows-azure]
-* [Building Elastic, Autoscalable Solutions with Windows Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN channel 9 video)
+* [Autoscaling and Azure][autoscaling-and-windows-azure]
+* [Building Elastic, Autoscalable Solutions with Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (MSDN channel 9 video)
 
 
 <h2><a name="Acknowledgments"></a><span class="short-header">Acknowledgments</span>Acknowledgments</h2>

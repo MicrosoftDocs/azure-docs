@@ -406,9 +406,9 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
 1. Open the **Controllers\AccountController.cs** file and navigate to the **ExternalLoginConfirmation** method.
 1. Add the following call to **AddToRoleAsync** just before the **SignInAsync** call.
 
-                await UserManager.AddToRoleAsync(user.Id, "CanEdit");
+                await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   The code above adds the newly registered user to the "CanEdit" role, which gives them access to action methods that change (edit) data. An image of the code change is shown below:
+   The code above adds the newly registered user to the "canEdit" role, which gives them access to action methods that change (edit) data. An image of the code change is shown below:
 
    ![code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr9.png)
 
@@ -525,7 +525,7 @@ Alternatively, from the Windows Azure management portal, you can select the web 
 ### Remove AddToRoleAsync, Publish, and Test
 
 1. Remove the following code from the **ExternalLoginConfirmation** method in the Account controller: 
-                `await UserManager.AddToRoleAsync(user.Id, "CanEdit");`
+                `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. Build the project (which saves the file changes and verify you don't have any compile errors).
 5. Right-click the project in **Solution Explorer** and select **Publish**.
 

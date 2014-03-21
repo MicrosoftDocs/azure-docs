@@ -1,13 +1,13 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Windows Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Windows Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
 
 
 
 
 
 <h1>How to: Deliver an Asset by Download</h1>
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Manage Assets](http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Manage Assets](http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409).
 
-This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Windows Azure CDN.
+This topic discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. You can download media assets, or access them by using a locator. You can send media content to another application or to another content provider. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN), such as the Azure CDN.
 
 This example shows how to download media assets from Media Services. The code queries the jobs associated with the Media Services account by job ID and accesses its **OutputMediaAssets** collection (which is the set of one or more output media assets that results from running a job). This  example shows how to download output media assets from a job, but you can apply the same approach to download other assets.
 
@@ -69,4 +69,4 @@ For more information about delivering assets, see:
 </ul>
 
 <h2>Next Steps</h2>
-This topic explained downloading an asset from Windows Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942) topic.
+This topic explained downloading an asset from Azure Storage. For information on other ways to deliver assets go to the [How to Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942) topic.
