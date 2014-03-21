@@ -4,11 +4,11 @@ Thank you for your interest in [Azure.Microsoft.com](http://azure.microsoft.com)
 
 ## Ways to contribute
 
-You can contribute to Azure documentation in a few different ways:
+You can contribute to [Azure documentation](http://azure.microsoft.com/en-us/documentation/) in a few different ways:
 
 * Contribute to a [forum discussion](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 * Submit Disqus comments at the bottom of articles.
-* Contribute via the public Azure repo.
+* Contribute to articles via the public Azure repo.
 
 ## Repository organization
 
