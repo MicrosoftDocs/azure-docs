@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Windows Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,8 +8,8 @@
 # How to use the Queue storage service from Java
 
 This guide will show you how to perform common scenarios using the
-Windows Azure Queue storage service. The samples are written in Java and
-use the [Windows Azure SDK for Java][]. The scenarios covered include
+Azure Queue storage service. The samples are written in Java and
+use the [Azure SDK for Java][]. The scenarios covered include
 inserting, peeking, getting, and deleting queue messages, as well as
 creating and deleting queues. For more information on queues, refer to
 the [Next steps](#NextSteps) section.
@@ -18,10 +18,10 @@ the [Next steps](#NextSteps) section.
 
 * [What is Queue Storage](#what-is)
 * [Concepts](#Concepts)
-* [Create a Windows Azure storage account](#CreateAccount)
+* [Create an Azure storage account](#CreateAccount)
 * [Create a Java application](#CreateApplication)
 * [Configure your application to access queue storage](#ConfigureStorage)
-* [Setup a Windows Azure storage connection string](#ConnectionString)
+* [Setup an Azure storage connection string](#ConnectionString)
 * [How to: Create a queue](#create-queue)
 * [How to: Add a message to a queue](#add-message)
 * [How to: Peek at the next message](#peek-message)
@@ -34,7 +34,7 @@ the [Next steps](#NextSteps) section.
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -42,27 +42,27 @@ the [Next steps](#NextSteps) section.
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker
-role in Windows Azure. We assume you have downloaded and installed the
+role in Azure. We assume you have downloaded and installed the
 Java Development Kit (JDK), and followed the instructions in [Download
-the Windows Azure SDK for Java][Windows Azure SDK for Java] to install
-the Windows Azure Libraries for Java and the Windows Azure SDK, and have
-created a Windows Azure storage account in your Windows Azure
+the Azure SDK for Java][Azure SDK for Java] to install
+the Azure Libraries for Java and the Azure SDK, and have
+created an Azure storage account in your Azure
 subscription. You can use any development tools to create your
 application, including Notepad. All you need is the ability to compile a
-Java project and reference the Windows Azure Libraries for Java.
+Java project and reference the Azure Libraries for Java.
 
 ## <a name="ConfigureStorage"> </a>Configure your application to access queue storage
 
 Add the following import statements to the top of the Java file where
-you want to use Windows Azure storage APIs to access queues:
+you want to use Azure storage APIs to access queues:
 
     // Include the following imports to use queue APIs
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.queue.client.*;
 
-## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
+## <a name="ConnectionString"> </a>Setup an Azure storage connection string
 
-A Windows Azure storage client uses a storage connection string to store
+an Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing data management services. When running
 in a client application, you must provide the storage connection string
 in the following format, using the name of your storage account and the
@@ -76,7 +76,7 @@ how you can declare a static field to hold the connection string:
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-In an application running within a role in Windows Azure, this string
+In an application running within a role in Azure, this string
 can be stored in the service configuration file,
 ServiceConfiguration.cscfg, and can be accessed with a call to the
 RoleEnvironment.getConfigurationSettings method. Here's an example of
@@ -302,7 +302,7 @@ to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
     Azure]
--   Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+-   Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
