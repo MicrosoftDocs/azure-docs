@@ -168,7 +168,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	The application you created is now running in the cloud. The next time you deploy the application, only the changed (or new) files will be deployed.
 
-	![Running in Cloud](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS4.PNG)
+	![Running in Cloud](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss4.PNG)
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -237,7 +237,7 @@ The ASP.NET MVC scaffolding feature can automatically generate code that perform
 The next task is to enable the [Code First Migrations](http://msdn.microsoft.com/library/hh770484.aspx) feature in order to create the database based on the data model you created.
 
 1. In the **Tools** menu, select **NuGet Package Manager** and then **Package Manager Console**.
-	![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss6.png)
+	![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png)
 
 2. In the **Package Manager Console** window, enter the following command:
 
@@ -636,7 +636,7 @@ Finally, you can connect to the SQL Database instance from SQL Server Object Exp
 1. Select the **ContactDB**, and then click **View SQL Database connection strings**.
 1. From the **Connection Strings** page, copy the **Server**  and **User ID**.
  
-	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.png)
+	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.PNG)
 1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
 
 	![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
