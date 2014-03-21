@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Windows Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -17,10 +17,10 @@ information on tables, see the [Next Steps][] section.
 
 * [What is the Table Service?][]   
 * [Concepts][]   
-* [Create a Windows Azure Storage Account][]   
+* [Create an Azure Storage Account][]   
 * [Create a Node.js Application][]   
 * [Configure your Application to Access Storage][]   
-* [Setup a Windows Azure Storage Connection][]   
+* [Setup an Azure Storage Connection][]   
 * [How To: Create a Table][]   
 * [How To: Add an Entity to a Table][]   
 * [How To: Update an Entity][]   
@@ -34,9 +34,9 @@ information on tables, see the [Next Steps][] section.
 
 ## <a name="what-is"> </a>What is the Table Service?
 
-The Windows Azure Table service stores large amounts of
+The Azure Table service stores large amounts of
 structured data. The service accepts authenticated calls from inside and
-outside the Windows Azure cloud. Windows Azure tables are ideal for
+outside the Azure cloud. Azure tables are ideal for
 storing structured, non-relational data. Common uses of Table services
 include:
 
@@ -64,7 +64,7 @@ The Table service contains the following components:
     You can address Azure tables directly using this address with the
     OData protocol. For more information, see [OData.org][]
 
--   **Storage Account:** All access to Windows Azure Storage is done
+-   **Storage Account:** All access to Azure Storage is done
     through a storage account. The total size of blob, table, and queue
     contents in a storage account cannot exceed 100TB.
 
@@ -83,13 +83,13 @@ The Table service contains the following components:
     more quickly, and inserted/updated in atomic operations. An entity's
     row key is its unique identifier within a partition.
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+## <a name="create-account"> </a>Create an Azure Storage Account
 
-To use storage operations, you need a Windows Azure storage account. You
+To use storage operations, you need an Azure storage account. You
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API][].)
 
-1.  Log into the [Windows Azure Management Portal].
+1.  Log into the [Azure Management Portal].
 
 2.  At the bottom of the navigation pane, click **+NEW**.
 
@@ -106,7 +106,7 @@ create a storage account [using the REST API][].)
     subscription.
 
 5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Windows Azure
+    storage. If you will be using storage from your Azure
     application, select the same region where you will deploy your
     application.
 
@@ -114,11 +114,11 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Windows Azure storage, you need to download and use the Node.js
+To use Azure storage, you need to download and use the Node.js
 azure package, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
@@ -153,13 +153,13 @@ Using Notepad or another text editor, add the following to the top the
 
     var azure = require('azure');
 
-## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
+## <a name="setup-connection-string"> </a>Setup an Azure Storage Connection
 
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
+For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-table"> </a>How to Create a Table
 
@@ -190,7 +190,7 @@ After doing its preprocessing on the request options, the method needs to call "
 
 In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
 
-Two filters that implement retry logic are included with the Windows Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var tableService = azure.createTableService().withFilter(retryOperations);
@@ -400,18 +400,18 @@ The following code deletes a table from a storage account.
 Now that you've learned the basics of table storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
--   [Visit the Windows Azure Storage Team Blog][].
+-   See the MSDN Reference: [Storing and Accessing Data in Azure][].
+-   [Visit the Azure Storage Team Blog][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Table Service?]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
+  [Create an Azure Storage Account]: #create-account
   [Create a Node.js Application]: #create-app
   [Configure your Application to Access Storage]: #configure-access
-  [Setup a Windows Azure Storage Connection]: #setup-connection-string
+  [Setup an Azure Storage Connection]: #setup-connection-string
   [How To: Create a Table]: #create-table
   [How To: Add an Entity to a Table]: #add-entity
   [How To: Update an Entity]: #update-entity
@@ -424,7 +424,7 @@ to learn how to do more complex storage tasks.
   [Table1]: ./media/storage-nodejs-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
 
   [plus-new]: ./media/storage-nodejs-how-to-use-table-storage/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-table-storage/quick-storage.png
@@ -432,9 +432,9 @@ to learn how to do more complex storage tasks.
   
   
   [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Visit the Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Visit the Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
- [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+ [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/

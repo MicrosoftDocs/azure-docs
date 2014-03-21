@@ -1,24 +1,24 @@
-<properties linkid="manage-services-sql-databases-datasync" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Databases Data Sync" metaKeywords="" description="" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Windows Azure SQL Data Sync" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-sql-databases-datasync" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Databases Data Sync" metaKeywords="" description="" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Data Sync" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-#Getting Started with Windows Azure SQL Data Sync
-In this tutorial, you learn the fundamentals of Windows Azure SQL Data Sync using the Windows Azure (Preview) portal. 
+#Getting Started with Azure SQL Data Sync
+In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal. 
 
-This tutorial assumes minimal prior experience with SQL Server and Windows Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
+This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
 ##Table of Contents##
 
-* [Step 1: Connect to the Windows Azure SQL Database](#Connect)
+* [Step 1: Connect to the Azure SQL Database](#Connect)
 * [Step 2: Add a Client Agent ()](#AddAgent)
 * [Step 3: Register a SQL Server database with the Client Agent](#RegisterSSDB)
 * [Step 4: Create a Sync Group](#CreateSG)
 * [Step 5: Define the data to sync](#SyncRules)
 * [Step 6: Configure your sync group](#Configure)
 
-<h2><a id="Connect"></a>Step 1: Connect to the Windows Azure SQL Database</h2>
+<h2><a id="Connect"></a>Step 1: Connect to the Azure SQL Database</h2>
 
 1. Sign in to the [Management Portal](http://manage.windowsazure.com).
 
@@ -131,7 +131,7 @@ Repeat this step for each additional database you want to add to the sync group.
 
 <h2><a id="SyncRules"></a>Step 5: Define the data to sync</h2>
 
-Windows Azure SQL Data Sync allows you to select tables and columns to synchronize. If you also want to filter a column so that only rows with specific values (such as, Age>=65) are synchronized, use the SQL Data Sync portal at Windows Azure and the documentation at Select the Tables, Columns, and Rows to Synchronize to define the data to sync.
+Azure SQL Data Sync allows you to select tables and columns to synchronize. If you also want to filter a column so that only rows with specific values (such as, Age>=65) are synchronized, use the SQL Data Sync portal at Azure and the documentation at Select the Tables, Columns, and Rows to Synchronize to define the data to sync.
 
 1.	Return to the [Management Portal](http://manage.windowsazure.com).
 2.	Click **SQL DATABASES**.
@@ -176,7 +176,7 @@ For additional information on SQL Database and SQL Data Sync see:
 
 * [Sign up for the Premium Offer for SQL Database] (../sign-up-for-sql-database-premium/)
 * [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
-* [Getting Started with Windows Azure SQL Database](../getting-started-w-sql-databases/)
+* [Getting Started with Azure SQL Database](../getting-started-w-sql-databases/)
 * [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

@@ -1,12 +1,12 @@
-<properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Windows Azure" metaKeywords="Windows Azure Twilio, Windows Azure phone calls, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Windows Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-<h1>How to use Twilio for voice and SMS capabilities from Windows Azure</h1>
+<h1>How to use Twilio for voice and SMS capabilities from Azure</h1>
 
-This guide demonstrates how to perform common programming tasks with the Twilio API service on Windows Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next steps](#NextSteps) section.
+This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure. The scenarios covered include making a phone call and sending a Short Message Service (SMS) message. For more information on Twilio and using voice and SMS in your applications, see the [Next steps](#NextSteps) section.
 
 <h2>Table of Contents</h2>
 * [What is Twilio?](#WhatIs)
@@ -14,7 +14,7 @@ This guide demonstrates how to perform common programming tasks with the Twilio 
 * [Concepts](#Concepts)
 * [Create a Twilio account](#CreateAccount)
 * [Verify phone numbers](#VerifyPhoneNumbers)
-* [Create a Windows Azure application](#create_app)
+* [Create an Azure application](#create_app)
 * [Configure your application to use Twilio libraries](#configure_app)
 * [How to: Make an outgoing call](#howto_make_call)
 * [How to: Send an SMS message](#howto_send_sms)
@@ -28,7 +28,7 @@ Twilio is powering the future of business communications, enabling developers to
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** enables your applications to send and receive SMS messages. **Twilio Client** allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.
 
 <h2><a id="Pricing"></a>Twilio Pricing and Special Offers</h2>
-Windows Azure customers receive a [special offer](http://www.twilio.com/azure): complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
+Azure customers receive a [special offer](http://www.twilio.com/azure): complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
 
 Twilio is a pay-as-you-go service. There are no set-up fees and you can close your account at any time. You can find more details at [Twilio Pricing](http://www.twilio.com/voice/pricing).  
 
@@ -77,9 +77,9 @@ Various phone numbers need to be verified with Twilio for your account. For exam
 
 As an alternative to using an existing number for your applications, you can purchase a Twilio phone number. For information about purchasing a Twilio phone number, see [Twilio Phone Numbers Help](https://www.twilio.com/help/faq/phone-numbers).
 
-<h2><a id="create_app"></a>Create a Windows Azure Application</h2>
-A Windows Azure application that hosts a Twilio enabled application is no different from any other Windows Azure application. You simply add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
-For information on creating an initial Windows Azure project, see [Creating a Windows Azure project with Visual Studio][vs_project].
+<h2><a id="create_app"></a>Create an Azure Application</h2>
+An Azure application that hosts a Twilio enabled application is no different from any other Azure application. You simply add the Twilio .NET library and configure the role to use the Twilio .NET libraries.
+For information on creating an initial Azure project, see [Creating an Azure project with Visual Studio][vs_project].
 
 <h2><a id="configure_app"></a>Configure Your Application to use Twilio Libraries</h2>
 Twilio provides a set of .NET helper libraries that wrap various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.
@@ -274,7 +274,7 @@ As you can see from the example above, the TwiML response is simply an XML docum
 
 For more information about TwiML, see [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
 
-Once you have set up a way to provide TwiML responses, you can pass that URL into the **client.InitiateOutboundCall** method. For example, if you have a web application named MyTwiML deployed to a Windows Azure cloud service, and the name of your ASP.NET Handler is mytwiml.ashx, the URL can be passed to **client.InitiateOutboundCall** as shown in the following code sample:
+Once you have set up a way to provide TwiML responses, you can pass that URL into the **client.InitiateOutboundCall** method. For example, if you have a web application named MyTwiML deployed to an Azure cloud service, and the name of your ASP.NET Handler is mytwiml.ashx, the URL can be passed to **client.InitiateOutboundCall** as shown in the following code sample:
 
     // Place the call From, To, and URL values into a hash map.
     // This sample uses the sandbox number provided by Twilio to make the call.
@@ -286,7 +286,7 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
     var call = client.InitiateOutboundCall(options);
 
 
-For additional information about using Twilio on Windows Azure with ASP.NET, see [How to make a phone call using Twilio in a web role on Windows Azure][howto_phonecall_dotnet].
+For additional information about using Twilio on Azure with ASP.NET, see [How to make a phone call using Twilio in a web role on Azure][howto_phonecall_dotnet].
 
 [WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 

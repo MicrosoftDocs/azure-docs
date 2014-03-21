@@ -1,12 +1,12 @@
-<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Windows Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to a Windows Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Windows Azure SQL Database from PHP" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
+<properties linkid="develop-php-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (PHP) - Azure feature guides" metaKeywords="Azure SQL Database PHP, SQL Database PHP" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" videoId="" scriptId="" />
 
-#How to Access Windows Azure SQL Database from PHP 
+#How to Access Azure SQL Database from PHP 
 
-This guide will show you the basics of using Windows Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Database][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
+This guide will show you the basics of using Azure SQL Database from PHP. The samples are written in PHP. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Management Portal][preview-portal]. For information about performing these tasks from the production portal, see [Getting Started with PHP and SQL Database][prod-portal-instructions]. For more information, see the [Next Steps](#NextSteps) section.
 
-##What is Windows Azure SQL Database
+##What is Azure SQL Database
 
-Windows Azure SQL Database provides a relational database management system for Windows Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+Azure SQL Database provides a relational database management system for Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
 ##Table of contents
 
@@ -18,7 +18,7 @@ Windows Azure SQL Database provides a relational database management system for 
 * [Next steps](#NextSteps)
 
 ##<a id="Concepts"></a>Concepts
-Because Windows Azure SQL Database is built on SQL Server technologies, accessing SQL Database from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
+Because Azure SQL Database is built on SQL Server technologies, accessing SQL Database from PHP is very similar to accessing SQL Server from PHP. You can develop an application locally (using SQL Server) and then connect to SQL Database by changing only the connection string. However, there are some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
 
 The recommended approach for accessing SQL Database from PHP is to use the [Microsoft Drivers for PHP for SQL Server][download-drivers]. (The examples in this article will use these drivers.) The Microsoft Drivers for PHP for SQL Server work on Windows only.
 
@@ -34,12 +34,12 @@ Alternatively, you can set up your environment manually:
 
 ##<a id="CreateServer"></a>How to: Create a SQL Database
 
-Follow these steps to create a Windows Azure SQL Database:
+Follow these steps to create an Azure SQL Database:
 
 1. Login to the [Management Portal][preview-portal].
 2. Click **New** on the bottom left of the portal.
 
-	![Create New Windows Azure Web Site][new-website]
+	![Create New Azure Web Site][new-website]
 
 3. Click **DATA SERVICES**, **SQL DATABASE** then **CUSTOM CREATE**.
 
@@ -49,7 +49,7 @@ Follow these steps to create a Windows Azure SQL Database:
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database will be created, and check the `Allow Windows Azure Services to access the server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database will be created, and check the `Allow Azure Services to access the server` box.
 
 	![Create new SQL Database server][create-server]
 
@@ -105,7 +105,7 @@ The following examples show how to use the **SQLSRV** and **PDO_SQLSRV** extensi
 ##<a id="NextSteps"></a>Next steps
 As mentioned earlier, using SQL Database is very similar to using SQL Server. Once you have established a connection to a SQL Database (as shown above), you can then use the **SQLSRV** or **PDO\_SQLSRV** APIs for inserting, retrieving, updating, and deleting data. For information about the **SQLSRV** and **PDO\_SQLSRV** APIs, see the [Microsoft Drivers for PHP for SQL Server documentation][driver-docs]. There are, however, some differences between SQL Database and SQL Server that could affect your application. For more information, see [Guidelines and Limitations (SQL Database)][limitations].
 
-A sample that shows how to use SQL Database with PHP on Windows Azure is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
+A sample that shows how to use SQL Database with PHP on Azure is available at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>.
 
 [download-drivers]: http://www.microsoft.com/download/en/details.aspx?id=20098
 [limitations]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394102.aspx
