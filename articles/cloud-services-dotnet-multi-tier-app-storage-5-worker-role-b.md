@@ -603,14 +603,14 @@ You have now built the Azure Email Service application from scratch, and what yo
 
 To learn more about Azure storage, see the following resource:
 
-* [Essential Knowledge for Azure Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx) (Bruno Terkaly's blog)
+* [Essential Knowledge for Windows Azure Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-windows-azure-storage.aspx) (Bruno Terkaly's blog)
 
 To learn more about the Azure Table service, see the following resources:
 
 * [Essential Knowledge for Azure Table Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (Bruno Terkaly's blog)
-* [How to get the most out of Azure Tables](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Azure Storage team blog)
+* [How to get the most out of Windows Azure Tables](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (Azure Storage team blog)
 * [How to use the Table Storage Service in .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/) 
-* [Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Azure Storage team blog)
+* [Windows Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (Azure Storage team blog)
 * [Real World: Designing a Scalable Partitioning Strategy for Azure Table Storage](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
 
 To learn more about the Azure Queue service and Azure Service Bus queues, see the following resources:

@@ -62,7 +62,7 @@ For information about how to deploy using Mercurial, see the following resources
 
 [DropBox](https://www.dropbox.com/) is not a source control system, but if you store your source code in DropBox you can automate deployment from your DropBox account.
 
-* [Deploy To Azure Using Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up DropBox deployment.
+* [Deploy To Windows Azure Using Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the Azure Management Portal to set up DropBox deployment.
 * [DropBox and Azure Web Sites](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a DropBox folder to an Azure Web Site, and shows how quickly you can get a web site up and running or maintain it using simple drag-and-drop deployment.
 * [Azure Forum for Git, Mercurial, and DropBox](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuregit).
 
