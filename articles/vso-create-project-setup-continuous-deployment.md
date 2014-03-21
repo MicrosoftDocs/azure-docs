@@ -1,12 +1,26 @@
 <properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors=""  solutions="" writer="jimlamb" manager="" editor=""  />
 
-
-
-
-
 #Create a Visual Studio Online project and setup Continuous Deployment to Windows Azure 
 
 [WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+
+The Windows Azure Management Portal lets you create a Team Project on Visual Studio Online and configure  your web application for continuous deployment to a web site.
+
+* Create a new team project
+* Setup continuous delivery
+* Open in Visual Studio
+* Clone the repository
+* Create your web app
+* Update your .gitignore
+* Commit and sync
+* Monitor build progress
+* Verify deployment
+
+## How to create a team project
+
+1. Sign in to the Management Portal.
+2. Click **New** at the bottom left-hand corner.
+3. 
 
 The Windows Azure Management Portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**. 
 
