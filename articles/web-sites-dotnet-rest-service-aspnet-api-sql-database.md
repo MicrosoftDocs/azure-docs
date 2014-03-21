@@ -620,7 +620,7 @@ To:
 
 	![Web API save dialog][addwebapi007]
 
-	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks).
+	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks].
 
 <h2><a name="xsrf"></a><span class="short-header">XSRF</span>Add XSRF Protection</h2>
 
@@ -885,4 +885,4 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-
+[prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
