@@ -1,9 +1,9 @@
-<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Windows Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Windows Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
-#Using root privileges on Linux virtual machines in Windows Azure
+#Using root privileges on Linux virtual machines in Azure
 
 You can gain root priviliges on your Linux virtual machine using one of the following methods, depending on how you provisioned your virtual machine.
 

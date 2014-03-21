@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Windows Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn how to create and upload a virtual hard disk (VHD) in Windows Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn how to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
 
 
@@ -6,18 +6,18 @@
 
 #Creating and Uploading a Virtual Hard Disk that Contains the Windows Server Operating System #
 
-A virtual machine in Windows Azure runs the operating system that you choose when you create the virtual machine. Windows Azure stores a virtual machine's operating system in a virtual hard disk in VHD format (a .vhd file). A VHD of an operating system that has been prepared for duplication is called an image. This article shows you how to create your own image by uploading a .vhd file with an operating system you've installed and generalized. For more information about disks and images in Windows Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+A virtual machine in Azure runs the operating system that you choose when you create the virtual machine. Azure stores a virtual machine's operating system in a virtual hard disk in VHD format (a .vhd file). A VHD of an operating system that has been prepared for duplication is called an image. This article shows you how to create your own image by uploading a .vhd file with an operating system you've installed and generalized. For more information about disks and images in Azure, see [Manage Disks and Images](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
 
 **Note**: When you create a virtual machine, you can customize the operating system settings to facilitate running your application. The configuration that you set is stored on disk for that virtual machine. For instructions, see [How to Create a Custom Virtual Machine](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
 
 ##Prerequisites##
 This article assumes that you have the following items:
 
-**A management certificate** - You have created a management certificate for the subscription for which you want to upload a VHD, and exported the certificate to a .cer file. For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx). 
+**A management certificate** - You have created a management certificate for the subscription for which you want to upload a VHD, and exported the certificate to a .cer file. For more information about creating certificates, see [Create a Management Certificate for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx). 
 
 **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solutions such as Hyper-V to create the .vhd file and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/en-us/library/hh846766.aspx).
 
-**Important**: The newer VHDX format is not supported in Windows Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.     
+**Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.     
  
 - **Window Server operating system media.** This task requires an .iso file that contains the Windows Server operating system. The following Windows Server versions are supported:
 <P>
@@ -43,19 +43,19 @@ This article assumes that you have the following items:
   </TABLE>
 </P>
 
-- The [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) cmdlet, which is part of the Windows Azure PowerShell module. To download the module, see [Windows Azure Downloads](/en-us/develop/downloads/).
+- The [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx) cmdlet, which is part of the Azure PowerShell module. To download the module, see [Azure Downloads](/en-us/develop/downloads/).
 
 
 This task includes the following steps:
 
 - [Step 1: Prepare the image to be uploaded] []
-- [Step 2: Create a storage account in Windows Azure] []
-- [Step 3: Prepare the connection to Windows Azure] []
+- [Step 2: Create a storage account in Azure] []
+- [Step 3: Prepare the connection to Azure] []
 - [Step 4: Upload the .vhd file] []
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
-Before the image can be uploaded to Windows Azure, it must be generalized by using the Sysprep command. For more information about using Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/en-us/library/bb457073.aspx).
+Before the image can be uploaded to Azure, it must be generalized by using the Sysprep command. For more information about using Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/en-us/library/bb457073.aspx).
 
 In the virtual machine that you just created, complete the following procedure:
 
@@ -76,11 +76,11 @@ In the virtual machine that you just created, complete the following procedure:
 6. Click **OK**.
 
 
-## <a id="createstorage"> </a>Step 2: Create a storage account in Windows Azure ##
+## <a id="createstorage"> </a>Step 2: Create a storage account in Azure ##
 
-A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Windows Azure subscription. You need a storage account in Windows Azure to upload a .vhd file to Windows Azure that can be used for creating a virtual machine. You can use the Windows Azure Management Portal to create a storage account.
+A storage account represents the highest level of the namespace for accessing the storage services and is associated with your Azure subscription. You need a storage account in Azure to upload a .vhd file to Azure that can be used for creating a virtual machine. You can use the Azure Management Portal to create a storage account.
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Azure Management Portal.
 
 2. On the command bar, click **New**.
 
@@ -105,17 +105,17 @@ A storage account represents the highest level of the namespace for accessing th
 	![Storage account successfully created](./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png)
 
 
-## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Windows Azure ##
+## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Azure ##
 
-Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Windows Azure. 
+Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. 
 
-1. Open a Windows Azure PowerShell window.
+1. Open an Azure PowerShell window.
 
 2. Type: 
 
 	`Get-AzurePublishSettingsFile`
 
-	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Windows Azure subscription. 
+	This command opens a browser window and automatically downloads a .publishsettings file that contains information and a certificate for your Azure subscription. 
 
 3. Save the .publishsettings file. 
 
@@ -125,14 +125,14 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-	For more information, see [Get Started with Windows Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+	For more information, see [Get Started with Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
 
 
 ## <a id="upload"> </a>Step 4: Upload the .vhd file ##
 
 When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 
-1. From the Windows Azure PowerShell window you used in the previous step, type:
+1. From the Azure PowerShell window you used in the previous step, type:
 
 	`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
@@ -154,8 +154,8 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 After the image is available in your list, you can use it to create virtual machines. For instructions, see [Create a Virtual Machine Running Windows Server](../virtual-machines-windows-tutorial/).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
-[Step 2: Create a storage account in Windows Azure]: #createstorage
-[Step 3: Prepare the connection to Windows Azure]: #prepAzure
+[Step 2: Create a storage account in Azure]: #createstorage
+[Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
 
