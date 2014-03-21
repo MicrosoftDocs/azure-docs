@@ -107,7 +107,7 @@ Version 2.0 of the Storage Client Library (SCL) does not have everything needed 
 
 6. Navigate to the following folder:
 
-        C:\Program Files\Microsoft SDKs\Azure\.NET SDK\2012-10\ref
+        C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\2012-10\ref
 
 7. Select *Microsoft.WindowsAzure.StorageClient.dll*, and then click **Add**.
 
