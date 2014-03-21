@@ -23,7 +23,7 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 ## <a name="create-table"></a>Create a new table
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![][0]
 
@@ -278,5 +278,5 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [How to use the Android client library for Mobile Services]: /en-us/develop/mobile/how-to-guides/work-with-android-client-library

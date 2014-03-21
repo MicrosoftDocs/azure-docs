@@ -1,9 +1,9 @@
-<properties linkid="register-for-facebook-auth" urlDisplayName="Mobile Services" pageTitle="Work with server scripts in Mobile Services" metaKeywords="server scripts, mobile devices, Windows Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
+<properties linkid="register-for-facebook-auth" urlDisplayName="Mobile Services" pageTitle="Work with server scripts in Mobile Services" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
 
 # Work with server scripts in Mobile Services
  
-This article provides detailed information about and examples of how to work with server scripts in Windows Azure Mobile Services. This topic is divided into these sections:
+This article provides detailed information about and examples of how to work with server scripts in Azure Mobile Services. This topic is divided into these sections:
 
 + [Introduction]
 + [Table operations]
@@ -90,7 +90,7 @@ Every server script has a main function, and may have optional helper functions.
 
 You can define server scripts that are registered to a table operation in one of the following ways:
 
-+ In the [Windows Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
++ In the [Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
 	![1][1]
 	
@@ -98,7 +98,7 @@ You can define server scripts that are registered to a table operation in one of
 
 + By using source control. When you have source control enabled, simply create a file named <em>`<table>`</em>.<em>`<operation>`</em>.js in the .\service\table subfolder in your git repository, where <em>`<table>`</em> is the name of the table and <em>`<operation>`</em> is the table operation being registered. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
-+ From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
++ From the command prompt by using the Azure command line tool. For more information, see [Using the command line tool].
 
 
 A table operation script must call at least one of the following functions of the [request object] to make sure that the client receives a response. 
@@ -256,7 +256,7 @@ In JavaScript it is a compact version of the lengthier equivalent:
 
 ###<a name="work-with-users"></a>How to: Work with users
 
-In Windows Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the userId of an authenticated user:
+In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the userId of an authenticated user:
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -292,7 +292,7 @@ The global state is maintained between executions.
 
 You can define server scripts that are registered to HTTP methods in a custom API endpoint in one of the following ways:
 
-+ In the [Windows Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
++ In the [Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
 	![2][2]
 	
@@ -300,7 +300,7 @@ You can define server scripts that are registered to HTTP methods in a custom AP
 
 + By using source control. When you have source control enabled, simply create a file named <em>`<custom_api>`</em>.js in the .\service\api subfolder in your git repository, where <em>`<custom_api>`</em> is the name of the custom API being registered. This script file contains an _exported_ function for each HTTP method exposed by the custom API. Permissions are defined in a companion .json file. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
-+ From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
++ From the command prompt by using the Azure command line tool. For more information, see [Using the command line tool].
 
 ###<a name="handle-methods"></a>How to: Implement HTTP methods
 
@@ -332,7 +332,7 @@ This custom API function is invoked by an HTTP GET request to the following endp
 
 ###<a name="get-api-user"></a>How to: Work with users and headers in a custom API
 
-In Windows Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user requests a custom API, Mobile Services uses the [user object] to provide information about the user to custom API code. The [user object] is accessed from the user property of the [request object]. The **userId** property can be used to store and retrieve user-specific information. 
+In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user requests a custom API, Mobile Services uses the [user object] to provide information about the user to custom API code. The [user object] is accessed from the user property of the [request object]. The **userId** property can be used to store and retrieve user-specific information. 
 
 The following **OrderPizza** custom API function sets the owner property of an item based on the userId of an authenticated user:
 
@@ -409,13 +409,13 @@ A server script can be assigned to a job that's defined in the Mobile Services S
 
 You define scheduled jobs in one of the following ways: 
 
-+ In the [Windows Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
++ In the [Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
 
 	![3][3]
 
 	For more information about how to do this, see [Schedule backend jobs in Mobile Services]. 
 
-+ From the command prompt by using the Windows Azure command line tool. For more information, see [Using the command line tool].
++ From the command prompt by using the Azure command line tool. For more information, see [Using the command line tool].
 
 >[WACOM.NOTE]When you have source control enabled, you can edit scheduled job script files directly in the .\service\scheduler subfolder in your git repository. For more information, see [How to: Share code by using source control].
 
@@ -425,12 +425,12 @@ Because Mobile Services uses Node.js on the server, your scripts already have ac
 
 The following are just some of the more useful modules that can be leveraged in your scripts by using the global **require** function:
 
-+ **azure**: Exposes the functionality of the Windows Azure SDK for Node.js. For more information, see the [Windows Azure SDK for Node.js]. 
++ **azure**: Exposes the functionality of the Azure SDK for Node.js. For more information, see the [Azure SDK for Node.js]. 
 + **crypto**: Provides crypto functionality of OpenSSL. For more information, see the [Node.js documentation][crypto API].
 + **path**: Contains utilities for working with file paths. For more information, see the [Node.js documentation][path API].
 + **querystring**: Contains utilities for working with query strings. For more information, see the [Node.js documentation][querystring API].
 + **request**: Sends HTTP requests to external REST services, such as Twitter and Facebook. For more information, see [Send HTTP request].
-+ **sendgrid**: Sends email by using the Sendgrid email service in Windows Azure. For more information, see [Send email from Mobile Services with SendGrid].
++ **sendgrid**: Sends email by using the Sendgrid email service in Azure. For more information, see [Send email from Mobile Services with SendGrid].
 + **url**: Contains utilities to parse and resolve URLs. For more information, see the [Node.js documentation][url API].
 + **util**: Contains various utilities, such as string formatting and object type checking. For more information, see the [Node.js documentation][util API]. 
 + **zlib**: Exposes compression functionality, such as gzip and deflate. For more information, see the [Node.js documentation][zlib API]. 
@@ -538,7 +538,7 @@ Note that this code also retrieves Twitter consumer key values stored in the **I
 
 <h2><a name="command-prompt"></a>Using the command line tool</h2>
 
-In Mobile Services, you can create, modify, and delete server scripts by using the Windows Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
+In Mobile Services, you can create, modify, and delete server scripts by using the Azure command line tool. Before uploading your scripts, make sure that you are using the following directory structure:
 
 ![4][4]
 
@@ -577,7 +577,7 @@ The following command returns information about every script file maintained in 
 		data:    register_notifications  application  application  user         application  application
 		info:    mobile script list command OK
 
-For more information, see [Commands to manage Windows Azure Mobile Services]. 
+For more information, see [Commands to manage Azure Mobile Services]. 
 
 ##<a name="working-with-tables"></a>Working with tables
 
@@ -973,12 +973,12 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Management Portal]: https://manage.windowsazure.com/
 [Schedule jobs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx
 [Validate and modify data in Mobile Services by using server scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
-[Commands to manage Windows Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
+[Commands to manage Azure Mobile Services]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Windows Store Push]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Windows Phone Push]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8/
 [iOS Push]: /en-us/develop/mobile/tutorials/get-started-with-push-ios/
 [Android Push]: /en-us/develop/mobile/tutorials/get-started-with-push-android/
-[Windows Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
+[Azure SDK for Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
 [Send HTTP request]: http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx
 [Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
 [Get started with authentication]: http://go.microsoft.com/fwlink/p/?LinkId=287177

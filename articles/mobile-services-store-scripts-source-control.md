@@ -1,9 +1,9 @@
-<properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Windows Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-store-scripts-in-source-control" urlDisplayName="Store server scripts in source control" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to store your server script files and modules in a local Git repo on your computer." metaCanonical="" services="" documentationCenter="Mobile" title="Store server scripts in source control" authors="glenga" solutions="" manager="" editor="" />
 
 
 # Store server scripts in source control
 
-This topic shows you how to set up source control for the first time in Windows Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. It also shows how to define shared code that can be reqiured by multiple scripts and how to upload Node.js modules. 
+This topic shows you how to set up source control for the first time in Azure Mobile Services to store your server scripts in a Git repository. Scripts and other JavaScript code files can be promoted from your local repository to your production mobile service. It also shows how to define shared code that can be reqiured by multiple scripts and how to upload Node.js modules. 
 
 The tutorial guides you through the following steps:
 
@@ -16,7 +16,7 @@ To complete this tutorial, you must have already created a mobile service by com
 
 <h2><a name="enable-source-control"></a><span class="short-header">Enable source control</span>Enable source control in your mobile service</h2>
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
 	![][0]
 
@@ -189,7 +189,7 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Work with server scripts in Mobile Services]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Define a custom API that supports pull notifications]: /en-us/develop/mobile/tutorials/create-pull-notifications-dotnet
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
