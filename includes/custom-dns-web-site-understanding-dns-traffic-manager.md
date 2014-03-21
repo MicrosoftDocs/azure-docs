@@ -2,7 +2,7 @@ The Domain Name System (DNS) is used to locate things on the internet. For examp
 
 The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
 
-When you create an Azure Web Site, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. When you add your web site as a Azure Traffic Manager endpoint, your web site is then accessible through the **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** domain.
+When you create an Azure Web Site, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. When you add your web site as an Azure Traffic Manager endpoint, your web site is then accessible through the **&lt;yourtrafficmanagerprofile&gt;.trafficmanager.net** domain.
 
 > [WACOM.NOTE] When your web site is configured as a Traffic Manager endpoint, you will use the **.trafficmanager.net** address when creating DNS records.
 

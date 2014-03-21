@@ -1,4 +1,4 @@
-1. In the [Windows Azure (Preview) Management Portal][AzurePreviewPortal], click **Virtual Machines** and then select the virtual machine you just created (**testlinuxvm**).
+1. In the [Azure (Preview) Management Portal][AzurePreviewPortal], click **Virtual Machines** and then select the virtual machine you just created (**testlinuxvm**).
 
 2. On the command bar click **Attach** and then click **Attach Empty Disk**.
 
@@ -9,7 +9,7 @@
 
 	![Attach Empty Disk][Image2]
 
-	**Note:** All disks are created from a VHD file in Windows Azure storage. You can provide a name for the VHD file that is added to storage, but Windows Azure generates the name of the disk automatically.
+	**Note:** All disks are created from a VHD file in Azure storage. You can provide a name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.
 
 4. Click the check mark to attach the data disk to the virtual machine.
 

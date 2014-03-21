@@ -22,7 +22,7 @@ a wide variety of scenarios:
 
 -   Communication between web and worker roles in a multi-tier Windows
     Azure application
--   Communication between on-premises apps and Windows Azure hosted apps
+-   Communication between on-premises apps and Azure hosted apps
     in a hybrid solution
 -   Communication between components of a distributed application
     running on-premises in different organizations or departments of an
@@ -34,13 +34,13 @@ enable more resiliency to your architecture.
 <a id="create-a-service-namespace"></a>
 <h2>Create a Service Namespace</h2>
 
-To begin using Service Bus queues in Windows Azure, you must first
+To begin using Service Bus queues in Azure, you must first
 create a service namespace. A service namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -89,7 +89,7 @@ namespace.
 
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace.
 
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
 
 

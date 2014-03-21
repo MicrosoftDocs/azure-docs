@@ -1,10 +1,10 @@
-#How to Create a MongoDB Database in Windows Azure
+#How to Create a MongoDB Database in Azure
 
-This article will show you how to use [MongoLab] to create a MongoDB database from the [Windows Azure Store]. [MongoLab] is a MongoDB-as-a-service provider that allows you to run and manage MongoDB databases in Windows Azure datacenters and connect to them from any application.  
+This article will show you how to use [MongoLab] to create a MongoDB database from the [Azure Store]. [MongoLab] is a MongoDB-as-a-service provider that allows you to run and manage MongoDB databases in Azure datacenters and connect to them from any application.  
 
-To create a MongoDB database from the [Windows Azure Store], do the following:
+To create a MongoDB database from the [Azure Store], do the following:
 
-1. Log in to the [Windows Azure Management Portal][portal].
+1. Log in to the [Azure Management Portal][portal].
 2. Click **+NEW** at the bottom of the page, then select **STORE**.
 
 	![Select add-on from store](./media/create-mongolab-mongodb/select-store.png)
@@ -23,7 +23,7 @@ To create a MongoDB database from the [Windows Azure Store], do the following:
 
 6. After your database has been created, you can manage it from the **ADD-ONS** tab in the management portal.
 
-	![Manage MongoLab database in Windows Azure portal](./media/create-mongolab-mongodb/manage-mongolab-add-on.png)
+	![Manage MongoLab database in Azure portal](./media/create-mongolab-mongodb/manage-mongolab-add-on.png)
 
 7. You can get the database connection information by clicking on **CONNECTION INFO** at the bottom of the page (shown above).
 
@@ -31,5 +31,5 @@ To create a MongoDB database from the [Windows Azure Store], do the following:
 
 [MongoLab]: https://mongolab.com/home
 [waws]: /en-us/manage/services/web-sites/
-[Windows Azure Store]: /en-us/store/overview/
+[Azure Store]: /en-us/store/overview/
 [portal]: http://windows.azure.com/
