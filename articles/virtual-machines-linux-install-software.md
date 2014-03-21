@@ -1,10 +1,10 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Windows Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Windows Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Windows Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-#Install software on your Linux virtual machine in Windows Azure
+#Install software on your Linux virtual machine in Azure
 
 Linux distributions tend to use software "packages" to install software. These packages are usually managed using a set of commands, such as `apt` or `yum`. You can also install programs without a package, such as with a _tarball_ of the source code.
 

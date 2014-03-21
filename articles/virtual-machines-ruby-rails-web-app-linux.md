@@ -1,18 +1,18 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Windows Azure using Linux VM" pageTitle="Ruby on Rails Web App on Windows Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based web site on Windows Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on a Windows Azure VM" authors="larryfr" solutions="" manager="" editor="" />
+<properties linkid="dev-ruby-web-app-with-linux-vm" urlDisplayName="Ruby on Rails Web App on Azure using Linux VM" pageTitle="Ruby on Rails Web App on Azure using Linux VM" metaKeywords="Azure Ruby web application, Azure Ruby application, Ruby app Azure, Ruby azure vm, ruby virthal machine, ruby linux vm" description="Host a Ruby on Rails-based web site on Azure using a Linux virtual machine. " metaCanonical="" services="virtual-machines" documentationCenter="Ruby" title="Ruby on Rails Web application on an Azure VM" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
 
 
-#Ruby on Rails Web application on a Windows Azure VM
+#Ruby on Rails Web application on an Azure VM
 
-This tutorial describes how to host a Ruby on Rails-based web site on Windows Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
+This tutorial describes how to host a Ruby on Rails-based web site on Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 
 You will learn how to:
 
 * Setup your development environment
 
-* Setup a Windows Azure virtual machine to host Ruby on Rails.
+* Setup an Azure virtual machine to host Ruby on Rails.
 
 * Create a new Rails application
 
@@ -30,7 +30,7 @@ The following is a screenshot of the completed application:
 
 * [Test the application](#test)
 
-* [Create a Windows Azure Virtual Machine](#createvm)
+* [Create an Azure Virtual Machine](#createvm)
 
 * [Copy the application to the VM](#copy)
 
@@ -121,13 +121,13 @@ Perform the following steps to start the Rails server in your development enviro
 
 	To stop the server process, enter CTRL+C in the command-line
 
-##<a id="createvm"></a>Create a Windows Azure Virtual Machine
+##<a id="createvm"></a>Create an Azure Virtual Machine
 
-Follow the instructions given [here][vm-instructions] to create a Windows Azure virtual machine that hosts Linux.
+Follow the instructions given [here][vm-instructions] to create an Azure virtual machine that hosts Linux.
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>the steps in this tutorial were performed on a Windows Azure Virtual Machine hosing Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p>
+<p>the steps in this tutorial were performed on an Azure Virtual Machine hosing Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p>
 </div>
 
 <div class="dev-callout">
@@ -135,7 +135,7 @@ Follow the instructions given [here][vm-instructions] to create a Windows Azure 
 <p>You <strong>only</strong> need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.</p>
 </div> 
 
-After creating the Windows Azure Virtual Machine, perform the following steps to install Ruby and Rails on the virtual machine:
+After creating the Azure Virtual Machine, perform the following steps to install Ruby and Rails on the virtual machine:
 
 1. From the command-line or terminal session, use the following command to connect to the virtual machine using SSH:
 
@@ -226,7 +226,7 @@ The list of files returned should match the files contained in the **blog_app** 
 		[2013-03-12 19:11:31] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
 		[2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2. In your browser, navigate to the [Windows Azure Management Portal][management-portal] and select your Virtual Machine.
+2. In your browser, navigate to the [Azure Management Portal][management-portal] and select your Virtual Machine.
 
 	![virtual machine list][vmlist]
 
@@ -260,13 +260,13 @@ The list of files returned should match the files contained in the **blog_app** 
 
 ##<a id="next"></a>Next steps
 
-In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine. Most of the actions we performed were manual, and in a production environment it would be desirable to automate. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources.
+In this article you have learned how to create and publish a basic forms-based Rails application to an Azure Virtual Machine. Most of the actions we performed were manual, and in a production environment it would be desirable to automate. Also, most production environments host the Rails application in conjunction with another server process such as Apache or NginX, which handles request routing to multiple instances of the Rails application and serving static resources.
 
-For information on automating deployment of your Rails application, as well as using the Unicorn web server and NginX, see [Unicorn+NginX+Capistrano with a Windows Azure Virtual Machine][unicorn-nginx-capistrano].
+For information on automating deployment of your Rails application, as well as using the Unicorn web server and NginX, see [Unicorn+NginX+Capistrano with an Azure Virtual Machine][unicorn-nginx-capistrano].
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
-To learn how to use the Windows Azure SDK for Ruby to access Windows Azure services from your Ruby application, see:
+To learn how to use the Azure SDK for Ruby to access Azure services from your Ruby application, see:
 
 * [Store unstructured data using blobs][blobs]
 

@@ -1,12 +1,12 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Windows Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Windows Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-#Selecting User Names for Linux on Windows Azure#
+#Selecting User Names for Linux on Azure#
 
-When you create a virtual machine instance for Linux images on Windows Azure you have the ability to select the user name to provision.
+When you create a virtual machine instance for Linux images on Azure you have the ability to select the user name to provision.
 
 Linux defines a set of user names that you can't use. It is very important that you **avoid using these names**. If you do use one of these user names, you won't be able to provision the image.
 
