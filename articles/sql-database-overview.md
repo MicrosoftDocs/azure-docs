@@ -831,7 +831,7 @@ Now that you've learned the basics of SQL Database administration, follow these 
 [SQL Database Federations Tutorial - DBA]: http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx
 [Managing SQL Database using Management Studio]: http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/
 [Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
-[Introducing Geo-Replication for Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
+[Introducing Geo-Replication for Windows Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
 [How to create a storage account for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433066.aspx
 [Download Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=15658
 [Azure Management Tools]: http://wapmmc.codeplex.com/

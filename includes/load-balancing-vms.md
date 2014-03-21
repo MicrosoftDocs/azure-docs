@@ -2,15 +2,15 @@
 
 #Load Balancing Virtual Machines#
 
-All virtual machines that you create in Windows Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. All other inbound communication, such as traffic initiated from Internet hosts or virtual machines in other cloud services or virtual networks, requires an endpoint.
+All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. All other inbound communication, such as traffic initiated from Internet hosts or virtual machines in other cloud services or virtual networks, requires an endpoint.
 
-Endpoints can be used for different purposes. The default use and configuration of endpoints on a virtual machine that you create with the Windows Azure Management Portal are for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. These endpoints allow you to remotely administer the virtual machine over the Internet. 
+Endpoints can be used for different purposes. The default use and configuration of endpoints on a virtual machine that you create with the Azure Management Portal are for the Remote Desktop Protocol (RDP) and remote Windows PowerShell session traffic. These endpoints allow you to remotely administer the virtual machine over the Internet. 
 
-Another use of endpoints is the configuration of the Windows Azure Load Balancer to distribute a specific type of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
+Another use of endpoints is the configuration of the Azure Load Balancer to distribute a specific type of traffic between multiple virtual machines or services. For example, you can spread the load of web request traffic across multiple web servers or web roles.
 
 Each endpoint defined for a virtual machine is assigned a public and private port, either TCP or UDP. Internet hosts send their incoming traffic to the public IP address of the cloud service and a public port. Virtual machines and services within the cloud service listen on their private IP address and private port. The Load Balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the virtual machine and vice versa for the response traffic from the virtual machine.
 
-When you configure load balancing of traffic among multiple virtual machines or services, Windows Azure provides random distribution of the incoming traffic.
+When you configure load balancing of traffic among multiple virtual machines or services, Azure provides random distribution of the incoming traffic.
 
 For a cloud service that contains instances of web roles or worker roles, you can define a public endpoint in the service definition. For a cloud service that contains virtual machines, you can add an endpoint to a virtual machine when you create it or you can add the endpoint later. 
 
@@ -20,7 +20,7 @@ The following figure shows a load-balanced endpoint for standard (unencrypted) w
 
 When Internet clients send web page requests to the public IP address of the cloud service and TCP port 80, the Load Balancer performs a random balancing of those requests between the three virtual machines in the load-balanced set.
 
-To create a load-balanced set of Windows Azure virtual machines, use the following steps:
+To create a load-balanced set of Azure virtual machines, use the following steps:
 
 
 - [Step 1: Create the first virtual machine] []
@@ -30,7 +30,7 @@ To create a load-balanced set of Windows Azure virtual machines, use the followi
 
 ## <a id="firstmachine"> </a>Step 1: Create the first virtual machine ##
 
-If you have not already done so, sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com). You can create the first virtual machine using either the From Gallery or the Quick Create method. 
+If you have not already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com). You can create the first virtual machine using either the From Gallery or the Quick Create method. 
 
 - **From Gallery** - The **From Gallery** method allows you to create endpoints when you create the virtual machine, and it allows you to specify a name for the cloud service that is created when you create the virtual machine. For instructions, see [Create a Virtual Machine Running Linux] or [Create a Virtual Machine Running Windows Server].
 
@@ -44,7 +44,7 @@ Create your additional virtual machines in the same cloud service as the first v
 
 ## <a id="loadbalance"> </a>Step 3: Create a load balanced set with the first virtual machine ##
 
-1. In the Windows Azure Management Portal, click **Virtual Machines**, and then click the name of the first virtual machine.
+1. In the Azure Management Portal, click **Virtual Machines**, and then click the name of the first virtual machine.
 	
 2. Click **Endpoints**, and then click **Add**.
 
@@ -58,7 +58,7 @@ Create your additional virtual machines in the same cloud service as the first v
 
 5. Select **Create a load-balanced set**, and then click the right arrow. 
 
-6. On the Configure the load-balanced set page, type a name for the load-balanced set and then assign the values for probe behavior of the Windows Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
+6. On the Configure the load-balanced set page, type a name for the load-balanced set and then assign the values for probe behavior of the Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
 
 7. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
 
@@ -88,6 +88,6 @@ After you create the load-balanced set, add the other virtual machines to it. Fo
 
 [How to connect virtual machines in a cloud service]: ../virtual-machines-connect-cloud-service
 
-[Get Started with Windows Azure PowerShell]:http://msdn.microsoft.com/en-us/library/jj156055.aspx
+[Get Started with Azure PowerShell]:http://msdn.microsoft.com/en-us/library/jj156055.aspx
 
-[Windows Azure Virtual Network Overview]: http://go.microsoft.com/fwlink/p/?LinkID=294063
+[Azure Virtual Network Overview]: http://go.microsoft.com/fwlink/p/?LinkID=294063

@@ -38,4 +38,4 @@ Now that authentication is required to access data in the TodoItem table, you ca
 
    	This query filters the returned TodoItem objects so that each user only receives the items that they inserted. You can optionally 
 
-6. Republish the mobile service project to Windows Azure.
+6. Republish the mobile service project to Azure.

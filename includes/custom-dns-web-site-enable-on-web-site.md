@@ -1,6 +1,6 @@
 After the records for your domain name have propagated, you must associate them with your web site. Use the following steps to enable the domain names using your web browser.
 
-1. In your browser, open the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
 
 2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
 

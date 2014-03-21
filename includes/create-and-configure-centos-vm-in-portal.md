@@ -1,9 +1,9 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
 **Note**: This article creates a virtual machine that is not connected to a virtual network. If you want your virtual machine to use a virtual network so you can connect to your virtual machines directly by hostname or set up
-cross-premises connections, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+cross-premises connections, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-1. Sign in to the Windows Azure Management Portal using your Windows Azure account.
+1. Sign in to the Azure Management Portal using your Azure account.
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 
 	![Create a New Virtual Machine][Image1]
@@ -31,7 +31,7 @@ cross-premises connections, use the **From Gallery** method instead and specify 
 
 	Click the check mark to continue.
 	
-7. Wait while Windows Azure prepares your virtual machine.
+7. Wait while Azure prepares your virtual machine.
 
 ##Configure Endpoints
 After the virtual machine is created, configure endpoints in order to remotely connect.

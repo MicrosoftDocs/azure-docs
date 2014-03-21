@@ -1,6 +1,6 @@
 
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
 	![](./media/mobile-services-create-custom-api/mobile-services-selection.png)
 
@@ -49,5 +49,5 @@ Next, you will modify the quickstart app to add a new button and code that async
 <!-- Images. -->
 
 <!-- URLs. -->
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [mssql object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx

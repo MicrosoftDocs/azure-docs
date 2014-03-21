@@ -1,11 +1,11 @@
-<properties linkid="web-sites-backup" urlDisplayName="Windows Azure Web Sites Backups" pageTitle="Windows Azure Web Sites Backups" metaKeywords="Windows Azure Web Sites, Backups" description="Learn how to create backups of your Windows Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Windows Azure Web Sites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-backup" urlDisplayName="Azure Web Sites Backups" pageTitle="Azure Web Sites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Web Sites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
-#Windows Azure Web Sites Backups
+#Azure Web Sites Backups
 
-The Windows Azure Web Sites Backup and Restore feature lets you easily create web site backups manually or automatically. You can restore your web site to a previous state, or create a new web site based on one of your original site's backups. 
+The Azure Web Sites Backup and Restore feature lets you easily create web site backups manually or automatically. You can restore your web site to a previous state, or create a new web site based on one of your original site's backups. 
 
 
-For information on restoring a Windows Azure web site from backup, see [Restore a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure web site from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
 ##In this article
 
@@ -20,13 +20,13 @@ For information on restoring a Windows Azure web site from backup, see [Restore 
 
 <a name="whatsbackedup"></a>
 ##What Gets Backed Up 
-Windows Azure Web Sites backs up the following information:
+Azure Web Sites backs up the following information:
 
 * Web site configuration
 * Web site file content
 * Any SQL Server or MySQL databases connected to your site (you can choose which ones to include in the backup)
 
-This information is backed up to the Windows Azure storage account that you specify. 
+This information is backed up to the Azure storage account that you specify. 
 
 > [WACOM.NOTE] Each backup is a complete offline copy of your web site, not an incremental update.
 
@@ -35,12 +35,12 @@ This information is backed up to the Windows Azure storage account that you spec
 
 * The Backup and Restore feature requires requires the site to be in a Standard tier. For more information about scaling your web site use a Standard tier, see [How to Scale Web Sites](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/). 
 
-* The Backup and Restore feature requires an Windows Azure storage account that must belong to the same subscription as the web site that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Windows Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Windows Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
+* The Backup and Restore feature requires an Azure storage account that must belong to the same subscription as the web site that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage** button (grid icon) in the left pane of the Azure portal, and then choosing **New** in the command bar at the bottom. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
 <a name="manualbackup"></a>
 ## To Create a Manual Backup
 
-1. In the Windows Azure portal for your web site, choose the **Backups** tab.
+1. In the Azure portal for your web site, choose the **Backups** tab.
 	
 	![Backups page][ChooseBackupsPage]
 	
@@ -89,7 +89,7 @@ You can make a manual backup at any time. During Preview, no more than 2 manual 
 	
 	![Choose start time][StartTime]
 	
-	> [WACOM.NOTE] Windows Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
+	> [WACOM.NOTE] Azure stores backup times in UTC format, but displays them in accordance with the system time on the computer that you are using to display the portal.
 	
 5. In the **Included Databases** section, select the databases that are connected to your web site (SQL Server or MySQL) that you want to back up. For a database to appear in the list, its connection string must exist in the **Connection Strings** section of the Configure tab in the portal.
 	
@@ -116,11 +116,11 @@ The .zip and .xml backup file names consist of your web site name followed by an
 * Make sure that you set up the connection strings for each of your databases properly on the Configure tab of the web site so that the Backup and Restore feature can include your databases.
 * During Preview, you are responsible for managing the backed up content saved to your storage account. If you delete a backup from your storage account and have not made a copy elsewhere, you will not be able to restore the backup later. 
 * Although you can back up more than one web site to the same storage account, for ease of maintenance, consider creating a separate storage account for each web site.
-* During Preview, backup and restore operations are available only through the Windows Azure Management Portal.
+* During Preview, backup and restore operations are available only through the Azure Management Portal.
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring a Windows Azure web site from backup, see [Restore a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+For information on restoring an Azure web site from backup, see [Restore an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
 
 <a name="moreaboutstorage"></a>
 ### More about storage accounts
@@ -131,7 +131,7 @@ For information on restoring a Windows Azure web site from backup, see [Restore 
 
 [How To Monitor a Storage Account](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
 
-[Understanding Windows Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+[Understanding Winidows Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png
