@@ -49,7 +49,7 @@ During the Virtual Machines preview release, in order for the Linux VMs to be pa
 
 **Step 1: Generate SSH Key pair**
 
-Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair using the instructions located at [How to Use SSH with Linux on Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/).  If you plan to use putty.exe as an SSH client either on Windows or Linux, you have to convert the PEM encoded RSA private key to PPK format using puttygen.exe.  Instructions for this can be found at [Generating SSH Key Pair for Linux VM Deployment on Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx).
+Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair using the instructions located at [How to Use SSH with Linux on Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/).  If you plan to use putty.exe as an SSH client either on Windows or Linux, you have to convert the PEM encoded RSA private key to PPK format using puttygen.exe.  Instructions for this can be found at [Generating SSH Key Pair for Linux VM Deployment on Windows Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx).
 
 **Step 2:  Create a Ubuntu VM**
 

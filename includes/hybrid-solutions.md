@@ -1,6 +1,6 @@
-#Windows Azure Service Bus
+#Azure Service Bus
 
-Whether software runs in the cloud or on premises, it often needs to interact with other software. To provide a broadly useful way to do this, Windows Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
+Whether software runs in the cloud or on premises, it often needs to interact with other software. To provide a broadly useful way to do this, Azure offers Service Bus. This article takes a look at this technology, describing what it is and why you might want to use it.
 
 ##Table of Contents      
 - [Service Bus Fundamentals](#fundamentals)
@@ -14,7 +14,7 @@ Different situations call for different styles of communication. Sometimes, lett
 
 Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. [Figure 1](#Fig1) shows how this looks.
 
-<a name="Fig1"></a>![Diagram of Windows Azure Service Bus][svc-bus]
+<a name="Fig1"></a>![Diagram of Azure Service Bus][svc-bus]
  
 **Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
 
@@ -28,7 +28,7 @@ When you create a queue, topic, or relay, you give it a name. Combined with what
 
 To use any of these objects, Windows applications can use Windows Communication Foundation (WCF). For queues and topics, Windows applications can also use a Service Bus-defined Messaging API. Queues and topics can be accessed via HTTP as well, and to make them easier to use from non-Windows applications, Microsoft provides SDKs for Java, Node.js, and other languages.
 
-It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Windows Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Windows Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Windows Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
+It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
 
 
 ## <a name="queues"></a>Queues

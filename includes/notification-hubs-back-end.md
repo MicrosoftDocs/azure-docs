@@ -18,7 +18,7 @@ Skip steps 1-3 if you created a console app when you completed [Get started with
 
         Install-Package WindowsAzure.ServiceBus
  	
-	This adds a reference to the Windows Azure Service Bus SDK by using the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
+	This adds a reference to the Azure Service Bus SDK by using the <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>. 
 
 3. Open the file Program.cs and add the following `using` statement:
 
@@ -93,7 +93,7 @@ To send a notification using a Mobile Service do the following:
 
 0. Complete the tutorial [Get started with Mobile Services] to create your mobile service.
 
-1. Log on to the [Windows Azure Management Portal], click Mobile Services, then click your mobile service.
+1. Log on to the [Azure Management Portal], click Mobile Services, then click your mobile service.
 
 2. Click the **Scheduler** tab, then click **Create**.
 
@@ -163,7 +163,7 @@ You can now proceed to [Run the app and generate notifications].
 [get-started]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Use Notification Hubs to send notifications to users]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx

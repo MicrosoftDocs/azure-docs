@@ -1,8 +1,8 @@
-Windows Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and all APIs (Web, SMTP, Event, Parse, Sub-User). For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
+Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and all APIs (Web, SMTP, Event, Parse, Sub-User). For information about additional services provided by SendGrid, see the [SendGrid Features][] page.
 
 ### To sign up for a SendGrid account
 
-1. Log in to the [Windows Azure Management Portal][].
+1. Log in to the [Azure Management Portal][].
 
 2. In the lower pane of the management portal, click **New**.
 
@@ -16,7 +16,7 @@ Windows Azure customers can unlock 25,000 free emails each month. These 25,000 f
 
 5. In the **Personalize Add-on** dialog select the **SendGrid** plan you want to sign up for.
 
-6. Enter a name to identify your **SendGrid** service in your Windows Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Windows Azure Store Items.
+6. Enter a name to identify your **SendGrid** service in your Azure settings, or use the default value of **SendGrid**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
 
 	![store-screen-2][store-screen-2]
 
@@ -71,7 +71,7 @@ Windows Azure customers can unlock 25,000 free emails each month. These 25,000 f
 <!--Links-->
 
 [SendGrid Features]: http://sendgrid.com/features
-[Windows Azure Management Portal]: https://manage.windowsazure.com
+[Azure Management Portal]: https://manage.windowsazure.com
 [SendGrid Getting Started]: http://docs.sendgrid.com/documentation/get-started/
 
 

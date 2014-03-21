@@ -27,14 +27,14 @@ applications.
 
 <h2><a name="create-a-service-namespace"></a>Create a Service Namespace</h2>
 
-To begin using Service Bus topics and subscriptions in Windows Azure,
+To begin using Service Bus topics and subscriptions in Azure,
 you must first create a service namespace. A service namespace provides
 a scoping container for addressing Service Bus resources within your
 application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -80,7 +80,7 @@ credentials for the namespace.
 4.  In the **Access connection information** dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace. 
 
  
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
