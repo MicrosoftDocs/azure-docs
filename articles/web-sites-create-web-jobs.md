@@ -1,8 +1,8 @@
-<properties linkid="web-sites-create-web-jobs" urlDisplayName="How to create web jobs in Windows Azure" pageTitle="How to Create Web Jobs in Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Web Jobs" description="Learn how to create web jobs in Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create Web Jobs in Windows Azure Web Sites" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-create-web-jobs" urlDisplayName="How to create web jobs in Azure" pageTitle="How to Create Web Jobs in Azure Web Sites" metaKeywords="Azure Web Sites, Web Jobs" description="Learn how to create web jobs in Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create Web Jobs in Azure Web Sites" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
-#How to Use the WebJobs feature in Windows Azure Web Sites#
+#How to Use the WebJobs feature in Azure Web Sites#
 
-Windows Azure Web Sites enables you to run programs or scripts in your web site in one of three ways: on demand, continuously, or on a schedule. There is no additional cost to use Windows Azure WebJobs unless you wish to enable the Always On feature described later in this article.
+Azure Web Sites enables you to run programs or scripts in your web site in one of three ways: on demand, continuously, or on a schedule. There is no additional cost to use Azure WebJobs unless you wish to enable the Always On feature described later in this article.
 
 
 ## Table of Contents ##
@@ -12,7 +12,7 @@ Windows Azure Web Sites enables you to run programs or scripts in your web site 
 - [Create a Scheduled Task](#CreateScheduled)
 - [View the History](#ViewJobHistory)
 - [Next Steps](#NextSteps)
-	- [Do More with the Windows Azure WebJobs SDK](#WebJobsSDK)
+	- [Do More with the Azure WebJobs SDK](#WebJobsSDK)
 	- [Alternative Methods of Deployment](#AlternateDeployments)
 	- [Additional Resources](#AdditionalResources)
 
@@ -62,7 +62,7 @@ The following file types are accepted as runnable scripts:
 	
 2. To start or stop a continuously running task, select the task in the list and click **Start** or **Stop** in the command bar.
 
-> [WACOM.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On demand and scheduled tasks run on a single instance selected for load balancing by Windows Azure.
+> [WACOM.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On demand and scheduled tasks run on a single instance selected for load balancing by Azure.
 
 > [WACOM.NOTE]
 > For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your web site. The Always On feature, available in Standard mode only, prevents web sites from being unloaded, even if they have been idle for some time. If your web site is always loaded, your continuously running task may run more reliably. 
@@ -135,20 +135,20 @@ Historical information for the last 30 tasks that were run is maintained.
 ##Next Steps##
 
 <a name="WebJobsSDK"></a>
-###Do More with the Windows Azure WebJobs SDK###
-The Windows Azure WebJobs SDK simplifies the task of adding background processing to your Windows Azure web sites. The SDK integrates Windows Azure Storage, triggering a function in your program when items are added to Queues, Blobs or Tables. A dashboard provides rich monitoring and diagnostics for the programs that you write by using the SDK. The monitoring and diagnostics features are built into the SDK and do not require you to add any special code in your program.
+###Do More with the Azure WebJobs SDK###
+The Azure WebJobs SDK simplifies the task of adding background processing to your Azure web sites. The SDK integrates Azure Storage, triggering a function in your program when items are added to Queues, Blobs or Tables. A dashboard provides rich monitoring and diagnostics for the programs that you write by using the SDK. The monitoring and diagnostics features are built into the SDK and do not require you to add any special code in your program.
  
-For more information, see the tutorial [Getting Started with Windows Azure WebJobs SDK](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). The tutorial provides an overview of the features of the WebJobs SDK and walks you through creating and running a simple Hello World background process. 
+For more information, see the tutorial [Getting Started with Azure WebJobs SDK](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). The tutorial provides an overview of the features of the WebJobs SDK and walks you through creating and running a simple Hello World background process. 
 
-To see a walkthrough of a sample command line app created with the Windows Azure WebJobs SDK, see [Introducing Windows Azure WebJobs][HanselIntro].
+To see a walkthrough of a sample command line app created with the Azure WebJobs SDK, see [Introducing Azure WebJobs][HanselIntro].
 
 <a name="AlternateDeployments"></a>
 ###Alternative Methods of Deployment###
-If you don't want to use the WebJobs portal page to upload your scripts, you can use FTP, git, or Web Deploy. For more information, see  [How to deploy Windows Azure WebJobs][AmitDeploy] and [Git deploying a .NET console app to Azure using WebJobs][AmitConsole].
+If you don't want to use the WebJobs portal page to upload your scripts, you can use FTP, git, or Web Deploy. For more information, see  [How to deploy Azure WebJobs][AmitDeploy] and [Git deploying a .NET console app to Azure using WebJobs][AmitConsole].
 
 <a name="AdditionalResources"></a>
 ###Additional Resources###
-For additional resources, see the annotated list of links [Using the WebJobs feature of Windows Azure Web Sites][RickWebJobsCurah]. 
+For additional resources, see the annotated list of links [Using the WebJobs feature of Azure Web Sites][RickWebJobsCurah]. 
 
 
 
