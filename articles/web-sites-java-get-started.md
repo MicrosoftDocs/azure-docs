@@ -27,6 +27,6 @@ The following shows how a web site built using Jetty would appear:
 
 Within a few moments, your web site will be created. To view the web site, within the Azure Management Portal, in the **Web Sites** view, wait for the status to show as **Running** and then click the URL for the web site.
 
-At this point, you have a Java application server running as your Java web site on Azure. To add in your own web page or application, see [Adding a web page or application to your Java web site](../web-sites-java-add-app):
+At this point, you have a Java application server running as your Java web site on Azure. To add in your own web page or application, see [Add a web page or application to your Java web site](../web-sites-java-add-app).
 
 
