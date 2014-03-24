@@ -1,10 +1,12 @@
+<properties linkid="" urlDisplayName="Tracking work for your website" pageTitle="Tracking work for your website | Azure" metaKeywords="Visual Studio Online, VSO, work, items, backlog" description="Learn how to track and manage work for your website." metaCanonical="" services="visual-studio-online" documentationCenter="" title="Tracking work for your website" authors="rmarron" solutions="" manager="" editor="" />
+
 # Tracking work for your website
 In this topic, you'll learn how to use the work item tracking tools to manage work for your website.
 
 ## Table of Contents
-* How to: Add work items to your backlog
-* How to: Manage your backlog
-* How to: View recently completed work
+* <a href="#how-to-add-work-items-to-your-backlog">How to: Add work items to your backlog</a>
+* <a href="#how-to-manage-your-backlog">How to: Manage your backlog</a>
+* <a href="#how-to-view-recently-completed-work">How to: View recently completed work</a>
 
 ## How to: Add work items to your backlog
 1. Navigate to your team project blade.
