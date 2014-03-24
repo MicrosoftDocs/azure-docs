@@ -7,8 +7,7 @@ This tutorial shows you how to use [MongoDB] hosted on an Azure Virtual Machine 
 
 You will learn:
 
-* How to set up a virtual machine running Linux or Windows and install MongoDB
-* How to use npm (node package manager) to install the node modules
+* How to set up a virtual machine running Ubuntu and MongoDB from the VM Depot.
 * How to access MongoDB from a node application
 * How to use the Cross-Platform Tools for Azure to create an Azure Web Site
 
@@ -24,9 +23,9 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 ##Prerequisites
 
-The steps in this tutorial use Node.js utilities to create the scaffolding for your web site, as well as install modules used by the application, so you will need to install a recent version of [Node.js][node] in your development environment.
+The steps in this tutorial use Node.js must have a recent version of [Node.js][node] in your development environment.
 
-Additionally, [Git] is used to deploy the web site application to the Azure Web Site.
+Additionally, the [Git] must be available from the command-line in your development environment, as this is used to deploy the application to an Azure Web Site.
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -66,9 +65,13 @@ While it is possible to create a new VM, and then install MongoDB into it follow
 
 	![screenshot of the image][myimage]
 
-6. Provide the name of the VM, size, user name, and whether SSH authentication will happen using a certificate or a password. Click the arrow to continue.
+6. Provide the name of the VM, size, user name. Click the arrow to continue.
 
 	![screenshot of the vm name, user name, etc.][vmname]
+
+	>[WACOM.NOTE] For this tutorial, you will not need to use SSH to remotely connect to your VM. Select **Use a password** and provide a password if you are not familiar with using a certificate with SSH.
+	>
+	> For more information on using SSH with a Linux VM on Azure, see [How to use SSH with Linux on Azure][sshazure].
 
 7. Select whether to use a new or existing Cloud Service, and the region that the VM will be created in. Click the arrow to continue.
 
@@ -85,14 +88,14 @@ While it is possible to create a new VM, and then install MongoDB into it follow
 
 	* Name - MongoDBWeb
 	* Protocol - TCP
-	* Public port -28017
+	* Public port - 28017
 	* Private port - 28017
 	
 	Finally, select the check mark to configure the virtual machine.
 
 	![screenshot of the endpoint configuration][vmendpoint]
 
-9. Once the virtual machine status has changed to __Running__, you should be able to open a web browser to __http://&lt;yourvmname&gt;.cloudapp.net:28017/__ to verify that MongoDB is running. At the bottom of the page should be a log that displays information about the service, similar to the following:
+9. Once the virtual machine status has changed to __Running__, you should be able to open a web browser to __http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/__ to verify that MongoDB is running. At the bottom of the page should be a log that displays information about the service, similar to the following:
 
 		Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -539,3 +542,4 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [vmname]: ./media/web-sites-nodejs-store-data-mongodb/vmname.png
 [vmconfig]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
 [vmendpoint]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
+[sshazure]: http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
