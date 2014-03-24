@@ -1,7 +1,7 @@
-<properties linkid="develop-net-tutorials-get-started-vs2013" urlDisplayName="Get started with Microsoft Azure for ASP.NET" pageTitle="Get started with Microsoft Azure for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a Microsoft Azure Web Site. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Microsoft Azure and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties linkid="develop-net-tutorials-get-started-vs2013" urlDisplayName="Get started with Azure for ASP.NET" pageTitle="Get started with Azure for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Web Site. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Microsoft Azure and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 
-# Get started with Microsoft Azure and ASP.NET
+# Get started with Azure and ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
@@ -185,7 +185,7 @@ In this optional section of the tutorial, you change the web project, run the pr
 
 	![Chooose Publish](./media/web-sites-dotnet-get-started-vs2013/choosepublish.png)
 
-	The Preview tab of the **Publish Web** wizard appears. If you needed to change any publish settings you could choose a different tab, but now all you want to todo is redeploy with the same settings.
+	The Preview tab of the **Publish Web** wizard appears. If you needed to change any publish settings you could choose a different tab, but now all you want to do is redeploy with the same settings.
 
 2. In the **Publish Web** wizard, click **Publish**.
 
