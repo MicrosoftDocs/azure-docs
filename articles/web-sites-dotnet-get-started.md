@@ -5,16 +5,15 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
-This tutorial shows how to create an ASP.NET web application and deploy it to a Microsoft Azure Web Site by using Visual Studio 2013 or Visual Studio 2013 for Web Express. 
+This tutorial shows how to create an ASP.NET web application and deploy it to a Microsoft Azure Web Site by using Visual Studio 2013 or Visual Studio 2013 for Web Express. The tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing the tutorial, you'll have a simple web application up and running in the cloud.
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
-
-This tutorial assumes that you have no prior experience using Azure or ASP.NET. On completing this tutorial, you'll have a simple web application up and running in the cloud.
  
 You'll learn:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio ASP.NET web project and publish it to an Azure Web Site.
+* How to create a Visual Studio ASP.NET web project and deploy it to an Azure Web Site.
+* How to make a change to the project and redeploy.
 
 The following illustration shows the completed application:
 
@@ -53,7 +52,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 5. In the **New ASP.NET Project** dialog box, select the **MVC** or the **Web Forms** template, and then click **Change Authentication**.
 
-	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for creating web sites. For this tutorial you can choose either one.
+	[MVC and Web Forms](http://www.asp.net/get-started/websites) are ASP.NET frameworks for creating web sites. If you have no preference and plan to do other Azure tutorials, MVC is a good choice because there are more Azure tutorials that use MVC.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13changeauth.png)
 
@@ -63,15 +62,15 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	The sample application you're creating won't have features that require users to log in. The [Next Steps](#next-steps) section at the end of the tutorial links to a tutorial that implements authentication and authorization.
 
-5. In the **New ASP.NET Project** dialog box, click **OK**.
+5. Under **Azure** in the dialog box, leave **Create remote resources** selected and leave the drop-down box set to **Web Site**.
 
-	Notice that the Azure section in the lower right part of the screen specifies that Azure resources (in this case a web site) will be created automatically by default.
+	These settings specify that Visual Studio will create an Azure Web Site for your web project. You'll deploy the web project to the newly created web site. (As an alternative you can have Visual Studio create an Azure Virtual Machine running IIS, but this tutorial doesn't detail the steps for that option.)
+
+5. In the **New ASP.NET Project** dialog box, click **OK**.
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdb.png)
 
-	The preceding screenshot shows the MVC template selected; if you chose **Web Forms**, **Web Forms** is selected. 
-
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-get-started-vs2013/GS13newaspnetprojdbwf.png)
+	The screenshot shows the MVC template selected; if you chose Web Forms, **Web Forms** is selected. 
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Click **Sign In**.
 
@@ -81,7 +80,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![Sign in to Azure](./media/web-sites-dotnet-get-started-vs2013/signindb.png)
 
-	When you're signed in, the **Configure Microsoft Azure Site Settings** dialog box asks you what resources you want to create.
+	When you're signed in, the **Configure Azure Site Settings** dialog box asks you what resources you want to create.
 
 	![Signed in to Microsoft Azure](./media/web-sites-dotnet-get-started-vs2013/configuresitesettings.png)
 
@@ -101,7 +100,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	In a few seconds, Visual Studio creates the web project in the folder you specified, and it creates the web site in the Azure region you specified.  
 
-	The **Solution Explorer** window shows the files and folders in the new project. (What you see on your computer may be slightly different from the screenshot depending on whether you chose MVC or Web Forms.)
+	The **Solution Explorer** window shows the files and folders in the new project. (The screenshot is for a Web Forms project; an MVC project has different folders and files.)
 
 	![Solution Explorer](./media/web-sites-dotnet-get-started-vs2013/solutionexplorer.png)
 
@@ -132,7 +131,7 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	You can accept the default settings on this tab.  You're deploying a Release build and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.
+	You can accept the default settings on this tab.  You're deploying a Release build and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder.   The [Next Steps](#next-steps) section at the end of the tutorial links to a tutorial that deploys a Debug build and shows how to run Visual Studio in debug mode remotely.
 
 11. In the **Preview** tab, click **Start Preview**.
 
@@ -155,9 +154,17 @@ Your first step is to create a web application project. Visual Studio will autom
 
 	![Web site running in Microsoft Azure](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
 
+13. Close the browser.
+
 ## Make a change and redeploy
 
 In this optional section of the tutorial, you change the web project, run the project locally on your development computer to verify the change, and then deploy the change to Azure.
+
+2. If you created an MVC project, open the *Views/Home/Index.cshtml* or *.vbhtml* file in **Solution Explorer**, change the **h1** heading from "ASP.NET" to "ASP.NET and Azure", and save the file. 
+
+	![MVC index.cshtml](./media/web-sites-dotnet-get-started-vs2013/index.png)
+
+	![MVC h1 change](./media/web-sites-dotnet-get-started-vs2013/mvcandazure.png)
 
 1. If you created a Web Forms project, open the *Default.aspx* file in **Solution Explorer**, change the **h1** heading from "ASP.NET" to "ASP.NET and Azure", and save the file.
 
@@ -165,17 +172,14 @@ In this optional section of the tutorial, you change the web project, run the pr
 
 	![Web Forms h1 change](./media/web-sites-dotnet-get-started-vs2013/wfandazure.png)
 
-2. If you created an MVC project, open the *Views/Home/Index.cshtml* file in **Solution Explorer**, change the **h1** heading from "ASP.NET" to "ASP.NET and Azure", and save the file. 
-
-	![MVC index.cshtml](./media/web-sites-dotnet-get-started-vs2013/index.png)
-
-	![MVC h1 change](./media/web-sites-dotnet-get-started-vs2013/mvcandazure.png)
-
 1. Press CTRL+F5 to test your change by running the site on your local computer.
 
 	![Web site running locally](./media/web-sites-dotnet-get-started-vs2013/localandazure.png)
 
 	The `http://localhost` URL shows that it's running on your local computer. By default it's running in IIS Express, which is a lightweight version of IIS designed for use during web application development.
+
+
+1. Close the browser.
 
 1. In **Solution Explorer**, right-click the project, and choose **Publish**.
 
@@ -191,11 +195,11 @@ In this optional section of the tutorial, you change the web project, run the pr
 
 	![Changed site deployed](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-An even quicker way to redeploy when you don't need to change publish settings is to use the **Web One Click Publish** tool bar. When you enable the toolbar in the **View - Toolbars** menu, this is what you see:
+An even quicker way to redeploy when you don't need to change publish settings is to use the **Web One Click Publish** tool bar.
 
-![Toolbar](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
+![Web One Click Publish Toolbar](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
-The toolbar enables you to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard. 
+The toolbar is not enabled by default; you enable it in the **View - Toolbars** menu. You can use it to select a profile, click a button to publish, or click a button to open the **Publish Web** wizard. 
 
 ## Next steps
 

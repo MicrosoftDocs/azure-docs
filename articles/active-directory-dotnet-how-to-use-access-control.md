@@ -1,12 +1,12 @@
-<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Windows Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Windows Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Windows Azure Active Directory Access Control" authors="juneb" solutions="" manager="" editor="" />
+<properties linkid="dev-net-how-to-access-control" urlDisplayName="Access Control" pageTitle="How to use Access Control (.NET) - Azure feature guide" metaKeywords="Azure Access Control Service authentication C#" description="Learn how to use Access Control Service (ACS) in your Azure application to authenticate users when they try to gain access to a web app." metaCanonical="" services="active-directory" documentationCenter=".NET" title="How to Authenticate Web Users with Azure Active Directory Access Control" authors="juneb" solutions="" manager="" editor="" />
 
 
 
 
-# How to Authenticate Web Users with Windows Azure Active Directory Access Control
+# How to Authenticate Web Users with Azure Active Directory Access Control
 
 
-This guide shows you how to use Windows Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers such as Microsoft, Google, Yahoo, and Facebook when they try to gain access to a web application.
+This guide shows you how to use Azure Active Directory Access Control (also known as Access Control Service or ACS) to authenticate users from identity providers such as Microsoft, Google, Yahoo, and Facebook when they try to gain access to a web application.
 
 <h2><span class="short-header">Table of Contents</span>Table of Contents</h2>
 
@@ -24,7 +24,7 @@ This guide shows you how to use Windows Azure Active Directory Access Control (a
 
 <h2><span class="short-header">What is ACS?</span>What is ACS?</h2>
 
-Most developers are not identity experts and do not want to spend time developing authentication and authorization mechanisms for their applications and services. ACS is a Windows Azure service that provides an easy way for you to authenticate users to access your web applications and services without having to add complex authentication logic to your code.
+Most developers are not identity experts and do not want to spend time developing authentication and authorization mechanisms for their applications and services. ACS is an Azure service that provides an easy way for you to authenticate users to access your web applications and services without having to add complex authentication logic to your code.
 
 The following features are available in ACS:
 
@@ -84,17 +84,17 @@ The following figure shows how ACS authentication works with a web application:
 
 To complete the tasks in this guide, you will need the following:
 
--	Windows Azure subscription
+-	Azure subscription
 -	Microsoft Visual Studio 2012 
 -	Identity and Access Tool for Visual Studio 2012 (To download, see [Identity and Access Tool][])
 
 
 <h2><span class="short-header">Create an Access Control Namespace</span>Create an Access Control Namespace</h2>
 
-To use Active Directory Access Control in Windows Azure, create an Access Control namespace. The namespace provides a unique scope for
+To use Active Directory Access Control in Azure, create an Access Control namespace. The namespace provides a unique scope for
 addressing ACS resources within your application.
 
-1.  Log into the [Windows Azure Management Portal][] (https://manage.WindowsAzure.com).
+1.  Log into the [Azure Management Portal][] (https://manage.WindowsAzure.com).
     
 2.  Click **Active Directory**.  
 
@@ -104,11 +104,11 @@ addressing ACS resources within your application.
 
 	![][2]
 
-4.  Enter a name for the namespace. Windows Azure verifies that the name is unique.
+4.  Enter a name for the namespace. Azure verifies that the name is unique.
 
 5.  Select the region in which the namespace is used. For best performance, use the region in which you are deploying your application, and then click **Create**.
 
-Windows Azure creates and activates the namespace.
+Azure creates and activates the namespace.
 
 <h2><span class="short-header">Create an ASP.NET MVC Application</span>Create an ASP.NET MVC Application</h2>
 
@@ -164,7 +164,7 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
 	![][4]
 
-2.	On the **Providers** tab, select **Use the Windows Azure Access Control Service**.
+2.	On the **Providers** tab, select **Use the Azure Access Control Service**.
 
     ![][44]
 
@@ -172,11 +172,11 @@ In this task, you will integrate your ASP.NET web application with ACS.
 
     ![][444]
 
-	Visual Studio requests information about the Access Control namespace. Enter the namespace name you created earlier (Test in this images above, but you will have a different namespace). Switch back to the Windows Azure Management Portal to get the symmetric key.
+	Visual Studio requests information about the Access Control namespace. Enter the namespace name you created earlier (Test in this images above, but you will have a different namespace). Switch back to the Azure Management Portal to get the symmetric key.
 
 	![][17]
 
-4.  In the Windows Azure Management Portal, click the Access Control namespace and then click **Manage**.
+4.  In the Azure Management Portal, click the Access Control namespace and then click **Manage**.
 
 	![][8]
 
@@ -295,7 +295,7 @@ For more information on using claims in your application, see the [Windows Ident
 
 The Identity and Access Tool in Visual Studio automatically integrates your application with ACS.
 
-When you select the Use Windows Azure Access Control option and then run your application, the Identity and Access Tool adds your application as a relying party, configures it to use the selected identity providers, and generates and selects the default claims transformation rules for the application.
+When you select the Use Azure Access Control option and then run your application, the Identity and Access Tool adds your application as a relying party, configures it to use the selected identity providers, and generates and selects the default claims transformation rules for the application.
 
 You can review and change these configuration settings in the ACS Management Portal. Use the following steps to review the changes in the portal.
 
@@ -382,7 +382,7 @@ To further explore ACS functionality and to experiment with more scenarios, see 
 
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
   [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
-  [Windows Azure Management Portal]: http://manage.WindowsAzure.com
+  [Azure Management Portal]: http://manage.WindowsAzure.com
 
   [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
   [1]: ./media/active-directory-dotnet-how-to-use-access-control/acsCreateNamespace.png

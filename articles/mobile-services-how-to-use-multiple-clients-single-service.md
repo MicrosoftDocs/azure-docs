@@ -2,7 +2,7 @@
 
 # Considerations for supporting multiple clients from a single mobile service
  
-One of the major benefits of using Windows Azure Mobile Services to support mobile app development is the ability to use a single backend service that supports an app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms. For more information, see [Tutorials and resources].
+One of the major benefits of using Azure Mobile Services to support mobile app development is the ability to use a single backend service that supports an app on multiple client platforms. Mobile Services provides native client libraries for all major device platforms. For more information, see [Tutorials and resources].
 
 While Mobile Services makes it easy to migrate your native app across multiple client platforms using a single backend service, there are a few considerations that you will need to plan for. This topic provides guidance on how to get push notifications working across all your client platforms. It also decribes how to work around an issue with using client-directed single sign-on using Microsoft Account in both Windows Store and Windows Phone apps. Finally, this topic discusses some best practices for reusing code in Visual Studio projects.
 
@@ -11,7 +11,7 @@ This section discusses two approaches for sending push notifications from your m
 
 ### Leverage Notification Hubs
 
-Windows Azure Notification Hubs is a Windows Azure service is a scalable solution for sending push notifications from your mobile service (or any backend) to client apps on all major device plaforms. For more information, see [Windows Azure Notification Hubs]. 
+Azure Notification Hubs is an Azure service is a scalable solution for sending push notifications from your mobile service (or any backend) to client apps on all major device plaforms. For more information, see [Azure Notification Hubs]. 
 
 Notification Hubs provide a consistent and unified infrastructure for creating and managing device registrations and for sending push notifications to devices running on all major device platforms. For more information, see [Get started with Notification Hubs]. Notification Hubs supports platform-specific template registrations, which enables you to use a single API call to send a notification to your app running on any registered platform. For more information, see [Send cross-platform notifications to users].
 
@@ -108,11 +108,11 @@ In order to use single sign-on client authentication using Microsoft Account in 
 
 Portable class libraries enable you to write and build managed assemblies that work on more than one platform, such as Windows Store and Windows Phone. You can create classes that contain code you wish to share across many projects, and then reference those classes from different types of projects. 
 
-You can use the .NET Framework Portable Class Library to implement the Model-View-View Model (MVVM) pattern and share assemblies across multiple platforms. You can implement the model and view model classes in a Portable Class Library project in Visual Studio 2012, and then create views that are customized for different platforms. The model code, common across platforms, may (as an example) retrieve the data from a source such as a Windows Azure Mobile Service in a platform-agnostic manner. The MSDN Library provides an <a href="http://msdn.microsoft.com/en-us/library/gg597391(v=vs.110)">overview and example</a>, discussion of <a href="http://msdn.microsoft.com/en-us/library/gg597392(v=vs.110)">API differences</a>, an example of <a href="http://msdn.microsoft.com/en-us/library/hh563947(v=vs.110)">using portable class libraries to implement the MVVM pattern</a>, additional <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj714086(v=vs.105).aspx">prescriptive guidance</a>, and information about <a href="http://msdn.microsoft.com/en-us/library/hh871422(v=vs.110)">managing resources</a> in portable class library projects.
+You can use the .NET Framework Portable Class Library to implement the Model-View-View Model (MVVM) pattern and share assemblies across multiple platforms. You can implement the model and view model classes in a Portable Class Library project in Visual Studio 2012, and then create views that are customized for different platforms. The model code, common across platforms, may (as an example) retrieve the data from a source such as an Azure Mobile Service in a platform-agnostic manner. The MSDN Library provides an <a href="http://msdn.microsoft.com/en-us/library/gg597391(v=vs.110)">overview and example</a>, discussion of <a href="http://msdn.microsoft.com/en-us/library/gg597392(v=vs.110)">API differences</a>, an example of <a href="http://msdn.microsoft.com/en-us/library/hh563947(v=vs.110)">using portable class libraries to implement the MVVM pattern</a>, additional <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj714086(v=vs.105).aspx">prescriptive guidance</a>, and information about <a href="http://msdn.microsoft.com/en-us/library/hh871422(v=vs.110)">managing resources</a> in portable class library projects.
 
 <!-- URLs -->
 
-[Windows Azure Notification Hubs]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
+[Azure Notification Hubs]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /en-us/develop/mobile/tutorials/single-sign-on-wp8/
 [Tutorials and resources]: /en-us/develop/mobile/resources/

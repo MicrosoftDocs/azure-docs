@@ -1,46 +1,46 @@
-<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET web site with WebMatrix - Windows Azure tutorials" metaKeywords="WebMatrix Windows Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Learn how to develop and deploy a Windows Azure web site with WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a web site with Microsoft WebMatrix" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-website-with-webmatrix" urlDisplayName="Website with WebMatrix" pageTitle=".NET web site with WebMatrix - Azure tutorials" metaKeywords="WebMatrix Azure, WebMatrix Azure, Azure web site WebMatrix, Azure website WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Learn how to develop and deploy an Azure web site with WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a web site with Microsoft WebMatrix" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
 #Develop and deploy a web site with Microsoft WebMatrix
-This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Windows Azure.  You will use a sample application from a WebMatrix site template.
+This guide describes how to use Microsoft WebMatrix to create and deploy a web site to Azure.  You will use a sample application from a WebMatrix site template.
 
 You will learn:
 
-* How to sign into Windows Azure from within WebMatrix
+* How to sign into Azure from within WebMatrix
 * How to create a site using a built in template with WebMatrix 
-* How to deploy the customized web site directly from WebMatrix to Windows Azure.
+* How to deploy the customized web site directly from WebMatrix to Azure.
 
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-## Sign into Windows Azure
+## Sign into Azure
 
 1. Launch WebMatrix.
-2. If this is the first time you've used WebMatrix 3, you will be prompted to sign into Windows Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Choose to **Sign in** using your Microsoft Account.
+2. If this is the first time you've used WebMatrix 3, you will be prompted to sign into Azure.  Otherwise, you can click on the **Sign In** button, and choose **Add Account**.  Choose to **Sign in** using your Microsoft Account.
 
 	![Add Account][addaccount]
 
-3. If you have signed up for a Windows Azure account, you may log in using your Microsoft Account:
+3. If you have signed up for an Azure account, you may log in using your Microsoft Account:
 
-	![Sign into Windows Azure][signin]	
+	![Sign into Azure][signin]	
 
 
-## Create a site using a built in template for Windows Azure
+## Create a site using a built in template for Azure
 
 1. On the start screen, click the **New** button, and choose **Template Gallery** to create a new site from the Template Gallery:
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. The Template Gallery will show a list of available templates that can run locally or on Windows Azure.  Select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
+2. The Template Gallery will show a list of available templates that can run locally or on Azure.  Select **Bakery** from the list of templates, enter **bakerysample** for the **Site Name**, and click **Next**.
 
 	![Create Site from Template][sitefromtemplatedetails]
 
-3. If you are signed into Windows Azure, you now have the option to create a Windows Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
+3. If you are signed into Azure, you now have the option to create an Azure Web Site for your local site.  Choose a unique name, and select the data cetner where you would like your site to be created: 
 
-	![Create site on Windows Azure][sitefromtemplateazure]
+	![Create site on Azure][sitefromtemplateazure]
 
 	After WebMatrix finishes building the web site, the WebMatrix IDE is displayed:
 
@@ -84,13 +84,13 @@ The bakery sample includes a simulated order form that sends an email message wi
 6. Check your email and make sure you got the order confirmation. If you have difficulties sending email, see [Issues with Sending Email][sendmailissues] in the ASP.NET Web Pages (Razor) Troubleshooting Guide.
  
 
-## Deploy the customized web site from WebMatrix to Windows Azure
+## Deploy the customized web site from WebMatrix to Azure
 
 1. In WebMatrix, click  **Publish** from the **Home** ribbon to display the **Publish Preview** dialog box for the web site.
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web site on Windows Azure is displayed at the bottom of the WebMatrix IDE.  
+2. Click to select the checkbox next to bakery.sdf and then click **Continue**.  When publishing is completed the URL for the updated web site on Azure is displayed at the bottom of the WebMatrix IDE.  
 
 	![Publishing Complete][publishcomplete]
 
@@ -98,11 +98,11 @@ The bakery sample includes a simulated order form that sends an email message wi
 
 	![Bakery Sample Site][bakerysample]
 
-	The URL for the web site can also be found in the Windows Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
+	The URL for the web site can also be found in the Azure portal by clicking **Web Sites** to display all web sites for your subscription. The URL for each web site is displayed in the URL column on the web sites page.
 
-## Modify the web site and republish it to the Windows Azure web site
+## Modify the web site and republish it to the Azure web site
 
-You can use WebMatrix to modify the site and republish it to your Windows Azure web site. In the following procedure you will add a check box to indicate that the order is a gift.
+You can use WebMatrix to modify the site and republish it to your Azure web site. In the following procedure you will add a check box to indicate that the order is a gift.
 
 1. Open the *Order.cshtml* page.
 
@@ -139,13 +139,13 @@ You can use WebMatrix to modify the site and republish it to your Windows Azure 
 
 7. On the **Publish Preview** dialog box, make sure both the Order.cshtml is checked, and click continue.
 
-8. Click on the link to open the web site in your browser and test the update on your Windows Azure web site.
+8. Click on the link to open the web site in your browser and test the update on your Azure web site.
 
 # Next Steps
 
-You've seen how to create and deploy a web site from WebMatrix to Windows Azure. To learn more about WebMatrix, check out these resources:
+You've seen how to create and deploy a web site from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
 
-* [WebMatrix for Windows Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 

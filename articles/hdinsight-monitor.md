@@ -42,7 +42,7 @@ The tile shows the number of jobs that have been ran; for example, the previous 
 * [How to: Administer HDInsight](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
 * [How to: Deploy an HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
 * [How to: Execute Remote Jobs on Your HDInsight Cluster Programmatically](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
-* [Tutorial: Getting Started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+* [Tutorial: Getting Started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 
 [hdi-monitor-cluster-tile]: ./media/hdinsight-monitor/HDI.TileMonitorCluster.PNG
 [hdi-monitor-page]: ./media/hdinsight-monitor/HDI.MonitorPage.PNG

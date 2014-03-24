@@ -1,14 +1,14 @@
-<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Windows Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Windows Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Windows Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-#Windows Azure Linux Agent User Guide
+#Azure Linux Agent User Guide
 
 ##Introduction
 
-The Windows Azure Linux Agent (waagent) manages virtual machine interaction with the Windows Azure Fabric Controller. It provides the following functionality for Linux IaaS deployments:
+The Azure Linux Agent (waagent) manages virtual machine interaction with the Azure Fabric Controller. It provides the following functionality for Linux IaaS deployments:
 
 * Image Provisioning
   - Creation of a user account
@@ -46,7 +46,7 @@ The information flow from the platform to the agent occurs via two channels:
 You can obtain the Latest Linux Agent directly from:
 
 - [The different Distribution providers endorsing Linux on Azure](http://support.microsoft.com/kb/2805216)
-- or from the [Github Open Source Repository for the Windows Azure Linux Agent](https://github.com/WindowsAzure/WALinuxAgent)
+- or from the [Github Open Source Repository for the Azure Linux Agent](https://github.com/WindowsAzure/WALinuxAgent)
 
 
 ###Supported Linux Distributions
@@ -129,7 +129,7 @@ The agent's log file is kept at /var/log/waagent.log.
 
  **Warning:** Deprovision does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
-- deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Windows Azure so it may be captured and re-used.
+- deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data. This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and re-used.
 
 - version: Displays the version of waagent
 
@@ -146,7 +146,7 @@ A configuration file (/etc/waagent.conf) controls the actions of waagent.
 A sample configuration file is shown below:
 	
 	#
-	# Windows Azure Linux Agent Configuration	
+	# Azure Linux Agent Configuration	
 	#
 	Role.StateConsumer=None 
 	Role.ConfigurationConsumer=None 
@@ -197,7 +197,7 @@ If a path to an executable program is specified, the program is invoked when the
 Type: Boolean  
 Default: y
 
-This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Windows Azure provisioning API is ignored.
+This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
 
 **Provisioning.DeleteRootPassword:**
 

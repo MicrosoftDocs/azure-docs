@@ -1,11 +1,11 @@
-<properties linkid="manage-services-mediaservices-manage-media-services-content" urlDisplayName="How to manage media content" pageTitle="How to manage media content - Windows Azure Media Services" metaKeywords="" description="Learn how to manage your media content in Windows Azure Media Services." metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="manage-services-mediaservices-manage-media-services-content" urlDisplayName="How to manage media content" pageTitle="How to manage media content - Azure Media Services" metaKeywords="" description="Learn how to manage your media content in Azure Media Services." metaCanonical="" services="media-services" documentationCenter="" title="How to Manage Content in Media Services" authors="migree" solutions="" manager="" editor="" />
 
 
 
 
 
 # How to Manage Content in Media Services #
-The Windows Azure Media Services content view allows you to manage media content for your Media Services account.
+The Azure Media Services content view allows you to manage media content for your Media Services account.
 
 Currently you can perform the following content operations directly from the portal:
 
@@ -42,7 +42,7 @@ If the file size value does not get updated after the uploading process stops, p
 1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name. 
 2. Click the CONTENT page at the top of the page.
 3. Click on the desired source video for the encoding job, and then click **Encode** at the bottom of the page.
-4. In the Windows Azure Media Encoder dialog, choose from one of the common or advanced encoding presets.
+4. In the Azure Media Encoder dialog, choose from one of the common or advanced encoding presets.
 
 	**Common Presets**
 
@@ -52,15 +52,15 @@ If the file size value does not get updated after the uploading process stops, p
 
 	**Advanced Presets**
 	
-	+ The [Task Preset Strings for Windows Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865) topic explains what each prest in the Advanced Presets list means. 
+	+ The [Task Preset Strings for Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865) topic explains what each prest in the Advanced Presets list means. 
 
 
 	![EncoderDialog][encoder]
 
-	Currently, the portal does not support all the encoding formats that are supported by the Media Encoder. It also does not support media asset encryption\decryption. You can perform these tasks programmatically, for more information see [Building Applications with the Media Services SDK for .NET](http://go.microsoft.com/fwlink/?LinkId=270866) and [Task Preset Strings for Windows Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865).
+	Currently, the portal does not support all the encoding formats that are supported by the Media Encoder. It also does not support media asset encryption\decryption. You can perform these tasks programmatically, for more information see [Building Applications with the Media Services SDK for .NET](http://go.microsoft.com/fwlink/?LinkId=270866) and [Task Preset Strings for Azure Media Encoder](http://go.microsoft.com/fwlink/?LinkId=270865).
 
 
-5. In the Windows Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
+5. In the Azure Media Encoder dialog, enter the desired friendly output content name or accept the default. Then click the check button to start the encoding operation and you can track progress from the bottom of the portal.
 
 After the encoding is done, your view should look similar to the screen shot below. 
 

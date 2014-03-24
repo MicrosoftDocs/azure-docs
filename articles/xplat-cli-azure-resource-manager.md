@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with Azure Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with Azure Resource Manager" metaKeywords="windows azure cross-platform command-line interface Azure Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with Azure Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-#Microsoft Azure Cross-Platform Command-Line Interface and Azure Resource Manager
+#Using the Azure Cross-Platform Command-Line Interface with Azure Resource Manager
 
 The new Azure Resource Manager functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. 
 

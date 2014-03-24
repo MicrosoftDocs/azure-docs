@@ -1,10 +1,10 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="The Microsoft Azure Cross-Platform Command-Line Interface" title="The Microsoft Azure Cross-Platform Command-Line Interface" metaKeywords="windows azure cross-platform command-line interface, windows azure command-line, azure command-line, azure cli" description="Install and configure the Microsoft Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 #Install and Configure the Azure Cross-Platform Command-Line Interface
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
-The Microsoft Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
+The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
 The xplat-cli is written in JavaScript, and requires Node.js. It is implemented using the Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
@@ -34,10 +34,7 @@ The following installer packages are available:
 
 * [OS X installer][mac-installer]
 
-<div class="dev-callout">
-<b>Note</b>
-<p>The installer packages also contain Node.js. This version of Node.js will be used by the xplat-cli if no other version of Node.js is available on the system. The version of Node.js installed by these packages should not conflict with any other version of Node.js installed on your system.</p>
-</div>
+>[WACOM.NOTE] The installer packages also contain Node.js. This version of Node.js will be used by the xplat-cli if no other version of Node.js is available on the system. The version of Node.js installed by these packages should not conflict with any other version of Node.js installed on your system.
 
 ###Using npm
 
@@ -45,10 +42,7 @@ If Node.js is installed on your system, use the following command to install the
 
 	npm install azure-cli
 
-<div class="dev-callout">
-<b>Note</b>
-<p>You may need to use <b>sudo</b> to successfully run the <b>npm</b> command.</p>
-</div>
+>[WACOM.NOTE] You may need to use `sudo` to successfully run the __npm__ command.
 
 This will install the xplat-cli and required dependencies. At the end of the installation, you should see something similar to the following:
 
@@ -70,10 +64,7 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.</p>
-</div>
+> [WACOM.NOTE] Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
 <h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
 
@@ -159,7 +150,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
-	info:    Windows Azure: Microsoft's Cloud Platform
+	info:    Azure: Microsoft's Cloud Platform
 	info:
 	info:    Tool version 0.7.0
 	help:
@@ -268,9 +259,9 @@ The xplat-cli allows you to easily manage Azure services. In this example, you w
 
 	After the command completes, use the `azure site list` command to verify that the web site no longer exists.
 
-<h2><a id="script"></a>How to script the Windows Azure Cross-Platform Command-Line Interface</h2>
+<h2><a id="script"></a>How to script the Azure Cross-Platform Command-Line Interface</h2>
 
-While you can use the xplat-cli to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Windows Azure Web Sites:
+While you can use the xplat-cli to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Azure Web Sites:
 
 	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
@@ -340,10 +331,7 @@ Note that the `verbose:` information appears to be JSON formatted data. You can 
 
 The command above retrieves a list of web sites as JSON, then uses jsawk to retrieve the site names, and finally uses xargs to run a site delete command for each site, passing the site name as a parameter.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>The <code>--json</code> parameter blocks the generation of status or data information (strings prefixed by <code>info:</code> and <code>data:</code>). For example, if the <code>--json</code> parameter is used with the <code>azure site create</code>, no output is returned as this command does not return any data other than <code>info:</code>.</p>
-</div>
+>[WACOM.NOTE] The `--json` parameter blocks the generation of status or data information (strings prefixed by `info:` and `data:`). For example, if the `--json` parameter is used with the `azure site create`, no output is returned as this command does not return any data other than `info:`.
 
 ###Working with errors
 
@@ -359,11 +347,11 @@ If you are writing a script that relies on the exit status, please verify that t
 
 <h2><a id="additional-resources"></a>Additional resources</h2>
 
-* For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Windows Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+* For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* If you encounter problems using the xplat-cli, or Windows Azure, visit the [Windows Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 
-* For more information on Windows Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
+* For more information on Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
 
 
 
@@ -372,7 +360,7 @@ If you are writing a script that relies on the exit status, please verify that t
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
 [authandsub]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
-[Windows Azure Web Site]: ../media/freetrial.png
+[Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
 [free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E

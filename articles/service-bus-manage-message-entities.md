@@ -1,12 +1,12 @@
-<properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Windows Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Windows Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors="" solutions="" />
+<properties linkid="service-bus-manage-messaging-entitites" urlDisplayName="Traffic Manager" pageTitle="Manage Service Bus Messaging Entities - Azure" metaKeywords="" description="Learn how to create and manage your Service Bus entities using the Azure Management Portal." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="service-bus" documentationCenter="" title="How to Manage Service Bus Messaging Entities" authors="" solutions="" />
 
 
 
 # How to Manage Service Bus Messaging Entities
 
-This topic describes how to create and manage your Service Bus entities using the [Windows Azure Management Portal](http://manage.windowsazure.com). You can use the portal to create new service namespaces or messaging entities (queues, topics, or subscriptions). You can also delete entities, or change the status of entities. 
+This topic describes how to create and manage your Service Bus entities using the [Azure Management Portal](http://manage.windowsazure.com). You can use the portal to create new service namespaces or messaging entities (queues, topics, or subscriptions). You can also delete entities, or change the status of entities. 
 
-To use this feature and other new Windows Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+To use this feature and other new Azure capabilities, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 ##Table of Contents##
 
@@ -17,15 +17,15 @@ To use this feature and other new Windows Azure capabilities, sign up for the [f
 
 <h2><a id="create"></a>How To: Create a Service Bus Entity</h2>
 
-The Windows Azure Management Portal supports two ways to create a Service Bus entity: *Quick Create* or *Custom Create*.
+The Azure Management Portal supports two ways to create a Service Bus entity: *Quick Create* or *Custom Create*.
 
 ###Quick Create###
 
 Quick Create enables you to create to create a Service Bus queue, topic, or relay service namespace in one easy step. Follow these steps to create a Service Bus entity.
 
-1.	Log on to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com).
+1.	Log on to the [Azure (Preview) Management Portal](http://manage.windowsazure.com).
 2.	Click the **New** icon at the bottom left of the management portal.
-3.	Click the **App Services** icon, and then click **Service Bus Queue** (topic or relay). Click **Quick Create**, and enter the queue name, region, and Windows Azure subscription id.
+3.	Click the **App Services** icon, and then click **Service Bus Queue** (topic or relay). Click **Quick Create**, and enter the queue name, region, and Azure subscription id.
 
 	a.	If this is your first namespace in the selected region, the portal suggests a namespace queue ; [your entity name]-ns. You can change this value.
 
@@ -34,7 +34,7 @@ Quick Create enables you to create to create a Service Bus queue, topic, or rela
 4.	Click the check mark next to **create a new queue** (or topic).
 5.	When the queue or topic has been created, you will see the message **Creation of Queue ‘[Queue Name]’ Completed**.
 
-	a. If you don’t have any namespaces in this region or in this Windows Azure subscription, a new namespace is auto-created for you. In such case, you will receive two success messages: one for the namespace creation and the other one for the entity creation.
+	a. If you don’t have any namespaces in this region or in this Azure subscription, a new namespace is auto-created for you. In such case, you will receive two success messages: one for the namespace creation and the other one for the entity creation.
 
 	![][1]
 
@@ -48,10 +48,10 @@ Click the **Service Bus** icon on the left navigation bar to get a list of names
 
 **Custom Create** is the more detailed version that gives you knobs to change the default values of the properties of the entity (queue or topic) being created. To create a topic or entity using **Custom Create**, follow these steps: 
 
-1.	Log on to the [Windows Azure (Preview) Management Portal](http://manage.windowsazure.com).
+1.	Log on to the [Azure (Preview) Management Portal](http://manage.windowsazure.com).
 2.	Click **New** at the bottom left of the management portal.
 3.	Click the **App Services** icon, and then click **Service Bus Queue** (topic or relay). Then click Custom Create.
-4.	In the first dialog screen, enter the queue name, region, and Windows Azure subscription id.
+4.	In the first dialog screen, enter the queue name, region, and Azure subscription id.
 
 	a.	If this is your first service namespace in the selected region, the portal suggests a namespace queue ; [your entity name]-ns. You can change this value.
 
@@ -97,15 +97,15 @@ You can use the portal to change the status of a Service Bus entity. This is app
 <h2><a id="seealso"></a>Additional Resources</h2>
 
 
-[Windows Azure Service Bus][]
+[Azure Service Bus][]
 
-[.NET Developer Center][] on the Windows Azure web site
+[.NET Developer Center][] on the Azure web site
 
 [Creating Applications that Use Service Bus Topics and Subscriptions][]
 
 [Queues, Topics, and Subscriptions][]
 
-[Windows Azure Service Bus]: http://go.microsoft.com/fwlink/?LinkId=266834
+[Azure Service Bus]: http://go.microsoft.com/fwlink/?LinkId=266834
 [.NET Developer Center]: http://go.microsoft.com/fwlink/?LinkID=262187
 [Creating Applications that Use Service Bus Topics and Subscriptions]: http://go.microsoft.com/fwlink/?LinkId=264293
 [Queues, Topics, and Subscriptions]: http://go.microsoft.com/fwlink/?LinkId=264291

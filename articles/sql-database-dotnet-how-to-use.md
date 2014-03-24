@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Windows Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Windows Azure SQL Database in .NET applications" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -6,20 +6,20 @@
 
 
 
-# How to use Windows Azure SQL Database in .NET applications
+# How to use Azure SQL Database in .NET applications
 
-This guide shows you how to create a logical server and database instance on Windows Azure SQL Database and connect to
+This guide shows you how to create a logical server and database instance on Azure SQL Database and connect to
 the database using the following .NET Framework data provider technologies:
 ADO.NET, ODBC, and EntityClient Provider.
 
 
 <h2><a name="Whatis"></a>What is SQL Database</h2>
 
-SQL Database provides a relational database management system for Windows Azure and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+SQL Database provides a relational database management system for Azure and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
 ## Table of Contents
 
-- [Sign in to Windows Azure](#PreReq1)
+- [Sign in to Azure](#PreReq1)
 - [Create and Configure SQL Database](#PreReq2)
 - [Connect to SQL Database](#connect-db) 
 - [Connect Using ADO.NET](#using-sql-server)
@@ -27,9 +27,9 @@ SQL Database provides a relational database management system for Windows Azure 
 - [Connect Using EntityClient Provider](#using-entity)
 - [Next Steps](#next-steps)
 
-<h2><a name="PreReq1"></a>Sign in to Windows Azure</h2>
+<h2><a name="PreReq1"></a>Sign in to Azure</h2>
 
-SQL Database provides relational data storage, access, and management services on Windows Azure. To use it, you'll need a Windows Azure subscription.
+SQL Database provides relational data storage, access, and management services on Azure. To use it, you'll need an Azure subscription.
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com). To get started with a free account, click free trial in the upper right corner and follow the steps.
 
@@ -38,11 +38,11 @@ SQL Database provides relational data storage, access, and management services o
 
 <h2><a name="PreReq2"></a><span class="short-header">Create and configure SQL Database</span></h2>
 
-Next, you'll create and configure a database and server. In the Windows Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
+Next, you'll create and configure a database and server. In the Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
 <h3 name="createsrvr">Create a database instance and logical server</h3>
 
-1. Sign in to the [Windows Azure Management Portal][].
+1. Sign in to the [Azure Management Portal][].
 
 2. Click **+NEW** at the bottom of the page.
 
@@ -62,7 +62,7 @@ Next, you'll create and configure a database and server. In the Windows Azure Ma
 later be changed using ALTER DATABASE. MAXSIZE provides the ability to
 limit the size of the database.
 
-	For each SQL database created on Windows Azure, there are actually three
+	For each SQL database created on Azure, there are actually three
 replicas of that database. This is done to ensure high availability.
 Failover is transparent and part of the service. The [Service Level
 Agreement][] provides 99.9% uptime for SQL Database.
@@ -79,9 +79,9 @@ Agreement][] provides 99.9% uptime for SQL Database.
 
 11. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-12. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+12. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-13. Be sure to keep the **Allow Windows Azure Services to access the server** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Windows Azure. 
+13. Be sure to keep the **Allow Azure Services to access the server** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Azure. 
 
 14. Click the checkmark at the bottom of the page when you are finished.
 
@@ -126,7 +126,7 @@ This section shows how to connect to SQL Database instance using different
 .NET Framework data providers.
 
 If you choose to use Visual Studio and your configuration doesn't
-include a Windows Azure web application as a front-end, there are no
+include an Azure web application as a front-end, there are no
 additional tools or SDKs needed to be installed on the development
 computer. You can just start developing your application.
 
@@ -244,20 +244,20 @@ following resources to learn more about SQL Database.
 
 
   [What is SQL Database]: #WhatIs
-  [Sign in to Windows Azure]: #PreReq1
+  [Sign in to Azure]: #PreReq1
   [Create and Configure SQL Database]: #PreReq2
   [Connect to SQL Database]: #connect-db
   [Connect Using ADO.NET]: #using-sql-server
   [Connect Using ODBC]: #using-ODBC
   [Connect Using EntityClient Provider]: #using-entity
   [Next Steps]: #next-steps
-  [Windows Azure Free Trial]: {localLink:2187} "Free Trial"
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Free Trial]: {localLink:2187} "Free Trial"
+  [Azure Management Portal]: http://manage.windowsazure.com
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
   [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
   [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
   [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
-  [How to Create a SQL Database on Windows Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
+  [How to Create a SQL Database on Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Service Level Agreement]: {localLink:1132} "SLA"
   [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/en-us/library/bb738561.aspx
   [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx

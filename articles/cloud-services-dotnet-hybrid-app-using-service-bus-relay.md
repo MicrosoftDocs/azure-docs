@@ -1,4 +1,4 @@
-<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Windows Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Windows Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
+<properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
 
 
@@ -9,9 +9,9 @@
 
 <h2><span class="short-header">INTRODUCTION</span>INTRODUCTION</h2>
 
-Developing hybrid cloud applications with Windows Azure is easy using
-Visual Studio 2013 and the free Windows Azure SDK for .NET. This guide
-assumes you have no prior experience using Windows Azure. In less than
+Developing hybrid cloud applications with Azure is easy using
+Visual Studio 2013 and the free Azure SDK for .NET. This guide
+assumes you have no prior experience using Azure. In less than
 30 minutes, you will have an application that uses multiple Windows
 Azure resources up and running in the cloud.
 
@@ -19,8 +19,8 @@ You will learn:
 
 -   How to create or adapt an existing web service for consumption by a
     web solution.
--   How to use the Windows Azure Service Bus relay to share data between
-    a Windows Azure application and a web service hosted elsewhere.
+-   How to use the Azure Service Bus relay to share data between
+    an Azure application and a web service hosted elsewhere.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -47,7 +47,7 @@ network infrastructure. Such Service Bus relay services are still hosted
 inside their existing environment, but they delegate listening for
 incoming sessions and requests to the cloud-hosted Service Bus. The
 Service Bus also protects those services from unauthorized access by
-using Windows Azure Active Directory Access Control.
+using Azure Active Directory Access Control.
 
 ### THE SOLUTION SCENARIO
 
@@ -61,8 +61,8 @@ on-premises system, and uses the Service Bus relay to reach into that
 system. This is simulated by a web service that is running in a simple
 console application and is backed by an in-memory set of products. You
 will be able to run this console application on your own computer and
-deploy the web role into Windows Azure. By doing so, you will see how
-the web role running in the Windows Azure datacenter will indeed call
+deploy the web role into Azure. By doing so, you will see how
+the web role running in the Azure datacenter will indeed call
 into your computer, even though your computer will almost certainly
 reside behind at least one firewall and a network address translation
 (NAT) layer.
@@ -73,10 +73,10 @@ The following is a screen shot of the start page of the completed web applicatio
 
 <h2><span class="short-header">SET UP THE ENVIRONMENT</span>SET UP THE DEVELOPMENT ENVIRONMENT</h2>
 
-Before you can begin developing your Windows Azure application, you need
+Before you can begin developing your Azure application, you need
 to get the tools and set-up your development environment.
 
-1.  To install the Windows Azure SDK for .NET, click the button below:
+1.  To install the Azure SDK for .NET, click the button below:
 
     [Get Tools and SDK][]
 
@@ -97,19 +97,19 @@ to get the tools and set-up your development environment.
 
 6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
-    easily develop Windows Azure applications in Visual Studio. If you
+    easily develop Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
     Visual Studio Express.
 
 <h2><span class="short-header">CREATE A NAMESPACE</span>CREATE A SERVICE NAMESPACE</h2>
 
-To begin using Service Bus features in Windows Azure, you must first
+To begin using Service Bus features in Azure, you must first
 create a service namespace. A service namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal][].
+1.  Log on to the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -321,7 +321,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     **&lt;system.ServiceModel>** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
     namespace, and *yourIssuerSecret* with the key you retrieved earlier
-    from the Windows Azure Management Portal:
+    from the Azure Management Portal:
 
         <system.serviceModel>
           <extensions>
@@ -491,9 +491,9 @@ Run the application to verify that it works.
 
     ![][21]
 
-    <h2><span class="short-header">DEPLOY TO WINDOWS AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO WINDOWS AZURE</h2>
+    <h2><span class="short-header">DEPLOY TO AZURE</span>MAKE YOUR APPLICATION READY TO DEPLOY TO AZURE</h2>
 
-    You can deploy your application to a Windows Azure Cloud Service or to a Windows Azure Web Site. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels]. To learn how to deploy the application to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to a Windows Azure Cloud Service.
+    You can deploy your application to an Azure Cloud Service or to an Azure Web Site. To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure Cloud Service.
 
     To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution.
     The deployment project contains configuration
@@ -502,14 +502,14 @@ Run the application to verify that it works.
 
     1.  To make your application deployable to the cloud, right-click
         the **ProductsPortal** project in **Solution Explorer** and
-        click **Convert**, then click **Convert to Windows Azure Cloud Service Project**.
+        click **Convert**, then click **Convert to Azure Cloud Service Project**.
 
         ![][22]
 
     2.  To test your application, press **F5**.
-    3.  This will start the Windows Azure compute emulator. The compute
+    3.  This will start the Azure compute emulator. The compute
         emulator uses the local computer to emulate your application
-        running in Windows Azure. You can confirm the emulator has
+        running in Azure. You can confirm the emulator has
         started by looking at the system tray:
 
         ![][23]
@@ -632,10 +632,10 @@ Run the application to verify that it works.
 
         ![][1]
 
-    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO WINDOWS AZURE</h2>
+    <h2><span class="short-header">DEPLOY THE APPLICATION</span>DEPLOY YOUR APPLICATION TO AZURE</h2>
 
     1.  Right-click on the **ProductsPortal** project in **Solution
-        Explorer** and click **Publish to Windows Azure**.
+        Explorer** and click **Publish to Azure**.
 
     2.  You might have to sign in to see all your subscriptions.
 
@@ -668,14 +668,14 @@ Run the application to verify that it works.
         ![][34]
 
         This will take approximately 5-7 minutes. Since this is the
-        first time you are publishing, Windows Azure provisions a
+        first time you are publishing, Azure provisions a
         virtual machine (VM), performs security hardening, creates a Web
         role on the VM to host your application, deploys your code to
         that Web role, and finally configures the load balancer and
         networking so your application is available to the public.
 
     11. While publishing is in progress you will be able to monitor the
-        activity in the **Windows Azure Activity Log** window, which is
+        activity in the **Azure Activity Log** window, which is
         typically docked to the bottom of Visual Studio or Visual Web
         Developer:
 
@@ -695,7 +695,7 @@ Run the application to verify that it works.
 
         ![][37]
 
-To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
+To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels].
 
 <h2><span class="short-header">DELETE THE APPLICATION</span>STOP AND DELETE YOUR APPLICATION</h2>
 
@@ -703,7 +703,7 @@ After deploying your application, you may want to disable it so you
 can build and deploy other applications within the free 750
 hours/month (31 days/month) of server time.
 
-Windows Azure bills web role instances per hour of server time
+Azure bills web role instances per hour of server time
 consumed. Server time is consumed once your application is deployed,
 even if the instances are not running and are in the stopped state.
 A free account includes 750 hours/month (31 days/month) of dedicated
@@ -712,11 +712,11 @@ virtual machine server time for hosting these web role instances.
 The following steps show you how to stop and delete your
 application.
 
-1.  Login to the [Windows Azure Management Portal],
+1.  Login to the [Azure Management Portal],
         click on Cloud Services, then click the name of your service.
 
 2.  Click the **Dashboard** tab, and then click on **Stop** to temporarily suspend your application. You will
-        be able to start it again just by clicking on Start. Click **Delete** to completely remove your application from Windows Azure
+        be able to start it again just by clicking on Start. Click **Delete** to completely remove your application from Azure
         with no ability to restore it.
 
 	![][43]
@@ -725,7 +725,7 @@ application.
 
 To learn more about Service Bus, see the following resources:  
   
-* [Windows Azure Service Bus][sbmsdn]  
+* [Azure Service Bus][sbmsdn]  
 * [Service Bus How To's][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
@@ -738,7 +738,7 @@ To learn more about Service Bus, see the following resources:
   [3]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
   
   
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [5]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
   

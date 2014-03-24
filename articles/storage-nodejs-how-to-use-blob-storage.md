@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -7,7 +7,7 @@
 # How to Use the Blob Service from Node.js
 
 This guide will show you how to perform common scenarios using the
-Windows Azure Blob service. The samples are written using the
+Azure Blob service. The samples are written using the
 Node.js API. The scenarios covered include **uploading**, **listing**,
 **downloading**, and **deleting** blobs. For more information on blobs,
 see the [Next Steps][] section.
@@ -16,10 +16,10 @@ see the [Next Steps][] section.
 
 * [What is the Blob Service?][]    
 * [Concepts][]    
-* [Create a Windows Azure Storage Account][]   
+* [Create an Azure Storage Account][]   
 * [Create a Node.js Application][]   
 * [Configure your Application to Access Storage][]   
-* [Setup a Windows Azure Storage Connection String][]   
+* [Setup an Azure Storage Connection String][]   
 * [How To: Create a Container][]   
 * [How To: Upload a Blob into a Container][]   
 * [How To: List the Blobs in a Container][]   
@@ -29,7 +29,7 @@ see the [Next Steps][] section.
 
 ## <a name="what-is"> </a>What is the Blob Service?
 
-The Windows Azure Blob service is for storing large amounts of
+The Azure Blob service is for storing large amounts of
 unstructured data that can be accessed from anywhere in the world via
 HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
 single storage account can contain up to 100TB of blobs. Common uses of
@@ -39,7 +39,7 @@ Blobs include:
 -   Storing files for distributed access
 -   Streaming video and audio
 -   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premises or Windows Azure-hosted
+-   Storing data for analysis by an on-premises or Azure-hosted
     service
 
 You can use Blobs to expose data publicly to the world or
@@ -60,7 +60,7 @@ The Blob service contains the following components:
  
 	    http://sally.blob.core.windows.net/movies/MOV1.AVI
 
--   **Storage Account:** All access to Windows Azure Storage is done
+-   **Storage Account:** All access to Azure Storage is done
     through a storage account. This is the highest level of the
     namespace for accessing blobs. An account can contain an unlimited
     number of containers, as long as their total size is under 100TB.
@@ -76,13 +76,13 @@ The Blob service contains the following components:
     size, and are more efficient when ranges of bytes in a file are
     modified frequently.
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+## <a name="create-account"> </a>Create an Azure Storage Account
 
-To use storage operations, you need a Windows Azure storage account. You
+To use storage operations, you need an Azure storage account. You
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API][].)
 
-1.  Log into the [Windows Azure Management Portal].
+1.  Log into the [Azure Management Portal].
 
 2.  At the bottom of the navigation pane, click **+NEW**.
 
@@ -99,7 +99,7 @@ create a storage account [using the REST API][].)
     subscription.
 
 5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Windows Azure
+    storage. If you will be using storage from your Azure
     application, select the same region where you will deploy your
     application.
 
@@ -107,11 +107,11 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Windows Azure storage, you need to download and use the Node.js
+To use Azure storage, you need to download and use the Node.js
 azure package, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
@@ -146,13 +146,13 @@ Using Notepad or another text editor, add the following to the top the
 
     var azure = require('azure');
 
-## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
+## <a name="setup-connection-string"> </a>Setup an Azure Storage Connection
 
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
+For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-container"> </a>How to: Create a Container
 
@@ -208,7 +208,7 @@ After doing its preprocessing on the request options, the method needs to call "
 
 In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
 
-Two filters that implement retry logic are included with the Windows Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **BlobService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **BlobService** object that uses the **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var blobService = azure.createBlobService().withFilter(retryOperations);
@@ -274,29 +274,29 @@ Finally, to delete a blob, call **deleteBlob**. The following example deletes th
 Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
--   Visit the [Windows Azure Storage Team Blog][].
+-   See the MSDN Reference: [Storing and Accessing Data in Azure][].
+-   Visit the [Azure Storage Team Blog][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Blob Service?]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
+  [Create an Azure Storage Account]: #create-account
   [Create a Node.js Application]: #create-app
   [Configure your Application to Access Storage]: #configure-access
-  [Setup a Windows Azure Storage Connection String]: #setup-connection-string
+  [Setup an Azure Storage Connection String]: #setup-connection-string
   [How To: Create a Container]: #create-container
   [How To: Upload a Blob into a Container]: #upload-blob
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
-[Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [Node.js Cloud Service]: {localLink:2221} "Node.js Web Application"
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -28,13 +28,13 @@ HDInsight currently only supports the Ambari monitoring feature. Ambari API v1.0
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Windows Azure PowerShell installed and configured. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Windows Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **A workstation** with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
 	[Curl][curl] is optional. It can be installed from [here][curl-download].
 
 	>[WACOM.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
 
-- **A Windows Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
+- **An Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
 	<table border="1">
 	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
@@ -51,7 +51,7 @@ Before you begin this tutorial, you must have the following:
 
 There are several ways to use Ambari to monitor HDInsight clusters.
 
-**Use Windows Azure PowerShell**
+**Use Azure PowerShell**
 
 The following is a PowerShell script for getting the MapReduce jobtracker information:
 
@@ -128,7 +128,7 @@ The following table lists some of the most common Ambari monitoring API calls. F
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
 - [Administer HDInsight clusters using the Management portal][hdinsight-admin-portal]
-- [Administer HDInsight clusters using Windows Azure PowerShell][hdinsight-admin-powershell]
+- [Administer HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
 - [Administer HDInsight clusters using command-line interface][hdinsight-admin-cli]
 - [HDInsight documentation][hdinsight-documentation]
 - [Get started with HDInsight][hdinsight-get-started]

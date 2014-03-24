@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Windows Azure Storage services and the Windows Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-basic-web-app-with-storage" urlDisplayName="Web App with Storage" pageTitle="Web app with table storage (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." metaCanonical="" services="cloud-services,storage" documentationCenter="Node.js" title="Node.js Web Application using Storage" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -11,16 +11,15 @@ In this tutorial, you will extend the application created in the
 [Node.js Web Application using Express] tutorial by using the Windows
 Azure Client Libraries for Node.js to work with data management services. You
 will extend your application to create a web-based task-list application
-that you can deploy to Windows Azure. The task list allows a user to
+that you can deploy to Azure. The task list allows a user to
 retrieve tasks, add new tasks, and mark tasks as completed.
 
-The task items are stored in Windows Azure Storage. Windows Azure
+The task items are stored in Azure Storage. Azure
 Storage provides unstructured data storage that is fault-tolerant and
-highly available. Windows Azure Storage includes several data structures
+highly available. Azure Storage includes several data structures
 where you can store and access data, and you can leverage the storage
-services from the APIs included in the Windows Azure SDK for Node.js or
-via REST APIs. For more information, see [Storing and Accessing Data in
-Windows Azure].
+services from the APIs included in the Azure SDK for Node.js or
+via REST APIs. For more information, see [Storing and Accessing Data in Azure].
 
 This tutorial assumes that you have completed the [Node.js Web
 Application] and [Node.js with Express][Node.js Web Application using Express] tutorials.
@@ -28,7 +27,7 @@ Application] and [Node.js with Express][Node.js Web Application using Express] t
 You will learn:
 
 -   How to work with the Jade template engine
--   How to work with Windows Azure Data Management services
+-   How to work with Azure Data Management services
 
 A screenshot of the completed application is below:
 
@@ -36,26 +35,26 @@ A screenshot of the completed application is below:
 
 ## Setting Storage Credentials in Web.Config
 
-To access Windows Azure Storage, you need to pass in storage
+To access Azure Storage, you need to pass in storage
 credentials. To do this, you utilize web.config application settings.
 Those settings will be passed as environment variables to Node, which
-are then read by the Windows Azure SDK.
+are then read by the Azure SDK.
 
 <div class="dev-callout">
 <strong>Note</strong>
 <p>Storage credentials are only used when the application is
-deployed to Windows Azure. When running in the emulator, the application
+deployed to Azure. When running in the emulator, the application
 will use the storage emulator.</p>
 </div>
 
 Perform the following steps to retrieve the storage account credentials
 and add them to the web.config settings:
 
-1.  If it is not already open, start the Windows Azure PowerShell from the **Start** menu by expanding **All Programs, Windows Azure**, right-click **Windows Azure PowerShell**, and then select **Run As Administrator**.
+1.  If it is not already open, start the Azure PowerShell from the **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.
 
 2.  Change directories to the folder containing your application. For example, C:\\node\\tasklist\\WebRole1.
 
-3.  From the Windows Azure Powershell window enter the following cmdlet to retrieve the storage account information:
+3.  From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:
 
         PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
 
@@ -63,10 +62,10 @@ and add them to the web.config settings:
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>Since the Windows Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</p>
+	<p>Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</p>
 	</div>
 
-4.  Open the web.cloud.config file containing the environment settings that are used when the application is deployed to Windows Azure:
+4.  Open the web.cloud.config file containing the environment settings that are used when the application is deployed to Azure:
 
         PS C:\node\tasklist\WebRole1> notepad web.cloud.config
 
@@ -83,7 +82,7 @@ and add them to the web.config settings:
 
 ## Install Modules
 
-In order to use Windows Azure Data Management services, you must install the
+In order to use Azure Data Management services, you must install the
 Azure module for node. You must also install the node-uuid module, as
 this will be used to generate universally unique identifiers (UUIDs). To
 install these modules, enter the command below:
@@ -115,7 +114,7 @@ these modules in your application:
 
         var client = azure.createTableService();
 
-4.  Next, create a table in Windows Azure Storage called tasks. The logic below creates a new table if it doesn't exist, and populates the table with some default data.
+4.  Next, create a table in Azure Storage called tasks. The logic below creates a new table if it doesn't exist, and populates the table with some default data.
 
         //table creation
         client.createTableIfNotExists('tasks', function(error){
@@ -258,7 +257,7 @@ items:
 
         PS C:\node\tasklist\WebRole1> Start-AzureEmulator -launch
 
-	Your browser displays the following page, showing the task item that was retrieved from Windows Azure Storage:
+	Your browser displays the following page, showing the task item that was retrieved from Azure Storage:
 
 	![Internet explorer displaying a My Tasklist page with one item in a table.](./media/storage-nodejs-use-table-storage-cloud-service-app/node40.png)
 
@@ -332,7 +331,7 @@ The **newItem** function performs the following tasks:
 
 -   Extracts the posted item from the body.
 -   Sets the **RowKey** and **PartitionKey** values for the new item.
-    These values are required to insert the item into the Windows Azure
+    These values are required to insert the item into the Azure
     table. A UUID is generated for the **RowKey** value.
 -   Inserts the item into the tasks table by calling the
     **insertEntity** function.
@@ -369,7 +368,7 @@ remove any of the spacing below.</p>
 
 ### Running the Application in the Emulator
 
-1.  Because the Windows Azure emulator is already running, you can
+1.  Because the Azure emulator is already running, you can
     browse the updated application:
 
         PS C:\node\tasklist\WebRole1> start http://localhost:81/home
@@ -380,17 +379,17 @@ remove any of the spacing below.</p>
 
 2.  Enter for **Item Name:** "New task functionality", **Item Category:** "Site work"?, and for **Item Date:** "12/02/2011". Then click **Add item**.
 
-	The item is added to your tasks table in Windows Azure Storage and displayed as shown in the screenshot below.
+	The item is added to your tasks table in Azure Storage and displayed as shown in the screenshot below.
 
 	![A web page titled My Task List with a table containing tasks, after you have added a task to the list.](./media/storage-nodejs-use-table-storage-cloud-service-app/node45.png)
 
-## Re-Publishing the Application to Windows Azure
+## Re-Publishing the Application to Azure
 
-Now that the application is completed, publish it to Windows Azure by
+Now that the application is completed, publish it to Azure by
 updating the deployment to the existing hosted service.
 
 1.  In the Windows PowerShell window, call the following cmdlet to
-    redeploy your hosted service to Windows Azure. Your storage settings
+    redeploy your hosted service to Azure. Your storage settings
     and location were previous saved and do not need to be re-entered.
 
         PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
@@ -399,9 +398,9 @@ updating the deployment to the existing hosted service.
 
 	![the status messages displayed during deployment.](./media/storage-nodejs-use-table-storage-cloud-service-app/node35.png)
 
-	As before, because you specified the **-launch** option, the browser opens and displays your application running in Windows Azure when publishing is completed.
+	As before, because you specified the **-launch** option, the browser opens and displays your application running in Azure when publishing is completed.
 
-	![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Windows Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png)
+	![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/node47.png)
 
 ## Stopping and Deleting Your Application
 
@@ -409,7 +408,7 @@ After deploying your application, you may want to disable it so you can
 avoid costs or build and deploy other applications within the free trial
 time period.
 
-Windows Azure bills web role instances per hour of server time consumed.
+Azure bills web role instances per hour of server time consumed.
 Server time is consumed once your application is deployed, even if the
 instances are not running and are in the stopped state.
 
@@ -435,6 +434,6 @@ The following steps show you how to stop and delete your application.
 	![Status messages indicating the service has been deleted.](./media/storage-nodejs-use-table-storage-cloud-service-app/node49.png)
 
   [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
  

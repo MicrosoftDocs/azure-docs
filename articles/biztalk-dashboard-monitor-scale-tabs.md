@@ -1,11 +1,11 @@
-<properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor and Scale tabs" pageTitle="Dashboard, Monitor, and Scale in Biztalk Services | Azure" metaKeywords="BizTalk Services, Windows Azure, dashboard, monitor, scale" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor and Scale tabs" pageTitle="Dashboard, Monitor, and Scale in Biztalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
 # BizTalk Services: Dashboard, Monitor and Scale tabs
 
-The first time you open the Windows Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or click the **BIZTALK SERVICES** tab; and then click your BizTalk Service name.
+The first time you open the Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or click the **BIZTALK SERVICES** tab; and then click your BizTalk Service name.
 
 This opens a new window with the following options:
 
@@ -34,14 +34,14 @@ In the Quick Start tab, you can do the following:
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premise development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
 
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Windows Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Windows Azure BizTalk Services SDK</a> lists the steps to get started.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
         <td>Create partner agreements</td>
 
-        <td>Opens the Windows Azure BizTalk Services Portal hosted on Windows Azure where you add partners and create X12 and AS2 EDI agreements.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12 and AS2 EDI agreements.
 
         <br/><br/>
 
@@ -68,7 +68,7 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, view the 
 </tr>
 <tr>
 <td>Manage</td>
-<td>When you click Manage, the Windows Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
+<td>When you click Manage, the Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
@@ -92,9 +92,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>In the Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
+<li>In the Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -145,18 +145,18 @@ Lists your BizTalk Service properties, including the following:
 <td>Update Tracking Database credentials</td>
 <td>Changes the user name and password used to log into the Tracking Database.<br/><br/>
 When you provision the BizTalk Service, you enter a user name and password to log into the Tracking Database. Using this option, you can modify your BizTalk Service to use a different user name and password to log into the Tracking Database.<br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Windows Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
 </tr>
 <tr>
 <td>Update SSL Certificate</td>
 <td>Can enter a different SSL certificate.<br/><br/>
 When you provision the BizTalk Service, a self-signed SSL certificate is automatically created. Using this option, you can modify your BizTalk Service to use a different SSL certificate.<br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Windows Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
 </tr>
 <tr>
 <td>Download Certificate</td>
 <td>Using this option, you can download the SSL certificate used by your BizTalk Service.<br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Windows Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">BizTalk Services: Provisioning Using Azure Management Portal</a> lists the steps to provision a BizTalk Service.</td>
 </tr>
 <tr>
 <td>Status</td>
@@ -197,15 +197,15 @@ When you provision the BizTalk Service, a self-signed SSL certificate is automat
 </tr>
 <tr>
 <td>Subscription Name</td>
-<td>The subscription governs access to the Windows Azure Management Portal. This is the same <strong>Subscription</strong> name selected when the BizTalk Service is provisioned.</td>
+<td>The subscription governs access to the Azure Management Portal. This is the same <strong>Subscription</strong> name selected when the BizTalk Service is provisioned.</td>
 </tr>
 <tr>
 <td>Subscription ID</td>
-<td>The subscription governs access to the Windows Azure Management Portal. When a subscription is created, a subscription ID is automatically generated. When using REST APIs, you may need to enter the Subscription ID.</td>
+<td>The subscription governs access to the Azure Management Portal. When a subscription is created, a subscription ID is automatically generated. When using REST APIs, you may need to enter the Subscription ID.</td>
 </tr>
 </table>
 
-[BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to provision a BizTalk Service.
+[BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to provision a BizTalk Service.
 
 
 #### Manage, Connection Information, Sync Keys and Delete
@@ -218,7 +218,7 @@ In the task bar at the bottom, you can **Manage** the BizTalk Service, view the 
 </tr>
 <tr>
 <td>Manage</td>
-<td>When you click Manage, the Windows Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
+<td>When you click Manage, the Azure BizTalk Services Portal opens. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating AS2 and X12 agreements.
 <br/><br/>
 This is the same as <strong>Create partner agreements</strong> on the <strong>Quick Start</strong> tab.
 <br/><br/>
@@ -240,9 +240,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>In the Azure Management Portal, click your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Click your BizTalk Service and click <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Windows Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
+<li>In the Azure Management Portal, click your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -365,7 +365,7 @@ Increasing the number of units may impact pricing. If you increase the Units, cl
 
 
 ## Next
-Now that you're familiar with the different tabs, you can learn more about the Windows Azure BizTalk Services features:
+Now that you're familiar with the different tabs, you can learn more about the Azure BizTalk Services features:
 
 - [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
@@ -373,9 +373,9 @@ Now that you're familiar with the different tabs, you can learn more about the W
 
 ## See Also
 - [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: BizTalk Service State Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+- [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
