@@ -1,31 +1,32 @@
-<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Windows Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Windows Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Windows Azure" authors="szark"  solutions="" writer="" manager="" editor=""  />
 
 
 
 
 #Using root privileges on Linux virtual machines in Windows Azure
 
-You can gain root priviliges on your Linux virtual machine using one of the following methods, depending on how you provisioned your virtual machine.
+Users can run commands with elevated privileges on a Linux virtual machine using the `sudo` command. However, the experience may vary depending on how the system was provisioned.
 
-1. **Uploaded an SSH Key** - when provisioning the virtual machine, you uploaded a certificate (`.CER` file) as well as a user name and password.
-2. **User name and password only** - when provisioning the virtual machine, you only provided a user name and password; **No** SSH Key.
+1. **SSH key and password or password only** - the virtual machine was provisioned with either a certificate (`.CER` file) as well as a password, or just a user name and password. In this case `sudo` will prompt for the user's password before executing the command.
 
-
-##Uploaded an SSH key
-
-Once you are already logged into your virtual machine using the SSH Key, you can run commands using `sudo`, an example:
-
-	sudo chmod +x myscript.py
-
-You will be prompted for a password when this occurs. Put in the password you provided when provisioning the machine.
-
-**Note:** The password is still required even when using an SSH Key. This may cause issues with certain scripts and tools, so make sure they can support challenged `sudo` commands.
+2. **SSH key only** - the virtual machine was provisioned with a certificate (`.cer` or `.pem` file), but no password.  In this case `sudo` **will not** prompt for the user's password before executing the command.
 
 
-##User name and password
+##SSH Key and Password, or Password Only
 
-Once you are already logged into your virtual machine using your user name and password, you can run commands using `sudo`, an example:
+Log into the Linux virtual machine using SSH key or password authentication, then run commands using `sudo`, for example:
 
-	sudo chmod +x myscript.py
+	# sudo <command>
+	[sudo] password for azureuser:
 
-You will be prompted for a password when this occurs. Put in the password you provided when provisioning the machine.
+In this case the user will be prompted for a password. After entering the password `sudo` will run the command with `root` privileges.
+
+
+##SSH Key Only
+
+Log into the Linux virtual machine using SSH key authentication, then run commands using `sudo`, for example:
+
+	# sudo <command>
+
+In this case the user will **not** be prompted for a password. After pressing `<enter>`, `sudo` will run the command with `root` privileges.
+
