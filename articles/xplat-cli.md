@@ -81,7 +81,7 @@ While some commands provided by the xplat-cli will work without an Azure subscri
 
 To help you choose the authentication method that's appropriate for your needs, consider the following:
 
-*  The log in method can make it easier to manage access to subscription, but may disrupt automation. The log in credentials are cached by the xplat-cli for [TBD] hours. After the credentials expire, you will need to login again.
+*  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
 *  The publish settings file method installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a subscription as anyone with access to the certificate can manage the subscription.
 
 For more information about authentication and subscription management, see ["What's the difference between account-based authentication and certificate-based authentication"][authandsub].
@@ -93,6 +93,8 @@ If you don't have an account, you can create a free trial account in just a coup
 To log in using an organizational ID, use the following command:
 
 	azure login [username] [password]
+
+	>[WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache these credentials. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
 
 To log out, use the following command:
 
@@ -210,7 +212,7 @@ When in doubt about the parameters needed by a command, refer to help using `--h
 
 Historically, the xplat-cli has required you to work with individual services, or *resources*, one at a time. While this approach is fine for smaller applications that involve one or two resources, it is not ideal for larger applications that are a composition of many resources.
 
-To address this problem, Microsoft Azure recently introduced a more model based approach to configuration, known as Azure Resource Manager (ARM). ARM allows you to manage resources, such as a web site, database, and storage, as a single *resource group*. Changes to a resource group are made through a *deployment*, which the Azure platform keeps a history of. In the event that a new deployment breaks something with your application, you can revert to a previous deployment.
+To address this problem, Microsoft Azure recently introduced a more model based approach to configuration, known as Azure Resource Manager (ARM). ARM allows you to manage resources, such as a web site, database, and storage, as a single *resource group*. Changes to a resource group are made through a *deployment*, which the Azure platform keeps a history of. Deployments are created from *templates*, which allow you to configure the resources/group in a declarative fashion.
 
 [sync with matthew for review of conceptual info]
 
@@ -224,7 +226,9 @@ To change back to Azure service management mode, use the following command:
 
 	azure config mode asm 
 
-[note, call out that these are mutually exclusive so creating stuff with one, you can't query with the other]
+> [WACOM.NOTE] Resources created in one mode are not manageable from the other mode. For example, a Web Site and SQL Database created in ASM mode will not be visible in ARM mode, and resources/groups created in ARM mode will not be visible in ASM mode.
+
+For more information on working Azure Resource Manager using the xplat-cli, see [Microsoft Azure Cross-Platform Command-Line Interface and Azure Resource Manager][xplatarm].
 
 ###Working with services in Azure service management mode
 
@@ -263,60 +267,6 @@ The xplat-cli allows you to easily manage Azure services. In this example, you w
 		azure site delete mywebsite
 
 	After the command completes, use the `azure site list` command to verify that the web site no longer exists.
-
-###Working with services in Azure Resource Manager mode
-
-The new Azure Resource Manager functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. In this example, you will learn how to use a template to create a new resource group that contains a Web Site.
-
-1. The new resource group functionality is currently in preview, so the commands are not enabled with the xplat-cli by default. Use the following command to enable the resource group related commands.
-
-		azure config mode asm
-
-2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
-
-		azure group template list
-
-3. To view details of a specific template, use the following command.
-
-		azure group template show [templatename]
-
-4. Once you have selected a template, download it with the following command.
-
-		azure group template download [templatename]
-
-1. Use the following command to create a new resource group based on the template
-
-		azure group create mygroup [TBD parameters]
-
-	You will be prompted to specify the region that the web site will be created in. Select a region that is geographically near you.
-
-	When this command completes, [TBD]
-
-3. [TBD would like to say 'web site has been created', go use the browser to check it out]
-
-3. Use the following command to list all groups for your subscription.
-
-		azure group list
-
-	The list should contain the group created in the previous step. You can also view details of the group by using the following command.
-
-		azure group show mygroup
-
-2. [show that they can look at individual resources too and tweak it directly with resource commands like enable diagnostics logging]
-
-2. Use the following to view a list of the deployments for this group.
-
-		azure group deployment list mygroup
- 
-	The list should contain the deployment created by the previous step.
-
-3. [TBD do we want to stop deployment? what's the actual functionality]
-
-4. Use the following command to delete a group.
-
-		azure group delete mygroup
-
-For more information on the templates, see [TBD].
 
 <h2><a id="script"></a>How to script the Windows Azure Cross-Platform Command-Line Interface</h2>
 
@@ -429,3 +379,4 @@ If you are writing a script that relies on the exit status, please verify that t
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
+[xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
