@@ -59,7 +59,7 @@ If you have downloaded and imported your publish settings file using the [Azure 
 
 After you have created these files, you will need to upload the `.cer` file to Azure via the [management portal][management-portal], and you will need to make note of where you saved the `.pem` file.
 
-After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Azure, you can connect to the Azure managent endpoint by creating a connection string and passing it to the **createServiceManagementService** method on the **ServicesBuilder** class:
+After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Azure, you can connect to the Azure management endpoint by creating a connection string and passing it to the **createServiceManagementService** method on the **ServicesBuilder** class:
 
 	require_once 'vendor\autoload.php';
 	

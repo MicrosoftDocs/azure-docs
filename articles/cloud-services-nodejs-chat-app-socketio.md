@@ -83,7 +83,7 @@ server.js file:
 		});
 
 After saving the changes to server.js, use the following steps to
-install required modules, and then test the application in the Windows
+install required modules, and then test the application in the
 Azure emulator:
 
 1.  Using **Azure PowerShell**, change directories to the **C:\\node\\chatapp\\WorkerRole1** directory and use the following command to install the modules required by this application:
