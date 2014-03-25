@@ -2,20 +2,20 @@
 
 # Get started with Microsoft Azure Web Sites and Java
 
-This tutorial shows how to create a web site on Microsoft Azure using Java. The example shown will use the Azure gallery to select a Java application container, either Apache Tomcat or Jetty.
+This tutorial shows how to create a web site on Microsoft Azure using Java. The example shown will use the Azure application gallery to select a Java application container, either Apache Tomcat or Jetty.
 
-The following shows how a web site built using Tomcat would appear:
+The following shows how a web site built using Tomcat from the application gallery would appear:
 
 ![Web site using Apache Tomcat](./media/web-sites-java-get-started/tomcat.png)
 
 
-The following shows how a web site built using Jetty would appear:
+The following shows how a web site built using Jetty from the application gallery would appear:
 
 ![Web site using Jetty](./media/web-sites-java-get-started/jetty.png)
 
 <div class="dev-callout"><strong>Note</strong><p>To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.</p></div>
  
-# Create a Java web site using the Azure Gallery
+# Create a Java web site using the Azure application gallery
 
 1. Login to the Microsoft Azure Management Portal.
 2. Click **New**, click **Compute**, click **Web Site**, and then click **From Gallery**.
