@@ -1,6 +1,6 @@
 <properties linkid="develop-java-tutorials-web-site-get-started" urlDisplayName="Get started with Azure" pageTitle="Get started with Microsoft Azure Web Sites using Java" metaKeywords="" description="This tutorial shows you how to deploy a Java web site to Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Get started with Azure and Java" videoId="" scriptId="" authors="waltpo" solutions="" manager="keboyd" editor="mollybos" />
 
-# Get started with Microsoft Azure Web Sites and Java
+# Get started with Azure web sites and Java
 
 This tutorial shows how to create a web site on Microsoft Azure using Java. The example shown will use the Azure application gallery to select a Java application container, either Apache Tomcat or Jetty.
 
