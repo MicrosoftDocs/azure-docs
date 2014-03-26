@@ -94,19 +94,17 @@ Perform the following steps to enable a Git repository for your web site by usin
 
 <h3><a id="Step6"></a>Pushing local files to Azure (Local Git)</h3>
 
-Since you have already initialized a local repository and added files to it, skip steps 1 and 2 of the instructions displayed in the portal.
+At this point, the portal displays instructions for initializing a local repository and adding files. You have already done this in the previous steps in this topic. However, if you have not set up your deployment credentials, you must follow step 3 in the instructions. This directs you follow a link labeled **Reset your deployment credentials**.
 
-1. If you have never set your deployment credentials, look at step 3 in the portal, and click the Reset your deployment credentials link.
+Use the following steps to publish your web site to Azure using Local Git:
 
-2. Using the command-line, verify that you are in the root of your local Git repository that contains the previously created index.html file.
+1. Using the command-line, verify that you are in the root of your local Git repository that contains the previously created index.html file.
 
-3. Copy git remote add command listed in step 3 of the instructions returned by the portal. It will look similar to the following command:
+2. Copy git remote add command listed in step 3 of the instructions returned by the portal. It will look similar to the following command:
 
 		git remote add azure http://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
 
-The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your Azure Web Site repository.
-
-<h4>Publish and re-publish the web site</h4>
+    > [WACOM.NOTE] The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your Azure Web Site repository.
 
 1. Use the following from the command-line to push the current repository contents from the local repository to the 'azure' remote:
 
