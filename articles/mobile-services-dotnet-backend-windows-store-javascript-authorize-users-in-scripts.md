@@ -1,11 +1,11 @@
-<properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the .NET backend of Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga"  solutions="" writer="" manager="" editor=""  />
+<properties pageTitle="Service-side authorization (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the .NET backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
 # Service-side authorization of Mobile Services users
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts" title="iOS">iOS</a></div>
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/"  title="JavaScript backend">JavaScript backend</a></div>
 
-This topic shows you how to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Store app. In this tutorial you add code to the data access methods in your your controller that filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
+This topic shows you how to authorize authenticated users for accessing data in Azure Mobile Services from a Windows Store app. In this tutorial you add code to the data access methods in your your controller that filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
 This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with authentication]. Before you start this tutorial, you must first complete [Get started with authentication].  
 
@@ -40,7 +40,7 @@ This concludes the tutorials that demonstrate the basics of working with authent
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
   
-* [How to use an HTML/JavaScript client for Windows Azure Mobile Services]
+* [How to use an HTML/JavaScript client for Azure Mobile Services]
   <br/>Learn more about how to use Mobile Services with JavaScript and HTML.
 
 <!-- Anchors. -->
@@ -57,4 +57,4 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
 [Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push
 
-[How to use an HTML/JavaScript client for Windows Azure Mobile Services]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library
+[How to use an HTML/JavaScript client for Azure Mobile Services]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library

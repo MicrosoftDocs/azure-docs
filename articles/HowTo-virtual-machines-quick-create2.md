@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-howto-quick-create-vm" urlDisplayName="Quick create a VM" pageTitle="Quick create a virtual machine in Windows Azure" metaKeywords="Azure creating vm, creating vm" description="Learn how to create a Windows Azure virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-windows-howto-quick-create-vm" urlDisplayName="Quick create a VM" pageTitle="Quick create a virtual machine in Azure" metaKeywords="Azure creating vm, creating vm" description="Learn how to create an Azure virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="" solutions="" manager="" editor="" />
 
 
 

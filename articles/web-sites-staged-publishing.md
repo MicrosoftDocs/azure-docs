@@ -1,6 +1,6 @@
-<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Windows Azure" pageTitle="Staged Publishing on Windows Azure Web Sites" metaKeywords="Windows Azure Web Sites, Staged Publishing, Site Slots" description="Learn how to use staged publishing on Windows Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Publishing on Windows Azure Web Sites" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-staged-publishing" urlDisplayName="How to stage sites on Azure" pageTitle="Staged Publishing on Azure Web Sites" metaKeywords="Azure Web Sites, Staged Publishing, Site Slots" description="Learn how to use staged publishing on Azure Web Sites." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Publishing on Azure Web Sites" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
 
-#Staged Publishing on Windows Azure Web Sites#
+#Staged Publishing on Azure Web Sites#
 
 ## Table of Contents ##
 - [Overview](#Overview)
@@ -12,7 +12,7 @@
 
 <a name="Overview"></a>
 ##Overview##
-The option to create multiple site slots with Standard mode sites running on Windows Azure Web Sites enables you to perform staged publishing. Staged publishing creates a staging site slot for each default production site (which now becomes a production slot) and enables you to swap these slots with no down time. Staged publishing is invaluable for the following scenarios:
+The option to create multiple site slots with Standard mode sites running on Azure Web Sites enables you to perform staged publishing. Staged publishing creates a staging site slot for each default production site (which now becomes a production slot) and enables you to swap these slots with no down time. Staged publishing is invaluable for the following scenarios:
 
 - **Validating before deployment** - After you deploy content or configuration to a staging site slot, you can validate changes before swapping these changes to production.
 
@@ -20,7 +20,7 @@ The option to create multiple site slots with Standard mode sites running on Win
 
 - **Rolling back a production site** - If the changes swapped into production are not as you expected, you can swap the original content back to production right away. 
 
-A Windows Azure Web Sites site slot swap warms up all instances of the staging slot before the swap to production, eliminating cold starts when you deploy content. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. Currently, only one site slot in addition to the default production slot is supported per Standard web site.
+An Azure Web Sites site slot swap warms up all instances of the staging slot before the swap to production, eliminating cold starts when you deploy content. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. Currently, only one site slot in addition to the default production slot is supported per Standard web site.
 
 <a name="Enable"></a>
 ##To Enable Staged Publishing for a Web Site##
@@ -102,7 +102,7 @@ If any errors are identified for the content or configuration swapped to product
 <a name="Delete"></a>
 ##To Delete a Staging Site##
 
-In the command bar at the bottom of the Windows Azure Web Sites portal page, click **Delete**. You will be given the option to delete both production and staging sites, or delete the staging site only. 
+In the command bar at the bottom of the Azure Web Sites portal page, click **Delete**. You will be given the option to delete both production and staging sites, or delete the staging site only. 
 
 ![Delete Staging Site][DeleteStagingSiteButton]
 

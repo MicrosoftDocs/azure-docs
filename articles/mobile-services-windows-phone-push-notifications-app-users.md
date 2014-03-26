@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="develop-net-tutorials-push-notifications-to-users-wp8" urlDisplayName="Push Notifications to Users (WP8)" pageTitle="Push notifications to users (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Windows Phone app." metaCanonical="" services="" documentationCenter="" title="Push notifications to users by using Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 
@@ -22,7 +22,7 @@ This tutorial is based on the Mobile Services quickstart and builds on the previ
 
 ## <a name="create-table"></a>Create a new table
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![][0]
 
@@ -221,4 +221,4 @@ This concludes the tutorials that demonstrate the basics of working with push no
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/

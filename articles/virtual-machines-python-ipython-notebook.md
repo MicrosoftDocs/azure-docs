@@ -1,10 +1,10 @@
-<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Windows Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Windows Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-# IPython Notebook on Windows Azure
+# IPython Notebook on Azure
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -24,7 +24,7 @@ recording:
 
 This document will show you how to deploy the IPython Notebook on Windows
 Azure, using Linux or Windows virtual machines (VMs).  By using the IPython
-Notebook on Windows Azure, you can easily provide a web-accessible interface to
+Notebook on Azure, you can easily provide a web-accessible interface to
 scalable computational resources with all the power of Python and its many
 libraries.  Since all installation is done in the cloud, users can access these
 resources without the need for any local configuration beyond a modern web
@@ -32,11 +32,11 @@ browser.
 
 [WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
-## Create and Configure a VM on Windows Azure
+## Create and Configure a VM on Azure
 
-The first step is to create a Virtual Machine (VM)  running on Windows Azure.
+The first step is to create a Virtual Machine (VM)  running on Azure.
 This VM is a complete operating system in the cloud and will be used to
-run the IPython Notebook. Windows Azure is capable of running both Linux and Windows
+run the IPython Notebook. Azure is capable of running both Linux and Windows
 virtual machines, and we will cover the setup of IPython on both types of virtual machines.
 
 ### Linux VM
@@ -51,8 +51,8 @@ Follow the instructions given [here][portal-vm-windows] to create a virtual mach
 
 This step applies to both the Linux and Windows VM. Later on we will configure
 IPython to run its notebook server on port 9999. To make this port publicly
-available, we must create an endpoint in the Windows Azure Management Portal. This
-endpoint opens up a port in the Windows Azure firewall and maps the public port (HTTPS,
+available, we must create an endpoint in the Azure Management Portal. This
+endpoint opens up a port in the Azure firewall and maps the public port (HTTPS,
 443) to the private port on the VM (9999).
 
 To create an endpoint, go to the VM dashboard, click "Endpoints", then "Add
@@ -216,7 +216,7 @@ has at least the following content:
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
     
     # Network and browser details. We use a fixed port (9999) so it matches
-    # our Windows Azure setup, where we've allowed traffic on that port
+    # our Azure setup, where we've allowed traffic on that port
     
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
@@ -310,19 +310,19 @@ can be used:
 If you go to the IPython source code repository, you will find an entire
 directory with [notebook
 examples](https://github.com/ipython/ipython/tree/master/examples/notebooks)
-which you can download and then experiment with on your own Windows Azure IPython VM.
+which you can download and then experiment with on your own Azure IPython VM.
 Simply download the `.ipynb` files from the site and upload them onto the
-dashboard of your notebook Windows Azure VM (or download them directly into the VM).
+dashboard of your notebook Azure VM (or download them directly into the VM).
 
 ## Conclusion
 
 The IPython Notebook provides a powerful interface for accessing interactively
-the power of the Python ecosystem on Windows Azure.  It covers a wide range of
+the power of the Python ecosystem on Azure.  It covers a wide range of
 usage cases including simple exploration and learning Python, data analysis and
 visualization, simulation and parallel computing. The resulting Notebook
 documents contain a complete record of the computations that are performed and
 can be shared with other IPython users.  The IPython Notebook can be used as a
-local application, but it is ideally suited for cloud deployments on Windows Azure
+local application, but it is ideally suited for cloud deployments on Azure
 
 The core features of IPython are also available inside Visual Studio via the 
 [Python Tools for Visual Studio](http://pytools.codeplex.com) (PTVS). PTVS is a free and open-source plug-in 

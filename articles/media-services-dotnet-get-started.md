@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Windows Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Windows Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -6,7 +6,7 @@
 
 # <a name="getting-started"></a>Get started with Media Services
 
-This tutorial shows you how to start developing with Windows Azure Media Services. It introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to play back a sample media file that you uploaded, encoded, and downloaded. Or you can browse to the encoded asset and play it back on the server. 
+This tutorial shows you how to start developing with Azure Media Services. It introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to play back a sample media file that you uploaded, encoded, and downloaded. Or you can browse to the encoded asset and play it back on the server. 
 
 A C# Visual Studio project that contains the code for this tutorial is available here: [Download](http://go.microsoft.com/fwlink/?linkid=253275).
 
@@ -18,15 +18,15 @@ This tutorial walks you through these basic steps:
 * [Encoding an asset and downloading an output asset](#Step4)
 
 ## Prerequisites
-The following prerequisites are required for the walkthrough and for development based on the Windows Azure Media Services SDK.
+The following prerequisites are required for the walkthrough and for development based on the Azure Media Services SDK.
 
-- A Media Services account in a new or existing Windows Azure subscription. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662).
+- A Media Services account in a new or existing Azure subscription. For details, see [How to Create a Media Services Account](http://go.microsoft.com/fwlink/?LinkId=256662).
 - Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 - .NET Framework 4.5 or .NET Framework 4.
 - Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
-- Install **Windows Azure SDK for .NET.**, **Windows Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
+- Install **Azure SDK for .NET.**, **Azure Media Services SDK for .NET**, and **WCF Data Services 5.0 for OData V3 libraries** and add references to your project using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. The following section demonstrates how to install and add these references.
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Windows Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.</p></div>
 
 <h2><a id="Step1"></a>Setting up your project</h2>
 
@@ -36,11 +36,11 @@ The following prerequisites are required for the walkthrough and for development
 
 	To add references using the **Manage References** dialog, do the following. Right-click on 	the **References** node in **Solution Explorer** and select **Add Reference**. In the 	**Manage References** dialog, select the appropriate assemblies (in this case 	System.Configuration.)
 
-3. If you have not done so yet, add references to **Windows Azure SDK for .NET**.(Microsoft.WindowsAzure.StorageClient.dll), **Windows Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the <a href="http://nuget.org/packages/windowsazure.mediaservices">windowsazure.mediaservices Nuget</a> package. 
+3. If you have not done so yet, add references to **Azure SDK for .NET**.(Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the <a href="http://nuget.org/packages/windowsazure.mediaservices">windowsazure.mediaservices Nuget</a> package. 
 
 	To add references using Nuget, do the following. In Visual Studio Main Menu, select TOOLS -> Library Package Manager -> Package Manager Console. In the console window type <i>Install-Package [package name]</i> and press enter (in this case use the following command: <i>Install-Package windowsazure.mediaservices</i>.)
 
-4. Add an *appSettings* section to the **app.config** file, and set the values for your Windows Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
+4. Add an *appSettings* section to the **app.config** file, and set the values for your Azure Media Services account name and account key. You obtained the Media Services account name and account key during the account setup process. Add these values to the value attribute for each setting in the app.config file in the Visual Studio project.
 
 	> [WACOM.NOTE]
 	>In Visual Studio 2012, the App.config file is added by default. In Visual Studio 2010, you have to manually add the Application Configuration file.
@@ -114,7 +114,7 @@ When you create assets, you can specify three different options for encrypting t
 
 	- **AssetCreationOptions.None**: no encryption. If you want to create an unencrypted asset, you must set this option.
 	- **AssetCreationOptions.CommonEncryptionProtected**: for Common Encryption Protected (CENC) files. An example is a set of files that are already PlayReady encrypted. 
-	- **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Windows Azure storage.
+	- **AssetCreationOptions.StorageEncrypted**: storage encryption. Encrypts a clear input file before it is uploaded to Azure storage.
 
 		<div class="dev-callout"> 
 	<strong>Note</strong> 
@@ -174,7 +174,7 @@ Add a call to the method after the **\_context = new CloudMediaContext(_accountN
 
 <h2><a id="Step4"></a>Encoding the Asset on the Server and Downloading an Output Asset</h2>
 
-In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Windows Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see [Task Preset Strings for Windows Azure Media Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx) . Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see [Supported File Types for Media Services](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx).
+In Media Services, you can create jobs that process media content in several ways: encoding, encrypting, doing format conversions, and so on. A Media Services job always contains one or more tasks that specify the details of the processing work. In this section you create a basic encoding task, and then run a job that performs it using Azure Media Encoder. The task uses a preset string to specify the type of encoding to perform. To see the available preset encoding values, see [Task Preset Strings for Azure Media Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx) . Media Services support the same media file input and output formats as Microsoft Expression Encoder. For a list of supported formats, see [Supported File Types for Media Services](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx).
 
 <ol>
 <li>
@@ -184,10 +184,10 @@ Add the following <strong>CreateEncodingJob</strong> method definition to your c
 Declare a new job.
 </li>
 <li>
-Declare a media processor to handle the job. A media processor is a component that handles encoding, encrypting, format conversion, and other related processing jobs. There are several types of available media processors (you can iterate through all of them using _context.MediaProcessors.) The GetLatestMediaProcessorByName method, shown later in this walkthrough, returns the Windows Azure Media Encoder processor.
+Declare a media processor to handle the job. A media processor is a component that handles encoding, encrypting, format conversion, and other related processing jobs. There are several types of available media processors (you can iterate through all of them using _context.MediaProcessors.) The GetLatestMediaProcessorByName method, shown later in this walkthrough, returns the Azure Media Encoder processor.
 </li>
 <li>
-Declare a new task. Every job has one or more tasks. Notice that with the task, you pass to it a friendly name, a media processor instance, a task configuration string, and task creation options. The configuration string specifies encoding settings. This example uses the <strong>H264 Broadband 720p</strong> setting. This preset produces a single MP4 file. For more information about this and other presets, see <a href="http://msdn.microsoft.com/library/windowsazure/jj129582.aspx">Task Preset Strings for Windows Azure Media Encoder</a>.
+Declare a new task. Every job has one or more tasks. Notice that with the task, you pass to it a friendly name, a media processor instance, a task configuration string, and task creation options. The configuration string specifies encoding settings. This example uses the <strong>H264 Broadband 720p</strong> setting. This preset produces a single MP4 file. For more information about this and other presets, see <a href="http://msdn.microsoft.com/library/windowsazure/jj129582.aspx">Task Preset Strings for Azure Media Encoder</a>.
 </li>
 <li>
 Add an input asset to the task. In this example, the input asset is the one you created in the previous section.
@@ -208,7 +208,7 @@ static IJob CreateEncodingJob(IAsset asset, string inputMediaFilePath, string ou
     IJob job = _context.Jobs.Create("My encoding job");
     // Get a media processor reference, and pass to it the name of the 
     // processor to use for the specific task.
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Encoder");
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
 
     // Create a task with the encoding details, using a string preset.
     ITask task = job.Tasks.AddNew("My encoding task",
@@ -316,15 +316,15 @@ CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 Add the following helper methods to the class. These are required to support the <strong>CreateEncodingJob</strong> method. Following is a summary of the helper methods.
 <ul>
 <li>
-The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Windows Azure Media Encoder</strong>, <strong>Windows Azure Media Packager</strong>, <strong>Windows Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
+The <strong>GetLatestMediaProcessorByName</strong> method returns an appropriate media processor to handle an encoding, encryption, or other related processing task. You create a media processor using the appropriate string name of the processor you want to create. The possible strings that can be passed into the method for the mediaProcessor parameter are: <strong>Azure Media Encoder</strong>, <strong>Azure Media Packager</strong>, <strong>Azure Media Encryptor</strong>, <strong>Storage Decryption</strong>.
 <pre><code>
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 {
     // The possible strings that can be passed into the 
     // method for the mediaProcessor parameter:
-    //   Windows Azure Media Encoder
-    //   Windows Azure Media Packager
-    //   Windows Azure Media Encryptor
+    //   Azure Media Encoder
+    //   Azure Media Packager
+    //   Azure Media Encryptor
     //   Storage Decryption
 
     var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -654,7 +654,7 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 2. An .wmv file is uploaded into Media Services. 
 
-3. The file is then encoded using the **H264 Broadband 720p** preset of the **Windows Azure Media Encoder**.
+3. The file is then encoded using the **H264 Broadband 720p** preset of the **Azure Media Encoder**.
 
 4. The FileSasUrlList.txt file is created in the \supportFiles\outputFiles folder. The file contains the URL to the encoded asset. 
 
@@ -664,7 +664,7 @@ File download path:  C:\supportFiles\outputfiles\interview2_metadata.xml
 
 <div class="dev-callout"> 
 <strong>Note</strong> 
-<p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Windows Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
+<p>In the Media Services object model, an asset is a Media Services content collection object that represents one to many files. The locator path provides an Azure blob URL which is the base path to this asset in Azure Storage. To access specific files within the asset, add a file name to the base locator path.</p> 
 </div>
 
 <h2>Next Steps</h2>

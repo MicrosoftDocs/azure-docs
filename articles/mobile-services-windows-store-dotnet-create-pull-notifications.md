@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-create-pull-notifications-dotnet" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Windows Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-create-pull-notifications-dotnet" urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Define a custom API that supports pull notifications - Azure Mobile Services" metaKeywords="" description="Learn how to Define a custom API that supports periodic notifications in Windows Store apps that use Azure Mobile Services." metaCanonical="" services="" documentationCenter="" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="" editor="" />
 
 
 
@@ -21,7 +21,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="define-custom-api"></a>Define the custom API
 
-1. Log into the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![][0]
 
@@ -154,7 +154,7 @@ Now that you have created a periodic notification, consider finding out more abo
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
 
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library

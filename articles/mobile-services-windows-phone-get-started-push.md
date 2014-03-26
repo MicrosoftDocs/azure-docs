@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with push notifications (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Windows Phone app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Get started with push notifications (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 # Get started with push notifications in Mobile Services
@@ -8,10 +8,10 @@
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
 
-This topic shows you how to use Windows Azure Mobile Services to send push notifications to a Windows Phone 8 app. 
+This topic shows you how to use Azure Mobile Services to send push notifications to a Windows Phone 8 app. 
 In this tutorial you add push notifications using the Microsoft Push Notification Service (MPNS) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]Mobile Services now integrates with Windows Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+>[WACOM.NOTE]Mobile Services now integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -155,7 +155,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrates the basic push notification functionality provided by Mobile Services. If your app requires more advanced functionalities, such as sending cross-platform notifications, subscription-based routing, or very large volumes, consider using Windows Azure Notification Hubs with your mobile service. For more information, see one of the following Notification Hubs topics:
+This tutorial demonstrates the basic push notification functionality provided by Mobile Services. If your app requires more advanced functionalities, such as sending cross-platform notifications, subscription-based routing, or very large volumes, consider using Azure Notification Hubs with your mobile service. For more information, see one of the following Notification Hubs topics:
 
 + [Get started with Notification Hubs]
   <br/>Learn how to leverage Notification Hubs in your Windows Store app.
@@ -214,7 +214,7 @@ Consider finding out more about the following Mobile Services topics:
 [Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-wp8
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [mpns object]: http://go.microsoft.com/fwlink/p/?LinkId=271130
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/

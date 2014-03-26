@@ -1,8 +1,8 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-authentication" urlDisplayName="Register for Microsoft Authentication" pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Windows Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Windows Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" />
+<properties linkid="develop-mobile-how-to-guides-register-for-microsoft-authentication" urlDisplayName="Register for Microsoft Authentication" pageTitle="Register for Microsoft authentication - Mobile Services" metaKeywords="Azure registering application, Azure Microsoft authentication, application authenticate, authenticate mobile services" description="Learn how to register for Microsoft authentication in your Azure Mobile Services application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" title="Register your apps to use a Microsoft Account login" authors="" />
 
 # Register your apps to use a Microsoft Account login
 
-This topic shows you how to register your apps to be able to use Live Connect as an authentication provider for Windows Azure Mobile Services. 
+This topic shows you how to register your apps to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
 
 <div class="dev-callout"><b>Note</b>
 <p>When you intend to also provide client-driven authentication for single sign-on (SSO) or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">Register your Windows Store apps for Windows Live Connect authentication</a>.</p>
@@ -43,4 +43,4 @@ You are now ready to use a Microsoft Account for authentication in your app by p
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/

@@ -1,16 +1,16 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using PowerShell - Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to perform administrative tasks for the HDInsight clusters using PowerShell." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" title="Administer HDInsight using PowerShell" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to perform administrative tasks for the HDInsight clusters using PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer HDInsight using PowerShell" authors="bradsev" />
 
 # Administer HDInsight using PowerShell
 
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. In this article, you will learn how to manage HDInsight clusters using a local Windows Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage HDInsight clusters using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
 **Prerequisites:**
 
 Before you begin this article, you must have the following:
 
-- A Windows Azure subscription. Windows Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- An Azure subscription. Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-- A workstation with Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][Powershell-install-configure].
+- A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
 
 			
 	
@@ -27,14 +27,14 @@ Before you begin this article, you must have the following:
 
 
 ##<a id="provision"></a> Provision an HDInsight cluster
-HDInsight uses a Windows Azure Blob Storage container as the default file system. A Windows Azure storage account and storage container are required before you can create an HDInsight cluster. 
+HDInsight uses an Azure Blob Storage container as the default file system. An Azure storage account and storage container are required before you can create an HDInsight cluster. 
 
 
-**To create a Windows Azure storage account**
+**To create an Azure storage account**
 
 After you have imported the publishsettings file, you can use the following command to create a storage account:
 
-	# Create a Azure storage account
+	# Create an Azure storage account
 	$storageAccountName = "<StorageAcccountName>"
 	$location = "<Microsoft data center>"           # For example, "West US"
 
@@ -52,7 +52,7 @@ After you have imported the publishsettings file, you can use the following comm
 
 
 
-For information on creating a Windows Azure storage account using the management portal, see [How to Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+For information on creating an Azure storage account using the management portal, see [How to Create a Storage Account](/en-us/manage/services/storage/how-to-create-a-storage-account/).
 
 If you have already had a storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -63,7 +63,7 @@ If you have already had a storage account but do not know the account name and a
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
-**To create Windows Azure storage container**
+**To create Azure storage container**
 
 PowerShell can not create a Blob container during the HDInsight provision process. You can create one using the following script:
 
@@ -140,7 +140,7 @@ The following PowerShell script submits the word count sample job:
 	
 > [WACOM.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
 
-For information about the WASB prefix, see [Use Windows Azure Blob storage for HDInsight][hdinsight-
+For information about the WASB prefix, see [Use Azure Blob storage for HDInsight][hdinsight-
 storage].
 
 **To download the MapReduce job output**
@@ -239,7 +239,7 @@ See the [Submit MapReduce jobs](#mapreduce) session in this article.
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]
-* [Get started with Windows Azure HDInsight][hdinsight-get-started]
+* [Get started with Azure HDInsight][hdinsight-get-started]
 
 
 [azure-purchase-options]: https://www.windowsazure.com/en-us/pricing/purchase-options/

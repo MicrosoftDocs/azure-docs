@@ -1,4 +1,4 @@
-<properties linkid="notification-hubs-how-to-guides-howto-notify-users-aspnet" urlDisplayName="Notify Users" pageTitle="Notify Users of your ASP.NET service with Notification Hubs" metaKeywords="" description="Follow this tutorial to register to receive notifications from your ASP.NET service by using Notification Hubs" metaCanonical="" services="notification-hubs" documentationCenter="" title="Notify users with Notification Hubs" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="notification-hubs-how-to-guides-howto-notify-users-aspnet" urlDisplayName="Notify Users" pageTitle="Notify Users of your ASP.NET service with Notification Hubs" metaKeywords="" description="Follow this tutorial to register to receive notifications from your ASP.NET service by using Notification Hubs" metaCanonical="" services="notification-hubs" documentationCenter="" title="Notify users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
 # Notify users with Notification Hubs
 
@@ -6,7 +6,7 @@
     <a href="/en-us/manage/services/notification-hubs/notify-users" title="Mobile Services">Mobile Services</a><a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="ASP.NET" class="current">ASP.NET</a>
 </div> 
 
-This tutorial shows you how to use Windows Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET Web API backend is used to authenticate clients and to generate notifications. This tutorial builds on the notification hub that you created in the previous **Get started with Notification Hubs** tutorial. The notification registration code is moved from the client to the backend service. This ensures that registration is only completed after a client has been positively authenticated by the service. It also means that notification hub credentials aren't distributed with the client app. The service also controls the tags requested during registration.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET Web API backend is used to authenticate clients and to generate notifications. This tutorial builds on the notification hub that you created in the previous **Get started with Notification Hubs** tutorial. The notification registration code is moved from the client to the backend service. This ensures that registration is only completed after a client has been positively authenticated by the service. It also means that notification hub credentials aren't distributed with the client app. The service also controls the tags requested during registration.
 
 This tutorial walks you through the following basic steps: 
 
@@ -20,7 +20,7 @@ This tutorial walks you through the following basic steps:
 + This tutorial builds upon the app and notification hub that you created in **Get started with Notification Hubs**.  Before you start this tutorial, you must first complete the tutorial **Get started with Notification Hubs** ([Windows Store C#][Get started Windows Store]/[iOS][Get started iOS]/[Android][Get started Android]). 
 
 <div class="dev-callout"><b>Note</b>
-	<p>The ASP.NET Web API project that you create in this tutorial runs on your local computer. You can also publish an ASP.NET Web API project to Windows Azure. For more information, see <a href="/en-us/develop/net/tutorials/rest-service-using-web-api/" target="_blank">Create a mobile-friendly REST service using ASP.NET Web API and SQL Database</a>.</p>
+	<p>The ASP.NET Web API project that you create in this tutorial runs on your local computer. You can also publish an ASP.NET Web API project to Azure. For more information, see <a href="/en-us/develop/net/tutorials/rest-service-using-web-api/" target="_blank">Create a mobile-friendly REST service using ASP.NET Web API and SQL Database</a>.</p>
 </div>
 
 <h2><a name="create-application"></a><span class="short-header">Create the ASP.NET app</span>Create an ASP.NET application with authentication</h2>
@@ -119,7 +119,7 @@ Now that we have created the basic application with a mock authentication scheme
 
 The next step is to add the registration logic for notification hubs to the ASP.NET application by creating a new **Registration** controller. 
 
-1. Log into the [Windows Azure Management Portal][Management Portal], click **Service Bus**, your namespace, **Notification Hubs**, then choose your notification hub and click **Connection Information**.  
+1. Log into the [Azure Management Portal][Management Portal], click **Service Bus**, your namespace, **Notification Hubs**, then choose your notification hub and click **Connection Information**.  
 
 	![][6]
 
@@ -131,7 +131,7 @@ The next step is to add the registration logic for notification hubs to the ASP.
 
 3. In **Solution Explorer**, right-click the project name, and then select **Manage NuGet Packages**.
 
-4. In the left pane, select the **Online** category, search for `WindowsAzure.ServiceBus`, click **Install** on the **Windows Azure Service Bus** package, then accept the license agreement. 
+4. In the left pane, select the **Online** category, search for `WindowsAzure.ServiceBus`, click **Install** on the **Azure Service Bus** package, then accept the license agreement. 
 
   	![][2]
 
@@ -309,7 +309,7 @@ Now that you have completed this tutorial, consider completing the following tut
 
 + **[Send cross-platform notifications to users with Notification Hubs]**<br/>This tutorial extends the current **Notify users with Notification Hubs** tutorial to use platform-specific templates to register for notifications. This enables you to send notifications from a single method in your server-side code.
 
-For more information about Notification Hubs, see [Windows Azure Notification Hubs].
+For more information about Notification Hubs, see [Azure Notification Hubs].
 
 <!-- Anchors. -->
 [Create an ASP.NET application with authentication]: #create-application
@@ -343,4 +343,4 @@ For more information about Notification Hubs, see [Windows Azure Notification Hu
 [Send cross-platform notifications to users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users-xplat-aspnet
 [Breaking news .NET]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
 [Breaking news iOS]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
-[Windows Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
+[Azure Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx

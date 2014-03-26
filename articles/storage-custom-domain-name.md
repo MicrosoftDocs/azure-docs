@@ -1,17 +1,17 @@
-<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Create a custom domain name for a Windows Azure Storage account" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in a Windows Azure storage account." metaCanonical="" services="" documentationCenter="" title="Configuring a custom domain name for blob data in a Windows Azure storage account" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" authors="" solutions="" manager="paulettm" editor="cgronlun" />
 
 
-# Configuring a custom domain name for blob data in a Windows Azure storage account
-You can configure a custom domain for accessing blob data in your Windows Azure storage account. The default endpoint for the Blob service is https://<*mystorageaccount*>.blob.core.windows.net. If you map a custom domain and subdomain such as **www.contoso.com** to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain. 
+# Configure a custom domain name for blob data in an Azure storage account
+You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for the Blob service is https://<*mystorageaccount*>.blob.core.windows.net. If you map a custom domain and subdomain such as **www.contoso.com** to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain. 
 
 <div class="dev-callout"> 
 <b>Note</b> 
-	<p>The procedures in this task apply to Windows Azure storage accounts. For cloud services, see <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name for a Windows Azure Cloud Service</a>; for Web Sites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for a Windows Azure Web Site</a>.</p> 
+	<p>The procedures in this task apply to Azure storage accounts. For cloud services, see <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name for an Azure Cloud Service</a>; for Web Sites, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a Custom Domain Name for an Azure Web Site</a>.</p> 
 </div>
 
 There are two ways to point your custom domain to the blob endpoint for your storage account. The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint. A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain--note that the subdomain is always required. The destination domain is your Blob service endpoint.
 
-The process of mapping your custom domain to your blob endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Windows Azure Management Portal. If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Windows Azure **asverify** subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.
+The process of mapping your custom domain to your blob endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal. If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure **asverify** subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.
 
 The following table shows sample URLs for accessing blob data in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
 
@@ -62,7 +62,7 @@ To configure a custom domain name, you must create a new CNAME record with your 
 Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept
 is the same. Note that many basic domain registration packages do not offer DNS configuration, so you may need to upgrade your domain registration package before you can create the CNAME record. 
 
-1.  In the Windows Azure Management Portal, navigate to the **Storage** tab.
+1.  In the Azure Management Portal, navigate to the **Storage** tab.
 
 2.  In the **Storage** tab, click the name of the storage account for which you want to map the custom domain.
 
@@ -89,11 +89,11 @@ is the same. Note that many basic domain registration packages do not offer DNS 
 
 <h2><a name="register-asverify"></a>Register a custom domain for your storage account using the intermediary asverify subdomain</h2>
 
-Use this procedure to register your custom domain if your custom domain is currently supporting an application with an SLA that requires that there be no downtime. By creating a CNAME that points from asverify.&lt;subdomain&gt;.&lt;customdomain&gt; to asverify.&lt;storageaccount&gt;.blob.core.windows.net, you can pre-register your domain with Windows Azure. You can then create a second CNAME that points from &lt;subdomain&gt;.&lt;customdomain&gt; to &lt;storageaccount&gt;.blob.core.windows.net, at which point traffic to your custom domain will be directed to your blob endpoint.
+Use this procedure to register your custom domain if your custom domain is currently supporting an application with an SLA that requires that there be no downtime. By creating a CNAME that points from asverify.&lt;subdomain&gt;.&lt;customdomain&gt; to asverify.&lt;storageaccount&gt;.blob.core.windows.net, you can pre-register your domain with Azure. You can then create a second CNAME that points from &lt;subdomain&gt;.&lt;customdomain&gt; to &lt;storageaccount&gt;.blob.core.windows.net, at which point traffic to your custom domain will be directed to your blob endpoint.
 
-The asverify subdomain is a special subdomain recognized by Windows Azure. By prepending **asverify** to your own subdomain, you permit Windows Azure to recognize your custom domain without modifying the DNS record for the domain. Once you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.
+The asverify subdomain is a special subdomain recognized by Azure. By prepending **asverify** to your own subdomain, you permit Azure to recognize your custom domain without modifying the DNS record for the domain. Once you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.
 
-1.  In the Windows Azure Management Portal, navigate to the **Storage** tab.
+1.  In the Azure Management Portal, navigate to the **Storage** tab.
 
 2.  In the **Storage** tab, click the name of the storage account for which you want to map the custom domain.
 
@@ -120,7 +120,7 @@ The asverify subdomain is a special subdomain recognized by Windows Azure. By pr
 
 	If the preregistration is successful, you will see the message **Your custom domain is active**. 
 
-11. At this point, your custom domain has been verified by Windows Azure, but traffic to your domain is not yet being routed to your storage account. To complete the process, return to your DNS registrar's web site, and create another CNAME record that maps your subdomain to your Blob service endpoint. For example, specify the subdomain as **www** or **photos**, and the hostname as **mystorageaccount.blob.core.windows.net** (where **mystorageaccount** is the name of your storage account). With this step, the registration of your custom domain is complete.
+11. At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account. To complete the process, return to your DNS registrar's web site, and create another CNAME record that maps your subdomain to your Blob service endpoint. For example, specify the subdomain as **www** or **photos**, and the hostname as **mystorageaccount.blob.core.windows.net** (where **mystorageaccount** is the name of your storage account). With this step, the registration of your custom domain is complete.
 
 12. Finally, you can delete the CNAME record you created using **asverify**, as it was necessary only as an intermediary step.
 

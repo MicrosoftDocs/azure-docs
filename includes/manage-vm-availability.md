@@ -6,11 +6,11 @@ To help ensure the availability of your application, we strongly recommend using
 
 This approach can help ensure that your application is available during local network failures, local disk hardware failures, and any planned downtime that the platform may require.
 
-You manage the availability of an application that uses multiple virtual machines by adding the virtual machines to an availability set. Availability sets are directly related to fault domains and update domains. A fault domain in Windows Azure is defined by avoiding single points of failure, like the network switch or power unit of a rack of servers. In fact, a fault domain is closely equivalent to a rack of physical servers.  When multiple virtual machines are connected in a cloud service, an availability set places the virtual machines in different fault domains. The following diagram shows two availability sets with two virtual machines in each set.
+You manage the availability of an application that uses multiple virtual machines by adding the virtual machines to an availability set. Availability sets are directly related to fault domains and update domains. A fault domain in Azure is defined by avoiding single points of failure, like the network switch or power unit of a rack of servers. In fact, a fault domain is closely equivalent to a rack of physical servers.  When multiple virtual machines are connected in a cloud service, an availability set places the virtual machines in different fault domains. The following diagram shows two availability sets with two virtual machines in each set.
 
 ![Update domains](./media/manage-vm-availability/UpdateDomains.png)
 
-Windows Azure periodically updates the operating system that hosts the instances of an application. A virtual machine is shut down when an update is applied. An update domain is used to ensure that not all of the virtual machine instances are updated at the same time. When you assign multiple virtual machines to an availability set, Windows Azure ensures that the machines are assigned to different update domains. The previous diagram shows two virtual machines running Internet Information Services (IIS) in separate update domains and two virtual machines running SQL Server also in separate update domains.
+Azure periodically updates the operating system that hosts the instances of an application. A virtual machine is shut down when an update is applied. An update domain is used to ensure that not all of the virtual machine instances are updated at the same time. When you assign multiple virtual machines to an availability set, Azure ensures that the machines are assigned to different update domains. The previous diagram shows two virtual machines running Internet Information Services (IIS) in separate update domains and two virtual machines running SQL Server also in separate update domains.
 
 You should use a combination of availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For more information about using load-balanced endpoints, see [Load Balancing Virtual Machines] [].
 
@@ -27,7 +27,7 @@ To create an availability set that contains virtual machines, you can create the
 
 **To create a virtual machine and availability set**
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the Azure Management Portal.
 
 2. On the command bar, click **New**.
 
@@ -80,7 +80,7 @@ The previous step showed you how to create a virtual machine and availability se
 
 **To connect a new virtual machine and add it to the availability set**
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the Azure Management Portal.
 
 2. On the command bar, click **New**.
 
@@ -134,7 +134,7 @@ You can create an availability set and add a virtual machine to it after you cre
 
 **To create a new availability set**
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the Azure Management Portal.
 
 2. Click **Virtual Machines**, and then select the virtual machine that you want to configure.
 
@@ -153,7 +153,7 @@ You can easily add an existing virtual machine to an availability set that was p
 
 **To add an existing virtual machine to an availability set**
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the Azure Management Portal.
 
 2. Click **Virtual Machines**, and then select the virtual machine that you want to add to the availability set.
 

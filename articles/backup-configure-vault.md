@@ -1,28 +1,28 @@
-<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Windows Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Windows Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Windows Azure Backup to quickly and easily back-up Windows Server" authors=""  solutions="" writer="starra" manager="cynthn" editor="tysonn"  />
+<properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="starra" solutions="" manager="cynthn" editor="tysonn" />
 
 
 
-<h1><a id="configure-a-backup-vault-tutorial"></a>Configure Windows Azure Backup to quickly and easily back-up Windows Server</h1>
+<h1><a id="configure-a-backup-vault-tutorial"></a>Configure Azure Backup to quickly and easily back-up Windows Server</h1>
 <div class="dev-callout"> 
 <strong>Note</strong>
  
-<p>To complete this tutorial, you need a Windows Azure account that has the Windows Azure Backup feature enabled.</p>
+<p>To complete this tutorial, you need an Azure account that has the Azure Backup feature enabled.</p>
 <ul> 
-<li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Windows Azure Free Trial</a>.</li> 
+<li>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="/en-us/pricing/free-trial/">Azure Free Trial</a>.</li> 
  
-<li>If you have an existing account but need to enable the Windows Azure Backup preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.</li>
+<li>If you have an existing account but need to enable the Azure Backup preview, see <a href="/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable" target="_blank">Enable Azure preview features</a>.</li>
 </ul>
  
 <p>After you request to join the Backup preview program wait for your status to become active. We are automatically approving all customers so this will not take a long time to occur.</p> 
 </div>
   
 
-To backup files and data from your Windows Server to Windows Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
+To backup files and data from your Windows Server to Azure, you must create a backup vault in the geographic region where you want to store the data. This tutorial will walk you through the creation of the vault you will use to store backups, the uploading of a certificate to the vault, the installation of a backup agent, and an overview of the backup management tasks available through the management portal.
 
 <div class="dev-callout"> 
 <strong>Before you begin</strong> 
 <p>To successfully complete this tutorial you must have 
-an X.509 v3 certificate to register your servers with backup vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Windows Azure Management Portal, you must export the public key as a .cer format file.</p> 
+an X.509 v3 certificate to register your servers with backup vaults.  The certificate must have a key length of at least 2048 bits and should reside in the Personal certificate store of your Local Computer. When the certificate is installed on your server, it should contain the private key of the certificate. To upload to the certificate to the Azure Management Portal, you must export the public key as a .cer format file.</p> 
 
 <p>You can either use:</p> 
 <ul>
@@ -69,7 +69,7 @@ For step-by-step instructions on the vault certificate upload process and more i
 
 4. In **Region**, select the geographic region for the backup vault.  
 
-5. In **Subscription**, enter the Windows Azure subscription that you want to use the backup vault with. 
+5. In **Subscription**, enter the Azure subscription that you want to use the backup vault with. 
 
 
 6. Click **Create Backup vault**.
@@ -99,8 +99,8 @@ For step-by-step instructions on the vault certificate upload process and more i
 	* Agent for Windows Server 2012 Essentials
 5. Select the appropriate agent. You will be redirected to the Microsoft Download Center to download the agent software. For more information see:
 
-	* [Install Windows Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/en-us/library/hh831761.aspx#BKMK_installagent)
-	* [Install Windows Azure Backup Agent for Windows Server 2012 Essentials](http://technet.microsoft.com/en-us/library/jj884318.aspx)
+	* [Install Azure Backup Agent for Windows Server 2012 and System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/en-us/library/hh831761.aspx#BKMK_installagent)
+	* [Install Azure Backup Agent for Windows Server 2012 Essentials](http://technet.microsoft.com/en-us/library/jj884318.aspx)
 
 Once the agent is installed you can use the appropriate local management interface (such as the Microsoft Management Console snap-in, System Center Data Protection Manager Console, or Windows Server Essentials Dashboard) to configure the backup policy for the server.  
 
@@ -122,9 +122,9 @@ Once the agent is installed you can use the appropriate local management interfa
 
 <h2><a id="next"></a>Next steps</h2>
 
-- To learn more about Windows Azure Backup, see [Windows Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
+- To learn more about Azure Backup, see [Azure Backup Overview](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 
-- Visit the [Windows Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 [new-backup-vault]: ./media/backup-configure-vault/RS_howtobackup1.png
 [backup-vault-create]: ./media/backup-configure-vault/RS_howtobackup2.png

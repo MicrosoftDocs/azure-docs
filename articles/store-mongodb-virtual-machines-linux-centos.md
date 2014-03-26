@@ -1,8 +1,8 @@
-<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Windows Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Windows Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="store-mongodb-virtual-machines-linux-centos" urlDisplayName="Install MongoDB" pageTitle="nstall MongoDB on a virtual machine running CentOS Linux in Azure" metaKeywords="Azure, MongoDB" description="Learn how to install Mongo DB on a virtual machine in Azure." metaCanonical="" services="" documentationCenter="" title="Install MongoDB on a virtual machine running CentOS Linux in Azure" authors="" solutions="" manager="" editor="" />
 
-# Install MongoDB on a virtual machine running CentOS Linux in Windows Azure
+# Install MongoDB on a virtual machine running CentOS Linux in Azure
 
-[MongoDB][MongoDB] is a popular open source, high performance NoSQL database.  Using the [Windows Azure Management Portal][AzurePortal], you can create a virtual machine running CentOS Linux from the Image Gallery.  You can then install and configure a MongoDB database on the virtual machine.
+[MongoDB][MongoDB] is a popular open source, high performance NoSQL database.  Using the [Azure Management Portal][AzurePortal], you can create a virtual machine running CentOS Linux from the Image Gallery.  You can then install and configure a MongoDB database on the virtual machine.
 
 You will learn:
 
@@ -12,7 +12,7 @@ You will learn:
 
 ## Sign up for the Virtual Machines preview feature
 
-You will need to sign up for the Windows Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have a Windows Azure account.
+You will need to sign up for the Azure Virtual Machines preview feature in order to create a virtual machine. You can also sign up for a free trial account if you do not have an Azure account.
 
 [WACOM.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 

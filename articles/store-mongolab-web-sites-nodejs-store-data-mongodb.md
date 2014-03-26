@@ -1,16 +1,16 @@
-﻿<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Windows Azure" metaKeywords="" description="Learn how to create a Node.js Windows Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-nodejs-tutorials-web-site-with-mongodb-mongolab" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on MongoLab - Azure" metaKeywords="" description="Learn how to create a Node.js Azure Web Site that connects to a MongoDB instance hosted on MongoLab." metaCanonical="" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-# Create a Node.js Application on Windows Azure with MongoDB using the MongoLab Add-On
+# Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On
 
 <p><em>By Eric Sedor, MongoLab</em></p>
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial you will:
 
-1. [Provision the database][provision] - The Windows Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
+1. [Provision the database][provision] - The Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Azure cloud and managed by MongoLab's cloud database platform.
 1. [Create the app][create] - It'll be a simple Node.js app for maintaining a list of tasks.
 1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
 1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
@@ -26,9 +26,9 @@ Before continuing, ensure that you have the following installed:
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Quick start
-If you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
+If you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
  
-1. Open the Windows Azure Store.  
+1. Open the Azure Store.  
 ![Store][button-store]
 1. Click the MongoLab Add-On.  
 ![MongoLab][entry-mongolab]
@@ -37,7 +37,7 @@ If you have some familiarity with the Windows Azure Store, use this section to g
 1. Copy the MONGOLAB_URI to your clipboard.  
 ![ConnectionInfoScreen][screen-connectioninfo]  
 **This URI contains your database user name and password.  Treat it as sensitive information and do not share it.**
-1. Add the value to the Connection Strings list in the Configuration menu of your Windows Azure Web application:  
+1. Add the value to the Connection Strings list in the Configuration menu of your Azure Web application:  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
 1. For **Name**, enter MONGOLAB\_URI.
 1. For **Value**, paste the connection string we obtained in the previous section.
@@ -51,7 +51,7 @@ If you have some familiarity with the Windows Azure Store, use this section to g
  		...
  		mongoose.connect(connectionString);
 
-Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
+Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 Now, on to the full tutorial...
 
@@ -142,7 +142,7 @@ In this section you will set up your development environment and lay the code fo
 		├── transformers@2.0.1 (promise@2.0.0, css@1.0.8, uglify-js@2.2.5)
 		└── monocle@0.1.48 (readdirp@0.2.5)
 
-	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
+	The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Web Site, this file will be used to determine which modules need to be installed on Azure to support your application.
 
 5. Next, enter the following command to install the Mongoose module locally as well as to save an entry for it to the **package.json** file:
 
@@ -305,23 +305,23 @@ Now that our environment and scaffolding is ready, we'll extend the basic applic
 
 <h2><a name="deploy"></a>Deploy the app</h2>
 
-Now that the application has been developed, it's time to create a Windows Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
+Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
-The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
+The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-### Install the Windows Azure command-line tool for Mac and Linux
+### Install the Azure command-line tool for Mac and Linux
 
 To install the command-line tools, use the following command:
 	
 	npm install azure-cli -g
 
-If you have already installed the <strong>Windows Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.
+If you have already installed the <strong>Azure SDK for Node.js</strong> from the <a href="/en-us/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure command-line tool for Mac and Linux</a>.
 
-While the Windows Azure command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
+While the Azure command-line tools were created primarily for Mac and Linux users, they are based on Node.js and should work on any system capable of running Node.
 
 ### Import publishing settings
 
-Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
+Before using the command-line tools with Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
 1. From the command-line, enter the following command to launch the browser and navigate to the download page. If prompted, login with the account associated with your subscription.
 
@@ -346,13 +346,13 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   account import command OK
 
 
-4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
+4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
 
 ### Create a new web site and push your code
 
-Creating a web site in Windows Azure is very easy. If this is your first Windows Azure web site, you must use the portal. If you already have at least one, then skip to step 7.
+Creating a web site in Azure is very easy. If this is your first Azure web site, you must use the portal. If you already have at least one, then skip to step 7.
 
-1. In the Windows Azure portal, click **New**.    
+1. In the Azure portal, click **New**.    
 ![New][button-new]
 1. Select **Compute > Web Site > Quick Create**. 
 ![CreateSite][screen-mongolab-newwebsite]
@@ -361,15 +361,15 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 1. When the web site creation completes, click the web site name in the web site list. The web site dashboard displays.  
 ![WebSiteDashboard][screen-mongolab-websitedashboard]
 1. Click **Set up Git publishing** under **quick glance**, and enter your desired git user name and password. You will use this password when pushing to your web site (in step 9).  
-1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Windows Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
+1. If you created your web site using the steps above, the following command will complete the process. However, if you already have more than one Azure web site, you can skip the above steps and create a new web site using this same command. From your **tasklist** project directory: 
 
 		azure site create myuniquesitename --git  
 	Replace 'myuniquesitename' with the unique site name for your web site. If the web site is created as part of this command, you will be prompted for the datacenter that the site will be located in. Select the datacenter geographically close to your MongoLab database.
 	
 	The `--git` parameter will create:
 	A. a local git repository in the **tasklist** folder, if none exists.
-	A. a [Git remote] named 'azure', which will be used to publish the application to Windows Azure.
-	A. an [iisnode.yml] file, which contains settings used by Windows Azure to host node applications.
+	A. a [Git remote] named 'azure', which will be used to publish the application to Azure.
+	A. an [iisnode.yml] file, which contains settings used by Azure to host node applications.
 	A. a .gitignore file to prevent the node-modules folder from being published to .git.  
 	  
 	Once this command has completed, you will see output similar to the following. Note that the line beginning with **Created web site at** contains the URL for the web site.
@@ -393,9 +393,9 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 1. Push your code:
 
 		git push azure master  
-	When pushing the latest Git repository changes to the Windows Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
+	When pushing the latest Git repository changes to the Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content. If prompted for a password, enter the password you created when you set up git publishing for your webs site above.
 	
-	You will see output similar to the following. As the deployment takes place Windows Azure will download all npm modules. 
+	You will see output similar to the following. As the deployment takes place Azure will download all npm modules. 
 
 		Counting objects: 17, done.
 		Delta compression using up to 8 threads.
@@ -416,7 +416,7 @@ Creating a web site in Windows Azure is very easy. If this is your first Windows
 You're almost done!
 
 ### Configure your environment
-Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to populate that environment variable with the value provided to Windows Azure during your MongoLab database provisioning.
+Remember process.env.CUSTOMCONNSTR\_MONGOLAB\_URI in the code? We want to populate that environment variable with the value provided to Azure during your MongoLab database provisioning.
 
 #### Get the MongoLab connection string
 
@@ -461,10 +461,10 @@ Congratulations! You've just launched a Node.js application backed by a MongoLab
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Windows Azure Developer Center]: /en-us/develop/nodejs/
-[Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Azure Developer Center]: /en-us/develop/nodejs/
+[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
 [Node.js Web Application with Storage on MongoDB (Virtual Machine)]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png

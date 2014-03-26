@@ -1,11 +1,11 @@
-<properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Windows Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within a Windows Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Windows Azure and Windows Azure Storage" authors=""  solutions="" writer="pennij" manager="" editor=""  />
+<properties linkid="develop-net-how-to-guides-blitline-image-processing-service" urlDisplayName="Blitline Image Processing Service" pageTitle="How to use Blitline for image processing - Azure feature guide " metaKeywords="" description="Learn how to use the Blitline service to process images within an Azure application." metaCanonical="" services="" documentationCenter=".NET" title="How to use Blitline with Azure and Azure Storage" authors="pennij" solutions="" manager="" editor="" />
 
 
 
 
 
 
-# How to use Blitline with Windows Azure and Windows Azure Storage
+# How to use Blitline with Azure and Azure Storage
 
 This guide will explain how to access Blitline services and how to submit jobs to Blitline.
 
@@ -15,7 +15,7 @@ This guide will explain how to access Blitline services and how to submit jobs t
 [What Blitline is NOT][]
 [Create a Blitline account][]
 [How to create a Blitline job][]
-[How to save an image to your Windows Azure Storage][]
+[How to save an image to your Azure Storage][]
 [Next steps][]
 
 <h2><a name="whatis"></a><span  class="short-header">What is Blitline?</span>What is Blitline?</h2>
@@ -34,7 +34,7 @@ To clarify what Blitline is useful for, it is often easier to identify what Blit
 
 - Blitline does NOT do live image processing, like Aviary.com
 
-- Blitline does NOT accept image uploads, you cannot push your images to Blitline directly. You must push them to Windows Azure Storage or other places Blitline supports and then tell Blitline where to go get them.
+- Blitline does NOT accept image uploads, you cannot push your images to Blitline directly. You must push them to Azure Storage or other places Blitline supports and then tell Blitline where to go get them.
 
 - Blitline is massively parallel and does NOT do any synchronous processing. Meaning you must give us a postback_url and we can tell you when we are done processing.
 
@@ -60,7 +60,7 @@ The simplest example is as follows:
 
 Here we have json that will take a "src" image "...boys.jpeg" and then resize that image to 240x140.
 
-The Application ID is something you can find in your **CONNECTION INFO** or **MANAGE** tab on Windows Azure. It is your secret identifier that allows you to run jobs on Blitline.
+The Application ID is something you can find in your **CONNECTION INFO** or **MANAGE** tab on Azure. It is your secret identifier that allows you to run jobs on Blitline.
 
 The "save" parameter identifies information about where you want to put the image once we have processed it. In this trivial case, we haven't defined one. If no location is defined Blitline will store it locally (and temporarily) at a unique cloud location. You will be able to get that location from the JSON returned by Blitline when you make the Blitline. The "image" identifier is required and is returned to you when to identify this particular saved image.
 
@@ -87,9 +87,9 @@ You will get JSON back that looks something like this:
 This tells you that Blitline has recieved your request, it has put it in a processing queue, and when it has completed the image will be available at:
 **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-<h2><a name="saveazure"></a><span  class="short-header">Save an image to storage</span>How to save an image to your Windows Azure Storage account</h2>
+<h2><a name="saveazure"></a><span  class="short-header">Save an image to storage</span>How to save an image to your Azure Storage account</h2>
 
-If you have a Windows Azure Storage account, you can easily have Blitline push the processed images into your Windows Azure container. By adding an "azure_destination" you define the location and permissions for Blitline to push to.
+If you have an Azure Storage account, you can easily have Blitline push the processed images into your Azure container. By adding an "azure_destination" you define the location and permissions for Blitline to push to.
 
 Here is an example:
 
@@ -109,7 +109,7 @@ Here is an example:
        }'
 
 
-By filling in the CAPITALIZED values with your own, you can submit this JSON to http://api.blitline.com/job and the "src" image will be processed with a blur filter and then pushed to you Windows Azure destination.
+By filling in the CAPITALIZED values with your own, you can submit this JSON to http://api.blitline.com/job and the "src" image will be processed with a blur filter and then pushed to you Azure destination.
 
 <h3>Please note:</h3>
 
@@ -120,7 +120,7 @@ Example:
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-You can also read the latest edition of Blitline's Windows Azure Storage docs <a href="http://www.blitline.com/docs/azure_storage">here</a>.
+You can also read the latest edition of Blitline's Azure Storage docs <a href="http://www.blitline.com/docs/azure_storage">here</a>.
 <br/>
 <h2><a name="nextsteps"></a><span  class="short-header">Next Steps</span>Next Steps</h2>
 
@@ -137,5 +137,5 @@ Visit blitline.com to read about all our other features:
   [What Blitline is NOT]: #whatisnot
   [Create a Blitline account]: #createaccount
   [How to create a Blitline job]: #createjob
-  [How to save an image to your Windows Azure Storage]: #saveazure
+  [How to save an image to your Azure Storage]: #saveazure
 

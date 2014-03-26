@@ -1,11 +1,11 @@
-<properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Windows Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors=""  solutions="" writer="ricksal" manager="" editor=""  />
+<properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 # Use Notification Hubs to send localized breaking news
 
 <div class="dev-center-tutorial-selector sublanding"> 
     	<a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/manage/services/notification-hubs/breaking-news-localized-ios" title="iOS">iOS</a>
 </div>
 
-This topic shows you how to use the **template** feature of Windows Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+This topic shows you how to use the **template** feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 This tutorial walks you through these basic steps to enable this scenario:
 
@@ -19,7 +19,7 @@ There are two parts to this scenario:
 
 - the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories; 
 
-- the back-end broadcasts the notifications, using the **tag** and **template** feautres of Windows Azure Notification Hubs.
+- the back-end broadcasts the notifications, using the **tag** and **template** feautres of Azure Notification Hubs.
 
 
 
@@ -215,7 +215,7 @@ For more information on using templates, see [Notify users with Notification Hub
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/en-us/library/jj927168.aspx

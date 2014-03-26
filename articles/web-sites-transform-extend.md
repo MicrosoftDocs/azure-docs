@@ -1,8 +1,8 @@
-<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" writer="timamm" editor="mollybos" manager="paulettm" title="Transform and extend your site"/>
+<properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" editor="mollybos" manager="paulettm" title="Transform and extend your site" authors="" />
 
 # Transform and extend your site
 
-By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Windows Azure web sites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
+By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT) declarations, you can transform the [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) file in your Azure web sites. You can also use XDT declarations to add private site extensions to enable custom site administration actions. This article includes a sample PHP Manager site extension that enables management of PHP settings through a web interface.
 
 
 <!-- MINI TOC -->
@@ -16,9 +16,9 @@ By using [XML Document Transformation](http://msdn.microsoft.com/en-us/library/d
 	* [Site extension deployment](#deploy)
 
 <h2><a id="transform"></a>Transform the Site Configuration in ApplicationHost.config</h2>
-The Azure Web Sites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Windows Azure Web Sites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
+The Azure Web Sites platform provides flexibility and control for site configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in Azure Web Sites, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
 
-To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the site root. Then, on the **Configure** page in the Windows Azure Portal, you set the `WEBSITE_PRIVATE_EXTENSIONS` app setting to 1 (you may need to restart the site). 
+To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the site root. Then, on the **Configure** page in the Azure Portal, you set the `WEBSITE_PRIVATE_EXTENSIONS` app setting to 1 (you may need to restart the site). 
 
 The following applicationHost.xdt sample shows how to add a new custom environment variable to a site that uses PHP 5.4.
 
@@ -154,11 +154,11 @@ This has the effect of adding a new application path to the `system.applicationH
 
 To install your site extension, you can use FTP to copy all the files of your web app to the `\SiteExtensions\[your-extension-name]` folder of the site on which you want to install the extension.  Be sure to copy the ApplicationHost.xdt file to this location as well.
 
-Next, in the Windows Azure Web Sites Portal, go to the **Configure** tab for the web site that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
+Next, in the Azure Web Sites Portal, go to the **Configure** tab for the web site that has your extension. In the **app settings** section, add the key `WEBSITE_PRIVATE_EXTENSIONS` and give it a value of `1`.
 
 ![TransformSiteappSettings][TransformSiteappSettings]
 
-Finally, in the Windows Azure Portal, restart your web site to enable your extension.
+Finally, in the Azure Portal, restart your web site to enable your extension.
 
 ![TransformSiteRestart][TransformSiteRestart]
 

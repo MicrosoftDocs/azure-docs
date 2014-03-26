@@ -1,20 +1,20 @@
-<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Hyper-V Recovery Manager to protect virtual machines in VMM clouds" metaKeywords="hyper-v recovery, VMM, clouds, disaster recovery" description="Windows Azure Hyper-V Recovery Manager can help you protect applications and services by coordinating the replication and recovery of virtual machines located in System Center 2012 VMM private clouds." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Configure Windows Azure Hyper-V Recovery Manager" writer="raynew" editor="jimbe" manager="cfreeman" />
+<properties linkid="configure-hyper-v-recovery-vault" urlDisplayName="configure-hyper-v-recovery-vault" pageTitle="Configure Hyper-V Recovery Manager to protect virtual machines in VMM clouds" metaKeywords="hyper-v recovery, VMM, clouds, disaster recovery" description="Azure Hyper-V Recovery Manager can help you protect applications and services by coordinating the replication and recovery of virtual machines located in System Center 2012 VMM private clouds." metaCanonical="" umbracoNaviHide="0" disqusComments="1" title="Configure Azure Hyper-V Recovery Manager" editor="jimbe" manager="cfreeman" authors="" />
 
 
-# Configure Windows Azure Hyper-V Recovery Manager
+# Configure Azure Hyper-V Recovery Manager
 
 
 
 <div class="dev-callout"> 
 
-<P>Windows Azure Hyper-V Recovery Manager coordinates and manages the protection of Hyper-V virtual machines located in private clouds on Virtual Machine Manager (VMM) servers in System Center 2012 Service Pack 1 (SP1), or System Center 2012 R2. Hyper-V Recovery Manager orchestrates failover of these virtual machines from one on-premise Hyper-V host server to another. Hyper-V Recovery Manager vaults in Windows Azure are used to store your protection configuration.</P>
+<P>Azure Hyper-V Recovery Manager coordinates and manages the protection of Hyper-V virtual machines located in private clouds on Virtual Machine Manager (VMM) servers in System Center 2012 Service Pack 1 (SP1), or System Center 2012 R2. Hyper-V Recovery Manager orchestrates failover of these virtual machines from one on-premise Hyper-V host server to another. Hyper-V Recovery Manager vaults in Azure are used to store your protection configuration.</P>
 
 <h2><a id="about"></a>About this tutorial</h2>
 <P>This tutorial provides a quick walkthrough for Hyper-V Recovery Manager deployment. For more detailed information read the following:</P>
 <UL>
 <LI><a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Hyper-V Recovery Manager</a>—Provides detailed information about the planning steps you should complete before a starting a full deployment.</LI>
 <LI><a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Hyper-V Recovery Manager</a>—Provides step-by-step instructions for a full deployment.</LI>
-<LI>If you run into problems during this tutorial, take a look at <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Hyper-V Recovery Manager: Common Error Scenarios and Resolutions</a> or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Windows Azure Recovery Services Forum</a></LI>
+<LI>If you run into problems during this tutorial, take a look at <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Hyper-V Recovery Manager: Common Error Scenarios and Resolutions</a> or post your questions on the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a></LI>
 </UL>
 </div>
 
@@ -26,7 +26,7 @@
 <h3><a id="HVRMPrereq"></a>Hyper-V Recovery Manager prerequisites</h3>
 
 <UL>
-<LI>**Azure account**—You'll need an Azure account with the Windows Azure Recovery Services feature enabled. If you don't have an account or the feature isn't registered, see the <a href="http://aka.ms/try-azure">Windows Azure free trial</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Hyper-V Recovery Manager Pricing Details</a>.</LI>
+<LI>**Azure account**—You'll need an Azure account with the Azure Recovery Services feature enabled. If you don't have an account or the feature isn't registered, see the <a href="http://aka.ms/try-azure">Azure free trial</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Hyper-V Recovery Manager Pricing Details</a>.</LI>
 <LI>**Certificate (.cer)**—To register VMM servers in a Hyper-V Recovery Manager vault you'll need to upload a management certificate (.cer) containing the public key to the vault. Note the following:<UL>
 	<LI>For tutorial purposes you can use a self-signed certificate that you create using the Makecert.exe tool. For a full deployment you can use any valid SSL certificate that complies with the certificate prerequisites described in <a href=" http://go.microsoft.com/fwlink/?LinkId=386485">Prerequisites and Support</a> in the Planning Guide.</LI>
 	<LI>Each vault has only a single .cer certificate associated with it at any time. You can upload a new certificate to overwrite an existing one as required.</LI>
@@ -57,7 +57,7 @@
 After verifying the prerequisites, do the following:
 <UL>
 <LI><a href="#createcert">Obtain and configure certificates</a>—Obtain a .cer certificate, export it as a .pfx file, and import the .pfx file to VMM servers.</LI>
-<LI><a href="#vault">Step 1: Create a vault</a>—Create a Hyper-V Recovery Manager vault in Windows Azure.</LI>
+<LI><a href="#vault">Step 1: Create a vault</a>—Create a Hyper-V Recovery Manager vault in Azure.</LI>
 <LI><a href="#upload">Step 2: Upload the certificate</a>—Upload the management certificate to the vault.</LI>
 <LI><a href="#download">Step 3: Download and install the Provider</a>—Download and install the Hyper-V Recovery Manager Provider on VMM servers you want to protect. Then register the VMM servers with the vault.</LI>
 <LI><a href="#clouds">Step 4: Configure cloud protection</a>—Configure protection settings for VMM clouds.</LI>
@@ -175,7 +175,7 @@ After you complete these steps, you'll be able to choose the .cer certificate fo
 
 
 <a name="download"></a> <h2>Step 3: Download and install the Provider</h2>
-Install the Hyper-V Recovery Manager Provider on each VMM server you want to register in the vault. The latest version of the Provider installation file is stored in the Windows Azure Download Center. When you run the file on a VMM server the Provider is installed, and the VMM server is registered with the vault.
+Install the Hyper-V Recovery Manager Provider on each VMM server you want to register in the vault. The latest version of the Provider installation file is stored in the Azure Download Center. When you run the file on a VMM server the Provider is installed, and the VMM server is registered with the vault.
 
 1. On the **Quick Start** page, click **Download Provider** to obtain the Provider installation .exe file. Run this file on the VMM server to begin Provider Setup.
 
@@ -216,7 +216,7 @@ After VMM servers are registered, you can configure cloud protection settings. I
 
 1. In the VMM console, open the **VMs and Services** workspace.
 2. in the **VMs and Services** pane, open the cloud you want to publish.
-3. On the **General** page of the cloud properties, to publish the cloud, select **Send configuration data about this cloud to the Windows Azure Hyper-V Recovery Manager**. After the cloud is published it's displayed in the vault.
+3. On the **General** page of the cloud properties, to publish the cloud, select **Send configuration data about this cloud to the Azure Hyper-V Recovery Manager**. After the cloud is published it's displayed in the vault.
 
 	![Clouds](./media/hyper-v-recovery-manager-configure-vault/RS_PublishCloud.png)
 
@@ -459,5 +459,5 @@ The **Dashboard** tab provides the following information:
 <h2><a id="next"></a>Next steps</h2>
 <UL>
 <LI>To plan and deploy Hyper-V Recovery Manager in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Hyper-V Recovery Manager</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Hyper-V Recovery Manager</a>.</LI>
-<LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Windows Azure Recovery Services Forum</a>.</LI> 
+<LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 
 </UL>

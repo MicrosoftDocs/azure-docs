@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically | Windows Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to programmatically submit Hadoop jobs to Windows Azure HDInsight." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" title="Submit Hadoop jobs programmatically"/>
+<properties linkid="manage-services-hdinsight-submit-hadoop-jobs-programmatically" urlDisplayName="HDInsight Administration" pageTitle="Submit Hadoop jobs programmatically | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hive, mapreduce, HDInsight .NET SDK, powershell, submit mapreduce jobs, submit hive jobs, development, hadoop, apache" description="Learn how to programmatically submit Hadoop jobs to Azure HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Submit Hadoop jobs programmatically" authors="jgao" />
 
 # Submit Hadoop jobs programmatically
 
@@ -8,8 +8,8 @@ In this article, you will learn how to submit MapReduce and Hive jobs using Powe
 
 Before you begin this article, you must have the following:
 
-* A Windows Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+* An Azure HDInsight cluster. For instructions, see [Get started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
 ##In this article
@@ -22,13 +22,13 @@ Before you begin this article, you must have the following:
 * [Next steps](#nextsteps)
 
 ##<a id="mapreduce-powershell"></a> Submit MapReduce jobs using PowerShell
-Windows Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Windows Azure. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information on using PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
 Hadoop MapReduce is a software framework for writing applications which process vast amounts of data. HDInsight clusters come with a jar file, located at *\example\jars\hadoop-examples.jar*, which contains several MapReduce examples. This file has been renamed to hadoop-mapreduce-examples.jar on version 3.0 HDInsight clusters. One of the examples is for counting word frequencies in source files. In this session, you will learn how to use PowerShell from a workstation to run the word count sample. For more information on developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-mapreduce].
 
 **To run the word count MapReduce program using PowerShell**
 
-1.	Open **Windows Azure PowerShell**. For instructions on opening the Windows Azure PowerShell console window, see the [Install and configure Windows Azure PowerShell][powershell-install-configure].
+1.	Open **Azure PowerShell**. For instructions on opening the Azure PowerShell console window, see the [Install and configure Azure PowerShell][powershell-install-configure].
 
 3. Set these two variables by running the following PowerShell commands:
 		
@@ -42,7 +42,7 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		# Define the word count MapReduce job
 		$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
 6. Run the following command to run the MapReduce job:
 
@@ -70,16 +70,16 @@ Hadoop MapReduce is a software framework for writing applications which process 
 		
 **To retrieve the results of the MapReduce job**
 
-1. Open **Windows Azure PowerShell**.
+1. Open **Azure PowerShell**.
 2. Set these three variables by running teh following PowerShell commands:
 
 		$subscriptionName = "<SubscriptionName>"       
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"			
 
-	The Windows Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+	The Azure Storage account is the one you specified during the HDInsight cluster provision. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
-3. Run the following commands to create a Windows Azure storage context object:
+3. Run the following commands to create an Azure storage context object:
 
 		# Create the storage account context object
 		Select-AzureSubscription $subscriptionName
@@ -249,7 +249,7 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 **To run a Hive job using PowerShell**
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+1.	Open **Azure PowerShell**. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 2. Set the first two variables in the following commands, and then run the commands:
 		
@@ -354,21 +354,21 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 10. In the Main() function, copy and paste the following code:
 		
 		// Set the variables
-		string subscriptionID = "<Windows Azure subscription ID>";
+		string subscriptionID = "<Azure subscription ID>";
 		string certFriendlyName = "<certificate friendly name>";
 
 		string clusterName = "<HDInsight cluster name>";
 		
-		string storageAccountName = "<Windows Azure storage account name>";
-		string storageAccountKey = "<Windows Azure storage account key>";
+		string storageAccountName = "<Azure storage account name>";
+		string storageAccountKey = "<Azure storage account key>";
 		string containerName = "<Blob container name>";
 		
 	
-	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription name from the [Windows Azure Management Portal][azure-management-portal]. 
+	These are all of the variables you need to set for the program. You can get the Azure Subscription name from the [Azure Management Portal][azure-management-portal]. 
 
-	For information on certificate, see [Create and Upload a Management Certificate for Windows Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Windows Azure Tools* for both the *Issued To* and the *Issued By* fields.
+	For information on certificate, see [Create and Upload a Management Certificate for Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Azure Tools* for both the *Issued To* and the *Issued By* fields.
 
-	The Windows Azure Storage account name is the account you specify when you provision the HDInsight cluster. The default container name is the same as the HDInsight cluster name.
+	The Azure Storage account name is the account you specify when you provision the HDInsight cluster. The default container name is the same as the HDInsight cluster name.
 	
 11. In the Main() function, append the following code to define the MapReduce job:
 
@@ -383,7 +383,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage].
+	There are two arguments. The first one is the source file name, and the second is the output file path. For more information of the wasb prefix, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 		
 12. 	In the Main() function, append the following code to create a JobSubmissionCertificateCredential object:
 
@@ -504,14 +504,14 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 10. In the Main() function, copy and paste the following code:
 		
 		// Set the variables
-		string subscriptionID = "<Windows Azure subscription ID>";
+		string subscriptionID = "<Azure subscription ID>";
 		string clusterName = "<HDInsight cluster name>";
 		string certFriendlyName = "<certificate friendly name>";		
 		
 	
-	These are all of the variables you need to set for the program. You can get the Windows Azure Subscription ID from you system administrator. 
+	These are all of the variables you need to set for the program. You can get the Azure Subscription ID from you system administrator. 
 
-	For information on certificate, see [Create and Upload a Management Certificate for Windows Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Windows Azure Tools* for both the *Issued To* and the *Issued By* fields.
+	For information on certificate, see [Create and Upload a Management Certificate for Azure][azure-certificate]. An easy way to configure the certificate is to run *Get-AzurePublishSettingsFile* and *Import-AzurePublishSettingsFile* PowerShell cmdlets. They will create and upload the management certificate automatically. After you run the PowerShell cmdlets, you can open *certmgr.msc* from the workstation, and find the certificate by expanding *Personal/Certificates*. The certificate created by the PowerShell cmdlets has *Azure Tools* for both the *Issued To* and the *Issued By* fields.
 	
 11. In the Main() function, append the following code to define the Hive job:
 
@@ -574,7 +574,7 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
-* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-getting-started]
 * [Provision HDInsight clusters][hdinsight-provision]
 * [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 * [HDInsight Cmdlet Reference Documentation][hdinsight-powershell-reference]

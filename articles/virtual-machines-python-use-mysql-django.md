@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Windows Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" description="A tutorial that teaches you how to use MySQL in with Django on a Windows Azure virtual machine. Code samples written in Python." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World - MySQL Windows Edition" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-web-app-with-django-and-mysql" urlDisplayName="Web with Django + MySQL" pageTitle="Python web app with Django and MySQL - Azure tutorial" metaKeywords="Azure django web app, Azure Django MySQL, Azure django Python" description="A tutorial that teaches you how to use MySQL in with Django on an Azure virtual machine. Code samples written in Python." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World - MySQL Windows Edition" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,17 +8,17 @@
 
 # Django Hello World - MySQL Windows Edition #
   
-This tutorial describes how to use MySQL in conjunction with Django on a single Windows Azure virtual machine. This guide assumes that you have some prior experience using Windows Azure and Django. For an introduction to Windows Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL web site][mysqldoc].
+This tutorial describes how to use MySQL in conjunction with Django on a single Azure virtual machine. This guide assumes that you have some prior experience using Azure and Django. For an introduction to Azure and Django, see [Django Hello World] [djangohelloworld]. The guide also assumes that you have some knowledge of MySQL. For an overview of MySQL, see the [MySQL web site][mysqldoc].
 
 In this tutorial, you will learn how to:
 
-* Setup a Windows Azure virtual machine to host MySQL and Django. While this tutorial explains how to accomplish this under Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Windows Azure.
+* Setup an Azure virtual machine to host MySQL and Django. While this tutorial explains how to accomplish this under Windows Server 2008 R2, the same could also be done with a Linux VM hosted in Azure.
 * Install a [MySQL driver] [mysqlpy] for Python.
 * Configure an existing Django application to use a MySQL database.
 * Use MySQL directly from Python.
 * Host and run your MySQL Django application.
 
-You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in a Windows Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in a Windows Azure virtual machine.
+You will expand upon the [Django Hello World] [djangohelloworld] sample by utilizing a MySQL database, hosted in an Azure VM, to find an interesting replacement for *World*. The replacement will in turn be determined via a MySQL-backed Django *counter* app. As was the case for the Hello World sample, this Django application will again be hosted in an Azure virtual machine.
 
 The project files for this tutorial will be stored in **C:\django\helloworld** and the completed application will look similar to:
 
@@ -27,16 +27,16 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 [WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Setting up a virtual machine to host MySQL and Django
-1. Follow the instructions given [here ][preview-portal-vm] to create a Windows Azure virtual machine of the *Windows Server 2008 R2* distribution.
+1. Follow the instructions given [here ][preview-portal-vm] to create an Azure virtual machine of the *Windows Server 2008 R2* distribution.
 
 1. Open up a TCP port for MySQL transactions on the virtual machine:
- * Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
+ * Navigate to your newly created virtual machine in the Azure Portal and click the *ENDPOINTS* tab.
  * Click *ADD ENDPOINT* button at the bottom of the screen.
  * Add an endpoint with NAME = **mysql**, PROTOCOL = **TCP**, PUBLIC PORT = **3306**, PRIVATE PORT = **3306**..
 
 1. Add another endpoint with NAME = **web**, PROTOCOL = **TCP**, PUBLIC PORT = **80**, PRIVATE PORT = **80**.  This redirects external Internet requests to the port Django runs on, namely *80*.
 
-1. Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.
+1. Use Windows *Remote Desktop* to remotely log into the newly created Azure virtual machine.
 
 1. Open up TCP port **80** on the virtual machine:
  * From the **Start** menu, select **Administrator Tools** and then **Windows Firewall with Advanced Security**. 
@@ -57,7 +57,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
      * **Make sure you enable TCP/IP Networking on Port Number 3306 and add a firewall exception for the port.**
      * Set a root password and enable root access from remote machines.
  * Install a sample ["world" database] [mysqlworld] (MyISAM version):
-     * Download [this] [mysqlworlddl] zip file on the Windows Azure Virtual Machine.
+     * Download [this] [mysqlworlddl] zip file on the Azure Virtual Machine.
      * **Unzip it to *C:\Users\Administrator\Desktop\world.sql*.**
 1. After installing MySQL, click the Windows *Start* menu and run the freshly installed *MySQL 5.5 Command Line Client*.  Issue the following commands:
 
@@ -76,7 +76,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
 1. Before you can begin developing your Django application, you of course need to install Python+Django on the virtual machine. You can do so by using the [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). After installing Web PI, use it to search for "Django" and install the Django (Python) product.    
 
-  **Note:** you merely need to install the *Django* product from WebPI to get this tutorial working.  You do **not** need *Python Tools for Visual Studio* or even the Windows Azure Python SDK installed for our purposes.
+  **Note:** you merely need to install the *Django* product from WebPI to get this tutorial working.  You do **not** need *Python Tools for Visual Studio* or even the Azure Python SDK installed for our purposes.
 
 1. Install the MySQL Python client package. You can install it directly [from this link] [mysqlpydl]. Once completed, run the following command to verify your installation:
 
@@ -109,7 +109,7 @@ The project files for this tutorial will be stored in **C:\django\helloworld** a
 
   As you can see, we've just given Django instructions on where to find our MySQL database.
  
-  **Note:** you **must** change the *HOST* key to match your Windows Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being. 
+  **Note:** you **must** change the *HOST* key to match your Azure (MySQL) VM's **permanent** IP address. At this point, *HOST* should be set to whatever the *ipconfig* Windows command reports it as being. 
 
   After you've modified *HOST* to match the MySQL VM's IP address, please save this file and close it.
 
@@ -231,9 +231,9 @@ Note: The following shows how to run Django in a test environment. To run it in 
 1.  To stop Django from hosting the web site, simply switch to the PowerShell window and press **CTRL-C**.
 
 
-## Shutting down your Windows Azure virtual machine
+## Shutting down your Azure virtual machine
 
-When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
+When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
 
 [0]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01.png
 [1]: ./media/virtual-machines-python-use-mysql-django/mysql_tutorial01-1.png

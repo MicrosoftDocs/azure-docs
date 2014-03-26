@@ -1,6 +1,6 @@
 
 
-The following steps create a new mobile service in Windows Azure and add code to your project that enables access to this new service. Before you can create the mobile service, you must import the publishsettings file from your Windows Azure subscription into Visual Studio. This enables Visual Studio to connect to Windows Azure on your behalf. When you create a new mobile service, you must specify a Windows Azure SQL Database that is used by the mobile service to store app data. 
+The following steps create a new mobile service in Azure and add code to your project that enables access to this new service. Before you can create the mobile service, you must import the publishsettings file from your Azure subscription into Visual Studio. This enables Visual Studio to connect to Azure on your behalf. When you create a new mobile service, you must specify an Azure SQL Database that is used by the mobile service to store app data. 
 
 
 1. In Visual Studio 2013, open Solution Explorer, right-click the project then click **Add** and then **Connected Service...**. 
@@ -11,17 +11,17 @@ The following steps create a new mobile service in Windows Azure and add code to
 
 	![create a new mobile service from VS 2013](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013.png)
 
-3. In Import Windows Azure Subscriptions, click **Download subscription file**, login to your Windows Azure account (if required), click **Save** when your browser requests to save the file.
+3. In Import Azure Subscriptions, click **Download subscription file**, login to your Azure account (if required), click **Save** when your browser requests to save the file.
 
 	![download subscription file in VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription.png)
 
-	<div class="dev-callout"><strong>Note</strong> <p>The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Windows Azure subscription.</p></div> 
+	<div class="dev-callout"><strong>Note</strong> <p>The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file. You can skip this step if your project is already connected to your Azure subscription.</p></div> 
 
 4. Click **Browse**, navigate to the location where you saved the .publishsettings file, select the file, then click **Open** and then **Import**. 
 
 	![import subscription in VS](./media/mobile-services-create-new-service-vs2013/mobile-import-azure-subscription-2.png)
 
-	Visual Studio imports the data needed to connect to your Windows Azure subscription. When your subscription already has one or more existing mobile services, the service names are displayed. 
+	Visual Studio imports the data needed to connect to your Azure subscription. When your subscription already has one or more existing mobile services, the service names are displayed. 
 
 	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account. Secure the file if you plan to keep it for use in other connected app projects.</p></div>
 

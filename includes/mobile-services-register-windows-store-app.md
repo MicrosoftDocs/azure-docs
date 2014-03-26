@@ -29,7 +29,7 @@
 
    	![][4] 
 
-8. In the Services page, click **Live Services site** under **Windows Azure Mobile Services**.
+8. In the Services page, click **Live Services site** under **Azure Mobile Services**.
 
 	![][5]
 
@@ -39,7 +39,7 @@
 
     >[WACOM.NOTE]The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.
 
-10. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+10. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![][7]
 
@@ -63,4 +63,4 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/

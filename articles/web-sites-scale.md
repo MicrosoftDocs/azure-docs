@@ -1,4 +1,4 @@
-<properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Windows Azure service management" metaKeywords="Azure scaling web sites, share web site, reserve web site" description="Learn how to scale web sites in Windows Azure. Also learn how to use Shared Web Site and Reserved Web Site modes." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-scenarios-how-to-scale-websites" urlDisplayName="How to scale" pageTitle="How to scale web sites - Azure service management" metaKeywords="Azure scaling web sites, share web site, reserve web site" description="Learn how to scale web sites in Azure. Also learn how to use Shared Web Site and Reserved Web Site modes." metaCanonical="" services="web-sites" documentationCenter="" title="How to Scale Web Sites" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -6,7 +6,7 @@
 
 # How to Scale Web Sites #
 
-You use the Windows Azure Management Portal to scale your web sites, and to specify whether you want to run them in **Free** web site mode, **Shared** web site mode or **Standard** web site mode. 
+You use the Azure Management Portal to scale your web sites, and to specify whether you want to run them in **Free** web site mode, **Shared** web site mode or **Standard** web site mode. 
 
 ## Table of Contents ##
 
@@ -41,7 +41,7 @@ A web site running in **Shared** mode benefits from high availability even with 
  
 ##<a name="standardmode"></a>Standard Web Site Mode
 
-A web site that is configured as **Standard** will provide high availability and more consistent performance than a web site that is configured as **Free** or **Shared**.  **Standard** mode also has support for SNI and IP-based SSL certificates for custom domains. Before switching a web site from **Free** web site mode to **Standard** web site mode, you must first remove the spending caps in place for your Web Site subscription. To view or change options for your Windows Azure Web Sites subscription, see [Windows Azure Subscriptions][azuresubscriptions].
+A web site that is configured as **Standard** will provide high availability and more consistent performance than a web site that is configured as **Free** or **Shared**.  **Standard** mode also has support for SNI and IP-based SSL certificates for custom domains. Before switching a web site from **Free** web site mode to **Standard** web site mode, you must first remove the spending caps in place for your Web Site subscription. To view or change options for your Azure Web Sites subscription, see [Azure Subscriptions][azuresubscriptions].
 
 In **Standard** mode, you can create up to 500 web sites per region. If you have more than one web site in the same region, you can use the **Choose Sites** feature to decide which of the sites you want to run in Standard mode. 
 
@@ -52,20 +52,20 @@ A web site running in **Standard** mode benefits from high availability even wit
 
 > [WACOM.NOTE] Unlike Shared mode, Standard mode web sites are priced based on instance count, not the number of web sites. A Standard mode instance can host multiple Standard mode web sites
 
-The Autoscale feature, available in Standard mode only, lets you have Windows Azure automatically scale the instance count and instance size depending on load (scale by metric), or time (scheduled scaling), which makes running your web site more cost effective.
+The Autoscale feature, available in Standard mode only, lets you have Azure automatically scale the instance count and instance size depending on load (scale by metric), or time (scheduled scaling), which makes running your web site more cost effective.
 
 ##<a name="howtochangescale"></a>How to Change Scale Options for a Web Site
-By default, a web site that is configured to run in **Free** or **Shared** web site mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [Virtual Machine and Cloud Service Sizes for Windows Azure][vmsizes]. 
+By default, a web site that is configured to run in **Free** or **Shared** web site mode has access to the resources associated with an **ExtraSmall** Virtual Machine Size described in the table at [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. 
 
 To change the scaling of resources for a web site, in the Management Portal, open the web site's **Scale** management page to configure the following options:
 
 - **Web Site Mode** - Set to **Free** by default.  When you change the **Web Site Mode** from **Free** or **Shared** to **Standard**, the web site is scaled up to run in a Small compute instance on a single dedicated core with access to additional memory, disk space and bandwidth.
 
-	**Note**: In order to configure Web sites to run in **Standard** mode, you must first remove spending limits associated with your Web sites subscription. To view or change options for your Windows Azure Web Sites subscription, see [Windows Azure Subscriptions][azuresubscriptions].
+	**Note**: In order to configure Web sites to run in **Standard** mode, you must first remove spending limits associated with your Web sites subscription. To view or change options for your Azure Web Sites subscription, see [Azure Subscriptions][azuresubscriptions].
 
 - **Choose Sites** (Standard mode only) - Choose which web sites in the current region and subscription to run in Standard mode. To run all web sites in the current region and subscription in **Standard** mode, leave the **Select All** checkbox selected.
 
-- **Instance Size** (Standard mode only) - Provides options for additional scale up of a web site running in **Standard** web site mode. If **Instance Size** is changed from **Small** to **Medium** or **Large**, the web site will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [Virtual Machine and Cloud Service Sizes for Windows Azure][vmsizes].
+- **Instance Size** (Standard mode only) - Provides options for additional scale up of a web site running in **Standard** web site mode. If **Instance Size** is changed from **Small** to **Medium** or **Large**, the web site will run in a compute instance of corresponding size with access to associated resources for each size. For more information, see [Virtual Machine and Cloud Service Sizes for Azure][vmsizes].
 The **Instance Size** setting is global for the web site 
 - **Edit Scale Settings for Schedule** (Standard mode only) - Use this Autoscale feature to scale resources based on daytime versus nighttime, or weekday versus weekend. To start, choose **Set up schedule times** to bring up the **Set up schedule times** dialog box where you can make the following choices:
 
@@ -84,17 +84,17 @@ After you have finished making changes to all the schedules, click the **Save** 
 
 
 
-- **Scale by Metric** (Standard mode only) - For this Autoscale feature, choose **CPU** to have Windows Azure automatically scale the instance count and instance size depending on load. Enabling **Scale by Metric** enables the **Target CPU** option so that you can specify a target range for CPU usage, and modifies the **Instance Count** feature so that you can set the minimum and maximum number of virtual machines to be used for automatic scaling.
+- **Scale by Metric** (Standard mode only) - For this Autoscale feature, choose **CPU** to have Azure automatically scale the instance count and instance size depending on load. Enabling **Scale by Metric** enables the **Target CPU** option so that you can specify a target range for CPU usage, and modifies the **Instance Count** feature so that you can set the minimum and maximum number of virtual machines to be used for automatic scaling.
 
-	**Note**: When **Scale by Metric** is enabled, Windows Azure checks the CPU of your web site once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Windows Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your web site, be sure that you have a sufficient minimum number of instances to handle the load. For example, if you have a sudden spike of traffic during the 5 minute interval before Windows Azure checks your CPU usage, your site might not be responsive during that time. If you expect sudden, large amounts of traffic, set the minimum instance count higher to anticipate these bursts. 
+	**Note**: When **Scale by Metric** is enabled, Azure checks the CPU of your web site once every five minutes and adds instances as needed at that point in time. If CPU usage is low, Azure will remove instances once every two hours to ensure that your website remains performant. Generally, putting the minimum instance count at 1 is appropriate. However, if you have sudden usage spikes on your web site, be sure that you have a sufficient minimum number of instances to handle the load. For example, if you have a sudden spike of traffic during the 5 minute interval before Azure checks your CPU usage, your site might not be responsive during that time. If you expect sudden, large amounts of traffic, set the minimum instance count higher to anticipate these bursts. 
 
 
 - **Instance Count** (Shared and Standard modes only) -  A single instance in **Shared** or **Standard** mode already benefits from high availability, but you can provide even greater throughput and fault tolerance by running additional web site instances (that is, "scaling out"). In **Shared** mode, you can choose from 1 through 6 instances. In **Standard** mode, you can choose from 1 through 10 instances, and if you enable the **Autoscale** feature, you can set the minimum and maximum number of virtual machines to be used for automatic scaling.
 	
-- **Target CPU** (Standard mode only) - This option appears only when **Scale by Metric** is enabled. Use the sliders to set the minimum and maximum percent CPU usage that you desire for your web site. Windows Azure will add or remove standard instances to keep CPU usage in this range.
+- **Target CPU** (Standard mode only) - This option appears only when **Scale by Metric** is enabled. Use the sliders to set the minimum and maximum percent CPU usage that you desire for your web site. Azure will add or remove standard instances to keep CPU usage in this range.
 
 - **Linked Resources** - 
-If you have linked a SQL database to your web site, you can scale your database here. Choose **Web** or **Business** depending on the storage capacity that you require. The **Web** edition offers a range of smaller capacities, while the **Business** edition offers a range of larger capacities. For more information, see [Accounts and Billing in Windows Azure SQL Database][SQLaccountsbilling].
+If you have linked a SQL database to your web site, you can scale your database here. Choose **Web** or **Business** depending on the storage capacity that you require. The **Web** edition offers a range of smaller capacities, while the **Business** edition offers a range of larger capacities. For more information, see [Accounts and Billing in Azure SQL Database][SQLaccountsbilling].
 
 
 

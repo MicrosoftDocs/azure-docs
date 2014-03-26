@@ -1,10 +1,10 @@
-<properties title="How to make a phone call from Twilio (PHP) - Windows Azure" pageTitle="How to make a phone call from Twilio (PHP) - Windows Azure" metaKeywords="Windows Azure PHP Twilio, Windows Azure Twilio, Azure phone calls, Azure twilio, Windows Azure SMS, Azure SMS, Windows Azure voice calls, azure voice calls, Windows Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Windows Azure. Samples are for PHP application." documentationCenter="PHP services="" solutions="" videoId="" scriptId="" authors="" writer="waltpo" manager="bjsmith" editor="mollybos"/>
+<properties title="How to make a phone call from Twilio (PHP) - Azure" pageTitle="How to make a phone call from Twilio (PHP) - Azure" metaKeywords="Azure PHP Twilio, Azure Twilio, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages, PHP twilio Azure" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application." documentationCenter="PHP" services="" solutions="" videoId="" scriptId="" authors="waltpo" manager="bjsmith" editor="mollybos" />
 
-# How to Make a Phone Call Using Twilio in a PHP Application on Windows Azure 
+# How to Make a Phone Call Using Twilio in a PHP Application on Azure 
 
-The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Windows Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.
+The following example shows you how you can use Twilio to make a call from a PHP web page hosted in Azure. The resulting application will prompt the user for phone call values, as shown in the following screen shot.
 
-![Windows Azure Call Form Using Twilio and PHP][twilio_php]
+![Azure Call Form Using Twilio and PHP][twilio_php]
 
 You'll need to do the following to use the code in this topic:
 
@@ -12,7 +12,7 @@ You'll need to do the following to use the code in this topic:
 2. Verify your phone number as an outbound caller ID with Twilio. For information on how to verify your phone number, see [https://www.twilio.com/user/account/phone-numbers/verified#][verify_phone]. As an alternative to using an existing number, you can purchase a Twilio phone number.
 For purposes of this example, use the verified phone number as the **From** value of **callform.php** (described later).
 3. Obtain the Twilio library for PHP. You can download it from Github ([https://github.com/twilio/twilio-php][twilio_php_github]) or install it as a PEAR package. For more information, see [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
-4. Install the Windows Azure SDK for PHP. For an overview of the SDK and instructions on installing it, see [Set up the Windows Azure SDK for PHP][setup_php_sdk].
+4. Install the Azure SDK for PHP. For an overview of the SDK and instructions on installing it, see [Set up the Azure SDK for PHP][setup_php_sdk].
 
 ## Create a web form for making a call
 
@@ -82,19 +82,19 @@ The following code shows how to build a web page (**makecall.php**) which is cal
 
 In addition to making the call, **makecall.php** displays some call metadata (example shown in screenshot below). For more information about call metadata, see [https://www.twilio.com/docs/api/rest/call#instance-properties][twilio_call_properties].
 
-![Windows Azure Call Response Using Twilio and PHP][twilio_php_response]
+![Azure Call Response Using Twilio and PHP][twilio_php_response]
 
 ## Run the application
-The next step is to deploy your application to Windows Azure Web Sites. The following articles contain the information for creating a web site and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
+The next step is to deploy your application to Azure Web Sites. The following articles contain the information for creating a web site and deploying your code with Git, FTP, or WebMatrix (though not all information in each article is relevant):
 
-* [Create a PHP-MySQL Windows Azure Web Site and deploy using Git][website-git]
-* [Create a PHP-MySQL Windows Azure Web Site and Deploy Using FTP][website-ftp]
-* [Create and deploy a PHP-MySQL Windows Azure Web Site using WebMatrix][website-webmatrix]
+* [Create a PHP-MySQL Azure Web Site and deploy using Git][website-git]
+* [Create a PHP-MySQL Azure Web Site and Deploy Using FTP][website-ftp]
+* [Create and deploy a PHP-MySQL Azure Web Site using WebMatrix][website-webmatrix]
 
 ## Next steps
-This code was provided to show you basic functionality using Twilio in PHP on Windows Azure. Before deploying to Windows Azure in production, you may want to add more error handling or other features. For example:
+This code was provided to show you basic functionality using Twilio in PHP on Azure. Before deploying to Azure in production, you may want to add more error handling or other features. For example:
 
-* Instead of using a web form, you could use Windows Azure storage blobs or SQL Database to store phone numbers and call text. For information about using Windows Azure storage blobs in PHP, see [Using Windows Azure Storage with PHP Applications][howto_blob_storage_php]. For information about using SQL Database in PHP, see [Using SQL Database with PHP Applications][howto_sql_azure_php].
+* Instead of using a web form, you could use Azure storage blobs or SQL Database to store phone numbers and call text. For information about using Azure storage blobs in PHP, see [Using Azure Storage with PHP Applications][howto_blob_storage_php]. For information about using SQL Database in PHP, see [Using SQL Database with PHP Applications][howto_sql_azure_php].
 * The **makecall.php** code uses Twilio-provided URL ([http://twimlets.com/message][twimlet_message_url]) to provide a Twilio Markup Language (TwiML) response that informs Twilio how to proceed with the call. For example, the TwiML that is returned can contain a `<Say>` verb that results in text being spoken to the call recipient. Instead of using the Twilio-provided URL, you could build your own service to respond to Twilio's request; for more information, see [How to Use Twilio for Voice and SMS Capabilities in PHP][howto_twilio_voice_sms_php]. More information about TwiML can be found at [http://www.twilio.com/docs/api/twiml][twiml], and more information about `<Say>` and other Twilio verbs can be found at [http://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 

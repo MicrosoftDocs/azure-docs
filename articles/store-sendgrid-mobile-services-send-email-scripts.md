@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Windows Azure Mobile Services" metaKeywords="Windows Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Windows Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-send-email-with-sendgrid" urlDisplayName="Send Email Using SendGrid" pageTitle="Send email using SendGrid - Azure Mobile Services" metaKeywords="Azure SendGrid, SendGrid service, Azure emailing, mobile services email" description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="Mobile" title="Send email from Mobile Services with SendGrid" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -23,7 +23,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 <h2><a name="add-script"></a><span class="short-header">Register a script</span>Register a new script that sends emails</h2>
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
 2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
 
@@ -103,7 +103,7 @@ these links to learn more about SendGrid.
 
 -   SendGrid API documentation:
     <http://docs.sendgrid.com/documentation/api/>
--   SendGrid special offer for Windows Azure customers:
+-   SendGrid special offer for Azure customers:
     <http://sendgrid.com/azure.html>
 
 <!-- Anchors. -->
@@ -121,7 +121,7 @@ these links to learn more about SendGrid.
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
 [sign up page]: http://sendgrid.com/azure.html
 [Multiple User Credentials page]: http://sendgrid.com/credentials
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [cloud-based email service]: http://sendgrid.com/solutions
 [transactional email delivery]: http://sendgrid.com/transactional-email
 
