@@ -2,12 +2,23 @@
 
 #Using the Azure Cross-Platform Command-Line Interface with Azure Resource Manager
 
-The new Azure Resource Manager functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. 
-
-The Microsoft Azure Cross-Platform Command-Line Interface (xplat-cli) provides commands that allow you to work with Azure Resource Manager from the command line, including scripts.
+In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Azure Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the new Azure Resource Manager functionality.
 
 >[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
+##Azure Resource Manager
+
+Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
+
+The new management functionality, **Azure Resource Manager**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
+
+Azure Resource Manager also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. The template is used to create a deployment, which applies changes defined in the template to the group.
+
+While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+
+>[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
+>
+> However, you can use the `azure group template download` command to download and modify templates provided by Microsoft and partners from the template gallery.
 
 ##Authentication
 
@@ -35,6 +46,8 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 		azure config mode arm
 
+	>[WACOM.NOTE] Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+
 2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
 
 		azure group template list
@@ -48,6 +61,8 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 		azure group template download Microsoft.WebSite.0.1.0-preview1
 
 	Downloading a template allows you to customize it to better suite your requirements. For example, adding another resource to the template.
+
+	>[WACOM.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
 5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. When using a template, you must supply these parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
 
@@ -79,7 +94,7 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSite.0.1.0-preview1 -d MyDeployment -e params.json
 
-	Replace the **MyGroupName** and **South Central US** values with the group name and data center specified in the template.
+	Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in the template.
 
 	>[WACOM.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
@@ -91,7 +106,7 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 	> 
 	> `azure group deployment stop MyGroupName MyDeployment`
 	> 
-	> If you do not provide a deployment name, one will be created automatically based on the current date and time.
+	> If you do not provide a deployment name, one will be created automatically based on the current date and time. It will be returned as part of the output of the `azure group create` command.
 
 3. To view the group, use the following command.
 
@@ -102,6 +117,8 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 4. To view individual resources, such as the Web Site, within the group, use the following command.
 
 		azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites
+
+	Notice the **Microsoft.Web/sites** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the Web Site resource described in the template.
 
 	This command returns information related to the web site. For example, the **hostNames** field should contain the URL for the web site. Use this with your browser to verify that the web site is running.
 
