@@ -1,17 +1,17 @@
-<properties title="How to use the queue service (PHP) - Windows Azure feature guide" pageTitle="How to use the queue service (PHP) - Windows Azure feature guide" metaKeywords="Windows Azure Queue Service messaging PHP" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
+<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
 
 # How to use the Queue service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Queue service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
+This guide will show you how to perform common scenarios using the Azure Queue service. The samples are written using classes from the Windows SDK for PHP. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**. For more information on queues, see the [Next Steps](#NextSteps) section.
 
 ##Table of contents
 
 * [What is Queue Storage](#what-is)
 * [Concepts](#concepts)
-* [Create a Windows Azure storage account](#create-account)
+* [Create an Azure storage account](#create-account)
 * [Create a PHP application](#create-app)
 * [Configure your application to the Queue service](#configure-app)
-* [Setup a Windows Azure Storage connection](#connection-string)
+* [Setup an Azure Storage connection](#connection-string)
 * [How to: Create a queue](#create-queue)
 * [How to: Add a message to a queue](#add-message)
 * [How to: Peek at the next message](#peek-message)
@@ -24,23 +24,23 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-<h2><a id="create-account"></a>Create a Windows Azure storage account</h2>
+<h2><a id="create-account"></a>Create an Azure storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="create-app"></a>Create a PHP application</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Queue service is the referencing of classes from the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Azure Queue service is the referencing of classes from the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
+In this guide, you will use Queue service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
 
-<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
+<h2><a id="GetClientLibrary"></a>Get the Azure Client Libraries</h2>
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="configure-app"></a>Configure your application to access the Queue service</h2>
 
-To use the Windows Azure Queue service APIs, you need to:
+To use the Azure Queue service APIs, you need to:
 
 1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
@@ -48,7 +48,7 @@ To use the Windows Azure Queue service APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [WACOM.NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the `WindowsAzure.php` autoloader file.
+> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the `WindowsAzure.php` autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -56,9 +56,9 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2><a id="connection-string"></a>Setup a Windows Azure storage connection</h2>
+<h2><a id="connection-string"></a>Setup an Azure storage connection</h2>
 
-To instantiate a Windows Azure Queue service client you must first have a valid connection string. The format for the queue service connection string is:
+To instantiate an Azure Queue service client you must first have a valid connection string. The format for the queue service connection string is:
 
 For accessing a live service:
 
@@ -69,7 +69,7 @@ For accessing the emulator storage:
 	UseDevelopmentStorage=true
 
 
-To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+To create any Azure service client you need to use the **ServicesBuilder** class. You can:
 
 * pass the connection string directly to it or
 * use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
@@ -375,12 +375,12 @@ To delete a queue and all the messages contained in it, call the **QueueRestProx
 
 <h2><a id="next-steps"></a>Next steps</h2>
 
-Now that you've learned the basics of the Windows Azure Queue service, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of the Azure Queue service, follow these links to learn how to do more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
-- Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Storing and Accessing Data in Azure] []
+- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Windows Azure Management Portal]: http://manage.windowsazure.com/
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Azure Management Portal]: http://manage.windowsazure.com/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

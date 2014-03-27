@@ -1,22 +1,22 @@
-<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for HDInsight | Windows Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
+<properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
 # Develop Java MapReduce programs for HDInsight
-This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator, to deploying and running it on Windows Azure HDInsight.
+This tutorial walks you through an end-to-end scenario from developing and testing a word counting MapReduce job on HDInsight Emulator, to deploying and running it on Azure HDInsight.
 
 **Prerequisites:**
 
 Before you begin this tutorial, you must have the following:
 
-- Install Windows Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
-- Install Windows Azure PowerShell on the emulator computer. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
-- Obtain a Windows Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- Install Azure HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator-get-started].
+- Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+- Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 ##In this article
 
 - [Develop a word counting MapReduce program in Java](#develop)
 - [Test the program on the emulator](#test)
-- [Upload data files and the application to Windows Azure Blob storage](#upload)
-- [Run the MapReduce program on Windows Azure HDInsight](#run)
+- [Upload data files and the application to Azure Blob storage](#upload)
+- [Run the MapReduce program on Azure HDInsight](#run)
 - [Retrieve the MapReduce results](#retrieve)
 - [Next steps](#nextsteps)
 
@@ -167,9 +167,9 @@ Testing the MapReduce job on the emulator includes the following procedures:
 4. check the job status
 5. retrieve the job results
 
-By default, HDInsight emulator uses HDFS as the default file system.  Optionally, you can configure the HDInsight emulator to use Windows Azure Blob storage. For details, see [Get started with HDInsight Emulator][hdinsight-emulator-wasb]. 
+By default, HDInsight emulator uses HDFS as the default file system.  Optionally, you can configure the HDInsight emulator to use Azure Blob storage. For details, see [Get started with HDInsight Emulator][hdinsight-emulator-wasb]. 
 
-In this tutorial, you will use the HDFS *copyFromLocal* command to upload the data files to HDFS. The next section shows you how to upload files using Windows Azure PowerShell to Windows Azure Blob storage. For other methods for uploading files to Windows Azure Blob storage, see [Upload data to HDInsight][hdinsight-upload-data].
+In this tutorial, you will use the HDFS *copyFromLocal* command to upload the data files to HDFS. The next section shows you how to upload files using Azure PowerShell to Azure Blob storage. For other methods for uploading files to Azure Blob storage, see [Upload data to HDInsight][hdinsight-upload-data].
 
 This tutorial uses the following HDFS folder structure:
 
@@ -227,7 +227,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory as the 
 
 	From the screenshot, you can see both map and reduce completed 100%. It also lists the job ID, job_201312092021_0002. The same report can be retrieved by opening the **Hadoop MapReduce status** shortcut from your desktop, and looking for the job ID.
 
-The other option for running a MapReduce job is using Windows Azure PowerShell. For instructions, see [Get started with the HDInsight Emulator][hdinsight-emulator-get-started].
+The other option for running a MapReduce job is using Azure PowerShell. For instructions, see [Get started with the HDInsight Emulator][hdinsight-emulator-get-started].
 
 **To display the output from HDFS**
 
@@ -241,7 +241,7 @@ The other option for running a MapReduce job is using Windows Azure PowerShell. 
 
 		hadoop fs -cat /WordCount/Output/part-00000 | findstr "there"
 
-Until now, you have developed a word counting MapReduce job, and tested it successfully on the emulator.  The next step is to deploy and run it on Windows Azure HDInsight.
+Until now, you have developed a word counting MapReduce job, and tested it successfully on the emulator.  The next step is to deploy and run it on Azure HDInsight.
 
 
 
@@ -280,14 +280,14 @@ Until now, you have developed a word counting MapReduce job, and tested it succe
 
 
 
-##<a id="upload"></a>Upload data to Windows Azure Blob storage
-Windows Azure HDInsight uses Windows Azure Blob storage for data storage. When an HDInsight cluster is provisioned, a Windows Azure Blob storage container is used to store the system files. You can use either this default container or a different container (either on the same Windows Azure storage account or a different storage account located on the same data center as the cluster) for storing the data files. 
+##<a id="upload"></a>Upload data to Azure Blob storage
+Azure HDInsight uses Azure Blob storage for data storage. When an HDInsight cluster is provisioned, an Azure Blob storage container is used to store the system files. You can use either this default container or a different container (either on the same Azure storage account or a different storage account located on the same data center as the cluster) for storing the data files. 
 
 In this tutorial, you will create a container on a separate storage account for the data files and the MapReduce application. The data files are the text files in the %hadoop_home% directory on your workstation.
 
 **To create a Blob storage and a container**
 
-1. Open Windows Azure PowerShell.
+1. Open Azure PowerShell.
 2. Set the variables, and then run the commands:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -295,7 +295,7 @@ In this tutorial, you will create a container on a separate storage account for 
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	The **$subscripionName** is associated with your Windows Azure subscription. You must name the **$storageAccountName_Data** and **$containerName_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx). 
+	The **$subscripionName** is associated with your Azure subscription. You must name the **$storageAccountName_Data** and **$containerName_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx). 
 
 3. Run the following command to create a storage account and a Blob storage container on the account
 
@@ -317,7 +317,7 @@ In this tutorial, you will create a container on a separate storage account for 
 
 **To upload the data files**
 
-1. Open Windows Azure PowerShell.
+1. Open Azure PowerShell.
 2. Set the first three variables, and then run the commands:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -367,7 +367,7 @@ In this tutorial, you will create a container on a separate storage account for 
 
 **To upload the word counting application**
 
-1. Open Windows Azure PowerShell.
+1. Open Azure PowerShell.
 2. Set the first three variables, and then run the commands:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -400,7 +400,7 @@ In this tutorial, you will create a container on a separate storage account for 
 
 	You should see the jar file listed there.
 
-##<a name="run"></a>Run the MapReduce job on Windows Azure HDInsight
+##<a name="run"></a>Run the MapReduce job on Azure HDInsight
 
 The following PowerShell script performs the following tasks:
 
@@ -506,7 +506,7 @@ The following PowerShell script performs the following tasks:
 3. Set the first six variables in the script. **$serviceNameToken** will be used for the HDInsight cluster name, the default storage account name, and the default Blob storage container name.  Because the service name must be between 3 and 24 characters, and the script append string with up to 10 character string to the names, you  must limit the string to 14 or less characters. And the $serviceNameToken must use lower case. **$storageAccountName_Data** and **$containerName_Data** are the storage account and container that are used for storing the data files and the application. **$location** must match the data storage account location.
 4. Review the rest of the variables.
 5. Save the script file.
-6. Open Windows Azure PowerShell.
+6. Open Azure PowerShell.
 7. Run the following command to set the execution policy to remotesigned:
 
 		PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
@@ -520,8 +520,8 @@ This section shows you how to download and display the output.  For the informat
 
 **To retrieve the output**
 
-1. Open Windows Azure PowerShell window.
-2. Change directory to **C:\Tutorials\WordCountJava**. The default Windows Azure PowerShell folder is **C:\Windows\System32\WindowsPowerShell\v1.0**. The cmdlets you will run will download the output file to the current folder.  You don't have permissions to download the files to the system folders.
+1. Open Azure PowerShell window.
+2. Change directory to **C:\Tutorials\WordCountJava**. The default Azure PowerShell folder is **C:\Windows\System32\WindowsPowerShell\v1.0**. The cmdlets you will run will download the output file to the current folder.  You don't have permissions to download the files to the system folders.
 2. Run the following commands to set the values:
 
 		$subscriptionName = "<WindowsAzureSubscriptionName>"
@@ -540,15 +540,15 @@ This section shows you how to download and display the output.  For the informat
 		Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-After the job is completed, you have the options to export the data to SQL Server or Windows Azure SQL database using [Sqoop][hdinsight-sqoop], or to export the data to Excel.  
+After the job is completed, you have the options to export the data to SQL Server or Azure SQL database using [Sqoop][hdinsight-sqoop], or to export the data to Excel.  
 
 ##<a id="nextsteps"></a>Next steps
 In this tutorial, you have learned how to develop a Java MapReduce job, how to test the application on HDInsight emulator, and how to write a PowerShell script to provision an HDInsight cluster and run a MapReduce on the cluster. To learn more, see the following articles:
 
 - [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
-- [Get started with Windows Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+- [Get started with Azure HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/)
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
-- [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]
+- [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
 - [Upload data to HDInsight][hdinsight-upload-data]
 - [Use Hive with HDInsight][hdinsight-hive]

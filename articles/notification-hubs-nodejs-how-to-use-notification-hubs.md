@@ -20,15 +20,15 @@ from Node.js applications. The scenarios covered include **sending notifications
 
 ##<a id="hub"></a> What are Service Bus Notification Hubs? 
 
-Windows Azure Service Bus Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Windows Azure Service Bus Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Azure Service Bus Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Azure Service Bus Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
 
 ##<a id="create"></a> Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ##<a id="config"></a> Configure Your Application to Use Service Bus
 
-To use Windows Azure Service Bus, you need to download and use the
+To use Azure Service Bus, you need to download and use the
 Node.js azure package. This includes a set of convenience libraries that
 communicate with the Service Bus REST services.
 
@@ -63,7 +63,7 @@ the **server.js** file of the application:
 
     var azure = require('azure');
 
-### Setup a Windows Azure Service Bus connection
+### Setup an Azure Service Bus connection
 
 The **NotificationHubService** object lets you work with notification hubs. The
 following code creates a **NotificationHubService** object for the nofication hub named **hubname**. Add it near the
@@ -72,9 +72,9 @@ module:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-The connection **connectionstring** value can be obtained from the Windows Azure Management portal by performing the following steps:
+The connection **connectionstring** value can be obtained from the Azure Management portal by performing the following steps:
 
-1. From the Windows Azure Management portal, select **Service Bus**, and then select the namespace that contains the notification hub.
+1. From the Azure Management portal, select **Service Bus**, and then select the namespace that contains the notification hub.
 
 2. Select **NOTIFICATION HUBS**, and then select the hub you wish to use.
 
@@ -82,7 +82,7 @@ The connection **connectionstring** value can be obtained from the Windows Azure
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>You can also retrieve the connection string using the <b>Get-AzureSbNamespace</b> cmdlet provided by Windows Azure PowerShell or the <b>azure sb namespace show</b> command with the Windows Azure Command-Line Tools.</p>
+<p>You can also retrieve the connection string using the <b>Get-AzureSbNamespace</b> cmdlet provided by Azure PowerShell or the <b>azure sb namespace show</b> command with the Azure Command-Line Tools.</p>
 
 </div>
 
@@ -187,7 +187,7 @@ The following code uses the **WnsService** instance exposed by the **Notificatio
 Now that you've learned the basics of Service Bus topics, follow these
 links to learn more.
 
--   See the MSDN Reference: [Windows Azure Service Bus Notification Hubs][].
+-   See the MSDN Reference: [Azure Service Bus Notification Hubs][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -205,18 +205,18 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
   [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Windows Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
+  [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
   [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-  [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Create and deploy a Node.js application to Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/

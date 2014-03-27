@@ -1,6 +1,6 @@
 ## <a name="what-is"></a>What is Mobile Services
 
-Mobile Services is a Windows Azure service offering designed to make it easy to create highly-functional mobile apps using Windows Azure. Mobile Services brings together a set of Windows Azure services that enable backend capabilities for your apps. Mobile Services provides the following backend capabilities in Windows Azure to support your apps: 
+Mobile Services is an Azure service offering designed to make it easy to create highly-functional mobile apps using Azure. Mobile Services brings together a set of Azure services that enable backend capabilities for your apps. Mobile Services provides the following backend capabilities in Azure to support your apps: 
 
 + Simple provisioning and management of tables for storing app data. 
 + Integration with notification services to deliver push notifications to your app.

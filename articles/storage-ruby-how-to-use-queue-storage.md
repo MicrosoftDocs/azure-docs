@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) - Windows Azure" metaKeywords="Windows Azure Queue Service get messages Ruby" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
 
 
@@ -17,10 +17,10 @@ Steps](#next-steps) section.
 
 * [What is Queue Storage?](#what-is)
 * [Concepts](#concepts)
-* [Create a Windows Azure Storage Account](#CreateAccount)
+* [Create an Azure Storage Account](#CreateAccount)
 * [Create a Ruby Application](#create-a-ruby-application)
 * [Configure Your Application to Access Storage](#configure-your-application-to-access-storage)
-* [Setup a Windows Azure Storage Connection](#setup-a-windows-azure-storage-connection)
+* [Setup an Azure Storage Connection](#setup-a-windows-azure-storage-connection)
 * [How To: Create a Queue](#how-to-create-a-queue)
 * [How To: Insert a Message into a Queue](#how-to-insert-a-message-into-a-queue)
 * [How To: Peek at the Next Message](#how-to-peek-at-the-next-message)
@@ -33,18 +33,18 @@ Steps](#next-steps) section.
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <a id="CreateAccount"></a>Create a Windows Azure storage account
+## <a id="CreateAccount"></a>Create an Azure storage account
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Create a Ruby Application on Windows Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="configure-your-application-to-access-storage"></a>Configure Your Application to Access Storage
 
-To use Windows Azure storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+To use Azure storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
 
@@ -58,10 +58,10 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 	require "azure"
 
-## <a id="setup-a-windows-azure-storage-connection"></a>Setup a Windows Azure Storage Connection
+## <a id="setup-a-windows-azure-storage-connection"></a>Setup an Azure Storage Connection
 
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY** 
-for information required to connect to your Windows Azure storage account. If these environment variables are not set, 
+for information required to connect to your Azure storage account. If these environment variables are not set, 
 you must specify the account information before using **Azure::QueueService** with the following code:
 
 	Azure.config.account_name = "<your azure storage account>"
@@ -69,7 +69,7 @@ you must specify the account information before using **Azure::QueueService** wi
 
 To obtain these values:
 
-1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/).
+1. Log into the [Azure Management Portal](https://manage.windowsazure.com/).
 2. Navigate to the storage account you want to use
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can select either the primary one or the secondary one.
@@ -157,8 +157,8 @@ To delete a queue and all the messages contained in it, call the **delete\_queue
 
 Now that you've learned the basics of queue storage, follow these links to learn how to do more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
-- Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+- See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparision between the Windows Azure Queue Service discussed in this article and Windows Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/en-us/develop/ruby/how-to-guides/service-bus-queues/) article, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+For a comparision between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/en-us/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)

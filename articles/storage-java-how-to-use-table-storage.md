@@ -1,10 +1,10 @@
-<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) - Windows Azure feature guide" metaKeywords="Windows Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Windows Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-java-how-to-use-table-storage" urlDisplayName="Table Service" pageTitle="How to use table storage (Java) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Java, table storage Java" description="Learn how to use the table storage service in Azure. Code samples are written in Java code." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Table storage service from Java" authors="" solutions="" manager="" editor="" />
 
 
 # How to use the Table storage service from Java
 
 This guide will show you how to perform common scenarios using the
-Windows Azure Table storage service. The samples are written in Java
+Azure Table storage service. The samples are written in Java
 code. The scenarios covered include **creating and deleting a table,
 inserting and querying entities in a table**. For more information on
 tables, see the [Next steps](#NextSteps) section.
@@ -13,10 +13,10 @@ tables, see the [Next steps](#NextSteps) section.
 
 * [What is Table Storage](#what-is)
 * [Concepts](#Concepts)
-* [Create a Windows Azure storage account](#CreateAccount)
+* [Create an Azure storage account](#CreateAccount)
 * [Create a Java application](#CreateApplication)
 * [Configure your application to access Table Storage](#ConfigureStorage)
-* [Setup a Windows Azure storage connection string](#ConnectionString)
+* [Setup an Azure storage connection string](#ConnectionString)
 * [How to: Create a table](#CreateTable)
 * [How to: Add an entity to a table](#AddEntity)
 * [How to: Insert a batch of entities](#InsertBatch)
@@ -32,7 +32,7 @@ tables, see the [Next steps](#NextSteps) section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-##<a name="CreateAccount"></a>Create a Windows Azure storage account
+##<a name="CreateAccount"></a>Create an Azure storage account
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -40,28 +40,28 @@ tables, see the [Next steps](#NextSteps) section.
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker
-role in Windows Azure. We assume you have downloaded and installed the
-Java Development Kit (JDK), and followed the instructions in [Windows Azure SDK for Java] to install the Windows Azure Libraries
-for Java and the Windows Azure SDK, and have created a Windows Azure
-storage account in your Windows Azure subscription.
+role in Azure. We assume you have downloaded and installed the
+Java Development Kit (JDK), and followed the instructions in [Azure SDK for Java] to install the Azure Libraries
+for Java and the Azure SDK, and have created an Azure
+storage account in your Azure subscription.
 
 You can use any development tools to create your application, including
 Notepad. All you need is the ability to compile a Java project and
-reference the Windows Azure Libraries for Java.
+reference the Azure Libraries for Java.
 
 ## <a name="ConfigureStorage"> </a>Configure your application to access table storage
 
 Add the following import statements to the top of the Java file where
-you want to use Windows Azure storage APIs to access tables:
+you want to use Azure storage APIs to access tables:
 
     // Include the following imports to use table APIs
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.table.client.*;
     import com.microsoft.windowsazure.services.table.client.TableQuery.*;
 
-## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
+## <a name="ConnectionString"> </a>Setup an Azure storage connection string
 
-A Windows Azure storage client uses a storage connection string to store
+An Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing data management services. When running
 in a client application, you must provide the storage connection string
 in the following format, using the name of your storage account and the
@@ -75,7 +75,7 @@ how you can declare a static field to hold the connection string:
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-In an application running within a role in Windows Azure, this string
+In an application running within a role in Azure, this string
 can be stored in the service configuration file,
 ServiceConfiguration.cscfg, and can be accessed with a call to the
 **RoleEnvironment.getConfigurationSettings** method. Here's an example
@@ -94,7 +94,7 @@ to get the storage connection string.
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
 and uses it to create a new table. All code in this guide uses a storage
-connection string stored in the Windows Azure application's service
+connection string stored in the Azure application's service
 configuration. There are also other ways to create
 **CloudStorageAccount** object.
 
@@ -511,12 +511,12 @@ to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
     Azure]
--   Visit the [Windows Azure Storage Team Blog][]
+-   Visit the [Azure Storage Team Blog][]
 
 
 [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
 [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-[Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

@@ -1,14 +1,14 @@
-<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Web Site with MongoDB on MongoLab" pageTitle="Create a Web Site that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create a Windows Azure web site that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-net-tutorials-website-with-mongodb-mongolab" urlDisplayName="Web Site with MongoDB on MongoLab" pageTitle="Create a Web Site that uses MongoDB on MongoLab (.NET)" metaKeywords="" description="Learn how to create an Azure web site that stores data in MongoDB hosted by MongoLab." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On" authors="" solutions="" manager="" editor="" />
 
 
 
-# Create a C# ASP.NET Application on Windows Azure with MongoDB using the MongoLab Add-On
+# Create a C# ASP.NET Application on Azure with MongoDB using the MongoLab Add-On
 
 <p><em>By Eric Sedor, MongoLab</em></p>
 
 Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial, you will:
 
-1. [Provision the Database][provision] - The Windows Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Windows Azure cloud and managed by MongoLab's cloud database platform.
+1. [Provision the Database][provision] - The Azure Store [MongoLab](http://mongolab.com) add-on will provide you with a MongoDB database hosted in the Azure cloud and managed by MongoLab's cloud database platform.
 1. [Create the App][create] - It'll be a simple C# ASP.NET MVC app for making notes.
 1. [Deploy the app][deploy] - By tying a few configuration hooks together, we'll make pushing our code a breeze.
 1. [Manage the database][manage] - Finally, we'll show you MongoLab's web-based database management portal where you can search, visualize, and modify data with ease.
@@ -16,9 +16,9 @@ Greetings, adventurers! Welcome to MongoDB-as-a-Service. In this tutorial, you w
 At any time throughout this tutorial, feel free to kick off an email to [support@mongolab.com](mailto:support@mongolab.com) if you have any questions.
 
 ## Quick start
-If you've already got a Windows Azure application and web site that you want to work with or you have some familiarity with the Windows Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
+If you've already got an Azure application and web site that you want to work with or you have some familiarity with the Azure Store, use this section to get a quick start. Otherwise, continue to [Provision the Database][provision] below.
  
-1. Open the Windows Azure Store.  
+1. Open the Azure Store.  
 ![Store][button-store]
 1. Purchase the MongoLab Add-On.  
 ![MongoLab][entry-mongolab]
@@ -27,7 +27,7 @@ If you've already got a Windows Azure application and web site that you want to 
 1. Copy the MONGOLAB_URI to your clipboard.  
 ![ConnectionInfoScreen][screen-connectioninfo]  
 **This URI contains your database user name and password.  Treat it as sensitive information and do not share it.**
-1. Add the value to the Connection Strings list in the Configuration menu of your Windows Azure Web application:  
+1. Add the value to the Connection Strings list in the Configuration menu of your Azure Web application:  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
 1. For **Name**, enter MONGOLAB\_URI.
 1. For **Value**, paste the connection string we obtained in the previous section.
@@ -40,7 +40,7 @@ If you've already got a Windows Azure application and web site that you want to 
  		private string connectionString = System.Environment.GetEnvironmentVariable("CUSTOMCONNSTR_MONGOLAB_URI");
  		...
  		MongoServer server = MongoServer.Create(connectionString);  
-Note: Windows Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
+Note: Azure adds the **CUSTOMCONNSTR\_** prefix to the originally-declared connection string, which is why the code references **CUSTOMCONNSTR\_MONGOLAB\_URI.** instead of **MONGOLAB\_URI**.
 
 Now, on to the full tutorial...
 
@@ -381,12 +381,12 @@ Finally, your HomeController needs to instantiate your data access layer and app
 	
 <h2><a name="deploy"></a>Deploy the app</h2>
 
-Now that the application has been developed, it's time to create a Windows Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
+Now that the application has been developed, it's time to create an Azure Web Site to host it, configure that web site, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web site with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 
 ### Create a New Web Site and Obtain the Publish Settings File
-Creating a web site in Windows Azure is very easy, especially as Windows Azure auto-generates a publish profile for Visual Studio.
+Creating a web site in Azure is very easy, especially as Azure auto-generates a publish profile for Visual Studio.
 
-1. In the Windows Azure portal, click **New**.  
+1. In the Azure portal, click **New**.  
 ![New][button-new]
 1. Select **Compute > Web Site > Quick Create**.  
 ![CreateSite][screen-mongolab-newwebsite]

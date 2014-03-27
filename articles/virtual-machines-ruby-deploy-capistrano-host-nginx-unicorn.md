@@ -1,12 +1,12 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Windows Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to a Windows Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to a Windows Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano" authors="" />
+<properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Deploy a Ruby on Rails Web application to an Azure VM using Capistrano" authors="" />
 
 
 
-#Deploy a Ruby on Rails Web application to a Windows Azure VM using Capistrano
+#Deploy a Ruby on Rails Web application to an Azure VM using Capistrano
 
-This tutorial describes how to deploy a Ruby on Rails-based web site to a Windows Azure Virtual Machine using [Capistrano](https://github.com/capistrano/capistrano/). This tutorial also describes how to [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the application on the virtual machine.
+This tutorial describes how to deploy a Ruby on Rails-based web site to an Azure Virtual Machine using [Capistrano](https://github.com/capistrano/capistrano/). This tutorial also describes how to [Nginx](http://nginx.org/) and [Unicorn](https://github.com/blog/517-unicorn) to host the application on the virtual machine.
 
-This tutorial assumes you have no prior experience using Windows Azure. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
+This tutorial assumes you have no prior experience using Azure. Upon completing this tutorial, you will have a Ruby on Rails-based application up and running in the cloud.
 
 You will learn how to:
 
@@ -18,7 +18,7 @@ You will learn how to:
 
 * Create a new Rails application
 
-* Deploy a Rails application to a Windows Azure Virtual machine using Capistrano
+* Deploy a Rails application to an Azure Virtual machine using Capistrano
 
 The following is a screenshot of the completed application:
 
@@ -41,7 +41,7 @@ The following is a screenshot of the completed application:
 
 * [Create a source repository](#repository)
 
-* [Create a Windows Azure Virtual Machine](#createvm)
+* [Create an Azure Virtual Machine](#createvm)
 
 * [Test Nginx](#nginx)
 
@@ -153,13 +153,13 @@ For this tutorial, we will use [Git](http://git-scm.com/) and [GitHub](https://g
 		git push -u origin master
 
 
-##<a id="createvm"></a>Create a Windows Azure Virtual Machine
+##<a id="createvm"></a>Create an Azure Virtual Machine
 
-Follow the instructions given [here][vm-instructions] to create a Windows Azure virtual machine that hosts Linux.
+Follow the instructions given [here][vm-instructions] to create an Azure virtual machine that hosts Linux.
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>The steps in this tutorial were performed on a Windows Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p>
+<p>The steps in this tutorial were performed on an Azure Virtual Machine hosting Ubuntu 12.10. If you are using a different Linux distribution, different steps may be required to accomplish the same tasks.</p>
 </div>
 
 <div class="dev-callout">
@@ -167,7 +167,7 @@ Follow the instructions given [here][vm-instructions] to create a Windows Azure 
 <p>You <strong>only</strong> need to create the virtual machine. Stop after learning how to connect to the virtual machine using SSH.</p>
 </div>
 
-After creating the Windows Azure Virtual Machine using SSH and perform the following steps to install Ruby and Rails on the virtual machine:
+After creating the Azure Virtual Machine using SSH and perform the following steps to install Ruby and Rails on the virtual machine:
 
 1. Connect to the virtual machine using SSH and use the following commands to update existing packages and install your Ruby environment:
 
@@ -197,7 +197,7 @@ Nginx provides a default web site that we can use to make sure our virtual machi
 
 	This will start the Nginx service, which will listen for incoming traffic on port 80.
 
-2. In your browser, navigate to the [Windows Azure Management Portal][management-portal] and select your Virtual Machine.
+2. In your browser, navigate to the [Azure Management Portal][management-portal] and select your Virtual Machine.
 
 	![virtual machine list][vmlist]
 
@@ -319,7 +319,7 @@ In this section, you will modify the application to use the Unicorn web server, 
 	In the above text, replace the following:
 
 	* **YourGitHubAccount** with your GitHub account name
-	* **VMDNSName** with the DNS of your Windows Azure virtual machine
+	* **VMDNSName** with the DNS of your Azure virtual machine
 	* **blogger** with the username used to login to your virtual machine
 	* **SSHPort** with the external SSH port for your virtual machine
 
@@ -342,13 +342,13 @@ In this section, you will modify the application to use the Unicorn web server, 
 
 ##<a id="deploy"></a>Deploy
 
-2.	From your local development machine, use the following command to setup the remote Windows Azure VM for deployment.
+2.	From your local development machine, use the following command to setup the remote Azure VM for deployment.
 
 		cap deploy:setup
 
 	When prompted, enter the password for the virtual machine user account. Capistrano will connect to the VM and create an **apps** directory under the home directory of the user account.
 
-3.	From an SSH connection to Windows Azure VM, modify the permissions of the **app** directory by using the following command:
+3.	From an SSH connection to Azure VM, modify the permissions of the **app** directory by using the following command:
 		
 		sudo chmod -R 777 apps
 
@@ -365,7 +365,7 @@ In this section, you will modify the application to use the Unicorn web server, 
 
 		sudo service nginx start
 
-At this point, your Ruby on Rails application should be running on your Windows Azure virtual machine. To verify this, enter the DNS name of your virtual machine in your web browser. For example, http://railsvm.cloudapp.net. The 'Welcome aboard' screen should appear:
+At this point, your Ruby on Rails application should be running on your Azure virtual machine. To verify this, enter the DNS name of your virtual machine in your web browser. For example, http://railsvm.cloudapp.net. The 'Welcome aboard' screen should appear:
 
 ![welcome aboard page][default-rails-cloud]
 
@@ -373,13 +373,13 @@ If you append '/posts' to the URL, the posts index should appear and you should 
 
 ##<a id="next"></a>Next steps
 
-In this article you have learned how to create and publish a basic forms-based Rails application to a Windows Azure Virtual Machine using Capistrano. The virtual machine used Unicorn and Nginx to handle web requests to the application.
+In this article you have learned how to create and publish a basic forms-based Rails application to an Azure Virtual Machine using Capistrano. The virtual machine used Unicorn and Nginx to handle web requests to the application.
 
-For a more basic example of creating and deploying a Rails application to a Windows Azure VM using only SSH, see [Host a Ruby on Rails Web App using a Linux Virtual Machine][ruby-vm].
+For a more basic example of creating and deploying a Rails application to an Azure VM using only SSH, see [Host a Ruby on Rails Web App using a Linux Virtual Machine][ruby-vm].
 
 If you would like to learn more about Ruby on Rails, visit the [Ruby on Rails Guides][rails-guides].
 
-To learn how to use the Windows Azure SDK for Ruby to access Windows Azure services from your Ruby application, see:
+To learn how to use the Azure SDK for Ruby to access Azure services from your Ruby application, see:
 
 * [Store unstructured data using blobs][blobs]
 

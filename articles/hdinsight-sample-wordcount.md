@@ -1,43 +1,43 @@
-<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight WordCount sample | Windows Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="The HDInsight WordCount sample" authors="" />
+<properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="HDInsight Samples" pageTitle="The HDInsight WordCount sample | Azure" metaKeywords="hdinsight, hdinsight sample, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The HDInsight WordCount sample" authors="bradsev" />
 
 #The HDInsight WordCount sample
  
-This sample topic shows how to run a MapReduce program that counts word occurrences in a text file with Windows Azure HDInsight using Windows Azure PowerShell. The WordCount MapReduce program is written in Java and runs on an HDInsight cluster. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
+This sample topic shows how to run a MapReduce program that counts word occurrences in a text file with Azure HDInsight using Azure PowerShell. The WordCount MapReduce program is written in Java and runs on an HDInsight cluster. The text file analyzed here is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci. 
 
 The Hadoop MapReduce program reads the text file and counts how often each word occurs. The output is a new text file that consists of lines, each of which contains a word and the count (a key/value tab-separated pair) of how often that word occurred in the document. This process is done in two stages. The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a work occurs of the word followed by a 1. The reducer then sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
 
  
 **You will learn:**
 		
-* How to use Windows Azure PowerShell to run a MapReduce program on an HDInsight cluster.
+* How to use Azure PowerShell to run a MapReduce program on an HDInsight cluster.
 * How to write MapReduce programs in Java.
 
 
 **Prerequisites**:	
 
-- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Get Started with Windows Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Get Started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure]
+- You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure]
 
 ##In this article	
 This topic shows you how to run the sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
 	
-1. [Run the sample using Windows Azure PowerShell](#run-sample)	
+1. [Run the sample using Azure PowerShell](#run-sample)	
 2. [The Java code for the WordCount MapReduce program](#java-code)
 3. [Summary](#summary)	
 4. [Next steps](#next-steps)	
 
-<h2><a id="run-sample"></a>Run the sample using Windows Azure PowerShell</h2> 
+<h2><a id="run-sample"></a>Run the sample using Azure PowerShell</h2> 
 
 **To submit the MapReduce job**
 
-1.	Open **Windows Azure PowerShell**. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+1.	Open **Azure PowerShell**. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 3. Set the two variables in the following commands, and then run them:
 		
-		$subscriptionName = "<SubscriptionName>"   # Windows Azure subscription name
+		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 		
 5. Run the following command to create a MapReduce job definition:
@@ -64,17 +64,17 @@ This topic shows you how to run the sample, presents the Java code for the MapRe
 		
 **To retrieve the results of the MapReduce job**
 
-1. Open **Windows Azure PowerShell**.
+1. Open **Azure PowerShell**.
 2. Set the three variables in the following commands, and then run them:
 
-		$subscriptionName = "<SubscriptionName>"       # Windows Azure subscription name
+		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		
-		$storageAccountName = "<StorageAccountName>"   # Windows Azure storage account name
+		$storageAccountName = "<StorageAccountName>"   # Azure storage account name
 		$containerName = "<ContainerName>"			   # Blob storage container name
 
-	The Windows Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
+	The Azure Storage account is the one you created earlier in the tutorial. The storage account is used to host the Blob container that is used as the default HDInsight cluster file system.  The Blob storage container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.
 
-3. Run the following commands to create a Windows Azure storage context object:
+3. Run the following commands to create an Azure storage context object:
 		
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
@@ -181,19 +181,19 @@ Note that the output files of a MapReduce job are immutable. So if you rerun thi
 
 <h2><a id="summary"></a>Summary</h2>
 
-In this tutorial, you have seen how to run a MapReduce program that counts word occurrences in a text file with HDInsight using Windows Azure PowerShell.
+In this tutorial, you have seen how to run a MapReduce program that counts word occurrences in a text file with HDInsight using Azure PowerShell.
 
 <h2><a id="next-steps"></a>Next steps</h2>
 
-For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+For tutorials runnng other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
-* [Get Started with Windows Azure HDInsight][hdinsight-get-started]
+* [Get Started with Azure HDInsight][hdinsight-get-started]
 * [Sample: 10GB GraySort][10gb-graysort]
 * [Sample: Pi Estimator][pi-estimator]
 * [Sample: C# Steaming][cs-streaming]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
-* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 

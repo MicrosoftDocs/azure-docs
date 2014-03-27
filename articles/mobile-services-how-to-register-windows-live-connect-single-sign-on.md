@@ -1,8 +1,8 @@
-<properties linkid="develop-mobile-how-to-guides-register-for-single-sign-on" urlDisplayName="Register for single sign on" pageTitle="Register for single sign-on - Windows Azure Mobile Services" metaKeywords="" description="Learn how to register for single sign-on authentication in your Windows Azure Mobile Services application." metaCanonical="" services="" documentationCenter="" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-how-to-guides-register-for-single-sign-on" urlDisplayName="Register for single sign on" pageTitle="Register for single sign-on - Azure Mobile Services" metaKeywords="" description="Learn how to register for single sign-on authentication in your Azure Mobile Services application." metaCanonical="" services="" documentationCenter="" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="" solutions="" manager="" editor="" />
 
 # Register your Windows Store apps to use Windows Live Connect single sign-on
 
-This topic shows you how to register your app with the Windows Store to be able to use Live Connect for single sign-on as the identity provider for Windows Azure Mobile Services. This step is also required to use push notifications.
+This topic shows you how to register your app with the Windows Store to be able to use Live Connect for single sign-on as the identity provider for Azure Mobile Services. This step is also required to use push notifications.
 
 <div class="dev-callout"><b>Note</b>
 <p>You do not need to register your app with the Windows Store to be able to use Microsoft Account for authentication before you publish your app. When your Windows Store app does not require single sign-on or push notifications, you can just register your app with Live Connect to use a Microsoft Account login.  For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication">Register your Windows Store apps to use a Microsoft Account login</a>.</p>
@@ -77,4 +77,4 @@ You are now ready to integrate authentication by using Live Connect into your ap
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/

@@ -2,9 +2,9 @@
 
 
 #How to Configure Traffic Manager Settings#
-Windows Azure Traffic Manager enables you to control the distribution of user traffic to Windows Azure hosted services. 
+Azure Traffic Manager enables you to control the distribution of user traffic to Azure hosted services. 
 
-Traffic Manager works by applying an intelligent policy engine to the DNS queries on your main company domain name. Update the DNS resource records that your company owns to point to Traffic Manager domains. Traffic Manager policies that are attached to those domains then resolve DNS queries on your main company domain name to the IP addresses of specific Windows Azure hosted services contained in the Traffic Manager policies. For more information, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx).
+Traffic Manager works by applying an intelligent policy engine to the DNS queries on your main company domain name. Update the DNS resource records that your company owns to point to Traffic Manager domains. Traffic Manager policies that are attached to those domains then resolve DNS queries on your main company domain name to the IP addresses of specific Azure hosted services contained in the Traffic Manager policies. For more information, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx).
 
 ##Table of Contents
 
@@ -32,7 +32,7 @@ The best way to test your policy is to set up a number of clients and then bring
 
 - **Set the DNS TTL very low** so that changes will propagate quickly - 30 seconds, for example.
 
-- **Know the IP addresses of the Windows Azure hosted services** in the policy you are testing. You can obtain this information from the Windows Azure Management Portal. Click on the Production Deployment of your service. In the properties pane on the right, the last entry will be the VIP, which is the virtual IP address of that hosted service.
+- **Know the IP addresses of the Azure hosted services** in the policy you are testing. You can obtain this information from the Azure Management Portal. Click on the Production Deployment of your service. In the properties pane on the right, the last entry will be the VIP, which is the virtual IP address of that hosted service.
 
 	![hosted service IP location][0]
 
@@ -66,7 +66,7 @@ The second IP address is the important one to check. It should match a VIP for o
 
 ###Performance policies###
 
-You will need clients in different parts of the world to effectively test your domain. You could create clients in Windows Azure which will attempt to call your services via your company domain name. Alternatively, if your corporation is global you can remotely log into clients in other parts of the country and test from those clients.
+You will need clients in different parts of the world to effectively test your domain. You could create clients in Azure which will attempt to call your services via your company domain name. Alternatively, if your corporation is global you can remotely log into clients in other parts of the country and test from those clients.
 
 There are free web based nslookup and dig services available. Some of these give you the ability to check DNS name resolution from various locations. Do a search on nslookup for examples. Another option is to use a 3rd party solution like Gomez or Keynote to confirm that your policies are distributing traffic as expected.
 
@@ -110,7 +110,7 @@ You can disable previously created Traffic Manager policies so they will not rou
 You can also disable individual hosted services that are part of a Traffic Manager policy. This action effectively leaves the hosted service as part of the policy, but the policy acts as if the hosted service is not included in it. This action is very useful for temporarily removing a hosted service that is in maintenance mode or being redeployed and so unstable. After the hosted service is up and running again, it can be re-enabled. 
 
 **Note**  
-Disabling a hosted service has nothing to do with its deployment state in Windows Azure. A healthy service will remain up and able to receive traffic even when disabled in Traffic Manager. Also, disabling a hosted service in one policy does not affect its status in another policy. 
+Disabling a hosted service has nothing to do with its deployment state in Azure. A healthy service will remain up and able to receive traffic even when disabled in Traffic Manager. Also, disabling a hosted service in one policy does not affect its status in another policy. 
 
 ###To disable a policy###
 
@@ -130,7 +130,7 @@ Disabling a hosted service has nothing to do with its deployment state in Window
 
 2. Click **Disable Service Policy** on the top toolbar. Note that the button will be greyed out if you highlight a hosted service that is already disabled.
 
-3. Traffic will stop flowing to the hosted service based on the DNS TTL time set for the Traffic Manager domain that is part of the policy. For more information, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Windows Azure Traffic Manager." 
+3. Traffic will stop flowing to the hosted service based on the DNS TTL time set for the Traffic Manager domain that is part of the policy. For more information, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Azure Traffic Manager." 
 
 ###To enable a hosted service###
 
@@ -160,9 +160,9 @@ To change a policy to a different type, use the following steps:
 
 A common load balancing pattern is to provide a set of identical hosted services and send traffic to each in a round-robin fashion. This article outlines the steps to set up a Traffic Manager domain and policy to perform this type of load balancing.
 
-For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Azure Traffic Manager."
 
-1. **Deploy your hosted services** into your production environment. For information on developing and deploying [Windows Azure hosted services](http://msdn.microsoft.com/library/gg432967.aspx).
+1. **Deploy your hosted services** into your production environment. For information on developing and deploying [Azure hosted services](http://msdn.microsoft.com/library/gg432967.aspx).
 
 2. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
@@ -174,15 +174,15 @@ For more information on the different load balancing methods that Traffic Manage
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription.
 
-5. **Select the Round Robin load balance method.** For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+5. **Select the Round Robin load balance method.** For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Azure Traffic Manager."
 
 6. **Find hosted services and add them to the policy.** Use the filter box to find hosted services that contain the string you type into the box. Clear the box to display all hosted services in production for the subscription you selected in step 4. Use the arrow buttons to add them to the policy. The order in the **Selected DNS names** box does not matter for this load balancing method.
 
 7. **Set up monitoring.** Monitoring insures that hosted services that are offline are not sent traffic. You must have a specific path and filename set up.
-For more information, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Windows Azure Traffic Manager."
+For more information, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Azure Traffic Manager."
 
 8. **Name your Traffic Manager domain.** Give your domain a unique name. You can only specify the prefix for your domain. Leave the DNS time to live at its default time. 
-For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
+For more information about the effect of this setting, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Azure Traffic Manager."
 
 
 	The **Create Traffic Manager policy** dialog box should be similar to the example below.
@@ -191,20 +191,20 @@ For more information about the effect of this setting, see [Overview of Windows 
 
 	**Figure 2** - Dialog box for Round Robin load balancing method
 
-9. **Test the Traffic Manager domain and policy.** For instructions, see  [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
+9. **Test the Traffic Manager domain and policy.** For instructions, see  [How to: Test an Azure Traffic Manager Policy](#howto_test). 
 
 10. **Point your DNS Server to the Traffic Manager domain.** Once your Traffic Manager Domain is setup and working, edit the DNS record on your authoritative DNS server to point your company domain to the Traffic Manager domain. 
 For example, the following command routes all traffic going to **www.contoso.com** to the Traffic Manager domain **contoso.trafficmanager.net**: 
 `` www.contoso.com IN CNAME contoso.trafficmanager.net``
-For more information, see [How to: Point to a Company Internet Domain to a Windows Azure Traffic Manager domain](#howto_point_company).
+For more information, see [How to: Point to a Company Internet Domain to an Azure Traffic Manager domain](#howto_point_company).
 
 <h2><a id="howto_create_failover"></a>How to: Create a Failover Policy</h2>
 
 Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical hosted services and send traffic to a primary service, with a list of 1 or more backups. This article outlines the steps to set up a Traffic Manager policy to perform this type of failover backup.
 
-For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Azure Traffic Manager."
 
-1. **Deploy your hosted services** into your production environment. For information on developing and deploying hosted services, see [Windows Azure hosted services](http://msdn.microsoft.com/library/gg432967.aspx).  
+1. **Deploy your hosted services** into your production environment. For information on developing and deploying hosted services, see [Azure hosted services](http://msdn.microsoft.com/library/gg432967.aspx).  
 
 2. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
@@ -216,15 +216,15 @@ For more information on the different load balancing methods that Traffic Manage
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription.
 
-5. **Select the Failover Policy load balance method.** For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+5. **Select the Failover Policy load balance method.** For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Azure Traffic Manager."
 
 6. **Find hosted services and add them to the policy.** Use the filter box to find hosted services that contain the string you type into the box. Clear the box to display all hosted services in production for the subscription you selected in step 4. Use the arrow buttons to add them to the policy. When you select the **Failover** load balancing method, the order of the selected services matters. The primary hosted service is on top. Use the up and down arrows change the order as needed.
 
 7. Monitoring ensures that hosted services that are offline are not sent traffic. Using a failover policy without setting up monitoring is useless because traffic will be sent to the primary hosted service even if that hosted service is shown as offline. In order to monitor hosted services, you must specify a specific path and filename.
-For more information, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Windows Azure Traffic Manager."
+For more information, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Azure Traffic Manager."
 
 8. **Name your Traffic Manager domain.** Give your domain a unique name. You can only specify the prefix for your domain. Leave the **DNS time to live (TTL)** at its default time.
-For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
+For more information about the effect of this setting, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Azure Traffic Manager."
  
 	The **Create Traffic Manager policy** dialog box should look similar to the example below. 
 
@@ -232,7 +232,7 @@ For more information about the effect of this setting, see [Overview of Windows 
 
 	**Figure 2** - Dialog box for Failover load balancing method
 
-9. **Test the Traffic Manager domain and policy.** For more information, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test). 
+9. **Test the Traffic Manager domain and policy.** For more information, see [How to: Test an Azure Traffic Manager Policy](#howto_test). 
 
 10. **Point your DNS Server to the Traffic Manager domain.** After your Traffic Manager Domain is setup and working, edit the DNS record on your authoritative DNS server to point your company domain to the Traffic Manager domain. 
 For more information, see [How to Point a Company Internet Domain to a Traffic Manager Domain](#howto_point_company). 
@@ -241,12 +241,12 @@ For example, the following command routes all traffic going to **www.contoso.com
 
 <h2><a id="howto_direct"></a>How to: Direct Incoming Traffic to Hosted Services Based on Network Performance</h2>
 
-In order to load balance hosted service that are located in different datacenters across the globe, you can direct incoming traffic to the closest hosted service. Although "closest" may directly correspond to geographic distance, it can also correspond to the location with the lowest latency to service the request. The Performance load balancing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load. For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+In order to load balance hosted service that are located in different datacenters across the globe, you can direct incoming traffic to the closest hosted service. Although "closest" may directly correspond to geographic distance, it can also correspond to the location with the lowest latency to service the request. The Performance load balancing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load. For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Azure Traffic Manager."
 
 The following steps will walk you through the process:
 
-1. **Deploy your hosted services** into your production environment. For more information, see [Creating a Hosted Service for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx). 
-Also refer to "Best practices for hosted services and policies" in the [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring).
+1. **Deploy your hosted services** into your production environment. For more information, see [Creating a Hosted Service for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx). 
+Also refer to "Best practices for hosted services and policies" in the [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring).
 
 2. **Log into the Traffic Manager area in the Management Portal** at [http://manage.windowsazure.com](http://manage.windowsazure.com). Click **Virtual Network** in the lower left of the portal pages and then choose **Traffic Manager** from the options in the left pane.
 
@@ -258,15 +258,15 @@ Also refer to "Best practices for hosted services and policies" in the [Overview
 
 4. **Choose a subscription.** Policies and domains are associated with single subscription. 
 
-5. **Pick the Performance load balance method.** For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Windows Azure Traffic Manager."
+5. **Pick the Performance load balance method.** For more information on the different load balancing methods that Traffic Manager provides, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx) and scroll to the section "Load balancing methods in Azure Traffic Manager."
 
 6. **Find hosted services and add them to the policy.** Use the filter box to find hosted services that contain the string you type into the box. Clear the box to display all hosted services in production for the subscription you selected in step 4. Use the arrow buttons to add them to the policy. The order in the **Selected DNS names** does not matter for this load balancing method.
 
 7. **Set up monitoring.** Monitoring insures that hosted services that are offline are not sent traffic. You must have a specific path and filename set up. 
-For more information, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Windows Azure Traffic Manager."
+For more information, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to the section "Monitoring hosted services in Azure Traffic Manager."
 
 8. **Name your Traffic Manager domain.** Give your domain a unique name. You can only specify the prefix for your domain. Leave the **DNS time to live (TTL)** at its default time. 
-For more information about the effect of this setting, see [Overview of Windows Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Windows Azure Traffic Manager."
+For more information about the effect of this setting, see [Overview of Azure Traffic Manager](http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring) and scroll to "Best practices for hosted services and policies when using Azure Traffic Manager."
  
 	The **Create Traffic Manager policy** dialog box should look something like the example below. 
 
@@ -274,12 +274,12 @@ For more information about the effect of this setting, see [Overview of Windows 
 
 	**Figure 2** - Dialog box for Performance load balancing method
 
-9. **Test the Traffic Manager domain and policy.** For more information about testing, see [How to: Test a Windows Azure Traffic Manager Policy](#howto_test).
+9. **Test the Traffic Manager domain and policy.** For more information about testing, see [How to: Test an Azure Traffic Manager Policy](#howto_test).
 
 10. **Point your DNS Server to the Traffic Manager domain.** Once your Traffic Manager Domain is setup and working, edit the DNS record on your authoritative DNS server to point your company domain to the Traffic Manager domain. 
 For example, the following command routes all traffic going to **www.contoso.com** to the Traffic Manager domain **contoso.trafficmanager.net**. 
 ``www.contoso.com IN CNAME contoso.trafficmanager.net``
-For more information, see [How to: Point a Company Internet Domain to a Windows Azure Traffic Manager Domain](#howto_point_company).
+For more information, see [How to: Point a Company Internet Domain to an Azure Traffic Manager Domain](#howto_point_company).
 
 [0]: ./media/traffic-manager-configure-settings/hosted_service_IP_location.png
 [1]: ./media/traffic-manager-configure-settings/nslookup_command_example.png

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Windows Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Windows Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -6,7 +6,7 @@
 
 <h1><a id="configLogical"></a>How to Create and Configure SQL Database</h1>
 
-In this topic, you'll step through logical server creation and configuration. In the new Windows Azure (Preview) Management Portal, revised workflows let you create a database first, and then create a server. 
+In this topic, you'll step through logical server creation and configuration. In the new Azure (Preview) Management Portal, revised workflows let you create a database first, and then create a server. 
 
 However in this topic, you'll create the server first. You might prefer this approach if you have existing SQL Server databases that you want to upload.
 
@@ -30,9 +30,9 @@ However in this topic, you'll create the server first. You might prefer this app
 
 6. Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-7. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+7. Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-8. Be sure to keep the **Allow Services** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Windows Azure. 
+8. Be sure to keep the **Allow Services** option selected so that you can connect to this database using the Management Portal for SQL Database, storage services, and other services on Azure. 
 
 9. Click the checkmark at the bottom of the page when you are finished.
 

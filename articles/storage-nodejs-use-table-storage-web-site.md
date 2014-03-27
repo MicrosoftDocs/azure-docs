@@ -1,20 +1,20 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage - Windows Azure tutorial" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Windows Azure Table service to store data from a Node application hosted on a Windows Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Windows Azure Table Service" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Web Site with Storage" pageTitle="Node.js web site with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure web site." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-# Node.js Web Application using the Windows Azure Table Service
+# Node.js Web Application using the Azure Table Service
 
-This tutorial shows you how to use Table service provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
+This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted on Azure. This tutorial assumes that you have some prior experience using node and [Git].
 
 You will learn:
 
 * How to use npm (node package manager) to install the node modules
 
-* How to work with the Windows Azure Table service
+* How to work with the Azure Table service
 
-* How to use the Windows Azure command-line tool for Mac and Linux to create a Windows Azure Web Site
+* How to use the Azure command-line tool for Mac and Linux to create an Azure Web Site
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in the Table service.
  
@@ -50,7 +50,7 @@ Before following the instructions in this article, you should ensure that you ha
 
 Perform the following steps to create a storage account. This account will be used by subsequent instructions in this tutorial.
 
-1. Open your web browser and go to the [Windows Azure Portal]. If prompted, login with your Windows Azure subscription information.
+1. Open your web browser and go to the [Azure Portal]. If prompted, login with your Azure subscription information.
 
 2. At the bottom of the portal, click **+ NEW** and then select **Storage Account**.
 
@@ -136,7 +136,7 @@ After this command completes, you should have several new directories and files 
 
 ###Install additional modules
 
-The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to a Windows Azure Web Site, this file will be used to determine which modules need to be installed on Windows Azure to support your application.
+The **package.json** file is one of the files created by the **express** command. This file contains a list of additional modules that are required for an Express application. Later, when you deploy this application to an Azure Web Site, this file will be used to determine which modules need to be installed on Azure to support your application.
 
 1. From the command-line, change directories to the **tasklist** folder and enter the following to install the modules described in the **package.json** file:
 
@@ -481,27 +481,27 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys.
 
-##Deploy your application to Windows Azure
+##Deploy your application to Azure
 
-The steps in this section use the Windows Azure command-line tools to create a new Windows Azure Web Site, and then use Git to deploy your application. To perform these steps you must have a Windows Azure subscription.
+The steps in this section use the Azure command-line tools to create a new Azure Web Site, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>These steps can also be performed by using the Windows Azure portal. For steps on using the Windows Azure portal to deploy a Node.js application, see <a href="http://content-ppe.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+<p>These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="http://content-ppe.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.</p>
 </div>
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>If this is the first Windows Azure Web Site you have created, you must use the Windows Azure portal to deploy this application.</p>
+<p>If this is the first Azure Web Site you have created, you must use the Azure portal to deploy this application.</p>
 </div>
 
-###Enable the Windows Azure Web Site feature
+###Enable the Azure Web Site feature
 
-If you do not already have a Windows Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Windows Azure Web Site feature.
+If you do not already have an Azure subscription, you can sign up [for free]. After signing up, follow these steps to enable the Azure Web Site feature.
 
 [WACOM.INCLUDE [antares-iaas-signup](../includes/antares-iaas-signup.md)]
 
-###Install the Windows Azure command-line tool for Mac and Linux
+###Install the Azure command-line tool for Mac and Linux
 
 To install the command-line tools, use the following command:
 	
@@ -509,7 +509,7 @@ To install the command-line tools, use the following command:
 
 <div class="dev-callout">
 <strong>Note</strong>
-<p>If you have already installed the **Windows Azure SDK for Node.js** from the <a href="/en-us/develop/nodejs/">Windows Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Windows Azure command-line tool for Mac and Linux</a>.</p>
+<p>If you have already installed the **Azure SDK for Node.js** from the <a href="/en-us/develop/nodejs/">Azure Developer Center</a>, then the command-line tools should already be installed. For more information, see <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure command-line tool for Mac and Linux</a>.</p>
 </div>
 
 <div class="dev-callout">
@@ -519,7 +519,7 @@ To install the command-line tools, use the following command:
 
 ###Import publishing settings
 
-Before using the command-line tools with Windows Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
+Before using the command-line tools with Azure, you must first download a file containing information about your subscription. Perform the following steps to download and import this file.
 
 1. From the command-line, change directories to the **tasklist** directory.
 
@@ -547,19 +547,19 @@ Before using the command-line tools with Windows Azure, you must first download 
 		info:   Account publish settings imported successfully
 		info:   account import command OK
 
-4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Windows Azure subscription.
+4. Once the import has completed, you should delete the publish settings file as it is no longer needed and contains sensitive information regarding your Azure subscription.
 
-###Create a Windows Azure Web Site
+###Create an Azure Web Site
 
 1. From the command-line, change directories to the **tasklist** directory.
 
-2. Use the following command to create a new Windows Azure Web Site
+2. Use the following command to create a new Azure Web Site
 
 		azure site create --git
 		
 	You will be prompted for the web site name and the datacenter that it will be located in. Provide a unique name and select the datacenter geographically close to your location.
 	
-	The `--git` parameter will create a Git repository on Windows Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Windows Azure. Finally, it will create a **web.config** file, which contains settings used by Windows Azure to host node applications.
+	The `--git` parameter will create a Git repository on Azure for this web site. It will also initialize a Git repository in the current directory if none exists. It will also create a [Git remote] named 'azure', which will be used to publish the application to Azure. Finally, it will create a **web.config** file, which contains settings used by Azure to host node applications.
 	
 	<div class="dev-callout">
 	<strong>Note</strong>
@@ -588,7 +588,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>If this is the first Windows Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to a Windows Azure Web Site</a>.</p>
+	<p>If this is the first Azure Web Site for your subscription, you will be instructed to use the portal to create the web site. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Web Site</a>.</p>
 	</div>
 
 ###Publish the application
@@ -600,7 +600,7 @@ Before using the command-line tools with Windows Azure, you must first download 
 		git add .
 		git commit -m "adding files"
 
-3. When pushing the latest Git repository changes to the Windows Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content.
+3. When pushing the latest Git repository changes to the Azure Web Site, you must specify that the target branch is **master** as this is used for the web site content.
 
 		git push azure master
 	
@@ -642,11 +642,11 @@ Earlier we implemented code that looks for a **SQL_CONN** environment variable f
 		git rm config.json
 		git commit -m "Removing config file"
 
-6. Perform the following command to deploy the changes to Windows Azure:
+6. Perform the following command to deploy the changes to Azure:
 
 		git push azure master
 
-Once the changes have been deployed to Windows Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid storage access key setting.
+Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **STORAGE_KEY** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid storage access key setting.
 
 ##Next steps
 
@@ -654,10 +654,10 @@ While the steps in this article describe using the Table Service to store inform
 
 ##Additional resources
 
-[Windows Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Windows Azure Developer Center]: /en-us/develop/nodejs/
+[Azure command-line tool for Mac and Linux]    
+[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Azure Developer Center]: /en-us/develop/nodejs/
 
 
 [node]: http://nodejs.org
@@ -667,13 +667,13 @@ While the steps in this article describe using the Table Service to store inform
 [Git remote]: http://git-scm.com/docs/git-remote
 
 [Node.js Web Application with MongoDB]: /en-us/develop/nodejs/tutorials/website-with-mongodb-(Mac)/
-[Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
-[Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
+[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Create and deploy a Node.js application to an Azure Web Site]: ./web-site-with-mongodb-Mac
+[Publishing to Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
 [azure]: https://github.com/WindowsAzure/azure-sdk-for-node
 
 
-[Windows Azure Portal]: http://windowsazure.com
+[Azure Portal]: http://windowsazure.com
 
 
 [node-table-finished]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png

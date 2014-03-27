@@ -1,27 +1,27 @@
-<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) - Windows Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Windows Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
+<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors="waltpo" solutions="" manager="bjsmith" editor="mollybos" />
 
 # On-Premises Application with Blob Storage
 
-The following example shows you how you can use Windows Azure storage to
-store images in Windows Azure. The code below is for a console
-application that uploads an image to Windows Azure, and then creates an
+The following example shows you how you can use Azure storage to
+store images in Azure. The code below is for a console
+application that uploads an image to Azure, and then creates an
 HTML file that displays the image in your browser.
 
 ## Table of Contents
 
 -   [Prerequisites][]
--   [To use Windows Azure blob storage to upload a file][]
+-   [To use Azure blob storage to upload a file][]
 -   [To delete a container][]
 
 ## <a name="bkmk_prerequisites"> </a>Prerequisites
 
 1.  A Java Developer Kit (JDK), v1.6 or later, is installed.
-2.  The Windows Azure SDK is installed.
-3.  The JAR for the Windows Azure Libraries for Java, and any applicable
+2.  The Azure SDK is installed.
+3.  The JAR for the Azure Libraries for Java, and any applicable
     dependency JARs, are installed and are in the build path used by
-    your Java compiler. For information on installing the Windows Azure Libraries for Java, see [Download the
-    Windows Azure SDK for Java].
-4.  A Windows Azure storage account has been set up. The account name
+    your Java compiler. For information on installing the Azure Libraries for Java, see [Download the
+    Azure SDK for Java].
+4.  An Azure storage account has been set up. The account name
     and account key for the storage account will be used by the code
     below. See [How to Create a Storage Account] for information about creating a storage account,
     and [How to Manage Storage Accounts] for information about retrieving the
@@ -33,13 +33,13 @@ HTML file that displays the image in your browser.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-## <a name="bkmk_uploadfile"> </a>To use Windows Azure blob storage to upload a file
+## <a name="bkmk_uploadfile"> </a>To use Azure blob storage to upload a file
 
 A step-by-step procedure is presented here; if you'd like to skip ahead,
 the entire code is presented later in this topic.
 
-Begin the code by including imports for the Windows Azure core storage
-classes, the Windows Azure blob client classes, the Java IO classes, and
+Begin the code by including imports for the Azure core storage
+classes, the Azure blob client classes, the Java IO classes, and
 the **URISyntaxException** class:
 
     import com.microsoft.windowsazure.services.core.storage.*;
@@ -54,7 +54,7 @@ Declare a class named **StorageSample**, and include the open bracket,
 
 Within the **StorageSample** class, declare a string variable that will
 contain the default endpoint protocol, your storage account name, and
-your storage access key, as specified in your Windows Azure storage
+your storage access key, as specified in your Azure storage
 account. Replace the placeholder values **your\_account\_name** and
 **your\_account\_key** with your own account name and account key,
 respectively.
@@ -76,7 +76,7 @@ Declare variables of the following type (the descriptions are for how
 they are used in this example):
 
 -   **CloudStorageAccount**: Used to initialize the account object with
-    your Windows Azure storage account name and key, and to create the
+    your Azure storage account name and key, and to create the
     blob client object.
 -   **CloudBlobClient**: Used to access the blob service.
 -   **CloudBlobContainer**: Used to create a blob container, list the
@@ -121,7 +121,7 @@ Set anonymous access for the container.
     container.uploadPermissions(containerPermissions);
 
 Get a reference to the block blob, which will represent the blob in
-Windows Azure storage.
+Azure storage.
 
     blob = container.getBlockBlobReference("image1.jpg");
 
@@ -134,14 +134,14 @@ running the code.)
 Upload the local file through a call to the **CloudBlockBlob.upload**
 method. The first parameter to the **CloudBlockBlob.upload** method is a
 **FileInputStream** object that represents the local file that will be
-uploaded to Windows Azure storage. The second parameter is the size, in
+uploaded to Azure storage. The second parameter is the size, in
 bytes, of the file.
 
     blob.upload(new FileInputStream(fileReference), fileReference.length());
 
 Call a helper function named **MakeHTMLPage**, to make a basic HTML page
 that contains an **&lt;image&gt;** element with the source set to the blob that
-is now in your Windows Azure storage account. (The code for
+is now in your Azure storage account. (The code for
 **MakeHTMLPage** will be discussed later in this topic.)
 
     MakeHTMLPage(container);
@@ -157,7 +157,7 @@ Handle the following exceptions:
 
 -   **FileNotFoundException**: Can be thrown by the **FileInputStream**
     or **FileOutputStream** constructors.
--   **StorageException**: Can be thrown by the Windows Azure client
+-   **StorageException**: Can be thrown by the Azure client
     storage library.
 -   **URISyntaxException**: Can be thrown by the **ListBlobItem.getUri**
     method.
@@ -217,7 +217,7 @@ Write to the local file, adding in the **&lt;html&gt;**, **&lt;header&gt;**, and
 
 Iterate through the list of uploaded blobs. For each blob, in the HTML
 page create an **&lt;img&gt;** element that has its **src** attribute sent to
-the URI of the blob as it exists in your Windows Azure storage account.
+the URI of the blob as it exists in your Azure storage account.
 Although you added only one image in this sample, if you added more,
 this code would iterate all of them.
 
@@ -350,7 +350,7 @@ respectively.
         }
     }
 
-In addition to uploading your local image file to Windows Azure storage,
+In addition to uploading your local image file to Azure storage,
 the example code creates a local file namedindex.html, which you can
 open in your browser to see your uploaded image.
 
@@ -419,9 +419,9 @@ For an overview of other blob storage classes and methods, see [How to
 Use the Blob Storage Service from Java].
 
   [Prerequisites]: #bkmk_prerequisites
-  [To use Windows Azure blob storage to upload a file]: #bkmk_uploadfile
+  [To use Azure blob storage to upload a file]: #bkmk_uploadfile
   [To delete a container]: #bkmk_deletecontainer
-  [Download the Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+  [Download the Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
   [How to Create a Storage Account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
   [How to Manage Storage Accounts]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
   [How to Use the Blob Storage Service from Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/

@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Windows Azure" metaKeywords="" description="Learn how to use the Windows Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -7,7 +7,7 @@
 
 ##Initialization##
 
-To invoke the Windows Azure IaaS service management API from NodeJS, the `azure` module is used.
+To invoke the Azure IaaS service management API from NodeJS, the `azure` module is used.
 
 	var azure = require('azure');
 
@@ -100,7 +100,7 @@ Note that in some cases completion may only indicate that the request was accept
 - serviceOptions is an optional object. It may contain these properties
 	- Description - default to 'Service host'
 	- Label - default to serviceName if not set.
-	- Location - default to 'Windows Azure Preview' -TODO change when released.
+	- Location - default to 'Azure Preview' -TODO change when released.
 -	callback is required.
 
 **iaasClient.GetStorageAccountKeys(serviceName, callback)**

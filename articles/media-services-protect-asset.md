@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Windows Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
 
 
 
@@ -6,13 +6,13 @@
 
 <h1><a name="playready"></a>How to: Protect an Asset with PlayReady Protection</h1>
 
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Check Job Progress](http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Check Job Progress](http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409).
 
-In Windows Azure Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt an asset. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
+In Azure Media Services you can submit a job that integrates with Microsoft PlayReady Protection to encrypt an asset. The code in this section takes several streaming files from an input folder, creates a task and encrypts them with PlayReady Protection. 
 
 The following example shows how to create a simple job to provide PlayReady Protection.
 
-   1. Retrieve configuration data. You can get an example configuration file from the [Task Preset for Windows Azure Media Encryptor](http://msdn.microsoft.com/en-us/library/hh973610.aspx) topic.
+   1. Retrieve configuration data. You can get an example configuration file from the [Task Preset for Azure Media Encryptor](http://msdn.microsoft.com/en-us/library/hh973610.aspx) topic.
    2. Upload an MP4 input file
    3. Converts the MP4 file into a Smooth Streaming asset
    4. Encrypts the asset with PlayReady
@@ -35,7 +35,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
     // Get a media processor instance
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
 
     // Create a task with the conversion details, using the configuration data 
     ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -58,7 +58,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
     string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
     // Get a media processor instance
-    IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
+    IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
 
     // Create a second task, specifying a task name, the media processor, and configuration
     ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",

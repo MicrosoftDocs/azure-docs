@@ -1,26 +1,26 @@
-<properties linkid="manage-linux-common-tasks-manage-certs" urlDisplayName="Manage certificates" pageTitle="Manage certificates for Linux virtual machines in Windows Azure" metaKeywords="Azure management certs, uploading management certs, Azure Service Management API" description="Learn how to create and upload management certificates for Linux in Windows Azure. The certificate is required if you use the Service Management API." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create management certificates for Linux in Windows Azure" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties linkid="manage-linux-common-tasks-manage-certs" urlDisplayName="Manage certificates" pageTitle="Manage certificates for Linux virtual machines in Azure" metaKeywords="Azure management certs, uploading management certs, Azure Service Management API" description="Learn how to create and upload management certificates for Linux in Azure. The certificate is required if you use the Service Management API." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create management certificates for Linux in Azure" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
 
 
 
 
 
-#Create management certificates for Linux in Windows Azure
+#Create management certificates for Linux in Azure
 
-A management certificate is needed when you want to use the Service Management API to interact with the Windows Azure image platform. 
+A management certificate is needed when you want to use the Service Management API to interact with the Azure image platform. 
 
-There is already documentation on how to create and manage these certificates at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx). You can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org/). However, this documentation  is primarily focused on the use of the Silverlight portal that might not be accessible to all the Linux users. It describes how you will be able to gain access to these certificates and integrate them with our different tools, partners and use them on your own until this functionality is added in the Windows Azure Management Portal. 
+There is already documentation on how to create and manage these certificates at [http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx). You can also use OpenSSL to create the management certificate.  For more information, see [OpenSSL](http://openssl.org/). However, this documentation  is primarily focused on the use of the Silverlight portal that might not be accessible to all the Linux users. It describes how you will be able to gain access to these certificates and integrate them with our different tools, partners and use them on your own until this functionality is added in the Azure Management Portal. 
 
 
 ##Table of Contents##
 
 * [Obtain a management certificate from the publishsettings file](#createcert)
-* [Install a management certificate using the Windows Azure Management Portal](#management)
+* [Install a management certificate using the Azure Management Portal](#management)
 
 <h2><a id="publishsettings"></a>How to: Create and upload a management certificate</h2>
 
 
-We have created an easy way for you to create a management certificate for Windows Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://windows.azure.com/download/publishprofile.aspx)
+We have created an easy way for you to create a management certificate for Azure by visiting: [https://windows.azure.com/download/publishprofile.aspx](https://windows.azure.com/download/publishprofile.aspx)
 
 This web site will ask you to login using your portal credentials and then generate a management certificate  for you that is packaged along with your subscriptionID  on a publishsettings file that you will be asked to download. 
 
@@ -33,9 +33,9 @@ Make sure you save this file in safe place as you will not be able to recover it
 ![VSpublish](./media/linux-create-management-cert/VSpublish.png)
 
 
-###In the Linux Windows Azure Command Line###
+###In the Linux Azure Command Line###
 
-You can import the certificate so that you can use it by running the Windows Azure account import command:
+You can import the certificate so that you can use it by running the Azure account import command:
 
 ![cmdlinepublish](./media/linux-create-management-cert/cmdlinepublish.png)
 
@@ -73,18 +73,18 @@ In Windows you can decode and extract the PFX file using powershell or a free wi
 
 There is a limit of up to 10 certificates that you can create in the platform with this tool.
 Unfortunately there is no way for you to recover the keys that you have generated once they have been generated as we do not save these private keys anywhere in the system.
-If you reach the limit of certificates in the system you will need to contact support through the Windows Azure forums in order to have your certificates erased or use a browser that can render the old Silverlight portal to perform these tasks.
+If you reach the limit of certificates in the system you will need to contact support through the Azure forums in order to have your certificates erased or use a browser that can render the old Silverlight portal to perform these tasks.
 
 ####If your private key is compromised ####
 
 If your private key is compromised at any point you will need to use a browser that supports Silverlight to access the old portal and delete the corresponding management certificates on file or contact support through the forums.  
 Generating a new certificates is not enough since all 10 certificates are valid and your old compromised key will still be able to access the web site.
 
-<h2><a id="management"></a>Install a management certificate using the Windows Azure Management Portal</h2>
+<h2><a id="management"></a>Install a management certificate using the Azure Management Portal</h2>
 
-You can create a management certificate in a variety of ways.  For more information about creating certificates, see [Create a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).  After you create the certificate, add it to your subscription in Windows Azure. 
+You can create a management certificate in a variety of ways.  For more information about creating certificates, see [Create a Management Certificate for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).  After you create the certificate, add it to your subscription in Azure. 
 
-1. Sign in to the Windows Azure Management Portal.
+1. Sign in to the Azure Management Portal.
 
 2. In the navigation pane, click **Settings**.
 
@@ -94,7 +94,7 @@ You can create a management certificate in a variety of ways.  For more informat
 
 ### Obtain the thumbprint of the certificate and the subscription ID ###
 
-You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the .vhd file to Windows Azure.
+You need the thumbprint of the management certificate that you added and you need the subscription ID to be able to upload the .vhd file to Azure.
 
 1. From the Management Portal, click **Settings**.
 
@@ -110,7 +110,7 @@ You also need the ID of your subscription to upload the .vhd file.
 
 ####For CSUPLOAD
 
-1.	Open a Windows Azure SDK Command Prompt window as an administrator.
+1.	Open an Azure SDK Command Prompt window as an administrator.
 2.	Set the connection string by using the following command and replacing **Subscriptionid** and **CertThumbprint** with the values that you obtained earlier:
 
 
@@ -136,5 +136,5 @@ You will then need to merge your subscription ID and the base64 encoded pfx into
 		  </PublishProfile>
 		</PublishData>
 		
-Where xxxxx is the contents of the [enconded file] you will use to provide the details to the Linux Windows Azure Command Line Tools with the commands:
+Where xxxxx is the contents of the [enconded file] you will use to provide the details to the Linux Azure Command Line Tools with the commands:
 Azure account import (File)

@@ -1,11 +1,11 @@
-<properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Windows Azure" metaKeywords="" description="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Windows Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-networking-replica-domain-controller" urlDisplayName="Replica domain controller" pageTitle="Install a replica domain controller in Azure" metaKeywords="" description="A tutorial that teaches you how to install a domain controller from your Corp Active Directory forest on your Azure virtual machine." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller in Azure Virtual Networks" authors="" solutions="" manager="" editor="" />
 
 
 
 
-#Install a Replica Active Directory Domain Controller in Windows Azure Virtual Networks
+#Install a Replica Active Directory Domain Controller in Azure Virtual Networks
 
-This tutorial walks you through the steps to install an additional domain controller from your Corp Active Directory forest on a virtual machine (VM) on [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is connected to the network at your company. For conceptual guidance about installing Active Directory Domain Services (AD DS) on Windows Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+This tutorial walks you through the steps to install an additional domain controller from your Corp Active Directory forest on a virtual machine (VM) on [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx). In this tutorial, the virtual network for the VM is connected to the network at your company. For conceptual guidance about installing Active Directory Domain Services (AD DS) on Azure Virtual Network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
 ##Table of Contents##
 
@@ -22,25 +22,25 @@ This tutorial walks you through the steps to install an additional domain contro
 
 <h2><a id="Prerequisites"></a>Prerequisites</h2>
 
--	[Create a Virtual Network for Cross-Premises Connectivity](http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/) configured between Windows Azure Virtual network and Corp network.
+-	[Create a Virtual Network for Cross-Premises Connectivity](http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/) configured between Azure Virtual network and Corp network.
 -	Create a cloud service in the virtual network.
 -	Deploy two VMs in the Cloud Service that are part of the virtual network (specify the subnet where you want to place the VM). For more information, see [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/). One VM must be size L or greater in order to attach two data disks to it. The data disks are needed to store:
 	- The Active Directory database and logs.
 	- System state backups.
 -	A Corp network with two VMs (YourPrimaryDC and FileServer).
 -	Domain Name System (DNS) infrastructure deployed if you need to have external users resolve names for accounts in Active Directory. In this case, you should create a DNS zone delegation before you install DNS server on the domain controller, or allow the Active Directory Domain Services Installation Wizard create the delegation. For more information about creating a DNS zone delegation, see [Create a Zone Delegation](http://technet.microsoft.com/en-us/library/cc753500.aspx).
--	On the DC that you install on a Windows Azure VM, configure DNS client resolver settings as follows:
+-	On the DC that you install on an Azure VM, configure DNS client resolver settings as follows:
 	- Preferred DNS server: on-premises DNS server 
 	- Alternate DNS server: loopback address or, if possible, another DNS server running on a DC on the same virtual network.
 
 <div class="dev-callout"> 
 <b>Note</b>
-<p>You need to provide your own DNS infrastructure to support AD DS on Windows Azure Virtual Network. The Windows Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as dynamic SRV resource record registration. </p>
+<p>You need to provide your own DNS infrastructure to support AD DS on Azure Virtual Network. The Azure-provided DNS infrastructure for this release does not support some features that AD DS requires, such as dynamic SRV resource record registration. </p>
 </div>
 
 <div class="dev-callout"> 
 <b>Note</b>
-<p>If you already completed the steps in <a href="/en-us/manage/services/networking/active-directory-forest/">Install a new Active Directory forest in Windows Azure</a>, you might need to remove AD DS from the domain controller on the Windows Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see <a href="http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx">Removing a Domain Controller from a Domain</a>.</p>
+<p>If you already completed the steps in <a href="/en-us/manage/services/networking/active-directory-forest/">Install a new Active Directory forest in Azure</a>, you might need to remove AD DS from the domain controller on the Azure virtual network before you begin this tutorial. For more information about how to remove AD DS, see <a href="http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx">Removing a Domain Controller from a Domain</a>.</p>
 </div>
 
 
@@ -196,7 +196,7 @@ This tutorial walks you through the steps to install an additional domain contro
 
 	**Important** 
 
-	Although the IP address on the Windows Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
+	Although the IP address on the Azure Virtual Network is dynamic, its lease lasts for the duration of the VM. Therefore, you do not need to set a static IP address on the domain controller that you install on the virtual network. Setting a static IP address in the VM will cause communication failures.
 
 
 	![AddDC9](./media/virtual-networks-install-replica-active-directory-domain-controller/AddDC9.png)
@@ -235,12 +235,12 @@ This tutorial walks you through the steps to install an additional domain contro
 
 After the DC is configured, run the following Windows PowerShell cmdlet to provision additional virtual machines and have them automatically join the domain when they are provisioned. The DNS client resolver settings for the VMs must be configured when the VMs are provisioned. Substitute the correct names for your domain, VM name, and so on. 
 
-For more information about using Windows PowerShell, see [Getting Started with Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
+For more information about using Windows PowerShell, see [Getting Started with Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx) and [Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841).
 
 
 <h2><a id="provisionvm"></a>Step 6: Provisioning a Virtual Machine that is Domain Joined on Boot</h2>
 
-1. To create an additional virtual machine that is domain-joined when it first boots, open Windows Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
+1. To create an additional virtual machine that is domain-joined when it first boots, open Azure PowerShell ISE, paste the following script, replace the placeholders with your own values and run it. 
 
 	To determine the Internal IP address of the domain controller, click the name of virtual network where it is running. 
 
@@ -301,8 +301,8 @@ Log on to the client VM in each site and create a shared folder on the VM
 
 ## See Also
 
--  [Windows Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-  [Azure Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
 
--  [Windows Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
+-  [Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
 
--  [Windows Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)
+-  [Azure Management Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj152841)

@@ -1,11 +1,11 @@
-<properties linkid="" urlDisplayName="" pageTitle="Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
 
 
 
 # Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service
 
-[Part 1](../storage-dotnet-shared-access-signature-part-1/) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Windows Azure Blob service. The examples are written in C# and use the Windows Azure Storage Client Library for .NET. The scenarios covered include these aspects of working with shared access signatures:
+[Part 1](../storage-dotnet-shared-access-signature-part-1/) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET. The scenarios covered include these aspects of working with shared access signatures:
 
 - Generating a shared access signature on a container
 - Generating a shared access signature on a blob
@@ -17,12 +17,12 @@ In this tutorial, we'll focus on creating shared access signatures for container
 
 # Part 1: Create a Console Application to Generate Shared Access Signatures #
 
-First, ensure that you have the Windows Azure Storage Client Library for .NET (Version 2.0) installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Windows Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/).
+First, ensure that you have the Azure Storage Client Library for .NET (Version 2.0) installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/).
 
 In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to  **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, using either of the following approaches:
 
-- 	If you want to install the NuGet package, first install the [NuGet Package Manager Extension for Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). In Visual Studio, select **Project | Manage NuGet Packages**, search online for **Windows Azure Storage**, and follow the instructions to install.
-- 	Alternatively, locate the assemblies in your installation of the Windows Azure SDK and add references to them.
+- 	If you want to install the NuGet package, first install the [NuGet Package Manager Extension for Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). In Visual Studio, select **Project | Manage NuGet Packages**, search online for **Azure Storage**, and follow the instructions to install.
+- 	Alternatively, locate the assemblies in your installation of the Azure SDK and add references to them.
  
 At the top of the Program.cs file, add the following **using** statements:
 
@@ -521,7 +521,7 @@ Run the console application and observe the output to see which operations are p
 
 [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/)
 
-[Manage Access to Windows Azure Storage Resources](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
 
 [Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
 

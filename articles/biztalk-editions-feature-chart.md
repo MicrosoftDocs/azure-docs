@@ -1,11 +1,11 @@
-<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Windows Azure" metaKeywords="BizTalk Services, get started, Windows Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-biztalk-services-editions-chart" urlDisplayName="Editions chart" pageTitle="Learn about features in BizTalk Services editions | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
 
 # BizTalk Services: Developer, Basic, Standard, and Premium Editions Chart
 
-Windows Azure BizTalk Services offers four editions: Developer, Basic, Standard, and Premium:
+Azure BizTalk Services offers four editions: Developer, Basic, Standard, and Premium:
 
 **Developer**: Capabilities include EAI & EDI message processing, hybrid connectivity using the BizTalk Adapter Pack, and common EAI scenarios connecting services in the cloud with any HTTP/S, REST, FTP, WCF and SFTP protocols to read and write messages. All in a developer centric environment with Visual Studio tools for easy development and deployment. Limited to development and test purpose only with no SLA.
 
@@ -28,10 +28,10 @@ The following table lists the differences:
 </tr>
 <tr>
 <td><strong>Starting price</strong></td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
-<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
+<td>Refer to <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.</td>
 </tr>
 <tr>
 <td><strong>Default Minimum Configuration</strong></td>
@@ -98,7 +98,7 @@ Includes Agreements, Message Types, BizTalk Services Portal</strong></td>
 <tr>
 <td><strong>High Availability</strong>
 <br/><br/>
-For Service Level Agreement (SLA), see <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Windows Azure BizTalk Services Pricing</a>.
+For Service Level Agreement (SLA), see <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.
 </td>
 <td>Not included</td>
 <td>Included</td>
@@ -148,18 +148,18 @@ Includes Non-repudiation of Receipt (NRR) and downloading tracked messages</td>
 
 ## FAQs
 #### What is a BizTalk Unit?
-A "unit" is the atomic level of a Windows Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. For example, a Basic Unit has more compute than Developer, Standard has more compute than Basic, and so on. When you scale a BizTalk Service, you scale in terms of Units.
+A "unit" is the atomic level of an Azure BizTalk Services deployment. Each edition comes with a unit that has different compute capacity and memory. For example, a Basic Unit has more compute than Developer, Standard has more compute than Basic, and so on. When you scale a BizTalk Service, you scale in terms of Units.
 
-#### What is the different between BizTalk Services and Windows Azure BizTalk VM
+#### What is the different between BizTalk Services and Azure BizTalk VM
 BizTalk Services provides a true Platform-as-a-Service (PaaS) architecture for building integration solutions in the cloud. With the PaaS model, you focus completely on the application logic and leave all of the infrastructure management to Microsoft, including:
 
 - No need to manage or patch virtual machines
 - Microsoft ensures availability
-- You control scale on-demand by simply requesting more or less capacity through the Windows Azure management portal
+- You control scale on-demand by simply requesting more or less capacity through the Azure management portal
 
-BizTalk Server on Windows Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and  architecting the application for high availability. 
+BizTalk Server on Azure Virtual Machines provides an Infrastructure-as-a-Service (IaaS) architecture. You  create virtual machines and configure them exactly like your on-premises environment, making it easier to run existing applications in the cloud with no code changes. With IaaS, you are still responsible for configuring the virtual machines,  managing the virtual machines (for example, installing software and OS patches), and  architecting the application for high availability. 
 
-If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on a Windows Azure Virtual Machine.
+If you are looking at building new integration solutions that minimize your infrastructure management effort, use BizTalk Services. If you are looking to quickly migrate your existing BizTalk solutions or looking for an on-demand environment to develop and test BizTalk Server applications, use BizTalk Server on an Azure Virtual Machine.
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one? 
 
@@ -175,17 +175,17 @@ Use the backup and restore flow for migrating from one tier to another. Only som
 
 #### Is the BizTalk Adapter Service included in the service? How do I receive the software?
 
-Yes, the BizTalk Adapter Service with the BizTalk Adapter Pack are included with the Windows Azure BizTalk Services SDK [download](http://www.microsoft.com/download/details.aspx?id=39087).
+Yes, the BizTalk Adapter Service with the BizTalk Adapter Pack are included with the Azure BizTalk Services SDK [download](http://www.microsoft.com/download/details.aspx?id=39087).
 
 ## Next
 
-To provision Windows Azure BizTalk Services in the Windows Azure Management Portal, go to [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Windows Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+To provision Azure BizTalk Services in the Azure Management Portal, go to [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## See Also
-- [BizTalk Services: Provisioning Using Windows Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 - [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 - [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 - [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 - [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 - [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [How do I Start Using the Windows Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

@@ -1,4 +1,4 @@
-<properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Windows Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="" solutions="" manager="" editor="" />
 
 
 # Build Real-time Apps with Mobile Services and Pusher
@@ -6,7 +6,7 @@
 	<a href="" title="iOS" class="current">iOS</a> 
 </div>
 
-This topic shows you how can add real-time functionality to your Windows Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
+This topic shows you how can add real-time functionality to your Azure Mobile Services-based app. When completed, your TodoList data is synchronized, in real-time, across all running instances of your app.
  
 The [Push Notifications to Users][] tutorial shows you how to use push notifications to inform users of new items in the Todo list. Push notifications are a great way to show occasional changes. However, sometimes an app needs frequent real-time notifications. Real-time notifications can be added to your mobile service using the Pusher API. In this tutorial, we use Pusher with Mobile Services to keep a Todo list synchronized when changes are made in any running instance of the app. 
 
@@ -264,7 +264,7 @@ All that remains is setting up your server scripts. We'll insert a script for wh
 
 
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
 
 
 2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table.
@@ -423,6 +423,6 @@ To learn more about registering and using server scripts, see [Mobile Services s
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293

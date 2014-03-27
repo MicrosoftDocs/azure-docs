@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
+<properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
 
 
@@ -17,7 +17,7 @@ covered include **creating queues, sending and receiving messages**, and
 * [Obtain the Default Management Credentials for the Namespace](#obtain-default-credentials)
 * [Create a Ruby Application](#create-a-ruby-application)
 * [Configure Your Application to Use Service Bus](#configure-your-application-to-use-service-bus)
-* [Setup a Windows Azure Service Bus Connection](#setup-a-windows-azure-service-bus-connection)
+* [Setup an Azure Service Bus Connection](#setup-a-windows-azure-service-bus-connection)
 * [How to Create a Queue](#how-to-create-a-queue)
 * [How to Send Messages to a Queue](#how-to-send-messages-to-a-queue)
 * [How to Receive Messages from a Queue](#how-to-receive-messages-from-a-queue)
@@ -28,11 +28,11 @@ covered include **creating queues, sending and receiving messages**, and
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
-Create a Ruby application. For instructions, see [Create a Ruby Application on Windows Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="configure-your-application-to-use-service-bus"></a>Configure Your Application to Use Service Bus
 
-To use Windows Azure service bus, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+To use Azure service bus, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
 
@@ -46,10 +46,10 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
     require "azure"
 
-## <a id="setup-a-windows-azure-service-bus-connection"></a>Setup a Windows Azure Service Bus Connection
+## <a id="setup-a-windows-azure-service-bus-connection"></a>Setup an Azure Service Bus Connection
 
 The azure module will read the environment variables **AZURE\_SERVICEBUS\_NAMESPACE** and **AZURE\_SERVICEBUS\_ACCESS_KEY** 
-for information required to connect to your Windows Azure service bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
+for information required to connect to your Azure service bus namespace. If these environment variables are not set, you must specify the namespace information before using **Azure::ServiceBusService** with the following code:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -116,4 +116,4 @@ Now that you've learned the basics of Service Bus queues, follow these links to 
 -   See the MSDN Reference: [Queues, Topics, and Subscriptions](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
 -   Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparision between the Windows Azure Service Bus Queues discussed in this article and Windows Azure Queues discussed in the [How to use the Windows Azure Queue Service](/en-us/develop/ruby/how-to-guides/queue-service/) article, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use the Azure Queue Service](/en-us/develop/ruby/how-to-guides/queue-service/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)

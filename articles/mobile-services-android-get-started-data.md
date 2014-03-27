@@ -1,5 +1,4 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Windows Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
-
+<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="" editor="" />
 
 
 
@@ -12,14 +11,14 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>This topic shows you how to use Windows Azure Mobile Services to leverage data in an Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view changes to data made when running the app.</p>
+<p>This topic shows you how to use Azure Mobile Services to leverage data in an Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</p>
 
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a><span class="time">15:32</span></div>
 </div>
 
 <div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Windows Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-android">Get started with Mobile Services</a>.</p>
+<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-android">Get started with Mobile Services</a>.</p>
 </div>
 
 This tutorial walks you through these basic steps:
@@ -30,7 +29,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Windows Azure Free Trial</a>.</p></div> 
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.</p></div> 
 
 This tutorial requires the [Mobile Services Android SDK]; the <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
 
@@ -42,7 +41,9 @@ This tutorial requires the [Mobile Services Android SDK]; the <a href="https://g
 
 <h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
 
-This tutorial is built on the [GetStartedWithData app][GitHub], which is an Android app. The UI for this app is identical to the app generated by the Mobile Services Android quickstart, except that added items are stored locally in memory. 
+###Get the sample code
+
+This tutorial is built on the [GetStartedWithData app][GitHub], which is an Android app. The UI for this app is identical to the app generated by the Mobile Services Android quickstart, except that added items are stored locally in memory. You will add the code needed to persist the data to storage.
 
 
 1. Download the `GetStartedWithData` sample app and expand the files on your computer. 
@@ -57,26 +58,20 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is an Andr
 
 	This imports the project files into the current workspace.
 
-4. Look in the Eclipse Console in the bottom pane. If there are **not** any error messages of the form "**Unable to resolve target 'android-n'**", skip this step and go on to the next step. If you do see such messages, the reason is that the version of the Android SDK installed on your computer does not match the SDK target of the downloaded project. The Android SDK referenced in this tutorial is version 19, the latest at the time of writing. The version number may increase as new releases of the SDK appear, and we recomend using the latest version available. To update the version, make the following changes:
+###Verify Android SDK Version
+
+[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-- In Eclipse, click **Window**, then click **Android SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
+###Inspect and run the sample code
 
-- Open the project file **AndroidManifest.xml**. Ensure that in the **uses-sdk** element, the **targetSdkVersion** is set to the latest version installed. The **uses-sdk** tag might look like this:
- 
-	 	    <uses-sdk
-	 	        android:minSdkVersion="8"
-	 	        android:targetSdkVersion="19" />
-	
-- In the Eclipse Package Explorer right-click the project node, choose **Properties**, and in the left column choose **Android**. Ensure that the **Project Build Target** is set to the same SDK version as the **targetSdkVersion**.
-
-5. In Package Explorer, expand **GetStartedWithData**, **src**, and **.com.example.GetStartedWithData**, then examine the ToDoActivity.java file.
+1. In Package Explorer, expand **GetStartedWithData**, **src**, and **.com.example.GetStartedWithData**, then examine the ToDoActivity.java file.
 
    	![][12]
 
    	Notice that there are `//TODO` comments that specify the steps you must take to make this app work with your mobile service.
 
-6. From the **Run** menu, click **Run As** and then click **1 Android Application** to start the project.
+6. From the **Run** menu, click **Run** and then click **Android Application** to start the project.
 
 	<div class="dev-callout"><strong>Note</strong> <p>You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.</p> <p>To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.</p></div>
 
@@ -100,13 +95,13 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 1. If you don't already have the [Mobile Services Android SDK], download it now and expand the compressed files.
 
-2. Copy the `.jar` files from the SDK into the `libs` folder of the GetStartedWithData project.
+2. Copy the `.jar` files from the `mobileservices` folder of the SDK into the `libs` folder of the GetStartedWithData project.
 
 3. In Package Explorer in Eclipse, right-click the `libs` folder, click **Refresh**, and the copied jar files will appear
 
   	This adds the Mobile Services SDK reference to the workspace.
 
-4. Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Windows Azure.
+4. Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
@@ -135,15 +130,18 @@ Now that your mobile service is ready, you can update the app to store items in 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-9. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+9. Find the ProgressFilter class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while MobileServiceClient is running network operations.
 
-10. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
+
+10. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+
+11. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 
    	![][8]
 
   	You will need these values when accessing the mobile service from your app code.
 
-11. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
+12. In the **onCreate** method, uncomment the following lines of code that define the **MobileServiceClient** variable:
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -161,9 +159,9 @@ Now that your mobile service is ready, you can update the app to store items in 
 
   	This creates a new instance of MobileServiceClient that is used to access your mobile service. It also creates the MobileServiceTable instance that is used to proxy data storage in the mobile service.
 
-12. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
+13. In the code above, replace `MobileServiceUrl` and `AppKey` with the URL and application key from your mobile service, in that order.
 
-13. Find the ProgressFilter class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while MobileServiceClient is running network operations.
+
 
 14. Uncommment these lines of the **checkItem** method:
 
@@ -224,11 +222,12 @@ Now that your mobile service is ready, you can update the app to store items in 
 	This queries the mobile service and returns all items that are not marked as complete. Items are added to the adapter for binding.
 		
 
-Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
 <h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
 
-1. From the **Run** menu, click **Run** to start the project in the Android emulator.
+Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.
+
+1. From the **Run** menu, click **Run** to start the project.
 
 	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
 
@@ -275,14 +274,6 @@ Once you have completed the data series, try these other Android tutorials:
 [Next Steps]:#next-steps
 
 <!-- Images. -->
-
-
-
-
-
-
-
-
 [8]: ./media/mobile-services-android-get-started-data/mobile-dashboard-tab.png
 [9]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
 
@@ -301,7 +292,7 @@ Once you have completed the data series, try these other Android tutorials:
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122

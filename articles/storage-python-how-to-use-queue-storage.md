@@ -1,4 +1,4 @@
-<properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) - Windows Azure" metaKeywords="Windows Azure Queue Service messaging Python" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-queue-service" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -13,7 +13,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 [What is Queue Storage?][]   
  [Concepts][]   
- [Create a Windows Azure Storage Account][]   
+ [Create an Azure Storage Account][]   
  [How To: Create a Queue][]   
  [How To: Insert a Message into a Queue][]   
  [How To: Peek at the Next Message][]   
@@ -26,7 +26,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+## <a name="create-account"> </a>Create an Azure Storage Account
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 
@@ -34,7 +34,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
-The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Storage:
+The **QueueService** object lets you work with queues. The following code creates a **QueueService** object. Add the following near the top of any Python file in which you wish to programmatically access Azure Storage:
 
 	from azure.storage import *
 
@@ -132,13 +132,13 @@ To delete a queue and all the messages contained in it, call the
 Now that you have learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Azure][]
+-   Visit the [Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
   [What is Queue Storage?]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
+  [Create an Azure Storage Account]: #create-account
   [How To: Create a Queue]: #create-queue
   [How To: Insert a Message into a Queue]: #insert-message
   [How To: Peek at the Next Message]: #peek-message
@@ -147,5 +147,5 @@ to learn how to do more complex storage tasks.
   [How To: Additional Options for Dequeuing Messages]: #advanced-get
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

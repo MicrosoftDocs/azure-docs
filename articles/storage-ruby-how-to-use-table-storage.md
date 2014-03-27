@@ -1,4 +1,4 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) - Windows Azure" metaKeywords="Windows Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Windows Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
 
 
@@ -16,10 +16,10 @@ information on tables, see the [Next Steps](#next-steps) section.
 
 * [What is the Table Service?](#what-is)
 * [Concepts](#concepts)
-* [Create a Windows Azure Storage Account](#create-a-windows-azure-storage-account)
+* [Create an Azure Storage Account](#create-a-windows-azure-storage-account)
 * [Create a Ruby application](#create-a-ruby-application)
 * [Configure your Application to Access Storage](#configure-your-application-to-access-storage)
-* [Setup a Windows Azure Storage Connection](#setup-a-windows-azure-storage-connection)
+* [Setup an Azure Storage Connection](#setup-a-windows-azure-storage-connection)
 * [How to: Create a Table](#how-to-create-a-table)
 * [How to: Add an Entity to a Table](#how-to-add-an-entity-to-a-table)
 * [How To: Update an Entity](#how-to-update-an-entity)
@@ -33,18 +33,18 @@ information on tables, see the [Next Steps](#next-steps) section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-## <a id="create-a-windows-azure-storage-account"></a>Create a Windows Azure Storage Account
+## <a id="create-a-windows-azure-storage-account"></a>Create an Azure Storage Account
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a id="create-a-ruby-application"></a>Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Create a Ruby Application on Windows Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## <a id="configure-your-application-to-access-storage"></a>Configure Your Application to Access Storage
 
-To use Windows Azure storage, you need to download and use the Ruby azure package, 
+To use Azure storage, you need to download and use the Ruby azure package, 
 which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
@@ -59,17 +59,17 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 	require "azure"
 
-## <a id="setup-a-windows-azure-storage-connection"></a>Setup a Windows Azure Storage Connection
+## <a id="setup-a-windows-azure-storage-connection"></a>Setup an Azure Storage Connection
 
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** 
-for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
+for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
 To obtain these values:
 
-1. Log into the [Windows Azure Management Portal](https://manage.windowsazure.com/).
+1. Log into the [Azure Management Portal](https://manage.windowsazure.com/).
 
 2. Navigate to the storage account you want to use.
 
@@ -90,7 +90,7 @@ The **Azure::TableService** object lets you work with tabls and entities. To cre
 
 ## <a id="how-to-add-an-entity-to-a-table"></a>How to Add an Entity to a Table
 
-To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Windows Azure Storage Service uses **PartitionKey** to automatically distribute the table's entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
+To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Azure Storage Service uses **PartitionKey** to automatically distribute the table's entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
 
 	entity = { "content" => "test entity", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
@@ -165,6 +165,6 @@ To delete a table, use the **delete\_table()** method and pass in the name of th
 
 Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
 
-* See the MSDN Reference: [Storing and Accessing Data in Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
-* Visit the [Windows Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+* Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

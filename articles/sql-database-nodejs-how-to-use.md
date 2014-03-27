@@ -1,12 +1,12 @@
-<properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Windows Azure feature guide" metaKeywords="" description="Learn how to use Windows Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="Node.js" title="How to Access Windows Azure SQL Database from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Azure feature guide" metaKeywords="" description="Learn how to use Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="Node.js" title="How to Access Azure SQL Database from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-#How to Access Windows Azure SQL Database from Node.js
+#How to Access Azure SQL Database from Node.js
 
-This guide will show you the basics of using the Microsoft Driver for Node.JS for SQL Server to access a Windows Azure SQL Database. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Preview Management Portal][preview-portal].
+This guide will show you the basics of using the Microsoft Driver for Node.JS for SQL Server to access an Azure SQL Database. The scenarios covered include **creating a SQL Database** and **connecting to a SQL Database**. This guide covers creating a SQL Database from the [Preview Management Portal][preview-portal].
 
 ##Table of contents
 
@@ -15,33 +15,33 @@ This guide will show you the basics of using the Microsoft Driver for Node.JS fo
 * [How to: Create a SQL Database](#CreateServer)
 * [How to: Get SQL Database connection information](#ConnectionInfo)
 * [How to: Connect to a SQL Database instance](#Connect)
-* [Windows Azure deployment considerations](#Deploy)
+* [Azure deployment considerations](#Deploy)
 * [Next steps](#NextSteps)
 
 <h2><a id="Concepts"></a>Concepts</h2>
 
-###What is Windows Azure SQL Database
+###What is Azure SQL Database
 
-Windows Azure SQL Database provides a relational database management system for Windows Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
+Azure SQL Database provides a relational database management system for Azure, and is based on SQL Server technology. With SQL Database, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
 ##What is the Microsoft Driver for Node.JS for SQL Server
 
-The Microsoft Driver for Node.JS for SQL Server allows developers to access data stored in Microsoft SQL Server or Windows Azure SQL Database from a Node.js application. The driver is currently a preview release only; additional features will be integrated into the project as they are completed. For more information on the driver, see the Microsoft Driver for Node.JS for SQL Server project's [Github page] and the associated [Wiki].
+The Microsoft Driver for Node.JS for SQL Server allows developers to access data stored in Microsoft SQL Server or Azure SQL Database from a Node.js application. The driver is currently a preview release only; additional features will be integrated into the project as they are completed. For more information on the driver, see the Microsoft Driver for Node.JS for SQL Server project's [Github page] and the associated [Wiki].
 
 <div class="dev-callout">
 <b>Note</b>
-<p>The Microsoft Driver for Node.JS for SQL Server is currently available as a preview release, and relies on run-time components that are only available on the Microsoft Windows and Windows Azure operating systems.</p>
+<p>The Microsoft Driver for Node.JS for SQL Server is currently available as a preview release, and relies on run-time components that are only available on the Microsoft Windows and Azure operating systems.</p>
 </div>
 
 <h2><a id="Setup"></a>How to: Setup your environment</h2>
 
 ###Install the SQL Server Native Client
 
-The Microsoft SQL Server Driver for Node.js relies on the SQL Server Native Client. While the native client is automatically available when the application is deployed to Windows Azure, it may not be present in your local development environment. You can install the SQL Server Native Client from the [Microsoft SQL Server 2012 Feature Pack] download page.
+The Microsoft SQL Server Driver for Node.js relies on the SQL Server Native Client. While the native client is automatically available when the application is deployed to Azure, it may not be present in your local development environment. You can install the SQL Server Native Client from the [Microsoft SQL Server 2012 Feature Pack] download page.
 
 <div class="dev-callout">
 <b>Note</b>
-<p>The SQL Server Native Client is only available for the Microsoft Windows operating system. While this driver is available natively on Windows Azure, you will be unable to test your application locally using the information in this article if you are developing on an operating system other than Microsoft Windows.</p>
+<p>The SQL Server Native Client is only available for the Microsoft Windows operating system. While this driver is available natively on Azure, you will be unable to test your application locally using the information in this article if you are developing on an operating system other than Microsoft Windows.</p>
 </div>
 
 ###Install Node.js
@@ -50,12 +50,12 @@ Node.js can be installed from [http://nodejs.org/#download](http://nodejs.org/#d
 
 <h2><a id="CreateServer"></a>How to: Create a SQL Database</h2>
 
-Follow these steps to create a Windows Azure SQL Database:
+Follow these steps to create an Azure SQL Database:
 
 1. Login to the [Preview Management Portal][preview-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Azure Website][new-website]
 
 3. Click **SQL Database**, then **Custom Create**.
 
@@ -65,7 +65,7 @@ Follow these steps to create a Windows Azure SQL Database:
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database will be created, and check the `Allow Windows Azure Services to access the server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database will be created, and check the `Allow Azure Services to access the server` box.
 
 	![Create new SQL Database server][create-server]
 
@@ -140,14 +140,14 @@ While the above example illustrates how to return all rows at once in the result
 	stmt.on('done', function () { console.log("All done!"); });
 	stmt.on('error', function (err) { console.log("We had an error: " + err); });
 
-<h2><a id="Deploy"></a>Windows Azure deployment considerations</h2>
+<h2><a id="Deploy"></a>Azure deployment considerations</h2>
 
 <div class="dev-callout">
 <b>Note</b>
-<p>The following information is based off of a preview release of the Microsoft Driver for Node.JS for SQL Server. The information in this section may not be the most recent information on using the node-sqlserver module with Windows Azure. For the most recent information on the <a href="https://github.com/WindowsAzure/node-sqlserver">Microsoft Driver for Node.JS for SQL Server project page</a> on Github.</p>
+<p>The following information is based off of a preview release of the Microsoft Driver for Node.JS for SQL Server. The information in this section may not be the most recent information on using the node-sqlserver module with Azure. For the most recent information on the <a href="https://github.com/WindowsAzure/node-sqlserver">Microsoft Driver for Node.JS for SQL Server project page</a> on Github.</p>
 </div>
 
-Windows Azure will not dynamically install the node-sqlserver module at runtime, so you must ensure that your application deployment includes a binary version of the module. You can verify that your deployment does contain a binary version of the module by ensuring that the following directory structure exists, and contains the files described below:
+Azure will not dynamically install the node-sqlserver module at runtime, so you must ensure that your application deployment includes a binary version of the module. You can verify that your deployment does contain a binary version of the module by ensuring that the following directory structure exists, and contains the files described below:
 
 	application directory
 		node_modules
@@ -156,7 +156,7 @@ Windows Azure will not dynamically install the node-sqlserver module at runtime,
 
 The **node-sqlserver** directory should contain a **package.json** file. The **lib** directory should contain a **sql.js** and a **sqlserver.node** file, which is the compiled form of the node-sqlserver module.
 
-For more information on deploying a Node.js application to Windows Azure, see [Create and deploy a Node.js application to a Windows Azure Web Site] and [Node.js Cloud Service].
+For more information on deploying a Node.js application to Azure, see [Create and deploy a Node.js application to an Azure Web Site] and [Node.js Cloud Service].
 
 <h2><a id="NextSteps"></a>Next steps</h2>
 
@@ -164,7 +164,7 @@ For more information on deploying a Node.js application to Windows Azure, see [C
 * [Microsoft Driver for Node.js for SQL Server on Github.com]
 
 [Node.js Cloud Service]: /en-us/develop/nodejs/tutorials/getting-started/
-[Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
 [Introducing the Microsoft Driver for Node.JS for SQL Server]: http://blogs.msdn.com/b/sqlphp/archive/2012/06/08/introducing-the-microsoft-driver-for-node-js-for-sql-server.aspx
 [Github page]: https://github.com/WindowsAzure/node-sqlserver
 [Microsoft Driver for Node.js for SQL Server on Github.com]: https://github.com/WindowsAzure/node-sqlserver

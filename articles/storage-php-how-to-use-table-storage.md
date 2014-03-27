@@ -1,17 +1,17 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) - Windows Azure feature guide" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
 
 # How to use the Table service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Table service. The samples are written in PHP and use the [Windows Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Windows Azure Table service, see the [Next Steps](#NextSteps) section.
+This guide will show you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next Steps](#NextSteps) section.
 
 ##Table of contents
 
 * [What is the Table Service](#what-is)
 * [Concepts](#concepts)
-* [Create a Windows Azure storage account](#CreateAccount)
+* [Create an Azure storage account](#CreateAccount)
 * [Create a PHP application](#CreateApplication)
 * [Configure your application to access the Table service](#ConfigureStorage)
-* [Setup a Windows Azure storage connection](#ConnectionString)
+* [Setup an Azure storage connection](#ConnectionString)
 * [How to: Create a table](#CreateTable)
 * [How to: Add an entity to a table](#AddEntity)
 * [How to: Retrieve a single entity](#RetrieveEntity)
@@ -25,23 +25,23 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-##<a id="CreateAccount"></a>Create a Windows Azure storage account
+##<a id="CreateAccount"></a>Create an Azure storage account
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ##<a id="CreateApplication"></a>Create a PHP application
 
-The only requirement for creating a PHP application that accesses the Windows Azure Table service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Azure Table service is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
+In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
 
-##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries
+##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureStorage"></a>Configure your application to access the Table service
 
-To use the Windows Azure Table service APIs, you need to:
+To use the Azure Table service APIs, you need to:
 
 1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
@@ -49,7 +49,7 @@ To use the Windows Azure Table service APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [WACOM.NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
+> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -57,9 +57,9 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-##<a id="ConnectionString"></a>Setup a Windows Azure storage connection
+##<a id="ConnectionString"></a>Setup an Azure storage connection
 
-To instantiate a Windows Azure Table service client you must first have a valid connection string. The format for the table service connection string is:
+To instantiate an Azure Table service client you must first have a valid connection string. The format for the table service connection string is:
 
 For accessing a live service:
 
@@ -70,7 +70,7 @@ For accessing the emulator storage:
 	UseDevelopmentStorage=true
 
 
-To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+To create any Azure service client you need to use the **ServicesBuilder** class. You can:
 
 * pass the connection string directly to it or
 * use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
@@ -465,13 +465,13 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 
 ##<a id="NextSteps"></a>Next steps
 
-Now that you’ve learned the basics of the Windows Azure Table Service, follow these links to learn how to do more complex storage tasks.
+Now that you’ve learned the basics of the Azure Table Service, follow these links to learn how to do more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
-- Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Storing and Accessing Data in Azure] []
+- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx
 

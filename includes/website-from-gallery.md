@@ -1,10 +1,10 @@
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Windows Azure Management Portal. 
+The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Azure Management Portal. 
 
 In this tutorial, you'll learn:
 
 - How to create a new site through the gallery.
 
-- How to deploy the site through the Windows Azure Portal.
+- How to deploy the site through the Azure Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
@@ -12,13 +12,13 @@ You'll build a WordPress blog that uses a default template. The following illust
 ![Wordpress blog][13]
 
 <div class="dev-callout"><strong>Note</strong>
-<p>To complete this tutorial, you need a Windows Azure account. You can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Create a Windows Azure account</a>.</p>
+<p>To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/" target="_blank">Create an Azure account</a>.</p>
 </div>
 <br />
 
 ## Create a web site in the portal
 
-1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. Click the **New** icon on the bottom left of the dashboard.
 	
@@ -46,7 +46,7 @@ You'll build a WordPress blog that uses a default template. The following illust
 	
 	![create database][9]
 
-After you click **Complete** Windows Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
+After you click **Complete** Azure will initiate build and deploy operations. While the web site is being built and deployed the status of these operations is displayed at the bottom of the Web Sites page. After all operations are performed,  A final status message when the site has been successfully deployed.
 
 ## Launch and manage your WordPress site
 

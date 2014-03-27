@@ -1,23 +1,23 @@
-<properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create & provision" pageTitle="Getting started with SQL Database - Windows Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Windows Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Windows Azure SQL Database" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create & provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors=""  solutions="" writer="" manager="" editor=""  />
 
 
 
 
 
-#Getting Started with Windows Azure SQL Database
+#Getting Started with Azure SQL Database
 
-In this tutorial you will learn the fundamentals of Windows Azure SQL Database administration using the Windows Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes.
+In this tutorial you will learn the fundamentals of Azure SQL Database administration using the Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes.
  
 
-This tutorial does not assume prior experience with SQL Server or Windows Azure SQL Database. Upon completing this tutorial, you will have a sample database on Windows Azure and an understanding of how to perform basic administration tasks using the Management Portal.
+This tutorial does not assume prior experience with SQL Server or Azure SQL Database. Upon completing this tutorial, you will have a sample database on Azure and an understanding of how to perform basic administration tasks using the Management Portal.
 
-You will create and provision a sample database on Windows Azure and query system and user data using Excel and other applications.
+You will create and provision a sample database on Azure and query system and user data using Excel and other applications.
 
 
 ##Table of Contents##
 
-* [Step 1: Create a Windows Azure account](#Subscribe)
-* [Step 2: Connect to Windows Azure and create a database](#Connect)
+* [Step 1: Create an Azure account](#Subscribe)
+* [Step 2: Connect to Azure and create a database](#Connect)
 * [Step 3: Configure the firewall](#ConfigFirewall)
 * [Step 4: Add data and a schema using Transact-SQL script](#AddData)
 * [Step 5: Create the schema](#createschema)
@@ -28,7 +28,7 @@ You will create and provision a sample database on Windows Azure and query syste
 * [Step 10: Configure SQL Data Sync](#ConfigureDataSync)
 
 
-<h2><a id="Subscribe"></a>Step 1: Create a Windows Azure account</h2>
+<h2><a id="Subscribe"></a>Step 1: Create an Azure account</h2>
 
 1. Open a web browser, and browse to [http://www.windowsazure.com](http://www.windowsazure.com).
 To get started with a free account, click free trial in the upper right corner and follow the steps.
@@ -36,7 +36,7 @@ To get started with a free account, click free trial in the upper right corner a
 2. Your account is now created. You are ready to get started.
 
 
-<h2><a id="Connect"></a>Step 2: Connect to Windows Azure and create a database</h2>
+<h2><a id="Connect"></a>Step 2: Connect to Azure and create a database</h2>
 
 
 1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this. 
@@ -74,9 +74,9 @@ To get started with a free account, click free trial in the upper right corner a
 
 	* Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol.
 
-	* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you or your users. Keeping your Windows Azure application and database in the same region saves you on egress bandwidth cost and data latency.
+	* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you or your users. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
 
-	* Be sure to keep the **Allow Windows Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Windows Azure SQL Reporting.
+	* Be sure to keep the **Allow Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
 
 	* Click the checkmark at the bottom of the page when you are finished.
 
@@ -119,9 +119,9 @@ To configure the firewall so that connections are allowed through, you'll enter 
 
 4. Click **Save** at the bottom of the page to complete the step. If you do not see **Save**, refresh the browser page.
 
-You now have a SQL Database server on Windows Azure, a firewall rule that enables access to the server, a database object, and an administrator login. Next, you will use the query window in the Management Portal for SQL Database to run a Transact-SQL script to create a predefined database.
+You now have a SQL Database server on Azure, a firewall rule that enables access to the server, a database object, and an administrator login. Next, you will use the query window in the Management Portal for SQL Database to run a Transact-SQL script to create a predefined database.
 
-As your skills increase, you will want to explore additional ways of creating a database, including programmatic approaches or the designer in SQL Server Data Tools. If you already have an existing SQL Server database that runs on a local server, you can easily migrate that database to the Windows Azure server that you just set up. Use the links at the end of this tutorial to find out how. 
+As your skills increase, you will want to explore additional ways of creating a database, including programmatic approaches or the designer in SQL Server Data Tools. If you already have an existing SQL Server database that runs on a local server, you can easily migrate that database to the Azure server that you just set up. Use the links at the end of this tutorial to find out how. 
 
 
 
@@ -140,7 +140,7 @@ In this step, you run two scripts. The first one creates a schema that defines t
 
 	![Image9](./media/sql-database-get-started/9DBListSchool_SQLTut.png)
 
-3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Windows Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
+3. Click **Manage** at the bottom of the page. If it is not visible, refresh the browser window. This will open the Management Portal for SQL Database. This portal is separate from the Azure Management Portal. You'll use this portal to run Transact-SQL commands and queries. 
 	
 	![Image10](./media/sql-database-get-started/10DBPortalManageButton_SQLTut.png)
 
@@ -789,7 +789,7 @@ If Excel 2010 is installed on your computer, you can use the following steps to 
 
 2. In the Data Connection wizard, enter the fully-qualified domain name of your SQL Database server, followed by a SQL Server authentication login that has permission to access the database. 
 
-  You can find the server name on the **Database** page under **Quick Links**. The server name can also be found on the Windows Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**.
+  You can find the server name on the **Database** page under **Quick Links**. The server name can also be found on the Azure management portal, on SQL Database, on Server page, on the Dashboard, in **Manage URL**.
 
   The server name consists of a series of letters and numbers, followed by '.database.windows.net'. Specify this name in the Database Connection wizard. Do not include the http:// or https:// prefix when specifying the name.
 
@@ -827,7 +827,7 @@ For more information about SQL Data Sync, see [Getting Started with SQL Data Syn
 
 Now that you are familiar with SQL Database and the management portals, you can try out other tools and techniques used by SQL Server database administrators.
 
-To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Windows Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
+To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/).
 
 Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/en-us/library/ms365303.aspx) to learn some basic skills.
 

@@ -1,4 +1,4 @@
-<properties linkid="get-started-with-scheduler-API" urlDisplayName="Get started with the Scheduler API" pageTitle="Get started with the Scheduler API | Windows Azure" metaKeywords="scheduler" description="TBD" umbracoNaviHide="0" disqusComments="1" editor="mattshel" manager="carolz" titel="Get started with the Scheduler API" authors="" title="Get started with the Scheduler API" />
+<properties linkid="get-started-with-scheduler-API" urlDisplayName="Get started with the Scheduler API" pageTitle="Get started with the Scheduler API | Azure" metaKeywords="scheduler" description="TBD" umbracoNaviHide="0" disqusComments="1" editor="mattshel" manager="carolz" titel="Get started with the Scheduler API" authors="" title="Get started with the Scheduler API" />
 
 
 # Get started with the Scheduler API
@@ -7,7 +7,7 @@
 
 You will learn:
 
-* (TODO: provide a bulleted list of items the customer will learn by completing this tutorial.  List items should begin with "how to," for example: "How to use Visual Studio to develop for Windows Azure." Each bulleted list item should end in a period.
+* (TODO: provide a bulleted list of items the customer will learn by completing this tutorial.  List items should begin with "how to," for example: "How to use Visual Studio to develop for Azure." Each bulleted list item should end in a period.
 
 (TODO: provide a description of the final application, followed by a screenshot of the completed application.)
 
