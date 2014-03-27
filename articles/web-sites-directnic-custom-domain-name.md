@@ -46,8 +46,6 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
     * When adding a CNAME record, you must set the **Name** field to the sub-domain you wish to use. For example, **www**. You must set the **Data** field to the **.azurewebsites.net** domain name of your Azure Web Site. For example, **contoso.azurwebsites.net**.
 
-        > [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
-
     * When adding an A record, you must set the **Name** field to either **@** (this represents root domain name, such as **contoso.com**,) or the sub-domain you wish to use (for example, **www**). You must set the **Data** field to the IP address of your Azure Web Site.
 
 		> [WACOM.NOTE] If you will be using an A record, you must also add a CNAME record with one of the following configurations:
