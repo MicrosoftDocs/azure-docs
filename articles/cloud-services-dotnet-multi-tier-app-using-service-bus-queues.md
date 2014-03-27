@@ -132,6 +132,10 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
+Note that you can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer. 
+
+###Set up the namespace using the Management Portal
+
 1.  Log into the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
@@ -170,6 +174,14 @@ application.
 9.  In the **Access connection information** pane, find the **Default Issuer** and **Default Key** values.
 
 10.  Make a note of the key, or copy it to the clipboard.
+
+###Set up the namespace using the Visual Studio Server Explorer
+
+To set up a namespace using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+
+Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
+
+![][34]
 
 <h2><span class="short-header">Create a web role</span>Create a web role</h2>
 
@@ -374,7 +386,7 @@ Service Bus Queue.
     information and contains methods for initializing the connection to
     a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
     values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
-    find these values in the [Management Portal][Azure Management Portal].
+    obtain these values either from the [Management Portal][Azure Management Portal], or from the Visual Studio Server Explorer under the **Service Bus** node.
 
         using System;
         using System.Collections.Generic;
@@ -527,7 +539,9 @@ The code in the following section uses these configuration management APIs.
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
 
-1. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Azure** within the Server Explorer hierarchy, as in the following figure.
+1. If you've already connected Visual Studio to your Azure account, as described in the section **Set up the namespace using the Visual Studio Server Explorer,** skip ahead to step 5. 
+
+3. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Azure** within the Server Explorer hierarchy, as in the following figure.
 
 	![][21]
 
@@ -654,6 +668,7 @@ To learn how to deploy the front end to an Azure Web Site, see [Deploying an ASP
   [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  

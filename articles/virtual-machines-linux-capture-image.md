@@ -6,15 +6,16 @@
 
 # How to Capture an Image of a Virtual Machine Running Linux ##
 
-You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn't have specific settings like a configured virtual machine, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
+You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it does not have specific settings like a configured virtual machine, such as the host name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
 
 1. Connect to the virtual machine by using the steps listed in [How to Log on to a Virtual Machine Running Linux][].
 
-2. In the SSH window, type the following command, and then enter the password for the account that you created on the virtual machine:
+2. In the SSH window, type the following command and then enter the password for the account that you created on the virtual machine.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 
 	`sudo waagent -deprovision`
 
 	![Deprovision the virtual machine](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
+
 
 3. Type **y** to continue.
 
@@ -38,7 +39,7 @@ You can use images from the Image Gallery to easily create virtual machines, or 
 
 8.	In **Image Name**, enter the name for the new image.
 
-9.	All Linux images must be deprovisioned by running the waagent command with the -deprovision option. Click **I have run the de-provision command on the Virtual Machine** to indicate that the operating system is prepared to be an image.
+9.	All Linux images must be *deprovisioned* by running the `waagent` command with the `-deprovision` option. Click **I have run the de-provision command on the Virtual Machine** to indicate that the operating system is prepared to be an image.
 
 10.	Click the check mark to capture the image.
 

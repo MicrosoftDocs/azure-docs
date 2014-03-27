@@ -79,16 +79,17 @@ You must complete specific configuration steps in the operating system for the v
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Remove udev rules to avoid generating static rules for the ethernet interface.  This would cause problems when cloning a VM in Azure or Hyper-V.
+6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface.  These rules cause problems when cloning a virtual machine in Windows Azure or Hyper-V:
 
-		sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent
-		sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent
+		# sudo mkdir -m 0700 /var/lib/waagent
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
 7. Ensure the network service will start at boot time by running the following command:
 
-		chkconfig network on
+		# chkconfig network on
 
-8.	CentOS 6.2 or 6.3: Install the drivers for the Linux Integration Services
+8.	**CentOS 6.2 or 6.3 Only**: Install the drivers for the Linux Integration Services
 
 	**Note:** The step is only valid for CentOS 6.2 and 6.3.  In CentOS 6.4+ the Linux Integration Services are already available in the kernel.
 
@@ -118,7 +119,7 @@ You must complete specific configuration steps in the operating system for the v
 
 9. Install python-pyasn1 by running the following command:
 
-		sudo yum install python-pyasn1
+		# sudo yum install python-pyasn1
 
 10. Replace their /etc/yum.repos.d/CentOS-Base.repo file with the following text
 
@@ -356,18 +357,19 @@ You must complete specific configuration steps in the operating system for the v
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Remove udev rules to avoid generating static rules for the ethernet interface.  This would cause problems when cloning a VM in Azure or Hyper-V.
+6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface.  These rules cause problems when cloning a virtual machine in Windows Azure or Hyper-V:
 
-		sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent
-		sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent
+		# sudo mkdir -m 0700 /var/lib/waagent
+		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
+		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
 
 7. Ensure the network service will start at boot time by running the following command:
 
-		chkconfig network on
+		# chkconfig network on
 
 8. Install python-pyasn1 by running the following command:
 
-		sudo yum install python-pyasn1
+		# sudo yum install python-pyasn1
 
 9.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open /boot/grub/menu.lst in a text editor and ensure that the default kernel includes the following parameters:
 

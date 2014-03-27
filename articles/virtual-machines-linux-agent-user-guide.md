@@ -10,7 +10,7 @@
 
 The Azure Linux Agent (waagent) manages virtual machine interaction with the Azure Fabric Controller. It provides the following functionality for Linux IaaS deployments:
 
-* Image Provisioning
+* **Image Provisioning**
   - Creation of a user account
   - Configuring SSH authentication types
   - Deployment of SSH public keys and key pairs
@@ -20,27 +20,25 @@ The Azure Linux Agent (waagent) manages virtual machine interaction with the Azu
   - Resource Disk Management
   - Formatting and mounting the resource disk
   - Configuring swap space
-* Networking
+* **Networking**
   - Manages routes to improve compatibility with platform DHCP servers
   - Ensures the stability of the network interface name
-* Kernel
+* **Kernel**
   - Configuring virtual NUMA
   - Consume Hyper-V entropy for /dev/random
   - Configuring SCSI timeouts for the root device (which could be remote)
-* Diagnostics
+* **Diagnostics**
   - Console redirection to the serial port
-* SCVMM Deployments
+* **SCVMM Deployments**
     - Detect and bootstrap the VMM agent for Linux when running in a System
       Center Virtual Machine Manager 2012 R2 environment
 
 
 The information flow from the platform to the agent occurs via two channels:
 
-* A boot-time attached DVD for IaaS deployments.
-    This DVD includes an OVF-compliant configuration file that includes all
-    provisioning information other than the actual SSH keypairs.
-* A TCP endpoint exposing a REST API used to obtain deployment and topology
-    configuration.
+* A boot-time attached DVD for IaaS deployments. This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.
+
+* A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
 
 ###Obtaining the Linux Agent
 You can obtain the Latest Linux Agent directly from:
@@ -66,7 +64,7 @@ Other Supported Systems:
 
 Waagent depends on some system packages in order to function properly:
 
-* Python 2.4+
+* Python 2.5+
 * Openssl 1.0+
 * Openssh 5.3+
 * Filesystem utilities: sfdisk, fdisk, mkfs
@@ -76,9 +74,12 @@ Waagent depends on some system packages in order to function properly:
 
 ##Installation
 
-Installation using an RPM or a DEB package is preferred. If installing manually, waagent should be copied to /usr/sbin/waagent and installed by running: 
+Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Windows Azure Linux Azure.
 
-	/usr/sbin/waagent -install -verbose
+If installing manually, waagent should be copied to /usr/sbin/waagent and installed by running: 
+
+	# sudo chmod 755 /usr/sbin/waagent
+	# /usr/sbin/waagent -install -verbose
 
 The agent's log file is kept at /var/log/waagent.log.
 
@@ -241,7 +242,7 @@ If set, the resource disk provided by the platform will be formatted and mounted
 Type: String  
 Default: ext4
 
-This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image.
+This specifies the filesystem type for the resource disk. Supported values vary by Linux distribution. If the string is X, then mkfs.X should be present on the Linux image. SLES 11 images should typically use 'ext3'. FreeBSD images should use 'ufs2' here.
 
 **ResourceDisk.MountPoint:**
 
@@ -283,7 +284,7 @@ If set, log verbosity is boosted. Waagent logs to /var/log/waagent.log and lever
 Type: Integer  
 Default: 300
 
-This configures the SCSI timeout in seconds on the root device. If not set, the system defaults are used.
+This configures the SCSI timeout in seconds on the OS disk and data drives. If not set, the system defaults are used.
 
 **OS.OpensslPath:**
 
