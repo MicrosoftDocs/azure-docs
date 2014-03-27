@@ -11,13 +11,11 @@ For complete details about the Azure SDK for .NET 2.3, [check out the release no
 Topics:
 
 - [Web development and publishing](#webdeploy)
-- [Dev/Test in Visual Studio](#devtest)
 - [Diagnostics and debugging](#diagnostics)
 - [Manage Azure services in Visual Studio](#service-management)
-- [Automation with PowerShell](#automation)
+- [Automate with PowerShell](#automation)
 - [Mobile development with .NET](#mobile)
 - [Azure Resource Manager](#arm)
-
 
 ##<a id="webdeploy"></a>Web development and publishing
 
@@ -25,18 +23,17 @@ The Azure SDK 2.3 includes several updates that streamline web development and p
 
 - [Getting Started with Azure Tools for Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx)
 - [Creating ASP.NET Web Projects in Visual Studio 2013](http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio)
-- [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-
-## <a id="devtest"></a>Dev/Test in Visual Studio
-Learn how you can 
+- [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) 
 
 ## <a id="diagnostics"></a>Diagnostics and debugging
-Remotely diagnoet application issues using new remote debugging for Virtual Machines and new native code debugging:
+Remotely diagnose application issues using new remote debugging for Virtual Machines and new native code debugging:
 
+- [Debugging Cloud Services and Virtual Machines in Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff683670.aspx)
 - [Remote debugging for Azure VMs]()
 
 Emulator Express is the new lighter-weight local emulator for Cloud Services. Learn how you can use it to test Cloud Services on your local machine: 
 
+- [Using Emulator Express to run and debug Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx)
 
 You can now remotely view and debug apps deployed to Azure Web Sites directly from Visual Studio. Find details here:
 
@@ -44,15 +41,23 @@ You can now remotely view and debug apps deployed to Azure Web Sites directly fr
 
 ## <a id="service-management"></a>Manage Azure services in Visual Studio
 
-Leverage improved VM management from Visual Studio, including the ability to create VMs from within the IDE. 
+Leverage improved VM management from Visual Studio, including the ability to create VMs from within the IDE. For more information, see:
 
-VM remote debugging
+- [create a Virtual Machine from Server Explorer](http://msdn.microsoft.com/en-us/library/azure/dn569263.aspx)
 
-Server Explorer
 
-## <a id="automation"></a>Automation with PowerShell
+We also have a bunch of improvements to help you manage other Azure services more effectively from Server Explorer. For details, see: 
 
-Install Azure Powershell to leverage new cmdlets for Web Sites, WebJobs, and more. 
+- Manage Service Bus from Server Explorer
+- Storage
+- Others...
+
+## <a id="automation"></a>Automate with PowerShell
+
+Install Azure Powershell to leverage new cmdlets for Web Sites, WebJobs, and more.
+
+- [PowerShell link 1]
+- [PowerShell link 2] 
 
 Create PowerShell scripts directly in Visual Studio, and use them to automate your environment creation. For details, see:
 
