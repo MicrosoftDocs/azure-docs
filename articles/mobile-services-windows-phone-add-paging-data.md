@@ -2,9 +2,18 @@
 
 # Refine Mobile Services queries with paging
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-add-paging-data" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-add-paging-data" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-add-paging-data" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-add-paging-data" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-add-paging-data" title="HTML">HTML</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-add-paging-data" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-add-paging-data" title="Xamarin.Android">Xamarin.Android</a>
-</div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-add-paging-data" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-phone-add-paging-data"  title="JavaScript backend" class="current">JavaScript backend</a></div>
+> [AZURE.SELECTOR-LIST (Platform | Backend )]
+- [(Windows Store C# | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-add-paging-data.md)
+- [(Windows Store C# | JavaScript)](mobile-services-windows-store-dotnet-add-paging-data.md)
+- [(Windows Store JavaScript | .NET)](mobile-services-dotnet-backend-windows-store-javascript-add-paging-data.md)
+- [(Windows Store JavaScript | JavaScript)](mobile-services-windows-store-javascript-add-paging-data.md)
+- [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-add-paging-data)
+- [(Windows Phone | JavaScript)](mobile-services-windows-phone-add-paging-data)
+- [(iOS | JavaScript)](mobile-services-ios-add-paging-data)
+- [(Android | JavaScript)](mobile-services-android-add-paging-data)
+- [(HTML | .NET)](mobile-services-html-add-paging-data)
+- [(Xamarin iOS | .NET)](partner-xamarin-mobile-services-ios-add-paging-data)
+- [(Xamarin Android | .NET)](partner-xamarin-mobile-services-android-add-paging-data)
 
 This topic shows you how to use paging to manage the amount of data returned to your Windows Phone app from Azure Mobile Services. In this tutorial, you will use the **Take** and **Skip** query methods on the client to request specific "pages" of data.
 
