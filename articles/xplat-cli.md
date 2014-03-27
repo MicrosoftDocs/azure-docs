@@ -201,15 +201,17 @@ When in doubt about the parameters needed by a command, refer to help using `--h
 
 ###Setting the configuration mode
 
-Historically, the xplat-cli has required you to work with individual services, or *resources*, one at a time. While this approach is fine for smaller applications that involve one or two resources, it is not ideal for larger applications that are a composition of many resources.
+Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
 
-To address this problem, Microsoft Azure recently introduced a more model based approach to configuration, known as Azure Resource Manager (ARM). ARM allows you to manage resources, such as a web site, database, and storage, as a single *resource group*. Changes to a resource group are made through a *deployment*, which the Azure platform keeps a history of. Deployments are created from *templates*, which allow you to configure the resources/group in a declarative fashion.
+The new way of managing resources, the **Resource Management Service**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
 
-[sync with matthew for review of conceptual info]
+>[WACOM.NOTE] The Resource Management Service is currently in preview, and may not provide the same management capabilities as Azure Service Management.
 
-[TBD disclaimer about preview functionality]
+The Resource Management Service also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. You can apply a template to create a new group, or perform updates to an existing one. While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
 
-The xplat-cli defaults to resource mode, allows you to manage individual resources. If you want to work with resource groups, you can use the following command to enable commands for working with groups of resources:
+To support the new Resource Management Service, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
+
+The xplat-cli defaults to Azure Service Management mode. To switch to Resource Management Service mode, use the following to enable command:
 
 	azure config mode arm
 
@@ -217,9 +219,9 @@ To change back to Azure service management mode, use the following command:
 
 	azure config mode asm 
 
-> [WACOM.NOTE] Resources created in one mode are not manageable from the other mode. For example, a Web Site and SQL Database created in ASM mode will not be visible in ARM mode, and resources/groups created in ARM mode will not be visible in ASM mode.
+>[WACOM.NOTE] The Resource Management Service mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-For more information on working Azure Resource Manager using the xplat-cli, see [Microsoft Azure Cross-Platform Command-Line Interface and Azure Resource Manager][xplatarm].
+For more information on working with the Resource Management Service using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Management Service][xplatarm].
 
 ###Working with services in Azure service management mode
 

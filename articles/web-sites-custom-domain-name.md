@@ -60,8 +60,6 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 6. Once you have finished adding or modifying DNS records at your registrar, save the changes.
 
-	> [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the custom domain name for the web site in Azure until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
-
 <h2><a name="enabledomain"></a>Enable the domain name on your web site</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
