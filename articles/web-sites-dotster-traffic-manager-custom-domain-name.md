@@ -59,8 +59,6 @@ To associate your custom domain with an Azure Web Site, you must add a new entry
 
 	    > [WACOM.NOTE] You must only use CNAME records when associating your custom domain name with a web site that is load balanced using Traffic Manager.
 
-        > [WACOM.NOTE] It can take some time for your CNAME to propagate through the DNS system. You cannot set the CNAME for the web site until the CNAME has propagated. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
-
 <h2><a name="enabledomain"></a>Enable Traffic Manager web site</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
