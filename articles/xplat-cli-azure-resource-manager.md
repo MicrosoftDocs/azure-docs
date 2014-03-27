@@ -1,21 +1,32 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with Azure Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with Azure Resource Manager" metaKeywords="windows azure cross-platform command-line interface Azure Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with Azure Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Management Service" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Management Service" metaKeywords="windows azure cross-platform command-line interface Resource Management Service, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Management Service" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-#Using the Azure Cross-Platform Command-Line Interface with Azure Resource Manager
+#Using the Azure Cross-Platform Command-Line Interface with the Resource Management Service
 
-The new Azure Resource Manager functionality allows you to manage resources in a declarative fashion using *templates*. Templates are JSON files that describe the configuration of resources within a group. 
-
-The Microsoft Azure Cross-Platform Command-Line Interface (xplat-cli) provides commands that allow you to work with Azure Resource Manager from the command line, including scripts.
+In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Resource Management Service. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Management Service. 
 
 >[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
+##Resource Management Service
+
+Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
+
+The **Resource Management Service** is a new way of managing resources. It allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
+
+>[WACOM.NOTE] The Resource Management Service is currently in preview, and may not provide the same management capabilities as Azure Service Management.
+
+The Resource Management Service also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. The template is used to create a deployment, which applies changes defined in the template to the group.
+
+While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+
+>[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
+>
+> However, you can use the `azure group template download` command to download and modify templates provided by Microsoft and partners from the template gallery.
 
 ##Authentication
 
-Currently, working with the Azure Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational ID. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
+Currently, working with the Resource Management Service through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational ID. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
 An organizational ID is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational ID, and are using a Microsoft account to log in to your Azure subscription, you can easily create an one using the following steps.
-
-[Question: Isn't just the act of creating an AD and having it list your @hotmail account turning your @hotmail into an organizational ID?]
 
 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
 
@@ -33,37 +44,59 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 ##Working with Groups and Templates
 
-1. The Azure Resource Manager is currently in preview, so the xplat-cli commands to work with it are not enabled by default. Use the following command to enable the commands.
+1. The Resource Management Service is currently in preview, so the xplat-cli commands to work with it are not enabled by default. Use the following command to enable the commands.
 
 		azure config mode arm
+
+	>[WACOM.NOTE] The Resource Management Service mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
 
 		azure group template list
 
-3. To view details of a template that will create an Azure Web Site and SQL Database, use the following command.
+3. To view details of a template that will create an Azure Web Site, use the following command.
 
-		azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+		azure group template show Microsoft.WebSite.0.1.0-preview1
 
 4. Once you have selected a template, you can download it with the following command.
 
-		azure group template download Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+		azure group template download Microsoft.WebSite.0.1.0-preview1
 
 	Downloading a template allows you to customize it to better suite your requirements. For example, adding another resource to the template.
 
+	>[WACOM.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
+
 5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. When using a template, you must supply these parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
 
-	To create a file that contains parameters for the Microsoft.WebSiteSQLDatabase.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. Replace the **siteLocation** and **serverLocation** values with an Azure region near you.
+	To create a file that contains parameters for the Microsoft.WebSite.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
 
-        {
-            
-        }
+		{
+		    "properties": {
+		        "parameters": {
+		            "siteName": {
+		                "value": "MyWebSiteName"
+		            },
+		            "hostingPlanName": {
+		                "value": "MyWebSitePlanName"
+		            },
+		            "siteLocation": {
+		                "value": "MyRegion"
+		            },
+		            "sku": {
+		                "value": "Free"
+		            },
+		            "workerSize": {
+		                "value": "0"
+		            }
+		        }
+		    }
+		}
 
 1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step.
 
-		azure group create MyGroupName "South Central US" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
+		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSite.0.1.0-preview1 -d MyDeployment -e params.json
 
-	Replace the **MyGroupName** and **South Central US** values with the group name and data center specified in the template.
+	Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in the template.
 
 	>[WACOM.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
@@ -75,7 +108,7 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 	> 
 	> `azure group deployment stop MyGroupName MyDeployment`
 	> 
-	> If you do not provide a deployment name, one will be created automatically based on the current date and time.
+	> If you do not provide a deployment name, one will be created automatically based on the current date and time. It will be returned as part of the output of the `azure group create` command.
 
 3. To view the group, use the following command.
 
@@ -85,7 +118,9 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 4. To view individual resources, such as the Web Site, within the group, use the following command.
 
-		azure resource show MyGroupName MyWebSite Microsoft.Web/sites
+		azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites
+
+	Notice the **Microsoft.Web/sites** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the Web Site resource described in the template.
 
 	This command returns information related to the web site. For example, the **hostNames** field should contain the URL for the web site. Use this with your browser to verify that the web site is running.
 
@@ -101,13 +136,13 @@ While templates allow you to declare group-wide changes in configuration, it is 
 	>
 	> `azure resource show MyGroupName MyWebSite Micrsoft.Web/sites --json > myfile.json`
 
-2. When viewing the data, note the **properties** object. It contains the properties for the web site. Diagnostic logging for the site is available through the [TBD] value. To enable **web server logging**, need to change [TBD] to [TBD]. The JSON used to make this change is `[TBD]`.
+2. When viewing the JSON document returned by this command, note the **properties** object. It contains the properties for the web site. Diagnostic logging for the site is available through the [TBD] value. To enable **web server logging**, need to change [TBD] to [TBD]. The JSON used to make this change is `[TBD]`.
 
 3. To enable web server logging for the Web Site resource, use the following command.
 
 		azure resource set MyGroupName MyWebSite Microsoft.Web/sites -p "{\"propeties\":\"TBD\"}"
 
-	The `-p` parameter provides the JSON string for this command. Note that quotes within the JSON string must be escaped with an '\' character.
+	The `-p` parameter provides the JSON string for this command. Note that quotes within the JSON string have been escaped with an '\' character.
 
 4. To verify that the change has been applied, use the following command to view the Web Site resource and check the value of [TBD].
 
@@ -115,22 +150,22 @@ While templates allow you to declare group-wide changes in configuration, it is 
 
 ##Logging
 
-[warning! none of the following commands exist outside of spec currently]
+To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list last operation performed on the group. To view all operations, use the optional `--all` parameter. For a the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
 
-Just as the previous section showed how to enable diagnostic logging for a Web Site resource, you can also view logs of operations against groups and resources.
+	azure group log show mygroup --all
 
-1. Use the following to view the last operation performed on the group.
-
-		azure group log show MyGroup
-
-	To view all operations, use the `--all` parameter. For a the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name.
-
-2. To view information for a specific resource, use the `azure resource log` command. For example, the following will return the last operation for the Web Resource in the group
+<!--2. To view information for a specific resource, use the `azure resource log` command. For example, the following will return the last operation for the Web Resource in the group
 
 		azure resource log MyGroup MyWebSite Microsoft.Web/sites
 
-	To view all operations against this resource, use the `--all` parameter.
+	To view all operations against this resource, use the `--all` parameter. -->
 
+##Next steps
+
+* For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+* For information on working with the Resource Management Service using Azure PowerShell, see [TBD].
 
 [signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
+[portal]: https://manage.windowsazure.com/
+[xplatsetup]: /en-us/documentation/articles/xplat-cli/
