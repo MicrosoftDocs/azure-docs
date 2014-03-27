@@ -205,6 +205,8 @@ Historically, managing a _resource_ (a user-managed entity such as a database se
 
 The new way of managing resources, **Azure Resource Manager**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
 
+>[WACOM.NOTE] Azure Resource Manager is currently in preview, and may not provide the same management capabilities as Azure Service Management.
+
 Azure Resource Manager also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. You can apply a template to create a new group, or perform updates to an existing one. While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
 
 To support the new Azure Resource Manager functionality, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.

@@ -2,7 +2,7 @@
 
 #Using the Azure Cross-Platform Command-Line Interface with Azure Resource Manager
 
-In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Azure Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the new Azure Resource Manager functionality.
+In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Azure Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the new Azure Resource Manager functionality. 
 
 >[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
@@ -11,6 +11,8 @@ In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. Th
 Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
 
 The new management functionality, **Azure Resource Manager**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
+
+>[WACOM.NOTE] Azure Resource Manager is currently in preview, and may not provide the same management capabilities as Azure Service Management.
 
 Azure Resource Manager also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. The template is used to create a deployment, which applies changes defined in the template to the group.
 
