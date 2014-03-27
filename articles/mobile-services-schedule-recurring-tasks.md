@@ -1,18 +1,28 @@
-<properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
+# Schedule recurring jobs in Mobile Services 
 
-# Schedule recurring jobs in Mobile Services  
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
+ 
+This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+
++ Archiving old or duplicate data records.
++ Requesting and storing external data, such as tweets, RSS entries, and location information.
++ Processing or resizing stored images.
+
+<!-- // Removed because this shortcode b/c it's old and doesn't use the new Twitter v1.1. APIs
+>[WACOM.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler]
+-->
+
+<!-- // Original video HTML code for reference.
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:</p>
-<ul>
-<li>Archiving old or duplicate data records.</li>
-<li>Requesting and storing external data, such as tweets, RSS entries, and location information.</li>
-<li>Processing or resizing stored images.</li>
-</ul>
+<p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-scheduler-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">5:22</span></div>
-</div>
+</div>-->
 
 This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
 
@@ -20,45 +30,11 @@ This tutorial walks you through the following steps of how to use the job schedu
 + [Create the new Updates table]
 + [Create a new scheduled job]
 
-You can watch a video version of this tutorial by clicking the clip to the right.
+##<a name="get-oauth-credentials"></a>Register for access to Twitter v1.1 APIs and store credentials
 
-<h2><a name="get-oauth-credentials"></a><span class="short-header">Get Twitter Access </span>Register for access to Twitter v1.1 APIs and store credentials</h2>
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-The new Twitter v1.1 APIs requires you to authenicate before accessing resources. First, you need to get the credentials needed to request access by using OAuth 2.0. Then, you will store them securely in the app settings for your mobile service.
-
-1. If you haven't already done so, complete the steps in the topic <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Register your apps for Twitter login with Mobile Services</a>. 
-  
-  	Twitter generates the credentials needed to enable you to access Twitter v1.1 APIs. You can get these credentials from the Twitter Developers web site. 
-
-2. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268300" target="_blank">Twitter Developers</a> web site, sign-in with your Twitter account credentials, navigate to **My Applications**, and select your Twitter app.
-
-    ![0][0]
-
-3. In the **Details** tab for the app, make a note of the following values:
-
-	+ **Consumer key**
-	+ **Consumer secret**
-	+ **Access token**
-	+ **Access token secret**
-
-	![1][1]
-
-4. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your mobile service.
-
-5. Click the **Identity** tab, enter the **Consumer key** and **Consumer secret** values obtained from Twitter, and click **Save**. 
-
-	![11][11]
-
-2. Click the **Configure** tab, scroll down to **App settings** and enter a **Name** and **Value** pair for each of the following that you obtained from the Twitter site, then click **Save**.
-
-	+ `TWITTER_ACCESS_TOKEN`
-	+ `TWITTER_ACCESS_TOKEN_SECRET`
-
-	![10][10]
-
-	This stores the Twitter access token in app settings. Like the consumer credentials on the **Identity** tab, the access credentials are also stored encrypted in app settings, and you can access them in your server scripts without hard-coding them in the script file. For more information, see [App settings].
-
-<h2><a name="create-table"></a><span class="short-header">Create new table</span>Create the new Updates table</h2>
+##<a name="create-table"></a>Create the new Updates table
 
 Next, you need to create a new table in which to store tweets.
 
@@ -74,7 +50,7 @@ Next, you need to create a new table in which to store tweets.
 
   	This creates a new storage table **Updates**. 
 
-<h2><a name="add-job"></a><span class="short-header">Create a new job</span>Create a new scheduled job</h2>  
+##<a name="add-job"></a>Create a new scheduled job  
 
 Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
@@ -82,9 +58,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
    	![][4]
 
-    <div class="dev-callout"><b>Note</b>
-    <p>When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.</p>
-    </div>
+    >[WACOM.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
 
 3. In the scheduler dialog, enter _getUpdates_ for the **Job Name**, set the schedule interval and units, then click the check button. 
    
@@ -174,9 +148,7 @@ Now, you can create the scheduled job that accesses Twitter and stores tweet dat
 
    	This script calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
-    <div class="dev-callout"><b>Note</b>
-    <p>This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see <a href="/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">How to: Perform bulk inserts</a>.</p>
-    </div>
+    >[WACOM.NOTE]This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see <a href="/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">How to: Perform bulk inserts</a>.
 
 6. Click **Run Once** to test the script. 
 
@@ -224,7 +196,7 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

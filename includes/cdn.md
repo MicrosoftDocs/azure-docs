@@ -1,10 +1,10 @@
-# Using CDN for Windows Azure
+# Using CDN for Azure
 
-The Windows Azure Content Delivery Network (CDN) offers developers a
+The Azure Content Delivery Network (CDN) offers developers a
 global solution for delivering high-bandwidth content by caching blobs
 and static content of compute instances at physical nodes in the United
 States, Europe, Asia, Australia and South America. For a current list of
-CDN node locations, see [Windows Azure CDN Node Locations].
+CDN node locations, see [Azure CDN Node Locations].
 
 This task includes the following steps:
 
@@ -13,23 +13,23 @@ This task includes the following steps:
 * [Step 3: Access your CDN content](#Step3)
 * [Step 4: Delete your CDN content](#Step4)
 
-The benefits of using CDN to cache Windows Azure data include:
+The benefits of using CDN to cache Azure data include:
 
 -   Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content
 -   Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
 
-Existing CDN customers can now use the Windows Azure CDN in the [Windows Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Existing CDN customers can now use the Azure CDN in the [Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
 
 <a id="Step1"> </a>
 <h2>Step 1: Create a storage account</h2>
 
 Use the following procedure to create a new storage account for a
-Windows Azure subscription. A storage account gives access to Windows
+Azure subscription. A storage account gives access to Windows
 Azure storage services. The storage account represents the highest level
-of the namespace for accessing each of the Windows Azure storage service
+of the namespace for accessing each of the Azure storage service
 components: Blob services, Queue services, and Table services. For more
-information about the Windows Azure storage services, see [Using the
-Windows Azure Storage Services].
+information about the Azure storage services, see [Using the
+Azure Storage Services].
 
 To create a storage account, you must be either the service
 administrator or a co-administrator for the associated subscription.
@@ -37,12 +37,12 @@ administrator or a co-administrator for the associated subscription.
 <div class="dev-callout">
 <strong>Note</strong>
 <p>For information about performing this operation by using the
-Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Create Storage Account</a> reference topic.</p>
+Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Create Storage Account</a> reference topic.</p>
 </div>
 
-**To create a storage account for a Windows Azure subscription**
+**To create a storage account for an Azure subscription**
 
-1.  Log into the [Windows Azure Management Portal].
+1.  Log into the [Azure Management Portal].
 2.  In the lower left corner, click **New**, and then click **Storage**.
 3.  Click **Quick Create**.
 
@@ -66,7 +66,7 @@ Windows Azure Service Management API, see the <a href="http://msdn.microsoft.com
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5.  From the **Region/Affinity Group** drop-down list, select a geographic location for the storage account. Alternatively, use an affinity group. For instructions on creating an affinity group, see [How to Create an Affinity Group in Windows Azure].
+5.  From the **Region/Affinity Group** drop-down list, select a geographic location for the storage account. Alternatively, use an affinity group. For instructions on creating an affinity group, see [How to Create an Affinity Group in Azure].
 6. From the **Subscription** drop-down list, select the subscription that the storage account will be used with.
 7.  Click **Create Storage Account**. The process of creating the storage account might take several minutes to complete.
 8.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
@@ -82,7 +82,7 @@ when the cached content time-to-live period expires.
 
 **To create a new CDN endpoint for your storage account**
 
-1. In the [Windows Azure Management Portal], in the navigation pane, click **CDN**.
+1. In the [Azure Management Portal], in the navigation pane, click **CDN**.
 
 2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
 
@@ -115,10 +115,10 @@ http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
 <a id="Step4"> </a>
 <h2>Step 4: Remove content from the CDN</h2>
 
-If you no longer wish to cache an object in the Windows Azure Content
+If you no longer wish to cache an object in the Azure Content
 Delivery Network (CDN), you can take one of the following steps:
 
--   For a Windows Azure blob, you can delete the blob from the public
+-   For an Azure blob, you can delete the blob from the public
     container.
 -   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/en-us/library/dd179354.aspx) for more information.
 -   You can disable or delete the CDN endpoint using the Management
@@ -132,25 +132,25 @@ expires, the CDN will check to see whether the CDN endpoint is still
 valid and the object still anonymously accessible. If it is not, then
 the object will no longer be cached.
 
-No explicit "purge" tool is currently available for the Windows Azure
+No explicit "purge" tool is currently available for the Azure
 CDN.
 
 ## Additional resources
 
--   [How to Create an Affinity Group in Windows Azure]
--   [How to: Manage Storage Accounts for a Windows Azure Subscription]
+-   [How to Create an Affinity Group in Azure]
+-   [How to: Manage Storage Accounts for an Azure Subscription]
 -   [About the Service Management API]
 -   [How to Map CDN Content to a Custom Domain]
 
   [Create Storage Account]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
-  [Windows Azure Management Portal]: https://manage.windowsazure.com/
+  [Azure CDN Node Locations]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+  [Azure Management Portal]: https://manage.windowsazure.com/
   [billing plan]: /en-us/pricing/calculator/?scenario=full
-  [Using the Windows Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
-  [How to Register a Custom Subdomain Name for Accessing Blobs in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
-  [How to Create an Affinity Group in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-  [Overview of the Windows Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919703.aspx
-  [How to: Manage Storage Accounts for a Windows Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
+  [Using the Azure Storage Services]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
+  [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee795179.aspx
+  [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
+  [Overview of the Azure CDN]: http://msdn.microsoft.com/en-us/library/windowsazure/ff919703.aspx
+  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
   [About the Service Management API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
 

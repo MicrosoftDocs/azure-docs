@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Windows Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="Node.js" title="How to Send Email Using SendGrid from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-sendgrid-email-service" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Node.js) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Node.js, Azure email Node.js" description="Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API." metaCanonical="" services="" documentationCenter="Node.js" title="How to Send Email Using SendGrid from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -7,7 +7,7 @@
 # How to Send Email Using SendGrid from Node.js
 
 This guide demonstrates how to perform common programming tasks with the
-SendGrid email service on Windows Azure. The samples are written using
+SendGrid email service on Azure. The samples are written using
 the Node.js API. The scenarios covered include **constructing email**,
 **sending email**, **adding attachments**, **using filters**, and
 **updating properties**. For more information on SendGrid and sending
@@ -156,7 +156,7 @@ sending an attachment:
 <div class="dev-callout">
 <strong>Note</strong>
 <p>When using the <strong>files</strong> property, the file must be accessible
-through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Windows Azure Storage, such as in a Blob container, you must first copy the file to local storage or to a Windows Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
+through <a href="http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile">fs.readFile</a>. If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the <strong>files</strong> property.</p>
 </div>
 
 ## <a name="usefilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Twitter
@@ -247,7 +247,7 @@ For more information, see [sendgrid-nodejs][].
 ## <a name="useservices"> </a>How to: Use Additional SendGrid Services
 
 SendGrid offers web-based APIs that you can use to leverage additional
-SendGrid functionality from your Windows Azure application. For full
+SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][].
 
 ## <a name="nextsteps"> </a>Next Steps
@@ -258,7 +258,7 @@ these links to learn more.
 -   SendGrid Node.js module repository: [sendgrid-nodejs][]
 -   SendGrid API documentation:
     <http://docs.sendgrid.com/documentation/api/>
--   SendGrid special offer for Windows Azure customers:
+-   SendGrid special offer for Azure customers:
     [http://sendgrid.com/azure.html](http://sendgrid.com/azure.html)
 
   [Next Steps]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Pig with HDInsight" pageTitle="Use Pig with HDInsight | Microsoft Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Pig with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties linkid="manage-services-hdinsight-howto-pig" urlDisplayName="Use Pig with HDInsight" pageTitle="Use Pig with HDInsight | Azure" metaKeywords="" description="Learn how to use Pig with HDInsight. Write Pig Latin statements to analyze an application log file, and run queries on the data to generate output for analysis." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Pig with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
@@ -19,15 +19,15 @@ For more information on Pig Latin, see [Pig Latin Reference Manual 1][piglatin-m
 
 Note the following requirements before you begin this article:
 
-* A Windows Azure HDInsight cluster. For instructions, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
-* Install and configure Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
+* Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 **Estimated time to complete:** 30 minutes
 
 ##In this article
 
 * [The Pig usage case](#usage)
-* [Upload data files to Windows Azure Blob storage](#uploaddata)
+* [Upload data files to Azure Blob storage](#uploaddata)
 * [Understand Pig Latin](#understand)
 * [Run Pig Latin using PowerShell](#powershell)
 * [Next steps](#nextsteps)
@@ -78,7 +78,7 @@ The second figure shows the data transformation:
 
 ##<a id="uploaddata"></a>Upload data file to the Blob storage
 
-HDInsight uses a Windows Azure Blob storage container as the default file system.  For more information, see [Use Windows Azure Blob Storage with HDInsight][hdinsight-storage]. In this article you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload data to HDInsight][hdinsight-upload-data].
+HDInsight uses an Azure Blob storage container as the default file system.  For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. In this article you will use a log4j sample file distributed with the HDInsight cluster stored in *\example\data\sample.log*. For information on uploading data, see [Upload data to HDInsight][hdinsight-upload-data].
 
 To access files, use the following syntax: 
 
@@ -197,17 +197,17 @@ In this session, you will review some Pig Latin statements, and the results afte
 
 ##<a id="powershell"></a>Run Pig Latin using PowerShell
 
-This section provides instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Windows Azure. For details, see [Get started with Windows Azure HDInsight][hdinsight-getting-started] and [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+This section provides instructions for using PowerShell cmdlets. Before you go through this section, you must first setup the local environment, and configure the connection to Azure. For details, see [Get started with Azure HDInsight][hdinsight-getting-started] and [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
 
 
 **To run Pig Latin using PowerShell**
 
-1. Open a Windows Azure PowerShell console windows. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open an Azure PowerShell console windows. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 2. Set the variable in the following script, and run it:
 
 		$clusterName = "<HDInsightClusterName>" 
@@ -274,7 +274,7 @@ This section provides instructions for using PowerShell cmdlets. Before you go t
 While Pig allows you to perform data analysis, other languages included with HDInsight may be of interest to you also. Hive provides a SQL-like query language that allows you to easily query against data stored in HDInsight, while MapReduce jobs written in Java allow you to perform complex data analysis. For more information, see the following:
 
 
-* [Get started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get started with Azure HDInsight][hdinsight-getting-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-using-hive]
 

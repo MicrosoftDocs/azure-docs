@@ -1,4 +1,4 @@
-<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Windows Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to a Windows Azure web site by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-rest-service-using-web-api" urlDisplayName="REST service using Web API" pageTitle=".NET REST service using Web API - Azure tutorial" metaKeywords="Azure tutorial web site, ASP.NET API web site, Azure VS" description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure web site by using Visual Studio." metaCanonical="" services="web-sites" documentationCenter=".NET" title="REST service using ASP.NET Web API and SQL Database" authors="riande" solutions="" manager="" editor="" />
 
 
 
@@ -7,19 +7,19 @@
 
 ***By [Rick Anderson](https://twitter.com/RickAndMSFT) and Tom Dykstra. Updated  March 2014.***
 
-This tutorial shows how to deploy an ASP.NET web application to a Windows Azure Web Site by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. (If you prefer to use Visual Studio 2012, see [the previous version of this tutorial](/en-us/develop/net/tutorials/get-started-vs2012/).)
+This tutorial shows how to deploy an ASP.NET web application to an Azure Web Site by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. (If you prefer to use Visual Studio 2012, see [the previous version of this tutorial](/en-us/develop/net/tutorials/get-started-vs2012/).)
 
-You can open a Windows Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Windows Azure entirely for free.
+You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
-This tutorial assumes that you have no prior experience using Windows Azure. On completing this tutorial, you'll have a simple web application up and running in the cloud.
+This tutorial assumes that you have no prior experience using Azure. On completing this tutorial, you'll have a simple web application up and running in the cloud.
  
 You'll learn:
 
-* How to enable your machine for Windows Azure development by installing the Windows Azure SDK.
-* How to create a Visual Studio ASP.NET MVC 5 project and publish it to a Windows Azure Web Site.
+* How to enable your machine for Azure development by installing the Azure SDK.
+* How to create a Visual Studio ASP.NET MVC 5 project and publish it to an Azure Web Site.
 * How to use the ASP.NET Web API to enable Restful API calls.
-* How to use a SQL database to store data in Windows Azure.
-* How to publish application updates to Windows Azure.
+* How to use a SQL database to store data in Azure.
+* How to publish application updates to Azure.
 
 You'll build a simple contact list web application that is built on ASP.NET MVC 5 and uses the ADO.NET Entity Framework for database access. The following illustration shows the completed application:
 
@@ -27,32 +27,32 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 In this tutorial:
 
 * [Set up the development environment][setupdbenv]
-* [Set up the Windows Azure environment][setupwindowsazureenv]
+* [Set up the Azure environment][setupwindowsazureenv]
 * [Create an ASP.NET MVC 5 application][createapplication]
-* [Deploy the application to Windows Azure][deployapp1]
+* [Deploy the application to Azure][deployapp1]
 * [Add a database to the application][adddb]
 * [Add a Controller and a view for the data][addcontroller]
 * [Add a Web API Restful interface][addwebapi]
 * [Add XSRF Protection][]
-* [Publish the application update to Windows Azure and SQL Database][deploy2]
+* [Publish the application update to Azure and SQL Database][deploy2]
 
 <a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/ -->
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<h2><a name="bkmk_setupwindowsazure"></a>Set up the Windows Azure environment</h2>
+<h2><a name="bkmk_setupwindowsazure"></a>Set up the Azure environment</h2>
 
-Next, set up the Windows Azure environment by creating a Windows Azure Web Site and a SQL database.
+Next, set up the Azure environment by creating an Azure Web Site and a SQL database.
 
-### Create a web site and a SQL database in Windows Azure
+### Create a web site and a SQL database in Azure
 
-The next step is to create the Windows Azure web site and the SQL database that your application will use.
+The next step is to create the Azure web site and the SQL database that your application will use.
 
-Your Windows Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Windows Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to a Windows Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
+Your Azure Web Site will run in a shared hosting environment, which means it runs on virtual machines (VMs) that are shared with other Azure clients. A shared hosting environment is a low-cost way to get started in the cloud. Later, if your web traffic increases, the application can scale to meet the need by running on dedicated VMs. If you need a more complex architecture, you can migrate to an Azure Cloud Service. Cloud services run on dedicated VMs that you can configure according to your needs.
 
 SQL Database is a cloud-based relational database service that is built on SQL Server technologies. The tools and applications that work with SQL Server also work with SQL Database.
 
-1. In the [Windows Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
+1. In the [Azure Management Portal](https://manage.windowsazure.com), click **Web Sites** in the left tab, and then click  **New**.
 
 2. Click **CUSTOM CREATE**.
 
@@ -94,7 +94,7 @@ SQL Database is a cloud-based relational database service that is built on SQL S
 
 <h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
 
-You have created a Windows Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Windows Azure.
+You have created an Azure Web Site, but there is no content in it yet. Your next step is to create the Visual Studio web application project that you'll publish to Azure.
 
 ### Create the project
 
@@ -170,9 +170,9 @@ The markup above changes the app name from "My ASP.NET App" to "Contact Manager"
 The application home page appears in the default browser.
 	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
-This is all you need to do for now to create the application that you'll deploy to Windows Azure. Later you'll add database functionality.
+This is all you need to do for now to create the application that you'll deploy to Azure. Later you'll add database functionality.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Windows Azure</h2>
+<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Azure</h2>
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -186,7 +186,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	The **Import Publish Profile** dialog box appears.
 
- 3.	Select Import from a Windows Azure Web Site. You must first sign in if you have not previously done so. Click **Sign In**. Enter the user associated with your subscription and follow the steps to sign in.
+ 3.	Select Import from an Azure Web Site. You must first sign in if you have not previously done so. Click **Sign In**. Enter the user associated with your subscription and follow the steps to sign in.
 
 	![sign in](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr7.png)
 
@@ -206,7 +206,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	![Settings tab](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
 
-	You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder. If you want to debug on the live Windows Azure site, you will need to deploy a debug configuration (not release). See the [Next Steps](#nextsteps) section at the end of this tutorial.
+	You can accept the default settings on this tab.  You're deploying a Release build configuration and you don't need to delete files at the destination server, precompile the application, or exclude files in the App_Data folder. If you want to debug on the live Azure site, you will need to deploy a debug configuration (not release). See the [Next Steps](#nextsteps) section at the end of this tutorial.
 
 12. In the **Preview** tab, click **Start Preview**.
 
@@ -216,13 +216,13 @@ This is all you need to do for now to create the application that you'll deploy 
 
 12. Click **Publish**.
 
-	Visual Studio begins the process of copying the files to the Windows Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
+	Visual Studio begins the process of copying the files to the Azure server. The **Output** window shows what deployment actions were taken and reports successful completion of the deployment.
 
 14. The default browser automatically opens to the URL of the deployed site.
 
 	The application you created is now running in the cloud.
 	
-	![To Do List home page running in Windows Azure][rxz2]
+	![To Do List home page running in Azure][rxz2]
 
 <h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
 
@@ -620,7 +620,7 @@ To:
 
 	![Web API save dialog][addwebapi007]
 
-	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks).
+	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks].
 
 <h2><a name="xsrf"></a><span class="short-header">XSRF</span>Add XSRF Protection</h2>
 
@@ -767,7 +767,7 @@ For more information, see the [Open Web Application Security Project](https://ww
             </script>
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Windows Azure and SQL Database</h2>
+<h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Azure and SQL Database</h2>
 
 To publish the application, you repeat the procedure you followed earlier.
 
@@ -801,13 +801,13 @@ When you see that the item you enter is saved and appears on the contact manager
 
 ![Index page with contacts][addwebapi004]
 
-The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Windows Azure, delete it. The application is public and doesn't have a mechanism to limit access.
+The application is now running in the cloud, using SQL Database to store its data. After you finish testing the application in Azure, delete it. The application is public and doesn't have a mechanism to limit access.
 
 <h2><a name="nextsteps"></a>Next Steps</h2>
 
 A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/) is based on this tutorial and shows how to deploy a web application with the membership database.
 
-Another way to store data in a Windows Azure application is to use Windows Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
+Another way to store data in an Azure application is to use Azure storage, which provide non-relational data storage in the form of blobs and tables. The following links provide more information on Web API, ASP.NET MVC and Window Azure.
  
 
 * [Getting Started with Entity Framework using MVC][EFCodeFirstMVCTutorial]
@@ -885,4 +885,4 @@ Please leave feedback on what you liked or what you would like to see improved, 
 [PublishVSSolution]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/PublishVSSolution.png
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
-
+[prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks

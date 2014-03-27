@@ -1,17 +1,17 @@
-<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Windows Azure Automation" pageTitle="Get Started with Windows Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Windows Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Windows Azure Automation" authors="" solutions="" manager="" editor="" />
+<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="" solutions="" manager="" editor="" />
 
 
-# Get started with Windows Azure Automation
+# Get started with Azure Automation
 
-This tutorial walks you through the steps to import and execute an automation job in Windows Azure. 
+This tutorial walks you through the steps to import and execute an automation job in Azure. 
 
-Windows Azure Automation provides a way for IT pros and developers to automate business processes. You can create, monitor, manage, and deploy resources in your environment by using a runbook, which under the hood is a Windows PowerShell Workflow. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
+Azure Automation provides a way for IT pros and developers to automate business processes. You can create, monitor, manage, and deploy resources in your environment by using a runbook, which under the hood is a Windows PowerShell Workflow. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
 
-This tutorial walks you through the steps to import a sample runbook into Windows Azure, execute the runbook, and then check its status.
+This tutorial walks you through the steps to import a sample runbook into Azure, execute the runbook, and then check its status.
 
 ## Samples and utility runbooks
 
-The Windows Azure Automation team has created runbook samples to help you get started with Automation.  These samples cover basic Automation concepts and are intended to help you learn how to write your own runbooks.  
+The Azure Automation team has created runbook samples to help you get started with Automation.  These samples cover basic Automation concepts and are intended to help you learn how to write your own runbooks.  
 
 The product team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
 
@@ -29,14 +29,14 @@ Runbooks from the community and other Microsoft teams are also published on the 
 
 ## Download a sample runbook from the Script Center
 
-1.	Go to the [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029), and then click **Hello World for Windows Azure Automation**.
+1.	Go to the [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029), and then click **Hello World for Azure Automation**.
 
 2.	Click the file name, **Write-HelloWorld.ps1**, next to **Download**, and then save the file to your computer.
 
 
-## Import the sample runbook to Windows Azure
+## Import the sample runbook to Azure
 
-1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2.	In the Management Portal, click **Create an Automation Account**.
 

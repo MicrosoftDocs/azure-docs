@@ -1,28 +1,28 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Microsoft Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Windows Azure Blob storage with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
 
 
 
-#Use Windows Azure Blob storage with HDInsight
+#Use Azure Blob storage with HDInsight
 
 
 
 
-Windows Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Windows Azure Blob storage for storing data. Blob storage is a robust, general purpose Windows Azure storage solution. Blob storage provides a full-featured HDFS interface for a seamless experience by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data. Blob storage is not just a low-cost solution; storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
+Azure HDInsight supports both Hadoop Distributed Files System (HDFS) and Azure Blob storage for storing data. Blob storage is a robust, general purpose Azure storage solution. Blob storage provides a full-featured HDFS interface for a seamless experience by enabling the full set of components in the Hadoop ecosystem to operate (by default) directly on the data. Blob storage is not just a low-cost solution; storing data in Blob storage enables the HDInsight clusters used for computation to be safely deleted without losing user data. 
 
 > [WACOM.NOTE]	The *asv://* syntax is not supported in HDInsight clusters version 3.0 and will not be supported in later versions. This means that any jobs submitted to an HDInsight cluster version 3.0 that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight clusters version 3.0 that are created with an existing metastore that contains explicit references to resources using the asv:// syntax will fail. These metastores will need to be recreated using the wasb:// to address resources.
 
 > [WACOM.NOTE] HDInsight currently only supports block blobs.
 
 > [WACOM.NOTE]
-> Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Windows Azure Blob storage.
+> Most HDFS commands such as <b>ls</b>, <b>copyFromLocal</b>, <b>mkdir</b>, and so on, still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS) such as <b>fschk</b> and <b>dfsadmin</b> will show different behavior on Azure Blob storage.
 
 For information on provisioning an HDInsight cluster, see [Get Started with HDInsight][hdinsight-getting-started] or [Provision HDInsight clusters][hdinsight-provision].
 
 ##In this article
 
 * [HDInsight storage architecture](#architecture)
-* [Benefits of Windows Azure Blob storage](#benefits)
+* [Benefits of Azure Blob storage](#benefits)
 * [Prepare a container for Blob storage](#preparingblobstorage)
 * [Address files in Blob storage](#addressing)
 * [Access blob using PowerShell](#powershell)
@@ -42,9 +42,9 @@ In addition, HDInsight provides the ability to access data stored in Blob storag
 	wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 
-Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, a Windows Azure Storage account and a specific Blob storage container from that account is designated as the default file system.
+Hadoop supports a notion of default file system. The default file system implies a default scheme and authority; it can also be used to resolve relative paths. During the HDInsight provision process, an Azure Storage account and a specific Blob storage container from that account is designated as the default file system.
 
-In addition to this storage account, you can add additional storage accounts from either the same Windows Azure subscription or different Windows Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
+In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
 
 * **Containers in the storage accounts that are connected to an  cluster:** Because the account name and key are stored in the *core-site.xml*, you have full access to the blobs in those containers.
 * **Public containers or public blobs in the storage accounts that are NOT connected to an cluster:** You have read-only permission to the blobs in the containers.
@@ -66,8 +66,8 @@ Blob storage containers store data as key/value pairs, and there is no directory
 
 
 
-##<a id="benefits"></a>Benefits of Windows Azure Blob storage
-The implied performance cost of not having compute and storage co-located is mitigated by the way the compute clusters are provisioned close to the storage account resources inside the Windows Azure data center, where the high speed network makes it very efficient for the compute nodes to access the data inside Blob storage.
+##<a id="benefits"></a>Benefits of Azure Blob storage
+The implied performance cost of not having compute and storage co-located is mitigated by the way the compute clusters are provisioned close to the storage account resources inside the Azure data center, where the high speed network makes it very efficient for the compute nodes to access the data inside Blob storage.
 
 There are several benefits associated with storing the data in Blob storage instead of HDFS:
 
@@ -84,13 +84,13 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 
 
 ##<a id="preparingblobstorage"></a>Prepare a container for Blob storage
-To use blobs, you first create a [Windows Azure storage account](/en-us/manage/services/storage/how-to-create-a-storage-account/). As part of this, you specify a Windows Azure data center that will store the objects you create using this account. Both the cluster and the storage account must be hosted in the same data center (Hive metastore SQL database and Oozie metastore SQL database must also located in the same data center). Wherever it lives, each blob you create belongs to some container in your storage account. This container may be an existing Blob storage container created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
+To use blobs, you first create a [Azure storage account](/en-us/manage/services/storage/how-to-create-a-storage-account/). As part of this, you specify an Azure data center that will store the objects you create using this account. Both the cluster and the storage account must be hosted in the same data center (Hive metastore SQL database and Oozie metastore SQL database must also located in the same data center). Wherever it lives, each blob you create belongs to some container in your storage account. This container may be an existing Blob storage container created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
 
 
 
 ###Create a Blob container for HDInsight using the Management portal
 
-When provisioning an HDInsight cluster from Windows Azure Management Portal, there are two options: *quick create* and *custom create*. The quick create option requires the Windows Azure Storage account created beforehand.  For instructions, see [How to Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
+When provisioning an HDInsight cluster from Azure Management Portal, there are two options: *quick create* and *custom create*. The quick create option requires the Azure Storage account created beforehand.  For instructions, see [How to Create a Storage Account]( /en-us/manage/services/storage/how-to-create-a-storage-account/). 
 
 Using the quick create option, you can choose an existing storage account. The provision process creates a new container with the same name as the HDInsight cluster name. This container is used as the default file system.
 
@@ -104,8 +104,8 @@ Using the custom create, you can either choose an existing Blob storage containe
 
 
 
-### Create a container using Windows Azure PowerShell.
-[Windows Azure PowerShell][powershell-install] can be used to create Blob containers. The following is a sample PowerShell script:
+### Create a container using Azure PowerShell.
+[Azure PowerShell][powershell-install] can be used to create Blob containers. The following is a sample PowerShell script:
 
 	$subscriptionName = "<SubscriptionName>"
 	$storageAccountName = "<WindowsAzureStorageAccountName>"
@@ -133,10 +133,10 @@ The URI scheme for accessing files in Blob storage is:
 
 
 
-The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with *wasbs*. We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same Windows Azure data center.
+The URI scheme provides both unencrypted access with the *wasb:* prefix, and SSL encrypted access with *wasbs*. We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same Azure data center.
 	
 The &lt;BlobStorageContainerName&gt; identifies the name of the Blob storage container.
-The &lt;StorageAccountName&gt; identifies the Windows Azure storage account name. A fully qualified domain name (FQDN) is required.
+The &lt;StorageAccountName&gt; identifies the Azure storage account name. A fully qualified domain name (FQDN) is required.
 	
 If neither &lt;BlobStorageContainerName&gt; nor &lt;StorageAccountName&gt; has been specified, then the default file system is used. For the files on the default file system, you can use either relative path or absolute path. For example, the hadoop-mapreduce-examples.jar file that comes with HDInsight clusters can be referred to using one of the following:
 
@@ -152,9 +152,9 @@ The &lt;path&gt; is the file or directory HDFS path name. Since Blob storage con
 	example/jars/hadoop-mapreduce-examples.jar
 	
 
-##<a id="powershell"></a>Access blob using Windows Azure PowerShell
+##<a id="powershell"></a>Access blob using Azure PowerShell
 
-See [Install and configure Windows Azure PowerShell][powershell-install] for information on installing and configuring Windows Azure PowerShell on your workstation. You can use Windows Azure PowerShell console window or PowerShell_ISE to run PowerShell cmdlets. 
+See [Install and configure Azure PowerShell][powershell-install] for information on installing and configuring Azure PowerShell on your workstation. You can use Azure PowerShell console window or PowerShell_ISE to run PowerShell cmdlets. 
 
 Use the following command to list the blob related cmdlets:
 
@@ -236,11 +236,11 @@ The following scrip downloads a block blob to the current folder. Before running
 
 ##<a id="nextsteps"></a>Next steps
 
-In this article, you learned how to use Blob storage with HDInsight and that Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term archiving data acquisition solutions with Windows Azure Blob storage and use HDInsight to unlock the information inside the stored data.
+In this article, you learned how to use Blob storage with HDInsight and that Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term archiving data acquisition solutions with Azure Blob storage and use HDInsight to unlock the information inside the stored data.
 
 To learn more, see the following articles:
 
-* [Get Started with Windows Azure HDInsight][hdinsight-getting-started]
+* [Get Started with Azure HDInsight][hdinsight-getting-started]
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-hive]
 * [Use Pig with HDInsight][hdinsight-pig]

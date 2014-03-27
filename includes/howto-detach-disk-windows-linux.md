@@ -16,7 +16,7 @@
 
 
 
-A virtual machine in Windows Azure uses different types of disks, such as an operating system disk, a local temporary disk, and optional data disks. You can attach a data disk to a virtual machine to store application data. A data disk is a virtual hard disk (VHD) that you can create either locally with your own computer or in the cloud with Windows Azure.
+A virtual machine in Azure uses different types of disks, such as an operating system disk, a local temporary disk, and optional data disks. You can attach a data disk to a virtual machine to store application data. A data disk is a virtual hard disk (VHD) that you can create either locally with your own computer or in the cloud with Azure.
 
 You can attach and detach data disks any time you want, but you are limited in the number of disks that you can attach to a virtual machine based on the size of the machine.
 
@@ -38,7 +38,7 @@ You can find the disks that are attached to a virtual machine by using either th
 
 
 
-1. If you have not already done so, sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
+1. If you have not already done so, sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
 
 
@@ -60,7 +60,7 @@ You can find the disks that are attached to a virtual machine by using either th
 
 
 
-1. If you have not already done so, sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com).
+1. If you have not already done so, sign in to the Azure [Management Portal](http://manage.windowsazure.com).
 
 
 
@@ -68,7 +68,7 @@ You can find the disks that are attached to a virtual machine by using either th
 
 
 
-	**Note:** When you attach a new data disk to a virtual machine, you can assign a name to the .vhd file that is used for the disk, but Windows Azure assigns the name of the disk. The name consists of the cloud service name, the virtual machine name, and a numeric identifier.
+	**Note:** When you attach a new data disk to a virtual machine, you can assign a name to the .vhd file that is used for the disk, but Azure assigns the name of the disk. The name consists of the cloud service name, the virtual machine name, and a numeric identifier.
 
 
 
@@ -78,7 +78,7 @@ After you find the name of the disk that you want to detach, you can complete th
 
 
 
-1. If you have not already done so, sign in to the Windows Azure Management Portal.
+1. If you have not already done so, sign in to the Azure Management Portal.
 
 
 

@@ -1,11 +1,11 @@
-<properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Windows Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" description="Learn how to create a Windows Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-common-task-mysql-virtual-machine" urlDisplayName="Install MySQL" pageTitle="Install MySQL on a Linux virtual machine in Azure" metaKeywords="Azure vm OpenSUSE, Linux vm" description="Learn how to create an Azure virtual machine with OpenSUSE Linux, and then use SSH or PuTTY to install MySQL." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running OpenSUSE Linux in Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
-#Install MySQL on a virtual machine running OpenSUSE Linux in Windows Azure
+#Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
-[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Windows Azure Management Portal][AzurePreviewPortal], you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
+[MySQL](http://www.mysql.com) is a popular open source, SQL database. Using the [Azure Management Portal][AzurePreviewPortal], you can create a virtual machine running OpenSUSE Linux from the Image Gallery.  You can then install and configure a MySQL database on the virtual machine.
 
 In this tutorial, you will learn:
 

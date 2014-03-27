@@ -1,12 +1,12 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
 **Note**: This article creates a virtual machine that is not connected to a virtual network. If you want your virtual machine to use a virtual network so you can connect to your virtual machines directly by hostname or set up 
-cross-premises connections, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+cross-premises connections, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 
 Follow these steps to create a virtual machine:
 
-1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com) using your Windows Azure account.
+1. Login to the [Azure Management Portal](http://manage.windowsazure.com) using your Azure account.
 
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 	![Create a New Virtual Machine][Image1]
@@ -36,7 +36,7 @@ Follow these steps to create a virtual machine:
 6. On the **Virtual machine options** page, select **(none)** in the **Availability Set** box. Click the check mark to continue.
 	
 
-7. Wait while Windows Azure prepares your virtual machine.
+7. Wait while Azure prepares your virtual machine.
 
 
 [Image1]: ./media/create-and-configure-windows-server-2008-vm-in-portal/CreateWinVM.png

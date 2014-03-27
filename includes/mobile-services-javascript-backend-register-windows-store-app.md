@@ -30,7 +30,7 @@
 
    	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit-app.png) 
 
-8. In the Services page, click **Live Services site** under **Windows Azure Mobile Services**.
+8. In the Services page, click **Live Services site** under **Azure Mobile Services**.
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
@@ -42,7 +42,7 @@
 	<p>The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.</p>
     </div> 
 
-10. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app.
+10. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
    	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-selection.png)
 
@@ -70,4 +70,4 @@
 <!-- URLs. -->
 [Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
