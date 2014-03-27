@@ -1,6 +1,4 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="Shared Access Signature Part 2" pageTitle="Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service" metaKeywords="" description="Learn how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET." metaCanonical="" services="storage" documentationCenter=".NET" title="Operating System Functionality Available to Applications on Azure Web Sites" authors="timamm" solutions="" manager="" editor="" />
-
-
+<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="Shared Access Signature Part 2" pageTitle="Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service" metaKeywords="" description="Learn how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET." metaCanonical="" services="storage" documentationCenter=".NET" title="Operating System Functionality Available to Applications on Azure Web Sites" authors="timamm"  solutions="" writer="timamm" manager="" editor=""  />
 
 
 
@@ -15,6 +13,7 @@ This article describes the common baseline operating system functionality that i
 * [File Access](#FileAccess)
 	* [Local drives](#LocalDrives)
 	* [Network drives (aka UNC shares)](#NetworkDrives)
+	* [File across multiple instances](#multipleinstances)
 	* [Types of file access granted to a web application](#TypesOfFileAccess)
 * [Network Access](#NetworkAccess)
 * [Code Execution, Processes and Memory](#Code)
@@ -66,6 +65,11 @@ On the local drives attached to the virtual machine that runs a web site, Azure 
 Two examples of how Azure Web Sites uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the "Temporary ASP.NET Files" directory as a temporary compilation cache location. IIS uses the "IIS Temporary Compressed Files" directory to store compressed response output. Both of these types of file usage (as well as others) are remapped in Azure Web Sites to per-web site temporary local storage. This remapping ensures that functionality continues as expected.
 
 Each web site in Azure Web Sites runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Application code uses this identity for basic read-only access to the operating system drive (the D:\ drive). This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
+
+<a name="multipleinstances"></a>
+### File access across multiple instances
+
+The home directory contains a site's content, and web applications can write to it. If a web site runs on multiple instances, the home directory is shared among all instances so that all instances see the same directory. So, for example, if a web site saves uploaded files to the home directory, those files are immediately available to all instances. 
 
 <a id="NetworkAccess"></a>
 <h2>Network Access</h2>
