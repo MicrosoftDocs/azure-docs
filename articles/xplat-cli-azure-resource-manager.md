@@ -136,13 +136,13 @@ While templates allow you to declare group-wide changes in configuration, it is 
 	>
 	> `azure resource show MyGroupName MyWebSite Micrsoft.Web/sites --json > myfile.json`
 
-2. When viewing the data, note the **properties** object. It contains the properties for the web site. Diagnostic logging for the site is available through the [TBD] value. To enable **web server logging**, need to change [TBD] to [TBD]. The JSON used to make this change is `[TBD]`.
+2. When viewing the JSON document returned by this command, note the **properties** object. It contains the properties for the web site. Diagnostic logging for the site is available through the [TBD] value. To enable **web server logging**, need to change [TBD] to [TBD]. The JSON used to make this change is `[TBD]`.
 
 3. To enable web server logging for the Web Site resource, use the following command.
 
 		azure resource set MyGroupName MyWebSite Microsoft.Web/sites -p "{\"propeties\":\"TBD\"}"
 
-	The `-p` parameter provides the JSON string for this command. Note that quotes within the JSON string must be escaped with an '\' character.
+	The `-p` parameter provides the JSON string for this command. Note that quotes within the JSON string have been escaped with an '\' character.
 
 4. To verify that the change has been applied, use the following command to view the Web Site resource and check the value of [TBD].
 
