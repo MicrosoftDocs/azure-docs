@@ -118,15 +118,17 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 4. To view individual resources, such as the Web Site, within the group, use the following command.
 
-		azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites
+		azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites -o "2014-04-01"
 
 	Notice the **Microsoft.Web/sites** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the Web Site resource described in the template.
+
+	The `-o` parameter is used to indicate the API version to use when querying this resource. If you are unsure about the API version to use, consult the template file and find the **apiVersion** field for the resource.
 
 	This command returns information related to the web site. For example, the **hostNames** field should contain the URL for the web site. Use this with your browser to verify that the web site is running.
 
 ##Working with resources
 
-While templates allow you to declare group-wide changes in configuration, it is not suitable for all tasks. For example, if you encounter a problem with a resource such as a Web Site, you may want to enable logging. Creating a new deployment just to enable diagnostic logging is a bit extreme, so the xplat-cli provides commands to work directly with resources within a group. In the previous steps, the `azure resource show` command was used to display details for a specific resource. The following steps demonstrate how to modify a resource.
+While templates allow you to declare group-wide changes in configuration, it is not suitable for all tasks. In the previous steps, the `azure resource show` command was used to display details for a specific resource. The following steps demonstrate how to directly modify a resource using the `azure resource set` command.
 
 1. When viewing details on a resource, it is often useful to use the `--json` parameter to see the data structure returned from the server, as this is usually the same format it expects when we attempt to modify a value. Use the following command to return information on the Web Site resource.
 
@@ -136,29 +138,17 @@ While templates allow you to declare group-wide changes in configuration, it is 
 	>
 	> `azure resource show MyGroupName MyWebSite Micrsoft.Web/sites --json > myfile.json`
 
-2. When viewing the JSON document returned by this command, note the **properties** object. It contains the properties for the web site. Diagnostic logging for the site is available through the [TBD] value. To enable **web server logging**, need to change [TBD] to [TBD]. The JSON used to make this change is `[TBD]`.
-
 3. To enable web server logging for the Web Site resource, use the following command.
 
-		azure resource set MyGroupName MyWebSite Microsoft.Web/sites -p "{\"propeties\":\"TBD\"}"
+		azure resource set MyGroupName MyWebSite Microsoft.Web/sites -p "{ \"SiteMode\": \"Free\", \"ComputeMode\": \"Shared\" }"
 
-	The `-p` parameter provides the JSON string for this command. Note that quotes within the JSON string have been escaped with an '\' character.
-
-4. To verify that the change has been applied, use the following command to view the Web Site resource and check the value of [TBD].
-
-		azure resource show MyGroup MyWebSite Microsoft.Web/sites
+	The `-p` parameter provides the JSON string for this command. Note that  when providing a JSON value as part of the command, you must escape quotes within the JSON string using the '\' character.
 
 ##Logging
 
 To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list last operation performed on the group. To view all operations, use the optional `--all` parameter. For a the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
 
 	azure group log show mygroup --all
-
-<!--2. To view information for a specific resource, use the `azure resource log` command. For example, the following will return the last operation for the Web Resource in the group
-
-		azure resource log MyGroup MyWebSite Microsoft.Web/sites
-
-	To view all operations against this resource, use the `--all` parameter. -->
 
 ##Next steps
 

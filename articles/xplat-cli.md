@@ -85,7 +85,7 @@ To log in using an organizational ID, use the following command:
 
 	azure login [username] [password]
 
-	>[WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache these credentials. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
+> [WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache these credentials. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
 
 To log out, use the following command:
 
@@ -94,6 +94,14 @@ To log out, use the following command:
 > [WACOM.NOTE] If the subscriptions associated with the account were only authenticated with Active Directory, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the Active Directory related information from the local profile.
 
 > [WACOM.NOTE] The `azure login` and `azure logout` commands are aliases for the `azure account login` and `azure account logout` commands.
+
+> [WACOM.NOTE] The following commands will not function correctly when authenticating using an account:
+> 
+> * `azure vm`
+> * `azure network vnet`
+> * `azure mobile`
+> 
+> If you need to work with these commands, use a publish settings file to authenticate to Azure as described in the following section.
 
 ###Use the publish settings file method
 
