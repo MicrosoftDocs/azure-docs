@@ -1,13 +1,8 @@
-<properties linkid="dev-net-2-how-to-table-services" urlDisplayName="Table Service (2.0)" pageTitle="How to use table storage | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use the Table Storage Service" authors="" />
+<properties linkid="dev-net-2-how-to-table-services" urlDisplayName="Table Service (2.0)" pageTitle="How to use table storage | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use the Table Storage Service" authors="tamram" />
 
 
 
 # How to use the Table Storage Service
-
-<div class="dev-center-tutorial-selector">
-<a href="/en-us/develop/net/how-to-guides/table-services-v17/" title="version 1.7">version 1.7</a>
-<a href="/en-us/develop/net/how-to-guides/table-services/" title="version 2.0" class="current">version 2.0</a> 
-</div>
 
 
 This guide will show you how to perform common scenarios using the
@@ -551,7 +546,7 @@ to learn how to do more complex storage tasks.
 <ul>
 <li>View the blob service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wa_storage_api_ref_reference_home.aspx">Storage Client Library for .NET reference</a>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
@@ -594,7 +589,7 @@ to learn how to do more complex storage tasks.
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage-20/blob9.png
   
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2

@@ -1,13 +1,8 @@
-<properties linkid="dev-net-2-how-to-queue-service" urlDisplayName="Queue Service (2.0)" pageTitle="How to use the queue storage service | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use the Queue Storage Service" authors="" />
+<properties linkid="dev-net-2-how-to-queue-service" urlDisplayName="Queue Service (2.0)" pageTitle="How to use the queue storage service | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use the Windows Azure queue storage service to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use the Queue Storage Service" authors="tamram" />
 
 
 
 # How to use the Queue Storage Service
-
-<div class="dev-center-tutorial-selector">
-<a href="/en-us/develop/net/how-to-guides/queue-service-v17/" title="version 1.7">version 1.7</a>
-<a href="/en-us/develop/net/how-to-guides/queue-service/" title="version 2.0" class="current">version 2.0</a> 
-</div>
 
 
 This guide will show you how to perform common scenarios using the
@@ -351,9 +346,9 @@ Now that you've learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
 <ul>
-<li>View the queue service reference documentation for complete details about available APIs:
+<li>View the Queue service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wa_storage_api_ref_reference_home.aspx">Storage Client Library for .NET reference</a>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
@@ -385,6 +380,7 @@ to learn how to do more complex storage tasks.
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
   [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
+  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
   [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx 
   [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
