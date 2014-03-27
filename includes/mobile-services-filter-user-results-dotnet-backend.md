@@ -12,6 +12,8 @@ Now that authentication is required to access data in the TodoItem table, you ca
 
 		public string UserId { get; set; }
 
+	>[WACOM.NOTE]The default Entity Framework Code First initializer for this project 
+
 3. In Solution Explorer, expand the Controllers folder, open the TodoItemController.cs project file, and add the following **using** statement:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
