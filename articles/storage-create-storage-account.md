@@ -5,7 +5,7 @@
 
 <h1><a id="createstorageaccount"></a>How To Create a Storage Account</h1>
 
-To store files and data in the Blob, Table, and Queue services in Azure, you must create a storage account in the geographic region where you want to store the data. A storage account can contain up to 200 TB of data if it was created on or after June 8th, 2012. Storage accounts created before June 8th, 2012, can store 100 TB of blob, table, and queue data. You can create up to twenty storage accounts for each Azure subscription. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for more information.
+To store files and data in the Blob, Table, and Queue services in Azure, you must create a storage account in the geographic region where you want to store the data. A storage account can contain up to 200 TB of data, and you can create up to twenty storage accounts for each Azure subscription. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for more information.
 
 This topic describes how to create a storage account in the Azure Management Portal.
 
@@ -40,7 +40,7 @@ This topic describes how to create a storage account in the Azure Management Por
 
 	By default, replication is set to **Geo-Redundant**. With geo-redundant replication, your storage account and all data in it fails over to a secondary location in the event of a major disaster in the primary location. Azure assigns a secondary location in the same region, which cannot be changed. After a failover, the secondary location becomes the primary location for the storage account, and your data is replicated to a new secondary location.
 
- 	If you don't want to use geo-redundant replication, or if your organization's policies won't allow its use, set **Replication** to **Locally Redundant**. This will result in locally redundant storage, which is offered at a discount. Be aware that if you turn off geo-redundant replication, and you later decide to turn it on again, you will incur a one-time charge to replicate your existing data to the secondary location.
+	If you want to be able to read data from the secondary location, you can select **Read-Access Geo-Redundant** replication. This option provides geo-redundant replication and enables read-only access to the replicated data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 
 	A third replication option, **Read Access Geo-Redundant**, is currently in preview. This option enables read-only access to the replicated data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
 

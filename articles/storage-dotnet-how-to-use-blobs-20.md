@@ -3,15 +3,9 @@
 
 # How to use the Azure Blob Storage Service in .NET
 
-<div class="dev-center-tutorial-selector">
-<a href="/en-us/develop/net/how-to-guides/blob-storage-v17/" title="version 1.7">version 1.7</a>
-<a href="/en-us/develop/net/how-to-guides/blob-storage/" title="version 2.0" class="current">version 2.0</a> 
-</div>
-
-
 This guide will demonstrate how to perform common scenarios using the
 Azure Blob storage service. The samples are written in C\# and
-use the Azure Storage Client Library for .NET (Version 2.0). The scenarios covered include
+use the Azure Storage Client Library for .NET. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. For
 more information on blobs, see the [Next steps][] section.
 
@@ -105,7 +99,7 @@ You are now ready to perform the how-to tasks in this guide.
 ###Obtaining the assembly
 You can use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET 2.0, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\v2.0\ref\` directory.
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://www.windowsazure.com/en-us/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\` directory.
 
 ###Namespace declarations
 Add the following namespace declarations to the top of any C\# file
@@ -371,9 +365,9 @@ To delete a blob, first get a blob reference and then call the
 Now that you've learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 <ul>
-<li>View the blob service reference documentation for complete details about available APIs:
+<li>View the Blob service reference documentation for complete details about available APIs:
   <ul>
-    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/wa_storage_api_ref_reference_home.aspx">Storage Client Library for .NET reference</a>
+    <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx">Storage Client Library for .NET reference</a>
     </li>
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
@@ -407,7 +401,7 @@ to learn how to do more complex storage tasks.
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
-  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home
+  [.NET client library reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
   [REST API reference]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
