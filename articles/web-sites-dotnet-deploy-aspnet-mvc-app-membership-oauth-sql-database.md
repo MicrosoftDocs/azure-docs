@@ -108,7 +108,7 @@ You have created an Azure Web Site, but there is no content in it yet. Your next
  
    **Note:** The image shows "MyExample" as the name, but make sure you enter "ContactManager". Code blocks that you'll be copying later assume that the project name is ContactManager. 
 
-5. In the **New ASP.NET Project** dialog box, select the **MVC** template, **uncheck** the **Create remote resources** check box and then click **OK**.
+5. In the **New ASP.NET Project** dialog box, select the **MVC** template, **uncheck** the **Create remote resources** check box and then click **OK**. (The check box might be labeled **Host in the cloud** instead of **Create remote resources**.)
 
    ![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss1.PNG)
 
