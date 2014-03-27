@@ -4,7 +4,7 @@
 # Schedule recurring jobs in Mobile Services 
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
 </div>
  
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
@@ -13,213 +13,236 @@ This topic shows you how to use the job scheduler functionality in the Managemen
 + Requesting and storing external data, such as tweets, RSS entries, and location information.
 + Processing or resizing stored images.
 
-<!-- // Removed because this shortcode b/c it's old and doesn't use the new Twitter v1.1. APIs
->[WACOM.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler]
--->
-
-<!-- // Original video HTML code for reference.
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-scheduler-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">5:22</span></div>
-</div>-->
-
 This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
 
 + [Register for Twitter access and store credentials]
++ [Download and install the LINQ to Twitter library]
 + [Create the new Updates table]
 + [Create a new scheduled job]
+
+>[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
 
 ##<a name="get-oauth-credentials"></a>Register for access to Twitter v1.1 APIs and store credentials
 
 [WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-##<a name="create-table"></a>Create the new Updates table
+##<a name="install-linq2twitter"></a>Download and install the LINQ to Twitter library
+
+1. In **Solution Explorer** in Visual Studio, right-click the project name, and then select **Manage NuGet Packages**.
+
+2. In the left pane, select the **Online** category, search for `linq2twitter`, click **Install** on the **linqtotwitter** package, then read and accept the license agreements. 
+
+  	![][1]
+
+  	This adds the Linq to Twitter library to your mobile service project.
 
 Next, you need to create a new table in which to store tweets.
 
-1. In the Solution Explorer in Visual Studio, right-click the DataObjects folder add new **Updates** class.
+##<a name="create-table"></a>Create the new Updates table
 
-2. In this new class, add the following **using** statement:
+1. In the Solution Explorer in Visual Studio, right-click the DataObjects folder, expand **Add**, click **Class**,   type `Updates` for **Name**, then click **Add**.
+
+	This creates a new project file for the Updates class.
+
+2. In this new class, add the following **using** statements:
  
 		using Microsoft.WindowsAzure.Mobile.Service;
+		using System.ComponentModel.DataAnnotations;
 
-3. Add the following properties to the new **Update** class:
+3. Replace the **Updates** class definition with the following code:
 
-		public class Updates
+		public class Updates 
 	    {
-	        public int TwitterId { get; set; }
+	        [Key]
+	        public int UpdateId { get; set; }
+	        public long TweetId { get; set; }
 	        public string Text { get; set; }
 	        public string Author { get; set; }
 	        public DateTime Date { get; set; }
-	    }
+    	}
 
 4. Expand the Models folder, open the data model context file (named <em>service_name</em>Context.cs) and add the following property that returns a typed **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
-	This lets you access the Updates table, which is created when the DbSet is first accessed.
+	The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.  
 
-	<!--[WACOM.NOTE]The Updates table is only accessed from the mobile service backend.-->    
+	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
 
-
-
-
+Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
 ##<a name="add-job"></a>Create a new scheduled job  
 
-Now, you can create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
-
 1. Expand the ScheduledJobs folder and open the SampleJob.cs project file.
 
-	This class represents a job that can be scheduled to run on a fixed schedule or on demand.
+	This class, which inherits from **ScheduledJob**, represents a job that can be scheduled, in the Azure Management Portal, to run on a fixed schedule or on demand.
 
-2. 
+2. Replace the contents of SampleJob.cs with the following code:
+ 
+		using System;
+		using System.Linq;
+		using System.Threading;
+		using System.Threading.Tasks;
+		using System.Web.Http;
+		using Microsoft.WindowsAzure.Mobile.Service;
+		using Microsoft.WindowsAzure.Mobile.Service.ScheduledJobs;
+		using LinqToTwitter;
+		using todolistService.Models;
+		using todolistService.DataObjects;
+		
+		namespace todolistService
+		{
+		    // A simple scheduled job which can be invoked manually by submitting an HTTP
+		    // POST request to the path "/jobs/sample".
+		    public class SampleJob : ScheduledJob
+		    {
+		        private todolistContext context;
+		        private string accessToken;
+		        private string accessTokenSecret;
+		
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        {
+		            base.Initialize(scheduledJobDescriptor, cancellationToken);
+		
+		            // Create a new context with the supplied schema name.
+		            context = new todolistContext(Services.Settings.Name);
+		        }
+		
+		        public async override Task ExecuteAsync()
+		        {            
+		            // Try to get the stored Twitter access token from app settings.  
+		            if (Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
+		            Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret))
+		            {
+		                Services.Log.Error("Could not retrieve Twitter access credentials.");
+		            }
+		
+		            // Create a new authorizer to access Twitter v1.1 APIs
+		            // using single-user OAUth 2.0 credentials.
+		            MvcAuthorizer auth = new MvcAuthorizer();
+		            SingleUserInMemoryCredentialStore store = 
+		                new SingleUserInMemoryCredentialStore()
+		            {
+		                ConsumerKey = Services.Settings.TwitterConsumerKey,
+		                ConsumerSecret = Services.Settings.TwitterConsumerSecret,
+		                OAuthToken = accessToken,
+		                OAuthTokenSecret = accessTokenSecret
+		            };
+		
+		            // Set the credentials for the authorizer.
+		            auth.CredentialStore = store;
+		
+		            // Create a new LINQ to Twitter context.
+		            TwitterContext twitter = new TwitterContext(auth);
+		
+		            // Get the ID of the most recent stored tweet.
+		            long lastTweetId = 0;
+		            if (context.Updates.Count() > 0)
+		            {
+		                lastTweetId = (from u in context.Updates
+		                               orderby u.TweetId descending
+		                               select u).Take(1).SingleOrDefault()
+		                                            .TweetId;
+		            }
+		
+		            // Execute a search that returns a filtered result.
+		            var response = await (from s in twitter.Search
+		                                  where s.Type == SearchType.Search
+		                                  && s.Query == "%23mobileservices"
+		                                  && s.SinceID == Convert.ToUInt64(lastTweetId + 1)
+		                                  && s.ResultType == ResultType.Recent
+		                                  select s).SingleOrDefaultAsync();
+		
+		            // Remove retweets and replies and log the number of tweets.
+		            var filteredTweets = response.Statuses
+		                .Where(t => !t.Text.StartsWith("RT") && t.InReplyToUserID == 0);
+		            Services.Log.Info("Fetched " + filteredTweets.Count()
+		                + " new tweets from Twitter.");
+		
+		            // Store new tweets in the Updates table.
+		            foreach (Status tweet in filteredTweets)
+		            {
+		                Updates newTweet =
+		                    new Updates
+		                    {
+		                        TweetId = Convert.ToInt64(tweet.StatusID),
+		                        Text = tweet.Text,
+		                        Author = tweet.User.Name,
+		                        Date = tweet.CreatedAt
+		                    };
+		
+		                context.Updates.Add(newTweet);
+		            }
+		
+		            await context.SaveChangesAsync();
+		        }
+		        protected override void Dispose(bool disposing)
+		        {
+		            base.Dispose(disposing);
+		            if (disposing)
+		            {
+		                context.Dispose();
+		            }
+		        }
+		    }
+		}
+
+	In the above code, you must replace the strings _todolistService_ and _todolistContext_ with the namespace and DbContext of your downloaded project, which are <em>mobile&#95;service&#95;name</em>Service and <em>mobile&#95;service&#95;name</em>Context, respective.  
+   	
+	In the above code, the **ExecuteAsync** override method calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
+
+3. Republish the mobile service project to Azure.
+
+4. In the [Azure Management Portal], click Mobile Services, and then click your app.
+ 
+	![][2]
 
 2. Click the **Scheduler** tab, then click **+Create**. 
 
-   	![][4]
+   	![][3]
 
     >[WACOM.NOTE]When you run your mobile service in <em>Free</em> tier, you are only able to run one scheduled job at a time. In paid tiers, you can run up to ten scheduled jobs at a time.
 
-3. In the scheduler dialog, enter _getUpdates_ for the **Job Name**, set the schedule interval and units, then click the check button. 
+3. In the scheduler dialog, enter _SampleJob_ for the **Job Name**, set the schedule interval and units, then click the check button. 
    
-   	![][5]
+   	![][4]
 
-   	This creates a new job named **getUpdates**. 
+   	This creates a new job named **SampleJob**. 
 
-4. Click the new job you just created, then click the **Script** tab.
+4. Click the new job you just created, then click **Run Once** to test the script. 
 
-   	![][6] 
+  	![][5]
 
-5. Replace the placeholder function **getUpdates** with the following code:
+   	This executes the job while it remains disabled in the scheduler. From this page, you can enable the job and change its schedule at any time.
 
-		var updatesTable = tables.getTable('Updates');
-		var request = require('request');
-		var twitterUrl = "https://api.twitter.com/1.1/search/tweets.json?q=%23mobileservices&result_type=recent";
+4. (Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.
 
-		// Get the service configuration module.
-		var config = require('mobileservice-config');
-		
-		// Get the stored Twitter consumer key and secret. 
-		var consumerKey = config.twitterConsumerKey,
-		    consumerSecret = config.twitterConsumerSecret
-		// Get the Twitter access token from app settings.    
-		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
-		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
-		
-		function getUpdates() {   
-		    // Check what is the last tweet we stored when the job last ran
-		    // and ask Twitter to only give us more recent tweets
-		    appendLastTweetId(
-		        twitterUrl, 
-		        function twitterUrlReady(url){            
-		            // Create a new request with OAuth credentials.
-		            request.get({
-		                url: url,                
-		                oauth: {
-		                    consumer_key: consumerKey,
-		                    consumer_secret: consumerSecret,
-		                    token: accessToken,
-		                    token_secret: accessTokenSecret
-		                }},
-		                function (error, response, body) {
-		                if (!error && response.statusCode == 200) {
-		                    var results = JSON.parse(body).statuses;
-		                    if(results){
-		                        console.log('Fetched ' + results.length + ' new results from Twitter');                       
-		                        results.forEach(function (tweet){
-		                            if(!filterOutTweet(tweet)){
-		                                var update = {
-		                                    twitterId: tweet.id,
-		                                    text: tweet.text,
-		                                    author: tweet.user.screen_name,
-		                                    date: tweet.created_at
-		                                };
-		                                updatesTable.insert(update);
-		                            }
-		                        });
-		                    }            
-		                } else { 
-		                    console.error('Could not contact Twitter');
-		                }
-		            });
-		
-		        });
-		 }
-		// Find the largest (most recent) tweet ID we have already stored
-		// (if we have stored any) and ask Twitter to only return more
-		// recent ones
-		function appendLastTweetId(url, callback){
-		    updatesTable
-		    .orderByDescending('twitterId')
-		    .read({success: function readUpdates(updates){
-		        if(updates.length){
-		            callback(url + '&since_id=' + (updates[0].twitterId + 1));           
-		        } else {
-		            callback(url);
-		        }
-		    }});
-		}
-		
-		function filterOutTweet(tweet){
-		    // Remove retweets and replies
-		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
-		}
+    ![][6]
 
+5. In the Management portal execute a query to view the changes made by the app. Your query will be similar to the following query but use your mobile service name as schema name instead of `todolist`.
 
-   	This script calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
-
-    >[WACOM.NOTE]This sample assumes that only a few rows are inserted into the table during each scheduled run. In cases where many rows are inserted in a loop you may run out of connections when running on the Free tier. In this case, you should perform inserts in batches. For more information, see <a href="/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">How to: Perform bulk inserts</a>.
-
-6. Click **Run Once** to test the script. 
-
-  	![][7]
-
-   	This saves and executes the job while it remains disabled in the scheduler.
-
-7. Click the back button, click **Data**, click the **Updates** table, click **Browse**, and verify that Twitter data has been inserted into the table.
-
-   	![][8]
-
-8. Click the back button, click **Scheduler**, select **getUpdates**, then click **Enable**.
-
-   	![][9]
-
-   	This enables the job to run on the specified schedule, in this case every hour.
+        SELECT * FROM [todolist].[Updates]
 
 Congratulations, you have successfully created a new scheduled job in your mobile service. This job will be executed as scheduled until you disable or modify it.
 
-## <a name="nextsteps"> </a>Next Steps
-
-* [Mobile Services server script reference]
-  <br/>Learn more about registering and using server scripts.
-
 <!-- Anchors. -->
 [Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
 [Create the new Updates table]: #create-table
 [Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
+[1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+[2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-services-selection.png
+[3]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
+[4]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/create-new-job.png
+[5]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/sample-job-run-once.png
+[6]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/manage-sql-azure-database.png
 
 <!-- URLs. -->
-[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: /en-us/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Register your apps for Twitter login with Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/

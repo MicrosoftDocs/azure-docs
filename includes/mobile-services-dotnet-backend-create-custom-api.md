@@ -17,17 +17,29 @@
 
 	In the above code, replace `todolistService` with the namespace of your mobile service project, which should be the mobile service name appended with `Service`. 
 
-4. Add the following POST method to the new controller:
+4. Add the following code to the new controller:
+
+		// Provides access to Mobile Services functionality.
+        public ApiServices Services { get; set; }
 
 	    // POST api/completeall        
         public Task<int> Post()
         {
             using (todolistContext context = new todolistContext())
             {
+                // Get the database from the context.
                 var database = context.Database;
+
+                // Create a SQL statement that sets all uncompleted items
+                // to complete and execute the statement asynchronously.
                 var sql = @"UPDATE TodoItems SET Complete = 1 " +
                             @"WHERE Complete = 0; SELECT @@ROWCOUNT as count";
                 var result = database.ExecuteSqlCommandAsync(sql);
+
+                // Log the result.
+                Services.Log.Info(string.Format("{0} items set to 'complete'.", 
+                    result.ToString()));
+                
                 return result;
             }
         }
