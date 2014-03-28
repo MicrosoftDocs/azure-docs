@@ -23,6 +23,8 @@ You will learn:
     and worker roles.
 -   How to communicate between tiers using Service Bus Queues.
 
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+
 In this tutorial you'll build and run the multi-tier application in an Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to an Azure Web Site instead of a cloud service. For instructions about what to do differently an Azure Web Site front end, see the [Next steps](#nextsteps) section.
 
 A screenshot of the completed application is shown below:
@@ -132,7 +134,7 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
-Note that you can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer. 
+Note that you can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer, but you can only create new namespaces from within the portal. 
 
 ###Set up the namespace using the Management Portal
 
@@ -175,9 +177,9 @@ Note that you can also manage namespaces and Service Bus messaging entities usin
 
 10.  Make a note of the key, or copy it to the clipboard.
 
-###Set up the namespace using the Visual Studio Server Explorer
+###Manage namespaces and messaging entities using the Visual Studio Server Explorer
 
-To set up a namespace using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
 
 Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
 

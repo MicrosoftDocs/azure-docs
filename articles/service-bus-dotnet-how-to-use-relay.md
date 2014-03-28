@@ -15,6 +15,8 @@ that is part of the .NET libraries for Azure. For more
 information on the Service Bus relay, see the [Next Steps][]
 section.
 
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+
 <h2><span class="short-header">What is the Service Bus Relay</span>What is the Service Bus Relay</h2>
 
 The Service Bus **Relay** service enables you to build **hybrid
