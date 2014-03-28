@@ -22,23 +22,9 @@ When a template is used to modify or create a group, a _deployment_ is created, 
 
 ##Authentication
 
-Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational ID. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
+Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
-An organizational ID is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational ID, and are using a Microsoft account to log in to your Azure subscription, you can easily create an one using the following steps.
-
-1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
-
-2. If no directory exists, select **Create your directory** and provide the requested information.
-
-3. Select your directory and add a new user. This new user is an organizational ID.
-
-	>[WACOM.NOTE] During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-
-4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational ID to manage your Azure subscription.
-
-5. Finally, log out of the Azure portal and then log back in using the new organizational ID. If this is the first time logging in with this ID, you will be prompted to change the password.
-
-For more information on organizational ID with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
+For more information on authenticating using an organizational account, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
 
 ##Working with Groups and Templates
 
