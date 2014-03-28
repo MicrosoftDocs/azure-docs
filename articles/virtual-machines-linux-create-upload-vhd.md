@@ -410,9 +410,9 @@ You must complete specific configuration steps in the operating system for the v
 
 ### Prepare SUSE Linux Enterprise Server 11 SP2 & SP3 ###
 
-**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/openSUSE images for Azure and Hyper-V with the need to build them yourself. In addition, the following official SUSE image for Windows Azure in the [SUSE Studio Gallery](https://susestudio.com/browse) can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-> - [SLES 11 SP3 for Windows Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
+\- [SLES 11 SP3 for Windows Azure in the SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)  
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -495,9 +495,10 @@ You must complete specific configuration steps in the operating system for the v
 
 ### Prepare openSUSE 12.3+ ###
 
-**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/opeSUSE images for Azure and Hyper-V. In addition, the following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio account for easy customization:
+**NOTE:** [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES/openSUSE images for Azure and Hyper-V with the need to build them yourself. In addition, the following official SUSE image for Windows Azure in the [SUSE Studio Gallery](https://susestudio.com/browse) can be downloaded or cloned into your own SUSE Studio account for easy customization:
 
-> - [openSUSE 13.1 for Windows Azure on SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+\- [openSUSE 13.1 for Windows Azure in the SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)  
+
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
