@@ -715,4 +715,4 @@ The example outlined here is provided in the Sencha Touch Extension for Azure pa
 For more information about getting started with Sencha Touch please visit the full set of [guides](http://docs.sencha.com/touch/#!/guide)
 
 <!-- images -->
-[0]: ./media/partner-sencha-mobile-services-get-started/mobile-services-sencha-app-screen-shot.png
+[0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
