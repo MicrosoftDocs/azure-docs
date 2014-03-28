@@ -98,7 +98,7 @@ Using the quick create option, you can choose an existing storage account. The p
  
 Using the custom create, you can either choose an existing Blob storage container or create a default container. The default container has the same name as the HDInsight cluster name.
 
-![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  "Custom Create Storage Account" )
+![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png "Custom Create Storage Account")
   
 
 
@@ -247,10 +247,10 @@ To learn more, see the following articles:
 
 [Powershell-install]: ../install-configure-powershell/
 [hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-getting-started]: ../hdinsight-get-started-hdinsight/
+[hdinsight-getting-started]: ../hdinsight-get-started/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-hive]: ../hdinsight-using-hive/
-[hdinsight-pig]: ../hdinsight-using-pig/
+[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
 
