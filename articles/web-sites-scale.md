@@ -4,7 +4,7 @@
 
 For increased performance and throughput for your web sites on Microsoft Azure, you can use the Azure Management Portal to scale your Web Hosting Plan mode from Free to Shared, Basic, or Standard. Changing modes is easily done in the Scale tab of the management portal, and you can scale up or down as required. These changes take only seconds to apply and affect all web sites in your Web Hosting Plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about what a Web Hosting Plan is, see [http://go.microsoft.com/fwlink/?LinkId=394404](http://go.microsoft.com/fwlink/?LinkId=394404). For information the pricing and features of individual Web Hosting Plans, see [Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+For information about what a Web Hosting Plan is, see [Azure Web Sites Web Hosting Plans ](http://go.microsoft.com/fwlink/?LinkId=9845584). For information the pricing and features of individual Web Hosting Plans, see [Web Sites Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
 
 > [WACOM.NOTE] Before switching a web site from a **Free** Web Hosting Plan mode to **Basic** or **Standard** Web Hosting Plan mode, you must first remove the spending caps in place for your Web Site subscription. To view or change options for your Microsoft Azure Web Sites subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
