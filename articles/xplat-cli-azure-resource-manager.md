@@ -153,7 +153,6 @@ To view logged information on operations performed on a group, use the `azure gr
 ##Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
-* For information on working with the Resource Manager using Azure PowerShell, see [TBD].
 
 [signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
