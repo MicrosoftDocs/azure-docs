@@ -1,46 +1,46 @@
-<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Windows Azure Automation" pageTitle="Get Started with Windows Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Windows Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Windows Azure Automation" authors="" solutions="" manager="" editor="" />
+<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="" solutions="" manager="" editor="" />
 
 
-# Get started with Windows Azure Automation
+# Get started with Azure Automation
 
-This tutorial walks you through the steps to import and execute an automation job in Windows Azure. 
+This tutorial walks you through the steps to import and execute an Automation runbook in Microsoft Azure. 
 
-Windows Azure Automation provides a way for IT pros and developers to automate business processes. You can create, monitor, manage, and deploy resources in your environment by using a runbook, which under the hood is a Windows PowerShell Workflow. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
+Microsoft Azure Automation provides a way for developers to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. You can create, monitor, manage, and deploy resources in your Azure environment using runbooks, which under the hood are Windows PowerShell Workflows. To learn more about Automation, see the [Automation Overview Guide](http://go.microsoft.com/fwlink/p/?LinkId=392861). 
 
-This tutorial walks you through the steps to import a sample runbook into Windows Azure, execute the runbook, and then check its status.
+This tutorial walks you through the steps to import a sample runbook into Azure Automation, execute the runbook, and then view its output.
 
 ## Samples and utility runbooks
 
-The Windows Azure Automation team has created runbook samples to help you get started with Automation.  These samples cover basic Automation concepts and are intended to help you learn how to write your own runbooks.  
+The Azure Automation team has created a number of runbook samples to help you get started with Automation.  These samples cover basic Automation concepts and are intended to help you learn how to write your own runbooks.  
 
-The product team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
+The Automation team has also created utility runbooks that you can use as building blocks for larger Automation tasks.  
 
-[WACOM.TIP] It is a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks after you’re familiar with Automation runbooks.  
+>[WACOM.NOTE] It's a best practice to write small, modular, reusable runbooks. We also strongly recommend that you create your own utility runbooks for commonly used scenarios after you’re familiar with Automation.  
 
-You can view and download the Automation team’s sample and utility runbooks at the [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029). 
+You can view and download the Automation team’s sample and utility runbooks on [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029). 
 
 ## The Automation community and feedback
 
-Runbooks from the community and other Microsoft teams are also published on the [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681). 
+Runbooks from the community and other Microsoft teams are also published on  [Script Center](http://go.microsoft.com/fwlink/?LinkID=391681). 
 
-<strong>Give us feedback!</strong>  If you are looking for a runbook solution, post a Script Request on the Script Center or if you  or have an idea for a new feature for Automation post them on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
+<strong>Give us feedback!</strong>  If you are looking for a runbook solution or PowerShell integration module, post a Script Request on the Script Center. If you have an idea for a new feature for Automation, post it on [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback).
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## Download a sample runbook from the Script Center
 
-1.	Go to the [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029), and then click **Hello World for Windows Azure Automation**.
+1.	Go to  [Script Center](http://go.microsoft.com/fwlink/p/?LinkId=393029), and then click **Hello World for Azure Automation**.
 
 2.	Click the file name, **Write-HelloWorld.ps1**, next to **Download**, and then save the file to your computer.
 
 
-## Import the sample runbook to Windows Azure
+## Import the sample runbook to Azure
 
-1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2.	In the Management Portal, click **Create an Automation Account**.
 
-	[WACOM.NOTE] If you’ve already created an automation account, you can skip to step 4.
+	>[WACOM.NOTE] If you’ve already created an automation account, you can skip to step 4.
 
 	![Create Account](./media/automation/automation_01_CreateAccount.png)
 
@@ -48,7 +48,7 @@ Runbooks from the community and other Microsoft teams are also published on the 
 
 	![Add New Account](./media/automation/automation_02_addnewautoacct.png)
  
-4.	On the **automation** page, click the new account you just created.
+4.	On the **Automation** page, click the new account you just created.
  
 	![New Account](./media/automation/automation_03_NewAutoAcct.png)
 
@@ -68,17 +68,17 @@ Runbooks from the community and other Microsoft teams are also published on the 
 
 	![Imported Runbook](./media/automation/automation_07_ImportedRunbook.png)
 
-9.	Click **AUTHOR**, and then click **DRAFT**.
+9.	Click **AUTHOR**, and then click **DRAFT**. For this runbook, you don’t need to make any modifications.  
 
 	You can now see the contents of **Write-HelloWorld.ps1**. You can modify the contents of a runbook in Draft mode. 
 
 	![Author Draft](./media/automation/automation_08_AuthorDraft.png)  
  
-10.	Click **PUBLISH**.
+10.	Click **PUBLISH** to promote the runbook so it's ready for production use.
 
 	![Publish](./media/automation/automation_085_Publish.png)
    
-11.	When you are prompted, if you want to save and publish the runbook, click **Yes**.
+11.	When you are prompted to save and publish the runbook, click **Yes**.
  
 	![Save and Pub prompt](./media/automation/automation_09_SavePubPrompt.png)
 
@@ -90,11 +90,11 @@ Runbooks from the community and other Microsoft teams are also published on the 
 
 	![Runbook Parameters](./media/automation/automation_11_RunbookParams.png)
   
-14.	Click **JOBS** to check the status, and then click the timestamp in the **JOB START** column to view the job summary.
+14.	Click **JOBS** to check the status of the runbook job you just started, and then click the timestamp in the **JOB START** column to view the job summary.
 
 	![Runbook Status](./media/automation/automation_12_RunbookStatus.png)
 
-15.	On the **SUMMARY** page you can see the job summary, input parameters, and output of the script.
+15.	On the **SUMMARY** page you can see the summary, input parameters, and output of the job.
  
 	![Runbook Summary](./media/automation/automation_13_RunbookSummary_callouts.png)
 

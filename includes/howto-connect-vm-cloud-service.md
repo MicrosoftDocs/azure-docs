@@ -1,4 +1,4 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
+<properties authors="kathydav" editor="tysonn" manager="donaldg" /> 
 
 
 #How to Connect Virtual Machines in a Cloud Service
@@ -7,14 +7,14 @@
 
 When you create a virtual machine, a cloud service is automatically created to contain the machine. You can create multiple virtual machines under the same cloud service to enable the virtual machines to communicate with each other, to load-balance between virtual machines, and to maintain high availability of the machines. 
 
-For more information about load-balancing virtual machines, see [Load balancing virtual machines] [Load balancing virtual machines]. For more information about managing the availability of your application, see [Manage the availability of virtual machines] [Manage the availability of virtual machines]. 
+For more information about load-balancing virtual machines, see [Load balancing virtual machines](../load-balancing-vms). For more information about managing the availability of your application, see [Manage the availability of virtual machines](../manage-vm-availability). 
 
 
 First, you'll need to create a virtual machine with a new cloud service, and then you can connect additional virtual machines to the first virtual machine under the same cloud service. 
 
 
 
-1. Create a virtual machine using the steps in [How to create a custom virtual machine] [How to create a custom virtual machine].
+1. Create a virtual machine using the steps in [How to create a custom virtual machine](../howto-custom-create-vm).
 
 
 2. After you create the first custom virtual machine, on the [Management Portal](http://manage.windowsazure.com) command bar, click **New**.
@@ -61,8 +61,3 @@ First, you'll need to create a virtual machine with a new cloud service, and the
 14. Review the default endpoint configuration, and modify if necessary. 
 
 15. Click the check mark to create the connected virtual machine.
-
-
-[How to create a custom virtual machine]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-create-custom/
-[Load balancing virtual machines]: http://windowsazure.com/en-us/documentation/articles/load-balance-virtual-machines/
-[Manage the availability of virtual machines]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-manage-availability/

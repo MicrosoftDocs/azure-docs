@@ -1,6 +1,6 @@
 
 
-After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Windows Azure and run the app against the live service.
+After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Azure and run the app against the live service.
 
 1. In Solution Explorer, right-click the mobile service project and click **Publish**
 
@@ -12,7 +12,7 @@ After testing the Windows Store app against the local mobile service, the final 
 
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-import-profile.png)
 
-	This loads the information needed by Visual Studio to publish your mobile service to Windows Azure. 
+	This loads the information needed by Visual Studio to publish your mobile service to Azure. 
 	
 	<div class="dev-callout"><strong>Security note</strong> <p>After importing the publish profile, consider deleting the downloaded file as it contains information that can be used by others to access your services.</p></div>
 
@@ -20,5 +20,5 @@ After testing the Windows Store app against the local mobile service, the final 
 
 	![](./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png)
 
-	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Windows Azure.
+	After publishing succeeds, you will again see the confirmation page that the mobile service is up and running, this time in Azure.
 

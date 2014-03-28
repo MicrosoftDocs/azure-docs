@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Windows Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Windows Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-web-app-with-django" urlDisplayName="Web with Django (Windows)" pageTitle="Python web app with Django - Azure tutorial" metaKeywords="Azure Django web app, Azure Django virtual machine" description="A tutorial that teaches you how to host a Django-based website on Azure using a Windows Server 2008 R2 virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,34 +8,34 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
 
 This tutorial describes how to host a Django-based web site on Windows 
-Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
+Azure using a Windows Server virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
 
-* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Windows Server**, the same could also be done with a Linux VM hosted in Windows Azure. 
+* Setup an Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Windows Server**, the same could also be done with a Linux VM hosted in Azure. 
 * Create a new Django application from Windows.
 
 By following this tutorial, you will build a simple Hello World web
-application. The application will be hosted in a Windows Azure virtual machine.
+application. The application will be hosted in an Azure virtual machine.
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Windows Azure][1]
+![A browser window displaying the hello world page on Azure][1]
 
 [WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
-## Creating and configuring a Windows Azure virtual machine to host Django
+## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here][portal-vm] to create a Windows Azure virtual machine of the *Windows Server 2012 Datacenter* distribution.
+1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Windows Server 2012 Datacenter* distribution.
 
-1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
- - Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
+1. Instruct Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
+ - Navigate to your newly created virtual machine in the Azure Portal and click the *ENDPOINTS* tab.
  - Click *ADD ENDPOINT* button at the bottom of the screen.
 	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
 ![][port80]
-1. Use Windows *Remote Desktop* to remotely log into the newly created Windows Azure virtual machine.  
+1. Use Windows *Remote Desktop* to remotely log into the newly created Azure virtual machine.  
 
 **Important Note:** all instructions below assume you logged into the virtual machine correctly and are issuing commands there rather than your local machine! 
 
@@ -43,7 +43,7 @@ A screenshot of the completed application is below:
 
 To set up your Python and Django environments, please see the [Installation Guide][] for more information.  
 
-**Note 1:** you *only* need to install the **Django** product from the Windows WebPI installer on the Windows Azure virtual machine to get *this* particular tutorial operational.
+**Note 1:** you *only* need to install the **Django** product from the Windows WebPI installer on the Azure virtual machine to get *this* particular tutorial operational.
 
 **Note 2:** In order to download the WebPI installer you may have to configure IE ESC settings (Start/Adminstrative Tools/Server Manager, then click **Configure IE ESC**, set to Off).
 
@@ -125,11 +125,11 @@ To set up your Python and Django environments, please see the [Installation Guid
 
 1. Finally, load the web page in your browser.
 
-![A browser window displaying the hello world page on Windows Azure][1]
+![A browser window displaying the hello world page on Azure][1]
 
-## Shutting down your Windows Azure virtual machine
+## Shutting down your Azure virtual machine
 
-When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
+When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
 
 [1]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-browser-azure.png
 

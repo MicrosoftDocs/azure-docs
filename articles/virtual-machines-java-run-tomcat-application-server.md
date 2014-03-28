@@ -1,10 +1,10 @@
-<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Windows Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="waltpo" solutions="" manager="" editor="" />
+<properties linkid="dev-java-vm-application-server" urlDisplayName="Tomcat on Virtual Machine" pageTitle="Tomcat on a virtual machine - Azure tutorial" metaKeywords="Azure vm, creating vm Tomcat, configuring vm Tomcat" description="Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a Java application server on a virtual machine" authors="waltpo" solutions="" manager="" editor="" />
 
 
 
 # How to run a Java application server on a virtual machine
 
-With Windows Azure, you can use a virtual machine to provide server capabilities. As an example, a virtual machine running on Windows Azure can be configured to host a Java application server, such as Apache Tomcat. On completing this guide, you will have an understanding of how to create a virtual machine running on Windows Azure and configure it to run a Java application server.
+With Azure, you can use a virtual machine to provide server capabilities. As an example, a virtual machine running on Azure can be configured to host a Java application server, such as Apache Tomcat. On completing this guide, you will have an understanding of how to create a virtual machine running on Azure and configure it to run a Java application server.
 
 You will learn:
 
@@ -22,7 +22,7 @@ For purposes of this tutorial, an Apache Tomcat application server will be insta
 
 ## To create a virtual machine
 
-1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
 3. In the **Virtual machine image select** dialog, select **JDK 7 Windows Server 2012**.
 Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
@@ -35,7 +35,7 @@ Note that **JDK 6 Windows Server 2012** is available in case you have legacy app
     5. Click **Next**.
 6. In the next <strong>Virtual machine configuration</strong> dialog:
     1. For **Cloud service**, use the default **Create a new cloud service**.
-    2. The value for **Cloud service DNS name** must be unique across cloudapp.net. If needed, modify this value so that Windows Azure indicates it is unique.
+    2. The value for **Cloud service DNS name** must be unique across cloudapp.net. If needed, modify this value so that Azure indicates it is unique.
     2. Specify a region, affinity group, or virtual network. For purposes of this tutorial, specify a region such as **West US**.
     2. For **Storage Account**, select **Use an automatically generated storage account**.
     3. For **Availability Set**, select **(None)**.
@@ -124,7 +124,7 @@ At this point, your Tomcat web site should now be viewable from an external brow
     The benefit of having Tomcat start automatically is it will start again if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).
 
 ## Next steps
-* Learn about other services, such as Windows Azure Storage, service bus, SQL Database, and more that you may want to include with your Java applications, by viewing the information available at <http://www.windowsazure.com/en-us/develop/java/>.
+* Learn about other services, such as Azure Storage, service bus, SQL Database, and more that you may want to include with your Java applications, by viewing the information available at <http://www.windowsazure.com/en-us/develop/java/>.
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 

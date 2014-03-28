@@ -1,3 +1,3 @@
-<properties title="Java create account" pageTitle="Java create account" metaKeywords="" description="Create an account on windows azure." documentationCenter="Java" services="" solutions="" manager="bjsmith" editor="mollybos" authors="" />
+<properties title="Java create account" pageTitle="Java create account" metaKeywords="" description="Create an account on Azure." documentationCenter="Java" services="" solutions="" manager="bjsmith" editor="mollybos" authors="waltpo" videoId="" scriptId="" />
 
-[WACOM.INCLUDE [create-a-windows-azure-account](../includes/create-a-windows-azure-account.md)]
+[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]

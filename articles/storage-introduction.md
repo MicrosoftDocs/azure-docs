@@ -172,3 +172,4 @@ To get started with Azure Storage, explore these resources:
 - [How to use Blob Storage from Python](../storage-python-how-to-use-blob-storage/)
 - [How to use Table Storage from Python](..storage-python-how-to-use-table-storage/)
 - [How to use Queue Storage from Python](..storage-python-how-to-use-queue-storage/)
+

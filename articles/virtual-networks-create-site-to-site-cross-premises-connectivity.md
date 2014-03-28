@@ -1,4 +1,4 @@
-<properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Cross-premises Connectivity" pageTitle="Create a cross-premises virtual network - Windows Azure" metaKeywords="" description="Learn how to create a Windows Azure Virtual Network with cross-premises connectivity." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Cross-premises Connectivity" pageTitle="Create a cross-premises virtual network - Azure" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,25 +8,25 @@
 
 This tutorial walks you through the steps to create a cross-premises virtual network. The type of connection we will create is a site-to-site connection. If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-This tutorial assumes you have no prior experience using Windows Azure. It's meant to help you become familiar with the steps required to create a site-to-site virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Windows Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create a site-to-site virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
 
-After completing this tutorial, you will have a virtual network where you can deploy your Windows Azure services and virtual machines, which can then communicate directly with your company's network.
+After completing this tutorial, you will have a virtual network where you can deploy your Azure services and virtual machines, which can then communicate directly with your company's network.
 
-For information about adding a virtual machine and extending your on-premises Active Directory to Windows Azure Virtual Network, see the following:
+For information about adding a virtual machine and extending your on-premises Active Directory to Azure Virtual Network, see the following:
 
 -  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/?LinkID=294356)
 
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
+-  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-For guidelines about deploying AD DS on Windows Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Windows Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+For guidelines about deploying AD DS on Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
 
-For additional Virtual Network configuration procedures and settings, see [Windows Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652).
+For additional Virtual Network configuration procedures and settings, see [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652).
 
 ##  Objectives
 
 In this tutorial you will learn:
 
--  How to setup a basic Windows Azure virtual network to which you can add Windows Azure services.
+-  How to setup a basic Azure virtual network to which you can add Azure services.
 
 -  How to configure the virtual network to communicate with your company's network.
 
@@ -61,7 +61,7 @@ In this tutorial you will learn:
 
 **To create a virtual network that connects to your company's network:**
 
-1.	Log in to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
+1.	Log in to the [Azure Management Portal](http://manage.windowsazure.com/).
 
 2.	In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Networks**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard. 
 
@@ -71,7 +71,7 @@ In this tutorial you will learn:
 
 -  **NAME:** Name your virtual network. Type *YourVirtualNetwork*.
 
--  **AFFINITY GROUP:** From the drop-down list, select **Create a new affinity group**. Affinity groups are a way to physically group Windows Azure services together at the same data center to increase performance. Only one virtual network can be assigned an affinity group.
+-  **AFFINITY GROUP:** From the drop-down list, select **Create a new affinity group**. Affinity groups are a way to physically group Azure services together at the same data center to increase performance. Only one virtual network can be assigned an affinity group.
 
 -  **REGION:** From the drop-down list, select the desired region. Your virtual network will be created at a datacenter located in the specified region.
 
@@ -126,7 +126,7 @@ In this tutorial you will learn:
 
 ##  <a name="StartGateway">Start the Gateway</a>
 
-After creating your Windows Azure Virtual Network, use the following procedure to configure the virtual network gateway in order to create your site-to-site VPN. This procedure requires that you have a VPN device that meets the minimum requirements. For more information about VPN devices and device configuration, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098).
+After creating your Azure Virtual Network, use the following procedure to configure the virtual network gateway in order to create your site-to-site VPN. This procedure requires that you have a VPN device that meets the minimum requirements. For more information about VPN devices and device configuration, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098).
 
 **To start the gateway:**
 
@@ -232,13 +232,13 @@ In order to extend your on-premises Active Directory to the virtual network you 
 
 -  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/?LinkID=294356)
 
--  [Install a Replica Active Directory Domain Controller in Windows Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
+-  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
 If you want to export your virtual network settings to a network configuration file in order to back up your configuration or to use it as a template, see [Export Virtual Network Settings to a Network Configuration File](http://go.microsoft.com/fwlink/?LinkID=299880).
 
 ## See Also
 
--  [Windows Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-  [Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
 
 -  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
@@ -248,7 +248,7 @@ If you want to export your virtual network settings to a network configuration f
 
 -  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx)
 
--  [Windows Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
 

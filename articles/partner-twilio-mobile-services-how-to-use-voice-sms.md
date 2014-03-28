@@ -1,9 +1,9 @@
-<properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="twilio" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="twilio" solutions="" manager="" editor="" />
 
 
 <h1>How to use Twilio for voice and SMS capabilities from Mobile Services</h1>
 
-This topic shows you how to perform common tasks using the Twilio API with Windows Azure Mobile Services. In this tutorial you will learn how to create Custom API scripts that use the Twilio API to initiate a phone call and to send a Short Message Service (SMS) message. 
+This topic shows you how to perform common tasks using the Twilio API with Azure Mobile Services. In this tutorial you will learn how to create Custom API scripts that use the Twilio API to initiate a phone call and to send a Short Message Service (SMS) message. 
 
 <h2><a id="WhatIs"></a>What is Twilio?</h2>
 Twilio is powering the future of business communications, enabling developers to embed voice, VoIP, and messaging into applications. They virtualize all infrastructure needed in a cloud-based, global environment, exposing it through the Twilio communications API platform. Applications are simple to build and scalable. Enjoy flexibility with pay-as-you go pricing, and benefit from cloud reliability.
@@ -11,12 +11,12 @@ Twilio is powering the future of business communications, enabling developers to
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** enables your applications to send and receive SMS messages. **Twilio Client** allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.
 
 <h2><a id="Pricing"></a>Twilio Pricing and Special Offers</h2>
-Windows Azure customers receive a [special offer][special_offer]: complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at [ahoy.twilio.com/azure][special_offer].
+Azure customers receive a [special offer][special_offer]: complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at [ahoy.twilio.com/azure][special_offer].
 
 Twilio is a pay-as-you-go service. There are no set-up fees and you can close your account at any time. You can find more details at [Twilio Pricing][twilio_pricing].  
 
 <h2><a id="Concepts"></a>Concepts</h2>
-The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries] [twilio_libraries].  Additional tutorials are available for using the Twilio any Windows Azure application written in [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] or [Ruby][azure_twilio_howto_ruby].
+The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries] [twilio_libraries].  Additional tutorials are available for using the Twilio any Azure application written in [.NET][azure_twilio_howto_dotnet], [node.js][azure_twilio_howto_node], [Java][azure_twilio_howto_java], [PHP][azure_twilio_howto_php], [Python][azure_twilio_howto_python] or [Ruby][azure_twilio_howto_ruby].
 
 Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).
 

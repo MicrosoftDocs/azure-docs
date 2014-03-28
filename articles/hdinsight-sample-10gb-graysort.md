@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="HDInsight Samples" pageTitle="The 10GB GraySort sample | Microsoft Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-sample-10gb-graysort" urlDisplayName="HDInsight Samples" pageTitle="The 10GB GraySort sample | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to run a general purpose GraySort with HDInsight using Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
 
 # The 10GB GraySort sample
  
-This sample topic shows how to run a general purpose GraySort with Windows Azure HDInsight using Windows Azure PowerShell. A GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum. 
+This sample topic shows how to run a general purpose GraySort with Azure HDInsight using Azure PowerShell. A GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100 TB minimum. 
 
 This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578 TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/)   site.
 
@@ -16,27 +16,27 @@ The input and output format, used by all three applications, read and write the 
 
  
 **You will learn:**		
-* How to use Windows Azure PowerShell to run a series of MapReduce programs on Windows Azure HDInsight.		
+* How to use Azure PowerShell to run a series of MapReduce programs on Azure HDInsight.		
 * What a MapReduce program written in Java looks like.
 
 
 **Prerequisites**:	
 
-- You must have a Windows Azure Account. For options on signing up for an account see [Try Windows Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
+- You must have an Azure Account. For options on signing up for an account see [Try Azure out for free](http://www.windowsazure.com/en-us/pricing/free-trial/) page.
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/)
 
-- You must have installed Windows Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured them for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 ##In this article
 This topic shows you how to run the series of MapReduce programs that make up the Sample, presents the Java code for the MapReduce program, summarizes what you have learned, and outlines some next steps. It has the following sections.
 	
-1. [Run the sample with Windows Azure PowerShell](#run-sample)	
+1. [Run the sample with Azure PowerShell](#run-sample)	
 2. [The Java code for the TeraSort MapReduce program](#java-code)
 3. [Summary](#summary)	
 4. [Next steps](#next-steps)	
 
-<h2><a id="run-sample"></a>Run the sample with Windows Azure PowerShell</h2>
+<h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
 
 Three tasks are required by the sample, each corresponding to one of the MapReduce programs decribed in the introduction:	
 
@@ -47,10 +47,10 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To run the TeraGen program**	
 
-1. Open Windows Azure PowerShell. For instructions of opening Windows Azure PowerShell console window, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+1. Open Azure PowerShell. For instructions of opening Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
 	
-		# Provide the Windows Azure subscription name and the HDInsight cluster name.
+		# Provide the Azure subscription name and the HDInsight cluster name.
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
@@ -74,10 +74,10 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To run the TeraSort program**			
 
-1. Open Windows Azure PowerShell.
+1. Open Azure PowerShell.
 2. Set the two variables in the following commands, and then run them:
 	
-		# Provide the Windows Azure subscription name and the HDInsight cluster name.
+		# Provide the Azure subscription name and the HDInsight cluster name.
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
 
@@ -99,10 +99,10 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To run the TeraValidate program**
 		 		
-1. Open Windows Azure PowerShell.
+1. Open Azure PowerShell.
 2. Set the two variables in the following commands, and then run them:
 	
-		# Provide the Windows Azure subscription name and the HDInsight cluster name.
+		# Provide the Azure subscription name and the HDInsight cluster name.
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
@@ -396,19 +396,19 @@ The code for the TerraSort MapReduce program is presented for inspection in this
 
 <h2><a id="summary"></a>Summary</h2>
 
-This sample has demonstrated how to run a series of MapReduce jobs using Windows Azure HDInsight, where the data output for one job becomes the input for the next job in the series.
+This sample has demonstrated how to run a series of MapReduce jobs using Azure HDInsight, where the data output for one job becomes the input for the next job in the series.
 
 <h2><a id="next-steps"></a>Next steps</h2>
 
-For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Windows Azure HDInsight with Windows Azure PowerShell, see the following topics:
+For tutorials running other samples and providing instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
-* [Get started with Windows Azure HDInsight][getting-started]
+* [Get started with Azure HDInsight][getting-started]
 * [Sample: Pi estimator][pi-estimator]
 * [Sample: Wordcount][wordcount]
 * [Sample: C# Steaming][cs-streaming]
 * [Use Pig with HDInsight][pig]
 * [Use Hive with HDInsight][hive]
-* [Windows Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
+* [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 

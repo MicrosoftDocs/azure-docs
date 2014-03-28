@@ -1,4 +1,4 @@
-<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Windows Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based web site on Windows Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-web-app-with-django-mac" urlDisplayName="Web with Django" pageTitle="Python web app with Django on Mac - Azure tutorial" metaKeywords="" description="A tutorial that shows how to host a Django-based web site on Azure using a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Django Hello World Web Application (mac-linux)" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -9,30 +9,30 @@
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/en-us/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
 
 This tutorial describes how to host a Django-based web site on Windows 
-Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Windows Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
+Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
 
 You will learn how to:
 
-* Setup a Windows Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Linux**, the same could also be done with a Windows Server VM hosted in Windows Azure. 
+* Setup an Azure virtual machine to host Django. While this tutorial explains how to accomplish this under **Linux**, the same could also be done with a Windows Server VM hosted in Azure. 
 * Create a new Django application from Linux.
 
 By following this tutorial, you will build a simple Hello World web
-application. The application will be hosted in a Windows Azure virtual machine.
+application. The application will be hosted in an Azure virtual machine.
 
 A screenshot of the completed application is below:
 
-![A browser window displaying the hello world page on Windows Azure](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png)
+![A browser window displaying the hello world page on Azure](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png)
 
 [WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
-## Creating and configuring a Windows Azure virtual machine to host Django
+## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here][portal-vm] to create a Windows Azure virtual machine of the *Ubuntu Server 12.04* distribution.
+1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Ubuntu Server 12.04* distribution.
 
   **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
 
-1. Instruct Windows Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
-	* Navigate to your newly created virtual machine in the Windows Azure Portal and click the *ENDPOINTS* tab.
+1. Instruct Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
+	* Navigate to your newly created virtual machine in the Azure Portal and click the *ENDPOINTS* tab.
 	* Click *ADD ENDPOINT* button at the bottom of the screen.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
 	* Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
@@ -46,7 +46,7 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Launch a new **Terminal** window.
     
-1.  Enter the following command to connect to the Windows Azure VM.
+1.  Enter the following command to connect to the Azure VM.
 
 		$ ssh yourusername@yourVmUrl
 
@@ -109,12 +109,12 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Finally, load the web page in your browser:
 
-	![A browser window displaying the hello world page on Windows Azure](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png)
+	![A browser window displaying the hello world page on Azure](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-browser.png)
 
 
-## Shutting down your Windows Azure virtual machine
+## Shutting down your Azure virtual machine
 
-When you're done with this tutorial, shutdown and/or remove your newly created Windows Azure virtual machine to free up resources for other tutorials and avoid incurring Windows Azure usage charges.
+When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
 
 
 [portal-vm]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/

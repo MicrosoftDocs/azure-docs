@@ -1,11 +1,11 @@
 <properties linkid="" urlDisplayName="" pageTitle="Architecture" metaKeywords="" description="Architecture overview that covers common design patterns" metaCanonical="" services="" documentationCenter="" videoId="" scriptId="" title="Architecture Overview" authors="waltpo" solutions="" manager="bjsmith" editor="mattshel" />
 
 #Architecture
-Learn how to implement common design patterns in Windows Azure.
+Learn how to implement common design patterns in Azure.
 
 ###Azure Symbol/Icon set
 
-[Download the Windows Azure Symbol/Icon set](http://www.microsoft.com/en-us/download/details.aspx?id=41937) to create technical materials that describe (or use) Windows Azure—things like architecture diagrams, training materials, presentations, datasheets, infographics, and whitepapers. You can download the symbols in PPT, Visio, or PNG formats. We’d like to know what you think, so there are instructions for providing feedback in the download.
+[Download the Azure Symbol/Icon set](http://www.microsoft.com/en-us/download/details.aspx?id=41937) to create technical materials that describe (or use) Azure—things like architecture diagrams, training materials, presentations, datasheets, infographics, and whitepapers. You can download the symbols in PPT, Visio, or PNG formats. We’d like to know what you think, so there are instructions for providing feedback in the download.
 
 ![Azure Symbol/Icon set][azure_symbols]
 
@@ -43,7 +43,7 @@ Use a token or key that provides clients with restricted direct access to a spec
 
 ### Additional Guidance
 
-For information on more common design patterns in Windows Azure, see [Cloud Design Patterns](http://msdn.microsoft.com/en-us/library/dn568099.aspx).
+For information on more common design patterns in Azure, see [Cloud Design Patterns](http://msdn.microsoft.com/en-us/library/dn568099.aspx).
 
 
 [competing_consumers]: ./media/architecture-overview/CompetingConsumers.png

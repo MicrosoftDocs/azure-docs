@@ -1,10 +1,10 @@
-<properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Windows Azure" metaKeywords="" description="Learn about Linux on Windows Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Windows Azure-Endorsed Distributions" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties linkid="manage-linux-other-resources-endorsed-distributions" urlDisplayName="Endorsed distributions" pageTitle="Endorsed distributions of Linux in Azure" metaKeywords="" description="Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE." metaCanonical="" services="virtual-machines" documentationCenter="" title="Linux on Azure-Endorsed Distributions" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
 
 
 
 
-#Linux on Windows Azure-Endorsed Distributions
+#Linux on Azure-Endorsed Distributions
 
 The distribution images on the Gallery are provided by the following partners and we are working with the community to bring even more endorsed distributions. In the meantime you can always Bring your Own Linux following the guidelines in this page.
 
@@ -20,7 +20,7 @@ With developers and engineering centers around the world, Canonical is uniquely 
  
 [http://www.openlogic.com/azure](http://www.openlogic.com/azure)
 
-OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center. OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software. OpenLogic offers commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing Centos images on Windows Azure.
+OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center. OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software. OpenLogic offers commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing Centos images on Azure.
 
 ## Oracle##
 [http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
@@ -31,13 +31,13 @@ Oracle’s strategy is to offer a broad portfolio of solutions for public and pr
  
 [http://www.suse.com/suse-linux-enterprise-server-on-azure](http://www.suse.com/suse-linux-enterprise-server-on-azure)
 
-SUSE Linux Enterprise Server on Windows Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Windows Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Windows Azure.
+SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing. SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment. And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure.
 
 ## Supported Versions ##
 
-The following table shows the different distribution versions, Linux Integration Services (LIS) drivers and Windows Azure Linux Agent versions that have been tested to work on Windows Azure. LIS drivers are available at [http://www.microsoft.com/en-us/download/details.aspx?id=34603](http://www.microsoft.com/en-us/download/details.aspx?id=34603). Linux Agent versions are available at [https://github.com/windowsazure/walinuxagent](https://github.com/windowsazure/walinuxagent).
+The following table shows the different distribution versions, Linux Integration Services (LIS) drivers and Azure Linux Agent versions that have been tested to work on Azure. LIS drivers are available at [http://www.microsoft.com/en-us/download/details.aspx?id=34603](http://www.microsoft.com/en-us/download/details.aspx?id=34603). Linux Agent versions are available at [https://github.com/windowsazure/walinuxagent](https://github.com/windowsazure/walinuxagent).
 
-The table also includes a link to the Kernel compatibility patch required by some distribution versions to work optimally in Windows Azure.
+The table also includes a link to the Kernel compatibility patch required by some distribution versions to work optimally in Azure.
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">

@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Windows Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -6,8 +6,8 @@
 # How to use Blob Storage from Java
 
 This guide will show you how to perform common scenarios using the
-Windows Azure Blob storage service. The samples are written in Java and
-use the [Windows Azure SDK for Java][]. The scenarios covered include
+Azure Blob storage service. The samples are written in Java and
+use the [Azure SDK for Java][]. The scenarios covered include
 **uploading**, **listing**, **downloading**, and **deleting** blobs. For
 more information on blobs, see the [Next Steps](#NextSteps) section.
 
@@ -15,10 +15,10 @@ more information on blobs, see the [Next Steps](#NextSteps) section.
 
 * [What is Blob Storage](#what-is)
 * [Concepts](#Concepts)
-* [Create a Windows Azure storage account](#CreateAccount)
+* [Create an Azure storage account](#CreateAccount)
 * [Create a Java application](#CreateApplication)
 * [Configure your application to access Blob Storage](#ConfigureStorage)
-* [Setup a Windows Azure storage connection string](#ConnectionString)
+* [Setup an Azure storage connection string](#ConnectionString)
 * [How to: Create a container](#CreateContainer)
 * [How to: Upload a blob into a container](#UploadBlob)
 * [How to: List the blobs in a container](#ListBlobs)
@@ -29,7 +29,7 @@ more information on blobs, see the [Next Steps](#NextSteps) section.
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -37,29 +37,29 @@ more information on blobs, see the [Next Steps](#NextSteps) section.
 
 In this guide, you will use storage features which can be run within a
 Java application locally, or in code running within a web role or worker
-role in Windows Azure. We assume you have downloaded and installed the
+role in Azure. We assume you have downloaded and installed the
 Java Development Kit (JDK), and followed the instructions in [Download
-the Windows Azure SDK for Java][Windows Azure SDK for Java] to install
-the Windows Azure Libraries for Java and the Windows Azure SDK, and have
-created a Windows Azure storage account in your Windows Azure
+the Azure SDK for Java][Azure SDK for Java] to install
+the Azure Libraries for Java and the Azure SDK, and have
+created an Azure storage account in your Azure
 subscription.
 
 You can use any development tools to create your application, including
 Notepad. All you need is the ability to compile a Java project and
-reference the Windows Azure Libraries for Java.
+reference the Azure Libraries for Java.
 
 ## <a name="ConfigureStorage"> </a>Configure your application to access Blob Storage
 
 Add the following import statements to the top of the Java file where
-you want to use Windows Azure storage APIs to access blobs:
+you want to use Azure storage APIs to access blobs:
 
     // Include the following imports to use blob APIs
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;
 
-## <a name="ConnectionString"> </a>Setup a Windows Azure storage connection string
+## <a name="ConnectionString"> </a>Setup an Azure storage connection string
 
-A Windows Azure storage client uses a storage connection string to store
+An Azure storage client uses a storage connection string to store
 endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
     // Define the connection-string with your values
@@ -68,7 +68,7 @@ endpoints and credentials for accessing data management services. When running i
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-In an application running within a role in Windows Azure, this string
+In an application running within a role in Azure, this string
 can be stored in the service configuration file,
 ServiceConfiguration.cscfg, and can be accessed with a call to the
 **RoleEnvironment.getConfigurationSettings** method. Here's an example
@@ -261,8 +261,8 @@ to learn how to do more complex storage tasks.
 
 -   See the MSDN Reference: [Storing and Accessing Data in Windows
     Azure]
--   Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+-   Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 
 
-[Windows Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

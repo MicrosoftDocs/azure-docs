@@ -1,4 +1,4 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Windows Azure Queue Service get messages Node.js" description="Learn how to use the Windows Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Node.js) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Node.js" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Queue Service from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -16,10 +16,10 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 * [What is the Queue Service?][]   
 * [Concepts][]   
-* [Create a Windows Azure Storage Account][]   
+* [Create an Azure Storage Account][]   
 * [Create a Node.js Application][]   
 * [Configure your Application to Access Storage][]   
-* [Setup a Windows Azure Storage Connection String][]   
+* [Setup an Azure Storage Connection String][]   
 * [How To: Create a Queue][]   
 * [How To: Insert a Message into a Queue][]   
 * [How To: Peek at the Next Message][]   
@@ -32,7 +32,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 
 ## <a name="what-is"> </a>What is the Queue Service?
 
-The Windows Azure Queue service is a service for storing large numbers of
+The Azure Queue service is a service for storing large numbers of
 messages that can be accessed from anywhere in the world via
 authenticated calls using HTTP or HTTPS. A single queue message can be
 up to 64KB in size, a queue can contain millions of messages, up to the
@@ -40,7 +40,7 @@ up to 64KB in size, a queue can contain millions of messages, up to the
 service include:
 
 -   <span>Creating a backlog of work to process asynchronously</span>
--   Passing messages from a Windows Azure web role to a worker role
+-   Passing messages from an Azure web role to a worker role
 
 ## <a name="concepts"> </a>Concepts
 
@@ -57,7 +57,7 @@ The Queue service contains the following components:
     
 		http://myaccount.queue.core.windows.net/imagesToDownload
 
--   **Storage Account:** All access to Windows Azure Storage is done
+-   **Storage Account:** All access to Azure Storage is done
     through a storage account. A storage account is the highest level of
     the namespace for accessing queues. The total size of blob, table,
     and queue contents in a storage account cannot exceed 100TB.
@@ -67,13 +67,13 @@ The Queue service contains the following components:
 
 -   **Message:** A message, in any format, of up to 64KB.
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+## <a name="create-account"> </a>Create an Azure Storage Account
 
-To use storage operations, you need a Windows Azure storage account. You
+To use storage operations, you need an Azure storage account. You
 can create a storage account by following these steps. (You can also
 create a storage account [using the REST API][].)
 
-1.  Log into the [Windows Azure Management Portal].
+1.  Log into the [Azure Management Portal].
 
 2.  At the bottom of the navigation pane, click **+NEW**.
 
@@ -90,7 +90,7 @@ create a storage account [using the REST API][].)
     subscription.
 
 5.  Choose a Region/Affinity Group in which to locate the
-    storage. If you will be using storage from your Windows Azure
+    storage. If you will be using storage from your Azure
     application, select the same region where you will deploy your
     application.
 
@@ -98,11 +98,11 @@ create a storage account [using the REST API][].)
 
 ## <a name="create-app"> </a>Create a Node.js Application
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to a Windows Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
 ## <a name="configure-access"> </a>Configure Your Application to Access Storage
 
-To use Windows Azure storage, you need to download and use the Node.js
+To use Azure storage, you need to download and use the Node.js
 azure package, which includes a set of convenience libraries that
 communicate with the storage REST services.
 
@@ -137,13 +137,13 @@ Using Notepad or another text editor, add the following to the top the
 
     var azure = require('azure');
 
-## <a name="setup-connection-string"> </a>Setup a Windows Azure Storage Connection
+## <a name="setup-connection-string"> </a>Setup an Azure Storage Connection
 
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Windows Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
+The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createQueueService**.
 
-For an example of setting the environment variables in a configuration file for a Windows Azure Cloud Service, see [Node.js Cloud Service with Storage].
+For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the management portal for a Windows Azure Web Site, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
 
 ## <a name="create-queue"> </a>How To: Create a Queue
 
@@ -174,7 +174,7 @@ After doing its preprocessing on the request options, the method needs to call "
 
 In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
 
-Two filters that implement retry logic are included with the Windows Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **QueueService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **QueueService** object that uses the **ExponentialRetryPolicyFilter**:
 
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueService = azure.createQueueService().withFilter(retryOperations);
@@ -325,18 +325,18 @@ To delete a queue and all the messages contained in it, call the
 Now that you've learned the basics of queue storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][].
--   Visit the [Windows Azure Storage Team Blog][].
+-   See the MSDN Reference: [Storing and Accessing Data in Azure][].
+-   Visit the [Azure Storage Team Blog][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Next Steps]: #next-steps
   [What is the Queue Service?]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
+  [Create an Azure Storage Account]: #create-account
   [Create a Node.js Application]: #create-app
   [Configure your Application to Access Storage]: #configure-access
-  [Setup a Windows Azure Storage Connection String]: #setup-connection-string
+  [Setup an Azure Storage Connection String]: #setup-connection-string
   [How To: Create a Queue]: #create-queue
   [How To: Insert a Message into a Queue]: #insert-message
   [How To: Peek at the Next Message]: #peek-message
@@ -346,8 +346,8 @@ to learn how to do more complex storage tasks.
   [How To: Get the Queue Length]: #get-queue-length
   [How To: Delete a Queue]: #delete-queue
   [using the REST API]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to a Windows Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
   
@@ -358,6 +358,6 @@ to learn how to do more complex storage tasks.
   
   
   [Node.js Cloud Service]: {localLink:2221} "Web App with Express"
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/

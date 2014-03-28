@@ -1,4 +1,4 @@
-<properties linkid="web-sites-restore" urlDisplayName="Restore a Windows Azure web site" pageTitle="Restore a Windows Azure web site" metaKeywords="Windows Azure Web Sites, Restore, restoring" description="Learn how to restore your Windows Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Windows Azure web site" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-restore" urlDisplayName="Restore a Windows Azure web site" pageTitle="Restore a Windows Azure web site" metaKeywords="Windows Azure Web Sites, Restore, restoring" description="Learn how to restore your Windows Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Windows Azure web site" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
 
 #Restore a Windows Azure web site
 
