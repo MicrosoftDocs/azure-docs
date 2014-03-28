@@ -52,8 +52,8 @@ There are two different ways to scale by another metric. If you want to only sca
 
 To scale by more than one metric at a time, you can also click **Add Metric** in the command bar:
 
-	![Add a new Metric][add_metric] 
-
+   ![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
+   
 The Metric Detail blade contains all of the controls that you need to set up your optimal scale profile. At the top, choose the metric that you want to scale by.
 
 ### Scaling with multiple steps
@@ -79,6 +79,5 @@ With this additional rule, if my load exceeds 85% before a scale action, I will 
 [scale_blade_day_zero]: ./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png
 [scale_blade_cpu]: ./media/insights-how-to-scale/Insights_ScaleBladeCPU.png
 [scale_metric_chevron]: ./media/insights-how-to-scale/Insights_ScaleMetricChevron.png
-[add_metric]: ./media/insights-how-to-scale/Insights_AddMetric.png
 [scale_part_blade_on]: ./media/insights-how-to-scale/Insights_ScalePartBladeOn.png
 [multiple_scale_rules]: ./media/insights-how-to-scale/Insights_MultipleScaleRules.png

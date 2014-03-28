@@ -25,6 +25,7 @@ In the Azure Portal Preview, you can now view your monitoring data in more ways 
 6. Custom allows you to choose any period of time over the past 2 weeks, for example you can see the whole two weeks, or, just 1 hour from yesterday. Type in the text box to enter a different hour.
 
 7. Below the time range, you chan choose any number of metrics to show on the chart. You may have noticed we have added some new Metrics:
+
     - Memory working set
     - Average memory working set
 
@@ -37,10 +38,10 @@ Also new in the Azure Portal Preview is the ability to monitor performance metri
    ![Web hosting plan](./media/insights-how-to-customize-monitoring/Insights_WHPSelect.png)
    
 There you can see a chart in the **Monitoring** lens that behaves just like the chart in the Web site blade, except you can see the new metrics:
-    - CPU Percentage
-    - Memory Percentage
-    - HTTP Queue Depth
-    - Disk Queue Depth
+- CPU Percentage
+- Memory Percentage
+- HTTP Queue Depth
+- Disk Queue Depth
 
 ## Creating side-by-side charts
 
