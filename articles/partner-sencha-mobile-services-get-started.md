@@ -56,11 +56,11 @@ a new database table for use in your mobile service.
 
 2. In the quickstart tab, click **HTML** under **Choose platform** and expand **Create a new HTML app**.
 
-    ![Mobile quickstart html]("./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png")
+    ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
 
     This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
-    ![Mobile quickstart html]("./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png")
+    ![Mobile quickstart html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
 
 3. Click **Create TodoItems table** to create a table to store app data.
 	>[WACOM.NOTE]Do NOT download the HTML app from the management portal. Instead, we will manually create a Sencha Touch application in the section below.
@@ -68,12 +68,12 @@ a new database table for use in your mobile service.
 
 1. Take note of the **appKey** and **appUrl** in the Management Portal. You will use them in other sections of this tutorial.
 
-    ![app key]("./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png")
+    ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
 
 1. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
 
-    ![Setup CORS for localhost]("./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png")
+    ![Setup CORS for localhost](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
 ##Generate your Touch application
 
@@ -671,23 +671,23 @@ The final stage of this tutorial is to host and run your new app on your local c
 
     * *sencha web start* : This will start a local web server to test our application.
 
-    ![sencha web start]("./media/partner-sencha-mobile-services-get-started/sencha-web-start.png")
+    ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
   3. Open the URL listed in your terminal in a web browser to start the app (e.g. http://localhost:1841).
 
   4. In the app, type meaningful text, such as "Complete the tutorial", and then click **Add**.
 
-    ![new todo item]("./media/partner-sencha-mobile-services-get-started/new-todo-item.png")
+    ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
 
     This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table.
 
   5. Back in the Management Portal, click the **Data** tab and then click the TodoItems table.
 
-    ![Todo Items table]("./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png")
+    ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
     This lets you browse the data inserted by the app into the table.
 
-    ![browse todo table]("./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png")
+    ![browse todo table](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
 
 ##Next Steps
 Now that you have completed the Getting Started Guide, learn how to perform additional important tasks in Mobile Services with Sencha.
