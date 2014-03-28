@@ -27,9 +27,9 @@ You can also pause web tests during deployments or known outages so your overall
 
    ![Alerts](./media/insights-create-web-tests/Inisghts_AlertCreation.png)
    
-- High sensitivity will create an alert whenever a test failure is detected in just 1 location.
-- Medium sensitivity requires at least half of the locations have seen a failure in 10 minutes.
-- Low sensitivity requires that the test at all locations have failed within 15 minutes.
+    - High sensitivity will create an alert whenever a test failure is detected in just 1 location.
+    - Medium sensitivity requires at least half of the locations have seen a failure in 10 minutes.
+    - Low sensitivity requires that the test at all locations have failed within 15 minutes.
 
 7. Once you are done click in the **Create** button.
 
