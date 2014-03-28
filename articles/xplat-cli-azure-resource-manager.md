@@ -1,20 +1,20 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Management Service" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Management Service" metaKeywords="windows azure cross-platform command-line interface Resource Management Service, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Management Service" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-#Using the Azure Cross-Platform Command-Line Interface with the Resource Management Service
+#Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
-In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Resource Management Service. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Management Service. 
+In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
 >[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
-##Resource Management Service
+##Resource Manager
 
 Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
 
-The **Resource Management Service** is a new way of managing resources. It allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
+The **Resource Manager** is a new way of managing resources. It allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
 
->[WACOM.NOTE] The Resource Management Service is currently in preview, and may not provide the same management capabilities as Azure Service Management.
+>[WACOM.NOTE] The Resource Manager is currently in preview, and may not provide the same management capabilities as Azure Service Management.
 
-The Resource Management Service also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. The template is used to create a deployment, which applies changes defined in the template to the group.
+The Resource Manager also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. The template is used to create a deployment, which applies changes defined in the template to the group.
 
 While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
 
@@ -24,7 +24,7 @@ While a template is simply a JSON document, the template language allows you to 
 
 ##Authentication
 
-Currently, working with the Resource Management Service through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational ID. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
+Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational ID. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
 An organizational ID is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational ID, and are using a Microsoft account to log in to your Azure subscription, you can easily create an one using the following steps.
 
@@ -44,11 +44,11 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 ##Working with Groups and Templates
 
-1. The Resource Management Service is currently in preview, so the xplat-cli commands to work with it are not enabled by default. Use the following command to enable the commands.
+1. The Resource Manager is currently in preview, so the xplat-cli commands to work with it are not enabled by default. Use the following command to enable the commands.
 
 		azure config mode arm
 
-	>[WACOM.NOTE] The Resource Management Service mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+	>[WACOM.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 2. When working with templates, you can either create your own, or use one from the Template Gallery. To list available templates from the gallery, use the following command.
 
@@ -153,7 +153,6 @@ To view logged information on operations performed on a group, use the `azure gr
 ##Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
-* For information on working with the Resource Management Service using Azure PowerShell, see [TBD].
 
 [signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
