@@ -1,40 +1,10 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="Multi-tier ASP.NET MVC 4 Web Site Tutorial - Step 1: Overview" metaKeywords="Azure tutorial, email list service app, email service architecture, Azure tutorial overview" description="Learn about the five part multi-tier web site tutorial." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title=" Queues" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-1-overview" urlDisplayName="Step 1: Overview" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 1: Overview" metaKeywords="Azure tutorial, email list service app, email service architecture, Azure tutorial overview, Azure multi-tier, Azure storage, Azure blobs, Azure tables, Azure queues" description="Learn about the five-part multi-tier Azure web application tutorial." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Multi-tier ASP.NET MVC Web Site Tutorial - Step 1: Overview" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+# ASP.NET Multi-Tier Web Application Using Azure Storage Tables, Queues, and Blobs - 1 of 5
 
+This tutorial series shows how to create a multi-tier ASP.NET MVC web application that uses Azure Storage tables, queues, and blobs, and how to deploy the application to an Azure Cloud Service. The tutorials assume that you have no prior experience using Azure. On completing the series, you'll know how to build a resilient and scalable data-driven web application and deploy it to the cloud.
 
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><strong>1. OVERVIEW</strong></li>
-<li><a href="./cloud-services-dotnet-multi-tier-app-storage-2-download-run/">2. Download and Run</a></li>
-<li><a href="./cloud-services-dotnet-multi-tier-app-storage-3-web-role/">3. Web Role</a></li>
-<li><a href="./cloud-services-dotnet-multi-tier-app-storage-4-worker-role-a/">4. Worker Role A</a></li>
-<li><a href="./cloud-services-dotnet-multi-tier-app-storage-5-worker-role-b/">5. Worker Role B</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
-
-# .NET Multi-Tier Application Using Storage Tables, Queues, and Blobs - 1 of 5
-
-This tutorial series shows how to create a multi-tier ASP.NET MVC 4 web application that uses Azure Storage tables, queues, and blobs, and how to deploy the application to an Azure Cloud Service. The tutorials assume that you have no prior experience using Azure. On completing the series, you'll know how to build a resilient and scalable data-driven web application and deploy it to the cloud.
-
-This content is also available as a free e-book in the 
+This content is available as a free e-book in the 
 [TechNet E-Book Gallery](http://social.technet.microsoft.com/wiki/contents/articles/11608.e-book-gallery-for-microsoft-technologies.aspx#ASPNETMultiTierWindowsAzureApplicationUsingStorageTablesQueuesandBlobs).
 
 <h2><a name="whatyoulllearn"></a><span class="short-header">What You'll Learn</span>What You'll Learn</h2>
@@ -42,9 +12,9 @@ This content is also available as a free e-book in the
 In this tutorial series you'll learn the following:
 
 * How to enable your machine for Azure development by installing the Azure SDK.
-* How to create a Visual Studio cloud project with an MVC 4 web role and two worker roles.
+* How to create a Visual Studio cloud project with an ASP.NET MVC web role and two worker roles.
 * How to publish the cloud project to an Azure Cloud Service.
-* How to publish the MVC 4 project to an Azure Web Site if you prefer, and still use the worker roles in a Cloud Service.
+* How to publish the MVC project to an Azure Web Site if you prefer, and still use the worker roles in a Cloud Service.
 * How to use the Azure Queue storage service for communication between tiers or between worker roles.
 * How to use the Azure Table storage service as a highly scalable data store for structured, non-relational data.
 * How to use the Azure Blob service to store files in the cloud.
