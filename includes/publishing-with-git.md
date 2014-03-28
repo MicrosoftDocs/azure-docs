@@ -2,7 +2,7 @@
 
 Azure Web Sites supports continuous deployment from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your web site, and then quickly and easily push changes to your site when you want.
 
-In this article, you will learn how to use Git to publish directly from your local computer to an Azure Web Site (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, DropBox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure by using Visual Studio Online].
+In this article, you will learn how to use Git to publish directly from your local computer to an Azure Web Site (in Azure, this method of publishing is called **Local Git**). You will also learn how to enable continuous deployment from repository web sites like BitBucket, CodePlex, DropBox, GitHub, or Mercurial. For information about using TFS for continuous deployment, see [Continuous delivery to Azure using Visual Studio Online].
 
 > [WACOM.NOTE] Many of the Git commands described in this article are performed automatically when creating a Web Site using the <a href="/en-us/develop/nodejs/how-to-guides/command-line-tools/">Azure Command-Line Tools for Mac and Linux</a>.
 
@@ -121,7 +121,7 @@ Use the following steps to publish your web site to Azure using Local Git:
 		remote: Preparing deployment for commit id '369a79c929'.
 		remote: Preparing files for deployment.
 		remote: Deployment successful.
-		To https://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
+		To https://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
 		* [new branch]		master -> master
 
 	> [WACOM.NOTE] The repository created for your Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.
