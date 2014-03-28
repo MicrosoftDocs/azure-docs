@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous deliver PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
 
 
 
@@ -48,14 +48,15 @@ documentation.
 2.  Install the [Azure Authoring Tools][] (look for
     WindowsAzureAuthoringTools-x86.msi or WindowsAzureAuthoringTools-x64.msi,
     depending on your build server's processor).
-3.  Copy the Microsoft.WebApplication.targets file from a Visual Studio
+3. Install the [Windows Azure Libraries][] (look for WindowsAzureLibsForNet-x86.msi or WindowsAzureLibsForNet-x64.msi).
+4.  Copy the Microsoft.WebApplication.targets file from a Visual Studio
     installation to the build server.On a computer with Visual Studio
     installed, the file is located in the directory C:\\Program Files
-    (x86)\\MSBuild\\Microsoft\\VisualStudio\\v10.0\\WebApplications (v11.0
-    for Visual Studio 2012). You
+    (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications (v12.0
+    for Visual Studio 2013). You
     should copy it to the same directory on the build server.
-4.  Install the [Azure Tools for Visual Studio][].
-    Look for WindowsAzureTools.VS110.exe.
+5.  Install the [Azure Tools for Visual Studio][].
+    Look for WindowsAzureTools.VS120.exe to build Visual Studio 2012 projects, and WindowsAzureTools.VS120.exe to build Visual Studio 2013 projects.
 
 <h2><a name="step2"> </a><span class="short-header">Build a Package Using MSBuild</span>Step 2: Build a Package using MSBuild Commands</h2>
 
@@ -153,7 +154,7 @@ as described in [Configure a Build Machine][].
 To configure TFS to build Azure packages, perform the following
 steps:
 
-1.  In Visual Studio 2010 on your development computer, on the View
+1.  In Visual Studio on your development computer, on the View
     menu, choose **Team Explorer**, or choose Ctrl+\\, Ctrl+M. In the
     Team Explorer window, expand the **Builds** node, right-click **All
     Build Definitions**, and then click **New Build Definition**:
@@ -783,6 +784,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
+[Windows Azure Libraries][]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
   [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966

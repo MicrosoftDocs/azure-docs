@@ -16,19 +16,13 @@ You have three options for replicating your storage account:
 
 - 	**Geo-redundant replication.** Geo-redundant replication is enabled for your storage account by default. With geo-redundant replication, your data is replicated to a secondary geographic location to enable failover to that location in case of a major disaster in the primary location. The secondary location is in the same region, but is hundreds of miles from the primary location. 
 
+- **Read access geo-redundant replication.** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
+
 - 	**Locally redundant replication**. With locally redundant replication, your storage account data is replicated three times within the same data center. Locally redundant replication is offered at discounted rates. 
 	
 	Be aware that if you specify locally redundant replication for your storage account, and you later decide to enable geo-redundant replication, you will incur a one-time data cost to replicate your existing data to the secondary location. 
 
 - **Read access geo-redundant replication (preview only).** Read access geo-redundant replication replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant replication allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-
-	<p>In order to use read-access geo-redundant replication while it is in preview, you must manually request that the feature be enabled for your subscription. Visit the <a href="https://account.windowsazure.com/PreviewFeatures">Azure Preview Features</a> page to request read-access geo-redundant replication for your subscription. For more details about read-access geo-redundant replication, see the <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx">Azure Storage Team Blog</a>.</p>
-
-	<p>If read-access geo-redundant replication is not enabled as a preview feature on your subscription, the option to select it for your storage account will be disabled.</p>
-	</div>
 
 For pricing information for storage account replication, see [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/storage/).
 

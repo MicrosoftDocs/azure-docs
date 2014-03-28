@@ -1,4 +1,4 @@
-<properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors=""  solutions="" writer="jimlamb" manager="" editor=""  />
+<properties linkid="create-vso-project-setup-continuous-deployment" urlDisplayName="How to create a VSO project and setup Continuous Deployment" pageTitle="How to create a Visual Studio Online team project and setup Continuous Deployment - Windows Azure" metaKeywords="Visual Studio Online create team project, continuous deployment to Azure" description="Learn how to create a Visual Studio Online team project and configure it for continuous deployment to Windows Azure." metaCanonical="" services="cloud-services, visual-studio-online" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="jimlamb" solutions="" writer="jimlamb" manager="" editor=""  />
 
 #Create a Visual Studio Online project and setup Continuous Deployment to Windows Azure 
 
@@ -21,12 +21,12 @@ The Windows Azure Management Portal lets you create a Team Project on Visual Stu
 5. Choose the type of version control you'd like to use for your project. You can choose either Git (a distributed version control system) or Team Foundation Version Control (a centralized version control system). Not sure which system to use? Learn more [here](http://msdn.microsoft.com/en-us/library/ms181368.aspx).
 6. Choose the process template. For a comparison of the process templates, see [Work with team project artifacts](http://msdn.microsoft.com/en-us/library/ms400752.aspx).
 7. Choose the Visual Studio Online account to use to create this team project, add users and monitor resource use.
-8. Leave the **Add to Startboard** checkbox checked so that your new team project will automatically appear on your startboard.
+8. Leave the **Add to Startboard** checkbox checked so that your new team project will automatically appear on your Startboard.
 9. Click **Create**.
 
 ## <a name="create_web_app"></a>How to create a new web application and add it to Git version control
 
-1. From the startboard, click on your new team project.
+1. From the Startboard, click on your new team project.
 2. In the **Code** lens, in the **Repositories** part, click the Git repository named after your team project.
 3. In the repository/branch blade, click the **Visual Studio** blade-level command to open your  new repository in Visual  Studio. Your web browser may prompt you to authorize launching Visual Studio.
 4.  In Visual Studio's Team Explorer tool window, click **Clone this repository** to setup a local clone of your new repository on your local disk.
@@ -40,7 +40,7 @@ The Windows Azure Management Portal lets you create a Team Project on Visual Stu
 ## <a name="continuous_deployment"></a>How to setup continuous deployment
 
 1. Sign in to the Management portal.
-2. From the startboard, click on the team project you created previously.
+2. From the Startboard, click on the team project you created previously.
 3. In the **Build** lens, click the **Set up continuous deployment** part.
 4. Select the website that you want to deploy your web application to.
 5. Select the repository where your source code resides (you should only have one repository in your team project at this point).
@@ -50,7 +50,7 @@ The Windows Azure Management Portal lets you create a Team Project on Visual Stu
 
 ###To verify that your deployment completed successfully###
 
-1. From the startboard, click on the team project you created previously.
+1. From the Startboard, click on the team project you created previously.
 2. In the **Build** lens, click **Latest build** part to open the build blade.
 3. In the build blade, click the first item in the **Deployments** part to open the associated website.
 4. On the website blade, click the **Browse** blade-level command to browse the website and verify the deployment of your web application.

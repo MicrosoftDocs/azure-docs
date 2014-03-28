@@ -5,8 +5,6 @@
 
 #How to Capture an Image of a Virtual Machine Running Windows Server#
 
-**IMPORTANT: In most cases, the following steps work as expected. In limited cases, the virtual machine restarts unexpectedly before Sysprep has completed if you choose Shutdown as directed in the steps. This prevents you from using RDP to access the virtual machine. You can avoid this issue by specifying Quit instead of Shutdown. For details, see the instructions in the following forum post: [http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fafb9ee6-1e57-46ba-8440-27467ad986cf/image-capture-issue-vm-unexpectedly-started-after-guestinitiated-shutdown](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fafb9ee6-1e57-46ba-8440-27467ad986cf/image-capture-issue-vm-unexpectedly-started-after-guestinitiated-shutdown).**
-
 You can use images from the Image Gallery to easily create virtual machines, or you can capture and use your own images to create customized virtual machines. An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have the specific settings that a configured virtual machine has, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template.
 
 
