@@ -4,23 +4,21 @@
 
 In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
+>[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
+
 >[WACOM.NOTE] If you have not already installed and configured xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
 
 ##Resource Manager
 
-Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
+The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site, SQL Database, and Azure Storage resources.
 
-The **Resource Manager** is a new way of managing resources. It allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
-
->[WACOM.NOTE] The Resource Manager is currently in preview, and may not provide the same management capabilities as Azure Service Management.
-
-The Resource Manager also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. The template is used to create a deployment, which applies changes defined in the template to the group.
-
-While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
 
 >[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
 >
 > However, you can use the `azure group template download` command to download and modify templates provided by Microsoft and partners from the template gallery.
+
+When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group.
 
 ##Authentication
 
@@ -40,7 +38,7 @@ An organizational ID is a user that is managed by your organization, and defined
 
 5. Finally, log out of the Azure portal and then log back in using the new organizational ID. If this is the first time logging in with this ID, you will be prompted to change the password.
 
-For more information on organizational accounts with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
+For more information on organizational ID with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
 
 ##Working with Groups and Templates
 
@@ -71,25 +69,21 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 	To create a file that contains parameters for the Microsoft.WebSite.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
 
 		{
-		    "properties": {
-		        "parameters": {
-		            "siteName": {
-		                "value": "MyWebSiteName"
-		            },
-		            "hostingPlanName": {
-		                "value": "MyWebSitePlanName"
-		            },
-		            "siteLocation": {
-		                "value": "MyRegion"
-		            },
-		            "sku": {
-		                "value": "Free"
-		            },
-		            "workerSize": {
-		                "value": "0"
-		            }
-		        }
-		    }
+		    "siteName": {
+		      "value": "MyWebSiteName"
+		  },
+		    "hostingPlanName": {
+		      "value": "MyWebSitePlanName"
+		  },
+		    "siteLocation": {
+		      "value": "MyRegion"
+		  },
+		    "sku": {
+		      "value": "Free"
+		  },
+		    "workerSize": {
+		      "value": "0"
+		  }
 		}
 
 1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step.
@@ -116,37 +110,39 @@ For more information on organizational accounts with Microsoft Azure, see [Sign 
 
 	This command returns information about the resources in the group. If you have multiple groups, you can use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
 
-4. To view individual resources, such as the Web Site, within the group, use the following command.
+##Working with resources
+
+While templates allow you to declare group-wide changes in configuration, sometimes you need to work with just a specific resource. You can do this using the `azure resource` commands.
+
+> [WACOM.NOTE] When using the `azure resource` commands other than the `list` command, you must specify the API version of the resource you are working with using the `-o` parameter. If you are unsure about the API version to use, consult the template file and find the **apiVersion** field for the resource.
+
+1. To list all resources in a group, use the following command.
+
+		azure resource list MyGroupName
+
+1. To view individual resources, such as the Web Site, within the group, use the following command.
 
 		azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites -o "2014-04-01"
 
 	Notice the **Microsoft.Web/sites** parameter. This indicates the type of the resource you are requesting information on. If you look at the template file downloaded earlier, you will notice that this same value is used to define the type of the Web Site resource described in the template.
 
-	The `-o` parameter is used to indicate the API version to use when querying this resource. If you are unsure about the API version to use, consult the template file and find the **apiVersion** field for the resource.
-
 	This command returns information related to the web site. For example, the **hostNames** field should contain the URL for the web site. Use this with your browser to verify that the web site is running.
 
-##Working with resources
+2. When viewing details on a resource, it is often useful to use the `--json` parameter, as this makes the output more readable as some values are nested structures, or collections. The following demonstrates returning the results of the show command as a JSON document.
 
-While templates allow you to declare group-wide changes in configuration, it is not suitable for all tasks. In the previous steps, the `azure resource show` command was used to display details for a specific resource. The following steps demonstrate how to directly modify a resource using the `azure resource set` command.
-
-1. When viewing details on a resource, it is often useful to use the `--json` parameter to see the data structure returned from the server, as this is usually the same format it expects when we attempt to modify a value. Use the following command to return information on the Web Site resource.
-
-		azure resource show MyGroupName MyWebSite Microsoft.Web/sites --json
+		azure resource show MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01" --json
 
 	>[WACOM.NOTE] You can save the JSON data to file by using the &gt; character to pipe the output to file. For example:
 	>
 	> `azure resource show MyGroupName MyWebSite Micrsoft.Web/sites --json > myfile.json`
 
-3. To enable web server logging for the Web Site resource, use the following command.
+3. To delete an existing resource, use the following command.
 
-		azure resource set MyGroupName MyWebSite Microsoft.Web/sites -p "{ \"SiteMode\": \"Free\", \"ComputeMode\": \"Shared\" }"
-
-	The `-p` parameter provides the JSON string for this command. Note that  when providing a JSON value as part of the command, you must escape quotes within the JSON string using the '\' character.
+		azure resource delete MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01"
 
 ##Logging
 
-To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list last operation performed on the group. To view all operations, use the optional `--all` parameter. For a the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
+To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
 
 	azure group log show mygroup --all
 
