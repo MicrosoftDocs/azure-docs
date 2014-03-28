@@ -50,15 +50,15 @@ To configure...  | On-premises  | Azure virtual network
 
 <h2><a id="createvm"></a>Step 2: Create a VM to run the domain controller and DNS server roles</h2>
  
-1. Click <b>Compute</b> > <b>Virtual Machine</b> > <b>From Gallery</b>. 
+1. Click <b>New</b> > <b>Compute</b> > <b>Virtual Machine</b> > <b>From Gallery</b>. 
 2. Use the values in the following table to complete the wizard.
 
 	On this wizard page…  | Specify these values
 	------------- | -------------
 	**Operating system**  | Select **Windows Server 2012 R2 Datacenter**
-	**Virtual machine configuration**  | <p>Release date: Today's date</p><p>Machine name: Specify a unique value</p><p>Size: Select any size</p><p>User name: Enter a name. This user account will be a member of the built-in Administrators group. </p><p>Password: Must be at least 8 characters, and include 3 of the following types of characters:</p><ul><li>an uppercase letter</li><li>a lowercase letter</li><li>a number</li><li>a special character</li></ul>
-	**Cloud service**  | <p>Cloud service: <b>Create a new cloud service</b></p><p>Cloud service name: Accept default value</p><p>Region/AffinityGroup/VirtualNetwork: Select the virtual network you created</p><p>Virtual network subnet: Select the subnet you created. </p><p>Storage account: <b>Use an automatically generated storage account</b></p><p>Availability set: <b>None</b></p>
-	**Endpoints**  | Accept default values
+	**Virtual machine configuration**  | <p>Release date: Today's date</p><p>Machine name: Specify a unique value</p><p>Tier: Standard</p><p>Size: Select any size</p><p>User name: Enter a name. This user account will be a member of the built-in Administrators group. </p><p>Password: Must be at least 8 characters, and include 3 of the following types of characters:</p><ul><li>an uppercase letter</li><li>a lowercase letter</li><li>a number</li><li>a special character</li></ul>
+	**Cloud service**  | <p>Cloud service: <b>Create a new cloud service</b></p><p>Cloud service name: Accept default value</p><p>Region/AffinityGroup/VirtualNetwork: Select the virtual network you created</p><p>Virtual network subnet: Select the subnet you created. </p><p>Storage account: <b>Use an automatically generated storage account</b></p><p>Availability set: <b>None</b></p><p>Endpoints: Accept default values</p>
+	**VM Agent**  | Select **Install the VM Agent**
 
 1. The dynamic IP address that the VM is assigned by default is valid for the duration of the cloud service. But it will change if the VM is shut down. You can assign a static IP address by [running the Set-AzureStaticVNetIP Azure PowerShell cmdlet](http://msdn.microsoft.com/en-us/library/windowsazure/dn630228.aspx) so the IP address will persist if you ever do need to shut down the VM. 
 2. Attach an additional disk to the VM to store the Active Directory database, logs, and SYSVOL. 
