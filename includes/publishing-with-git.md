@@ -102,7 +102,7 @@ Use the following steps to publish your web site to Azure using Local Git:
 
 2. Copy git remote add command listed in step 3 of the instructions returned by the portal. It will look similar to the following command:
 
-		git remote add azure https://username@needsmoregit.windowsazure.net/NeedsMoreGit.git
+		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
     > [WACOM.NOTE] The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your Azure Web Site repository.
 
@@ -121,7 +121,7 @@ Use the following steps to publish your web site to Azure using Local Git:
 		remote: Preparing deployment for commit id '369a79c929'.
 		remote: Preparing files for deployment.
 		remote: Deployment successful.
-		To https://username@needsmoregit.windowsauzre.net/NeedsMoreGit.git
+		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
 	> [WACOM.NOTE] The repository created for your Azure web site expects push requests to target the <strong>master</strong> branch of its repository, which will then be used as the content of the web site.
