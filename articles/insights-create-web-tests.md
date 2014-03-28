@@ -27,13 +27,11 @@ You can also pause web tests during deployments or known outages so your overall
 
    ![Alerts](./media/insights-create-web-tests/Inisghts_AlertCreation.png)
    
-- High sensitivity will create an alert whenever a test failure is detected in just 1 location.
-- Medium sensitivity requires at least half of the locations have seen a failure in 10 minutes.
-- Low sensitivity requires that the test at all locations have failed within 15 minutes.
+    - High sensitivity will create an alert whenever a test failure is detected in just 1 location.
+    - Medium sensitivity requires at least half of the locations have seen a failure in 10 minutes.
+    - Low sensitivity requires that the test at all locations have failed within 15 minutes.
 
-7. Once you are done click in the **Create** button.
-
-After your web test can been created, it will execute every 5 mins from the location(s) specified, so it may take a little while for the data to show up.
+Once you are done click in the **Create** button. After your web test can been created, it will execute every 5 mins from the location(s) specified, so it may take a little while for the data to show up.
 
 ### What are the locations about? 
 We send a request to the website from those locations, in the same way that users will access the site from different parts of the world. If your site becomes unavailable in the USA but still available in Europe, you'll know that the problem is a network issue, rather than in your server.
