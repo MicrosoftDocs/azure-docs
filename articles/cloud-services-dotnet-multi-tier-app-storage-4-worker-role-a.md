@@ -1,34 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Multi-tier web site tutorial - Step 4: Worker role A" metaKeywords="Azure tutorial, .NET multi-tier app, multi-tier architecture" description="The fourth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role A (email scheduler) for the Azure Email Service application - 4 of 5." authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
-
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><a href="../1-overview/">1. Overview</a></li>
-<li><a href="../2-download-and-run/">2. Download and Run</a></li>
-<li><a href="../3-web-role/">3. Web Role</a></li>
-<li><strong>4. WORKER ROLE A</strong></li>
-<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
+<properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 4: Worker role A" metaKeywords="Azure tutorial, .NET multi-tier app, multi-tier architecture" description="The fourth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role A (email scheduler) for the Azure Email Service application - 4 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 # Building worker role A (email scheduler) for the Azure Email Service application - 4 of 5. 
 
@@ -65,6 +35,8 @@ You need a reference to the web project because that is where the entity classes
 
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
+
+>[WACOM.NOTE] Skip this step if you have installed SDK 2.3 or later.
 
 Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies. You already did this if you followed the steps in the previous tutorial, but the instructions are included here in case you missed that step.
 
@@ -573,6 +545,8 @@ If you didn't already configure the storage account credentials for worker role 
 
 1. Run the application by pressing F5.
 
+>[WACOM.NOTE] With Visual Studio 2013 and the latest SDK, you might get an "ambiguous reference" error for the reference to `LogLevel`. Right-click `LogLevel`, click Resolve, and select `Microsoft.WindowsAzure.Diagnostics.LogLevel`.
+
 2. Use the administrator web pages to create a mailing list and create subscribers to the mailing list. Set the `Verified` property to `true` for at least one of the subscribers, and set the email address to an address that you can receive mail at.
 
 	No emails will be sent until you implement worker role B, but you'll use the same test data for testing worker role B.
@@ -619,7 +593,7 @@ You have now built worker role A and verified that it creates the queue messages
 
 For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../cloud-services-dotnet-multi-tier-app-storage-5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
 
 
 

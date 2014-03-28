@@ -1,34 +1,4 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="Multi-tier web site tutorial - Step 3: Web role" metaKeywords="Azure tutorial, Email Service application, ASP.NET MVC 4 web role, MVC 4 controllers, Web API controller, Cloud Service project" description="The third tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building the web role for the Azure Email Service application - 3 of 5." authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
-
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><a href="../1-overview/">1. Overview</a></li>
-<li><a href="../2-download-and-run/">2. Download and Run</a></li>
-<li><strong>3. WEB ROLE</strong></li>
-<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
-<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
+<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 3: Web role" metaKeywords="Azure tutorial, Email Service application, ASP.NET MVC web role, MVC controllers, Web API controller, Cloud Service project" description="The third tutorial in a series that teaches how to create and deploy the Email Service app in an Azure cloud service." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building the web role for the Azure Email Service application - 3 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 # Building the web role for the Azure Email Service application - 3 of 5. 
 
@@ -50,10 +20,10 @@ You begin by creating a Visual Studio solution with a project for the web front-
 
 ### Create a cloud service project with a web role and a worker role
 
-1. Start Visual Studio 2012 or Visual Studio 2012 for Web Express, with administrative privileges.
+1. Start Visual Studio with elevated privileges.
 
-   The Azure compute emulator which enables you to test your cloud project locally requires administrative privileges.
-
+	>[WACOM.NOTE] For Visual Studio 2013, you don't have to use elevated privileges, because new projects use the compute emulator express by default.
+   
 2. From the **File** menu select **New Project**.
 
 	![New Project menu][mtas-file-new-project]
@@ -64,7 +34,9 @@ You begin by creating a Visual Studio solution with a project for the web front-
 
 	![New Project dialog box][mtas-new-cloud-project]
 
-5. In the **New Azure Cloud Service** dialog box, select **ASP.NET MVC 4 Web Role** and click the arrow that points to the right.
+5. In the **New Azure Cloud Service** dialog box, select **ASP.NET Web Role** and click the arrow that points to the right.
+
+	>[WACOM.NOTE] The downloaded code that you use for this tutorial is MVC 4 but you can't create an MVC 4 Web Role this way in Visual Studio 2013. For Visual Studio 2013 do the following: (1) Skip the steps here for creating the web role and do the step for the worker role. (2) After the worker role is created, right-click the solution in **Solution Explorer**, and click **Add** -- **New Project**. In the left pane of the **Add New Project** dialog expand **Web** and select **Visual Studio 2012**.  (3) Choose **ASP.NET MVC 4 Web Application**, name the project **MvcWebRole**, and then click **OK**. (4) In the **New ASP.NET Project** dialog box, select the **Internet Application** template. (5) Right-click **Roles** under **AzureEmailService** in **Solution Explorer**, and then click **Add** - **Web Role Project in Solution**. (6) In the **Associate with Role Project** box, select the **MvcWebRole** project, and then click **OK**.
 
 	![New Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
 
@@ -78,7 +50,7 @@ You begin by creating a Visual Studio solution with a project for the web front-
 
 	![New Azure Cloud Project dialog box - adding a worker role][mtas-new-cloud-service-add-worker-a]
 
-5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
+5. In the **New ASP.NET Project** dialog box, select the **Internet Application** template.
 
 6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.
 
@@ -130,6 +102,8 @@ In this section you update the headers, footers, and menu items that are shown o
 <h2><a name="tracing"></a><span class="short-header">Configure Tracing</span>Configure Tracing</h2>
 
 To enable tracing data to be saved, open the *WebRole.cs* file and add the following `ConfigureDiagnostics` method. Add code that calls the new method in the `OnStart` method.
+
+>[WACOM.NOTE] For Visual Studio 2013, in place of the following steps that manually change code in *WebRole.cs*, right-click the MvcWebRole project, click **Add Existing Item**, and add the *WebRole.cs* file from the downloaded project.
 
     private void ConfigureDiagnostics()
     {
@@ -186,6 +160,8 @@ Trace data is not saved when called from the `OnStop` method without performing 
 
 <h2><a name="updatescl"></a><span class="short-header">Update Storage Client Library</span>Update the Storage Client Library NuGet Package</h2>
 
+>[WACOM.NOTE] This step may not be necessary. If the Azure Storage NuGet package does not show up in the Updates list, the installed version is current.
+
 The API framework that you use to work with Azure Storage tables, queues, and blobs is the Storage Client Library (SCL). This API is included in a NuGet package in the Cloud Service project template. However, as of the date this tutorial is being written, the project templates include the 1.7 version of SCL, not the current 2.0 version. Therefore, before you begin writing code you'll update the NuGet package.
 
 1. In the Visual Studio **Tools** menu, hover over **Library Package Manager**, and then click **Manage NuGet Packages for Solution**.
@@ -202,17 +178,19 @@ The API framework that you use to work with Azure Storage tables, queues, and bl
  
 4. Accept the license terms to complete installation of the package, and then close the **Manage NuGet Packages** dialog box.
 
-5. In WorkerRoleA.cs in the WorkerRoleA project, delete the following `using` statement because it is no longer needed:
+5. In the WorkerRoleA project in *WorkerRole.cs*, if the following `using` statement is present, delete it because it is no longer needed:
 
-        using Microsoft.WindowsAzure.StorageClient;
+		using Microsoft.WindowsAzure.StorageClient;
 
 
 The 1.7 version of the SCL includes a LINQ provider that simplifies coding for table queries. As of the date this tutorial is being written, the 2.0 Table Service Layer (TSL) does not yet have a LINQ provider. If you want to use LINQ, you still have access to the SCL 1.7 LINQ provider in the [Microsoft.WindowsAzure.Storage.Table.DataServices](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.table.dataservices.aspx) namespace. The 2.0 TSL was designed to improve performance, and the 1.7 LINQ provider does not benefit from all of these improvements. The sample application uses the 2.0 TSL, so it does not use LINQ for queries. For more information about SCL and TSL 2.0, see the resources at the end of [the last tutorial in this series][tut5].
 
-
+>[WACOM.NOTE] Storage Client Library 2.1 added back LINQ support, but this tutorial does not use LINQ for storage table queries. The current SCL also supports asynchronous programming, but async code is not shown in this tutorial. For more information about asynchronous programming and an example of code that uses it with the Azure SCL, see the following e-book chapter and the downloadable project that goes with it: [Use .NET 4.5’s async support to avoid blocking calls](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
+
+>[WACOM.NOTE] If you're using SCL 2.1 or later, skip this section.
 
 Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to a 1.7 assembly.
 
@@ -686,6 +664,8 @@ You are going to enter settings for your test storage account, which you will us
 	![Right Click Properties][mtas-elip]<br/>
 
 7. In the **Create Storage Connection String** dialog, click the **Your subscription** radio button, and then click the **Download Publish Settings** link. 
+
+	>[WACOM.NOTE] With the latest SDK you don't need to download anything; you choose from available storage accounts in a drop-down list.
 
 	**Note:** If you configured storage settings for tutorial 2 and you're doing this tutorial on the same machine, you don't have to download the settings again, you just have to click **Your subscription** and then choose the correct **Subscription** and **Account Name**.
 
@@ -1649,7 +1629,7 @@ In the [next tutorial][nexttutorial] you'll configure and program worker role A,
 
 For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../cloud-services-dotnet-multi-tier-app-storage-4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
 
 
 
