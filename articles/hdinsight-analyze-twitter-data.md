@@ -508,7 +508,7 @@ In this tutorial we have seen how to transform unstructured Json dataset into st
 [hdinsight-storage-powershell]: ../hdinsight-use-blob-storage/#powershell
 [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-sqoop]: ../hdinsight-sqoop/
+[hdinsight-sqoop]: ../hdinsight-use-sqoop/
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
