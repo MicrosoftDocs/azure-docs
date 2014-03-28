@@ -211,15 +211,15 @@ When in doubt about the parameters needed by a command, refer to help using `--h
 
 Historically, managing a _resource_ (a user-managed entity such as a database server, database or web site,) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, your automation scripts often grew in complexity as you added commands to work with new resources. This is **Azure Service Management**, and is the default mode of the xplat-cli.
 
-The new way of managing resources, the **Resource Management Service**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
+The new way of managing resources, the **Resource Manager**, allows you to manage multiple resources as a logical group, known as a _resource group_. Typically a group will contain resources related to a specific application. For example, a group may contain a Web Site resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets. Operations against a resource group are applied through a _deployment_.
 
->[WACOM.NOTE] The Resource Management Service is currently in preview, and may not provide the same management capabilities as Azure Service Management.
+>[WACOM.NOTE] The Resource Manager is currently in preview, and may not provide the same management capabilities as Azure Service Management.
 
-The Resource Management Service also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. You can apply a template to create a new group, or perform updates to an existing one. While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+The Resource Manager also introduces the concept of *templates*, which allows you to define a resource group and the resources within it in a declarative fashion. You can apply a template to create a new group, or perform updates to an existing one. While a template is simply a JSON document, the template language allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
 
-To support the new Resource Management Service, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
+To support the new Resource Manager, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
 
-The xplat-cli defaults to Azure Service Management mode. To switch to Resource Management Service mode, use the following to enable command:
+The xplat-cli defaults to Azure Service Management mode. To switch to Resource Manager mode, use the following to enable command:
 
 	azure config mode arm
 
@@ -227,9 +227,9 @@ To change back to Azure service management mode, use the following command:
 
 	azure config mode asm 
 
->[WACOM.NOTE] The Resource Management Service mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[WACOM.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-For more information on working with the Resource Management Service using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Management Service][xplatarm].
+For more information on working with the Resource Manager using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager][xplatarm].
 
 ###Working with services in Azure service management mode
 
