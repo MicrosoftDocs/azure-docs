@@ -46,10 +46,10 @@ In this tutorial you'll learn:
 - [Add another worker role instance to handle increased load][]
 
 
+>[WACOM.NOTE] In the following section about SDK installation, the correct link if you are using Visual Studio 2013 is [http://go.microsoft.com/fwlink/?LinkID=324322](http://go.microsoft.com/fwlink/?LinkID=324322). 
 
 
-
-[WACOM.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+[WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
 
 
