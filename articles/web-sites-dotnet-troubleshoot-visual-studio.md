@@ -61,7 +61,7 @@ Visual Studio provides access to a subset of the site management functions and c
 
 	![Azure Web Site window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-	In this tutorial you'll be using the logging and tracing drop-downs. 
+	In this tutorial you'll be using the logging and tracing drop-downs.	You'll also use remote debugging but you'll use a different method to enable it.
    
 	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
