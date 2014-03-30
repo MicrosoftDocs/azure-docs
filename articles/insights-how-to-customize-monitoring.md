@@ -24,13 +24,13 @@ In the Azure Portal Preview, you can now view your monitoring data in more ways 
 
 6. Changing the time range is as easy as selecting a different range (such as **Past Hour**) and clicking **Save** at the bottom of the blade. New in the Portal Preview, you can choose **Custom**:
 
-    - ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
+  ![Custom time range](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
    
-    - Custom allows you to choose any period of time over the past 2 weeks, for example, you can see the whole two weeks, or, just 1 hour from yesterday. Type in the text box to enter a different hour.
+7. Custom allows you to choose any period of time over the past 2 weeks, for example, you can see the whole two weeks, or, just 1 hour from yesterday. Type in the text box to enter a different hour.
 
-7. Below the time range, you chan choose any number of metrics to show on the chart. You can see some new Metrics: **Memory working set** and **Average memory working set**.
+8. Below the time range, you chan choose any number of metrics to show on the chart. You can see some new Metrics: **Memory working set** and **Average memory working set**.
 
-8. When you click Save your changes will persist until you leave the Web site blade. When you come back later, you'll see the original metric and time range again.
+9. When you click Save your changes will persist until you leave the Web site blade. When you come back later, you'll see the original metric and time range again.
 
 ## Web hosting plan monitoring
 
