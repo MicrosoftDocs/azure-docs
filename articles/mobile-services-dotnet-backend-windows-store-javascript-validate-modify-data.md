@@ -6,9 +6,9 @@
 # Validate and modify data in Mobile Services using the .Net Backend.
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/" title="Windows Store C#">Windows Store C#</a>
-<a href="en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-<a href="en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
 <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
 <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
 <a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
@@ -17,7 +17,7 @@
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/" title=".NET backend" class="current">.NET backend</a> | 
-	<a href="en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/"  title="JavaScript backend">JavaScript backend</a>
+	<a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/"  title="JavaScript backend">JavaScript backend</a>
 </div>
 
 This topic shows you how to use code in your .Net backend Windows Azure Mobile Services to validate and modify data. The .Net backend service is an HTTP service built with the Web API framework. If you are familiar with the `ApiController` class defined with the Web API framework, the `TableController` class provided by Mobile Services will be very intuitive. `TableController` is derived from the `ApiController` class and provides additional functionality for interfacing with a database table. It can be used to perform operations on data being inserted and updated, including validation and data modification which is demonstrated in this tutorial. 
@@ -69,11 +69,11 @@ Now that the mobile service is setup to validate data and send error responses f
 
 2. Enter the text for a new todo item with a length greater than 10 characters and then click **Save**.
 
-    ![][3]
+    ![][1]
 
 3. You will get a message dialog similar to the following in response to the invalid text.
 
-    ![][4]
+    ![][2]
 
 ## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
 
@@ -127,11 +127,11 @@ The final step is to update the client to display the new **completeDate** data.
 
 4. In the Solution Explorer windows of Visual Studio, right click the **Solution** and click **Rebuild Solution** to rebuild both the client and the .NET backend service. Verify both project build without errors.
 
-    ![][5]
+    ![][3]
 	
 5. Press the **F5** key to run the client app and service locally. Add some new items and click to mark some items complete to see the **CompleteDate** timestamp being updated.
 
-    ![][6]
+    ![][4]
 
 6. In Solution Explorer for Visual Studio, right click the todolist service project and click **Publish**. Publish your .NET backend service to Microsoft Azure using your publishing setting file that you downloaded from the Azure portal.
 
@@ -164,10 +164,10 @@ Server scripts are also used when authorizing users and for sending push notific
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[3]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
-[4]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
-[5]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-rebuild-solution.png
-[6]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-final-local-app-run.png
+[1]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length.png
+[2]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
+[3]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-rebuild-solution.png
+[4]: ./media/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/mobile-services-final-local-app-run.png
 
 
 
