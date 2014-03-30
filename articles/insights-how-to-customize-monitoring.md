@@ -28,12 +28,9 @@ In the Azure Portal Preview, you can now view your monitoring data in more ways 
    
     - Custom allows you to choose any period of time over the past 2 weeks, for example, you can see the whole two weeks, or, just 1 hour from yesterday. Type in the text box to enter a different hour.
 
-8. Below the time range, you chan choose any number of metrics to show on the chart. You can see some new Metrics:
+7. Below the time range, you chan choose any number of metrics to show on the chart. You can see some new Metrics: **Memory working set** and **Average memory working set**.
 
-    - Memory working set
-    - Average memory working set
-
-9. When you click Save your changes will persist until you leave the Web site blade. When you come back later, you'll see the original metric and time range again.
+8. When you click Save your changes will persist until you leave the Web site blade. When you come back later, you'll see the original metric and time range again.
 
 ## Web hosting plan monitoring
 
