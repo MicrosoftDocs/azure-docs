@@ -19,7 +19,7 @@ Table of contents:
 
 ##<a id="webdeploy"></a>Web development and publishing
 
-The Azure SDK 2.3 includes several updates that streamline web development and publishing with Azure. You can now provision and create an Azure Web Site or Virtual Machine when you create a new web app and use Web Deploy to deploy to your web site or VM. Check out the following resources for more details and tutorials that describe how to leverage the new features:
+The Azure SDK 2.3 includes several updates that streamline web development and publishing with Azure. You can now provision and create an Azure web site or virtual machine when you create a new web app and use Web Deploy to deploy to your web site or VM. Check out the following resources for more details and tutorials that describe how to leverage the new features:
 
 - [Getting Started with Azure Tools for Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx)
 - [Creating ASP.NET Web Projects in Visual Studio 2013](http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio)
@@ -29,7 +29,6 @@ The Azure SDK 2.3 includes several updates that streamline web development and p
 Remotely diagnose application issues using new remote debugging for Virtual Machines and new native code debugging:
 
 - [Debugging a cloud service or virtual machine in Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff683670.aspx)
-- [Remote debugging for Azure VMs]()
 
 Emulator Express is the new lighter-weight local emulator for Cloud Services. Learn how you can use it to test Cloud Services on your local machine: 
 
@@ -41,7 +40,7 @@ You can now remotely view and debug apps deployed to Azure Web Sites directly fr
 
 ## <a id="service-management"></a>Manage Azure services in Visual Studio
 
-Leverage improved virtual machine management from Visual Studio, including the ability to create VMs from within the IDE. For more information, see:
+Leverage improved virtual machine management from Visual Studio, including the ability to create VMs from within the IDE:
 
 - [Create a Virtual Machine from Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/dn569263.aspx)
 - [Accessing Azure Virtual Machines from Server Explorer](http://msdn.microsoft.com/en-us/library/windowsazure/jj131259.aspx)
@@ -60,7 +59,7 @@ Install Azure Powershell to leverage new cmdlets for Web Sites, WebJobs, and mor
 - [How to install and configure Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/)
 - [Azure PowerShell documentation](http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx)
 
-Create PowerShell scripts directly in Visual Studio, and use them to automate your environment creation. For details, see:
+Create PowerShell scripts directly in Visual Studio, and use them to automate your environment creation:
 
 - [Using Windows PowerShell deployment scripts to publish web projects to Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx)
 
