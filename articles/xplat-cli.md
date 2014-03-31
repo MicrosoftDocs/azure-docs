@@ -78,7 +78,21 @@ To help you choose the authentication method that's appropriate for your needs, 
 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
 
-	> [WACOM.NOTE] The login method only works with organizational acount. An organizational account is an identity stored in Azure Active Directory. For more information on organizational accounts, see [Sign up for Microsoft Azure as an Organization][signuporg]
+	> [WACOM.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> 
+	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
+	> 
+	> 2. If no directory exists, select **Create your directory** and provide the requested information.
+	> 
+	> 3. Select your directory and add a new user. This new user is an organizational account.
+	> 
+	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
+	> 
+	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+	> 
+	> 5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+	>
+	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
 
 *  The publish settings file method installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a subscription as anyone with access to the certificate can manage the subscription.
 
@@ -165,7 +179,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
-	info:    Azure: Microsoft's Cloud Platform
+	info:    Windows Azure: Microsoft's Cloud Platform
 	info:
 	info:    Tool version 0.8.0
 	help:
@@ -383,3 +397,5 @@ If you are writing a script that relies on the exit status, please verify that t
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
 [xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[portal]: https://manage.windowsazure.com
+[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
