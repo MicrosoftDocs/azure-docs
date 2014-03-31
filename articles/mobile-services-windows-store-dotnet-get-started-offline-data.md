@@ -25,8 +25,9 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha-140326
+* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha
 * Windows Azure Mobile Services SQLite Store NuGet package 0.1.0-alpha 
+* SQLite for Windows 8.1
 
 >[WACOM.NOTE] To complete this tutorial, you need a Windows Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Windows Azure Free Trial</a>. 
 
@@ -53,35 +54,39 @@ This section uses SQLite as the local store for the offline features.
 
     ![][2]
 
-4. Also search for **SQLitePCL** and install the **Portable Class Library for SQLite** Nuget package.
-
-    ![][3]
-
-5. In Solution Explorer for Visual Studio, open the MainPage.xaml.cs file. Add the following using statements to the top of the file.
+4. In Solution Explorer for Visual Studio, open the MainPage.xaml.cs file. Add the following using statements to the top of the file.
 
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
         using Microsoft.WindowsAzure.MobileServices.Sync;
         using Newtonsoft.Json.Linq;
 
-6. In Mainpage.xaml.cs replace the declaration of `todoTable` with a declaration of type `IMobileServicesSyncTable` that is initialized by calling `MobileServicesClient.GetSyncTable()`.
+5. In Mainpage.xaml.cs replace the declaration of `todoTable` with a declaration of type `IMobileServicesSyncTable` that is initialized by calling `MobileServicesClient.GetSyncTable()`.
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>();
 
-7. In MainPage.xaml.cs, update the `OnNavigatedTo` event handler so that it initializes the client sync context with a SQLite store. The SQLite store is created with a table that matches the schema of the mobile service table but it must contain the **Version** system property as follows.
+6. In MainPage.xaml.cs, update the `TodoItem` class so that the class includes the **Version** system property as follows.
+
+        public class TodoItem
+        {
+          public string Id { get; set; }
+          [JsonProperty(PropertyName = "text")]
+          public string Text { get; set; }
+          [JsonProperty(PropertyName = "complete")]
+          public bool Complete { get; set; }
+          [Version]
+          public string Version { get; set; }
+        }
+
+
+7. In MainPage.xaml.cs, update the `OnNavigatedTo` event handler so that it initializes the client sync context with a SQLite store. The SQLite store is created with a table that matches the schema of the mobile service table but it must contain the **Version** system property added in the previous step.
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (!App.MobileService.SyncContext.IsInitialized)
             {
-                var store = new MobileServiceSQLiteStore("synctest.db");
-                store.DefineTable("TodoItem", new JObject()
-                {
-                    { MobileServiceSystemColumns.Id, String.Empty },
-                    { "text", String.Empty },
-                    { "complete", false},
-                    { MobileServiceSystemColumns.Version, String.Empty}
-                });
+                var store = new MobileServiceSQLiteStore("localsync12.db");
+                store.DefineTable<TodoItem>();
                 await App.MobileService.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
             }
             RefreshTodoItems();
@@ -211,13 +216,15 @@ In this section you will test push and pull operations to sync the local store w
 
 3. In the app, press the **Push** button. This causes the app to call `MobileServiceClient.SyncContext.PushAsync` and then `RefreshTodoItems` to refresh the app with the items from the local store. This push operation results in the mobile service database receiving the data from the store. However, the local store does not receive the items from the mobile service database.
 
+    A push operation is executed off the `MobileServiceClient.SyncContext` instead of the `IMobileServicesSyncTable` and pushes changes on all tables associated with that sync context. This is to cover scenarios where there are relationships between tables.
+
     ![][7]
 
 4. In the app a few new items to the local store.
 
     ![][8]
 
-5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**.
+5. This time press the **Pull** button in the app. The app only calls `IMobileServiceSyncTable.PullAsync()` and `RefreshTodoItems`.  Notice that all the data from the mobile service database was pulled into the local store and shown in the app. However, also notice that all the data in the local store was still pushed to the mobile service database. This is because a **pull always does a push first**.    
  
     ![][9]
 
