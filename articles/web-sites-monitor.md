@@ -2,8 +2,6 @@
 
 
 
-
-
 #<a name="howtomonitor"></a>How to Monitor Web Sites
 
 Web sites provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web site as described below.
@@ -281,7 +279,7 @@ The .htm files include the following sections:
 
 ##<a name="webendpointstatus"></a>How to: Monitor web endpoint status
 
-This feature, available only in **Standard** mode, lets you monitor up to 2 endpoints from up to 3 geographic locations. 
+This feature, available in **Standard** mode, lets you monitor up to 2 endpoints from up to 3 geographic locations. 
 
 Endpoint monitoring configures web tests from geo-distributed locations that test response time and uptime of web URLs. The test performs an HTTP get operation on the web URL to determine the response time and uptime from each location. Each configured location runs a test every five minutes.
 
@@ -301,9 +299,11 @@ After you configure endpoint monitoring, you can drill down into the individual 
 8.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the **Dashboard** and **Monitor** tabs.
 
 
+For more on web site endpoint monitoring, see the following videos:
 
+- [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-
+- [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 
