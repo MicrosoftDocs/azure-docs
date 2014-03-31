@@ -11,7 +11,7 @@ Here are some useful tips regarding web hosting plans and features:
 
 - You can change a web hosting plan's pricing tier at any time with zero downtime.
 - Sites in the same subscription, location, and resource group can all share a web hosting plan. 
-- Features like auto scale work by targeting a web hosting plan.
+- Features like auto scale work by targeting a web hosting plan.  If you want to autoscale individual sites then you should dedicate a web hosting plan to that site.
 
 ## Web Hosting Plans and Capacity ##
 
@@ -25,7 +25,7 @@ A note about the Shared (preview) tier.  For all tiers except 'Shared' you pay o
 
 The new Azure Preview Portal lets you associate your existing or new web sites with web hosting plans.  In fact, all existing web sites have been automatically assigned to web hosting plans based on their subscription, geographic location, and current pricing tier.  
 
-When creating a new site, the portal will ask you which web hosting plan to associate it with.  You can either create a new web hosting plan, or select an existing plan.  To use an existing plan your new site must live in the same subscription, geographic location, and resource group as the existing plan.  
+When creating a new site, the portal will ask you which web hosting plan to associate it with.  You can either create a new web hosting plan, or select an existing plan.  To use an existing plan your new site must live in the same subscription, geographic location, and resource group as the existing plan.  When creating a new empty web site Azure will default to the last used web hosting plan to help you make the best use of plans you've already created.  When creating a web site with a database the option to re-use an existing plan will not be available.
 
 You can see all of your web hosting plans across all of your subscriptions by using the **Browse** button on the left menu bar and then clicking **Everything** in the top right of the activity pane that appears on the screen.
 
@@ -35,6 +35,11 @@ You can also see which web hosting plan each web site is associated with by look
 
 ![][WebHostingPlanResourceMapScreenshot]
 
+Clicking on the plan will launch a blade that lets you manage your web hosting plan.  [Learn more about managing web hosting plans](http://go.microsoft.com/fwlink/?LinkID=394411).
+
+![][WebHostingPlanBladeScreenshot]
+
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
+[WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
