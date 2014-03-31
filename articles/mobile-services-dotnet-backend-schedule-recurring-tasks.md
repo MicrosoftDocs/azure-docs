@@ -80,7 +80,7 @@ Next, you need to create a new table in which to store tweets.
 
 	The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.  
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
+	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
 
 Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
@@ -212,10 +212,17 @@ Schedule jobs can be tested locally before being published to Azure and register
 
 	This starts the mobile service project and displays a new browser window with the welcome page.
 
-2. 
+2. Copy the mobile service URL from the open browser window, append the `/tables/samplejob` path to the URL, then execute a new POST request to this URL using a HTTP utility, like Fiddler.
 
-[Publish the service and register the job]: #register-job
-3. 
+	The **ExecuteAsync* *method is started on the local computer.
+
+3. In Server Explorer, expand **Data Connections**, **MSTableConnectionString**, and **tables**; right-click **Updates** and click **Show Table Data**.
+
+	The new tweets are entered as rows in the data table.
+
+##<a name="register-job"></a>Publish the service and register the new job 
+
+The job must be registered in the **Scheduler** tab so that Mobile Services can run it on the schedule that you define.
 
 3. Republish the mobile service project to Azure.
 
@@ -240,6 +247,8 @@ Schedule jobs can be tested locally before being published to Azure and register
   	![][5]
 
    	This executes the job while it remains disabled in the scheduler. From this page, you can enable the job and change its schedule at any time.
+
+	>[WACOM.NOTE]A POST request can still be used to start the scheduled job. However, the authorization defaults to user, which means that the request must include the application key in the header.
 
 4. (Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.
 

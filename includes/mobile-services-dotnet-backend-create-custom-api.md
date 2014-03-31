@@ -1,14 +1,16 @@
 
 
-1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **Controllers**.
+1. In Visual Studio Solution Explorer, right-click the Controllers folder for the mobile service project, expand **Add**, then click **New Scaffolded Item**.
 
 	This displays the Add Scaffold dialog.
 
-2. Click **Web API Controller - Empty**, click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add** again.
+2. Expand **Azure Mobile Services** and click **Azure Mobile Services Custom Controller**, then click **Add**, supply a **Controller name** of `CompleteAllController`, then click **Add** again.
 
-	![](./media/mobile-services-dotnet-backend-create-custom-api/create-custom-api-empty-controller.png)
+	![](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
 
 	This creates a new empty controller class named **CompleteAllController**.
+
+>[WACOM.NOTE]If your dialog doesn't have Mobile Services-specific scaffolds, instead create a new **Web API Controller - Empty**. In this new controller class, add a public **Services** property, which returns the **ApiServices** type. This property is used to access server-specific settings from inside your controller.
 
 3. In the new CompleteAllController.cs project file, add the following **using** statements:
 
@@ -18,9 +20,6 @@
 	In the above code, replace `todolistService` with the namespace of your mobile service project, which should be the mobile service name appended with `Service`. 
 
 4. Add the following code to the new controller:
-
-		// Provides access to Mobile Services functionality.
-        public ApiServices Services { get; set; }
 
 	    // POST api/completeall        
         public Task<int> Post()
