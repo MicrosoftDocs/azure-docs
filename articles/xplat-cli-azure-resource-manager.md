@@ -38,43 +38,64 @@ For more information on authenticating using an organizational account, see [Ins
 
 		azure group template list
 
+	The response will list the publisher and template name, and will appear similar to the following.
+
+		data:    Publisher               Name
+		data:    ----------------------------------------------------------------------------
+		data:    Microsoft               Microsoft.WebSite.0.1.0-preview1
+		data:    Microsoft               Microsoft.PHPStarterKit.0.1.0-preview1
+		data:    Microsoft               Microsoft.HTML5EmptySite.0.1.0-preview1
+		data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
+		data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
+
 3. To view details of a template that will create an Azure Web Site, use the following command.
 
-		azure group template show Microsoft.WebSite.0.1.0-preview1
+		azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+
+	This will return descriptive information about the template.
 
 4. Once you have selected a template, you can download it with the following command.
 
-		azure group template download Microsoft.WebSite.0.1.0-preview1
+		azure group template download Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
 	Downloading a template allows you to customize it to better suite your requirements. For example, adding another resource to the template.
 
 	>[WACOM.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
-5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. When using a template, you must supply these parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
+5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**. When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
 
-	To create a file that contains parameters for the Microsoft.WebSite.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
+	To create a file that contains parameters for the Microsoft.WebSiteSQLDatabase.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
 
 		{
-		    "siteName": {
-		      "value": "MyWebSiteName"
+		  "siteName": {
+		    "value": "MyWebSite"
 		  },
-		    "hostingPlanName": {
-		      "value": "MyWebSitePlanName"
+		  "hostingPlanName": {
+		    "value": "MyHostingPlan"
 		  },
-		    "siteLocation": {
-		      "value": "MyRegion"
+		  "siteLocation": {
+		    "value": "North Europe"
 		  },
-		    "sku": {
-		      "value": "Free"
+		  "serverName": {
+		    "value": "MySQLServer"
 		  },
-		    "workerSize": {
-		      "value": "0"
+		  "serverLocation": {
+		    "value": "North Europe"
+		  },
+		  "administratorLogin": {
+		    "value": "MySQLAdmin"
+		  },
+		  "administratorLoginPassword": {
+		    "value": "MySQLAdminPassword"
+		  },
+		  "databaseName": {
+		    "value": "MySQLDB"
 		  }
 		}
 
 1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step.
 
-		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSite.0.1.0-preview1 -d MyDeployment -e params.json
+		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
 
 	Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in the template.
 
@@ -135,8 +156,10 @@ To view logged information on operations performed on a group, use the `azure gr
 ##Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+* For information on working with Resource Manager using Windows Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
 
 [signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /en-us/documentation/articles/xplat-cli/
+[psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
