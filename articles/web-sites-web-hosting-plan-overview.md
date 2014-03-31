@@ -30,6 +30,7 @@ When creating a new site, the portal will ask you which web hosting plan to asso
 You can see all of your web hosting plans across all of your subscriptions by using the **Browse** button on the left menu bar and then clicking **Everything** in the top right of the activity pane that appears on the screen.
 
 ![][BrowseEverythingScreenshot]
+![][BrowseWebHostingPlansScreenshot]
 
 You can also see which web hosting plan each web site is associated with by looking at the graphical representation of your resource group that appears at the top of your website blade.
 
@@ -43,3 +44,4 @@ Clicking on the plan will launch a blade that lets you manage your web hosting p
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 [WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
+[BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
