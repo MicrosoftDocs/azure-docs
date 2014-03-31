@@ -9,7 +9,7 @@ HDInsight makes [Apache Hadoop][apache-hadoop] available as a service in the clo
 
 In this tutorial, you will provision an HDInsight cluster using the Azure Management Portal, submit a Hadoop MapReduce job using PowerShell, and then import the MapReduce job output data into Excel for examination.
 
-> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight (preview), see [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-30].
+> [WACOM.NOTE] This tutorial covers using Hadoop 1.2 clusters on HDInsight. For the tutorial using Hadoop 2.2 clusters on HDInsight, see [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30].
 
 In conjunction with the general availability of Azure HDInsight, Microsoft has also released HDInsight Emulator for Azure, formerly known as Microsoft HDInsight Developer Preview. This product targets developer scenarios and as such only supports single-node deployments. For using HDInsight Emulator, see [Get Started with the HDInsight Emulator][hdinsight-emulator].
 
@@ -349,7 +349,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:
 
-- [Get started using Hadoop 2.2 clusters with HDInsight (preview)][hdinsight-get-started-30]
+- [Get started using Hadoop 2.2 clusters with HDInsight][hdinsight-get-started-30]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
 - [Use Azure Blob storage with HDInsight][hdinsight-storage]
 - [Administer HDInsight using PowerShell][hdinsight-admin-powershell]
