@@ -36,7 +36,7 @@ You begin by creating a Visual Studio solution with a project for the web front-
 
 5. In the **New Azure Cloud Service** dialog box, select **ASP.NET Web Role** and click the arrow that points to the right.
 
-	>[WACOM.NOTE] The downloaded code that you use for this tutorial is MVC 4 but you can't create an MVC 4 Web Role this way in Visual Studio 2013. For Visual Studio 2013 do the following: (1) Skip the steps here for creating the web role and do the step for the worker role. (2) After the worker role is created, right-click the solution in **Solution Explorer**, and click **Add** -- **New Project**. In the left pane of the **Add New Project** dialog expand **Web** and select **Visual Studio 2012**.  (3) Choose **ASP.NET MVC 4 Web Application**, name the project **MvcWebRole**, and then click **OK**. (4) In the **New ASP.NET Project** dialog box, select the **Internet Application** template. (5) Right-click **Roles** under **AzureEmailService** in **Solution Explorer**, and then click **Add** - **Web Role Project in Solution**. (6) In the **Associate with Role Project** box, select the **MvcWebRole** project, and then click **OK**.
+	>[WACOM.NOTE] The downloaded code that you use for this tutorial is MVC 4 but you can't create an MVC 4 Web Role in Visual Studio 2013 using instructions written for Visual Studio 2012. For Visual Studio 2013 do the following: (1) Skip the steps here for creating the web role and do the step for the worker role. (2) After the worker role is created, right-click the solution in **Solution Explorer**, and click **Add** -- **New Project**. In the left pane of the **Add New Project** dialog expand **Web** and select **Visual Studio 2012**.  (3) Choose **ASP.NET MVC 4 Web Application**, name the project **MvcWebRole**, and then click **OK**. (4) In the **New ASP.NET Project** dialog box, select the **Internet Application** template. (5) Right-click **Roles** under **AzureEmailService** in **Solution Explorer**, and then click **Add** - **Web Role Project in Solution**. (6) In the **Associate with Role Project** box, select the **MvcWebRole** project, and then click **OK**.
 
 	![New Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
 
@@ -190,7 +190,7 @@ The 1.7 version of the SCL includes a LINQ provider that simplifies coding for t
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
 
->[WACOM.NOTE] If you're using SCL 2.1 or later, skip this section.
+>[WACOM.NOTE] If you're using SCL 2.1 or later (Visual Studio 2013 with the latest SDK), skip this section.
 
 Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to a 1.7 assembly.
 
