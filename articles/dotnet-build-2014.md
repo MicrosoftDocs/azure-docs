@@ -8,7 +8,7 @@ For complete details about the Azure SDK for .NET 2.3, [check out the release no
 
 [Watch Build videos](http://go.microsoft.com/fwlink/?LinkId=394377&clcid=0x409), live from April 2-4, then streaming on-demand.
 
-Table of contents:
+## Table of contents
 
 - [Web development and publishing](#webdeploy)
 - [Diagnostics and debugging](#diagnostics)
