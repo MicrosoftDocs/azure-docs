@@ -125,13 +125,13 @@ The credentials for the cluster that you provided at its creation give access to
 
 ##<a id="httpservice"></a> Grant/revoke HTTP services access
 
-HDInsight clusters have the following HTTP Web services (all of these service have RESTful endpoints):
+HDInsight clusters have the following HTTP Web services (all of these services have RESTful endpoints):
 
 - ODBC
+- JDBC
 - Ambari
 - Oozie
 - Templeton
-- WebHDFS
 
 By default, these services are granted for access. You can revoke/grant the access from the Management portal. 
 
@@ -139,7 +139,7 @@ By default, these services are granted for access. You can revoke/grant the acce
 
 **To grant/revoke HTTP Web services access**
 
-1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+1. Sign in to the [Azure Management Portal][azure-management-portal].
 2. Click **HDINSIGHT** on the left pane. You will see a list of deployed HDInsight clusters.
 3. Click the HDInsight cluster that you want to configure.
 4. From the top of the page, click **CONFIGURATION**.
@@ -147,7 +147,7 @@ By default, these services are granted for access. You can revoke/grant the acce
 6. Enter **USER NAME** and **NEW PASSWORD**.  These will be the new username and password for the cluster.
 7. Click **SAVE**.
 
-This can also be done using the Windows Azure PowerShell cmdlets:
+This can also be done using the Azure PowerShell cmdlets:
 
 - Grant-AzureHDInsightHttpServicesAccess
 - Revoke-AzureHDInsightHttpServicesAccess
