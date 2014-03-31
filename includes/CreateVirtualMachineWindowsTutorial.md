@@ -48,7 +48,7 @@ This tutorial shows you how to use the **From Gallery** method in the Management
 
 14. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. Click the arrow to continue.
 
-15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093). **Important**: The VM Agent can be installed only when you create the virtual machine. 
+15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).  
  
 16. Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such as through Remote Desktop
 and Windows PowerShell remoting. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/).
