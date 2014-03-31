@@ -23,6 +23,7 @@ Before you begin this article, you must have the following:
 * [Customize HDInsight clusters](#customize)
 * [Change HDInsight cluster username and password](#password)
 * [Connect to HDInsight clusters using RDP](#rdp)
+* [Grant/revoke HTTP services access](#httpservice)
 * [Open Hadoop command console](#hadoopcmd)
 * [Next steps](#nextsteps)
 
@@ -122,6 +123,37 @@ The credentials for the cluster that you provided at its creation give access to
 4. From the top of the page, click **CONFIGURATION**.
 5. Click **CONNECT**, and then follow the instructions.
 
+##<a id="httpservice"></a> Grant/revoke HTTP services access
+
+HDInsight clusters have the following HTTP Web services (all of these service have RESTful endpoints):
+
+- ODBC
+- Ambari
+- Oozie
+- Templeton
+- WebHDFS
+
+By default, these services are granted for access. You can revoke/grant the access from the Management portal. 
+
+>[WACOM.NOTE] By granting/revoking the access, you will reset the cluster user username and password.
+
+**To grant/revoke HTTP Web services access**
+
+1. Sign in to the [Windows Azure Management Portal][azure-management-portal].
+2. Click **HDINSIGHT** on the left pane. You will see a list of deployed HDInsight clusters.
+3. Click the HDInsight cluster that you want to configure.
+4. From the top of the page, click **CONFIGURATION**.
+5. Click **ON** or **OFF** next  to **HADOOP SERVICES**.  
+6. Enter **USER NAME** and **NEW PASSWORD**.  These will be the new username and password for the cluster.
+7. Click **SAVE**.
+
+This can also be done using the Windows Azure PowerShell cmdlets:
+
+- Grant-AzureHDInsightHttpServicesAccess
+- Revoke-AzureHDInsightHttpServicesAccess
+
+See [Administer HDInsight using PowerShell][hdinsight-admin-powershell].
+
 ##<a id="hadoopcmd"></a> Open Hadoop command line
 
 To connect to the cluster using remote desktop and use the Hadoop command line, you must first have enabled remote desktop access to the cluster as described in the previous section. 
@@ -143,6 +175,13 @@ To connect to the cluster using remote desktop and use the Hadoop command line, 
 
 	For more information on Hadoop command, see [Hadoop commands reference][hadoop-command-reference].
 
+On the previous screenshot, the folder name has the Hadoop version number embedded. The version number can changed based on the version of the Hadoop components installed on the cluster. You can use Hadoop environment variables to refer to those folders.  For example:
+
+	cd %hadoop_home%
+	cd %hive_home%
+	cd %pig_home%
+	cd %sqoop_home%   
+	cd %hcatalog_home%
 
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned how to create an HDInsight cluster using the Azure Management Portal, and how to open the Hadoop command line tool. To learn more, see the following articles:

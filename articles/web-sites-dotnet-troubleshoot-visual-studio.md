@@ -34,7 +34,7 @@ You'll learn:
 
 This tutorial works with the development environment, web project, and Azure Web Site that you set up in [Getting started with Azure and ASP.NET][GetStarted]. The code samples shown in this tutorial are for a C# MVC web application, but the troubleshooting procedures are the same for Visual Basic and Web Forms applications.
 
-Remote debugging requires Visual Studio 2013 or Visual Studio 2012. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, and Visual Studio 2012 Express for Web. 
+Remote debugging requires Visual Studio 2013 or Visual Studio 2012 with Update 4. The other features shown in the tutorial also work in Visual Studio 2013 Express for Web, and Visual Studio 2012 Express for Web. 
 
 The streaming logs feature only works for applications that target .NET Framework 4 or later.
 
@@ -61,7 +61,7 @@ Visual Studio provides access to a subset of the site management functions and c
 
 	![Azure Web Site window](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-	In this tutorial you'll be using the logging and tracing drop-downs. 
+	In this tutorial you'll be using the logging and tracing drop-downs.	You'll also use remote debugging but you'll use a different method to enable it.
    
 	For information about the App Settings and Connection Strings boxes in this window, see [Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
@@ -141,13 +141,13 @@ This section shows how to debug remotely using the project you create in [Gettin
 
 4. After deployment finishes and your browser opens to the Azure URL of your site, close the browser.
 
-5. For Visual Studio 2013 only: In **Server Explorer** expand **Azure**, expand **Web Sites**, right-click your web site, and click **Attach Debugger**. 
+5. For Visual Studio 2013: In **Server Explorer** expand **Azure**, expand **Web Sites**, right-click your web site, and click **Attach Debugger**. 
 
 	![Attach debugger](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	The browser automatically opens to your home page running in Azure. You might have to wait 20 seconds or so while Azure sets up the server for debugging. This delay only happens the first time you run in debug mode on a web site. Subsequent times within the next 48 hours when you start debugging again there won't be a delay.
 
-6. For Visual Studio 2012 only:
+6. For Visual Studio 2012 with Update 4:
 
 	* In the Azure Management Portal, go to the **Configure** tab for your web site, and then scroll down to the **Site Diagnostics** section.
 

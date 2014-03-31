@@ -20,6 +20,7 @@ Before you begin this article, you must have the following:
 * [Provision a cluster](#provision)
 * [List and show clusters](#listshow)
 * [Delete a cluster](#delete)
+* [Grant/Revoke HTTP services access](#httpservices)
 * [Submit MapReduce jobs](#mapreduce)
 * [Submit Hive jobs](#hive)
 * [Upload data to the Blob storage](#upload)
@@ -59,7 +60,7 @@ If you have already had a storage account but do not know the account name and a
 	# List storage accounts for the current subscription
 	Get-AzureStorageAccount
 	# List the keys for a storage account
-	Get-AzureStorageKey "<StorageAccountName>"
+	Get-AzureStorageKey <StorageAccountName>
 
 For details on getting the information using the management portal, see the *How to: View, copy and regenerate storage access keys* section of [How to Manage Storage Accounts](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
 
@@ -68,7 +69,7 @@ For details on getting the information using the management portal, see the *How
 PowerShell can not create a Blob container during the HDInsight provision process. You can create one using the following script:
 
 	$storageAccountName = "<StorageAccountName>"
-	$storageAccountKey = "<StorageAccountKey>"
+	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 	$containerName="<ContainerName>"
 
 	# Create a storage context object
@@ -80,9 +81,8 @@ PowerShell can not create a Blob container during the HDInsight provision proces
 
 **To provision a cluster**
 
-Once you have the storage account and the blob container prepared, you are ready to create a cluster. In this version you need to explicitly specify subscription information and certificate for cmdlets.   
+Once you have the storage account and the blob container prepared, you are ready to create a cluster.    
 		
-	$subscriptionName = "<SubscriptionName>"
 	$storageAccountName = "<StorageAccountName>"
 	$containerName = "<ContainerName>"
 
@@ -91,7 +91,6 @@ Once you have the storage account and the blob container prepared, you are ready
 	$clusterNodes = <ClusterSizeInNodes>
 
 	# Get the storage account key
-	Select-AzureSubscription $subscriptionName
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
 	# Create a new HDInsight cluster
@@ -114,13 +113,32 @@ Use the following commands to list and show cluster details:
 
 **To show details of the specific cluster in the current subscription**
 
-	Get-AzureHDInsightCluster -Name $clusterName 
+	Get-AzureHDInsightCluster -Name <ClusterName> 
 
 ##<a id="delete"></a> Delete a cluster
 Use the following command to delete a cluster:
 
-	Remove-AzureHDInsightCluster -Name $clusterName 
+	Remove-AzureHDInsightCluster -Name <ClusterName> 
 
+##<a id="httpservice"></a> Grant/revoke HTTP services access
+
+HDInsight clusters have the following HTTP Web services (all of these service have RESTful endpoints):
+
+- ODBC
+- Ambari
+- Oozie
+- Templeton
+- WebHDFS
+
+By default, these services are granted for access. You can revoke/grant the access.  Here is a sample:
+
+	Revoke-AzureHDInsightHttpServicesAccess -Name hdiv2 -Location "East US"
+
+In the sample <i>hdiv2</i> is an HDInsight cluster name.
+
+>[WACOM.NOTE] By granting/revoking the access, you will reset the cluster user username and password.
+
+This can also be done using the Windows Azure Management portal. See [Administer HDInsight using the Management portal][hdinsight-admin-portal].
 
 ##<a id="mapreduce"></a> Submit MapReduce jobs
 The HDInsight cluster distribution comes with some MapReduce samples. One of the samples is for counting word frequencies in source files.
@@ -129,7 +147,6 @@ The HDInsight cluster distribution comes with some MapReduce samples. One of the
 
 The following PowerShell script submits the word count sample job: 
 	
-	$subscriptionName = "<SubscriptionName>"   
 	$clusterName = "<HDInsightClusterName>"            
 	
 	# Define the MapReduce job
@@ -147,12 +164,10 @@ storage].
 
 The following PowerShell script retrieves the MapReduce job output from the last procedure:
 
-	$subscriptionName = "<SubscriptionName>"       
 	$storageAccountName = "<StorageAccountName>"   
 	$containerName = "<ContainerName>"             
 		
 	# Create the storage account context object
-	Select-AzureSubscription $subscriptionName
 	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 	$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
