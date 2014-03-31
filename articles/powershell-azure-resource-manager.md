@@ -39,7 +39,7 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 ##<a id="about"></a>About the Azure PowerShell Modules ##
 Beginning in version 0.8.0, the Azure PowerShell installation includes three Windows PowerShell modules:
 
-- **AzureServiceManagement**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, web sites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
+- **Azure**: Includes the traditional cmdlets for managing individual resources, such as storage accounts, web sites, databases, virtual machines, and media services. For more information, see [Azure Service Management Cmdlets](http://msdn.microsoft.com/en-us/library/jj152841.aspx).
 
 - **AzureResourceManager**: Includes cmdlets for creating, managing, and deploying the Azure resources for a resource group. For more information, see [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765).
 
@@ -47,15 +47,15 @@ Beginning in version 0.8.0, the Azure PowerShell installation includes three Win
 
 > [ WACOM.NOTE] The Azure Resource Manager module is currently in preview. It might not provide the same management capabilities as the Azure Service Management module. 
 
-The Azure Service Management and Azure Resource Manager modules are not designed to be used in the same Windows PowerShell session. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
+The Azure and Azure Resource Manager modules are not designed to be used in the same Windows PowerShell session. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
 
-When you use Azure PowerShell, the cmdlets in the Azure Service Management and Azure Profile modules are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet. It removes the Azure Service Management module from your session and imports the Azure Resource Manager (and Azure Profile) modules.
+When you use Azure PowerShell, the cmdlets in the Azure and Azure Profile modules are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet. It removes the Azure module from your session and imports the Azure Resource Manager (and Azure Profile) modules.
 
 To switch to the AzureResoureManager module, type:
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-To switch back to the AzureServiceManagement module, type:
+To switch back to the Azure module, type:
 
     PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
