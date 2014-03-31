@@ -124,7 +124,7 @@ To complete the tasks in this guide, you will need the following:
 - Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - an Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-- The Azure Plugin for Eclipse with Java (by Microsoft Open Technologies) - August 2012 CTP. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+- The Azure Plugin for Eclipse with Java (by Microsoft Open Technologies), April 2014 release. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
 - An X.509 certificate to use with your application. You will need this certificate in both public certificate (.cer) and Personal Information Exchange (.PFX) format. (Options for creating this certificate will be described later in this tutorial).
 - Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
 
