@@ -2,7 +2,7 @@
 
 # Using Windows PowerShell with Resource Manager #
 
-Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. For information about Resource Manager concepts, see [Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394760).
+Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
 In this tutorial, you learn how to use Windows PowerShell with Resource Manager for Microsoft Azure. It walks you through the process of creating and deploying a resource group for an Azure-hosted web site (or web application) with a SQL database, complete with all of the resources that you need to support it.
 
@@ -474,9 +474,8 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 
 #<a id="next"></a> Next Steps
-To learn more about using Resource Manager and using Windows PowerShell with Resource Manager:
+To learn more about using Windows PowerShell with Resource Manager:
  
-- [Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394760): Learn about the concepts in Resource Manager.
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager modules.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
