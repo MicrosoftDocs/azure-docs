@@ -27,11 +27,12 @@ For complete details about the Azure SDK for .NET 2.3, [check out the release no
 
 ##<a id="webdeploy"></a>Web development and publishing
 
-The Azure SDK 2.3 and Visual Studio 2013 Update 2 RC include several updates that streamline web development and publishing with Azure. You can now provision and create an Azure web site or virtual machine when you create a new web app and use Web Deploy to deploy to your web site or VM. Check out the following resources for more details and tutorials that describe how to leverage the new features:
+The Azure SDK 2.3 and Visual Studio 2013 Update 2 RC include several updates that streamline web development and publishing with Azure. You can now create an Azure web site or virtual machine when you create a new web app and use Web Deploy to deploy to your web site or VM. Check out the following resources for more details and tutorials that describe how to leverage the new features:
 
+- [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) 
 - [Getting Started with Azure Tools for Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx)
 - [Creating ASP.NET Web Projects in Visual Studio 2013](http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio)
-- [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) 
+
 
 ## <a id="diagnostics"></a>Diagnostics and debugging
 Remotely diagnose application issues using new remote debugging for Virtual Machines and new native code debugging:
@@ -42,7 +43,7 @@ Emulator Express is the new lighter-weight local emulator for Cloud Services. Le
 
 - [Using Emulator Express to run and debug Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx)
 
-You can now remotely view and debug apps deployed to Azure Web Sites directly from Visual Studio. Find details here:
+You can now remotely view and edit files in your staged or live Azure web site directly in Visual Studio. Find details here:
 
 - [Troubleshooting Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio)
 
