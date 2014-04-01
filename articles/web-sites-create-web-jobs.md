@@ -161,13 +161,13 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 <a name="WHPNotes"></a>
 ##Notes
 	
-- Web sites in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web site's portal is not open in Azure. Requests to the actual site will not reset this.
+- As of March 2014, web sites in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web site's portal is not open in Azure. Requests to the actual site will not reset this.
 
-- Basic and Standard modes offer the Always On feature which, when enabled, prevents sites from becoming idle.
+- Code for a continuous job needs to be written to run in an endless loop.
 
 - Continuous jobs run continuously only when the site is up.
 
-- Code for a continuous job needs to be written to run in an endless loop.
+- Basic and Standard modes offer the Always On feature which, when enabled, prevents sites from becoming idle.
 
 <a name="NextSteps"></a>
 ##Next Steps##
@@ -186,7 +186,15 @@ If you don't want to use the WebJobs portal page to upload your scripts, you can
 
 <a name="AdditionalResources"></a>
 ###Additional Resources###
-For additional resources, see the annotated list of links [Using the WebJobs feature of Windows Azure Web Sites][RickWebJobsCurah]. 
+- For an annotated list of links on the WebJobs feature, see [Using the WebJobs feature of Windows Azure Web Sites][RickWebJobsCurah]. 
+	
+- WebJobs-related videos:
+
+	[Azure WebJobs 101 - Basic WebJobs with Jamie Espinosa](http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-basics/)
+	
+	[Azure WebJobs 102 - Scheduled WebJobs and the WebJobs Dashboard with Jamie Espinosa](http://www.windowsazure.com/en-us/documentation/videos/azure-webjobs-schedule-and-dashboard/)
+	
+	[Azure Scheduler 101 - Kevin Lam explains how to schedule stuff](http://www.windowsazure.com/en-us/documentation/videos/azure-scheduler-how-to/)
 
 
 <!-- LINKS -->

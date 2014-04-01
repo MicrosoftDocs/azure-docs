@@ -66,9 +66,7 @@ In this section you will create a new iOS app that is connected to your mobile s
 
 2. In the quickstart tab, click **iOS** under **Choose platform** and expand **Create a new iOS app**.   
 
-3. If you haven't already done so, download and install [Xcode] v4.4 or a later version.
-
-	![][7]
+3. If you haven't already done so, download and install [Xcode] v4.4 or a later version.	
 
 4. Click **Create TodoItems table** to create a table to store app data.
 
