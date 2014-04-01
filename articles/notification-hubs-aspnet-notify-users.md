@@ -3,7 +3,7 @@
 # Notify users with Notification Hubs
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/manage/services/notification-hubs/notify-users" title="Mobile Services">Mobile Services</a><a href="/en-us/manage/services/notification-hubs/notify-users-aspnet" title="ASP.NET" class="current">ASP.NET</a>
+    <a href="/en-us/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/" title="Mobile Services">Mobile Services</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/" title="ASP.NET" class="current">ASP.NET</a>
 </div> 
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET Web API backend is used to authenticate clients and to generate notifications. This tutorial builds on the notification hub that you created in the previous **Get started with Notification Hubs** tutorial. The notification registration code is moved from the client to the backend service. This ensures that registration is only completed after a client has been positively authenticated by the service. It also means that notification hub credentials aren't distributed with the client app. The service also controls the tags requested during registration.
