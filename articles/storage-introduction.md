@@ -85,7 +85,7 @@ Finally, you can specify that a container and its blobs, or a specific blob, are
 
 ## Replication for Durability and High Availability ##
 
-Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/)even in the face of transient hardware failures. You have three options for replicating the data in your storage account:
+Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have three options for replicating the data in your storage account:
 
 - *Locally redundant storage (LRS)* is replicated three times within a single data center. When you write data to a blob, queue, or table, the write operation is performed synchronously across all three replicas. LRS protects your data from normal hardware failures.
 - *Geo-redundant storage (GRS)* is replicated three times within a single region, and is also replicated asynchronously to a second region hundreds of miles away from the primary region. GRS keeps an equivalent of 6 copies (replicas) of your data (3 in each region). GRS enable Microsoft to failover to a second region if we can't restore the first region due to a major outage or disaster.  GRS is recommended over locally redundant storage.
@@ -97,7 +97,7 @@ The price differences between LRS, GRS and RA-GRS can be found on the [Storage P
 
 Customers are charged for Azure Storage based on four factors: the storage capacity used, the replication option selected, the number of requests made against the service, and data egress. 
 
-Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage makes a request against the service.Data egress refers to data transferred out of a Windows Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Windows Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.) 
+Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage also makes a request against the service. Data egress refers to data transferred out of a Windows Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Windows Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.) 
 
 The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](/en-us/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](/en-us/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
@@ -105,7 +105,7 @@ The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides det
 
 Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) that can be called by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
-- [.NET](http://msdn.microsoft.com/library/dn495001(v=azure.10).aspx)
+- [.NET](http://msdn.microsoft.com/library/dn495001.aspx)
 - [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
 - [Java](/en-us/develop/java/)
 - [Node.js](../storage/#node)

@@ -135,7 +135,7 @@ documentation here:
 [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/][].
 
 For more information about the SMTP API and the X-SMTPAPI header, see
-the SMTP API Developer�s Guide in the SendGrid documentation here:
+the SMTP API Developer's Guide in the SendGrid documentation here:
 [http://docs.sendgrid.com/documentation/api/smtp-api/developers-guide/][].
 For more examples of using the SMTP API with PHP, see the SendGrid
 documentation here:
@@ -143,7 +143,7 @@ documentation here:
 
 ### Web API
 
-Use PHP�s [curl function][] to send email using the SendGrid Web API.
+Use PHP's [curl function][] to send email using the SendGrid Web API.
 
     <?php
 
@@ -187,7 +187,7 @@ Use PHP�s [curl function][] to send email using the SendGrid Web API.
 documentation here:
 [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/][].
 
-**Note:**SendGrid�s Web API is very similar to a REST API, though it is
+**Note:**SendGrid's Web API is very similar to a REST API, though it is
 not truly a RESTful API since, in most calls, both GET and POST verbs
 can be used interchangeably.
 
@@ -275,7 +275,7 @@ documentation here:
 
 The additional line of code is as follows:
 
-     $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName(�file_name�));
+     $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
 This line of code calls the attach method on the
 <span class="auto-style2">Swift\_Message</span> object and uses static
@@ -342,7 +342,7 @@ documentation here:
 ## <a name="bkmk_HowToUseFilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Analytics
 
 SendGrid provides additional email functionality through the use of
-�filters�. These are settings that can be added to an email message to
+'filters'. These are settings that can be added to an email message to
 enable specific functionality such as enabling click tracking, Google
 analytics, subscription tracking, and so on. For a full list of filters,
 see [Filter Settings][].

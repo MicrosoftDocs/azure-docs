@@ -2,7 +2,7 @@
 
 #Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
-In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
+We recently introduced a preview of Resource Manager, which is a new way to manage Microsoft Azure. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
 >[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
 
@@ -10,9 +10,9 @@ In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. Th
 
 ##Resource Manager
 
-The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site, SQL Database, and Azure Storage resources.
+The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site and SQL Database resources.
 
-To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the the region the Web Site will be located in, and other common parameters.
 
 >[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
 >
@@ -109,7 +109,7 @@ For more information on authenticating using an organizational account, see [Ins
 	> 
 	> `azure group deployment stop MyGroupName MyDeployment`
 	> 
-	> If you do not provide a deployment name, one will be created automatically based on the current date and time. It will be returned as part of the output of the `azure group create` command.
+	> If you do not provide a deployment name, one will be created automatically based on the name of the template file. It will be returned as part of the output of the `azure group create` command.
 
 3. To view the group, use the following command.
 
