@@ -4,14 +4,14 @@
 
 This article summarizes the new tools, features, and themes presented for Azure .NET developers at the Build 2014 conference and available in the Azure SDK for .NET 2.3, Visual Studio 2013 Update 2, and other spring releases. 
 
-Get the tools:
+**Get the tools:**
 
 - [Visual Studio 2013 Update 2 RC](http://aka.ms/vs2013update2rc)
 - [Azure SDK 2.3](http://www.windowsazure.com/en-us/downloads/)
 - [Azure PowerShell](http://go.microsoft.com/?linkid=9811175)
 - [Azure Cross-Platform Command Line Interface](http://go.microsoft.com/?linkid=9828653)
 
-For complete details about the Azure SDK for .NET 2.3, [check out the release notes](http://go.microsoft.com/fwlink/p/?LinkId=393548).
+For complete details about Spring 2014 tools releases, check out the [Azure SDK for .NET 2.3 Release Notes](http://go.microsoft.com/fwlink/p/?LinkId=393548) and the [Visual Studio 2013 Product Updates page](http://go.microsoft.com/fwlink/?LinkId=272487).
 
 [Watch Build videos](http://go.microsoft.com/fwlink/?LinkId=394377&clcid=0x409), live from April 2-4, then streaming on-demand.
 
@@ -70,12 +70,12 @@ Install Azure Powershell to leverage new cmdlets for Web Sites, WebJobs, and mor
 
 Create PowerShell scripts directly in Visual Studio, and use them to automate your environment creation:
 
-- [Using Windows PowerShell deployment scripts to publish web projects to Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx)
+- [Using Windows PowerShell publishing scripts to create and publish to dev and test environments](http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx)
 
 ## <a id="mobile"></a>Mobile development with .NET
 Azure Mobile Services now provide an option for using .NET-based backends for your mobile apps targeting mobile platforms including Windows Store, Windows Phone, iOS, and Android. To learn more, check out the [Mobile Dev Center](/en-us/develop/mobile/resources/).
 
-Visual Studio 2013 Update 2 also includes new support for mobile development, including Notification Hubs integration in Server Explorer. For more details, see:
+Visual Studio 2013 Update 2 also includes new support for mobile development, including remote debugging support and Notification Hubs integration in Server Explorer. For more details, see:
 
 - [Quickstart: Add a mobile service](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn629482.aspx)
 - [How to send push notifications to a running app with Visual Studio](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614131.aspx)
