@@ -19,8 +19,6 @@ This tutorial walks you through these basic steps:
 1. [Register your mobile service with the Azure Active Directory]
 2. [Register your app with the Azure Active Directory] 
 3. [Configure the mobile service to require authentication]
-    * [JavaScript Backend Mobile Service]
-    * [.NET Backend Mobile Service]
 4. [Add authentication code to the client app]
 5. [Test the client using authentication]
 
@@ -28,9 +26,8 @@ This tutorial requires the following:
 
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.
-* Windows Azure Mobile Services SDK NuGet package version 1.3.0-alpha
-* Windows Azure Mobile Services SQLite Store NuGet package 0.1.0-alpha 
-* SQLite for Windows 8.1
+* Windows Azure Mobile Services SDK NuGet package
+* Active Directory Authentication Library NuGet package 
 
 
 
@@ -155,20 +152,8 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 
 ## <a name="require-authentication"></a>Configure the mobile service to require authentication
 
-Configure you JavaScript or .NET backend mobile service to require authentication.
+Configure you .NET backend mobile service to require authentication.
 
-### <a name="javascript-authentication"></a>JavaScript Backend Mobile Service
-
-Follow these steps if your mobile service was created to use the JavaScript backend.
-
-1. In the [Azure Management Portal], click your mobile service. Then click the **Data** tab
-2. Click your table and then click **Permissions**.
-3. Change all the table permissions to be **Only Authenticated Users**.
-4. Click **Save**
-
-### <a name="dotnet-authentication"></a>.NET Backend Mobile Service
-
-Follow these steps if your mobile service was created to use the .NET backend.
 
 1. Open your .NET backend mobile service project in Visual Studio.
 
@@ -272,6 +257,8 @@ Follow these steps if your mobile service was created to use the .NET backend.
 2. You will receive a prompt to login against your Azure Active Directory. Once you log in, the token will be automatically cached for 24 hours.  
 3. The app authenticates and returns the todo items.
 
+    ![][15]
+
 
 
 <!-- Anchors. -->
@@ -299,6 +286,7 @@ Follow these steps if your mobile service was created to use the .NET backend.
 [12]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-native-add-permissions.png
 [13]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-adal-nuget-package.png
 [14]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-package-appxmanifest.png
+[15]: ./media/mobile-services-windows-store-dotnet-adal-sso-authenticate/mobile-services-app-run.png
 
 <!-- URLs. -->
 [How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
