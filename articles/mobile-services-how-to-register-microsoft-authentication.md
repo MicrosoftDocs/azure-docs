@@ -2,11 +2,9 @@
 
 # Register your apps to use a Microsoft Account login
 
-This topic shows you how to register your apps to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
+This topic shows you how to register your app to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
 
-<div class="dev-callout"><b>Note</b>
-<p>When you intend to also provide client-driven authentication for single sign-on (SSO) or push notifications from a Windows Store app, consider also registering your app with the Windows Store. For more information, see <a href="/en-us/develop/mobile/how-to-guides/register-for-single-sign-on">Register your Windows Store apps for Windows Live Connect authentication</a>.</p>
-</div>
+>[WACOM.NOTE]To configure Microsoft Account authentication for a Windows 8.1 or Windows Phone 8.1 app, see [Register your Windows Store app package for Microsoft authentication](/en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
 
@@ -16,7 +14,13 @@ This topic shows you how to register your apps to be able to use Live Connect as
 
    	This registers the application with Live Connect.
 
-10. Click **Application settings page**, then **API Settings** and make a note of the values of the **Client ID** and **Client secret**. 
+10. Click **API Settings**, enable **Enhanced redirection security**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **Redirect URL**, then click **Save**.
+
+	![][3]
+
+	This enables Microsoft Account authentication for your app.
+
+11. Click **App Settings** and make a note of the values of the **Client ID** and **Client secret**. 
 
    	![][2]
 
@@ -24,23 +28,18 @@ This topic shows you how to register your apps to be able to use Live Connect as
 	<p>The client secret is an important security credential. Do not share the client secret with anyone or distribute it with your app.</p>
     </div>
 
-11. In **Redirect domain**, enter the URL of your mobile service, and then click **Save**.
-
 You are now ready to use a Microsoft Account for authentication in your app by providing the client ID and client secret values to Mobile Services.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
 [1]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-live-connect-add-app.png
-[2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-live-connect-app-api-settings.png
+[2]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png
+[3]: ./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth-2.png
+
 <!-- URLs. -->
-[Single sign-on for Windows Store apps by using Live Connect]: /en-us/develop/mobile/how-to-guides/register-for-single-sign-on/
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/

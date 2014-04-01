@@ -4,26 +4,35 @@
 
 This article summarizes the new tools, features, and themes presented for Azure .NET developers at the Build 2014 conference and available in the Azure SDK for .NET 2.3, Visual Studio 2013 Update 2, and other spring releases. 
 
+Get the tools:
+
+- [Visual Studio 2013 Update 2 RC](http://aka.ms/vs2013update2rc)
+- [Azure SDK 2.3](http://www.windowsazure.com/en-us/downloads/)
+- [Azure PowerShell](http://go.microsoft.com/?linkid=9811175)
+- [Azure Cross-Platform Command Line Interface](http://go.microsoft.com/?linkid=9828653)
+
 For complete details about the Azure SDK for .NET 2.3, [check out the release notes](http://go.microsoft.com/fwlink/p/?LinkId=393548).
 
 [Watch Build videos](http://go.microsoft.com/fwlink/?LinkId=394377&clcid=0x409), live from April 2-4, then streaming on-demand.
 
-Table of contents:
+## Table of contents
 
 - [Web development and publishing](#webdeploy)
 - [Diagnostics and debugging](#diagnostics)
 - [Manage Azure services in Visual Studio](#service-management)
 - [Automate with PowerShell](#automation)
 - [Mobile development with .NET](#mobile)
+- [Storage Client Library 3.0 and new Storage emulator](#storage)
 - [Resource Manager](#arm)
 
 ##<a id="webdeploy"></a>Web development and publishing
 
-The Azure SDK 2.3 includes several updates that streamline web development and publishing with Azure. You can now provision and create an Azure web site or virtual machine when you create a new web app and use Web Deploy to deploy to your web site or VM. Check out the following resources for more details and tutorials that describe how to leverage the new features:
+The Azure SDK 2.3 and Visual Studio 2013 Update 2 RC include several updates that streamline web development and publishing with Azure. You can now create an Azure web site or virtual machine when you create a new web app and use Web Deploy to deploy to your web site or VM. Check out the following resources for more details and tutorials that describe how to leverage the new features:
 
+- [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) 
 - [Getting Started with Azure Tools for Visual Studio](http://msdn.microsoft.com/en-us/library/azure/ff687127.aspx)
 - [Creating ASP.NET Web Projects in Visual Studio 2013](http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio)
-- [Get started with Azure and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) 
+
 
 ## <a id="diagnostics"></a>Diagnostics and debugging
 Remotely diagnose application issues using new remote debugging for Virtual Machines and new native code debugging:
@@ -34,7 +43,7 @@ Emulator Express is the new lighter-weight local emulator for Cloud Services. Le
 
 - [Using Emulator Express to run and debug Cloud Services](http://msdn.microsoft.com/en-us/library/windowsazure/dn339018.aspx)
 
-You can now remotely view and debug apps deployed to Azure Web Sites directly from Visual Studio. Find details here:
+You can now remotely view and edit files in your staged or live Azure web site directly in Visual Studio. Find details here:
 
 - [Troubleshooting Azure Web Sites in Visual Studio](http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio)
 
@@ -64,7 +73,21 @@ Create PowerShell scripts directly in Visual Studio, and use them to automate yo
 - [Using Windows PowerShell deployment scripts to publish web projects to Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn642480.aspx)
 
 ## <a id="mobile"></a>Mobile development with .NET
-Azure Mobile Services now provide an option for using .NET-based backends for your mobile apps targeting mobile platforms including Windows Store, Windows Phone, iOS, and Android. To learn more, check out the [Mobile Dev Center](/en-us/develop/mobile/).
+Azure Mobile Services now provide an option for using .NET-based backends for your mobile apps targeting mobile platforms including Windows Store, Windows Phone, iOS, and Android. To learn more, check out the [Mobile Dev Center](/en-us/develop/mobile/resources/).
+
+Visual Studio 2013 Update 2 also includes new support for mobile development, including Notification Hubs integration in Server Explorer. For more details, see:
+
+- [Quickstart: Add a mobile service](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn629482.aspx)
+- [How to send push notifications to a running app with Visual Studio](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614131.aspx)
+- [How to create custom APIs and scheduled jobs in a mobile service](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn614130.aspx)
+
+## <a id="storage"></a>Storage Client Library 3.0
+Azure SDK 2.3 includes an updated Storage emulator and the Storage Client Library 3.0 is integrated into the project templates included in the SDK. 
+
+For more details, see:
+
+- [Introduction to Azure Storage](/en-us/documentation/articles/storage-introduction/)
+- [Azure Storage documentation](/en-us/documentation/services/storage/)
 
 ## <a id="arm"></a>Resource Manager
 

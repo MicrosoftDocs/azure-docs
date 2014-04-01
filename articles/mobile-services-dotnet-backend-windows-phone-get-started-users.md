@@ -23,6 +23,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
+<ol start="5">
+<li><p>In Visual Studio, open the Web.config file for the mobile service project, and in the appSettings section, set the app identifier and shared secret values obtained from your identity provider.</p>
+<p>These settings are used during local development. After publishing your mobile service project to Azure, these settings are overridden by the values set in the portal.</p></li>
+</ol>
+
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 

@@ -64,6 +64,11 @@ Hive is a distributed data warehouse managing data stored in an HDFS. It is the 
 
 Sqoop is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. Use Sqoop to import data from external structured data stores into the HDFS or related systems like Hive. Sqoop can also extract data from Hadoop and export the extracted data to external relational databases, enterprise data warehouses, or any other structured data store type. For additional information, see the  [Apache Sqoop](http://sqoop.apache.org/) Web site.
 
+###Microsoft Avro Library
+The Microsoft Avro Library implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses [JSON](http://www.json.org) to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the [Apache Avro Specification](http://avro.apache.org/docs/current/spec.html). Note that the current version of the Microsoft Avro Library does not support the Remote Procedure Calls (RPC) part of this specification.
+
+Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block. For additional information, see [Serialize data with the Microsoft Avro Library](http://www.azure.com/en-us/documentation/articles/hdinsight-dotnet-avro-serialization/).
+
 ###Business intelligence tools and connectors
 
 Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Server Analysis Services and Reporting Services - retrieve, analyze, and report data integrated with HDInsight using either the Power Query add-in or the Microsoft Hive ODBC Driver.
