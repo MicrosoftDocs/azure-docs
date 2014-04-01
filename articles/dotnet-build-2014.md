@@ -86,6 +86,7 @@ Azure SDK 2.3 includes an updated Storage emulator and the Storage Client Librar
 
 For more details, see:
 
+- [Azure Storage Client Library 3.0](http://go.microsoft.com/fwlink/?LinkId=394927)
 - [Introduction to Azure Storage](/en-us/documentation/articles/storage-introduction/)
 - [Azure Storage documentation](/en-us/documentation/services/storage/)
 
