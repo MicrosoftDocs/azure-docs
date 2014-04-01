@@ -14,10 +14,10 @@ To be able to authenticate users, you must register your app with an identity pr
 
 3. Choose a supported identity provider from the list below and follow the steps to register your app with that provider:
 
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/" target="_blank">Microsoft Account</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/" target="_blank">Facebook login</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Twitter login</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-google-authentication/" target="_blank">Google login</a>
+ - <a href="/en-us/documentation/articles/mobile-services-how-to-register-microsoft-authentication/" target="_blank">Microsoft Account</a>
+ - <a href="/en-us/documentation/articles/mobile-services-how-to-register-facebook-authentication/" target="_blank">Facebook login</a>
+ - <a href="/en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication/" target="_blank">Twitter login</a>
+ - <a href="/en-us/documentation/articles/mobile-services-how-to-register-google-authentication/" target="_blank">Google login</a>
  - <a href="/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 

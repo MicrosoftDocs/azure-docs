@@ -2,7 +2,7 @@
 
 #Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
-In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. This new management functionality is called the Resource Manager. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
+We recently introduced a preview of Resource Manager, which is a new way to manage Microsoft Azure. In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
 >[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
 
@@ -10,9 +10,9 @@ In the Spring 2014 update, we introduced a new way to manage Microsoft Azure. Th
 
 ##Resource Manager
 
-The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site, SQL Database, and Azure Storage resources.
+The Resource Manager allows you to managing a group of _resources_ (user-managed entities such as a database server, database, or web site,) as a single logical unit, or _resource group_. For example, a resource group might contain a Web Site and SQL Database resources.
 
-To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the site mode (Free, Shared, Basic, or Standard,) and other common parameters.
+To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Web Site will have parameters for the site name, the the region the Web Site will be located in, and other common parameters.
 
 >[WACOM.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
 >
@@ -22,23 +22,9 @@ When a template is used to modify or create a group, a _deployment_ is created, 
 
 ##Authentication
 
-Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational ID. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
+Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using an organizational account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
-An organizational ID is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational ID, and are using a Microsoft account to log in to your Azure subscription, you can easily create an one using the following steps.
-
-1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
-
-2. If no directory exists, select **Create your directory** and provide the requested information.
-
-3. Select your directory and add a new user. This new user is an organizational ID.
-
-	>[WACOM.NOTE] During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
-
-4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational ID to manage your Azure subscription.
-
-5. Finally, log out of the Azure portal and then log back in using the new organizational ID. If this is the first time logging in with this ID, you will be prompted to change the password.
-
-For more information on organizational ID with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
+For more information on authenticating using an organizational account, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
 
 ##Working with Groups and Templates
 
@@ -52,43 +38,64 @@ For more information on organizational ID with Microsoft Azure, see [Sign up for
 
 		azure group template list
 
+	The response will list the publisher and template name, and will appear similar to the following.
+
+		data:    Publisher               Name
+		data:    ----------------------------------------------------------------------------
+		data:    Microsoft               Microsoft.WebSite.0.1.0-preview1
+		data:    Microsoft               Microsoft.PHPStarterKit.0.1.0-preview1
+		data:    Microsoft               Microsoft.HTML5EmptySite.0.1.0-preview1
+		data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
+		data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
+
 3. To view details of a template that will create an Azure Web Site, use the following command.
 
-		azure group template show Microsoft.WebSite.0.1.0-preview1
+		azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+
+	This will return descriptive information about the template.
 
 4. Once you have selected a template, you can download it with the following command.
 
-		azure group template download Microsoft.WebSite.0.1.0-preview1
+		azure group template download Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
 	Downloading a template allows you to customize it to better suite your requirements. For example, adding another resource to the template.
 
 	>[WACOM.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
-5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. When using a template, you must supply these parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
+5. Open the template file in a text editor. Note the **parameters** collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**. When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format.
 
-	To create a file that contains parameters for the Microsoft.WebSite.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
+	To create a file that contains parameters for the Microsoft.WebSiteSQLDatabase.0.1.0-preview1 template, use the following data and create a file named **params.json**. Replace values beginning with **My** such as **MyWebSite** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**.
 
 		{
-		    "siteName": {
-		      "value": "MyWebSiteName"
+		  "siteName": {
+		    "value": "MyWebSite"
 		  },
-		    "hostingPlanName": {
-		      "value": "MyWebSitePlanName"
+		  "hostingPlanName": {
+		    "value": "MyHostingPlan"
 		  },
-		    "siteLocation": {
-		      "value": "MyRegion"
+		  "siteLocation": {
+		    "value": "North Europe"
 		  },
-		    "sku": {
-		      "value": "Free"
+		  "serverName": {
+		    "value": "MySQLServer"
 		  },
-		    "workerSize": {
-		      "value": "0"
+		  "serverLocation": {
+		    "value": "North Europe"
+		  },
+		  "administratorLogin": {
+		    "value": "MySQLAdmin"
+		  },
+		  "administratorLoginPassword": {
+		    "value": "MySQLAdminPassword"
+		  },
+		  "databaseName": {
+		    "value": "MySQLDB"
 		  }
 		}
 
 1. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step.
 
-		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSite.0.1.0-preview1 -d MyDeployment -e params.json
+		azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
 
 	Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in the template.
 
@@ -102,7 +109,7 @@ For more information on organizational ID with Microsoft Azure, see [Sign up for
 	> 
 	> `azure group deployment stop MyGroupName MyDeployment`
 	> 
-	> If you do not provide a deployment name, one will be created automatically based on the current date and time. It will be returned as part of the output of the `azure group create` command.
+	> If you do not provide a deployment name, one will be created automatically based on the name of the template file. It will be returned as part of the output of the `azure group create` command.
 
 3. To view the group, use the following command.
 
@@ -149,8 +156,10 @@ To view logged information on operations performed on a group, use the `azure gr
 ##Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+* For information on working with Resource Manager using Windows Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
 
 [signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [xplatsetup]: /en-us/documentation/articles/xplat-cli/
+[psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

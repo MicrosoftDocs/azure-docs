@@ -122,13 +122,14 @@ Use the following command to delete a cluster:
 
 ##<a id="httpservice"></a> Grant/revoke HTTP services access
 
-HDInsight clusters have the following HTTP Web services (all of these service have RESTful endpoints):
+HDInsight clusters have the following HTTP Web services (all of these services have RESTful endpoints):
 
 - ODBC
+- JDBC
 - Ambari
 - Oozie
 - Templeton
-- WebHDFS
+
 
 By default, these services are granted for access. You can revoke/grant the access.  Here is a sample:
 

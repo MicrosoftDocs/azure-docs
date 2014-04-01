@@ -19,12 +19,25 @@ This tutorial walks you through the following steps of how to use the job schedu
 + [Download and install the LINQ to Twitter library]
 + [Create the new Updates table]
 + [Create a new scheduled job]
++ [Test the scheduled job locally]
++ [Publish the service and register the job]
 
 >[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
 
 ##<a name="get-oauth-credentials"></a>Register for access to Twitter v1.1 APIs and store credentials
 
 [WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+
+<ol start="7">
+<li><p>In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the <strong>MS_TwitterConsumerKey</strong> and <strong>MS_TwitterConsumerSecret</strong> app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.</p></li>
+
+<li><p>In the same section, add the following new app settings, replacing the placeholders with the Twitter access token and access token secret values that you set as app settings in the portal:</p>
+
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" /&gt;
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /&gt;</code></pre>
+
+<p>The mobile service uses these stored settings when it runs on the local computer, which lets you test the scheduled job before you publish it. When running in Azure, the mobile service instead uses values set in the portal and ignores these project settings.  </p></li>
+</ol>
 
 ##<a name="install-linq2twitter"></a>Download and install the LINQ to Twitter library
 
@@ -67,7 +80,7 @@ Next, you need to create a new table in which to store tweets.
 
 	The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.  
 
-	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
+	>[WACOM.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
 
 Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
@@ -111,8 +124,8 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 		        public async override Task ExecuteAsync()
 		        {            
 		            // Try to get the stored Twitter access token from app settings.  
-		            if (Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
-		            Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret))
+		            if (!(Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
+		            Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret)))
 		            {
 		                Services.Log.Error("Could not retrieve Twitter access credentials.");
 		            }
@@ -191,6 +204,26 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
    	
 	In the above code, the **ExecuteAsync** override method calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag `#mobileservices`. Duplicate tweets and replies are removed from the results before they are stored in the table.
 
+##<a name="run-job-locally"></a>Test the scheduled job locally
+
+Schedule jobs can be tested locally before being published to Azure and registered in the portal. 
+
+1. In Visual Studio, with the mobile service project set as the startup project, press F5.
+
+	This starts the mobile service project and displays a new browser window with the welcome page.
+
+2. Copy the mobile service URL from the open browser window, append the `/tables/samplejob` path to the URL, then execute a new POST request to this URL using a HTTP utility, like Fiddler.
+
+	The **ExecuteAsync* *method is started on the local computer.
+
+3. In Server Explorer, expand **Data Connections**, **MSTableConnectionString**, and **tables**; right-click **Updates** and click **Show Table Data**.
+
+	The new tweets are entered as rows in the data table.
+
+##<a name="register-job"></a>Publish the service and register the new job 
+
+The job must be registered in the **Scheduler** tab so that Mobile Services can run it on the schedule that you define.
+
 3. Republish the mobile service project to Azure.
 
 4. In the [Azure Management Portal], click Mobile Services, and then click your app.
@@ -215,6 +248,8 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 
    	This executes the job while it remains disabled in the scheduler. From this page, you can enable the job and change its schedule at any time.
 
+	>[WACOM.NOTE]A POST request can still be used to start the scheduled job. However, the authorization defaults to user, which means that the request must include the application key in the header.
+
 4. (Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.
 
     ![][6]
@@ -230,6 +265,8 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 [Download and install the LINQ to Twitter library]: #install-linq2twitter
 [Create the new Updates table]: #create-table
 [Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->

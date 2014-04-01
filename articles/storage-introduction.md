@@ -5,22 +5,20 @@
 This article provides an introduction to Microsoft Azure Storage for developers, IT Pros, and business decision makers. By reading it, you'll learn about:
 
 - What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications
-- What kinds of data you can store with the Azure Storage services: Blob, Queue, and Table storage
-- How access to your data in Azure Storage is authenticated
+- What kinds of data you can store with the Azure Storage services: Blob, Table and Queue storage
+- How access to your data in Azure Storage is managed
 - How your Azure Storage data is protected via redundancy and replication 
 - Where to go next to build your first Azure Storage application
 
 ## What is Azure Storage? ##
 
-Cloud computing enables new scenarios which may require customers to consider new architectures and implementation technologies – which is exactly why Microsoft developed Azure Storage. 
+Cloud computing enables new scenarios for applications requiring scalable, durable and highly available storage for their data – which is exactly why Microsoft developed Azure Storage. In addition to enabling developers to build large scale applications to support new scenarios Azure Storage also provides the storage foundation for Microsoft's Infrastructure as a Service capability further testament to its robustness. 
 
-Azure Storage is massively scalable, so you can store and process up to hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores trillions of unique customer objects, and handles trillions of requests per month. 
+Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average. 
 
-Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications up and down as needed. You pay only for what you use, and only when you use it.
+Azure Storage is elastic, so you can design applications for a large global audience, and scale those applications as needed - both the amount of storage and the number of transactions required. You pay only for what you use, and only when you use it.
 
-Azure Storage uses an auto-partitioning system that load-balances your data based on traffic. This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them. 
-
-Azure Storage offers a highly available storage solution. Azure Storage automatically protects your data with triple-replication, so that your data is available in the event of a hardware failure. You can choose to have your data additionally triple-replicated (called geo-replication) to a second location hundreds of miles away from the primary location, so that your data is available even in the event of a serious outage or natural disaster. Read access from the secondary location offers maximum availability, and can enable an SLA (Service Level Agreement) of 99.99% for read operations. Replication options are discussed in greater detail below.
+Azure Storage uses an auto-partitioning system that automatically load-balances your data based on traffic. This means that as the demands on your application grow, Azure Storage automatically allocates the appropriate resources to meet them. 
 
 Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premise server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
 
@@ -30,8 +28,8 @@ Azure Storage supports clients using a diverse set of operating systems (includi
 
 The Azure Storage services are Blob storage, Table storage, and Queue storage:
 
-- **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. Blobs are organized into containers, around which access policies can be defined. 
-- **Table storage** stores structured datasets. Table storage is schemaless, which allows for rapid development and fast access to large quantities of data.
+- **Blob storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. 
+- **Table storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
 
 These three services are included in every storage account. A storage account is a unique namespace that gives you access to Azure Storage. Each storage account can contain up to 200 TB of combined blob, queue, and table data.
@@ -42,9 +40,9 @@ You can get started with Azure with a [free trial](/en-us/pricing/free-trial/). 
 
 ## Blob Storage ##
 
-For users with large amounts of file data to store in the cloud, Blob storage offers a cost-effective and scalable solution. You can use Blob storage to store content such as:
+For users with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. You can use Blob storage to store content such as:
 
-- Documents of any kind
+- Documents 
 - Social data such as photos, videos, music, and blogs
 - Backups of files, computers, databases, and devices
 - Images and text for web applications
@@ -53,55 +51,53 @@ For users with large amounts of file data to store in the cloud, Blob storage of
 
 Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 200 TB capacity limit of the storage account.  
 
-Blob storage offers two types of blobs, block blobs and page blobs. Block blobs are optimized for streaming, and are a good choice for storing documents and media files. A block blob can be up to 200 GB in size. Page blobs are optimized for random writes, and may be up to 1 TB in size. Azure virtual machines store VHDs as page blobs.
+Blob storage offers two types of blobs, block blobs and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. A block blob can be up to 200 GB in size. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
 For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](http://www.windowsazure.com/documentation/articles/storage-import-export-service/). You can also copy blob data within your storage account or across storage accounts. 
 
 ## Table Storage ##
 
-Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL solution – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Access to data is fast and cost-effective for all kinds of applications.  Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
+Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Access to data is fast and cost-effective for all kinds of applications.  Table storage is typically significantly lower in cost than traditional SQL for similar volumes of data.
 
-Table storage is a key-value store, meaning that every data item in a table is stored with a property name. A collection of properties and their values comprise an entity, which is similar to a row in a traditional SQL-style table. Since Table storage is schemaless, entities in the same table can contain different collections of properties, and those properties can be of different types. Tables don’t support traditional SQL joins or sorting operations, so typically data is denormalized. 
+Table storage is a key-attribute store, meaning that every entity in a table is stored with a property name. This property name, the key can be used for filtering and specifying selection criteria. The key along with a collection of properties and their values comprise an entity. Since Table storage is schemaless, entities in the same table can contain different collections of properties, and those properties can be of different types. 
 
 You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires.  You can store any number of entities in a table, and a storage account may contain any number of tables, up to the 200 TB capacity limit of the storage account.
 
-For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases. If you prefer a relational database, however, [Azure SQL Database](../sql-database-get-started/) is a cloud database that is fully relational. You can also deploy a [SQL Server Virtual Machine](../virtual-machines-provision-sql-server/) in Azure.
+Like Blobs and Queues, developers can manage and access Table Storage using standard REST protocols, however Table Storage also supports a subset of the OData protocol, simplifying advanced querying capabilities and enabling both JSON and AtomPub (XML based) formats.
+
+For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases. 
 
 ## Queue Storage ##
 
-In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premise server, or on a mobile device. Queue storage supports building process workflows and managing asynchronous tasks. 
+In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premise server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows. 
 
 A storage account can contain any number of queues. A queue can contain any number of messages, up to the 200 TB capacity limit of the storage account. Individual messages may be up to 64 KB in size.
 
 ## Access to Blob, Table, and Queue Resources ##
 
-By default, only the storage account owner can access resources in the storage account. For the security of your data, every request made against resources in your account must be authenticated, unless the resource is available to anonymous users. Authentication relies on a Shared Key model.
+By default, only the storage account owner can access resources in the storage account. For the security of your data, every request made against resources in your account must be authenticated. Authentication relies on a Shared Key model. Blobs can also be configured to support anonymous authentication. 
 
 Your storage account is assigned two private access keys on creation that are used for authentication. Having two keys ensures that your application remains available when you regularly regenerate the keys as a common security key management practice.
 
 If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](../storage-dotnet-shared-access-signature-part-1/). A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid.
 
-Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the [Azure CDN](../cdn-how-to-use/).
+Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
 
-## Replication for High Availability ##
+## Replication for Durability and High Availability ##
 
-Data in your storage account is replicated to ensure that it is highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/)even in the face of transient hardware failures. You have three options for replicating the data in your storage account:
+Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have three options for replicating the data in your storage account:
 
-- *Locally redundant storage* is replicated three times within a single data center location. When you write data to a blob, queue, or table, the write operation is performed synchronously across all three replicas. Locally redundant storage protects your data from normal hardware failures.
-- *Geo-redundant storage* is replicated three times within a single location, and is also replicated asynchronously to a second location within the same region. Geo-redundant storage additionally protects your data from major outages or disasters at one location.  Geo-redundant storage is the default option for replication when you create your storage account, and is recommended over locally redundant storage.
-- *Read-access geo-redundant storage* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary location in the event that the primary location becomes unavailable. Read-access geo-redundant storage is recommended for maximum durability and availability.  
+- *Locally redundant storage (LRS)* is replicated three times within a single data center. When you write data to a blob, queue, or table, the write operation is performed synchronously across all three replicas. LRS protects your data from normal hardware failures.
+- *Geo-redundant storage (GRS)* is replicated three times within a single region, and is also replicated asynchronously to a second region hundreds of miles away from the primary region. GRS keeps an equivalent of 6 copies (replicas) of your data (3 in each region). GRS enable Microsoft to failover to a second region if we can't restore the first region due to a major outage or disaster.  GRS is recommended over locally redundant storage.
+- *Read-access geo-redundant storage (RA-GRS)* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary region in the event that the primary region becomes unavailable. Read-access geo-redundant storage is recommended for maximum availability in addition to durability.  
 
-Locally redundant storage is slightly less expensive than geo-redundant storage, while read-access geo-redundant storage is slightly more expensive. The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides details about how the replication option you select affects your costs.
+The price differences between LRS, GRS and RA-GRS can be found on the [Storage Pricing Details](/en-us/pricing/details/storage/) page.
 
 ## Pricing ##
 
-Customers are charged for Azure Storage based on four factors: the storage capacity used, the replication option selected, the number of requests made against the service, and data egress. Total costs for most applications using Azure Storage are very inexpensive.
+Customers are charged for Azure Storage based on four factors: the storage capacity used, the replication option selected, the number of requests made against the service, and data egress. 
 
-Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.
-
-Every read and write operation against Azure Storage makes a request against the service, and incurs a very small charge. 
-
-Data egress refers to data transferred out of a Windows Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Windows Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.) 
+Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage also makes a request against the service. Data egress refers to data transferred out of a Windows Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Windows Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.) 
 
 The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](/en-us/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](/en-us/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
@@ -109,7 +105,7 @@ The [Storage Pricing Details](/en-us/pricing/details/storage/) page provides det
 
 Azure Storage exposes storage resources via a [REST API](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) that can be called by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
-- [.NET](http://msdn.microsoft.com/library/dn495001(v=azure.10).aspx)
+- [.NET](http://msdn.microsoft.com/library/dn495001.aspx)
 - [Native code](http://msdn.microsoft.com/library/dn495438.aspx)
 - [Java](/en-us/develop/java/)
 - [Node.js](../storage/#node)
@@ -131,17 +127,17 @@ To get started with Azure Storage, explore these resources:
 - [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables-20/)
 - [How to use Queue Storage from .NET](../storage-dotnet-how-to-use-queues-20/)
 
-<h3>For Node.js Developers</h3>
-
-- [How to use Blob Storage from Node.js](../storage-nodejs-how-to-use-blob-storage/)
-- [How to use Table Storage from Node.js](../storage-nodejs-how-to-use-table-storage/)
-- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queue-storage/)
-
 <h3>For Java Developers</h3>
 
 - [How to use Blob Storage from Java](../storage-java-how-to-use-blob-storage/)
 - [How to use Table Storage from Java](..storage-java-how-to-use-table-storage/)
 - [How to use Queue Storage from Java](..storage-java-how-to-use-queue-storage/)
+
+<h3>For Node.js Developers</h3>
+
+- [How to use Blob Storage from Node.js](../storage-nodejs-how-to-use-blob-storage/)
+- [How to use Table Storage from Node.js](../storage-nodejs-how-to-use-table-storage/)
+- [How to use Queue Storage from Node.js](../storage-nodejs-how-to-use-queue-storage/)
 
 <h3>For PHP Developers</h3>
 
@@ -160,4 +156,3 @@ To get started with Azure Storage, explore these resources:
 - [How to use Blob Storage from Python](../storage-python-how-to-use-blob-storage/)
 - [How to use Table Storage from Python](..storage-python-how-to-use-table-storage/)
 - [How to use Queue Storage from Python](..storage-python-how-to-use-queue-storage/)
-

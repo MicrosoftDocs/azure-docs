@@ -1,4 +1,4 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
 
 #How to Create a Custom Virtual Machine
 
@@ -43,13 +43,13 @@ Each virtual machine is associated with a cloud service, either by itself or wit
 
 	**Note**: Virtual machine that are members of an availability set are deployed to different fault domains. Placing multiple virtual machines in an availability set helps ensure that your application is available during network failures, local disk hardware failures, and any planned downtime.
 
-15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093).
-	**Important**: The VM Agent can be installed only when you create the virtual machine.  
+15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).
+	  
 
-15.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
+16.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
 
 
-16. Click the arrow to create the virtual machine.
+17. Click the arrow to create the virtual machine.
 
 
 	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
