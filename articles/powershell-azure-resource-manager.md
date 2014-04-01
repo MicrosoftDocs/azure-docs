@@ -49,7 +49,7 @@ Beginning in version 0.8.0, the Azure PowerShell installation includes three Win
 
 The Azure and Azure Resource Manager modules are not designed to be used in the same Windows PowerShell session. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
 
-When you use Azure PowerShell, the cmdlets in the Azure modules are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet. It removes the Azure module from your session and imports the Azure Resource Manager and Azure Profile modules.
+When you use Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet. It removes the Azure module from your session and imports the Azure Resource Manager and Azure Profile modules.
 
 To switch to the AzureResoureManager module, type:
 
@@ -425,7 +425,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 		-hostingPlanName TestDeploy2 `
 		-siteMode Limited `
 		-computeMode Dedicated `
-		-siteLocation "North Europe" 
+		-siteLocation "North Europe" `
 		-subscriptionID "9b14a38b-4b93-4554-8bb0-3cefb47abcde" `
 		-resourceGroup TestRG
 
@@ -476,8 +476,9 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 #<a id="next"></a> Next Steps
 To learn more about using Windows PowerShell with Resource Manager:
  
-- [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager modules.
+- [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
+- [Using Resource groups to manage your Azure resources](http://windowazure.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to use the Azure Management Portal to manage resource groups.
+- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/): Learn how to create resource groups with command-line tools that work on many operating system platforms. 
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the community.
-- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/): Learn alternate ways to automate Resource Manager operations.
