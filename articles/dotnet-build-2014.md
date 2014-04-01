@@ -88,7 +88,6 @@ For more details, see:
 
 - [Azure Storage Client Library 3.0](http://go.microsoft.com/fwlink/?LinkId=394927)
 - [Introduction to Azure Storage](/en-us/documentation/articles/storage-introduction/)
-- [Azure Storage documentation](/en-us/documentation/services/storage/)
 
 ## <a id="arm"></a>Resource Manager
 
