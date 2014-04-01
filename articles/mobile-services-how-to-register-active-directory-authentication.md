@@ -36,16 +36,13 @@ This topic shows you how to register your apps to be able to use Azure Active Di
 
     ![][6]
 
-9. Click to enable the **Single Sign-On** access type for the application. Click to complete the Add Application Wizard.
 
-    ![][7]
-
-10. Once the application has been added, scroll to the bottom. Then click the **Enable your app to read or write directory data** section to expand it. Then click to copy the **Client ID** for the app.
+9. Once the application has been added, click the **Configure** tab. Then click to copy the **Client ID** for the app.
 
     ![][8]
 
 
-11. Return to your mobile service's **Identity** tab. At the bottom, paste in the **Client ID** setting for the azure active directory identity provider. Then click **Save**.
+10. Return to your mobile service's **Identity** tab. At the bottom, paste in the **Client ID** setting for the azure active directory identity provider. Then click **Save**.
 
     ![][9]
 
