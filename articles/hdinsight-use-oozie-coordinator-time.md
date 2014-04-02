@@ -218,13 +218,13 @@ There is a known Hive path issue. You will run into this problem when submitting
 
 	There are five variables used in the definition file:
 
-	Variable          | Description
-	------------------|------------
-	${coordFrequency} | Job pause time. Frequency is always expressed in minutes.
-	${coordStart}     | Job start time.
-	${coordEnd}       | Job end time.
-    ${coordTimezone}  | Oozie processes coordinator jobs in a fixed timezone with no DST (typically UTC ), this timezone is referred as 'Oozie processing timezone'.
-	${wfPath}         | The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it.
+	| Variable          | Description |
+	| ------------------|------------ |
+	| ${coordFrequency} | Job pause time. Frequency is always expressed in minutes. |
+	| ${coordStart}     | Job start time. |
+	| ${coordEnd}       | Job end time. |
+    | ${coordTimezone}  | Oozie processes coordinator jobs in a fixed timezone with no DST (typically UTC ), this timezone is referred as 'Oozie processing timezone'. |
+	| ${wfPath}         | The path for the workflow.xml.  If the workflow file name is not the default file name (workflow.xml), you must specify it. |
 	
 2. Save the file as **C:\Tutorials\UseOozie\coordinator.xml** using the ANSI (ASCII) encoding (Use Notepad if your text editor doesn't provide the option).
 	
@@ -676,7 +676,7 @@ Here is a sample PowerShell script that you can use:
 
 
 ##<a id="nextsteps"></a>Next steps
-In this tutorial, you have learned how to define an Oozie workflow, and how to run an Oozie job using Azure PowerShell. To learn more, see the following articles:
+In this tutorial, you have learned how to define an Oozie workflow, and Oozie coordinator, and how to run an Oozie coordinator job using Azure PowerShell. To learn more, see the following articles:
 
 - [Get started with HDInsight][hdinsight-get-started]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
