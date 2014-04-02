@@ -10,7 +10,7 @@
 </div>
 
 
-<p>This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Windows Azure Mobile Services. In this tutorial, you will download an app that supports both offline and online data, integrate the mobile service with the app, and then login to the Windows Azure Management Portal to view and update the database when running the app.
+<p>This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. In this tutorial, you will download an app that supports both offline and online data, integrate the mobile service with the app, and then login to the Azure Management Portal to view and update the database when running the app.
 </p>
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with offline data]. Before you begin this tutorial, you must first complete [Get started with offline data].

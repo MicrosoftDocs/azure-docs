@@ -314,9 +314,9 @@ For more information, see [Use Azure Blob Storage with HDInsight][hdinsight-stor
 
 
 	
-##<a name="powerquery"></a>Connecting to Microsoft business intelligence tools 
+##<a name="powerquery"></a>Connect to Microsoft business intelligence tools 
 
-The Power Query add-in for Excel can be used to export output from HDInsight into Excel where Microsoft Business Intelligence (BI) tools can be used to further process or display the results. When you created an HDInsight cluster, a default container with the same name as the cluster was created in the storage account associated with it when it was created. This is automatically populated with a set of files. One of these files is a sample Hive table. In this section we will show how to import the data contained in this table into Excel for viewing and additional processing.
+The Power Query add-in for Excel can be used to export output from HDInsight into Excel where Microsoft Business Intelligence (BI) tools can be used to further process or display the results. 
 
 You must have Excel 2010 or 2013 installed to complete this part of the tutorial. Here we will import the default Hive table that ships in HDInsight.
 
@@ -345,7 +345,7 @@ You must have Excel 2010 or 2013 installed to complete this part of the tutorial
 
 	![HDI.GettingStarted.PowerQuery.ImportData3][image-hdi-gettingstarted-powerquery-importdata3]
 
-9. Click **Apply & Close** in the upper left corner. The query then imports the Hive Table into Excel.
+9. Click **Apply & Close** in the upper left corner. The query then imports the word counting MapReduce job output into Excel.
 
 ##<a name="nextsteps"></a>Next steps
 In this tutorial, you have learned how to provision a cluster with HDInsight, run a MapReduce job on it, and import the results into Excel where they can be further processed and graphically displayed using BI tools. To learn more, see the following articles:

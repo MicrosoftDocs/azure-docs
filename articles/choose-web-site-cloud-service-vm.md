@@ -216,7 +216,7 @@ The following table compares the capabilities of Web Sites, Cloud Services, and 
 </tr>
 <tr>
    <td valign="middle"><p>Support for Azure Traffic Manager</p></td>
-   <td valign="middle"></td>
+   <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
 </tr>
