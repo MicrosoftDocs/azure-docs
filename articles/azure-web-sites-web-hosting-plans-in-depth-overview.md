@@ -77,7 +77,7 @@ To do this using the UI in the new **Azure Portal Preview** click **NEW** and se
 ![Website, Web Hosting Plan and pricing tier blades](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview06.png)
 </br>
 </br>
-For this example we are choosing to create a new Website called **contosomarketing** and to place it in the new web hosting plan called **contoso**. The Pricing Tier selected for this Web Hosting Plan is **Small Standard**. For more details on Webhosting Plan Pricing Tiers as well as the features, pricing and scale options provided in each please visit the [Azure Web Sites Web Hosting Plans Spec]( http://go.microsoft.com/?linkid=9845586). 
+For this example we are choosing to create a new Website called **contosomarketing** and to place it in the new web hosting plan called **contoso**. The Pricing Tier selected for this Web Hosting Plan is **Small Standard**. For more details on Webhosting Plan Pricing Tiers as well as the features, pricing and scale options provided in each please visit the [Azure Web Sites Web Hosting Plans Spec](http://go.microsoft.com/?linkid=9845586). 
 </br>
 It should also be noted that a Web Hosting Plan can also be created in the existing Azure Portal. This is done as part of the **quick create** wizard by selecting **Create new web hosting plan** from the **WEB HOSTING PLAN** drop down:
 </br>
@@ -109,7 +109,7 @@ A site can also be created into a specific Web Hosting Plan using the existing A
 </br>
 **Question**: How can I move a Site to a different Web Hosting Plan?
 </br>
-**Answer**: Moving a site to a different Web Hosting Plan is not currently supported using the Azure Portal Preview or the Full Azure Portal. However, using the Azure PowerShell tools {GO HERE}, you can move sites between different web hosting plans. To do this, install the Azure PowerShell tools, open a power shell prompt. Then, switch to the new **Azure Resource Manager** mode using the *Switch-AzureMode AzureResourceManager* Cmdlet and authenticate using the *Add-AzureAccount* Cmdlet.
+**Answer**: Moving a site to a different Web Hosting Plan is not currently supported using the Azure Portal Preview or the Full Azure Portal. However, using the [Azure PowerShell tools](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/), you can move sites between different web hosting plans. To do this, install the Azure PowerShell tools, open a power shell prompt. Then, switch to the new **Azure Resource Manager** mode using the *Switch-AzureMode AzureResourceManager* Cmdlet and authenticate using the *Add-AzureAccount* Cmdlet.
 </br>
 For this example assume a Resource Group named **powershell** with 2 Web Hosting Plans (**whp1** & **whp2**) and 2 Websites (**pstest** & **pstest2**) have already been created. To get the content of a Resource group you can use the *Get-AzureResourceGroup* Cmdlet:
 </br>
@@ -142,7 +142,7 @@ Next, we use the defined Hash Table **$whp** to set the Web Hosting Plan propert
 ![Use a Hash Table to set the Web Hosting Plan property of the site](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview15.png)
 </br>
 </br>
-For more information on using the Powershell Cmdlets visit this article ' FWLINK to powershell help
+For more information on using the Powershell Cmdlets visit [this article](http://msdn.microsoft.com/library/azure/jj156055.aspx).
 </br>
 Note that each web hosting plan has its own pricing tier. When you move a site from a **Free** tier web hosting plan to a **Standard** web hosting plan, your web site will be able to leverage all the features and resources of the Standard tier. 
 </br>
