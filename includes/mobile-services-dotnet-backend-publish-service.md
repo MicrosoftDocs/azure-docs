@@ -1,6 +1,6 @@
 
 
-After testing the Windows Store app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Azure and run the app against the live service.
+After testing the client app against the local mobile service, the final stage of this tutorial is to publish the mobile service to Azure and run the app against the live service.
 
 1. In Solution Explorer, right-click the mobile service project and click **Publish**
 
