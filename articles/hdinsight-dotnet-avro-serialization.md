@@ -32,7 +32,7 @@ Note that the Newtonsoft.Json.dll dependency is downloaded automatically with wi
 ###Microsoft Avro Library installation
 The Microsoft .NET Library for Avro is distributed as a NuGet Package that can be installed from Visual Studio using the following procedure: 
 
-- Select the **Project** tab -> **Manage NGet Packages...**
+- Select the **Project** tab -> **Manage NuGet Packages...**
 - Search for "Microsoft.Hadoop.Avro" in the **Online Search** box.
 - Click the **Install** button next to **Microsoft .NET Library for Avro**. 
 
@@ -46,7 +46,9 @@ The first two show how to serialize and deserialize data into memory stream buff
 
 The third and fourth examples show how to serialize and deserialize data into memory stream buffers using reflection and generic record with Avro object container files. When data is stored in an Avro container file, its schema is always stored with it because the schema must be shared for deserialization.
 
-The fifth and final example shows how to how to use a custom compression codec for object container files. 
+The sample containing the first four examples can be downloaded from [Azure code samples](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923) site.
+
+The fifth and final example shows how to how to use a custom compression codec for object container files. A sample containing the code for this example can be downloaded from the  [Azure  code samples](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) site.
 
 The Microsoft Avro Library is designed to work with any stream. In these examples, data is manipulated using memory streams rather than file streams or databases for simplicity and consistency. The approach taken in a production environment will depend on the exact scenario requirements, data source and volume, performance constraints, and other factors.
 
