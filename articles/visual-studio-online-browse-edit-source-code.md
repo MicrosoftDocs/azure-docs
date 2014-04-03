@@ -1,6 +1,6 @@
+<properties linkid="" urlDisplayName="Browse and Edit Your Source Code" pageTitle="Browse and Edit Your Source Code | Azure" metaKeywords="Visual Studio Online, VSO, git, tfvc, edit, code, commit" description="Learn how to edit your source code." metaCanonical="" services="visual-studio-online" documentationCenter="" title="Browse and Edit Your Source Code" authors="ehollow" solutions="" manager="" editor="" />
 
-
-# Browse and Edit your source code 
+# Browse and Edit Your Source Code
 
 In Microsoft Azure Portal Preview it is easy to browse and edit your Visual Studio Online Team Project source code.
 
