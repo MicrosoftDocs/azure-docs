@@ -1,55 +1,25 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="Multi-tier web site tutorial - Step 4: Worker role A" metaKeywords="Windows Azure tutorial, .NET multi-tier app, multi-tier architecture" description="The fourth tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role A (email scheduler) for the Windows Azure Email Service application - 4 of 5." authors=""  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" urlDisplayName="develop-net-tutorials-multi-tier-web-site-4-worker-role-a" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 4: Worker role A" metaKeywords="Azure tutorial, .NET multi-tier app, multi-tier architecture" description="The fourth tutorial in a series that teaches how to configure your computer for Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building worker role A (email scheduler) for the Azure Email Service application - 4 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+# Building worker role A (email scheduler) for the Azure Email Service application - 4 of 5. 
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><a href="../1-overview/">1. Overview</a></li>
-<li><a href="../2-download-and-run/">2. Download and Run</a></li>
-<li><a href="../3-web-role/">3. Web Role</a></li>
-<li><strong>4. WORKER ROLE A</strong></li>
-<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
-
-# Building worker role A (email scheduler) for the Windows Azure Email Service application - 4 of 5. 
-
-This is the fourth tutorial in a series of five that show how to build and deploy the Windows Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
+This is the fourth tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see the [first tutorial in the series][firsttutorial].
 
 In this tutorial you'll learn:
 
-* How to query and update Windows Azure Storage tables.
+* How to query and update Azure Storage tables.
 * How to add work items to a queue for processing by another worker role.
 * How to handle planned shut-downs by overriding the `OnStop` method.
 * How to handle unplanned shut-downs by making sure that no emails are missed and no duplicate emails are sent.
-* How to test a worker role that uses Windows Azure Storage tables, by using Azure Storage Explorer.
+* How to test a worker role that uses Azure Storage tables, by using Azure Storage Explorer.
  
-You already created the worker role A project when you created the cloud service project. So all you have to do now is program the worker role and configure it to use your Windows Azure Storage account.
+You already created the worker role A project when you created the cloud service project. So all you have to do now is program the worker role and configure it to use your Azure Storage account.
 
 
 
 
 <h2><a name="addref"></a><span class="short-header">Add project reference</span>Add a reference to the web project</h2>
 
-You need a reference to the web project because that is where the entity classes are defined. You'll use the same entity classes in worker role B to read and write data in the Windows Azure tables that the application uses.
+You need a reference to the web project because that is where the entity classes are defined. You'll use the same entity classes in worker role B to read and write data in the Azure tables that the application uses.
 
 **Note:** In a production application you wouldn't set a reference to a web project from a worker role project, because this results in referencing a number of dependent assemblies that you don't want or need in the worker role. Normally you would keep shared model classes in a class library project, and both web and worker role projects would reference the class library project. To keep the solution structure simple, model classes are stored in the web project for this tutorial.
 
@@ -57,7 +27,7 @@ You need a reference to the web project because that is where the entity classes
 
 	![Add reference in WorkerRoleA project][mtas-worker-a-add-reference-menu]
 
-4. In **Reference Manager**, add a reference to the MvcWebRole project (or to the web application project if you are running the web UI in a Windows Azure Web Site), then click **OK**.
+4. In **Reference Manager**, add a reference to the MvcWebRole project (or to the web application project if you are running the web UI in an Azure Web Site), then click **OK**.
 
 	![Add reference to MvcWebRole][mtas-worker-a-reference-manager]
 
@@ -65,6 +35,8 @@ You need a reference to the web project because that is where the entity classes
 
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
+
+>[WACOM.NOTE] Skip this step if you have installed SDK 2.3 or later.
 
 Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to one of the 1.7 assemblies. You already did this if you followed the steps in the previous tutorial, but the instructions are included here in case you missed that step.
 
@@ -159,7 +131,7 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
 
 3. Open *WorkerRoleA.cs* and examine the code.
 
-	The `OnStart` method initializes the context objects that you need in order to work with Windows Azure Storage entities. It also makes sure that all of the tables, queues, and blob containers that you'll be using in the `Run` method exist. The code that performs these tasks is similar to what you saw earlier in the MVC controller constructors. You'll configure the connection string that this method uses later.
+	The `OnStart` method initializes the context objects that you need in order to work with Azure Storage entities. It also makes sure that all of the tables, queues, and blob containers that you'll be using in the `Run` method exist. The code that performs these tasks is similar to what you saw earlier in the MVC controller constructors. You'll configure the connection string that this method uses later.
 
    
         public override bool OnStart()
@@ -186,7 +158,7 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
             return base.OnStart();
         }
 
-	You may have seen earlier documentation on working with Windows Azure Storage that shows the initialization code in a loop that checks for transport errors. This is no longer necessary because the API now has a built-in retry mechanism that absorbs transient network failures for up to 3 additional attempts.
+	You may have seen earlier documentation on working with Azure Storage that shows the initialization code in a loop that checks for transport errors. This is no longer necessary because the API now has a built-in retry mechanism that absorbs transient network failures for up to 3 additional attempts.
    
 	The `ConfigureDiagnostics` method that the `OnStart` method calls sets up tracing so that you will be able to see the output from `Trace.Information` and `Trace.Error` methods.  This method is explained in [the second tutorial][tut2].
 
@@ -204,13 +176,13 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
 
 	The `OnStop` method is called when the worker role is shutting down for one of the following reasons:
 
-	* Windows Azure needs to reboot the virtual machine (the web role or worker role instance) or the physical machine that hosts the virtual machine.
-	* You stopped your cloud service by using the **Stop** button on the Windows Azure Management Portal.
+	* Azure needs to reboot the virtual machine (the web role or worker role instance) or the physical machine that hosts the virtual machine.
+	* You stopped your cloud service by using the **Stop** button on the Azure Management Portal.
 	* You deployed an update to your cloud service project.
 
 	The `Run` method monitors the variable `onStopCalled` and stops pulling any new work items to process when that variable changes to `true`. This coordination between the `OnStop` and `Run` methods enables a graceful shutdown of the worker process.
 
-	Windows Azure periodically installs operating system updates in order to ensure that the platform is secure, reliable, and performs well. These updates typically require the machines that host your cloud service to shut down and reboot. For more information, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+	Azure periodically installs operating system updates in order to ensure that the platform is secure, reliable, and performs well. These updates typically require the machines that host your cloud service to shut down and reboot. For more information, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
 	The `Run` method performs two functions:
 
@@ -301,7 +273,7 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
         }
 
 
-	Notice that all of the work is done in an infinite loop in a `while` block, and all of the code in the `while` block is wrapped in a `try`-`catch` block to prevent an unhandled exception. If an unhandled exception occurs, Windows Azure will raise the [UnhandledException](http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx) event, the worker process is terminated, and the role is taken offline. The worker role will be restarted by Windows Azure, but this takes several minutes. The `try` block calls `TraceError` to record the error and then sleeps for 60 seconds so that if the error is persistent the error message won't be repeated too many times.  In a production application you might send an email to an administrator in the `try` block.
+	Notice that all of the work is done in an infinite loop in a `while` block, and all of the code in the `while` block is wrapped in a `try`-`catch` block to prevent an unhandled exception. If an unhandled exception occurs, Azure will raise the [UnhandledException](http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx) event, the worker process is terminated, and the role is taken offline. The worker role will be restarted by Azure, but this takes several minutes. The `try` block calls `TraceError` to record the error and then sleeps for 60 seconds so that if the error is persistent the error message won't be repeated too many times.  In a production application you might send an email to an administrator in the `try` block.
 
 	The `Run` method processes a query for `message` rows in the `message` table that have scheduled date before tomorrow:
 
@@ -354,7 +326,7 @@ For reading and writing the `SendEmail` rows, a model class is required.  Since 
                 // Sleep for one minute to minimize query costs.
                 System.Threading.Thread.Sleep(1000*60);
 
-	There is a minimal charge for every Windows Azure Storage query, even if it doesn't return any data, so continuously re-scanning would unnecessarily add to your Windows Azure expenses. As this tutorial is being written, the cost is $0.10 per million transactions (a query counts as a transaction), so the sleep time could be made much less than a minute and the cost of scanning the tables for messages to be sent would still be minimal. For more information about pricing, see the [first tutorial][firsttutorial].
+	There is a minimal charge for every Azure Storage query, even if it doesn't return any data, so continuously re-scanning would unnecessarily add to your Azure expenses. As this tutorial is being written, the cost is $0.10 per million transactions (a query counts as a transaction), so the sleep time could be made much less than a minute and the cost of scanning the tables for messages to be sent would still be minimal. For more information about pricing, see the [first tutorial][firsttutorial].
 
 	**Note on threading and optimal CPU utilization:** There are two tasks in the `Run` method (queuing emails and checking for completed messages), and they run sequentially in a single thread. A small virtual machine (VM) has 1.75 GB RAM and only one CPU, so it's probably OK to run these tasks sequentially with a single thread. Suppose your application needed more memory than the small VM  provided to run efficiently. A medium VM provides 3.5 GB RAM and 2 CPU's, but this application would only use one CPU, because it's single threaded. To take advantage of all the CPUs, you would need to create a worker thread for each CPU. Even so, a single CPU is not fully utilized by one thread. When a thread  makes network or I/O calls, the thread must wait for the I/O or network call to complete, and while it waits, it's not doing useful work. If the `Run` method was implemented using two threads, when one thread was waiting for a network or I/O operation to complete, the other thread could be doing useful work.
 
@@ -573,6 +545,8 @@ If you didn't already configure the storage account credentials for worker role 
 
 1. Run the application by pressing F5.
 
+>[WACOM.NOTE] With Visual Studio 2013 and the latest SDK, you might get an "ambiguous reference" error for the reference to `LogLevel`. Right-click `LogLevel`, click Resolve, and select `Microsoft.WindowsAzure.Diagnostics.LogLevel`.
+
 2. Use the administrator web pages to create a mailing list and create subscribers to the mailing list. Set the `Verified` property to `true` for at least one of the subscribers, and set the email address to an address that you can receive mail at.
 
 	No emails will be sent until you implement worker role B, but you'll use the same test data for testing worker role B.
@@ -617,9 +591,9 @@ If you didn't already configure the storage account credentials for worker role 
 
 You have now built worker role A and verified that it creates the queue messages and table rows that worker role B needs in order to send emails. In the [next tutorial][tut5], you'll build and test worker role B.
 
-For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../cloud-services-dotnet-multi-tier-app-storage-5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/" class="site-arrowboxcta download-cta">Tutorial 5</a></div>
 
 
 

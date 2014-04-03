@@ -1,11 +1,11 @@
-<properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Windows Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Windows Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties linkid="develop-mobile-tutorials-command-line-administration" urlDisplayName="Command Line Administration" pageTitle="Administering a Mobile Service at the command line - Azure tutorial" metaKeywords="" description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." metaCanonical="" services="" documentationCenter="Mobile" title="Automate mobile services with command-line tools" authors="glenga" solutions="" manager="" editor="" />
 
 
 
 
 # Automate mobile services with command-line tools 
 
-This topic shows you how to use the Windows Azure command-line tools to automate the creation and management of Windows Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform the following Mobile Services tasks:
+This topic shows you how to use the Azure command-line tools to automate the creation and management of Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform the following Mobile Services tasks:
 
 -	[Create a new mobile service] 
 -	[Create a new table]
@@ -17,25 +17,25 @@ This topic shows you how to use the Windows Azure command-line tools to automate
  
 When combined into a single script or batch file, these individual commands automate the creation, verification, and deletion process of a mobile service. 
 
-To use the Windows Azure command-line tools to manage Mobile Services, you need a Windows Azure account that has the Windows Azure Mobile Services feature enabled.
+To use the Azure command-line tools to manage Mobile Services, you need an Azure account that has the Azure Mobile Services feature enabled.
 
-+ If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">Windows Azure Free Trial</a>.
++ If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
 
-+ If you have an existing account but need to enable the Windows Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Windows Azure preview features</a>.
++ If you have an existing account but need to enable the Azure Mobile Services preview, see <a href="../create-a-windows-azure-account/#enable" target="_blank">Enable Azure preview features</a>.
 
-This topic covers a selection of common administration tasks supported by the Windows Azure command-line tools. For more information, see [Windows Azure command-line tools documentation][reference-docs].
+This topic covers a selection of common administration tasks supported by the Azure command-line tools. For more information, see [Azure command-line tools documentation][reference-docs].
 
-<!--+  You must download and install the Windows Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
+<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
 
 + (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
-<h2><a name="install"></a><span class="short-header">Install the tools</span>Install the Windows Azure Command-Line Tools</h2>
+<h2><a name="install"></a><span class="short-header">Install the tools</span>Install the Azure Command-Line Tools</h2>
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
-* **Windows**: Download the [Windows Azure Command-Line Tools Installer][windows-installer]. Open the downloaded .msi file and complete the installation steps as you are prompted.
+* **Windows**: Download the [Azure Command-Line Tools Installer][windows-installer]. Open the downloaded .msi file and complete the installation steps as you are prompted.
 
-* **Mac**: Download the [Windows Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
+* **Mac**: Download the [Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
 
 * **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
 
@@ -62,7 +62,7 @@ To see a list of options for `account` commands, use the `-help` option:
 
 		azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Windows Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Windows Azure Mobile Services from the command line or in batch files.  
+After importing your publish settings, you should delete the `.publishsettings` file for security reasons. For more information, see [How to install the Azure Command-Line Tools for Mac and Linux]. You are now ready to begin creating and managing Azure Mobile Services from the command line or in batch files.  
 
 <h2><a name="create-service"></a><span class="short-header">Create service</span>How to create a mobile service</h2>
 
@@ -76,7 +76,7 @@ The `mobile create` command fails when the specified mobile service exists. In y
 
 <h2><a name="list-services"></a><span class="short-header">List services</span>How to list existing mobile services in a subscription</h2>
 
-The following command returns a list of all the mobile services in a Windows Azure subscription:
+The following command returns a list of all the mobile services in an Azure subscription:
 
 		azure mobile list
 
@@ -106,7 +106,7 @@ The following command creates a new table with public `read` permission but with
 
 		azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-The following table shows the script permission value compared to the permission value in the [Windows Azure Management Portal].
+The following table shows the script permission value compared to the permission value in the [Azure Management Portal].
 
 <table border="1" width="100%"><tr><th>Script value</th><th>Management Portal value</th></tr>
 <tr><td><code>public</code></td><td>Everyone</td></tr>
@@ -186,12 +186,12 @@ Next steps here....
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
 [reference-docs]: /en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
-[How to install the Windows Azure Command-Line Tools for Mac and Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
+[How to install the Azure Command-Line Tools for Mac and Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 

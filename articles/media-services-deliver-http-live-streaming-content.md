@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Windows Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="migree" solutions="" manager="" editor="" />
 
 
 
@@ -6,7 +6,7 @@
 
 <h1>How to: Deliver Apple HLS streaming content</h1>
 
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Deliver Streaming Content](http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409).
 
 This topic shows how to create a locator to Apple HTTP Live Streaming (HLS) content on a Media Services origin server. Using this approach, you can build a URL to Apple HLS content, and provide it to Apple iOS devices for playback. The basic approach to building the locator URL is the same. Build a locator to the Apple HLS streaming asset path on an origin server, and then build a full URL that links to the manifest for the streaming content.
 
@@ -69,18 +69,18 @@ For more information about delivering assets, see:
 
 <h2>Next steps</h2>
 
-This topic concludes the Using Windows Azure Media Services topics. We have covered setting up your machine for Media Services development and performing typical programming tasks. For more information about programming Media Services, see the following resources :
+This topic concludes the Using Azure Media Services topics. We have covered setting up your machine for Media Services development and performing typical programming tasks. For more information about programming Media Services, see the following resources :
 
--   [Windows Azure Media Services Documentation][]
+-   [Azure Media Services Documentation][]
 -   [Getting Started with the Media Services SDK for .NET][]
 -   [Building Applications with the Media Services SDK for .NET][]
--   [Building Applications with the Windows Azure Media Services REST API][]
+-   [Building Applications with the Azure Media Services REST API][]
 -   [Media Services Forum][]
 -	[How to Monitor a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/)
 -	[How to Manage Content in Media Services](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/)
 
-[Windows Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
+[Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
 [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-[Building Applications with the Windows Azure Media Services REST API]: http://go.microsoft.com/fwlink/?linkid=252967
+[Building Applications with the Azure Media Services REST API]: http://go.microsoft.com/fwlink/?linkid=252967
 [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
 [Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads

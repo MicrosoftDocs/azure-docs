@@ -4,9 +4,9 @@
 
 You use the **Quick Create** method to quickly create a virtual machine in the Management Portal. When you create this machine, you use one dialog box to provide the configuration details.
 
-**Note**: This article creates a virtual machine that is not connected to a virtual network. If you want your virtual machine to use a virtual network, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Note**: This article creates a virtual machine that is not connected to a virtual network. If you want your virtual machine to use a virtual network, use the **From Gallery** method instead and specify the virtual network when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. On the command bar, click **New**.
 

@@ -1,18 +1,18 @@
-<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Configuring SSL for a Node.js Application in a Windows Azure Worker Role" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-nodejs-enablesslworker" urlDisplayName="Enable SSL worker role" pageTitle="Configure SSL for a cloud service (Node.js) worker role" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Configuring SSL for a Node.js Application in an Azure Worker Role" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-# Configuring SSL for a Node.js Application in a Windows Azure Worker Role
+# Configuring SSL for a Node.js Application in an Azure Worker Role
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of
 securing data sent across the internet. This common task discusses how
-to specify an HTTPS endpoint for a Node.js application hosted as a Windows Azure Cloud Service in a worker role.
+to specify an HTTPS endpoint for a Node.js application hosted as an Azure Cloud Service in a worker role.
 
 <div class="dev-callout">
 	<b>Note</b>
-	<p>The steps in this article only apply to node applications hosted as a Windows Azure Cloud Service in a worker role.</p>
+	<p>The steps in this article only apply to node applications hosted as an Azure Cloud Service in a worker role.</p>
 	</div>
 
 This task includes the following steps:
@@ -26,11 +26,11 @@ This task includes the following steps:
 ## <a name="step1"> </a>Step 1: Create a Node.js service and publish the service to the cloud
 
 You can create a simple Node.js 'hello
-world' service using the Windows Azure PowerShell using these steps:
+world' service using the Azure PowerShell using these steps:
 
-1. From the **Start Menu** or **Start Screen**, search for **Windows Azure PowerShell**. Finally, right-click **Windows Azure PowerShell** and select **Run As Administrator**.
+1. From the **Start Menu** or **Start Screen**, search for **Azure PowerShell**. Finally, right-click **Azure PowerShell** and select **Run As Administrator**.
 
-	![Windows Azure PowerShell icon][powershell-menu]
+	![Azure PowerShell icon][powershell-menu]
 
 	
 
@@ -48,10 +48,10 @@ world' service using the Windows Azure PowerShell using these steps:
 
 	<div class="dev-callout">
 	<strong>Note</strong>
-	<p>If you have not previously imported publish settings for your Windows Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Windows Azure PowerShell for Node.js</a></p>
+	<p>If you have not previously imported publish settings for your Azure subscription, you will receive an error when trying to publish. For information on downloading and importing the publish settings for your subscription, see <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">How to Use the Azure PowerShell for Node.js</a></p>
 	</div>
 
-The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Windows Azure.
+The **Created Website URL** value returned by the **Publish-AzureServiceProject** cmdlet contains the fully qualified domain name for your hosted application. You will need to obtain an SSL certificate for this specific fully qualified domain name and deploy it to Azure.
 
 ## <a name="step2"> </a>Step 2: Get an SSL Certificate
 
@@ -62,7 +62,7 @@ not already have one, you will need to obtain one from a company that
 sells SSL certificates.
 
 The certificate must meet the following requirements for SSL
-certificates in Windows Azure:
+certificates in Azure:
 
 -   The certificate must contain a private key.
 -   The certificate must be created for key exchange (**.pfx** file).
@@ -72,7 +72,7 @@ certificates in Windows Azure:
     the custom domain name used to access your application. For example, __mysecuresite.cloudapp.net__.
 -   The certificate must use a minimum of 2048-bit encryption.
 
-The **.pfx** file containing the certificate will be added to your service project and deployed to Windows Azure in the following steps.
+The **.pfx** file containing the certificate will be added to your service project and deployed to Azure in the following steps.
 
 ## <a name="step3"> </a>Step 3: Modify the Application to use the SSL certificate
 
@@ -102,7 +102,7 @@ When a Node.js application is deployed to a worker role, the server certificate 
 
 3.   Save the **server.js** file.
 
-The modifications to the **server.js** file result in the application listening for communication on port 443 (the standard port for SSL communications) when it is deployed to Windows Azure. The **.pfx** file will be used to implement SSL communications over this transport.
+The modifications to the **server.js** file result in the application listening for communication on port 443 (the standard port for SSL communications) when it is deployed to Azure. The **.pfx** file will be used to implement SSL communications over this transport.
 
 ## <a name="step4"> </a>Step 4: Modify the Service Definition File
 
@@ -123,12 +123,12 @@ Since your application is now listening over port 443, you must also modify the 
 	After making this change, save the **ServiceDefinition.csdef** file.
 
 4.  Refresh your updated configuration in the cloud by publishing
-    your service again. At the Windows Azure PowerShell
+    your service again. At the Azure PowerShell
     prompt, type **Publish-AzureServiceProject** from the service directory.
 
 ## <a name="step5"> </a>Step 5: Connect to the Role Instance by Using HTTPS
 
-Now that your deployment is up and running in Windows Azure, you can
+Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
 
 1.  In the Management Portal, select your cloud service, then click **Dashboard**.
@@ -154,7 +154,7 @@ connect to it using HTTPS.
 
 [How to Associate a Certificate with a Service]
 
-[Configuring SSL for a Node.js Application in a Windows Azure Web Role]
+[Configuring SSL for a Node.js Application in an Azure Web Role]
 
 [How to Configure an SSL Certificate on an HTTPS Endpoint]
 
@@ -163,7 +163,7 @@ connect to it using HTTPS.
   [Step 3: Modify the Application to use the SSL certificate]: #step3
   [Step 4: Modify the Service Definition File]: #step4
   [Step 5: Connect to the Role Instance by Using HTTPS]: #step5
-  [**Windows Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
+  [**Azure PowerShell**]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
   
   
   
@@ -171,7 +171,7 @@ connect to it using HTTPS.
   [1]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-01.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-02-worker.png
   [3]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/enable-ssl-03-worker.png
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   
   
   [How to Associate a Certificate with a Service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
@@ -182,5 +182,5 @@ connect to it using HTTPS.
   [powershell-menu]: ./media/cloud-services-nodejs-configure-ssl-certficate-worker-role/azure-powershell-start.png
   
   
-  [Configuring SSL for a Node.js Application in a Windows Azure Web Role]: /en-us/develop/nodejs/common-tasks/enable-ssl/
+  [Configuring SSL for a Node.js Application in an Azure Web Role]: /en-us/develop/nodejs/common-tasks/enable-ssl/
   

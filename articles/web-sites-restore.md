@@ -1,22 +1,22 @@
-<properties linkid="web-sites-restore" urlDisplayName="Restore a Windows Azure web site" pageTitle="Restore a Windows Azure web site" metaKeywords="Windows Azure Web Sites, Restore, restoring" description="Learn how to restore your Windows Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Windows Azure web site" authors=""  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
+<properties linkid="web-sites-restore" urlDisplayName="Restore a Microsoft Azure web site" pageTitle="Restore a Microsoft Azure web site" metaKeywords="Azure Web Sites, Restore, restoring" description="Learn how to restore your Azure web sites from backup." metaCanonical="" services="web-sites" documentationCenter="" title="Restore a Microsoft Azure web site" authors="timamm"  solutions="" writer="timamm" manager="paulettm" editor="mollybos"  />
 
-#Restore a Windows Azure web site
+#Restore a Microsoft Azure web site
 
-This article shows you how to restore a web site that you have previously backed up by using the Windows Azure Web Sites Backup feature. For more information, see [Windows Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
+This article shows you how to restore a web site that you have previously backed up by using the Azure Web Sites Backup feature. For more information, see [Microsoft Azure Web Sites Backups](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/). 
 
-The Windows Azure Web Sites Restore feature lets restore your web site on-demand to a previous state, or create a new web site based on one of your original site's backups. Creating a new web site that runs in parallel to the latest version can be useful for A/B testing.
+The Azure Web Sites Restore feature lets restore your web site on-demand to a previous state, or create a new web site based on one of your original site's backups. Creating a new web site that runs in parallel to the latest version can be useful for A/B testing.
 
-The Restore feature, available on the Backups tab in the Windows Azure Web Sites portal, is available only in Standard mode.
+The Restore feature, available on the Backups tab in the Azure Web Sites portal, is available only in Standard mode.
 
 ##In this article
-- [To Restore a Windows Azure web site from a previously made backup](#PreviousBackup)
-- [To Restore a Windows Azure web site directly from a storage account](#StorageAccount)
+- [To Restore an Azure web site from a previously made backup](#PreviousBackup)
+- [To Restore an Azure web site directly from a storage account](#StorageAccount)
 - [Choose Your Web Site Restore Settings and Start the Restore Operation](#RestoreSettings)
 - [View the Operation Logs](#OperationLogs)
 
 
 <a name="PreviousBackup"></a>
-##To Restore a Windows Azure web site from a previously made backup
+##To Restore an Azure web site from a previously made backup
 
 1. On the **Backups** tab, click **Restore Now** in the command bar at the bottom of the portal page. The **Restore Now** dialog box appears.
 	
@@ -27,7 +27,7 @@ The Restore feature, available on the Backups tab in the Windows Azure Web Sites
 4. Follow the steps in the [Choose Your Web Site Restore Settings](#RestoreSettings) section later in this article.
 
 <a name="StorageAccount"></a>
-##To Restore a Windows Azure web site directly from a storage account
+##To Restore an Azure web site directly from a storage account
 
 1. On the **Backups** tab, click **Restore Now** in the command bar at the bottom of the portal page. The **Restore Now** dialog box appears.
 	

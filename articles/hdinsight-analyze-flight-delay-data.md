@@ -1,5 +1,4 @@
-<properties linkid="manage-services-hdinsight-analyze-flight-delay-data" urlDisplayName="Analyze flight delay data with HDInsight" pageTitle="Analyze flight delay data using HDInsight
- | Windows Azure" metaKeywords="" description="Learn how to upload data to HDInsight, how to process the data using Hive, and how to export the results to SQL Database using Sqoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using HDInsight" authors="jgao"  solutions="" writer="jgao" manager="paulettm" editor="cgronlun"  />
+<properties linkid="manage-services-hdinsight-analyze-flight-delay-data" urlDisplayName="Analyze flight delay data with HDInsight" pageTitle="Analyze flight delay data using HDInsight | Azure" metaKeywords="" description="Learn how to upload data to HDInsight, how to process the data using Hive, and how to export the results to SQL Database using Sqoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 #Analyze flight delay data using HDInsight
 
@@ -9,8 +8,8 @@ Hive provides a means of running MapReduce job through an SQL-like scripting lan
 
 Before you begin this tutorial, you must have the following:
 
-* A Windows Azure HDInsight cluster. For information on provision HDInsight cluster, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
-* A workstation with Windows Azure PowerShell installed and configured. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
+* An Azure HDInsight cluster. For information on provision HDInsight cluster, see [Get started with HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision].
+* A workstation with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 	
 **Estimated time to complete:** 30 minutes
 
@@ -19,21 +18,21 @@ Before you begin this tutorial, you must have the following:
 * [Prepare the tutorial](#prepare)
 * [Create and upload HiveQL script](#createscript)
 * [Execute HiveQL script](#executehqlscript)
-* [Export the output to Windows Azure SQL Database](#exportdata)
+* [Export the output to Azure SQL Database](#exportdata)
 * [Next steps](#nextsteps)
 
 ##<a id="prepare"></a>Prepare the tutorial
 This tutorial uses the on-time performance of airline flights data from [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA) to your workstation. You will perform the following:
 
 1. download on-time performance data from RITA to your workstation using a Web browser
-2. upload the data to HDInsight using Windows Azure PowerShell
-3. prepare the SQL Database for data export using Windows Azure PowerShell
+2. upload the data to HDInsight using Azure PowerShell
+3. prepare the SQL Database for data export using Azure PowerShell
 
 **Understand HDInsight storage**
 
-HDInsight uses Windows Azure Blob storage for data storage.  It is called *WASB* or *Windows Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Windows Azure Blob storage. For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+HDInsight uses Azure Blob storage for data storage.  It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
-When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add additional containers from either the same Windows Azure storage account or different Windows Azure storage accounts during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
+When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add additional containers from either the same Azure storage account or different Azure storage accounts during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
 
 To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/flightdelays*. By default this container has the same name as the HDInsight cluster name. 
 
@@ -43,7 +42,7 @@ The WASB syntax is:
 
 > [WACOM.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
 
-> The WASB path is virtual path.  For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+> The WASB path is virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
 For a file stored in the default file system container. it can be accessed from HDInsight using any of the following URIs (use flightdelays.hql as an example):
 
@@ -97,14 +96,14 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 5.	Rename the file to the name of the month that it contains data for. For example, the file containing the January data would be named *January.csv*.
 6. Repeat step 2 and 5 to download a file for each of the 12 months in 2012. You will need minimum one file to run the tutorial.  
 
-**To upload the flight delay data to Windows Azure Blob storage**
+**To upload the flight delay data to Azure Blob storage**
 
-1. Open Windows Azure PowerShell. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install-configure].
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 
 2. Set the first three variables, and then run the commands.
 
@@ -120,9 +119,9 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 	These are the variables and their description: 
 	<table border="1">
 	<tr><td><strong>Variable Name</strong></td><td><strong>Description</strong></td></tr>
-	<tr><td>$subscriptionName</td><td>Your Windows Azure subscription name.</td></tr>
-	<tr><td>$storageAccountName</td><td>The Windows Azure Storage account used for storing the flight data files. It is recommended to use the default storage account.</td></tr>
-	<tr><td>$containerName</td><td>The Windows Azure Blob storage container used for storing the flight data files. It is recommended to use the default HDInsight cluster file system Blob container.  By default, it has the same name as the HDInsight cluster.</td></tr>
+	<tr><td>$subscriptionName</td><td>Your Azure subscription name.</td></tr>
+	<tr><td>$storageAccountName</td><td>The Azure Storage account used for storing the flight data files. It is recommended to use the default storage account.</td></tr>
+	<tr><td>$containerName</td><td>The Azure Blob storage container used for storing the flight data files. It is recommended to use the default HDInsight cluster file system Blob container.  By default, it has the same name as the HDInsight cluster.</td></tr>
 	<tr><td>$localFolder</td><td>This is the folder on your workstation where the flight delay files are stored.</td></tr>
 	<tr><td>$destFolder</td><td>This is the WASB path where the flight delay data will be uploaded to. Hadoop (HDInsight) path is case sensitive.</td></tr>
 	<tr><td>$month</td><td>If you didn't download all 12 files, you need to update this variable</td></tr>
@@ -161,20 +160,20 @@ If you choose to use a different method for uploading the files, please make sur
 
 **To prepare the SQL database**
 
-1. Open Windows Azure PowerShell. 
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open Azure PowerShell. 
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 
 3. Set the first six variables in the following script, and then run the commands:
 	
-		# Windows Azure subscription name
+		# Azure subscription name
 		$subscriptionName = "<WindowsAzureSubscriptionName>"
 				
 		# SQL database server variables
-		$sqlDatabaseServer = ""  # specify the Windows Azure SQL database server name if you have one created. Otherwise use "".
+		$sqlDatabaseServer = ""  # specify the Azure SQL database server name if you have one created. Otherwise use "".
 		$sqlDatabaseUsername = "<SQLDatabaseUserName>"
 		$sqlDatabasePassword = "<SQLDatabasePassword>"
 		$sqlDatabaseLocation = "<MicrosoftDataCenter>"   #For example, West US.
@@ -197,7 +196,7 @@ If you choose to use a different method for uploading the files, please make sur
 	These are the variables and their descriptions:
 	<table border="1">
 	<tr><td><strong>Variable Name</strong></td><td><strong>Description</strong></td></tr>
-	<tr><td>$subscriptionName</td><td>Your Windows Azure subscription name.</td></tr>
+	<tr><td>$subscriptionName</td><td>Your Azure subscription name.</td></tr>
 	<tr><td>$sqlDatabaseServer</td><td>The SQL Database server name used by Sqoop to export data to. If you leave it as it is, the script will create one for you. Otherwise, specify an existing SQL Datbase  or SQL Server.</td></tr>
 	<tr><td>$sqlDatabaseUsername</td><td>SQL Database/SQL Server user name.</td></tr>
 	<tr><td>$sqlDatabasePassword</td><td>SQL Database/SQL Server user password.</td></tr>
@@ -208,10 +207,10 @@ If you choose to use a different method for uploading the files, please make sur
 
 4. Run the following commands to create SQL Database server/database/table.
 				
-		# Select the current Windows Azure subscription in case there are multiple subscriptions
+		# Select the current Azure subscription in case there are multiple subscriptions
 		Select-AzureSubscription $subscriptionName
 
-	    # create a new Windows Azure SQL Database if requested
+	    # create a new Azure SQL Database if requested
 	    if ([string]::IsNullOrEmpty($sqlDatabaseServer))
 	    {
 	        $sqlDatabaseServer = New-AzureSqlDatabaseServer -AdministratorLogin $sqlDatabaseUsername -AdministratorLoginPassword $sqlDatabasePassword -Location $sqlDatabaseLocation 
@@ -264,7 +263,7 @@ If you choose to use a different method for uploading the files, please make sur
 
 ##<a id="createscript"></a>Create and upload HiveQL script
 
-Using Windows Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file. In this tutorial, you will create a HiveQL script. The script file must be uploaded to WASB. In the next section, you will run the script file using Windows Azure PowerShell.
+Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file. In this tutorial, you will create a HiveQL script. The script file must be uploaded to WASB. In the next section, you will run the script file using Azure PowerShell.
 
 The HiveQL script will perform the following:
 
@@ -283,8 +282,8 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 **To create an HiveQL script file**
 
-1. Open Windows Azure PowerShell.
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open Azure PowerShell.
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
@@ -303,12 +302,12 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 	These are the variables and their description: 
 	<table border="1">
 	<tr><td><strong>Variable Name</strong></td><td><strong>Description</strong></td></tr>
-	<tr><td>$storageAccountName</td><td>The Windows Azure Storage account used for storing the HiveQL script file. The PowerShell scripts provided in this tutorial require both the flight data files and the script file located in the same Windows Azure Storage account and Blob storage container.</td></tr>
-	<tr><td>$containerName</td><td>The Windows Azure Blob storage container used for storing the HiveQL script file. The PowerShell scripts provided in this tutorial require both the flight data files and the script file located in the same Windows Azure Storage account and Blob storage container.</td></tr>
+	<tr><td>$storageAccountName</td><td>The Azure Storage account used for storing the HiveQL script file. The PowerShell scripts provided in this tutorial require both the flight data files and the script file located in the same Azure Storage account and Blob storage container.</td></tr>
+	<tr><td>$containerName</td><td>The Azure Blob storage container used for storing the HiveQL script file. The PowerShell scripts provided in this tutorial require both the flight data files and the script file located in the same Azure Storage account and Blob storage container.</td></tr>
 	<tr><td>$hqlLocalFileName</td><td>The local files name for the HiveQL script before it is upload to WASB. To simplify the PowerShell script, you will write the file locally and then use the Set-AzureStorageBlobContent cmdlet to upload the script file to HDInsight.</td></tr>
 	<tr><td>$hqlBlobName</td><td>This is the script file name with path on WASB</td></tr>
 	<tr><td>$srcDataFolder</td><td>This is the folder on WASB where the HiveQL script pulls data from.</td></tr>
-	<tr><td>$dstDataFolder </td><td>This is the folder on WASB where the HiveQL script sends the output to. Later in the tutorial, you will use Sqoop to export the data on this folder to Windows Azure SQL Database.</td></tr>
+	<tr><td>$dstDataFolder </td><td>This is the folder on WASB where the HiveQL script sends the output to. Later in the tutorial, you will use Sqoop to export the data on this folder to Azure SQL Database.</td></tr>
 	</table>
 
 3. Run the following commands to define the HiveQL statements:
@@ -418,20 +417,20 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
 
 ##<a id="executehqlscript"></a>Execute HiveQL script 
 
-There are several Windows Azure PowerShell cmdlets you can use to run Hive. This tutorial uses Invoke-Hive. For other methods, see [Use Hive with HDInsight][hdinsight-hive]. Using Invoke-Hive, you can run either a HiveQL statement or a HiveQL script. You will use the HiveQL script you have created and uploaded to Windows Azure Blob storage.
+There are several Azure PowerShell cmdlets you can use to run Hive. This tutorial uses Invoke-Hive. For other methods, see [Use Hive with HDInsight][hdinsight-hive]. Using Invoke-Hive, you can run either a HiveQL statement or a HiveQL script. You will use the HiveQL script you have created and uploaded to Azure Blob storage.
 
 There is a known Hive path issue. The instructions for fixing the issue can be found at [TechNet Wiki][technetwiki-hive-error].
 
 **To run the Hiver queries using PowerShell**
 
-1. Open Windows Azure PowerShell.
+1. Open Azure PowerShell.
 2. Run the following command to change the current directory:
 
 	cd \Tutorials\FlightDelays\
 
 	This step is necessory because you will download a copy of the Hive output to your workstation. By default, you don't have write permission on the PowerShell folder. 
 
-2. Run the following command to connect to your Windows Azure subscription:
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
  
@@ -447,8 +446,8 @@ There is a known Hive path issue. The instructions for fixing the issue can be f
 	<table border="1">
 	<tr><td><strong>Variable Name</strong></td><td><strong>Description</strong></td></tr>
 	<tr><td>$clusterName</td><td>The HDInsight cluster that will run the Hive script and Sqoop export.</td></tr>
-	<tr><td>$storageAccountName</td><td>The Windows Azure Storage account used for storing the HiveQL script. See <a href = "#createScript">Create and upload HiveQL script</a>.</td></tr>
-	<tr><td>$containerName</td><td>The Windows Azure Blob storage container used for storing the HiveQL script. See <a href = "#createScript">Create and upload HiveQL script</a>.</td></tr>
+	<tr><td>$storageAccountName</td><td>The Azure Storage account used for storing the HiveQL script. See <a href = "#createScript">Create and upload HiveQL script</a>.</td></tr>
+	<tr><td>$containerName</td><td>The Azure Blob storage container used for storing the HiveQL script. See <a href = "#createScript">Create and upload HiveQL script</a>.</td></tr>
 	<tr><td>$hqlScriptFile</td><td>This is the URI for the HiveQL script file.</td></tr>
 	<tr><td>$outputBlobName</td><td>This is HiveQL script output file. The default name is *000000_0*.</td></tr>
 	</table>
@@ -485,13 +484,13 @@ There is a known Hive path issue. The instructions for fixing the issue can be f
 	Between each city and delay time, there is a delimiter that is not visible in the PowerShell output window. It is "\001". You will use this delimiter when you run Sqoop export.
 
 		
-##<a id="exportdata"></a>Export the Hive job output to Windows Azure SQL Database
+##<a id="exportdata"></a>Export the Hive job output to Azure SQL Database
 The last steps is to run Sqoop export to export the data to SQL Database. You have create the SQL Database and the AvgDelays table earlier in the tutorial.
 
 **To export data to SQL Database**
 
-1. Open Windows Azure PowerShell.
-2. Run the following command to connect to your Windows Azure subscription:
+1. Open Azure PowerShell.
+2. Run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
@@ -540,7 +539,7 @@ The last steps is to run Sqoop export to export the data to SQL Database. You ha
 
 
 ##<a id="nextsteps"></a> Next steps
-Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Windows Azure SQL Database. To learn more, see the following articles:
+Now that you understand how to upload file to Blob storage, how to populate a Hive table using the data from Blob storage, how to run Hive queries, and how to use Sqoop to export data from HDFS to Azure SQL Database. To learn more, see the following articles:
 
 * [Getting Started with HDInsight][hdinsight-get-started]
 * [Use Hive with HDInsight][hdinsight-hive]

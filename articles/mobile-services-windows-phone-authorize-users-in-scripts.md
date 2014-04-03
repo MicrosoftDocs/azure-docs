@@ -1,4 +1,4 @@
-<properties pageTitle="Service-side authorization (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Windows Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga"  solutions="" writer="" manager="" editor=""  />
+<properties pageTitle="Service-side authorization (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
 # Service-side authorization of Mobile Services users
 
@@ -9,7 +9,7 @@
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>This topic shows you how to use server scripts to authorize authenticated users for accessing data in Windows Azure Mobile Services from a Windows Phone 8 app. In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.</p>
+<p>This topic shows you how to use server scripts to authorize authenticated users for accessing data in Azure Mobile Services from a Windows Phone 8 app. In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.</p>
 <p>This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">Get started with authentication</a>. Before you start this tutorial, you must first complete <a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8">Get started with authentication</a>.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-scripts-for-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298630" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">15:00</span></div>
@@ -18,7 +18,7 @@
 ## <a name="register-scripts"></a>Register scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.
 
-1. Log on to the [Windows Azure Management Portal], click **Mobile Services**, and then click your app. 
+1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app. 
 
    	![][0]
 
@@ -67,7 +67,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
    	This inserts both the text and the userId in the TodoItem table in the mobile service. Because the new item has the correct userId value, it is returned by the mobile service.
 
-5. Back in the **todoitem** table in the [Management Portal][Windows Azure Management Portal], click **Browse** and verify that each newly added item now has an associated userId value.
+5. Back in the **todoitem** table in the [Management Portal][Azure Management Portal], click **Browse** and verify that each newly added item now has an associated userId value.
 
 ## Next steps
 
@@ -100,4 +100,4 @@ This concludes the tutorials that demonstrate the basics of working with authent
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
 [Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/

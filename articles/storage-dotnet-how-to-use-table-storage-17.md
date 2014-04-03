@@ -1,4 +1,4 @@
-<properties linkid="dev-net-2-how-to-table-services" urlDisplayName="Table Service (2.0)" pageTitle="How to use table storage - Windows Azure feature guide" metaKeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" description="Learn how to use table storage to create and delete tables and insert and query entities in a table." metaCanonical="" services="storage" documentationCenter=".NET" title="How to use the Table Storage Service" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="dev-net-2-how-to-table-services" urlDisplayName="Table Service (2.0)" pageTitle="How to use table storage | Microsoft Azure" metaKeywords="Get started Azure table, Azure nosql, Azure large structured data store, Azure table, Azure table storage, Azure table .NET, Azure table storage .NET, Azure table C#, Azure table storage C#" description="Learn how to use table storage to create and delete tables and insert and query entities in a table." metaCanonical="" services="storage" documentationCenter=".NET" title="How to use the Table Storage Service" authors="" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
@@ -16,7 +16,7 @@
 
 
 This guide will show you how to perform common scenarios using the
-Windows Azure Table storage service. The samples are written in C\# code
+Azure Table storage service. The samples are written in C\# code
 and use the .NET API. The scenarios covered include **creating and
 deleting a table, inserting and querying entities in a table**. For more
 information on tables, see the [Next steps][] section.
@@ -25,7 +25,7 @@ information on tables, see the [Next steps][] section.
 
 -   [What is the Table Service][]
 -   [Concepts][]
--   [Create a Windows Azure Storage account][]
+-   [Create an Azure Storage account][]
 -   [Setup a storage connection string][]
 -   [How to: Programmatically access table storage][]
 -   [How to: Create a table][]
@@ -43,34 +43,34 @@ information on tables, see the [Next steps][] section.
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
-<h2><a name="create-account"></a><span class="short-header">Create an account</span>Create a Windows Azure Storage account</h2>
+<h2><a name="create-account"></a><span class="short-header">Create an account</span>Create an Azure Storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a name="setup-connection-string"></a><span class="short-header">Setup a connection string</span>Setup a storage connection string</h2>
 
-The Windows Azure .NET storage API supports using a storage connection
+The Azure .NET storage API supports using a storage connection
 string to configure endpoints and credentials for accessing storage
 services. You can put your storage connection string in a configuration
 file, rather than hard-coding it in code:
 
-- When using Windows Azure Cloud Services, it is recommended you store your connection string using the Windows Azure service configuration system (`*.csdef` and `*.cscfg` files).
-- When using Windows Azure Web Sites or Windows Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
+- When using Azure Cloud Services, it is recommended you store your connection string using the Azure service configuration system (`*.csdef` and `*.cscfg` files).
+- When using Azure Web Sites or Azure Virtual Machines, it is recommended you store your connection string using the .NET configuration system (e.g. `web.config` file).
 
 In both cases, you can retrieve your connection string using the `CloudConfigurationManager.GetSetting` method as shown later in this guide.
 
 ### Configuring your connection string when using Cloud Services
 
-The service configuration mechanism is unique to Windows Azure Cloud Services
+The service configuration mechanism is unique to Azure Cloud Services
 projects and enables you to dynamically change configuration settings
-from the Windows Azure Management Portal without redeploying your
+from the Azure Management Portal without redeploying your
 application.
 
-To configure your connection string in the Windows Azure service
+To configure your connection string in the Azure service
 configuration:
 
 1.  Within the Solution Explorer of Visual Studio, in the **Roles**
-    folder of your Windows Azure Deployment Project, right-click your
+    folder of your Azure Deployment Project, right-click your
     web role or worker role and click **Properties**.  
     ![Blob5][Blob5]
 
@@ -91,7 +91,7 @@ configuration:
     account in the cloud. The code in this guide works with either
     option. Enter the **Primary Access Key** value copied from the
     earlier step in this tutorial if you wish to store blob data in the
-    storage account we created earlier on Windows Azure.   
+    storage account we created earlier on Azure.   
     ![Blob8][Blob8]
 
 6.  Change the entry **Name** from **Setting1** to a "friendlier" name
@@ -118,7 +118,7 @@ You are now ready to perform the how-to tasks in this guide.
 <h2> <a name="configure-access"> </a><span  class="short-header">Access programmatically</span>How to: Programmatically access table storage</h2>
 
 Add the following code namespace declarations to the top of any C\# file
-in which you wish to programmatically access Windows Azure Storage:
+in which you wish to programmatically access Azure Storage:
 
     using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.StorageClient;
@@ -126,7 +126,7 @@ in which you wish to programmatically access Windows Azure Storage:
 You can use the **CloudStorageAccount** type and
 **CloudConfigurationManager** type
 to retrieve your storage connection string and storage account
-information from the Windows Azure service configuration:
+information from the Azure service configuration:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -137,7 +137,7 @@ information from the Windows Azure service configuration:
 A **CloudTableClient** object lets you get reference objects for tables
 and entities. The following code creates a **CloudTableClient** object
 and uses it to create a new table. All code in this guide uses a storage
-connection string stored in the Windows Azure application's service
+connection string stored in the Azure application's service
 configuration. There are also other ways to create
 **CloudStorageAccount** object.
 
@@ -533,8 +533,8 @@ to learn how to do more complex storage tasks.
     <li><a href="http://msdn.microsoft.com/en-us/library/windowsazure/dd179355">REST API reference</a></li>
   </ul>
 </li>
-<li>Learn about more advanced tasks you can perform with Windows Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Windows Azure</a>.</li>
-<li>View more feature guides to learn about additional options for storing data in Windows Azure.
+<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
+<li>View more feature guides to learn about additional options for storing data in Azure.
   <ul>
     <li>Use <a href="/en-us/develop/net/how-to-guides/blob-storage/">Blob Storage</a> to store unstructured data.</li>
     <li>Use <a href="/en-us/develop/net/how-to-guides/sql-database/">SQL Database</a> to store relational data.</li>
@@ -545,8 +545,8 @@ to learn how to do more complex storage tasks.
   [Next Steps]: #next-steps
   [What is the Table Service]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
-  [Create a Windows Azure Project in Visual Studio]: #create-project
+  [Create an Azure Storage Account]: #create-account
+  [Create an Azure Project in Visual Studio]: #create-project
   [Configure your Application to Access Storage]: #configure-access
   [Setup a storage Connection String]: #setup-connection-string
   [How to: Programmatically access table storage]: #configure-access
@@ -561,8 +561,8 @@ to learn how to do more complex storage tasks.
   [How To: Insert-or-Replace an Entity]: #insert-entity
   [How To: Delete an Entity]: #delete-entity
   [How To: Delete a Table]: #delete-table
-  [Download and install the Windows Azure SDK for .NET]: /en-us/develop/net/
-  [Creating a Windows Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
+  [Download and install the Azure SDK for .NET]: /en-us/develop/net/
+  [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx
   
   [Blob5]: ./media/storage-dotnet-how-to-use-table-storage-17/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-table-storage-17/blob6.png
@@ -571,6 +571,6 @@ to learn how to do more complex storage tasks.
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage-17/blob9.png
   
   [blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx

@@ -1,4 +1,4 @@
-<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Windows Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="manage-services-mediaservices-scale-media-service" urlDisplayName="How to scale" pageTitle="How to Scale a media service | Azure Documentation" metaKeywords="" description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="migree" solutions="" manager="" editor="" />
 
 
 
@@ -69,7 +69,7 @@ To open a support ticket do the following:
 4. Select your subscription.
 5. Under support type select "Technical".
 6. Click on "Create Ticket".
-7. Select "Windows Azure Media Services" in the product list presented on the next page.
+7. Select "Azure Media Services" in the product list presented on the next page.
 8. Select "Media Processing" as "Problem type" and then select "Reservation Units" under category.
 9. Click Continue.
 10. Follow instructions on next page and then enter details about how many Encoding or On-Demand Streaming reserved units you need.

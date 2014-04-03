@@ -11,12 +11,12 @@
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
 
 	<div class="dev-callout"><b>Note</b>
-	<p>When you already have an existing project, you are directed to the <strong>Dashboard</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
+	<p>When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.</p>
     </div>
 
 2. Enter a project name, accept the terms of service, and click **Create**. Carry out the requested SMS Verification, and click **Create** again.
 
-3. Make a note of the project number in the **Dashboard** section. 
+3. Make a note of the project number in the **Projects** section. 
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 

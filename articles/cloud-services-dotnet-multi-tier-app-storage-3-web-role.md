@@ -1,84 +1,56 @@
-<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="Multi-tier web site tutorial - Step 3: Web role" metaKeywords="Windows Azure tutorial, Email Service application, ASP.NET MVC 4 web role, MVC 4 controllers, Web API controller, Cloud Service project" description="The third tutorial in a series that teaches how to configure your computer for Windows Azure development and deploy the Email Service app." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building the web role for the Windows Azure Email Service application - 3 of 5." authors=""  solutions="" writer="tdykstra" manager="wpickett" editor="mollybos"  />
+<properties linkid="develop-net-tutorials-multi-tier-web-site-3-web-role" urlDisplayName="Step 3: Web Role" pageTitle="ASP.NET Multi-tier Web Application with Azure - Step 3: Web role" metaKeywords="Azure tutorial, Email Service application, ASP.NET MVC web role, MVC controllers, Web API controller, Cloud Service project" description="The third tutorial in a series that teaches how to create and deploy the Email Service app in an Azure cloud service." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Building the web role for the Azure Email Service application - 3 of 5." authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
+# Building the web role for the Azure Email Service application - 3 of 5. 
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-<ul>
-<li>IN THIS SERIES</li>
-<li><a href="../1-overview/">1. Overview</a></li>
-<li><a href="../2-download-and-run/">2. Download and Run</a></li>
-<li><strong>3. WEB ROLE</strong></li>
-<li><a href="../4-worker-role-a/">4. Worker Role A</a></li>
-<li><a href="../5-worker-role-b/">5. Worker Role B</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to">
-<ul>
-<li>On the page (jump to):</li>
-</ul>
-</div>
-</div>
-</div>
-
-# Building the web role for the Windows Azure Email Service application - 3 of 5. 
-
-This is the third tutorial in a series of five that show how to build and deploy the Windows Azure Email Service sample application.  For information about the application and the tutorial series, see [the first tutorial in the series][firsttutorial].
+This is the third tutorial in a series of five that show how to build and deploy the Azure Email Service sample application.  For information about the application and the tutorial series, see [the first tutorial in the series][firsttutorial].
 
 In this tutorial you'll learn:
 
 * How to create a solution that contains a Cloud Service project with a web role and a worker role. 
-* How to work with Windows Azure tables, blobs, and queues in MVC 4 controllers and views.
-* How to handle concurrency conflicts when you are working with Windows Azure tables.
-* How to configure a web role or web project to use your Windows Azure Storage account.
+* How to work with Azure tables, blobs, and queues in MVC 4 controllers and views.
+* How to handle concurrency conflicts when you are working with Azure tables.
+* How to configure a web role or web project to use your Azure Storage account.
 
  
 <h2><a name="cloudproject"></a><span class="short-header">Create solution</span>Create the Visual Studio solution</h2>
 
-You begin by creating a Visual Studio solution with a project for the web front-end and a project for one of the back-end Windows Azure worker roles. You'll add the second worker role later. 
+You begin by creating a Visual Studio solution with a project for the web front-end and a project for one of the back-end Azure worker roles. You'll add the second worker role later. 
 
-(If you want to run the web UI in a Windows Azure Web Site instead of a Windows Azure Cloud Service, see the [Alternative Architecture][alternativearchitecture] section later in this tutorial for changes to these instructions.)
+(If you want to run the web UI in an Azure Web Site instead of an Azure Cloud Service, see the [Alternative Architecture][alternativearchitecture] section later in this tutorial for changes to these instructions.)
 
 ### Create a cloud service project with a web role and a worker role
 
-1. Start Visual Studio 2012 or Visual Studio 2012 for Web Express, with administrative privileges.
+1. Start Visual Studio with elevated privileges.
 
-   The Windows Azure compute emulator which enables you to test your cloud project locally requires administrative privileges.
-
+	>[WACOM.NOTE] For Visual Studio 2013, you don't have to use elevated privileges, because new projects use the compute emulator express by default.
+   
 2. From the **File** menu select **New Project**.
 
 	![New Project menu][mtas-file-new-project]
 
-3. Expand **C#** and select **Cloud** under **Installed Templates**, and then select **Windows Azure Cloud Service**.  
+3. Expand **C#** and select **Cloud** under **Installed Templates**, and then select **Azure Cloud Service**.  
 
 4. Name the application **AzureEmailService** and click **OK**.
 
 	![New Project dialog box][mtas-new-cloud-project]
 
-5. In the **New Windows Azure Cloud Service** dialog box, select **ASP.NET MVC 4 Web Role** and click the arrow that points to the right.
+5. In the **New Azure Cloud Service** dialog box, select **ASP.NET Web Role** and click the arrow that points to the right.
 
-	![New Windows Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
+	>[WACOM.NOTE] The downloaded code that you use for this tutorial is MVC 4 but you can't create an MVC 4 Web Role in Visual Studio 2013 using instructions written for Visual Studio 2012. For Visual Studio 2013 do the following: (1) Skip the steps here for creating the web role and do the step for the worker role. (2) After the worker role is created, right-click the solution in **Solution Explorer**, and click **Add** -- **New Project**. In the left pane of the **Add New Project** dialog expand **Web** and select **Visual Studio 2012**.  (3) Choose **ASP.NET MVC 4 Web Application**, name the project **MvcWebRole**, and then click **OK**. (4) In the **New ASP.NET Project** dialog box, select the **Internet Application** template. (5) Right-click **Roles** under **AzureEmailService** in **Solution Explorer**, and then click **Add** - **Web Role Project in Solution**. (6) In the **Associate with Role Project** box, select the **MvcWebRole** project, and then click **OK**.
+
+	![New Azure Cloud Project dialog box][mtas-new-cloud-service-dialog]
 
 6. In the column on the right, hover the pointer over **MvcWebRole1**, and then click the pencil icon to change the name of the web role. 
 
 7. Enter MvcWebRole as the new name, and then press Enter.
 
-	![New Windows Azure Cloud Project dialog box - renaming the web role][mtas-new-cloud-service-dialog-rename]
+	![New Azure Cloud Project dialog box - renaming the web role][mtas-new-cloud-service-dialog-rename]
 
 8. Follow the same procedure to add a **Worker Role**, name it WorkerRoleA, and then click **OK**.
 
-	![New Windows Azure Cloud Project dialog box - adding a worker role][mtas-new-cloud-service-add-worker-a]
+	![New Azure Cloud Project dialog box - adding a worker role][mtas-new-cloud-service-add-worker-a]
 
-5. In the **New ASP.NET MVC 4 Project** dialog box, select the **Internet Application** template.
+5. In the **New ASP.NET Project** dialog box, select the **Internet Application** template.
 
 6. In the **View Engine** drop-down list make sure that **Razor** is selected, and then click **OK**.
 
@@ -92,9 +64,9 @@ In this section you update the headers, footers, and menu items that are shown o
 
 	![_Layout.cshtml in Solution Explorer][mtas-opening-layout-cshtml]
 
-2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Windows Azure Email Service".
+2. In the **&lt;title&gt;** element, change "My ASP.NET MVC Application" to "Azure Email Service".
 
-3. In the **&lt;p&gt;** element with class "site-title", change "your logo here" to "Windows Azure Email Service", and change "Home" to "MailingList".
+3. In the **&lt;p&gt;** element with class "site-title", change "your logo here" to "Azure Email Service", and change "Home" to "MailingList".
 
 	![title and header in _Layout.cshtml][mtas-title-and-logo-in-layout]
 
@@ -110,7 +82,7 @@ In this section you update the headers, footers, and menu items that are shown o
             <li>@Html.ActionLink("Subscribers", "Index", "Subscriber")</li>
         </ul>
 
-4. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Windows Azure Email Service".<br/>
+4. In the **&lt;footer&gt;** element, change "My ASP.NET MVC Application" to "Azure Email Service".<br/>
 
 	![footer in _Layout.cshtml][mtas-footer-in-layout]
 
@@ -122,7 +94,7 @@ In this section you update the headers, footers, and menu items that are shown o
 
 	![home page][mtas-home-page-before-adding-controllers]
 
-	The application runs in the Windows Azure compute emulator.  You can see the compute emulator icon in the Windows system tray:
+	The application runs in the Azure compute emulator.  You can see the compute emulator icon in the Windows system tray:
 
 	![Compute emulator in system tray][mtas-compute-emulator-icon]
 
@@ -130,6 +102,8 @@ In this section you update the headers, footers, and menu items that are shown o
 <h2><a name="tracing"></a><span class="short-header">Configure Tracing</span>Configure Tracing</h2>
 
 To enable tracing data to be saved, open the *WebRole.cs* file and add the following `ConfigureDiagnostics` method. Add code that calls the new method in the `OnStart` method.
+
+>[WACOM.NOTE] For Visual Studio 2013, in place of the following steps that manually change code in *WebRole.cs*, right-click the MvcWebRole project, click **Add Existing Item**, and add the *WebRole.cs* file from the downloaded project.
 
     private void ConfigureDiagnostics()
     {
@@ -157,7 +131,7 @@ The `ConfigureDiagnostics` method is explained in [the second tutorial][tut2].
 
 <h2><a name="restarts"></a><span class="short-header">Restarts</span>Add code to efficiently handle restarts.</h2>
 
-Windows Azure Cloud Service applications  are restarted approximately twice per month for operating system updates. (For more information on OS updates, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).) When a web application is going to be shut down, an `OnStop` event is raised. The web role boiler plate created by Visual Studio does not override the `OnStop` method, so the application will have only a few seconds to finish processing HTTP requests before it is shut down. You can add code to override the `OnStop` method in order to ensure that shutdowns are handled gracefully.
+Azure Cloud Service applications  are restarted approximately twice per month for operating system updates. (For more information on OS updates, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).) When a web application is going to be shut down, an `OnStop` event is raised. The web role boiler plate created by Visual Studio does not override the `OnStop` method, so the application will have only a few seconds to finish processing HTTP requests before it is shut down. You can add code to override the `OnStop` method in order to ensure that shutdowns are handled gracefully.
 
 To handle shutdowns and restarts, open the *WebRole.cs* file and add the following `OnStop` method override.
 
@@ -178,7 +152,7 @@ This code requires an additional `using` statement:
 
 The `OnStop` method has up to 5 minutes to exit before the application is shut down. You could add a sleep call for 5 minutes to the `OnStop` method to give your application the maximum amount of time to process the current requests, but if your application is scaled correctly, it should be able to process the remaining requests in much less than 5 minutes. It is best to stop as quickly as possible, so that the application can restart as quickly as possible and continue processing requests.
 
-Once a role is taken off-line by Windows Azure, the load balancer stops sending requests to the role instance, and after that the `OnStop` method is called. If you don't have another instance of your role, no requests will be processed  until your role completes shutting down and is restarted (which typically takes several minutes). That is one reason why the Windows Azure service level agreement requires you to have at least two instances of each role in order to take advantage of the up-time guarantee.
+Once a role is taken off-line by Azure, the load balancer stops sending requests to the role instance, and after that the `OnStop` method is called. If you don't have another instance of your role, no requests will be processed  until your role completes shutting down and is restarted (which typically takes several minutes). That is one reason why the Azure service level agreement requires you to have at least two instances of each role in order to take advantage of the up-time guarantee.
 
 In the code shown for the `OnStop` method, an ASP.NET performance counter is created for `Requests Current`. The `Requests Current` counter value contains the current number of requests, including those that are queued, currently executing, or waiting to be written to the client. The `Requests Current` value is checked every second, and once it falls to zero, the `OnStop` method returns. Once `OnStop` returns, the role shuts down.
 
@@ -186,15 +160,17 @@ Trace data is not saved when called from the `OnStop` method without performing 
 
 <h2><a name="updatescl"></a><span class="short-header">Update Storage Client Library</span>Update the Storage Client Library NuGet Package</h2>
 
-The API framework that you use to work with Windows Azure Storage tables, queues, and blobs is the Storage Client Library (SCL). This API is included in a NuGet package in the Cloud Service project template. However, as of the date this tutorial is being written, the project templates include the 1.7 version of SCL, not the current 2.0 version. Therefore, before you begin writing code you'll update the NuGet package.
+>[WACOM.NOTE] This step may not be necessary. If the Azure Storage NuGet package does not show up in the Updates list, the installed version is current.
+
+The API framework that you use to work with Azure Storage tables, queues, and blobs is the Storage Client Library (SCL). This API is included in a NuGet package in the Cloud Service project template. However, as of the date this tutorial is being written, the project templates include the 1.7 version of SCL, not the current 2.0 version. Therefore, before you begin writing code you'll update the NuGet package.
 
 1. In the Visual Studio **Tools** menu, hover over **Library Package Manager**, and then click **Manage NuGet Packages for Solution**.
 
 	![Manage NuGet Packages for Solution in menu][mtas-manage-nuget-for-solution]
 
-2. In the left pane of the **Manage NuGet Packages** dialog box, select **Updates**, then scroll down to the **Windows Azure Storage** package and click **Update**.
+2. In the left pane of the **Manage NuGet Packages** dialog box, select **Updates**, then scroll down to the **Azure Storage** package and click **Update**.
 
-	![Windows Azure Storage package in Manage NuGet Packages dialog box][mtas-update-storage-nuget-pkg]
+	![Azure Storage package in Manage NuGet Packages dialog box][mtas-update-storage-nuget-pkg]
 
 3. In the **Select Projects** dialog box, make sure both projects are selected, and then click **OK**.
 
@@ -202,17 +178,19 @@ The API framework that you use to work with Windows Azure Storage tables, queues
  
 4. Accept the license terms to complete installation of the package, and then close the **Manage NuGet Packages** dialog box.
 
-5. In WorkerRoleA.cs in the WorkerRoleA project, delete the following `using` statement because it is no longer needed:
+5. In the WorkerRoleA project in *WorkerRole.cs*, if the following `using` statement is present, delete it because it is no longer needed:
 
-        using Microsoft.WindowsAzure.StorageClient;
+		using Microsoft.WindowsAzure.StorageClient;
 
 
 The 1.7 version of the SCL includes a LINQ provider that simplifies coding for table queries. As of the date this tutorial is being written, the 2.0 Table Service Layer (TSL) does not yet have a LINQ provider. If you want to use LINQ, you still have access to the SCL 1.7 LINQ provider in the [Microsoft.WindowsAzure.Storage.Table.DataServices](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.table.dataservices.aspx) namespace. The 2.0 TSL was designed to improve performance, and the 1.7 LINQ provider does not benefit from all of these improvements. The sample application uses the 2.0 TSL, so it does not use LINQ for queries. For more information about SCL and TSL 2.0, see the resources at the end of [the last tutorial in this series][tut5].
 
-
+>[WACOM.NOTE] Storage Client Library 2.1 added back LINQ support, but this tutorial does not use LINQ for storage table queries. The current SCL also supports asynchronous programming, but async code is not shown in this tutorial. For more information about asynchronous programming and an example of code that uses it with the Azure SCL, see the following e-book chapter and the downloadable project that goes with it: [Use .NET 4.5’s async support to avoid blocking calls](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 
 <h2><a name="addref2"></a><span class="short-header">Add SCL 1.7 reference</span>Add a reference to an SCL 1.7 assembly</h2>
+
+>[WACOM.NOTE] If you're using SCL 2.1 or later (Visual Studio 2013 with the latest SDK), skip this section.
 
 Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything needed for diagnostics, so you have to add a reference to a 1.7 assembly.
 
@@ -236,7 +214,7 @@ Version 2.0 of the Storage Client Library (SCL) 2.0 does not have everything nee
 
 The web application will use the `MailingList` table, the `Message` table, the `azuremailsubscribequeue` queue, and the `azuremailblobcontainer` blob container. You could create these manually by using a tool such as Azure Storage Explorer, but then you would have to do that manually every time you started to use the application with a new storage account. In this section you'll add code that runs when the application starts, checks if the required tables, queues, and blob containers exist, and creates them if they don't. 
 
-You could add this one-time startup code to the `OnStart` method in the *WebRole.cs* file, or to the *Global.asax* file. For this tutorial you'll initialize Windows Azure Storage in the *Global.asax* file since that works with Windows Azure Web Sites as well as Windows Azure Cloud Service web roles.
+You could add this one-time startup code to the `OnStart` method in the *WebRole.cs* file, or to the *Global.asax* file. For this tutorial you'll initialize Azure Storage in the *Global.asax* file since that works with Azure Web Sites as well as Azure Cloud Service web roles.
 
 1. In **Solution Explorer**, expand *Global.asax* and then open *Global.asax.cs*.
 
@@ -258,7 +236,7 @@ You could add this one-time startup code to the `OnStart` method in the *WebRole
         private static void CreateTablesQueuesBlobContainers()
         {
             var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
-            // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:
+            // If this is running in an Azure Web Site (not a Cloud Service) use the Web.config file:
             //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
             var tableClient = storageAccount.CreateCloudTableClient();
             var mailingListTable = tableClient.GetTableReference("MailingList");
@@ -337,15 +315,15 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 	    }
 			
 
-	The Windows Azure Storage TSL 2.0 API requires that the entity classes that you use for table operations derive from [TableEntity][]. This class defines `PartitionKey`, `RowKey`, `TimeStamp`, and `ETag` fields. The `TimeStamp` and `ETag` properties are used by the system. You'll see how the `ETag` property is used for concurrency handling later in the tutorial. 
+	The Azure Storage TSL 2.0 API requires that the entity classes that you use for table operations derive from [TableEntity][]. This class defines `PartitionKey`, `RowKey`, `TimeStamp`, and `ETag` fields. The `TimeStamp` and `ETag` properties are used by the system. You'll see how the `ETag` property is used for concurrency handling later in the tutorial. 
 
-	(There is also a [DynamicTableEntity] class for use when you want to work with table rows as Dictionary collections of key value pairs instead of by using predefined model classes. For more information, see [Windows Azure Storage Client Library 2.0 Tables Deep Dive][deepdive].)
+	(There is also a [DynamicTableEntity] class for use when you want to work with table rows as Dictionary collections of key value pairs instead of by using predefined model classes. For more information, see [Azure Storage Client Library 2.0 Tables Deep Dive][deepdive].)
 
 	The `mailinglist` table partition key is the list name. In this entity class the partition key value can be accessed either by using the `PartitionKey` property (defined in the `TableEntity` class) or the `ListName` property (defined in the `MailingList` class).  The `ListName` property uses `PartitionKey` as its backing variable. Defining the `ListName` property enables you to use a more descriptive variable name in code and makes it easier to program the web UI, since formatting and validation DataAnnotations attributes can be added to the `ListName` property, but they can't be added directly to the `PartitionKey` property.
 
 	The `RegularExpression` attribute on the `ListName` property causes MVC to validate user input to ensure that the list name value entered only contains alphanumeric characters or underscores. This restriction was implemented in order to keep list names simple so that they can easily be used in query strings in URLs. 
 
-	**Note:**  If you wanted the list name format to be less restrictive, you could allow other characters and URL-encode list names when they are used in query strings. However, certain characters are not allowed in Windows Azure Table partition keys or row keys, and you would have to exclude at least those characters. For information about characters that are not allowed or cause problems in the partition key or row key fields, see [Understanding the Table Service Data Model][tabledatamodel] and [% Character in PartitionKey or RowKey][percentinkeyfields].
+	**Note:**  If you wanted the list name format to be less restrictive, you could allow other characters and URL-encode list names when they are used in query strings. However, certain characters are not allowed in Azure Table partition keys or row keys, and you would have to exclude at least those characters. For information about characters that are not allowed or cause problems in the partition key or row key fields, see [Understanding the Table Service Data Model][tabledatamodel] and [% Character in PartitionKey or RowKey][percentinkeyfields].
 
 	The `MailingList` class defines a default constructor that sets `RowKey` to the hard-coded string "mailinglist", because all of the mailing list rows in this table have that value as their row key. (For an explanation of the table structure, see the [first tutorial in the series][firsttutorial].) Any constant value could have been chosen for this purpose, as long as it could never be the same as an email address, which is the row key for the subscriber rows in this table.
 
@@ -372,14 +350,14 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 	        public MailingListController()
 	        {
 	            var storageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
-	            // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:
+	            // If this is running in an Azure Web Site (not a Cloud Service) use the Web.config file:
 	            //    var storageAccount = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
 	
 	            var tableClient = storageAccount.CreateCloudTableClient();
 	            mailingListTable = tableClient.GetTableReference("mailinglist");
 	        }
 		
-	The code gets the credentials for your Windows Azure Storage account from the Cloud Service project settings file in order to make a connection to the storage account. (You'll configure those settings later in this tutorial, before you test the controller.) If you are going to run the MVC project in a Windows Azure Web Site, you can get the connection string from the Web.config file instead.
+	The code gets the credentials for your Azure Storage account from the Cloud Service project settings file in order to make a connection to the storage account. (You'll configure those settings later in this tutorial, before you test the controller.) If you are going to run the MVC project in an Azure Web Site, you can get the connection string from the Web.config file instead.
 
 	Next is a `FindRow` method that is called whenever the controller needs to look up a specific mailing list entry of the `MailingList` table, for example to edit a mailing list entry. The code retrieves a single `MailingList` entity by using the partition key and row key values passed in to it. The rows that this controller edits are the ones that have "MailingList" as the row key, so "MailingList" could have been hard-coded for the row key, but specifying both partition key and row key is a pattern used for the `FindRow` methods in all of the controllers.
 
@@ -663,11 +641,11 @@ The `MailingList` entity class is used for the rows in the `MailingList` table t
 
 
 
-<h2><a name="configurestorage"></a><span class="short-header">Configure storage</span>Configure the web role to use your test Windows Azure Storage account</h2>
+<h2><a name="configurestorage"></a><span class="short-header">Configure storage</span>Configure the web role to use your test Azure Storage account</h2>
 
 You are going to enter settings for your test storage account, which you will use while running the project locally.  To add a new setting you have to add it for both cloud and local, but you can change the cloud value later. You'll add the same settings for worker role A later.
 
-(If you want to run the web UI in a Windows Azure Web Site instead of a Windows Azure Cloud Service, see the [Alternative Architecture][alternativearchitecture] section later in this tutorial for changes to these instructions.)
+(If you want to run the web UI in an Azure Web Site instead of an Azure Cloud Service, see the [Alternative Architecture][alternativearchitecture] section later in this tutorial for changes to these instructions.)
 
 1. In **Solution Explorer**, right-click **MvcWebRole** under **Roles** in the **AzureEmailService** cloud project, and then choose **Properties**.
 
@@ -687,11 +665,13 @@ You are going to enter settings for your test storage account, which you will us
 
 7. In the **Create Storage Connection String** dialog, click the **Your subscription** radio button, and then click the **Download Publish Settings** link. 
 
+	>[WACOM.NOTE] With the latest SDK you don't need to download anything; you choose from available storage accounts in a drop-down list.
+
 	**Note:** If you configured storage settings for tutorial 2 and you're doing this tutorial on the same machine, you don't have to download the settings again, you just have to click **Your subscription** and then choose the correct **Subscription** and **Account Name**.
 
 	![Right Click Properties][mtas-enter]<br/>
 
-	When you click the **Download Publish Settings** link, Visual Studio launches a new instance of your default browser with the URL for the Windows Azure Management Portal download publish settings page. If you are not logged into the portal, you are prompted to log in. Once you are logged in your browser prompts you to save the publish settings. Make a note of where you save the settings.
+	When you click the **Download Publish Settings** link, Visual Studio launches a new instance of your default browser with the URL for the Azure Management Portal download publish settings page. If you are not logged into the portal, you are prompted to log in. Once you are logged in your browser prompts you to save the publish settings. Make a note of where you save the settings.
 
 	![publish settings][mtas-3]
 
@@ -795,7 +775,7 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
 	The `SubscriberGUID` value is generated when a `Subscriber` entity is created. It is used in subscribe and unsubscribe links to help ensure that only authorized persons can subscribe or unsubscribe email addresses.
 	When a row is initially created for a new subscriber, the `Verified ` value is `false`. The `Verified` value changes to `true` only after the new subscriber clicks the **Confirm** hyperlink in the welcome email. If a message is sent to a list while a subscriber has `Verified` = `false`, no email is sent to that subscriber.
 
-	The `Verified` property in the `Subscriber` entity is defined as nullable. When you specify that a query should return `Subscriber` entities, it is possible that some of the retrieved rows might not have a `Verified` property. Therefore the `Subscriber` entity defines its `Verified` property as nullable so that it can more accurately reflect the actual content of a row if table rows that don't have a *Verified* property are returned by a query. You might be accustomed to working with SQL Server tables, in which every row of a table has the same schema. In a Windows Azure Storage table, each row is just a collection of properties, and each row can have a different set of properties. For example, in the Windows Azure Email Service sample application, rows that have "MailingList" as the row key don't have a `Verified` property.  If a query returns a table row that doesn't have a `Verified` property, when the `Subscriber` entity class is instantiated, the `Verified` property in the entity object will be null.  If the property were not nullable, you would get the same value of `false` for rows that have `Verified` = `false` and for rows that don't have a `Verified` property at all. Therefore, a best practice for working with Windows Azure Tables is to make each property of an entity class nullable in order to accurately read rows that were created by using different entity classes or different versions of the current entity class. 
+	The `Verified` property in the `Subscriber` entity is defined as nullable. When you specify that a query should return `Subscriber` entities, it is possible that some of the retrieved rows might not have a `Verified` property. Therefore the `Subscriber` entity defines its `Verified` property as nullable so that it can more accurately reflect the actual content of a row if table rows that don't have a *Verified* property are returned by a query. You might be accustomed to working with SQL Server tables, in which every row of a table has the same schema. In an Azure Storage table, each row is just a collection of properties, and each row can have a different set of properties. For example, in the Azure Email Service sample application, rows that have "MailingList" as the row key don't have a `Verified` property.  If a query returns a table row that doesn't have a `Verified` property, when the `Subscriber` entity class is instantiated, the `Verified` property in the entity object will be null.  If the property were not nullable, you would get the same value of `false` for rows that have `Verified` = `false` and for rows that don't have a `Verified` property at all. Therefore, a best practice for working with Azure Tables is to make each property of an entity class nullable in order to accurately read rows that were created by using different entity classes or different versions of the current entity class. 
 
 ### Add the Subscriber MVC controller
 
@@ -827,7 +807,7 @@ The `Subscriber` entity class is used for the rows in the `MailingList` table th
 
 	Notice that the query specifies that data will be read into `Subscriber` objects (by specifying `<Subscriber>`) but the data will be read from the `mailinglist` table.
 
-	**Note:** The number of subscribers could grow to be too large to handle this way in a single query. In a future release of the tutorial we hope to implement paging functionality and show how to handle continuation tokens. You need to handle continuation tokens when you execute queries that would return more than 1,000 rows: Windows Azure returns 1,000 rows and a continuation token that you use to execute another query that starts where the previous one left off. (Azure Storage Explorer does not handle continuation tokens; therefore its queries will not return more than 1,000 rows.) For more information about large result sets and continuation tokens, see [How to get most out of Windows Azure Tables][howtogetthemost] and [Windows Azure Tables: Expect Continuation Tokens, Seriously](http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously). 
+	**Note:** The number of subscribers could grow to be too large to handle this way in a single query. In a future release of the tutorial we hope to implement paging functionality and show how to handle continuation tokens. You need to handle continuation tokens when you execute queries that would return more than 1,000 rows: Azure returns 1,000 rows and a continuation token that you use to execute another query that starts where the previous one left off. (Azure Storage Explorer does not handle continuation tokens; therefore its queries will not return more than 1,000 rows.) For more information about large result sets and continuation tokens, see [How to get most out of Azure Tables][howtogetthemost] and [Azure Tables: Expect Continuation Tokens, Seriously](http://blog.smarx.com/posts/windows-azure-tables-expect-continuation-tokens-seriously). 
 
 	In the `HttpGet Create` method, you set up data for the drop-down list; and in the `HttpPost` method, you set default values before saving the new entity.
 
@@ -1083,7 +1063,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 
 	Most of the code in this controller is similar to what you saw in the `Subscriber` controller. What is new here is code for working with blobs. For each message, the HTML and plain text content of the email is uploaded in the form of .htm and .txt files and stored in blobs.
 
-	Blobs are stored in blob containers. The Windows Azure Email Service application stores all of its blobs in a single blob container named "azuremailblobcontainer", and code in the controller constructor gets a reference to this blob container:
+	Blobs are stored in blob containers. The Azure Email Service application stores all of its blobs in a single blob container named "azuremailblobcontainer", and code in the controller constructor gets a reference to this blob container:
 
 	    public class MessageController : Controller
 	    {
@@ -1093,7 +1073,7 @@ The `Message` entity class is used for the rows in the `Message` table that cont
 		      public MessageController()
 	        {
 	            var storageAccount = CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
-	            // If this is running in a Windows Azure Web Site (not a Cloud Service) use the Web.config file:
+	            // If this is running in an Azure Web Site (not a Cloud Service) use the Web.config file:
 	            //    var storageAccount = CloudStorageAccount.Parse(ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
 	
 	            // Get context object for working with tables and a reference to the blob container.
@@ -1611,11 +1591,11 @@ The `UnsubscribeVM` view model is used to pass data between the `Unsubscribe` co
 
 <h2><a name="alternativearchitecture"></a><span class="short-header">Alternative Architecture</span>(Optional) Build the Alternative Architecture</h2>
 
-The following changes to the instructions apply if you want to build the alternative architecture -- that is, running the web UI in a Windows Azure Web Site instead of a Windows Azure Cloud Service web role.
+The following changes to the instructions apply if you want to build the alternative architecture -- that is, running the web UI in an Azure Web Site instead of an Azure Cloud Service web role.
 
-* When you create the solution, create the **ASP.NET MVC 4 Web Application** project first, and then add to the solution a **Windows Azure Cloud Service** project with a worker role.
+* When you create the solution, create the **ASP.NET MVC 4 Web Application** project first, and then add to the solution a **Azure Cloud Service** project with a worker role.
 
-* Store the Windows Azure Storage connection string in the Web.config file instead of the cloud service settings file. (This only works for Windows Azure Web Sites. If you try to use the Web.config file for the storage connection string in a Windows Azure Cloud Service web role, you'll get an HTTP 500 error.) 
+* Store the Azure Storage connection string in the Web.config file instead of the cloud service settings file. (This only works for Azure Web Sites. If you try to use the Web.config file for the storage connection string in an Azure Cloud Service web role, you'll get an HTTP 500 error.) 
 
 Add a new connection string named `StorageConnectionString` to the *Web.config* file, as shown in the following example:
 
@@ -1624,7 +1604,7 @@ Add a new connection string named `StorageConnectionString` to the *Web.config* 
 	          <add name="StorageConnectionString" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[primarykey]" />
 	       </connectionStrings>
 	
-Get the values for the connection string from the [Windows Azure management portal][managementportal]:  select the **Storage** tab and your storage account, and then click **Manage keys** at the bottom of the page.
+Get the values for the connection string from the [Azure Management Portal][managementportal]:  select the **Storage** tab and your storage account, and then click **Manage keys** at the bottom of the page.
 
 * Wherever you see `RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString")` in the code, replace it with `ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString`.
 
@@ -1647,9 +1627,9 @@ For the web page that subscribers get when they click on the **Confirm** link in
 
 In the [next tutorial][nexttutorial] you'll configure and program worker role A, the worker role that schedules emails.
 
-For links to additional resources for working with Windows Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
+For links to additional resources for working with Azure Storage tables, queues, and blobs, see the end of [the last tutorial in this series][tut5].
 
-<div><a href="../cloud-services-dotnet-multi-tier-app-storage-4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
+<div><a href="/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
 
 
 

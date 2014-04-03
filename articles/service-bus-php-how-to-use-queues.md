@@ -1,9 +1,9 @@
-<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-php-how-to-guides-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (PHP) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues PHP" description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Queues" authors="" solutions="" manager="" editor="" />
 
 # How to Use Service Bus Queues
 
 This guide will show you how to use Service Bus queues with PHP. The samples are
-written in PHP and use the [Windows Azure SDK for PHP][download-sdk]. The
+written in PHP and use the [Azure SDK for PHP][download-sdk]. The
 scenarios covered include **creating queues**, **sending and receiving
 messages**, and **deleting queues**.
 
@@ -13,7 +13,7 @@ messages**, and **deleting queues**.
 -   [Create a service namespace](#create-a-service-namespace)
 -   [Obtain the default management credentials for the namespace](#obtain-default-credentials)
 - 	[Create a PHP application](#CreateApplication)
--	[Get the Windows Azure Client Libraries](#GetClientLibrary)
+-	[Get the Azure Client Libraries](#GetClientLibrary)
 -   [Configure your application to use Service Bus](#ConfigureApp)
 -   [How to: Create a queue](#CreateQueue)
 -   [How to: Send messages to a queue](#SendMessages)
@@ -25,20 +25,20 @@ messages**, and **deleting queues**.
 
 ##<a id="CreateApplication"></a>Create a PHP application
 
-The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the [Windows Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP][download-sdk] from within your code. You can use any development tools to create your application, including Notepad.
 
 > [WACOM.NOTE]
 > Your PHP installation must also have the <a href="http://php.net/openssl">OpenSSL extension</a> installed and enabled.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
 
-##<a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries
+##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ##<a id="ConfigureApp"></a>Configure your application to use Service Bus
 
-To use the Windows Azure Servise Bus queue APIs, you need to:
+To use the Azure Servise Bus queue APIs, you need to:
 
 1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
@@ -46,7 +46,7 @@ To use the Windows Azure Servise Bus queue APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [WACOM.NOTE] 
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
+> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -54,15 +54,15 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-##<a id="ConnectionString"></a>Setup a Windows Azure Service Bus connection
+##<a id="ConnectionString"></a>Setup an Azure Service Bus connection
 
-To instantiate a Windows Azure Service Bus client you must first have a valid connection string following this format:
+To instantiate an Azure Service Bus client you must first have a valid connection string following this format:
 
 	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
 
 Where the Endpoint is typically of the format `https://[yourNamespace].servicebus.windows.net`.
 
-To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+To create any Azure service client you need to use the **ServicesBuilder** class. You can:
 
 * pass the connection string directly to it or
 * use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
@@ -240,7 +240,7 @@ topic [Queues, Topics, and Subscriptions][] for more information.
 
 [download-sdk]: http://go.microsoft.com/fwlink/?LinkId=252473
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Windows Azure Management Portal]: http://manage.windowsazure.com/
+[Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
 [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg

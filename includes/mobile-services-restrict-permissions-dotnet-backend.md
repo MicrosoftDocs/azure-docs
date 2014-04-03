@@ -12,17 +12,19 @@ By default, all requests to mobile service resources are restricted to clients t
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-4. To each method in the **TodoItemController** class, apply the following RequiresAuthorization attribute:
+4. Apply the following AuthorizeLevel attribute to the **TodoItemController** class:
 
-		[RequiresAuthorization(AuthorizationLevel.User)]
+		[AuthorizeLevel(AuthorizationLevel.User)] 
 
 	This will ensure that all operations against the **TodoItem** table require an authenticated user. 
 
-5. (Optional) Open the web.config file for the mobile service project, locate the Mobile Services keys in appSettings, and set the crendentials that you obtained from your identity provider earlier in the tutorial.
+	>[WACOM.NOTE]Apply the AuthorizeLevel attribute to individual methods to set specific authorization levels on the methods exposed by the controller.
 
-	You only need to do this when you plan to test authentication on your local computer. 
+5. Expand the App_Start folder, open the WebApiConfig.cs project file, then add the following code to the **Register** method:
+
+		config.SetIsHosted(true);
 	
-	>[WACOM.NOTE]These credentials are only used when your service runs locally. The settings are overwritten with the values that you set in the Management Portal.
+	This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the AuthorizeLevel settings. Without this setting, all HTTP requests to *localhost* are permitted without authentication despite the AuthorizeLevel setting.  
 
 6. Republish your service project.
 

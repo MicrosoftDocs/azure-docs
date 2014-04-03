@@ -1,4 +1,4 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
 
 #How to Create a Custom Virtual Machine
 
@@ -6,9 +6,9 @@ Creating a custom virtual machine allows you to choose options that aren't avail
 
 Each virtual machine is associated with a cloud service, either by itself or with other virtual machines in the same cloud service. A common reason for placing more than one virtual machine in the same cloud service is to provide load balancing for the application. If your application needs only one virtual machine, or you're creating the first virtual machine, you will create the cloud service when you create the virtual machine. Otherwise, you will add the new virtual machine to an existing cloud service.
 
-**Important**: If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Important**: If you want your virtual machine to use a virtual network so you can connect to it directly by hostname or set up cross-premises connections, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-1. Sign in to the [Windows Azure Management Portal](http://manage.windowsazure.com).
+1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com).
 
 2. On the command bar, click **New**.
 
@@ -43,13 +43,13 @@ Each virtual machine is associated with a cloud service, either by itself or wit
 
 	**Note**: Virtual machine that are members of an availability set are deployed to different fault domains. Placing multiple virtual machines in an availability set helps ensure that your application is available during network failures, local disk hardware failures, and any planned downtime.
 
-15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=394093).
-	**Important**: The VM Agent can be installed only when you create the virtual machine.  
+15.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).
+	  
 
-15.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
+16.  Under **Endpoints**, review the new endpoints that will be created to allow connections to the virtual machine, such through Remote Desktop or a Secure Shell (SSH) client. You also can add endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Communication with a Virtual Machine](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/). 
 
 
-16. Click the arrow to create the virtual machine.
+17. Click the arrow to create the virtual machine.
 
 
 	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)

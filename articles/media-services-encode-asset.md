@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Windows Azure" metaKeywords="" description="Learn how to use the Windows Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="develop-media-services-how-to-guides-encode-an-asset" urlDisplayName="How to Encode an Asset" pageTitle="How to Encode an Asset for Media Services - Azure" metaKeywords="" description="Learn how to use the Azure Media Encoder to encode media content on Media Services. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Encode an Asset" authors="migree" solutions="" manager="" editor="" />
 
 
 #How to: Encode an Asset
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Get a Media Processor](http://go.microsoft.com/fwlink/?LinkID=301732&ampclcid=0x409).
 
-For media content on the server, you can encode the content with a number of media encodings and formats using Windows Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Windows Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
+For media content on the server, you can encode the content with a number of media encodings and formats using Azure Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the [Azure Marketplace][]. You can specify the details of encoding tasks by using [Encoder Preset][] strings, or by using configuration files. 
 
 ##Encoding to MP4
 The following method uploads a single asset and creates a job to encode the asset to MP4 using the "H264 Broadband 720p" preset which will create a single MP4 using H264 encoding at 720p resolution:
@@ -19,8 +19,8 @@ The following method uploads a single asset and creates a job to encode the asse
 
     	IJob job = _context.Jobs.Create("My encoding job");
 	
-		// Get a reference to the Windows Azure Media Encoder
-		IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Encoder");
+		// Get a reference to the Azure Media Encoder
+		IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
     
 		// Create a task with the encoding details, using a string preset.
     	ITask task = job.Tasks.AddNew("My encoding task",
@@ -103,9 +103,9 @@ If you want to encode a video to smooth streaming there are two options:
 <li> Encode to MP4 and then convert to Smooth Streaming</li>
 </ul>
 
-To encode directly to Smooth Streaming use the code shown above, but use one of the Smooth Streaming encoder presets. For a complete list of encoder presets, see [Task Preset Strings for Windows Azure Media Encoder](http://msdn.microsoft.com/en-us/library/jj129582.aspx). 
+To encode directly to Smooth Streaming use the code shown above, but use one of the Smooth Streaming encoder presets. For a complete list of encoder presets, see [Task Preset Strings for Azure Media Encoder](http://msdn.microsoft.com/en-us/library/jj129582.aspx). 
 
-To convert an MP4 to Smooth Streaming, use the Windows Azure Media Packager. The Windows Azure Media Packager does not support string presets so you must specify configuration options in XML. The XML required to convert MP4 to Smooth Streaming can be found at [Task Preset for Windows Azure Media Packager][]. Copy and paste the XML to a file named MediaPackager_MP4ToSmooth.xml in your project. The following code illustrates how to convert an MP4 asset to Smooth Streaming. The method below takes an existing asset and converts it to. 
+To convert an MP4 to Smooth Streaming, use the Azure Media Packager. The Azure Media Packager does not support string presets so you must specify configuration options in XML. The XML required to convert MP4 to Smooth Streaming can be found at [Task Preset for Azure Media Packager][]. Copy and paste the XML to a file named MediaPackager_MP4ToSmooth.xml in your project. The following code illustrates how to convert an MP4 asset to Smooth Streaming. The method below takes an existing asset and converts it to. 
 <pre><code>
 private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFilePath)
  {
@@ -115,7 +115,7 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
     // Read in task configuration XML
     string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
     // Get a media packager reference
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
+    IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
     // Create a task with the conversion details, using the configuration data
     ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
            processor,
@@ -153,10 +153,10 @@ For more information about processing assets, see:
 ##Next Steps
 Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](http://go.microsoft.com/fwlink/?LinkID=301737&ampclcid=0x409) topic.
 
-[Windows Azure Marketplace]: https://datamarket.azure.com/
+[Azure Marketplace]: https://datamarket.azure.com/
 [Encoder Preset]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
 [How to: Get a Media Processor Instance]:http://go.microsoft.com/fwlink/?LinkId=301732
 [How to: Upload an Encrypted Asset]:http://go.microsoft.com/fwlink/?LinkId=301733
 [How to: Deliver an Asset by Download]:http://go.microsoft.com/fwlink/?LinkId=301734
 [How to Check Job Progress]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Task Preset for Windows Azure Media Packager]:http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
+[Task Preset for Azure Media Packager]:http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx

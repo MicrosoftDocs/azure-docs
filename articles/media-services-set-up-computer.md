@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-how-to-guides-set-up-computer" urlDisplayName="Set Up Computer for Media Services" pageTitle="How to Set Up Computer for Media Services - Windows Azure" metaKeywords="" description="Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app." metaCanonical="" services="media-services" documentationCenter="" title="Setting up your computer for Media Services development" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="develop-media-services-how-to-guides-set-up-computer" urlDisplayName="Set Up Computer for Media Services" pageTitle="How to Set Up Computer for Media Services - Azure" metaKeywords="" description="Learn about the prerequisites for Media Services using the Media Services SDK for .NET. Also learn how to create a Visual Studio app." metaCanonical="" services="media-services" documentationCenter="" title="Setting up your computer for Media Services development" authors="migree" solutions="" manager="" editor="" />
 
 
 
@@ -10,15 +10,15 @@ This section contains general prerequisites for Media Services development using
 
 ###Prerequisites
 
--   A Media Services account in a new or existing Windows Azure subscription. See the topic [How to Create a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/).
+-   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/).
 -   Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 -   .NET Framework 4.5 or .NET Framework 4.
 -   Visual Studio 2012 or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express). 
--   Use the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package to install Windows Azure SDK for .NET. The following section shows how to use **Nuget** to install the Windows Azure SDK.
+-   Use the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package to install Azure SDK for .NET. The following section shows how to use **Nuget** to install the Azure SDK.
   
-<h2><a name="setup-account"></a><span class="short header">Setting up a Windows Azure account for Media Services</span></h2>
+<h2><a name="setup-account"></a><span class="short header">Setting up an Azure account for Media Services</span></h2>
 
-To set up your Media Services account, use the Windows Azure Management Portal (recommended). See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
+To set up your Media Services account, use the Azure Management Portal (recommended). See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
 
 ###Creating an Application in Visual Studio
 
@@ -26,7 +26,7 @@ This section shows you how to create a project in Visual Studio and set it up fo
 
    1. Create a new C# **Console Application** in Visual Studio 2012 or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
    2. Add a reference to **System.Configuration** assembly. To add a reference to **System.Configuration**, in **Solution Explorer**, right-click the **References** node and select **Add Reference...**. In the **Manage References** dialog, select **System.Configuration** and click **OK**.
-   3. Add references to **Windows Azure SDK for .NET.** (Microsoft.WindowsAzure.StorageClient.dll), **Windows Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. 
+   3. Add references to **Azure SDK for .NET.** (Microsoft.WindowsAzure.StorageClient.dll), **Azure Media Services SDK for .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll), and **WCF Data Services 5.0 for OData V3** (Microsoft.Data.OData.dll) libraries using the [windowsazure.mediaservices Nuget](http://nuget.org/packages/windowsazure.mediaservices) package. 
 
 	To add references using Nuget, do the following. In Visual Studio **Main Menu**, select **TOOLS** -> **Library Package Manager** -> **Package Manager Console**. In the console window type **Install-Package windowsazure.mediaservices** and press **Enter**.
    4. Overwrite the existing using statements at the beginning of the Program.cs file with the following code.

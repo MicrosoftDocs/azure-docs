@@ -4,24 +4,24 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 
 1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
 
-  	![][0]
+  	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png)
 
 2. Make a note of the **Storage Account Name** and **Access Key**.
 
-   	![][1]
+   	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png)
 
 3. In your mobile service, click the **Configure** tab, scroll down to **App settings** and enter a **Name** and **Value** pair for each of the following that you obtained from the storage account, then click **Save**.
 
 	+ `STORAGE_ACCOUNT_NAME`
 	+ `STORAGE_ACCOUNT_ACCESS_KEY`
 
-	![][10]
+	![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
 	The storage account access key is stored encrypted in app settings. You can access this key from any server script at runtime. For more information, see [App settings].
 
 4. Click the **Data** tab and then click the **TodoItem** table. 
 
-   	![][3]
+   	![](./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png)
 
 5.  In **todoitem**, click the **Script** tab and select **Insert**, replace the insert function with the following code, then click **Save**:
 
@@ -78,7 +78,7 @@ A new insert script is registered that generates an SAS when a new Todo item is 
 		    }
 		}
 
- 	![][4]
+ 	![](./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png)
 
    	This replaces the function that is invoked when an insert occurs in the TodoItem table with a new script. This new script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the `sasQueryString` property of the returned item. The `imageUri` property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.
 
@@ -90,17 +90,6 @@ Next, you will update the quickstart app to add image upload functionality by us
 <!-- Anchors. -->
 
 <!-- Images. -->
-[0]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
-[1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
-
-[3]: ./media/mobile-services-configure-blob-storage/mobile-portal-data-tables.png
-[4]: ./media/mobile-services-configure-blob-storage/mobile-insert-script-blob.png
-
-
-
-
-
-[10]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
 
 <!-- URLs. -->
 [How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account

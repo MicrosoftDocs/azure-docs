@@ -1,15 +1,15 @@
-<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Windows Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" description="Learn how to create a Java web application that uses single sign-on with Windows Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="Java" title="Web Single Sign-On with Java and Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-java-how-to-guides-web-sso" urlDisplayName="Web SSO" pageTitle="Single sign-on with Azure Active Directory (Java)" metaKeywords="Azure Java web app, Azure single sign-on, Azure Java Active Directory" description="Learn how to create a Java web application that uses single sign-on with Azure Active Directory." metaCanonical="" services="active-directory" documentationCenter="Java" title="Web Single Sign-On with Java and Azure Active Directory" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
 
-# Web Single Sign-On with Java and Windows Azure Active Directory
+# Web Single Sign-On with Java and Azure Active Directory
 
 <h2><a name="introduction"></a>Introduction</h2>
 
-This tutorial will show Java developers how to leverage Windows Azure Active Directory to enable single sign-on for users of Office 365 customers. You will learn how to:
+This tutorial will show Java developers how to leverage Azure Active Directory to enable single sign-on for users of Office 365 customers. You will learn how to:
 
 * Provision the web application in a customer's tenant
 * Protect the application using WS-Federation
@@ -17,7 +17,7 @@ This tutorial will show Java developers how to leverage Windows Azure Active Dir
 <h3>Prerequisites</h3>
 This tutorial uses a specific application server, but if you are an experienced Java developer, the process described below can be applied to other environments as well. The following development environment prerequisites are required for this tutorial:
 
-* [Java Sample Code for Windows Azure Active Directory]
+* [Java Sample Code for Azure Active Directory]
 * [Java Runtime Environment 1.6]
 * [JBoss Application Server version 7.1.1.Final]
 * [JBoss Developer Studio IDE]
@@ -116,9 +116,9 @@ This step describes how to create a simple Java application that will represent 
 14. On the **Run On Server** dialog, ensure that **JBoss Enterprise Application Platform 6.x** is selected, then click **Finished**.
 
 <h2><a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant</h2>
-This step describes how an administrator of a Windows Azure Active Directory customer provisions the Java application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
+This step describes how an administrator of an Azure Active Directory customer provisions the Java application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
 
-The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Windows Azure Active Directory to register and authenticate applications to the directory.
+The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Azure Active Directory to register and authenticate applications to the directory.
 
 1. Download and install the Office 365 PowerShell Commandlets if you haven't done so already.
 2. From the **Start** menu, run the **Microsoft Online Services Module for Windows PowerShell** console. This console provides a command-line environment for configuring attributes about your Office 365 tenant, such as creating and modifying Service Principals.
@@ -401,19 +401,19 @@ This step shows you how to add support for federated login using Windows Identit
 31. After you have logged in, you will be redirected again to the secured page (**sample/index.jsp**) as an authenticated user.
 
 <h2><a name="summary"></a>Summary</h2>
-This tutorial has shown you how to create and configure a single tenant Java application that uses the single sign-on capabilities of Windows Azure Active Directory.
+This tutorial has shown you how to create and configure a single tenant Java application that uses the single sign-on capabilities of Azure Active Directory.
 
 [Introduction]: #introduction
 [Step 1: Create a Java Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
 [Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
 [Summary]: #summary
-[Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
+[Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
 [Office 365 Powershell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx
 [ASP.NET MVC 3]: http://www.microsoft.com/en-us/download/details.aspx?id=4211
 [Java Runtime Environment 1.6]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-[Java Sample Code for Windows Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-java-samples/tree/master/WAAD.WebSSO.JAVA
+[Java Sample Code for Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-java-samples/tree/master/WAAD.WebSSO.JAVA
 [JBoss Application Server version 7.1.1.Final]: http://www.jboss.org/jbossas/downloads/
 [JBoss Developer Studio IDE]: https://devstudio.jboss.com/earlyaccess/

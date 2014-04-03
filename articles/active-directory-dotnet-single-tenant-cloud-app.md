@@ -1,12 +1,12 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Developing Single Tenant Applications with Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Developing Single Tenant Applications with Azure Active Directory" authors="" solutions="" manager="" editor="" />
 
 
 
-# Developing Single Tenant Applications with Windows Azure Active Directory
+# Developing Single Tenant Applications with Azure Active Directory
 
 <h2><a name="introduction"></a>Introduction</h2>
 
-This tutorial will show you how to leverage Windows Azure Active Directory to authenticate directory users and read their data from the directory. You will learn how to:
+This tutorial will show you how to leverage Azure Active Directory to authenticate directory users and read their data from the directory. You will learn how to:
 
 * Provision the web application in a customer's tenant
 * Protect the application using WS-Federation
@@ -49,9 +49,9 @@ This step describes how to create a simple ASP.NET MVC application that will rep
 11. Build and run the application. The Index page of your Home controller will appear.
 
 <h2><a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant</h2>
-This step describes how an administrator of a Windows Azure Active Directory customer provisions the MVC application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
+This step describes how an administrator of an Azure Active Directory customer provisions the MVC application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
 
-The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Windows Azure Active Directory to register and authenticate applications to the directory.
+The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Azure Active Directory to register and authenticate applications to the directory.
 
 1. Download and install the Office 365 PowerShell Commandlets if you haven't done so already.
 2. From the **Start** menu, run the **Microsoft Online Services Module for Windows PowerShell** console. This console provides a command-line environment for configuring attributes about your Office 365 tenant, such as creating and modifying Service Principals.
@@ -162,10 +162,10 @@ This step shows you how to add support for federated login using Windows Identit
 
 18. After you have saved the changes to the **Index.cshtml** file, press **F5** to run the application. You will be redirected to the Office 365 Identity Provider page, where you can log in using your directory tenant credentials. For example, *john.doe@awesomecomputers.onmicrosoft.com*.
 
-19. After you have signed in using your credentials, you will be redirected to the Index page of your Home controller, where your account's claims are displayed. This demonstrates a user successfully authenticating to the application using single sign-on provided by Windows Azure Active Directory.
+19. After you have signed in using your credentials, you will be redirected to the Index page of your Home controller, where your account's claims are displayed. This demonstrates a user successfully authenticating to the application using single sign-on provided by Azure Active Directory.
 
 <h2><a name="readdata"></a>Step 4: Read Directory Data Using the Graph API</h2>
-This step shows you how to use the Graph API to connect to your Windows Azure Active Directory tenant and read data. To help you get started with the Graph API, download the following ASP.NET application: [Sample Application with Write Support for Graph API]. This application contains helper methods that make it easier to authenticate and make requests against the Graph API.
+This step shows you how to use the Graph API to connect to your Azure Active Directory tenant and read data. To help you get started with the Graph API, download the following ASP.NET application: [Sample Application with Write Support for Graph API]. This application contains helper methods that make it easier to authenticate and make requests against the Graph API.
 
 You will also add permissions to your application's Service Principal that you created in Step 2. To add these permissions, you'll need the AppPrincipalId value.
 
@@ -200,9 +200,9 @@ You will also add permissions to your application's Service Principal that you c
 8. The sample application will display a menu for accessing all your users, company administrators, and more. Clicking on one of the links will return the information stored in your tenant by using the Graph API.
 
 <h2><a name="summary"></a>Summary</h2>
-This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Windows Azure Active Directory. In addition, you have accessed the tenant's directory data by using the Graph API. We recommend that you explore the sample application to understand how to take advantage of the Graph API in your own application.
+This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Azure Active Directory. In addition, you have accessed the tenant's directory data by using the Graph API. We recommend that you explore the sample application to understand how to take advantage of the Graph API in your own application.
 
-To learn more about the Graph API, [you can read about it on MSDN]. You can also create multi-tenant applications for Windows Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory].
+To learn more about the Graph API, [you can read about it on MSDN]. You can also create multi-tenant applications for Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Azure Active Directory].
 
 [Introduction]: #introduction
 [Step 1: Create an ASP.NET MVC Application]: #createapp
@@ -210,7 +210,7 @@ To learn more about the Graph API, [you can read about it on MSDN]. You can also
 [Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
 [Step 4: Read Directory Data Using the Graph API]: #readdata
 [Summary]: #summary
-[Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
+[Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
 [Office 365 Powershell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx

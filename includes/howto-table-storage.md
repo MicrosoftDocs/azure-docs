@@ -1,8 +1,8 @@
 ## <a name="what-is"> </a>What is the Table Service
 
-The Windows Azure Table storage service stores large amounts of
+The Azure Table storage service stores large amounts of
 structured data. The service is a NoSQL datastore which accepts
-authenticated calls from inside and outside the Windows Azure cloud. Windows Azure
+authenticated calls from inside and outside the Azure cloud. Azure
 tables are ideal for storing structured, non-relational data. Common
 uses of the Table service include:
 
@@ -31,8 +31,8 @@ The Table service contains the following components:
     You can address Azure tables directly using this address with the
     OData protocol. For more information, see [OData.org][]
 
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+-   **Storage Account:** All access to Azure Storage is done
+    through a storage account. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 -   **Table**: A table is a collection of entities. Tables don't enforce
     a schema on entities, which means a single table can contain
