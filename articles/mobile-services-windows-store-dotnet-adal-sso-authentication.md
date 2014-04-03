@@ -142,7 +142,7 @@ Now you need to retrieve your package SID which will be configured with the nati
 
     ![][11]
 
-7. Scroll the page down to the **permissions to other applications** section and grant full access to the mobile service application that you registered earlier.
+7. Scroll the page down to the **permissions to other applications** section and grant full access to the mobile service application that you registered earlier. Then click **Save**
 
     ![][12]
 
@@ -232,7 +232,7 @@ Configure you .NET backend mobile service to require authentication.
 
 6. In the code for the `AuthenticateAsync` method above, replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure Management Portal].
 
-7. In the code for the `AuthenticateAsync` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your mobile service. If you followed the [How to Register with the Azure Active Directory] topic your App Id URI should be similar to https://todolist.azure-mobile.net/login/sso.
+7. In the code for the `AuthenticateAsync` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your mobile service. If you followed the [How to Register with the Azure Active Directory] topic your App ID URI should be similar to https://todolist.azure-mobile.net/login/aad.
 
 8. In the code for the `AuthenticateAsync` method above, replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 
