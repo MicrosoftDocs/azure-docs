@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-scale-a-sqldb" urlDisplayName="How to scale" pageTitle="How to scale a SQL Database - Windows Azure" metaKeywords="" description="Learn about options for scaling your SQL Database in Windows Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Scale a SQL Database Solution" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-how-to-scale-a-sqldb" urlDisplayName="How to scale" pageTitle="How to scale a SQL Database - Azure" metaKeywords="" description="Learn about options for scaling your SQL Database in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Scale a SQL Database Solution" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -8,9 +8,9 @@
 <h1 id="scale">How to Scale a SQL Database Solution</h1>
 
 
-On Windows Azure, database scalability is synonymous with scale out, where a workload is redistributed across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
+On Azure, database scalability is synonymous with scale out, where a workload is redistributed across multiple commodity servers in a data center. Scale out is a strategy for addressing problems with data capacity or performance. A very large database that is on a high-growth trajectory will eventually require a scale out strategy, whether it is accessed by a few users or many users.
 
-Scale out on Windows Azure is best achieved through federation. SQL Database federation is based on horizontal sharding, where one or more tables are split by row and portioned across multiple federation members. 
+Scale out on Azure is best achieved through federation. SQL Database federation is based on horizontal sharding, where one or more tables are split by row and portioned across multiple federation members. 
 
 Federation is not the only answer to every scalability problem. Sometimes the characteristics of your data or application requirements point to simpler approaches. The following list presents potential solutions in order of complexity.
 
@@ -32,7 +32,7 @@ Federations are supported in the Business edition. For more information, see [Fe
 
 ##Consider other forms of storage
 
-Remember that Windows Azure supports multiple forms of data storage, including table storage and blob storage. If you do not require relational features, table or blob storage can be more economical. 
+Remember that Azure supports multiple forms of data storage, including table storage and blob storage. If you do not require relational features, table or blob storage can be more economical. 
 
 [Federations in SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx
 [SQL Database Federations Tutorial - DBA]: http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx

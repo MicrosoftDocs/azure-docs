@@ -1,17 +1,17 @@
-<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Windows Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Windows Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Windows Azure" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
 
-<h1><a id="howtodeploySQLdb"></a>How to Deploy a Database to Windows Azure</h1>
+<h1><a id="howtodeploySQLdb"></a>How to Deploy a Database to Azure</h1>
 
-There are several different ways you can move an on-premises SQL Server database to Windows Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
+There are several different ways you can move an on-premises SQL Server database to Azure. In this task, you'll use the Deploy Database to SQL Database wizard to upload a sample database.
 
 The School sample database is conveniently simple; all of its objects are compatible with SQL Database, eliminating the need to modify or prepare a database for migration. As a new administrator, try deploying a simple database first to learn the steps before using your own databases. 
 
-**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Windows Azure. Also, consider downloading the Windows Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
+**Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Azure. Also, consider downloading the Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
 
 ##Table of Contents##
 * [How to: Create the school database on an on-premises server](#schooldb)
@@ -520,7 +520,7 @@ Next, copy and execute the Insert Data script.
 	GO
 </pre></div>
 
-   You now have an on-premises database that you can export to Windows Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Windows Azure, and imports it into SQL Database.
+   You now have an on-premises database that you can export to Azure. Next, you'll run a wizard that creates a .bacpac file, loads it onto Azure, and imports it into SQL Database.
 
 
 <h2><a id="deploydb"></a>How to: Deploy to SQL Database</h2>

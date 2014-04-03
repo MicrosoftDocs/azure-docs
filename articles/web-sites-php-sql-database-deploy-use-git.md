@@ -1,33 +1,33 @@
-<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Windows Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP web site with a SQL Database and deploy using Git" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties linkid="develop-php-website-with-sql-database-and-git" urlDisplayName="Web w/ SQL + Git" pageTitle="PHP web site with SQL Database and Git - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in SQL Database and use Git deployment to Azure." metaCanonical="" services="web-sites,sql-database" documentationCenter="PHP" title="Create a PHP web site with a SQL Database and deploy using Git" authors="waltpo" solutions="" manager="" editor="mollybos" />
 
 
 
 #Create a PHP web site with a SQL Database and deploy using Git
 
-This tutorial shows you how to create a PHP Windows Azure Web Site with a Windows Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database web site running in Windows Azure.
+This tutorial shows you how to create a PHP Azure Web Site with an Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP][install-drivers], a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL Database web site running in Azure.
 
 > [WACOM.NOTE]
 > You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the <a href="http://www.microsoft.com/web/downloads/platform.aspx">Microsoft Web Platform Installer</a>.
 
 You will learn:
 
-* How to create a Windows Azure Web Site and a SQL Database using the Windows Azure Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
-* How to publish and re-publish your application to Windows Azure using Git.
+* How to create an Azure Web Site and a SQL Database using the Azure Management Portal. Because PHP is enabled in Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to publish and re-publish your application to Azure using Git.
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Web Site. A screenshot of the completed application is below:
+By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Web Site. A screenshot of the completed application is below:
 
-![Windows Azure PHP Web Site][running-app]
+![Azure PHP Web Site][running-app]
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 
-##Create a Windows Azure Web Site and set up Git publishing
+##Create an Azure Web Site and set up Git publishing
 
-Follow these steps to create a Windows Azure Web Site and a SQL Database:
+Follow these steps to create an Azure Web Site and a SQL Database:
 
-1. Login to the [Windows Azure Management Portal][management-portal].
+1. Login to the [Azure Management Portal][management-portal].
 2. Click the **New** icon on the bottom left of the portal.
-![Create New Windows Azure Web Site][new-website]
+![Create New Azure Web Site][new-website]
 
 3. Click **Web Site**, then **Custom Create**.
 
@@ -41,7 +41,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Windows Azure Services to access the server` box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the `Allow Azure Services to access the server` box.
 
 	![Create new SQL Database server][create-server]
 
@@ -72,9 +72,9 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 ##Get SQL Database connection information
 
-To connect to the SQL Database instance that is running in Windows Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
+To connect to the SQL Database instance that is running in Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
 
-1. From the Windows Azure Management Portal, click **Linked Resources**, then click the database name.
+1. From the Azure Management Portal, click **Linked Resources**, then click the database name.
 
 	![Linked Resources][linked-resources]
 
@@ -229,7 +229,7 @@ You can now browse to **http://localhost/registration/index.php** to test the ap
 
 ##Publish your application
 
-After you have tested your application locally, you can publish it to your Windows Azure Web Site using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get SQL Database connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+After you have tested your application locally, you can publish it to your Azure Web Site using Git. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get SQL Database connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
 
 	// DB connection info
 	$host = "tcp:<value of SERVER>";
@@ -244,7 +244,7 @@ After you have tested your application locally, you can publish it to your Windo
 Now, you are ready to set up Git publishing and publish the application.
 
 > [WACOM.NOTE]
-> These are the same steps noted at the end of the Create a Windows Azure Web Site and Set up Git Publishing section above.
+> These are the same steps noted at the end of the Create an Azure Web Site and Set up Git Publishing section above.
 
 
 1. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:

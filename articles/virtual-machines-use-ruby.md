@@ -1,10 +1,10 @@
-<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Windows Azure Multi-Factor Authentication?" pageTitle="What is Windows Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Windows Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Windows Azure Virtual Machines using Ruby" authors=""  solutions="" writer="larryfr" manager="" editor=""  />
+<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
 
 
 
-#How to Manage Windows Azure Virtual Machines using Ruby
+#How to Manage Azure Virtual Machines using Ruby
 
-This guide will show you how to programmatically perform common management tasks for Windows Azure Virtual Machines, such as creating and configuring VMs and adding data disks. The Windows Azure SDK for Ruby provides access to service management functionality for a variety of Windows Azure Services, including Windows Azure Virtual machines.
+This guide will show you how to programmatically perform common management tasks for Azure Virtual Machines, such as creating and configuring VMs and adding data disks. The Azure SDK for Ruby provides access to service management functionality for a variety of Azure Services, including Azure Virtual machines.
 
 ##Table of Contents
 
@@ -13,7 +13,7 @@ This guide will show you how to programmatically perform common management tasks
 * [Create a management certificate](#setup-certificate)
 * [Create a Ruby application](#create-app)
 * [Configure your application to use the SDK](#configure-access)
-* [Setup a Windows Azure management connection](#setup-connection)
+* [Setup an Azure management connection](#setup-connection)
 * [How To: Work with Virtual Machines](#virtual-machine)
 * [How To: Work with images and disks](#vm-images)
 * [How To: Work with Cloud Services](#cloud-services)
@@ -22,25 +22,25 @@ This guide will show you how to programmatically perform common management tasks
 
 ## <a name="what-is"> </a>What is service management?
 
-Windows Azure provides [REST APIs for service management operations](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), including management of Windows Azure Virtual Machines. The Windows Azure SDK for ruby exposes management operations for Virtual Machines through the **Azure::VirtualMachineSerivce** class. Much of the virtual machine management functionality available through the [Windows Azure Management Portal](https://manage.windowsazure.com) is accessible using this class.
+Azure provides [REST APIs for service management operations](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), including management of Azure Virtual Machines. The Azure SDK for ruby exposes management operations for Virtual Machines through the **Azure::VirtualMachineSerivce** class. Much of the virtual machine management functionality available through the [Azure Management Portal](https://manage.windowsazure.com) is accessible using this class.
 
-While the service management API can be used to manage a variety of services hosted on Windows Azure, this document only provides details for the management of Windows Azure Virtual machines.
+While the service management API can be used to manage a variety of services hosted on Azure, this document only provides details for the management of Azure Virtual machines.
 
 ## <a name="concepts"> </a>Concepts
 
-Windows Azure Virtual Machines are implemented as 'roles' within a Cloud Service. Each Cloud Service can contain one or more roles, which are logically grouped into deployments. The role defines the overall physical characteristics of the VM, such as how much memory is available, how many CPU cores, etc.
+Azure Virtual Machines are implemented as 'roles' within a Cloud Service. Each Cloud Service can contain one or more roles, which are logically grouped into deployments. The role defines the overall physical characteristics of the VM, such as how much memory is available, how many CPU cores, etc.
 
-Each VM also has an OS disk, which contains the bootable operating system. A VM can have one or more data disks, which are additional disks that should be used to store application data. Disks are implemented as virtual hard drives (VHD) stored in Windows Azure Blob Storage. VHDs can also be exposed as 'images', which are templates that are used to create disks used by a VM during the VM creation. For example, creating a new VM that uses an Ubuntu image will result in a new OS disk being created from the Ubuntu image.
+Each VM also has an OS disk, which contains the bootable operating system. A VM can have one or more data disks, which are additional disks that should be used to store application data. Disks are implemented as virtual hard drives (VHD) stored in Azure Blob Storage. VHDs can also be exposed as 'images', which are templates that are used to create disks used by a VM during the VM creation. For example, creating a new VM that uses an Ubuntu image will result in a new OS disk being created from the Ubuntu image.
 
-Most images are provided by Microsoft or partners, however you can create your own images or create an image from a VM hosted in Windows Azure.
+Most images are provided by Microsoft or partners, however you can create your own images or create an image from a VM hosted in Azure.
 
-## <a name="setup-certificate"> </a>Create a Windows Azure management certificate
+## <a name="setup-certificate"> </a>Create an Azure management certificate
 
-When performing service management operations, such as those exposed through the **Azure::VirtualMachineService** class, you must provide your Windows Azure Subscription ID and a file containing a management certificate for your subscription. Both are used by the SDK when authenticating to the Windows Azure REST API.
+When performing service management operations, such as those exposed through the **Azure::VirtualMachineService** class, you must provide your Azure Subscription ID and a file containing a management certificate for your subscription. Both are used by the SDK when authenticating to the Azure REST API.
 
-You can obtain the subscription Id and a management certificate by using the Windows Azure Cross-Platform Command-Line Interface (xplat-cli). See [Install and configure the Windows Azure Cross-platform Command-Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/) for information on installing and configuring the xplat-cli.
+You can obtain the subscription Id and a management certificate by using the Azure Cross-Platform Command-Line Interface (xplat-cli). See [Install and configure the Azure Cross-platform Command-Line Interface](http://www.windowsazure.com/en-us/manage/install-and-configure-cli/) for information on installing and configuring the xplat-cli.
 
-Once the xplat-cli is configured, you can perform the following steps to retrieve your Windows Azure subscription ID and export a management certificate:
+Once the xplat-cli is configured, you can perform the following steps to retrieve your Azure subscription ID and export a management certificate:
 
 1. To retrieve the subscription ID, use:
 
@@ -60,7 +60,7 @@ Create a new Ruby application. The examples used in this document can be impleme
 
 ## <a name="configure-access"></a>Configure your application
 
-To manage Windows Azure Services, you need to download and use the Azure gem, which contains the Windows Azure SDK for Ruby.
+To manage Azure Services, you need to download and use the Azure gem, which contains the Azure SDK for Ruby.
 
 ### Use the gem command to install the package
 
@@ -95,17 +95,17 @@ To manage Windows Azure Services, you need to download and use the Azure gem, wh
 
 ### Require the gem
 
-Using a text editor, add the following to the top of your Ruby application file. This will load the azure gem and make the Windows Azure SDK for Ruby available to your application:
+Using a text editor, add the following to the top of your Ruby application file. This will load the azure gem and make the Azure SDK for Ruby available to your application:
 
 	require 'azure'
 
 ## <a name="setup-connection"> </a>How to: Connect to service management
 
-To successfully perform service management operations with Windows Azure, you must specify the subscription ID and certificate obtained in the [Create a Windows Azure management certificate](#setup-certificate) section. The easiest way to do this is to specify the ID and path to the certificate file using the following environment variables:
+To successfully perform service management operations with Azure, you must specify the subscription ID and certificate obtained in the [Create an Azure management certificate](#setup-certificate) section. The easiest way to do this is to specify the ID and path to the certificate file using the following environment variables:
 
 * AZURE\_MANAGEMENT\_CERTIFICATE - The path to the .PEM file containing the management certificate.
 
-* AZURE\_SUBSCRIPTION\_ID - The subscription ID for your Windows Azure subscription.
+* AZURE\_SUBSCRIPTION\_ID - The subscription ID for your Azure subscription.
 
 You can also set these values programmatically in your application by using the following:
 
@@ -116,7 +116,7 @@ You can also set these values programmatically in your application by using the 
 
 ##<a name="virtual-machine"> </a>How to: Work with virtual machines
 
-Management operations for Windows Azure Virtual Machines are performed using the **Azure::VirtualMachineService** class.
+Management operations for Azure Virtual Machines are performed using the **Azure::VirtualMachineService** class.
 
 ###How to: Create a new virtual machine
 
@@ -174,7 +174,7 @@ The following are the options that are available when using the **create\_virtua
 
 * **:ssh\_port** - The public port that will be used for SSH communication. If omitted, the SSH port defaults to 22.
 
-* **:vm\_size** - The size of the VM. This determines memory size, number of cores, bandwidth, and other physical characteristics of the VM. See [Virtual Machine and Cloud Services sizes for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) for available sizes and physical characteristics.
+* **:vm\_size** - The size of the VM. This determines memory size, number of cores, bandwidth, and other physical characteristics of the VM. See [Virtual Machine and Cloud Services sizes for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) for available sizes and physical characteristics.
 
 * **:winrm_transport** - An array of the transports available for use with WinRM. Valid transports are 'http' and 'https'. If 'https' is specified as a transport, you must also use **:ssh\_private\_key\_file** and **:ssh\_certificate\_file** to specify the certificate used to secure the HTTPS communications.
 
@@ -200,7 +200,7 @@ The following is an example of creating a new virtual machine that uses a small 
 
 ###How to: List virtual machines
 
-To list existing virtual machines for your Windows Azure Subscription, use the **list\_virtual\_machines** method. This method returns an array of **Azure::VirtualMachineManagement::VirtualMachine** objects:
+To list existing virtual machines for your Azure Subscription, use the **list\_virtual\_machines** method. This method returns an array of **Azure::VirtualMachineManagement::VirtualMachine** objects:
 
 	vm_mgr = Azure::VirtualMachineService.new
 	virtual_machines = vm_mgr.list_virtual_machines
@@ -251,7 +251,7 @@ To list available virtual machine images, use the **list\_virtual\_machine\_imag
 
 ###How to: List disks
 
-To list disks for your Windows Azure subscription, use the **list\_virtual\_machine\_disks** method. This returns an array of **Azure::VirtualMachineImageManagement::VirtualMachineDisk** objects.
+To list disks for your Azure subscription, use the **list\_virtual\_machine\_disks** method. This returns an array of **Azure::VirtualMachineImageManagement::VirtualMachineDisk** objects.
 
 	disk_mgr = Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService.new
 	disks = disk_mgr.list_virtual_machine_disks
@@ -265,7 +265,7 @@ To delete a disk, use the **delete\_virtual\_machine\_disk** method and specify 
 
 ##<a name="cloud-services"> </a>How to: Work with cloud Services
 
-Management operations for Windows Azure Cloud Services are performed using the **Azure::CloudService** class.
+Management operations for Azure Cloud Services are performed using the **Azure::CloudService** class.
 
 ###How to: Create a cloud service
 
@@ -282,7 +282,7 @@ The following creates a new cloud service in the East US region:
 
 ###How to: List cloud services
 
-To list the cloud services for your Windows Azure subscription, use the **list\_cloud\_services** method. This method returns an array of **Azure::CloudServiceManagement::CloudService** objects:
+To list the cloud services for your Azure subscription, use the **list\_cloud\_services** method. This method returns an array of **Azure::CloudServiceManagement::CloudService** objects:
 
 	cs_mgr = Azure::CloudService.new
 	cloud_services = cs_mgr.list_cloud_services
@@ -310,7 +310,7 @@ To delete a deployment for a cloud service, use the **delete\_cloud\_service\_de
 
 ##<a name="storage-services"> </a>How to: Work with storage services
 
-Management operations for Windows Azure Cloud Services are performed using the **Azure::StorageService** class.
+Management operations for Azure Cloud Services are performed using the **Azure::StorageService** class.
 
 ###How to: Create a storage account
 
@@ -327,7 +327,7 @@ The following creates a new storage account in the 'East US' region:
 
 ###How to: List storage accounts
 
-To get a list of storage accounts for your Windows Azure subscription, use the **list\_storage\_accounts** method. This method returns an array of **Azure::StorageManagement::StorageAccount** objects.
+To get a list of storage accounts for your Azure subscription, use the **list\_storage\_accounts** method. This method returns an array of **Azure::StorageManagement::StorageAccount** objects.
 
 	storage_mgr = Azure::StorageService.new
 	accounts = storage_mgr.list_storage_accounts
@@ -348,7 +348,7 @@ To delete a storage account, use the **delete\_storage\_account** method and spe
 
 ##<a name="next-steps"> </a>Next Steps
 
-Now that you've learned the basics of programmatically creating Windows Azure Virtual machines, follow these links to learn how to do more about working with VMs.
+Now that you've learned the basics of programmatically creating Azure Virtual machines, follow these links to learn how to do more about working with VMs.
 
 * Visit the [Virtual Machines](http://www.windowsazure.com/en-us/documentation/services/virtual-machines/) feature page
 *  See the MSDN Reference: [Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx)

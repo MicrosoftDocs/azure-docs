@@ -1,11 +1,11 @@
-<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Windows Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure web sites in Windows Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Web Sites" authors=""  solutions="" writer="timamm" manager="" editor="mollybos"  />
+<properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure web sites - Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure web sites in Azure, including how to configure a web site to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Web Sites" authors="timamm" solutions="" manager="" editor="mollybos" />
 
 
 
 
 
 # How to Configure Web Sites #
-In the Windows Azure Management Portal you can change the configuration options for web sites and you can link web site to other Windows Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
+In the Azure Management Portal you can change the configuration options for web sites and you can link web site to other Azure resources. For example, you can link web sites to a SQL Database to provide additional functionality. You can also configure web sites to use a new or existing MySQL database.
 
 ## Table of Contents ##
 - [How to: Change configuration options for a web site](#howtochangeconfig)
@@ -58,19 +58,19 @@ Follow these steps to change configuration options for a web site.
 <!-- CERTIFICATES -->
 <li><strong>certificates</strong> - In Standard mode only, you can click <strong>upload</strong> to upload an SSL certificate for a custom domain. The certificates you upload are listed here. Wildcard ("star") certificates (certificates with an asterisk) are supported. After you upload a certificate, you can assign it to any web site in your subscription and region. A star certificate only has to be uploaded once, but can be used for any site within the domain for which it is valid. A certificate can be deleted only if no bindings in any site are active for the given certificate.
 <br /><strong>Note:</strong>
-Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>.
+Custom domains are available only in Shared and Standard modes, and SSL support for custom domains is available in Standard mode only. For information about configuring SSL for a custom domain on Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for an Azure web site</a>.
 </li>
 
 <!-- DOMAIN NAMES -->
-<li><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/">Configuring a custom domain name for a Windows Azure web site</a>.</li>
+<li><strong>domain names</strong> - View or add additional domain names for the web site here. You can add custom domains by clicking <strong>Manage Domains</strong>. Custom domains are available only in <strong>Shared</strong> and <strong>Standard</strong> modes. You can change the web site mode on the <strong>Scale</strong> management page. Custom domains are not available in Free mode. For more information on configuring custom domains, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/">Configuring a custom domain name for an Azure web site</a>.</li>
 
 <!-- SSL BINDINGS -->
-<li><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Windows Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for a Windows Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
+<li><strong>SSL Bindings</strong> - SSL bindings to custom domains are available only in Standard mode. Choose an SSL mode (<strong>SNI</strong>, <strong>IP</strong>, or <strong>No SSL</strong>) for a particular domain name. If you choose SNI or IP, you can specify a certificate for the domain from the certificates you have uploaded. For information about configuring SSL for a custom domain on Azure, see <a href="http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/">Enable HTTPS for an Azure web site</a>. For more information about SNI, see <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Server Name Indication</a>.</li>
 
 <!-- DEPLOYMENTS  -->
 <li><strong>deployments</strong> - Use these settings to configure deployments.
 <ul>
-<li><strong>Git URL</strong> - If you have created a Git repository on your Windows Azure web site, this is its URL - the location to which you push your content.</li>
+<li><strong>Git URL</strong> - If you have created a Git repository on your Azure web site, this is its URL - the location to which you push your content.</li>
 <li><strong>Deployment Trigger URL</strong> - This URL can be set on a GitHub, CodePlex, Bitbucket, or other repository to trigger the deployment when a commit is pushed to the repository.</li>
 <li><strong>Branch to Deploy</strong> - This lets you specify the branch that will be deployed when you push content to it.</li>
 </ul>
@@ -83,7 +83,7 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 <li><strong>Application Logging (File System)</strong> - Choose <strong>On</strong> to have the application logs written to the web site's file system. When enabled, file system logging lasts for a period of 12 hours. You can access the logs from the FTP share for the web site. The link to the FTP share can be found on the <strong>Dashboard</strong>. Under <strong>Quick Glance</strong>, choose <strong>FTP Diagnostic Logs</strong> or <strong>FTPS Diagnostic Logs</strong>.</li>
 
 <!-- APPLICATION LOGGING (STORAGE) -->
-<li><strong>Application Logging (Storage)</strong> - Choose <strong>On</strong> to have your application logs written to a Windows Azure storage account. Logging to a storage account has no time limit and stays enabled until you disable it. By default, the logs are stored in a table called WAWSAppLogTable.</li>
+<li><strong>Application Logging (Storage)</strong> - Choose <strong>On</strong> to have your application logs written to an Azure storage account. Logging to a storage account has no time limit and stays enabled until you disable it. By default, the logs are stored in a table called WAWSAppLogTable.</li>
 <li><strong>Logging Level</strong> - When logging is enabled, this option specifies the amount of information that will be recorded (Error, Warning, Information, or Verbose).</li>
 
 <!-- DIAGNOSTIC STORAGE -->
@@ -92,10 +92,10 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 <li><strong>Storage Account Name</strong> - Choose the storage account to which you would like to have the logs saved.</li>
 <li><strong>Storage Access Key</strong> - Displays the key for the chosen storage account. If you have regenerated the key for the storage account, type the new key here manually, or use one of the <strong>Synchronize</strong> buttons. The synchronize buttons are available only if the currently logged on user has access to the selected storage account.
 </li>
-<li><strong>Synchronize Primary Key</strong> - Retrieves the latest primary key of your Windows Azure Storage account.
+<li><strong>Synchronize Primary Key</strong> - Retrieves the latest primary key of your Azure Storage account.
 </li>
-<li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Windows Azure Storage account.
-<br /><strong>Note:</strong> For more information about Windows Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a>.
+<li><strong>Synchronize Secondary Key</strong> - Retrieves the latest secondary key of your Azure Storage account.
+<br /><strong>Note:</strong> For more information about Azure Storage Access Keys, see <a href="http://www.windowsazure.com/en-us/documentation/articles/storage-manage-storage-account/#regeneratestoragekeys">How to: View, copy, and regenerate storage access keys</a>.
 </li></ul></li></ul></li>
 
 <!-- SITE DIAGNOSTICS  -->
@@ -103,14 +103,14 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 	information for your web site, including:
 <ul>
 <!-- WEB SERVER LOGGING -->
-	<li><strong>Web Server Logging</strong> - Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Windows Azure Storage or to the File System. 
-<br /><strong>Tip</strong>: The maximum size of log storage in the file system is 100 megabytes. If you need to retain more history than that, use Windows Azure Storage, which has a much greater storage capacity.
+	<li><strong>Web Server Logging</strong> - Specify whether to enable web server logging for the web site. Web server logs are saved in the W3C extended log file format. You can save the logs to Azure Storage or to the File System. 
+<br /><strong>Tip</strong>: The maximum size of log storage in the file system is 100 megabytes. If you need to retain more history than that, use Azure Storage, which has a much greater storage capacity.
 	<ul>
-		<li>To save web server logs to a Windows Azure Storage Account, choose <strong>Storage</strong>, and then choose <strong>manage storage</strong>. In the <strong>Manage Storage for Site Diagnostics</strong> dialog box, use the <strong>Storage Account</strong> option to choose the Windows Azure Storage Account for the container that will hold the logs. Use the <strong>Azure Blob Container</strong> option to choose the container that will hold the logs, or select <strong>Create a new blob container</strong> to enable the <strong>Blob Name</strong> box where you can specify a name for the new container.
-<br /><strong>Note</strong>: If you do not yet have a storage account, go to the <strong>Storage</strong> section of the Windows Azure portal where you can click <strong>New</strong> to create an account. 
+		<li>To save web server logs to an Azure Storage Account, choose <strong>Storage</strong>, and then choose <strong>manage storage</strong>. In the <strong>Manage Storage for Site Diagnostics</strong> dialog box, use the <strong>Storage Account</strong> option to choose the Azure Storage Account for the container that will hold the logs. Use the <strong>Azure Blob Container</strong> option to choose the container that will hold the logs, or select <strong>Create a new blob container</strong> to enable the <strong>Blob Name</strong> box where you can specify a name for the new container.
+<br /><strong>Note</strong>: If you do not yet have a storage account, go to the <strong>Storage</strong> section of the Azure portal where you can click <strong>New</strong> to create an account. 
 </li>
 		<li>If you choose <strong>File System</strong>, the logs are saved to the FTP site listed under <strong>FTP Diagnostic Logs</strong> on the Dashboard management page. Enabling File System storage also enables the <strong>Quota</strong> box where you can set the maximum amount of disk space for the log files. The minimum is 25MB and the maximum is 100MB. The default is 35MB. When the quota is reached, the oldest files are successively overwritten by the newest ones.</li>
-		<li>By default, web server logs in a Windows Azure Storage Account are never deleted. To specify a period of time after which the logs will be automatically deleted, select <strong>Set Retention</strong> and enter the number of days to keep the logs in the <strong>Retention Period</strong> box. You can also use the <strong>Set Retention</strong> option for File System storage.</li></ul>
+		<li>By default, web server logs in an Azure Storage Account are never deleted. To specify a period of time after which the logs will be automatically deleted, select <strong>Set Retention</strong> and enter the number of days to keep the logs in the <strong>Retention Period</strong> box. You can also use the <strong>Set Retention</strong> option for File System storage.</li></ul>
 </li>
 
 <!-- DETAILED ERROR MESSAGES -->
@@ -127,7 +127,7 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 	the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.</li>
 
 <!-- REMOTE DEBUGGING -->
-<li><strong>Remote Debugging</strong> - Set this option to <strong>On</strong> to enable remote debugging in your choice of Visual Studio 2012 or Visual Studio 2013. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Windows Azure web site.
+<li><strong>Remote Debugging</strong> - Set this option to <strong>On</strong> to enable remote debugging in your choice of Visual Studio 2012 or Visual Studio 2013. When enabled, you can use the remote debugger in Visual Studio to connect directly to your Azure web site.
 <br />
 <strong>Note</strong>:  Remote debugging will be enabled only for 48 hours and will not work with a site name or user name that is longer than 20 characters. 
 </li>
@@ -139,8 +139,8 @@ Custom domains are available only in Shared and Standard modes, and SSL support 
 </li>
 
 <!-- DEVELOPER ANALYTICS -->
-<li><strong>developer analytics</strong> - Choose <strong>Add-on</strong> to select an analytics add-on from a list, or to go to the Windows Azure store to choose one. Choose <strong>Custom</strong> to select an analytics provider such as New Relic from a list. If you use a custom provider, you must enter the license key in the<strong> Provider Key</strong> box. 
-<br /> <strong>Note</strong>: For more information on using New Relic with Windows Azure Web Sites, see <a href="http://www.windowsazure.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">New Relic Application Performance Management on Windows Azure Web Sites</a>.
+<li><strong>developer analytics</strong> - Choose <strong>Add-on</strong> to select an analytics add-on from a list, or to go to the Azure store to choose one. Choose <strong>Custom</strong> to select an analytics provider such as New Relic from a list. If you use a custom provider, you must enter the license key in the<strong> Provider Key</strong> box. 
+<br /> <strong>Note</strong>: For more information on using New Relic with Azure Web Sites, see <a href="http://www.windowsazure.com/en-us/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">New Relic Application Performance Management on Azure Web Sites</a>.
 </li>
 
 <!-- APP SETTINGS -->
@@ -197,7 +197,7 @@ Follow these steps to link a web site to a SQL Database:
 
 7. Complete required fields on pages 3 and 4 of the **Link Database** wizard and then click the **Finish** checkmark on page 4.
 
-Windows Azure will create a SQL database with the specified parameters and link the database to the web site.
+Azure will create a SQL database with the specified parameters and link the database to the web site.
 
 <!-- HOW TO: CONFIGURE A WEB SITE TO USE A MYSQL DATABASE -->
 ##<a name="howtoconfigMySQL"></a>How to: Configure a web site to use a MySQL database##
@@ -207,11 +207,11 @@ Alternatively, you can create the web site with the **Custom Create** option. In
 
 ##<a name="howtodomain"></a>How to: Configure a custom domain name
 
-For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for a Windows Azure Web Site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
+For information about configuring your web site to use a custom domain name, see [Configuring a custom domain name for an Azure Web Site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-custom-domain-name/).
 
 ##<a name="howtoconfigSSL"></a>How to: Configure a web site to use SSL##
 
-For information about configuring SSL for a custom domain on Windows Azure, see [Enable HTTPS for a Windows Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
+For information about configuring SSL for a custom domain on Azure, see [Enable HTTPS for an Azure web site](http://www.windowsazure.com/en-us/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 ##<a name="next"></a>Next steps
 

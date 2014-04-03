@@ -1,4 +1,4 @@
-<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Windows Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Windows Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="" solutions="" manager="" editor="" />
 
 
 
@@ -27,7 +27,7 @@ covered include **creating queues, sending and receiving messages**, and
 
 ## <a name="create-queue"> </a>How to Create a Queue
 
-The **ServiceBusService** object lets you work with queues. Add the following near the top of any Python file in which you wish to programmatically access Windows Azure Service Bus:
+The **ServiceBusService** object lets you work with queues. Add the following near the top of any Python file in which you wish to programmatically access Azure Service Bus:
 
 	from azure.servicebus import *
 
@@ -148,7 +148,7 @@ links to learn more.
   [How to: Receive Messages from a Queue]: #receive-messages
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Queue Concepts]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   
   
   

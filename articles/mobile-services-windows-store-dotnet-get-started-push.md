@@ -1,4 +1,4 @@
-<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors=""  solutions="" writer="glenga" manager="" editor=""  />
+<properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
 
 # Get started with push notifications in Mobile Services
@@ -6,9 +6,9 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>	
 
-This topic shows how Visual Studio 2013 lets you use Windows Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows how Visual Studio 2013 lets you use Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[WACOM.NOTE]Mobile Services now integrates with Windows Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
+>[WACOM.NOTE]Mobile Services now integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and scale. This integrated functionality is currently in preview. For more information, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -26,7 +26,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 <li><p>Expand <strong>services</strong>, <strong>mobile services</strong>, your service name, open the generated code file, and then inspect the <strong>UploadChannel</strong> method that obtains the installation ID and channel for the device and inserts this data into the new channels table.</p> 
 
 <p>A call to this method was also added by the wizard to the <strong>OnLaunched</strong> event handler in the App.xaml.cs code file. This ensures that registration of the device is attempted whenever the app is launched.</p></li> 
-<li><p>In Server Explorer, expand <strong>Windows Azure</strong>, <strong>Mobile Services</strong>, your service name, and <strong>channels</strong>, then open the insert.js file.</p> 
+<li><p>In Server Explorer, expand <strong>Azure</strong>, <strong>Mobile Services</strong>, your service name, and <strong>channels</strong>, then open the insert.js file.</p> 
 
 <p>This file, which is stored in your mobile service, contains JavaScript code that is executed when a client sends a request to register a device by inserting data into the channels table.</p> 
 
@@ -122,7 +122,7 @@ Consider finding out more about the following Mobile Services topics:
 [Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

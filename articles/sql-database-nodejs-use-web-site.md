@@ -1,16 +1,16 @@
-<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Windows Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Windows Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="Node.js" title="Node.js Web Application using the Windows Azure SQL Database" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Web site with SQL Database" pageTitle="Node.js web site with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="Node.js" title="Node.js Web Application using the Azure SQL Database" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-# Node.js Web Application using the Windows Azure SQL Database
+# Node.js Web Application using the Azure SQL Database
 
-This tutorial shows you how to use SQL Database provided by Windows Azure Data Management to store and access data from a [node] application hosted on Windows Azure. This tutorial assumes that you have some prior experience using node and [Git].
+This tutorial shows you how to use SQL Database provided by Azure Data Management to store and access data from a [node] application hosted on Azure. This tutorial assumes that you have some prior experience using node and [Git].
 
 You will learn:
 
-* How to use the Windows Azure Management Portal to create a Windows Azure Web Site and SQL Database
+* How to use the Azure Management Portal to create an Azure Web Site and SQL Database
 
 * How to use npm (node package manager) to install the node modules
 
@@ -26,7 +26,7 @@ The project files for this tutorial will be stored in a directory named **taskli
 
 <div class="dev-callout">
 <b>Note</b>
-<p>The Microsoft Driver for Node.JS for SQL Server used in this tutorial is currently available as a preview release, and relies on run-time components that are only available on the Microsoft Windows and Windows Azure operating systems.</p>
+<p>The Microsoft Driver for Node.JS for SQL Server used in this tutorial is currently available as a preview release, and relies on run-time components that are only available on the Microsoft Windows and Azure operating systems.</p>
 </div>
 
 <div class="dev-callout">
@@ -57,12 +57,12 @@ Before following the instructions in this article, you should ensure that you ha
 
 ##Create a web site with database
 
-Follow these steps to create a Windows Azure Web Site and a SQL Database:
+Follow these steps to create an Azure Web Site and a SQL Database:
 
-1. Login to the [Windows Azure Management Portal][management-portal].
+1. Login to the [Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Website][new-website]
+	![Create New Azure Website][new-website]
 
 3. Click **WEB SITE**, then **CUSTOM CREATE**.
 
@@ -76,7 +76,7 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 	![Fill in SQL Database settings][database-settings]
 
-5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the **Allow Windows Azure Services to access the server** box.
+5. Enter an administrator name and password (and confirm the password), choose the region in which your new SQL Database server will be created, and check the **Allow Azure Services to access the server** box.
 
 	![Create new SQL Database server][create-server]
 
@@ -104,9 +104,9 @@ Follow these steps to create a Windows Azure Web Site and a SQL Database:
 
 ##Get SQL Database connection information
 
-To connect to the SQL Database instance that is running in Windows Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
+To connect to the SQL Database instance that is running in Azure Web Sites, your will need the connection information. To get SQL Database connection information, follow these steps:
 
-1. From the Windows Azure Management Portal, click **LINKED RESOURCES**, then click the database name.
+1. From the Azure Management Portal, click **LINKED RESOURCES**, then click the database name.
 
 	![Linked Resources][linked-resources]
 
@@ -120,7 +120,7 @@ To connect to the SQL Database instance that is running in Windows Azure Web Sit
 
 To create the database table used to store items for the tasklist application, perform the following steps:
 
-1. From the Windows Azure Management Portal, select your SQL Database and then click **MANAGE** from the bottom of the page. If you receive a message stating that the current IP is not part of the firewall rules, select **OK** to add the IP address.
+1. From the Azure Management Portal, select your SQL Database and then click **MANAGE** from the bottom of the page. If you receive a message stating that the current IP is not part of the firewall rules, select **OK** to add the IP address.
 
 	![manage button][sql-azure-manage]
 
@@ -144,7 +144,7 @@ To create the database table used to store items for the tasklist application, p
 
 ##Install modules and generate scaffolding
 
-In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [express] and [node-sqlserver] modules. The Express module provides a Model View Controller framework for node, while the node-sqlserver module provides connectivity to Windows Azure SQL Database.
+In this section you will create a new Node application and use npm to add module packages. For the task-list application you will use the [express] and [node-sqlserver] modules. The Express module provides a Model View Controller framework for node, while the node-sqlserver module provides connectivity to Azure SQL Database.
 
 ###Install express and generate scaffolding
 
@@ -404,15 +404,15 @@ To test the application on your local machine, perform the following steps:
 
 7. To stop the node process, go to the command-line and press the **CTRL** and **C** keys.
 
-##Deploy your application to Windows Azure
+##Deploy your application to Azure
 
-In this section, you will use the deployment steps you received after creating the web site to publish your application to Windows Azure.
+In this section, you will use the deployment steps you received after creating the web site to publish your application to Azure.
 
 ###Publish the application
 
 1. At the command-line, change directories to the **tasklist** directory if you are not already there.
 
-2. Use the following commands to initialize a local git repository for your application, add the application files to it, and finally push the files to Windows Azure
+2. Use the following commands to initialize a local git repository for your application, add the application files to it, and finally push the files to Azure
 
 		git init
 		git add .
@@ -431,7 +431,7 @@ In this section, you will use the deployment steps you received after creating t
 
 Earlier we implemented code that looks for a **SQL_CONN** environment variable for the connection string or loads the value from the **config.json** file. In the following steps you will create a key/value pair in your web site configuration that the application real access through an environment variable.
 
-1. From the Windows Azure Management Portal, click **Web Sites** and then select your web site.
+1. From the Azure Management Portal, click **Web Sites** and then select your web site.
 
 	![Open website dashboard][go-to-dashboard]
 
@@ -452,11 +452,11 @@ Earlier we implemented code that looks for a **SQL_CONN** environment variable f
 		git rm config.json
 		git commit -m "Removing config file"
 
-6. Perform the following command to deploy the changes to Windows Azure:
+6. Perform the following command to deploy the changes to Azure:
 
 		git push azure master
 
-Once the changes have been deployed to Windows Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **SQL_CONN** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid connection string.
+Once the changes have been deployed to Azure, your web application should continue to work as it is now reading the connection string from the **app settings** entry. To verify this, change the value for the **SQL_CONN** entry in **app settings** to an invalid value. Once you have saved this value, the web site should fail due to the invalid connection string.
 
 ##Next steps
 
@@ -466,10 +466,10 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 
 ##Additional resources
 
-[Windows Azure command-line tool for Mac and Linux]    
-[Create and deploy a Node.js application to Windows Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Windows Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Windows Azure Developer Center]: /en-us/develop/nodejs/
+[Azure command-line tool for Mac and Linux]    
+[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
+[Azure Developer Center]: /en-us/develop/nodejs/
 [Node.js Web Application with Table Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
 
 [node]: http://nodejs.org
@@ -479,10 +479,10 @@ Once the changes have been deployed to Windows Azure, your web application shoul
 [Git remote]: http://git-scm.com/docs/git-remote
 
 [Node.js Web Application with MongoDB]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
-[Windows Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
-[Create and deploy a Node.js application to a Windows Azure Web Site]: ./web-site-with-mongodb-Mac
-[Publishing to Windows Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
-[Windows Azure Portal]: http://windowsazure.com
+[Azure command-line tool for Mac and Linux]: /en-us/develop/nodejs/how-to-guides/command-line-tools/
+[Create and deploy a Node.js application to an Azure Web Site]: ./web-site-with-mongodb-Mac
+[Publishing to Azure Web Sites with Git]: ../CommonTasks/publishing-with-git
+[Azure Portal]: http://windowsazure.com
 [management-portal]: https://manage.windowsazure.com/
 [node-sqlserver]: https://github.com/WindowsAzure/node-sqlserver
 [Microsoft SQL Server 2012 Feature Pack]: http://www.microsoft.com/en-us/download/details.aspx?id=29065

@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Windows Azure feature guide" metaKeywords="Windows Azure Media Services, Windows Azure media, windows azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Windows Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors=""  solutions="" writer="waltpo" manager="" editor="mollybos"  />
+<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="waltpo" solutions="" manager="" editor="mollybos" />
 
 
 
@@ -6,19 +6,19 @@
 
 #How to Use Media Services
 
-This guide shows you how to start programming with Windows Azure Media Services using Java. The guide includes a technical overview of Media Services, steps to configure your Windows Azure account for Media Services, and code that shows how to accomplish typical programming tasks. 
+This guide shows you how to start programming with Azure Media Services using Java. The guide includes a technical overview of Media Services, steps to configure your Azure account for Media Services, and code that shows how to accomplish typical programming tasks. 
 
 ## Table of Contents
 
 -   [What Are Media Services?][]
--   [Setting Up a Windows Azure Account for Media Services][]
+-   [Setting Up an Azure Account for Media Services][]
 -   [Setting up for Media Services development][]
 -   [How to: Use Media Services with Java][]
 -   [Additional Resources][]
 
 <h2><a name="what-are"></a><span class="short header">What are Media Services?</span>What are Media Services?</h2>
  
-Windows Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Windows Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
+Azure Media Services form an extensible media platform that integrates the best of the Microsoft Media Platform and third-party media components in Azure. Media Services provide a media pipeline in the cloud that enables industry partners to extend or replace component technologies. ISVs and media providers can use Media Services to build end-to-end media solutions. This overview describes the general architecture and common development scenarios for Media Services.
 
 The following diagram illustrates the basic Media Services architecture.
 
@@ -27,14 +27,14 @@ The following diagram illustrates the basic Media Services architecture.
 ###Media Services Feature Support
 The current release of Media Services provides the following feature set for developing media applications in the cloud. 
 
-- **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Windows Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
+- **Ingest**. Ingest operations bring assets into the system, for example by uploading them and encrypting them before they are placed into Azure Storage. By the RTM release, Media Services will offer integration with partner components to provide fast UDP (User Datagram Protocol) upload solutions.
 - **Encode**. Encode operations include encoding, transforming and converting media assets. You can run encoding tasks in the cloud using the Media Encoder that is included in Media Services. Encoding options include the following:
-   - Use the Windows Azure Media Encoder and work with a range of standard codecs and formats, including industry-leading IIS Smooth Streaming, MP4, and conversion to Apple HTTP Live Streaming.
+   - Use the Azure Media Encoder and work with a range of standard codecs and formats, including industry-leading IIS Smooth Streaming, MP4, and conversion to Apple HTTP Live Streaming.
    - Convert entire libraries or individual files with total control over input and output.
    - A large set of supported file types, formats, and codecs (see [Supported File Types for Media Services][]).
    - Supported format conversions. Media Services enable you to convert ISO MP4 (.mp4) to Smooth Streaming File Format (PIFF 1.3) (.ismv; .isma). You can also convert Smooth Streaming File Format (PIFF) to Apple HTTP Live Streaming (.msu8, .ts).
 - **Protect**. Protecting content means encrypting live streaming or on demand content for secure transport, storage, and delivery. Media Services provide a DRM technology-agnostic solution for protecting content.  Currently supported DRM technologies are Microsoft PlayReady Protection and MPEG Common Encryption. Support for additional DRM technologies will be available. 
-- **Stream**. Streaming content involves sending it live or on demand to clients, or you can retrieve or download specific media files from the cloud. Media Services provide a format-agnostic solution for streaming content.  Media Services provide  streaming origin support for Smooth Streaming, Apple HTTP Live Streaming, and MP4 formats. Support for additional formats will be available. You can also seamlessly deliver streaming content by using Windows Azure CDN or a third-party CDN, which enables the option  to scale to millions of users.   
+- **Stream**. Streaming content involves sending it live or on demand to clients, or you can retrieve or download specific media files from the cloud. Media Services provide a format-agnostic solution for streaming content.  Media Services provide  streaming origin support for Smooth Streaming, Apple HTTP Live Streaming, and MP4 formats. Support for additional formats will be available. You can also seamlessly deliver streaming content by using Azure CDN or a third-party CDN, which enables the option  to scale to millions of users.   
 
 ###Media Services Development Scenarios
 Media Services support several common media development scenarios as described in the following table. 
@@ -52,7 +52,7 @@ Media Services support several common media development scenarios as described i
     </tr>
     <tr>
         <td>Building hybrid workflows</td>
-        <td>You can integrate Media Services with existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Windows Azure CDN, or a third-party CDN. Media Services can be called individually via standard REST APIs for integration with external applications and services.</td>
+        <td>You can integrate Media Services with existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. Media Services can be called individually via standard REST APIs for integration with external applications and services.</td>
     </tr>
     <tr>
         <td>Providing cloud support for media players</td>
@@ -104,9 +104,9 @@ For iOS devices including iPhone, iPod, and iPad, Microsoft ships an SDK that yo
 ####Android devices
 Several Microsoft partners ship SDKs for the Android platform that add the capability to play back Smooth Streaming on an Android device. Please [email Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) for more details on the partners.
 
-<h2><a name="setup-account"></a><span class="short header">Setting up an account</span>Setting up a Windows Azure account for Media Services</h2>
+<h2><a name="setup-account"></a><span class="short header">Setting up an account</span>Setting up an Azure account for Media Services</h2>
 
-To set up your Media Services account, use the Windows Azure Management Portal. See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
+To set up your Media Services account, use the Azure Management Portal. See the topic [How to Create a Media Services Account][]. After creating your account in the Management Portal, you are ready to set up your computer for Media Services development. 
 
 <h2><a name="setup-dev"> </a><span class="short header">Setting up for Media Services development</span></h2>
 
@@ -114,8 +114,8 @@ This section contains general prerequisites for Media Services development using
 
 ###Prerequisites
 
--   A Media Services account in a new or existing Windows Azure subscription. See the topic [How to Create a Media Services Account][].
--   The Windows Azure Libraries for Java, which you can install from the [Windows Azure Java Developer Center][].
+-   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account][].
+-   The Azure Libraries for Java, which you can install from the [Azure Java Developer Center][].
 
 <h2><a name="connect"> </a><span class="short header">Use Media Services with Java</span>How to: Use Media Services with Java</h2> 
 
@@ -186,7 +186,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 	    // The media services URI, OAuth URI and scope can be used exactly as shown.
 	    // Substitute your media service account name and access key for the clientId and clientSecret variables.
 	    // You can obtain your media service account name and access key from the Media Services section
-	    // of the Windows Azure Management portal, https://manage.windowsazure.com.
+	    // of the Azure Management portal, https://manage.windowsazure.com.
 	    private static void Init() throws ServiceException 
 	    {
 	        String mediaServiceUri = "https://media.windows.net/API/";
@@ -256,14 +256,14 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 	    }
 	
 	    // Create a job that contains a task to transform the asset.
-	    // In this example, the asset will be transformed using the Windows Azure Media Encoder.
+	    // In this example, the asset will be transformed using the Azure Media Encoder.
 	    private static void Transform() throws ServiceException, InterruptedException 
 	    {
-	        // Use the Windows Azure Media Encoder, by specifying it by name.
+	        // Use the Azure Media Encoder, by specifying it by name.
 	        // Retrieve the list of media processors that match this name.   	
 	    	ListResult<MediaProcessorInfo> mediaProcessors = mediaService
 	    			.list(MediaProcessor.list()
-	    			.set("$filter", "Name eq 'Windows Azure Media Encoder'"));
+	    			.set("$filter", "Name eq 'Azure Media Encoder'"));
 	    	
 	    	// Use the latest version of the media processor.
 	    	MediaProcessorInfo mediaProcessor = null;
@@ -405,7 +405,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 	
 	}
 
-The assets that you create are stored in Windows Azure storage. However, use only the Windows Azure media services APIs (not Windows Azure storage APIs) to add, update, or delete assets.
+The assets that you create are stored in Azure storage. However, use only the Azure media services APIs (not Azure storage APIs) to add, update, or delete assets.
 
 ###Determining which media processors are available
 
@@ -438,15 +438,15 @@ Should you need to cancel a job that hasn't finished processing, the following c
 
 <h2><a name="additional-resources"></a><span class="short header">Additional Resources</span>Additional Resources</h2>
 
-For Media Services Javadoc documentation, see [Windows Azure Libraries for Java documentation][].
+For Media Services Javadoc documentation, see [Azure Libraries for Java documentation][].
 
   [What Are Media Services?]: #what-are
-  [Setting Up a Windows Azure Account for Media Services]: #setup-account
+  [Setting Up an Azure Account for Media Services]: #setup-account
   [Setting up for Media Services Development]: #setup-dev
   [How to: Use Media Services with Java]: #connect
   [Additional Resources]: #additional-resources
   [How to Create a Media Services Account]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Windows Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
-  [Windows Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+  [Azure Java Developer Center]: http://www.windowsazure.com/en-us/develop/java/
+  [Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
   [Media Services Client Development]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
 

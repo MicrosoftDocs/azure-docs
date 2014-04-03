@@ -1,10 +1,10 @@
-<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Windows Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Windows Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="Node.js" title="Running Cassandra with Linux on Windows Azure and Accessing it from Node.js" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="Node.js" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
-<h1><a id = ""></a>Running Cassandra with Linux on Windows Azure and Accessing it from Node.js </h1>
+<h1><a id = ""></a>Running Cassandra with Linux on Azure and Accessing it from Node.js </h1>
 **Author:** Hanu Kommalapati
 
 ## Table of Contents##
@@ -12,7 +12,7 @@
 - [Overview] []
 - [Cassandra Deployment Schematic] []
 - [Composite Deployment] []
-- [Windows Azure Virtual Machine Deployment] []
+- [Azure Virtual Machine Deployment] []
 - [Task 1: Deploy Linux Cluster] []
 - [Task 2: Set Up Cassandra on Each Virtual Machine] []
 - [Task 3: Access Cassandra Cluster from Node.js] []
@@ -21,11 +21,11 @@
 
 ##<a id="overview"> </a>Overview ##
 
-Windows Azure provides a NoSQL database service through Azure Table storage which allows schema-less storage of business objects. This service can be used from Node.JS, .NET, Java and any other languages that can speak HTTP and REST.  However, there are other popular NoSQL databases like Cassandra and Couchbase which could not be run on Windows Azure PaaS due to its state-less cloud service model.  Windows Azure Virtual Machines now allows the running of these NoSQL databases on Windows Azure with no changes to the codebase. The intention of this writing is to show how to run a Cassandra cluster on Virtual Machines and access it from Node.js. This does not cover the Cassandra deployment for real world production operations where one needs to look at multi-data center Cassandra cluster with the associated backup and recovery strategies. In this exercise, we will use Ubuntu 12.04 version of Linux and Cassandra 1.0.10; however the process can be tweaked for any Linux distribution. 
+Azure provides a NoSQL database service through Azure Table storage which allows schema-less storage of business objects. This service can be used from Node.JS, .NET, Java and any other languages that can speak HTTP and REST.  However, there are other popular NoSQL databases like Cassandra and Couchbase which could not be run on Azure PaaS due to its state-less cloud service model.  Azure Virtual Machines now allows the running of these NoSQL databases on Azure with no changes to the codebase. The intention of this writing is to show how to run a Cassandra cluster on Virtual Machines and access it from Node.js. This does not cover the Cassandra deployment for real world production operations where one needs to look at multi-data center Cassandra cluster with the associated backup and recovery strategies. In this exercise, we will use Ubuntu 12.04 version of Linux and Cassandra 1.0.10; however the process can be tweaked for any Linux distribution. 
 
 ## <a id="schematic"> </a>Cassandra Deployment Schematic ##
 
-The Windows Azure Virtual Machines capability enables running of NoSQL databases like [Cassandra](http://wiki.apache.org/cassandra/) on Microsoft public cloud as easy as running them in a private cloud environment excepting one difference of virtual network configuration specific to the Windows Azure Virtual Machines infrastructure. As of this writing, Cassandra is not available as a managed service on Windows Azure and hence in this article we will look at setting up of a Cassandra cluster on Virtual Machines and access it from another Linux instance hosted inside Virtual Machines as well. The node.js code snippets shown can also be used from PaaS hosted web application or web service. One of the core strengths of Windows Azure is allowing the composite application model that can take advantage of the best of PaaS and IaaS worlds. 
+The Azure Virtual Machines capability enables running of NoSQL databases like [Cassandra](http://wiki.apache.org/cassandra/) on Microsoft public cloud as easy as running them in a private cloud environment excepting one difference of virtual network configuration specific to the Azure Virtual Machines infrastructure. As of this writing, Cassandra is not available as a managed service on Azure and hence in this article we will look at setting up of a Cassandra cluster on Virtual Machines and access it from another Linux instance hosted inside Virtual Machines as well. The node.js code snippets shown can also be used from PaaS hosted web application or web service. One of the core strengths of Azure is allowing the composite application model that can take advantage of the best of PaaS and IaaS worlds. 
 
 There are two deployment models that are feasible for Cassandra application environment: self-contained Virtual Machines deployment and a composite deployment.  In a composite deployment, a Virtual Machines-hosted Cassandra cluster will be consumed from a PaaS hosted Azure web application (or web service) using Thrift interface through the load balancer.  Even though each Cassandra node proxies the request to other peer nodes in the event of a key space fault,  the load balancer helps with the entry level load balancing of the requests.  Also the load balancer creates a firewall protected sandbox for a better control of the data. 
 
@@ -35,7 +35,7 @@ The goal of a composite deployment is to maximize the usage of PaaS while keepin
 
 ![Composite deployment diagram](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
 
-##<a id="deployment"> </a>Windows Azure Virtual Machine Deployment##
+##<a id="deployment"> </a>Azure Virtual Machine Deployment##
 
 ![Virtual machine deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
 
@@ -49,11 +49,11 @@ During the Virtual Machines preview release, in order for the Linux VMs to be pa
 
 **Step 1: Generate SSH Key pair**
 
-Windows Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair using the instructions located at [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/).  If you plan to use putty.exe as an SSH client either on Windows or Linux, you have to convert the PEM encoded RSA private key to PPK format using puttygen.exe.  Instructions for this can be found at [Generating SSH Key Pair for Linux VM Deployment on Windows Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx).
+Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair using the instructions located at [How to Use SSH with Linux on Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/).  If you plan to use putty.exe as an SSH client either on Windows or Linux, you have to convert the PEM encoded RSA private key to PPK format using puttygen.exe.  Instructions for this can be found at [Generating SSH Key Pair for Linux VM Deployment on Windows Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx).
 
 **Step 2:  Create a Ubuntu VM**
 
-To create the first Ubuntu VM, log into the Windows Azure preview portal, click **New**, click **Virtual Machine**, click **From Gallery**, click **Unbuntu Server 12.xx**, and then click the right arrow. For a tutorial that describes how to create a Linux VM, see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
+To create the first Ubuntu VM, log into the Azure preview portal, click **New**, click **Virtual Machine**, click **From Gallery**, click **Unbuntu Server 12.xx**, and then click the right arrow. For a tutorial that describes how to create a Linux VM, see [Create a Virtual Machine Running Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
 
 Then, enter the following information on the VM Configuration screen:
 
@@ -326,7 +326,7 @@ At this stage, the cluster is ready for Thrift clients through the cloud service
 
 ##<a id="task3"> </a>Task 3: Access Cassandra Cluster from Node.js##
 
-Create a Linux VM on Windows Azure using the process described in the previous tasks.  Make sure that this VM is standalone VM as we will be using this as a client for accessing the Cassandra cluster. We will install Node.js, NPM and [cassandra-client](https://github.com/racker/node-cassandra-client)  from github before connecting to Cassandra cluster from this VM: 
+Create a Linux VM on Azure using the process described in the previous tasks.  Make sure that this VM is standalone VM as we will be using this as a client for accessing the Cassandra cluster. We will install Node.js, NPM and [cassandra-client](https://github.com/racker/node-cassandra-client)  from github before connecting to Cassandra cluster from this VM: 
 
 **Step 1: Install Node.js and NPM**
 
@@ -491,12 +491,12 @@ Modify  casdemo.js to add the above function and call it after commenting the pr
 		
 ##<a id="conclusion"> </a>Conclusion##
 
-Windows Azure Virtual Machines capability allows the creation of Linux  (images provided by Microsoft partners) and Windows virtual machines which allow the migration of existing server products and applications with zero changes. Cassandra NoSQL database server discussed in this article is one such example. The Cassandra cluster set up in this write up can be accessed by Azure hosted cloud services, 3rd party public clouds and private clouds from both Windows and Linux OS environments. In this article we covered node.js as the client; however, Cassandra can be accessed from .NET, Java and other language environments. 
+Azure Virtual Machines capability allows the creation of Linux  (images provided by Microsoft partners) and Windows virtual machines which allow the migration of existing server products and applications with zero changes. Cassandra NoSQL database server discussed in this article is one such example. The Cassandra cluster set up in this write up can be accessed by Azure hosted cloud services, 3rd party public clouds and private clouds from both Windows and Linux OS environments. In this article we covered node.js as the client; however, Cassandra can be accessed from .NET, Java and other language environments. 
 
 [Overview]: #overview
 [Cassandra Deployment Schematic]: #schematic
 [Composite Deployment]: #composite
-[Windows Azure Virtual Machine Deployment]: #deployment
+[Azure Virtual Machine Deployment]: #deployment
 [Task 1: Deploy Linux Cluster]: #task1
 [Task 2: Set Up Cassandra on Each Virtual Machine]: #task2
 [Task 3: Access Cassandra Cluster from Node.js]: #task3

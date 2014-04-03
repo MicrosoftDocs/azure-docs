@@ -1,9 +1,9 @@
-﻿<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Windows Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Windows Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Windows Azure" />
+<properties linkid="manage-linux-other-resources-partners" urlDisplayName="Partner solutions" pageTitle="Linux partners for Azure" metaKeywords="" description="Learn about the endorsed Linux images available for Azure virtual machines, including Ubuntu, OpenLogic, and SUSE." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Partner solutions for Linux in Azure" authors="" />
 
 
-#Partner solutions for Linux in Windows Azure
+#Partner solutions for Linux in Azure
 
-Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Windows Azure. In addition, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
+Contact the partners listed on this page for assistance in delivering your Linux-based cloud solutions in Azure. In addition, sign up for the [free preview](https://account.windowsazure.com/PreviewFeatures).
 
 
 ##Bitnami
@@ -12,7 +12,7 @@ Contact the partners listed on this page for assistance in delivering your Linux
 
 [http://bitnami.org/azure/get-started](http://bitnami.org/azure/get-started)
 
-BitNami provides fully configured images of popular web applications that can be deployed to Windows Azure in one click. The BitNami WebPack and DevPack images for Windows Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing web sites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
+BitNami provides fully configured images of popular web applications that can be deployed to Azure in one click. The BitNami WebPack and DevPack images for Azure provide fully configured and ready-to-run environments for web and application developers, free of charge. BitNami WebPack bundles Wordpress, Drupal and Joomla! to give developers a choice of the best platforms for developing web sites and blogs. BitNami DevPack provides a development environment complete with Ruby on Rails, PHP, Django and Java language runtimes and all of their dependencies, everything developers need to build web applications in the cloud.
 
 
 ##Opscode Chef
@@ -21,7 +21,7 @@ BitNami provides fully configured images of popular web applications that can be
 
 [www.opscode.com/partners/microsoft](http://www.opscode.com/partners/microsoft)
 	 
-Opscode is the company behind Chef, the rapidly growing cloud infrastructure automation framework used by thousands of organizations, from small startups to Fortune 100 enterprises. Chef's flexible and re-usable templates ("cookbooks") enable you to manage, scale and rebuild Windows Azure environments with ease.
+Opscode is the company behind Chef, the rapidly growing cloud infrastructure automation framework used by thousands of organizations, from small startups to Fortune 100 enterprises. Chef's flexible and re-usable templates ("cookbooks") enable you to manage, scale and rebuild Azure environments with ease.
 
 ##RightScale
 
@@ -37,7 +37,7 @@ RightScale® Inc., cloud management enables organizations to easily deploy and m
 
 [www.scalextreme.com/partners-windows-azure](http://www.scalextreme.com/partners-windows-azure)
  
-ScaleXtreme is delivering the next-generation of systems and cloud management products that gives customers a unified product to manage their Windows Azure and internal enterprise servers. ScaleXtreme is cloud-based and gives customers instant, enterprise-class automation capabilities at a fraction of the cost and complexity of traditional solutions.
+ScaleXtreme is delivering the next-generation of systems and cloud management products that gives customers a unified product to manage their Azure and internal enterprise servers. ScaleXtreme is cloud-based and gives customers instant, enterprise-class automation capabilities at a fraction of the cost and complexity of traditional solutions.
 
 ScaleXtreme gives customers the power to build, launch, monitor, patch, and manage their Windows and Linux servers on Microsoft Azure, and to rapidly deploy and scale their server infrastructure. ScaleXtreme is cloud-based and deploys in minutes, giving customers "instant" systems management and automation capabilities without the need to deploy on-premise infrastructure. Product features includes server templates and provisioning, monitoring, budgets and cost controls, patch management, and rich automation capabilities.
 
@@ -48,7 +48,7 @@ ScaleXtreme gives customers the power to build, launch, monitor, patch, and mana
 
 [www.susestudio.com](http://www.susestudio.com)
 
-SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to Windows Azure using the one-click-deployment capabilities of SUSE Studio.  Through SUSE Studio, customers can rapidly develop cloud-ready applications that include a preconfigured, integrated and fully supported enterprise-class Linux operating system, and automatically launch them on Windows Azure, virtually eliminating inefficient manual processes. 
+SUSE makes it easy to extend SUSE Linux Enterprise Server-based applications to Azure using the one-click-deployment capabilities of SUSE Studio.  Through SUSE Studio, customers can rapidly develop cloud-ready applications that include a preconfigured, integrated and fully supported enterprise-class Linux operating system, and automatically launch them on Azure, virtually eliminating inefficient manual processes. 
 
 
 ##Ubuntu Juju

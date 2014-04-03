@@ -1,17 +1,17 @@
-<properties title="How to use blob storage (PHP) - Windows Azure feature guide" pageTitle="How to use blob storage (PHP) - Windows Azure feature guide" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="" writer="waltpo" manager="bjsmith" editor="mollybos"/>
+<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="waltpo" manager="bjsmith" editor="mollybos" />
 
 #How to use the Blob service from PHP
 
-This guide will show you how to perform common scenarios using the Windows Azure Blob service. The samples are written in PHP and use the [Windows Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
+This guide will show you how to perform common scenarios using the Azure Blob service. The samples are written in PHP and use the [Azure SDK for PHP] [download]. The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs. For more information on blobs, see the [Next Steps](#NextSteps) section.
 
 ##Table of Contents
 
 * [What is Blob Storage](#what-is)
 * [Concepts](#concepts)
-* [Create a Windows Azure storage account](#CreateAccount)
+* [Create an Azure storage account](#CreateAccount)
 * [Create a PHP application](#CreateApplication)
 * [Configure your application to access the Blob Service](#ConfigureStorage)
-* [Setup a Windows Azure storage connection](#ConnectionString)
+* [Setup an Azure storage connection](#ConnectionString)
 * [How to: Create a container](#CreateContainer)
 * [How to: Upload a Blob into a Container](#UploadBlob)
 * [How to: List the Blobs in a container](#ListBlobs)
@@ -22,23 +22,23 @@ This guide will show you how to perform common scenarios using the Windows Azure
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-<h2><a id="CreateAccount"></a>Create a Windows Azure storage account</h2>
+<h2><a id="CreateAccount"></a>Create an Azure storage account</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Create a PHP application</h2>
 
-The only requirement for creating a PHP application that accesses the Windows Azure Blob service is the referencing of classes in the Windows Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use service features which can be called within a PHP application locally, or in code running within a Windows Azure web role, worker role, or web site.
+In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
 
-<h2><a id="GetClientLibrary"></a>Get the Windows Azure Client Libraries</h2>
+<h2><a id="GetClientLibrary"></a>Get the Azure Client Libraries</h2>
 
 [WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 <h2><a id="ConfigureStorage"></a>Configure your application to access the Blob service</h2>
 
-To use the Windows Azure Blob service APIs, you need to:
+To use the Azure Blob service APIs, you need to:
 
 1. Reference the autoloader file using the [require_once][require_once] statement, and
 2. Reference any classes you might use.
@@ -46,7 +46,7 @@ To use the Windows Azure Blob service APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [WACOM.NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Windows Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the `WindowsAzure.php` autoloader file.
+> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the `WindowsAzure.php` autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -54,9 +54,9 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-<h2><a id="ConnectionString"></a>Setup a Windows Azure storage connection</h2>
+<h2><a id="ConnectionString"></a>Setup an Azure storage connection</h2>
 
-To instantiate a Windows Azure Blob service client you must first have a valid connection string. The format for the blob service connection string is:
+To instantiate an Azure Blob service client you must first have a valid connection string. The format for the blob service connection string is:
 
 For accessing a live service:
 
@@ -67,7 +67,7 @@ For accessing the emulator storage:
 	UseDevelopmentStorage=true
 
 
-To create any Windows Azure service client you need to use the **ServicesBuilder** class. You can:
+To create any Azure service client you need to use the **ServicesBuilder** class. You can:
 
 * pass the connection string directly to it or
 * use the **CloudConfigurationManager (CCM)** to check multiple external sources for the connection string:
@@ -140,7 +140,7 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 <h2><a id="UploadBlob"></a>How to: Upload a Blob into a container</h2>
 
-To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation will create the blob if it doesn�t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
+To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation will create the blob if it doesn't exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
 	require_once 'vendor\autoload.php';
 
@@ -285,15 +285,15 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 
 <h2><a id="NextSteps"></a>Next steps</h2>
 
-Now that you've learned the basics of the Windows Azure Blob service, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of the Azure Blob service, follow these links to learn how to do more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Windows Azure] []
-- Visit the Windows Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Storing and Accessing Data in Azure] []
+- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
 - See the PHP block blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - See the PHP page blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents

@@ -1,8 +1,8 @@
-<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) - Windows Azure feature guide" services=”Storage” metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Windows Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Blob service from Python"/>
+<properties linkid="develop-python-blob-service" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="" videoId="" scriptId="" />
 
 # How to Use the Blob Storage Service from Python
 This guide will show you how to perform common scenarios using the
-Windows Azure Blob storage service. The samples are written using the
+Azure Blob storage service. The samples are written using the
 Python API. The scenarios covered include **uploading**, **listing**,
 **downloading**, and **deleting** blobs. For more information on blobs,
 see the [Next Steps][] section.
@@ -11,7 +11,7 @@ see the [Next Steps][] section.
 
 [What is Blob Storage?][]   
  [Concepts][]   
- [Create a Windows Azure Storage Account][]   
+ [Create an Azure Storage Account][]   
  [How To: Create a Container][]   
  [How To: Upload a Blob into a Container][]   
  [How To: List the Blobs in a Container][]   
@@ -22,7 +22,7 @@ see the [Next Steps][] section.
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-## <a name="create-account"> </a>Create a Windows Azure Storage Account
+## <a name="create-account"> </a>Create an Azure Storage Account
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -33,7 +33,7 @@ see the [Next Steps][] section.
 
 The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
-the top of any Python file in which you wish to programmatically access Windows Azure Storage:
+the top of any Python file in which you wish to programmatically access Azure Storage:
 
 	from azure.storage import *
 
@@ -149,18 +149,18 @@ If you need blobs larger than 200 GB, you can use a page blob instead of a block
 Now that you’ve learned the basics of blob storage, follow these links
 to learn how to do more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Windows Azure][]
--   Visit the [Windows Azure Storage Team Blog][]
+-   See the MSDN Reference: [Storing and Accessing Data in Azure][]
+-   Visit the [Azure Storage Team Blog][]
 
   [Next Steps]: #next-steps
   [What is Blob Storage?]: #what-is
   [Concepts]: #concepts
-  [Create a Windows Azure Storage Account]: #create-account
+  [Create an Azure Storage Account]: #create-account
   [How To: Create a Container]: #create-container
   [How To: Upload a Blob into a Container]: #upload-blob
   [How To: List the Blobs in a Container]: #list-blob
   [How To: Download Blobs]: #download-blobs
   [How To: Delete a Blob]: #delete-blobs
   [How To: Upload and Download Large Blobs]: #large-blobs
-  [Storing and Accessing Data in Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Windows Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

@@ -1,8 +1,8 @@
-<properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Sqoop with HDInsight Samples" pageTitle="Use Sqoop with HDInsight | Windows Azure" metaKeywords="" description="Learn how to use Windows Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and a Windows Azure SQL database." umbracoNaviHide="0" disqusComments="1" writer="jgao" editor="cgronlun" manager="paulettm" title="Use Sqoop with HDInsight" />
+<properties linkid="manage-services-hdinsight-use-sqoop" urlDisplayName="Use Sqoop with HDInsight Samples" pageTitle="Use Sqoop with HDInsight | Azure" metaKeywords="" description="Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="Use Sqoop with HDInsight" authors="jgao" />
 
 # Use Sqoop with HDInsight
  
-Learn how to use Windows Azure PowerShell from a workstation to run Sqoop import and export between an HDInsight cluster and a Windows Azure SQL database.
+Learn how to use Azure PowerShell and HDInsight .NET SDK from a workstation to run Sqoop import and export between an HDInsight cluster and an Azure SQL database.
 
 **Estimated time to complete:** 30 minutes
 
@@ -13,8 +13,9 @@ Learn how to use Windows Azure PowerShell from a workstation to run Sqoop import
 - [Prerequisites](#prerequisites)
 - [Understand the tutorial scenario](#scenario)
 - [Prepare the tutorial](#prepare)
-- [Use Sqoop export](#export)
-- [Use Sqoop import](#import)
+- [Use PowerShell to run Sqoop export](#export)
+- [Use HDInsight SDK to run Sqoop export](#export-sdk)
+- [Use PowerShell to run Sqoop import](#import)
 - [Next steps](#nextsteps)
 
 
@@ -33,28 +34,28 @@ For supported Sqoop versions on HDInsight clusters, see [What's new in the clust
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Windows Azure PowerShell installed and configured. For instructions, see [Install and configure Windows Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Windows Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **A workstation** with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
 
-- **A Windows Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
+- **An Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
 	<table border="1">
 	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>This is your HDInsight cluster name.</td></tr>
-	<tr><td>Azure storage account name</td><td>$storageAccountName</td><td></td><td>A Windows Azure Storage account available to the HDInsight cluster. For this tutorial, use the default storage account specified during the cluster provision process.</td></tr>
-	<tr><td>Azure Blob container name</td><td>$containerName</td><td></td><td>For this example, use the Windows Azure Blob storage container used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
+	<tr><td>Azure storage account name</td><td>$storageAccountName</td><td></td><td>An Azure Storage account available to the HDInsight cluster. For this tutorial, use the default storage account specified during the cluster provision process.</td></tr>
+	<tr><td>Azure Blob container name</td><td>$containerName</td><td></td><td>For this example, use the Azure Blob storage container used for the default HDInsight cluster file system. By default, it has the same name as the HDInsight cluster.</td></tr>
 	</table>
 
-- **A Windows Azure SQL Database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions on creating a SQL database and configuring firewall, see [Get started using Windows Azure SQL database][sqldatabase-get-started]. This article provides a PowerShell script for creating the SQL database table needed for this tutorial. 
+- **An Azure SQL Database**. You must configure a firewall rule for the SQL Database server to allow access from your workstation. For instructions on creating a SQL database and configuring firewall, see [Get started using Azure SQL database][sqldatabase-get-started]. This article provides a PowerShell script for creating the SQL database table needed for this tutorial. 
 
 	<table border="1">
 	<tr><th>SQL database property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>SQL database server name</td><td>$sqlDatabaseServer</td><td></td><td>The SQL Database server to which Sqoop will export data to or import data from. </td></tr>
-	<tr><td>SQL database login name</td><td>$sqlDatabaseUsername</td><td></td><td>SQL Database login name.</td></tr>
+	<tr><td>SQL database login name</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database login name.</td></tr>
 	<tr><td>SQL database login password</td><td>$sqlDatabasePassword</td><td></td><td>SQL Database login password.</td></tr>
-	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Windows Azure SQL Database to which Sqoop will export data to or import data from. </td></tr>
+	<tr><td>SQL database name</td><td>$sqlDatabaseName</td><td></td><td>The Azure SQL Database to which Sqoop will export data to or import data from. </td></tr>
 	</table>
 
-	> [WACOM.NOTE] By default a Windows Azure SQL database allows connections from Windows Azure services like Windows Azure HDInsight. If this firewall setting is disabled, you must enabled it from Windows Azure Management portal. For instruction on creating SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue]. 
+	> [WACOM.NOTE] By default an Azure SQL database allows connections from Azure services like Azure HDInsight. If this firewall setting is disabled, you must enabled it from Azure Management portal. For instruction on creating SQL database and configuring firewall rules, see [Create and Configure SQL Database][sqldatabase-create-configue]. 
 
 
 > [WACOM.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
@@ -92,16 +93,16 @@ You will first export both sample.log and hivesampletable to SQL database, and t
 
 ###Understand HDInsight storage
 
-HDInsight uses Windows Azure Blob Storage for data storage.  It is called *WASB* or *Windows Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Windows Azure Blob storage. For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+HDInsight uses Azure Blob Storage for data storage.  It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
-When you provision an HDInsight cluster, a Windows Azure Storage account and a specific Blob storage container from that account is designated as the default file system, just like in HDFS. In addition to this storage account, you can add additional storage accounts from either the same Windows Azure subscription or different Windows Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/usesqoop*. By default this container has the same name as the HDInsight cluster name. 
+When you provision an HDInsight cluster, an Azure Storage account and a specific Blob storage container from that account is designated as the default file system, just like in HDFS. In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/usesqoop*. By default this container has the same name as the HDInsight cluster name. 
 The WASB syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [WACOM.NOTE] Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.
 
-> [WACOM.NOTE] The WASB path is a virtual path.  For more information see [Use Windows Azure Blob storage with HDInsight][hdinsight-storage]. 
+> [WACOM.NOTE] The WASB path is a virtual path.  For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
 A file stored in the default file system container can be accessed from HDInsight using any of the following URIs (use sample.log as an example):
 
@@ -126,11 +127,11 @@ You will create two SQL database tables used by Sqoop export later in the tutori
 		
 		#SQL database variables
 		$sqlDatabaseServer = "<SQLDatabaseServerName>" 
-		$sqlDatabaseUsername = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "<SQLDatabasePassword>"
 		$sqlDatabaseName = "<SQLDatabaseName>" 
 
-		$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseUsername;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
+		$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
 
 	For more descriptions of the variables, see the [Prerequisites](#prerequisites) section in this tutorial. 
 
@@ -190,7 +191,7 @@ You will create two SQL database tables used by Sqoop export later in the tutori
 		Write-Host "Done" -ForegroundColor Green
 	
 5. Click **Run Script** or press **F5** to run the script. 
-6. Use [Windows Azure Management portal][azure-management-portal] to examine the tables and clustered indexes.
+6. Use [Azure Management portal][azure-management-portal] to examine the tables and clustered indexes.
 
 In this tutorial, you will export a log4j log file (a delimited file) and a Hive table to SQL Database.  The delimited file is */example/data/sample.log*. Earlier in the tutorial, you see a few samples of log4j logs. In the log file, there are some empty lines and some other lines similar to:
 
@@ -204,13 +205,13 @@ Sqoop export will fail if there is an empty string, or a line with fewer number 
 **To pre-process the sample.log file**
 
 1. Open Windows PowerShell ISE.
-2. In the bottom pane, run the following command to connect to your Windows Azure subscription:
+2. In the bottom pane, run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to log in again. 
+	You will be prompted to enter your Azure account credentials. This method of adding a subscription connection times out, and after 12 hours, you will have to log in again. 
 
-	> [WACOM.NOTE] If you have multiple Windows Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select the current subscription.
+	> [WACOM.NOTE] If you have multiple Azure subscriptions and the default subscription is not the one you want to use, use the <strong>Select-AzureSubscription</strong> cmdlet to select the current subscription.
 
 3. Copy the following script into the script pane, and then set the first two variables:
 		
@@ -275,7 +276,7 @@ Sqoop export will fail if there is an empty string, or a line with fewer number 
 		$destBlob.UploadFromStream($memStream)
 
 5. Click **Run Script** or press **F5** to run the script.  
-6. To examine the modified data file, you can use Windows Azure Management portal, or a Windows Azure Storage explorer tool, or Windows Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample on using PowerShell to download a file and display the file content.
+6. To examine the modified data file, you can use Azure Management portal, or an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample on using PowerShell to download a file and display the file content.
 
 
 
@@ -350,18 +351,18 @@ Sqoop export will fail if there is an empty string, or a line with fewer number 
 
 
 
-##<a id="export"></a>Use Sqoop export
+##<a id="export"></a>Use PowerShell to run Sqoop export
 
-In this section, you will use the Sqoop export command to export both a Hive table, and a data file to a Windows Azure SQL database.
+In this section, you will use Azure PowerShell to run the Sqoop export command to export both a Hive table, and a data file to an Azure SQL database. The next section provides an HDInsight .NET sample.
 
 **To export the log4j log file**
 
 1. Open Windows PowerShell ISE.
-2. In the bottom pane, run the following command to connect to your Windows Azure subscription:
+2. In the bottom pane, run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 
 3. Copy the following script into the script pane, and then set the first seven variables:
 
@@ -372,13 +373,13 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 		
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
-		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
 		$databaseName = "<SQLDatabaseName>"
 
 		$tableName_log4j = "log4jlogs"
 		
-		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$exportDir_log4j = "/tutorials/usesqoop/data"
 	
@@ -401,16 +402,16 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 	Notice the field delimiter is **\0x20**, which is space. The delimiter is defined in  the sample.log file pre-process PowerShell script. To find out about **-m 1**, see [Sqoop user guide][sqoop-user-guide-1.4.4].
 
 5. Click **Run Script** or press **F5** to run the script.  
-6. Use [Windows Azure Management portal][azure-management-portal] to examine the exported data.
+6. Use [Azure Management portal][azure-management-portal] to examine the exported data.
 
 **To export the hivesampletable Hive table**
 
 1. Open Windows PowerShell ISE.
-2. In the bottom pane, run the following command to connect to your Windows Azure subscription:
+2. In the bottom pane, run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 
 3. Copy the following script into the script pane, and then set the first seven variables:
 
@@ -421,13 +422,13 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 		
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
-		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_mobile = "mobiledata"
 		
-		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$exportDir_mobile = "/hive/warehouse/hivesampletable"
 	
@@ -447,18 +448,112 @@ In this section, you will use the Sqoop export command to export both a Hive tab
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Click **Run Script** or press **F5** to run the script.   
-6. Use [Windows Azure Management portal][azure-management-portal] to examine the exported data.
+6. Use [Azure Management portal][azure-management-portal] to examine the exported data.
 
-##<a id="import"></a>Use Sqoop import
+
+
+##<a id="export-sdk"></a>Use HDInsight .NET SDK to run Sqoop export
+
+The following is a C# sample using HDInsight .NET SDK to run Sqoop export. For the general information on using HDInsight .NET SDK, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
+
+
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	using System.IO;
+	using System.Threading;
+	using System.Security.Cryptography.X509Certificates;
+	using Microsoft.WindowsAzure.Management.HDInsight;
+	using Microsoft.Hadoop.Client;
+	
+	namespace sqoopSDKSample
+	{
+	    class Program
+	    {
+	        static void Main(string[] args)
+	        {
+	            // Set the variables
+	            string subscriptionID = "<WindowsAzureSubscriptionID>";
+	            string clusterName = "<HDInsightClusterName>";
+	            string certFriendlyName = "<WindowsAzureCertificateFriendlyName>";
+	            string sqlDatabaseServerName = "<SQLDatabaseServerName>";
+	            string sqlDatabaseLogin = "<SQLDatabaseLogin>" + "@" + sqlDatabaseServerName;
+	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
+	            string sqlDatabaseDatabaseName = "hdisqoop";
+	            string sqlDatabaseTableName = "log4jlogs";
+	
+	            cmdExport = @"export";
+	            cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+	            cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
+	            cmdExport = cmdExport + @" --export-dir /tutorials/usesqoop/data";
+	            cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
+	
+	            SqoopJobCreateParameters sqoopJobDefinition = new SqoopJobCreateParameters()
+	            {
+	                Command = cmdExport,
+	                StatusFolder = "/tutorials/usesqoop/jobStatus"
+	            };
+	
+	            // Get the certificate object from certificate store using the friendly name to identify it
+	            X509Store store = new X509Store();
+	            store.Open(OpenFlags.ReadOnly);
+	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
+	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+	
+	            // Submit the Hive job
+	            var jobClient = JobSubmissionClientFactory.Connect(creds);
+	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
+	
+	            // Wait for the job to complete
+	            WaitForJobCompletion(jobResults, jobClient);
+	
+	            // Print the Hive job output
+	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
+	
+	            StreamReader reader = new StreamReader(stream);
+	            Console.WriteLine(reader.ReadToEnd());
+	
+	            Console.WriteLine("Press ENTER to continue.");
+	            Console.ReadLine();
+	        }
+	
+	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
+	        {
+	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
+	            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
+	            {
+	                jobInProgress = client.GetJob(jobInProgress.JobId);
+	                Thread.Sleep(TimeSpan.FromSeconds(10));
+	            }
+	        }
+	    }
+	}
+
+To execute a script file, you can replace:
+
+	Command = cmdExport,
+
+ with:
+
+	File = "/tutorials/usesqoop/sqoopexport.txt",
+
+The script file must be located on WASB.
+
+
+
+
+##<a id="import"></a>Use PowerShell to run Sqoop import
 
 In this section, you will import the log4j logs (that you exported to SQL Database) back to HDInsight.
 
 1. Open Windows PowerShell ISE.
-2. In the bottom pane, run the following command to connect to your Windows Azure subscription:
+2. In the bottom pane, run the following command to connect to your Azure subscription:
 
 		Add-AzureAccount
 
-	You will be prompted to enter your Windows Azure account credentials.
+	You will be prompted to enter your Azure account credentials.
 
 3. Copy the following script into the script pane, and then set the first seven variables:
 
@@ -469,13 +564,13 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 		
 		# Define the SQL database variables
 		$sqlDatabaseServerName = "<SQLDatabaseServerName>"
-		$sqlDatabaseUserName = "<SQLDatabaseUsername>"
+		$sqlDatabaseLogin = "<SQLDatabaseUsername>"
 		$sqlDatabasePassword = "SQLDatabasePassword>"
 		$databaseName = "SQLDatabaseName"
 
 		$tableName_log4j = "log4jlogs"
 		
-		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseUserName@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
+		$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$databaseName"
 		
 		$tableName_mobile = "mobiledata"
 		$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
@@ -495,7 +590,7 @@ In this section, you will import the log4j logs (that you exported to SQL Databa
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Click **Run Script** or press **F5** to run the script. 
-6. To examine the modified data file, you can use Windows Azure Management portal, or a Windows Azure Storage explorer tool, or Windows Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample on using PowerShell to download a file and display the file content.
+6. To examine the modified data file, you can use Azure Management portal, or an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample on using PowerShell to download a file and display the file content.
 
 ##<a id="nextsteps"></a>Next Steps
 
@@ -503,7 +598,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 - [Use Oozie with HDInsight][hdinsight-oozie]: use Sqoop action in Oozie workflow.
 - [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]: Use Hive to analyze flight delay data, and then use Sqoop to export data to SQL database.
-- [Upload data to HDInsight][hdinsight-upload-data]: find other methods for uploading data to HDInsight/Windows Azure Blob storage.
+- [Upload data to HDInsight][hdinsight-upload-data]: find other methods for uploading data to HDInsight/Azure Blob storage.
 
 
  
@@ -517,6 +612,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 [hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
 [hdinsight-oozie]: ../hdinsight-use-oozie/
 [hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/

@@ -1,18 +1,18 @@
-#Enable HTTPS for a Windows Azure web site
+#Enable HTTPS for an Azure web site
 
-When someone visits your web site using HTTPS, the communication between the web site and the browser is secured using Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to enable HTTPS for a Windows Azure Web Site. 
+When someone visits your web site using HTTPS, the communication between the web site and the browser is secured using Secure Socket Layer (SSL) encryption. This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your site are secure. This article discusses how to enable HTTPS for an Azure Web Site. 
 
 > [WACOM.NOTE] In order to enable HTTPS for custom domain names, you must configure your web sites for standard mode. This may incur additional costs if you are currently using free or shared mode. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
 <a href="bkmk_azurewebsites"></a><h2>The \*.azurewebsites.net domain</h2>
 
-If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Windows Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely.
+If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web site by Azure (for example, contoso.azurewebsites.net,) then your site is already secured by a certificate provided by Microsoft. You can use **https://mywebsite.azurewebsites.net** to access your site securely.
 
 The rest of this document provides details on enabling HTTPS for custom domain names, such as **contoso.com**, **www.contoso.com**, or **\*.contoso.com**
 
 <a href="bkmk_domainname"></a><h2>Custom domain names</h2>
 
-To enable HTTPS for a custom domain name, such as **contoso.com**, you must register a custom domain name with a domain name registrar. For more information on how to configure the domain name of a Windows Azure Web Site, see [Configuring a custom domain name for a Windows Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your web site to respond to the custom name, you must request an SSL certificate for the domain. 
+To enable HTTPS for a custom domain name, such as **contoso.com**, you must register a custom domain name with a domain name registrar. For more information on how to configure the domain name of an Azure Web Site, see [Configuring a custom domain name for an Azure Web Site](/en-us/develop/net/common-tasks/custom-dns-web-site/). Once you have registered a custom domain name and configured your web site to respond to the custom name, you must request an SSL certificate for the domain. 
 
 Registering a domain name also enables you to create subdomains such as **www.contoso.com** or **mail.contoso.com**. Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate. This will determine what type of certificate you must obtain. If you just need to secure a single domain name such as **contoso.com** or **www.contoso.com** a basic certificate will probably be sufficient. If you need to secure multiple domain names, such as **contoso.com**, **www.contoso.com**, and **mail.contoso.com**, then a wildcard certificate, or a certificate with Subject Alternate Name (subjectAltName, SAN) will be required.
 
@@ -30,9 +30,9 @@ It is possible for a certificate to provide support for both wildcards and subje
 
 <a href="bkmk_getcert"></a><h2>Get a certificate</h2>
 
-SSL certificates used with Windows Azure Web Sites must be signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
+SSL certificates used with Azure Web Sites must be signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates. For a list of Certificate Authorities, see [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] on the Microsoft TechNet Wiki.
 
-The certificate must meet the following requirements for SSL certificates in Windows Azure:
+The certificate must meet the following requirements for SSL certificates in Azure:
 
 * The certificate must contain a private key.
 
@@ -40,23 +40,23 @@ The certificate must meet the following requirements for SSL certificates in Win
 
 * The certificate's subject name must match the domain used to access the web site. If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.
 
-	* For information on configuring a custom domain name for a Windows Azure Web Site, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
+	* For information on configuring a custom domain name for an Azure Web Site, see [Configuring a custom domain name for an Azure Web Site][customdomain].
 	
 	> [WACOM.NOTE] Do not attempt to obtain or generate a certificate for the azurewebsites.net domain.
 
 * The certificate should use a minimum of 2048-bit encryption.
 
-> [WACOM.NOTE] Certificates issued from private CA servers are not supported by Windows Azure Web Sites.
+> [WACOM.NOTE] Certificates issued from private CA servers are not supported by Azure Web Sites.
 
 To get an SSL certificate from a Certificate Authority you must generate a Certificate Signing Request (CSR), which is sent to the CA. The CA will then return a certificate that is used to complete the CSR. Two common ways to generate a CSR are by using the certmgr.exe or [OpenSSL][openssl] applications. Certmgr.exe is only available on Windows, while OpenSSL is available for most platforms. The steps for using both of these utilities are below.
 
-You may also need to obtain **intermediate certificates** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs web site. The steps in this article provide steps on how to ensure that any intermediate certificates are merged with the certificate uploaded to your Windows Azure web site. 
+You may also need to obtain **intermediate certificates** (also known as chain certificates), if these are used by your CA. The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them. Intermediate certificates are often provided as a separate download from the CAs web site. The steps in this article provide steps on how to ensure that any intermediate certificates are merged with the certificate uploaded to your Azure web site. 
 
 > [WACOM.NOTE] When following either series of steps, you will be prompted to enter a **Common Name**. If you will be obtaining a wildcard certificate for use with multiple domains (www.contoso.com, sales.contoso.com,) then this value should be \*.domainname (for example, \*.contoso.com). If you will be obtaining a certificate for a single domain name, this value must be the exact value that users will enter in the browser to visit your web site. For example, www.contoso.com.
 >
 > If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard Subject Alternative Name (SAN) certificate. For an example of creating a certificate request that uses the SubjectAltName extensions, see [SubjectAltName certificate](#bkmk_subjectaltname).
 > 
-> For more information on how to configure the domain name of a Windows Azure Web Site, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for a Windows Azure Web Site</a>.
+> For more information on how to configure the domain name of an Azure Web Site, see <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuring a custom domain name for an Azure Web Site</a>.
 
 ###Get a certificate using Certreq.exe (Windows only)
 
@@ -128,7 +128,7 @@ If you wish to use the IIS Manager to create a certificate request, see the [Get
 
 	![provide a file path][certwiz4]
 
-You can now upload the exported PFX file to your Windows Azure Web Site.
+You can now upload the exported PFX file to your Azure Web Site.
 
 ###Get a certificate using OpenSSL
 
@@ -142,7 +142,7 @@ You can now upload the exported PFX file to your Windows Azure Web Site.
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
         Organization Name (eg, company) []: Microsoft
-        Organizational Unit Name (eg, section) []: Windows Azure
+        Organizational Unit Name (eg, section) []: Azure
         Common Name (eg, YOUR name) []: www.microsoft.com
         Email Address []:
 
@@ -178,7 +178,7 @@ You can now upload the exported PFX file to your Windows Azure Web Site.
 
 	Save the file.
 
-5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Windows Azure Web Sites:
+5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure Web Sites:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
@@ -193,11 +193,11 @@ You can now upload the exported PFX file to your Windows Azure Web Site.
 	</code></pre>
 	</div>
 
-	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
+	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Web Sites.
 
 <a href="bkmk_standardmode"></a><h2>Configure standard mode</h2>
 
-Enabling HTTPS for a custom domain is only available for the standard mode of Windows Azure web sites. Use the following steps to switch to standard mode.
+Enabling HTTPS for a custom domain is only available for the standard mode of Azure web sites. Use the following steps to switch to standard mode.
 
 > [WACOM.NOTE] Before switching a web site from the free web site mode to the standard web site mode, you should remove spending caps in place for your Web Site subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends. For more information on shared and standard mode pricing, see [Pricing Details][pricing].
 
@@ -217,13 +217,13 @@ Enabling HTTPS for a custom domain is only available for the standard mode of Wi
 
 5. Click **Save**. When prompted, click **Yes**.
 
-	> [WACOM.NOTE] If you receive a "Configuring scale for web site '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Windows Azure support](http://www.windowsazure.com/en-us/support/options/).
+	> [WACOM.NOTE] If you receive a "Configuring scale for web site '&lt;site name&gt;' failed" error you can use the details button to get more information. You may receive a "Not enough available standard instance servers to satisfy this request." error. If you receive this error, please contact [Azure support](http://www.windowsazure.com/en-us/support/options/).
 
 <a href="bkmk_configuressl"></a><h2>Configure SSL</h2>
 
-Before performing the steps in this section, you must have associated a custom domain name with your Windows Azure Web Site. For more information, see [Configuring a custom domain name for a Windows Azure Web Site][customdomain].
+Before performing the steps in this section, you must have associated a custom domain name with your Azure Web Site. For more information, see [Configuring a custom domain name for an Azure Web Site][customdomain].
 
-1. In your browser, open the [Windows Azure Management Portal][portal].
+1. In your browser, open the [Azure Management Portal][portal].
 
 2. In the **Web Sites** tab, click the name of your site and then select the **CONFIGURE** tab.
 
@@ -309,7 +309,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
  		Country Name (2 letter code) []: US
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
-        Organizational Unit Name (eg, section) []: Windows Azure
+        Organizational Unit Name (eg, section) []: Azure
         Your common name (eg, domain name) []: www.microsoft.com
  
 
@@ -341,7 +341,7 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 
 	Save the file.
 
-5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Windows Azure Web Sites:
+5. From the command-line, Bash or terminal session, use the following command to convert the **myserver.key** and **myserver.crt** into **myserver.pfx**, which is the format required by Azure Web Sites:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
@@ -356,11 +356,11 @@ OpenSSL can be used to create a certificate request that uses the SubjectAltName
 	</code></pre>
 	</div>
 
-	After running this command, you should have a **myserver.pfx** file suitable for use with Windows Azure Web Sites.
+	After running this command, you should have a **myserver.pfx** file suitable for use with Azure Web Sites.
 
 ##<a name="bkmk_iismgr"></a>Get a certificate using the IIS Manager (Optional)
 
-If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Windows Azure Web Sites.
+If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Azure Web Sites.
 
 1. Generate a Certificate Signing Request (CSR) with IIS Manager to send to the Certificate Authority. For more information on generating a CSR, see [Request an Internet Server Certificate (IIS 7)][iiscsr].
 
@@ -372,7 +372,7 @@ If you are familiar with IIS Manager, you can use it to generate a certificate t
 
 	Once you have downloaded the certificate, right click on it in explorer and select **Install certificate**. Use the default values in the **Certificate Import Wizard**, and continue selecting **Next** until the import has completed.
 
-4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Windows Azure for use with your Windows Azure Web Site.
+4. Export the certificate from IIS Manager For more information on exporting the certificate, see [Export a Server Certificate (IIS 7)][exportcertiis]. The exported file will be used in later steps to upload to Azure for use with your Azure Web Site.
 
 	<div class="dev-callout"> 
 	<b>Note</b>
@@ -449,7 +449,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
          keyUsage=nonRepudiation, digitalSignature, keyEncipherment
          extendedKeyUsage = serverAuth
 
-	This specifies the configuration settings required to produce an SSL certificate that can be used by Windows Azure Web Sites.
+	This specifies the configuration settings required to produce an SSL certificate that can be used by Azure Web Sites.
 
 2. Generate a new self-signed certificate by using the following from a command-line, bash or terminal session:
 
@@ -457,13 +457,13 @@ You can create a test certificate from a Windows system that has Visual Studio i
 
 	This creates a new certificate using the configuration settings specified in the **serverauth.cnf** file.
 
-3. To export the certificate to a .PFX file that can be uploaded to a Windows Azure Web Site, use the following command:
+3. To export the certificate to a .PFX file that can be uploaded to an Azure Web Site, use the following command:
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	When prompted, enter a password to secure the .pfx file.
 
-	The **myserver.pfx** produced by this command can be used to secure your Windows Azure Web Site for testing purposes.
+	The **myserver.pfx** produced by this command can be used to secure your Azure Web Site for testing purposes.
 
 [customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
 [iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx

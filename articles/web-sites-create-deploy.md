@@ -1,10 +1,10 @@
-<properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create web sites - Windows Azure service management" metaKeywords="Azure creating web site, Azure deleting website" description="Learn how to create a web site using the Windows Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Web Site" authors=""  solutions="" writer="timamm" manager="" editor=""  />
+<properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create web sites - Azure service management" metaKeywords="Azure creating web site, Azure deleting website" description="Learn how to create a web site using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Web Site" authors="timamm" solutions="" manager="" editor="" />
 
 #How to Create a Web Site
 
 This topic shows how to create a web site from the gallery or by using the management portal.
 
-For information about how to deploy your content to a Windows Azure Web Site that you have created, see the **Deploy** section in [Windows Azure Web Sites](/en-us/documentation/services/web-sites/).
+For information about how to deploy your content to an Azure Web Site that you have created, see the **Deploy** section in [Azure Web Sites](/en-us/documentation/services/web-sites/).
 
 ## Table of Contents ##
 
@@ -15,9 +15,9 @@ For information about how to deploy your content to a Windows Azure Web Site tha
 
 ##<a name="createawebsiteportal"></a>How to: Create a Web Site Using the Management Portal
 
-Follow these steps to create a web site in Windows Azure.
+Follow these steps to create a web site in Azure.
 	
-1. Login to the [Windows Azure Management Portal](http://manage.windowsazure.com/).
+1. Login to the [Azure Management Portal](http://manage.windowsazure.com/).
 
 2. Click the **Create New** icon on the bottom left of the Management Portal.
 
@@ -60,8 +60,8 @@ Follow these steps to create a web site in Windows Azure.
 [WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ##<a name="deleteawebsite"></a>How to: Delete a Web Site
-Web sites are deleted using the **Delete** icon in the Windows Azure Management Portal. The **Delete** icon is available in the Windows Azure Portal when you click **Web Sites** to list all of your web sites and at the bottom of each of the web site management pages.
+Web sites are deleted using the **Delete** icon in the Azure Management Portal. The **Delete** icon is available in the Azure Portal when you click **Web Sites** to list all of your web sites and at the bottom of each of the web site management pages.
 
 ##<a name="nextsteps"></a>Next Steps
 
-For more information, see [Windows Azure Web Sites](/en-us/documentation/services/web-sites/).
+For more information, see [Azure Web Sites](/en-us/documentation/services/web-sites/).

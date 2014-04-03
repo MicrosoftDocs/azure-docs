@@ -2,7 +2,7 @@ First, you use the Add Push Notification wizard in Visual Studio 2013 to registe
 
 0. If you haven't already done so, follow the steps in [Import your publishsettings file in Visual Studio 2013] to import your publisher.settings file into Visual Studio. 
 
-	You do not need to do this if you have already used Visual Studio to create or manage mobile services in your Windows Azure subscription.
+	You do not need to do this if you have already used Visual Studio to create or manage mobile services in your Azure subscription.
 
 1. In Visual Studio 2013, open Solution Explorer, right-click the project, click **Add** then **Push Notification...**. 
 

@@ -1,12 +1,12 @@
-<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Windows Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create a Windows Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="" videoId="" scriptId="" solutions="" writer="waltpo" manager="bjsmith" editor="mollybos"  />
+<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="waltpo" videoId="" scriptId="" solutions="" manager="bjsmith" editor="mollybos" />
 
 
 
 # How to run a compute-intensive task in Java on a virtual machine
 
-With Windows Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
+With Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.
 
-This tutorial assumes you know how to create Java console applications, import libraries to your Java application, and generate a Java archive (JAR). No knowledge of Windows Azure is assumed. 
+This tutorial assumes you know how to create Java console applications, import libraries to your Java application, and generate a Java archive (JAR). No knowledge of Azure is assumed. 
 
 You will learn:
 
@@ -30,10 +30,10 @@ The following is an example of the Java application monitoring the compute-inten
 
 ## To create a virtual machine
 
-1. Log in to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1. Log in to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Virtual machine**, and then click **From Gallery**.
-3. In the **Virtual machine image select** dialog, select **JDK 7 (Preview) Windows Server 2012**.
-Note that **JDK 6 (Preview) Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
+3. In the **Virtual machine image select** dialog, select **JDK 7 Windows Server 2012**.
+Note that **JDK 6 Windows Server 2012** is available in case you have legacy applications that are not yet ready to run in JDK 7.
 4. Click **Next**.
 4. In the **Virtual machine configuration** dialog:
     1. Specify a name for the virtual machine.
@@ -43,7 +43,7 @@ Note that **JDK 6 (Preview) Windows Server 2012** is available in case you have 
     5. Click **Next**.
 5. In the next **Virtual machine configuration** dialog:
     1. For **Cloud service**, use the default **Create a new cloud service**.
-    2. The value for **Cloud service DNS name** must be unique across cloudapp.net. If needed, modify this value so that Windows Azure indicates it is unique.
+    2. The value for **Cloud service DNS name** must be unique across cloudapp.net. If needed, modify this value so that Azure indicates it is unique.
     2. Specify a region, affinity group, or virtual network. For purposes of this tutorial, specify a region such as **West US**.
     2. For **Storage Account**, select **Use an automatically generated storage account**.
     3. For **Availability Set**, select **(None)**.
@@ -60,17 +60,17 @@ Note that **JDK 6 (Preview) Windows Server 2012** is available in case you have 
 4. Click **Connect**.
 5. Respond to the prompts as needed to connect to the virtual machine. When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.
 
-Note that the Windows Azure Service Bus functionality requires the Baltimore CyberTrust Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert] for information on adding it (as well as information on viewing the certificates in your cacerts store).
+Note that the Azure Service Bus functionality requires the Baltimore CyberTrust Root certificate to be installed as part of your JRE's **cacerts** store. This certificate is automatically included in the JRE used by this tutorial. If you do not have this certificate in your JRE **cacerts** store, see [Adding a Certificate to the Java CA Certificate Store][add_ca_cert] for information on adding it (as well as information on viewing the certificates in your cacerts store).
 
 ## How to create a service bus namespace
 
-To begin using Service Bus queues in Windows Azure, you must first
+To begin using Service Bus queues in Azure, you must first
 create a service namespace. A service namespace provides a scoping
 container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Windows Azure Management Portal](https://manage.windowsazure.com).
+1.  Log on to the [Azure Management Portal](https://manage.windowsazure.com).
 2.  In the lower left navigation pane of the Management Portal, click **Service Bus, Access Control & Caching**.
 3.  In the upper left pane of the Management Portal, click the **Service
     Bus** node, and then click the **New** button.  
@@ -108,7 +108,7 @@ namespace.
 
 ## How to create a Java application that performs a compute-intensive task
 
-1. On your development machine (which does not have to be the virtual machine that you created), download the [Windows Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/).
+1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/).
 2. Create a Java console application using the example code at the end of this section. For purposes of this tutorial, we'll use **TSPSolver.java** as the Java file name. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
 3. After coding, export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR. For purposes of this tutorial, we'll use **TSPSolver.jar** as the generated JAR name.
 

@@ -1,9 +1,9 @@
-<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Windows Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Windows Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Windows Azure" authors="szark"  solutions="" writer="" manager="" editor=""  />
+<properties linkid="manage-linux-common-tasks-user-root-privileges" urlDisplayName="Use root privileges" pageTitle="Use root privileges on Linux virtual machines in Azure" metaKeywords="" description="Learn how to use root privileges on a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Using root privileges on Linux virtual machines in Azure" authors="" solutions="" manager="" editor="" />
 
 
 
 
-#Using root privileges on Linux virtual machines in Windows Azure
+#Using root privileges on Linux virtual machines in Azure
 
 Users can run commands with elevated privileges on a Linux virtual machine using the `sudo` command. However, the experience may vary depending on how the system was provisioned.
 

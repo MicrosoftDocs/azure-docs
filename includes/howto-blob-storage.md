@@ -1,9 +1,9 @@
 ## <a name="what-is"> </a>What is Blob Storage
 
-Windows Azure Blob storage is a service for storing large amounts of
+Azure Blob storage is a service for storing large amounts of
 unstructured data that can be accessed from anywhere in the world via
 HTTP or HTTPS. A single blob can be hundreds of gigabytes in size, and a
-single storage account can contain up to 200TB of blobs if it was created on June 8th, 2012, or later; storage accounts created prior to that date can contain up to 100TB of blobs. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+single storage account can contain up to 200TB of blobs if it was created on June 8th, 2012, or later; storage accounts created prior to that date can contain up to 100TB of blobs. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 Common uses of Blob storage include:
 
@@ -11,7 +11,7 @@ Common uses of Blob storage include:
 -   Storing files for distributed access
 -   Streaming video and audio
 -   Performing secure backup and disaster recovery
--   Storing data for analysis by an on-premises or Windows Azure-hosted
+-   Storing data for analysis by an on-premises or Azure-hosted
     service
 
 You can use Blob storage to expose data publicly to the world or
@@ -23,8 +23,8 @@ The Blob service contains the following components:
 
 ![Blob1][Blob1]
 
--   **Storage Account:** All access to Windows Azure Storage is done
-    through a storage account. See [Windows Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
+-   **Storage Account:** All access to Azure Storage is done
+    through a storage account. See [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/en-us/library/dn249410.aspx) for details about storage account capacity.
 
 -   **Container:** A container provides a grouping of a set of blobs.
     All blobs must be in a container. An account can contain an
@@ -32,7 +32,7 @@ The Blob service contains the following components:
     number of blobs.
 
 -   **Blob:** A file of any type and size. There are two types of blobs
-    that can be stored in Windows Azure Storage: block and page blobs.
+    that can be stored in Azure Storage: block and page blobs.
     Most files are block blobs. A single block blob can be up to 200GB
     in size. This tutorial uses block blobs. Page blobs, another blob
     type, can be up to 1TB in size, and are more efficient when ranges

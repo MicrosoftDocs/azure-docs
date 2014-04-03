@@ -1,4 +1,4 @@
-<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Windows Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Windows Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors=""  solutions="" writer="sethm" manager="dwrede" editor="mattshel"  />
+<properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
 
 
@@ -6,30 +6,32 @@
 
 # .NET Multi-Tier Application Using Service Bus Queues
 
-Developing for Windows Azure is easy using Visual Studio 2013 and the
-free Windows Azure SDK for .NET. If you do not already have Visual
-Studio 2013, the SDK will automatically install Visual Studio Express 2013, so you can start developing for Windows Azure entirely for
+Developing for Azure is easy using Visual Studio 2013 and the
+free Azure SDK for .NET. If you do not already have Visual
+Studio 2013, the SDK will automatically install Visual Studio Express 2013, so you can start developing for Azure entirely for
 free. This guide assumes you have no prior experience using Windows
 Azure. On completing this guide, you will have an application that uses
-multiple Windows Azure resources running in your local environment and
+multiple Azure resources running in your local environment and
 demonstrating how a multi-tier application works.
 
 You will learn:
 
--   How to enable your computer for Windows Azure development with a
+-   How to enable your computer for Azure development with a
     single download and install.
--   How to use Visual Studio to develop for Windows Azure.
--   How to create a multi-tier application in Windows Azure using web
+-   How to use Visual Studio to develop for Azure.
+-   How to create a multi-tier application in Azure using web
     and worker roles.
 -   How to communicate between tiers using Service Bus Queues.
 
-In this tutorial you'll build and run the multi-tier application in a Windows Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to a Windows Azure Web Site instead of a cloud service. For instructions about what to do differently a Windows Azure Web Site front end, see the [Next steps](#nextsteps) section.
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+
+In this tutorial you'll build and run the multi-tier application in an Azure Cloud Service. The front end will be an ASP.NET MVC web role and the back end will be a worker-role. You could create the same multi-tier application with the front end as a web project that would be deployed to an Azure Web Site instead of a cloud service. For instructions about what to do differently an Azure Web Site front end, see the [Next steps](#nextsteps) section.
 
 A screenshot of the completed application is shown below:
 
 ![][0]
 
-**Note** Windows Azure also provides storage queue functionality. For more information about Windows Azure storage queues and Service Bus queues, see [Windows Azure Queues and Windows Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
+**Note** Azure also provides storage queue functionality. For more information about Azure storage queues and Service Bus queues, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted][sbqueuecomparison].  
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -94,10 +96,10 @@ architecture.
 
 <h2><span class="short-header">Set up environment</span>Set up the development environment</h2>
 
-Before you can begin developing your Windows Azure application, you need
+Before you can begin developing your Azure application, you need
 to get the tools and set-up your development environment.
 
-1.  To install the Windows Azure SDK for .NET, click the button below:
+1.  To install the Azure SDK for .NET, click the button below:
 
     [Get Tools and SDK][]
 
@@ -118,7 +120,7 @@ to get the tools and set-up your development environment.
 
 6.  Once the installation is complete, you will have everything
     necessary to start developing. The SDK includes tools that let you
-    easily develop Windows Azure applications in Visual Studio. If you
+    easily develop Azure applications in Visual Studio. If you
     do not have Visual Studio installed, it also installs the free
     Visual Studio Express for Web.
 
@@ -132,7 +134,11 @@ created. The combination of service namespace and shared secret key
 provides a credential for Service Bus to authenticate access to an
 application.
 
-1.  Log into the [Windows Azure Management Portal][].
+Note that you can also manage namespaces and Service Bus messaging entities using the Visual Studio Server Explorer, but you can only create new namespaces from within the portal. 
+
+###Set up the namespace using the Management Portal
+
+1.  Log into the [Azure Management Portal][].
 
 2.  In the left navigation pane of the Management Portal, click
     **Service Bus**.
@@ -171,6 +177,14 @@ application.
 
 10.  Make a note of the key, or copy it to the clipboard.
 
+###Manage namespaces and messaging entities using the Visual Studio Server Explorer
+
+To manage a namespace and obtain connection information using Visual Studio instead of the Management Portal, follow the procedure described [here](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), in the section titled **To connect to Azure from Visual Studio**. When you sign in to Azure, the **Service Bus** node under the **Microsoft Azure** tree in Server Explorer is automatically populated with any namespaces you've already created. Right-click any namespace, and then click **Properties** to see the connection string and other metadata associated with this namespace displayed in the Visual Studio **Properties** pane. 
+
+Make a note of the **SharedAccessKey** value, or copy it to the clipboard:
+
+![][34]
+
 <h2><span class="short-header">Create a web role</span>Create a web role</h2>
 
 In this section, you will build the front end of your application. You
@@ -184,7 +198,7 @@ Queue and displaying status information about the queue.
     2013 or Microsoft Visual Studio Express. To start Visual
     Studio with administrator privileges, right-click **Microsoft Visual
     Studio 2013 (or Microsoft Visual Studio Express)** and
-    then click **Run as administrator**. The Windows Azure compute emulator,
+    then click **Run as administrator**. The Azure compute emulator,
     discussed later in this guide, requires that Visual Studio be
     launched with administrator privileges.
 
@@ -195,7 +209,7 @@ Queue and displaying status information about the queue.
 
 
 2.  From **Installed Templates**, under **Visual C#**, click **Cloud** and
-    then click **Windows Azure Cloud Service**. Name the project
+    then click **Azure Cloud Service**. Name the project
     **MultiTierApp**. Then click **OK**.
 
     ![][9]
@@ -205,7 +219,7 @@ Queue and displaying status information about the queue.
 
     ![][10]
 
-4.  Hover over **WebRole1** under **Windows Azure Cloud Service solution**, click
+4.  Hover over **WebRole1** under **Azure Cloud Service solution**, click
     the pencil icon, and rename the web role to **FrontendWebRole**. Then Click **OK**. (Make sure you enter "Frontend" with a lower-case "e", not "FrontEnd".)
 
     ![][11]
@@ -219,7 +233,7 @@ Queue and displaying status information about the queue.
     **Manage NuGet Packages...** or **Add Library Package Reference**.
 
 7.  Select **Online** on the left-hand side of the dialog. Search for
-    "**WindowsAzure**" and select the **Windows Azure Service
+    "**WindowsAzure**" and select the **Azure Service
     Bus** item. Then complete the installation and close this dialog.
 
     ![][13]
@@ -374,7 +388,7 @@ Service Bus Queue.
     information and contains methods for initializing the connection to
     a Service Bus Queue. In QueueConnector.cs, paste in the following code, and enter in
     values for **Namespace**, **IssuerName**, and **IssuerKey**. You can
-    find these values in the [Management Portal][Windows Azure Management Portal].
+    obtain these values either from the [Management Portal][Azure Management Portal], or from the Visual Studio Server Explorer under the **Service Bus** node.
 
         using System;
         using System.Collections.Generic;
@@ -491,7 +505,7 @@ Service Bus Queue.
 
 <h2><span class="short-header">Configuration manager</span>Cloud configuration manager</h2>
 
-Windows Azure supports a set of managed APIs that provides a consistent way to create new instances of Windows Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in web sites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
+Azure supports a set of managed APIs that provides a consistent way to create new instances of Azure service clients (such as the Service Bus) across Microsoft cloud services. These APIs enable you to instantiate these clients (for example, **CloudBlobClient**, **QueueClient**, **TopicClient**) regardless of where the application is hosted -- on-premises, in a Microsoft cloud service, in web sites, or in a persistent VM Role. You can also use these APIs to retrieve the configuration information necessary for instantiating these clients, and to change the configuration without having to redeploy the calling application. The APIs are located in the [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] class. There are also APIs on the client side.
 
 ### Connection string
 
@@ -527,11 +541,13 @@ The code in the following section uses these configuration management APIs.
 You will now create the worker role that processes the order
 submissions. This example uses the **Worker Role with Service Bus Queue** Visual Studio project template. First, you will use Server Explorer in Visual Studio to obtain the required credentials.
 
-1. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Windows Azure** within the Server Explorer hierarchy, as in the following figure.
+1. If you've already connected Visual Studio to your Azure account, as described in the section **Set up the namespace using the Visual Studio Server Explorer,** skip ahead to step 5. 
+
+3. From the menu bar in Visual Studio, choose **View**, and then click **Server Explorer**. A **Service Bus** node appears under **Azure** within the Server Explorer hierarchy, as in the following figure.
 
 	![][21]
 
-2. In Server Explorer, expand **Windows Azure**, then right-click **Service Bus**, then click **Add New Connection**.
+2. In Server Explorer, expand **Azure**, then right-click **Service Bus**, then click **Add New Connection**.
 
 3. In the **Add Connection** dialog, type the name of the service namespace, the issuer name, and the issuer key. Then click **OK** to connect.
 
@@ -583,7 +599,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 16.  You have completed the application. You can test the full
     application as you did earlier, by pressing F5. Note that the message count does not increment, because the worker role processes items from the queue and marks them as complete. You can see the trace output of your
-    worker role by viewing the Windows Azure Compute Emulator UI. You
+    worker role by viewing the Azure Compute Emulator UI. You
     can do this by right-clicking the emulator icon in the notification
     area of your taskbar and selecting **Show Compute Emulator UI**.
 
@@ -595,7 +611,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 To learn more about Service Bus, see the following resources:  
   
-* [Windows Azure Service Bus][sbmsdn]  
+* [Azure Service Bus][sbmsdn]  
 * [Service Bus How To's][sbwacom]  
 * [How to Use Service Bus Queues][sbwacomqhowto]  
 
@@ -603,7 +619,7 @@ To learn more about multi-tier scenarios, or to learn how to deploy an applicati
 
 * [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage]  
 
-You might want to implement the front-end of a multi-tier application in a Windows Azure Web Site instead of a Windows Azure Cloud Service. To learn more about the difference between web sites and cloud services, see [Windows Azure Execution Models][executionmodels].
+You might want to implement the front-end of a multi-tier application in an Azure Web Site instead of an Azure Cloud Service. To learn more about the difference between web sites and cloud services, see [Azure Execution Models][executionmodels].
 
 To implement the application you create in this tutorial as a standard web project instead of as a cloud service web role, follow the steps in this tutorial with the following differences:
 
@@ -613,7 +629,7 @@ To implement the application you create in this tutorial as a standard web proje
 
 3. You can test the front-end and back-end separately, or you can run both simultaneously in separate Visual Studio instances.
 
-To learn how to deploy the front end to a Windows Azure Web Site, see [Deploying an ASP.NET Web Application to a Windows Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). To learn how to deploy the back end to a Windows Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
+To learn how to deploy the front end to an Azure Web Site, see [Deploying an ASP.NET Web Application to an Azure Web Site](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). To learn how to deploy the back end to an Azure Cloud Service, see [.NET Multi-Tier Application Using Storage Tables, Queues, and Blobs][mutitierstorage].
 
 
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
@@ -625,7 +641,7 @@ To learn how to deploy the front end to a Windows Azure Web Site, see [Deploying
   
   
   
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [6]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -654,6 +670,7 @@ To learn how to deploy the front end to a Windows Azure Web Site, see [Deploying
   [31]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
   [33]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [34]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/VSProperties.png
   [sbmsdn]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx  
   [sbwacom]: /en-us/manage/services/service-bus/  
   [sbwacomqhowto]: /en-us/develop/net/how-to-guides/service-bus-queues/  

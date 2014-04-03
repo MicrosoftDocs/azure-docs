@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-work-with-the-interactive-console" urlDisplayName="Interactive Console" pageTitle="How to work with the interactive console in HDInsight Service" metaKeywords="" description="In this guide, you'll learn how to perform common tasks such as file upload, run jobs, and visualize data using the interactive console for HDInsight Service." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight Interactive JavaScript and Hive Consoles" authors=""  solutions="" writer="bradsev" manager="paulettm" editor="mollybos"  />
+<properties linkid="manage-services-hdinsight-howto-work-with-the-interactive-console" urlDisplayName="Interactive Console" pageTitle="How to work with the interactive console in HDInsight | Azure" metaKeywords="" description="In this guide, you'll learn how to perform common tasks such as file upload, run jobs, and visualize data using the interactive console for HDInsight Service." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight Interactive JavaScript and Hive Consoles" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 
 
@@ -53,7 +53,7 @@ In this section, you use the JavaScript console to run the WordCount sample that
 
 	![HDI.JsConsole.WordCountDownloads][hdi-jsconsole-wordcount]
 
-9. Click **Windows Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
+9. Click **Azure HDInsight** on the upper left corner to go back to the cluster dashboard page.
 10. Click **Interactive Cluster** to bring up the JavaScript console. 
 	
 	![HDI.Tiles.InteractiveConsole][hdi-tiles-interactive-console]

@@ -1,8 +1,8 @@
-<properties title="How to use the SendGrid email service (PHP) - Windows Azure" pageTitle="How to use the SendGrid email service (PHP) - Windows Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Windows Azure. Code samples written in PHP." documentationCenter="PHP" services="" />
+<properties title="How to use the SendGrid email service (PHP) - Azure" pageTitle="How to use the SendGrid email service (PHP) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid PHP, Azure email PHP" description="Learn how send email with the SendGrid email service on Azure. Code samples written in PHP." documentationCenter="PHP" services="" authors="" />
 
 # How to Use the SendGrid Email Service from PHP
 
-This guide demonstrates how to perform common programming tasks with the SendGrid email service on Windows Azure. The samples are written in PHP.
+This guide demonstrates how to perform common programming tasks with the SendGrid email service on Azure. The samples are written in PHP.
 The scenarios covered include **constructing email**, **sending email**, and **adding attachments**. For more information on SendGrid and sending email, see the [Next Steps][] section.
 
 ## Table of Contents
@@ -40,14 +40,14 @@ For more information, see [http://sendgrid.com][].
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Using SendGrid from your PHP Application
 
-Using SendGrid in a Windows Azure PHP application requires no special
+Using SendGrid in an Azure PHP application requires no special
 configuration or coding. Because SendGrid is a service, it can be
 accessed in exactly the same way from a cloud application as it can from
 an on-premises application.
 
 After adding email support to your application, you can package and
 deploy your application by following the methods outlined here:
-[Packaging and Deploying PHP Applications for Windows Azure][].
+[Packaging and Deploying PHP Applications for Azure][].
 
 ## <a name="bkmk_HowToSendEmail"> </a>How to: Send an Email
 
@@ -135,7 +135,7 @@ documentation here:
 [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/][].
 
 For more information about the SMTP API and the X-SMTPAPI header, see
-the SMTP API Developer�s Guide in the SendGrid documentation here:
+the SMTP API Developer's Guide in the SendGrid documentation here:
 [http://docs.sendgrid.com/documentation/api/smtp-api/developers-guide/][].
 For more examples of using the SMTP API with PHP, see the SendGrid
 documentation here:
@@ -143,7 +143,7 @@ documentation here:
 
 ### Web API
 
-Use PHP�s [curl function][] to send email using the SendGrid Web API.
+Use PHP's [curl function][] to send email using the SendGrid Web API.
 
     <?php
 
@@ -187,7 +187,7 @@ Use PHP�s [curl function][] to send email using the SendGrid Web API.
 documentation here:
 [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-example-using-the-web-api/][].
 
-**Note:**SendGrid�s Web API is very similar to a REST API, though it is
+**Note:**SendGrid's Web API is very similar to a REST API, though it is
 not truly a RESTful API since, in most calls, both GET and POST verbs
 can be used interchangeably.
 
@@ -275,7 +275,7 @@ documentation here:
 
 The additional line of code is as follows:
 
-     $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName(�file_name�));
+     $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
 This line of code calls the attach method on the
 <span class="auto-style2">Swift\_Message</span> object and uses static
@@ -342,7 +342,7 @@ documentation here:
 ## <a name="bkmk_HowToUseFilters"> </a>How to: Use Filters to Enable Footers, Tracking, and Analytics
 
 SendGrid provides additional email functionality through the use of
-�filters�. These are settings that can be added to an email message to
+'filters'. These are settings that can be added to an email message to
 enable specific functionality such as enabling click tracking, Google
 analytics, subscription tracking, and so on. For a full list of filters,
 see [Filter Settings][].
@@ -476,7 +476,7 @@ documentation here:
 ## <a name="bkmk_HowToUseAdditionalSvcs"> </a>How to: Use Additional SendGrid Services
 
 SendGrid offers web-based APIs that you can use to leverage additional
-SendGrid functionality from your Windows Azure application. For full
+SendGrid functionality from your Azure application. For full
 details, see the [SendGrid API documentation][].
 
 ## <a name="bkmk_NextSteps"> </a>Next Steps
@@ -485,7 +485,7 @@ Now that you've learned the basics of the SendGrid Email service, follow
 these links to learn more.
 
 -   SendGrid API documentation: <http://docs.sendgrid.com/documentation/api/>
--   SendGrid special offer for Windows Azure customers:
+-   SendGrid special offer for Azure customers:
     [http://sendgrid.com/azure.html][]
 
   [Next Steps]: #bkmk_NextSteps
@@ -502,7 +502,7 @@ these links to learn more.
   [special offer]: http://www.sendgrid.com/azure.html
   [http://docs.sendgrid.com/documentation/get-started/]: http://docs.sendgrid.com/documentation/get-started/
   [http://sendgrid.com/features]: http://sendgrid.com/features
-  [Packaging and Deploying PHP Applications for Windows Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674499(v=VS.103).aspx
+  [Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh674499(v=VS.103).aspx
   [SMTP vs. Web API]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [http://swiftmailer.org/download]: http://swiftmailer.org/download
   [http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/php-email-example-using-smtp/

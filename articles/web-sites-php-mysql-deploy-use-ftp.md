@@ -1,29 +1,29 @@
-﻿<properties linkid="develop-php-website-with-mysql-and-ftp" urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP web site with MySQL and FTP - Windows Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use FTP deployment to Windows Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Windows Azure Web Site and Deploy Using FTP" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="develop-php-website-with-mysql-and-ftp" urlDisplayName="Web w/ MySQL + FTP" pageTitle="PHP web site with MySQL and FTP - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to create a PHP web site that stores data in MySQL and use FTP deployment to Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure Web Site and Deploy Using FTP" authors="" solutions="" manager="" editor="" />
 
 
-#Create a PHP-MySQL Windows Azure Web Site and Deploy Using FTP
+#Create a PHP-MySQL Azure Web Site and Deploy Using FTP
 
-This tutorial shows you how to create a PHP-MySQL Windows Azure Web Site and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web site running in Windows Azure.
+This tutorial shows you how to create a PHP-MySQL Azure Web Site and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web site running in Azure.
  
 You will learn:
 
-* How to create a Windows Azure Web Site and a MySQL database using the Windows Azure Management Portal. Because PHP is enabled in Windows Azure Web Sites by default, nothing special is required to run your PHP code.
-* How to publish your application to Windows Azure using FTP.
+* How to create an Azure Web Site and a MySQL database using the Azure Management Portal. Because PHP is enabled in Azure Web Sites by default, nothing special is required to run your PHP code.
+* How to publish your application to Azure using FTP.
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in a Windows Azure Web Site. A screenshot of the completed application is below:
+By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Web Site. A screenshot of the completed application is below:
 
-![Windows Azure PHP Web Site][running-app]
+![Azure PHP Web Site][running-app]
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-##Create a Windows Azure Web Site and set up FTP publishing
+##Create an Azure Web Site and set up FTP publishing
 
-Follow these steps to create a Windows Azure Web Site and a MySQL database:
+Follow these steps to create an Azure Web Site and a MySQL database:
 
-1. Login to the [Windows Azure Management Portal][management-portal].
+1. Login to the [Azure Management Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
-	![Create New Windows Azure Web Site][new-website]
+	![Create New Azure Web Site][new-website]
 
 3. Click **WEB SITE**, then **CUSTOM CREATE**.
 
@@ -196,7 +196,7 @@ You can now browse to [http://localhost/registration/index.php][localhost-index]
 
 ##Get MySQL and FTP connection information
 
-To connect to the MySQL database that is running in Windows Azure Web Sites, your will need the connection information. To get MySQL connection information, follow these steps:
+To connect to the MySQL database that is running in Azure Web Sites, your will need the connection information. To get MySQL connection information, follow these steps:
 
 1. From your web site's dashboard, click the **View connection strings** link on the right side of the page:
 
@@ -220,7 +220,7 @@ Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
 
 ##Publish Your Application
 
-After you have tested your application locally, you can publish it to your Windows Azure Web Site using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+After you have tested your application locally, you can publish it to your Azure Web Site using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
 
 	// DB connection info
 	$host = "value of Data Source";

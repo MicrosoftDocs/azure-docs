@@ -1,14 +1,14 @@
-<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Windows Azure" metaKeywords="Azure SSL, Azure HTTPS, Windows Azure SSL, Windows Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Windows Azure" authors=""  solutions="" writer="" manager="jeffreyg" editor="mollybos"  />
+<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="" solutions="" manager="jeffreyg" editor="mollybos" />
 
 
 
 
-# Configuring SSL for an application in Windows Azure
+# Configuring SSL for an application in Azure
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
 <div class="dev-callout">Note
-<p>The procedures in this task apply to Windows Azure Cloud Services; for Web Sites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for a Windows Azure web site</a>.</p>
+<p>The procedures in this task apply to Azure Cloud Services; for Web Sites, see <a href="../web-sites-configure-ssl-certificate/">Configuring an SSL certificate for an Azure web site</a>.</p>
 </div>
 
 This task includes the following steps:
@@ -24,7 +24,7 @@ This task will use a production deployment; information on using a staging deplo
 
 To configure SSL for an application, you first need to get an SSL certificate that has been signed by a Certificate Authority (CA), a trusted third-party who issues certificates for this purpose. If you do not already have one, you will need to obtain one from a company that sells SSL certificates.
 
-The certificate must meet the following requirements for SSL certificates in Windows Azure:
+The certificate must meet the following requirements for SSL certificates in Azure:
 
 -   The certificate must contain a private key.
 -   The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
@@ -105,18 +105,18 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 (The example above uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
 
 Now that the service definition and service configuration files have
-been updated, package your deployment for uploading to Windows Azure. If
+been updated, package your deployment for uploading to Azure. If
 you are using **cspack**, ensure that you don't use the
 **/generateConfigurationFile** flag, as that will overwrite the
 certificate information you just inserted.
 
-<h2><a name="step3"> </a><span class="short-header">Upload to Windows Azure</span>Step 3: Upload the deployment package and certificate</h2>
+<h2><a name="step3"> </a><span class="short-header">Upload to Azure</span>Step 3: Upload the deployment package and certificate</h2>
 
 Your deployment package has been updated to use the certificate, and an
 HTTPS endpoint has been added. Now you can upload the package and
-certificate to Windows Azure with the Management Portal.
+certificate to Azure with the Management Portal.
 
-1. Log into the [Windows Azure Management Portal][]. 
+1. Log into the [Azure Management Portal][]. 
 2. Click **New**, click **Cloud Service**, and then click **Custom Create**.
 3. In the **Create a cloud service** dialog, enter values for the URL, region/affinity group, and subscription. Ensure **Deploy a cloud service package now** is checked, and click the **Next** button.
 3. In the **Publish your cloud service** dialog, enter the required information for your cloud service, select **Production** for the environment, and ensure **Add certificates now** is checked. (If any of your roles contain a single instance, ensure **Deploy even if one or more roles contain a single instance** is checked.) 
@@ -138,7 +138,7 @@ certificate to Windows Azure with the Management Portal.
 
 <h2><a name="step4"> </a><span class="short-header">Connect using HTTPS</span>Step 4: Connect to the role instance by using HTTPS</h2>
 
-Now that your deployment is up and running in Windows Azure, you can
+Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
 
 1.  In the Management Portal, select your deployment, then click the link under **Site URL**.
@@ -168,7 +168,7 @@ If you want to use SSL for a staging deployment instead of a production deployme
   [Step 4: Connect to the role instance by using HTTPS]: #step4
   [How to create a certificate for a role]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
   [How to associate a certificate with a service]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
-  [Windows Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png

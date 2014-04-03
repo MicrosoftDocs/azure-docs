@@ -1,4 +1,4 @@
-<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Windows Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="develop-media-services-how-to-guides-create-assets" urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Create Encrypted Asset and Upload to Storage Azure" metaKeywords="" description="Learn how to get media content into Media Services by creating and uploading an encrypted asset." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="migree" solutions="" manager="" editor="" />
 
 
 
@@ -6,7 +6,7 @@
 
 <h1><a name="create-asset"> </a><span class="short header">How to: Create an encrypted Asset and upload to storage</span></h1>
 
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [Setting Up Your Computer for Media Services](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [Setting Up Your Computer for Media Services](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
 
 To get media content into Media Services, first create an asset and add files to it, and then upload the asset. This process is called ingesting content.  
 

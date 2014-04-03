@@ -1,24 +1,24 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Windows Azure Cross-Platform Command-Line Interface" pageTitle="The Windows Azure Cross-Platform Command-Line Interface" title="The Windows Azure Cross-Platform Command-Line Interface" metaKeywords="windows azure cross-platform command-line interface, windows azure command-line, azure command-line, azure cli" description="Install and configure the Windows Azure Cross-Platform Command-Line Interface to manage Windows Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" writer="larryfr" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-#Install and Configure the Windows Azure Cross-Platform Command-Line Interface
+#Install and Configure the Azure Cross-Platform Command-Line Interface
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
-The Windows Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Windows Azure Platform. The xplat-cli provides much of the same functionality found in the Windows Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Windows Azure platform.
+The Azure Cross-Platform Command-Line Interface (xplat-cli) provides a set of open source, cross-platform commands for working with the Azure Platform. The xplat-cli provides much of the same functionality found in the Azure Management Portal, such as the ability to manage web sites, virtual machines, mobile services, SQL Database and other services provided by the Azure platform.
 
-The xplat-cli is written in JavaScript, and requires Node.js. It is implemented using the Windows Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+The xplat-cli is written in JavaScript, and requires Node.js. It is implemented using the Azure SDK for Node.js, and released under an Apache 2.0 license. The project repository is located at [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-This document describes how to install and configure the Windows Azure Cross-Platform Command-Line Interface, as well as how to use it to perform basic tasks with the Windows Azure platform.
+This document describes how to install and configure the Azure Cross-Platform Command-Line Interface, as well as how to use it to perform basic tasks with the Azure platform.
 
 ##In this document
 
-* [How to install the Windows Azure Cross-Platform Command-Line Interface](#install)
-* [How to connect to your Windows Azure subscription](#configure)
-* [How to use the Windows Azure Cross-Platform Command-Line Interface](#use)
-* [How to script the Windows Azure Cross-Platform Command-Line Interface](#script)
+* [How to install the Azure Cross-Platform Command-Line Interface](#install)
+* [How to connect to your Azure subscription](#configure)
+* [How to use the Azure Cross-Platform Command-Line Interface](#use)
+* [How to script the Azure Cross-Platform Command-Line Interface](#script)
 * [Additional resources](#additional-resources)
 
-<h2><a id="install"></a>How to install the Windows Azure Cross-Platform Command-Line Interface</h2>
+<h2><a id="install"></a>How to install the Azure Cross-Platform Command-Line Interface</h2>
 
 There are two ways to install the xplat-cli; using installer packages for Windows and OS X, or if Node.js is installed on your system, the **npm** command.
 
@@ -34,25 +34,17 @@ The following installer packages are available:
 
 * [OS X installer][mac-installer]
 
-<div class="dev-callout">
-<b>Note</b>
-<p>The installer packages also contain Node.js. This version of Node.js will be used by the xplat-cli if no other version of Node.js is available on the system. The version of Node.js installed by these packages should not conflict with any other version of Node.js installed on your system.</p>
-</div>
-
 ###Using npm
 
 If Node.js is installed on your system, use the following command to install the xplat-cli:
 
-	npm install azure-cli
+	npm install azure-cli -g
 
-<div class="dev-callout">
-<b>Note</b>
-<p>You may need to use <b>sudo</b> to successfully run the <b>npm</b> command.</p>
-</div>
+>[WACOM.NOTE] You may need to use `sudo` to successfully run the __npm__ command.
 
 This will install the xplat-cli and required dependencies. At the end of the installation, you should see something similar to the following:
 
-	azure-cli@0.7.0 ..\node_modules\azure-cli
+	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
 	|-- eyes@0.1.8
 	|-- xmlbuilder@0.4.2
@@ -70,50 +62,95 @@ This will install the xplat-cli and required dependencies. At the end of the ins
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.</p>
-</div>
+> [WACOM.NOTE] Node.js can be installed from <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
-<h2><a id="Configure"></a>How to connect to your Windows Azure subscription</h2>
+<h2><a id="Configure"></a>How to connect to your Azure subscription</h2>
 
-While some commands provided by the xplat-cli will work without a Windows Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your Windows Azure subscription you must download and import a publish settings file. This file contains your subscription ID, as well as a management certificate used to authenticate management requests to your Windows Azure subscription.
+While some commands provided by the xplat-cli will work without an Azure subscription, most commands require a subscription. To configure the xplat-cli to work with your subscription you can either:
 
-If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Windows Azure Free Trial][free-trial].
+* Download and use a publish settings file.
+
+OR
+
+* Log in to Azure using an organizational account. When you log in, Azure Active Directory is used to authenticate the credentials.
+
+To help you choose the authentication method that's appropriate for your needs, consider the following:
+
+*  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
+
+	> [WACOM.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> 
+	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
+	> 
+	> 2. If no directory exists, select **Create your directory** and provide the requested information.
+	> 
+	> 3. Select your directory and add a new user. This new user is an organizational account.
+	> 
+	>     During the creation of the user, you will be supplied with both an e-mail address for the user and a temporary password. Save this  information as it is used in another step.
+	> 
+	> 4. From the management portal, select **Settings** and then select **Administrators**. Select **Add**, and add the new user as a co-administrator. This allows the organizational account to manage your Azure subscription.
+	> 
+	> 5. Finally, log out of the Azure portal and then log back in using the new organizational account. If this is the first time logging in with this account, you will be prompted to change the password.
+	>
+	>For more information on organizational account with Microsoft Azure, see [Sign up for Microsoft Azure as an Organization][signuporg].
+
+*  The publish settings file method installs a certificate that allows you to perform management tasks for as long as the subscription and the certificate are valid. This method makes it easier to use automation for long-running tasks. After you download and import the information, you don't need to provide it again. However, this method makes it harder to manage access to a subscription as anyone with access to the certificate can manage the subscription.
+
+For more information about authentication and subscription management, see ["What's the difference between account-based authentication and certificate-based authentication"][authandsub].
+
+If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][free-trial].
+
+###Use the log in method
+
+To log in using an organizational account, use the following command:
+
+	azure login [username] [password]
+
+> [WACOM.NOTE] If this is the first time you have logged in with these credentials, you will receive a prompt asking you to verify that you wish to cache an authentication token. This prompt will also occur if you have previously used the `azure logout` command described below. To bypass this prompt for automation scenarios, use the `-q` parameter with the `azure login` command.
+
+> [WACOM.NOTE] When you authenticate with an organizational account, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+
+To log out, use the following command:
+
+	azure logout [username]
+
+> [WACOM.NOTE] If the subscriptions associated with the account were only authenticated with Active Directory, logging out will delete the subscription information from the local profile. However, if the a publish settings file has also been imported for the subscriptions, logging out will only delete the Active Directory related information from the local profile.
+
+> [WACOM.NOTE] The following commands will not function correctly when authenticating using an account:
+> 
+> * `azure vm`
+> * `azure network`
+> * `azure mobile`
+> 
+> If you need to work with these commands, use a publish settings file to authenticate to Azure as described in the following section.
+
+###Use the publish settings file method
 
 To download the publish settings for your account, use the following command:
 
 	azure account download
 
-This will open your default browser and prompt you to sign in to the Windows Azure Management Portal. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
+This will open your default browser and prompt you to sign in to the Azure Management Portal. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>If your account is associated with multiple Windows Azure Active Directory (AD) tenants, you may be prompted to select which AD you wish to download a publish settings file for.</p>
-<p>Once selected using the download page, or by visiting the Windows Azure Management portal, the selected AD becomes the default used by the portal and download page. Once a default has been established, you will see the text '<b>click here to return to the selection page</b>' at the top of the download page. Use the provided link to return to the selection page.</p>
-</div>
+> [WACOM.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
+> 
+> Once selected using the download page, or by visiting the Azure Management portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
-Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
+Next, import the `.publishsettings` file by running the following command, replacing `[path to .publishsettings file]` with the path to your `.publishsettings` file:
 
-	azure account import {path to .publishsettings file}
+	azure account import [path to .publishsettings file]
 
-<div class="dev-callout">
-<b>Note</b>
-<p>When you import publish settings, the information for accessing your Windows Azure subscription is stored in a <code>.azure</code> directory located in your <code>user</code> directory. Your <code>user</code> directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your <code>user</code> directory. You can do so in the following ways:</p>
-
-<ul>
-<li>On Windows, modify the directory properties or use BitLocker.</li>
-<li>On Mac, turn on FileVault for the directory.</li>
-<li>On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.</li>
-</ul>
-
-</div>
+> [WACOM.NOTE] When you import publish settings, the information for accessing your Azure subscription is stored in a `.azure` directory located in your `user` directory. Your `user` directory is protected by your operating system; however, it is recommended that you take additional steps to encrypt your `user` directory. You can do so in the following ways:
+>
+> * On Windows, modify the directory properties or use BitLocker.
+> * On Mac, turn on FileVault for the directory.
+> * On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
 
 After importing your publish settings, you should delete the `.publishsettings` file, as it is no longer required by the Command-Line Tools and presents a security risk as it can be used to gain access to your subscription.
 
 ###Multiple subscriptions
 
-If you have multiple Windows Azure subscriptions, the `.publishsettings` file will contain information for all subscriptions. When the file is imported using the `azure account import` command, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
+If you have multiple Azure subscriptions, logging in will grant access to all subscriptions associated with your credentials. If using a publish settings file, the `.publishsettings` file will contain information for all subscriptions. With either method, one subscription will be selected as the default subscription used by the xplat-cli when performing operations. You can view the subscriptions, as well as which one is the default, but using the `azure account list` command. This command will return information similar to the following:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -121,20 +158,17 @@ If you have multiple Windows Azure subscriptions, the `.publishsettings` file wi
 	data:    Azure-sub-1       ####################################  true
 	data:    Azure-sub-2       ####################################  false
 
-In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
+In the above list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account select` command, and specify the subscription that you wish to be the default. For example:
 
-	azure account set Azure-sub-2
+	azure account select Azure-sub-2
 
 This will change the default subscription to Azure-sub-2. 
 
-<div class="dev-callout">
-<b>Note</b>
-<p>Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.</p>
-</div>
+> [WACOM.NOTE] Changing the default subscription takes effect immediately, and is a global change; new xplat-commands, whether ran from the same command-line instance or a different instance, will use the new default subscription.
 
 If you wish to use a non-default subscription with the xplat-cli, but don't want to change the current default, you can use the `--subscription` option and provide the name of the subscription you wish to use for the operation.
 
-<h2><a id="use"></a>How use the Windows Azure Cross-Platform Command-Line Interface</h2>
+<h2><a id="use"></a>How use the Azure Cross-Platform Command-Line Interface</h2>
 
 The xplat-cli is accessed using the `azure` command. To see a list of commands available, use the `azure` command with no parameters. You should see help information similar to the following:
 
@@ -147,7 +181,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:
 	info:    Windows Azure: Microsoft's Cloud Platform
 	info:
-	info:    Tool version 0.7.0
+	info:    Tool version 0.8.0
 	help:
 	help:    Display help for a given command
 	help:      help [options] [command]
@@ -172,7 +206,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	help:      -h, --help     output usage information
 	help:      -v, --version  output the application version
 
-The top level commands listed above contain commands for working with a specific area of Windows Azure. For example, the `azure account` command contains commands that relate to your Windows Azure subscription, such as the `download` and `import` settings used previously.
+The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously.
 
 Most commands are formatted as `azure <command> <operation> [parameters]` and perform an operation on a service or object such as your account configuration. Other commands provide sub-commands and follow the format `azure <command> <subcommand> <operation> [parameters]`. The following are example commands that work with your account configuration:
 
@@ -194,20 +228,41 @@ The `--help` or `-h` parameter can be used to view help for specific commands. A
 
 When in doubt about the parameters needed by a command, refer to help using `--help`, `-h` or `azure help [command]`.
 
-###Working with services
+###Setting the configuration mode
 
-The xplat-cli allows you to easily manage Windows Azure services. In this example, you will learn how to use the xplat-cli to manage a Windows Azure Web Site.
+The xplat-cli allows you to perform management operations on individual _resources_, which are user-managed entities such as a database server, database, or web site. This is the default mode of operation for the xplat-cli, and is referred to as **Azure Service Management**. However, when you have a complex solution that consists of multiple resources, it is useful to be able to manage the entire solution as a single unit.
 
-1. Use the following command to create a new Windows Azure Web Site. Replace **mywebsite** with a unique name.
+To support managing a group of resources as a single logical unit, or _resource group_, we have introduced a preview of the **Resource Manager** as a new way of managing Azure resources. 
+
+>[WACOM.NOTE] The Resource Manager is currently in preview, and does not provide the same  level of management capabilities as Azure Service Management.
+
+To support the new Resource Manager, the xplat-cli allows you to switch between these management 'modes' using the `azure config mode` command.
+
+The xplat-cli defaults to Azure Service Management mode. To switch to Resource Manager mode, use the following to enable command:
+
+	azure config mode arm
+
+To change back to Azure service management mode, use the following command:
+
+	azure config mode asm 
+
+>[WACOM.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+
+For more information on working with the Resource Manager using the xplat-cli, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager][xplatarm].
+
+###Working with services in Azure service management mode
+
+The xplat-cli allows you to easily manage Azure services. In this example, you will learn how to use the xplat-cli to manage an Azure Web Site.
+
+1. Use the following command to create a new Azure Web Site. Replace **mywebsite** with a unique name.
 
 		azure site create mywebsite
 
 	You will be prompted to specify the region that the web site will be created in. Select a region that is geographically near you. After this command completes, the web site will be available at http://mywebsite.azurewebsites.net (replace **mywebsite** with the name you specified.)
 
-	<div class="dev-callout">
-	<b>Note</b>
-	<p>If you use Git for project source control, you can specify the <code>--git</code> parameter to create a Git repository on Windows Azure for this web site. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named <b>azure</b>, which can be used to push deployments to the Windows Azure Web Site using the <code>git push azure master</code> command.</p>
-	</div>
+	> [WACOM.NOTE] If you use Git for project source control, you can specify the `--git` parameter to create a Git repository on Azure for this web site. This will also initialize a Git repository in the directory from which the command was ran if one does not already exist. It will also create a Git remote named __azure__, which can be used to push deployments to the Azure Web Site using the `git push azure master` command.
+
+	> [WACOM.NOTE] If you receive an error that 'site' is not an azure command, the xplat-cli is most likely in resource group mode. To change back to resource mode, use the `azure config mode asm` command.
 
 2. Use the following command to list web sites for your subscription:
 
@@ -233,9 +288,9 @@ The xplat-cli allows you to easily manage Windows Azure services. In this exampl
 
 	After the command completes, use the `azure site list` command to verify that the web site no longer exists.
 
-<h2><a id="script"></a>How to script the Windows Azure Cross-Platform Command-Line Interface</h2>
+<h2><a id="script"></a>How to script the Azure Cross-Platform Command-Line Interface</h2>
 
-While you can use the xplat-cli to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Windows Azure Web Sites:
+While you can use the xplat-cli to manually issue commands, you can also create complex automation workflows by leveraging the capabilities of your command-line interpreter and other command-line utilities available on your system. For example, the following command will stop all running Azure Web Sites:
 
 	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
@@ -305,10 +360,7 @@ Note that the `verbose:` information appears to be JSON formatted data. You can 
 
 The command above retrieves a list of web sites as JSON, then uses jsawk to retrieve the site names, and finally uses xargs to run a site delete command for each site, passing the site name as a parameter.
 
-<div class="dev-callout">
-<b>Note</b>
-<p>The <code>--json</code> parameter blocks the generation of status or data information (strings prefixed by <code>info:</code> and <code>data:</code>). For example, if the <code>--json</code> parameter is used with the <code>azure site create</code>, no output is returned as this command does not return any data other than <code>info:</code>.</p>
-</div>
+>[WACOM.NOTE] The `--json` parameter blocks the generation of status or data information (strings prefixed by `info:` and `data:`). For example, if the `--json` parameter is used with the `azure site create`, no output is returned as this command does not return any data other than `info:`.
 
 ###Working with errors
 
@@ -316,7 +368,7 @@ While the xplat-cli does log error information to STDERR, additional information
 
 	info:    Error information has been recorded to azure.err
 
-### Exit status
+###Exit status
 
 Some of the xplat-cli commands do not return a non-zero exit status if required parameters are missing. Instead, they will prompt for user input. For example, when using the `azure site create` command to create a new web site, if no site name or `--location` parameter are specified you will be prompted to supply these values.
 
@@ -324,23 +376,26 @@ If you are writing a script that relies on the exit status, please verify that t
 
 <h2><a id="additional-resources"></a>Additional resources</h2>
 
-* For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Windows Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+* For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* If you encounter problems using the xplat-cli, or Windows Azure, visit the [Windows Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
 
-* For more information on Windows Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
+* For more information on Azure, see [http://www.windowsazure.com/](http://www.windowsazure.com).
 
 
 
 
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464&clcid=0x409
+[authandsub]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 
-
-[Windows Azure Web Site]: ../media/freetrial.png
+[Azure Web Site]: ../media/freetrial.png
 [select a preview feature]: ../media/antares-iaas-preview-02.png
 [select subscription]: ../media/antares-iaas-preview-03.png
 [free-trial]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/en-us/library/bb490890.aspx
+[xplatarm]: /en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[portal]: https://manage.windowsazure.com
+[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/

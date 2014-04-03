@@ -1,15 +1,15 @@
-<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Web Single Sign-On with .NET and Windows Azure Active Directory" authors=""  solutions="" writer="" manager="" editor=""  />
+<properties linkid="" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Web Single Sign-On with .NET and Azure Active Directory" authors="" solutions="" manager="" editor="" />
 
 
 
 
 
 
-# Web Single Sign-On with .NET and Windows Azure Active Directory
+# Web Single Sign-On with .NET and Azure Active Directory
 
 <h2><a name="introduction"></a>Introduction</h2>
 
-This tutorial will show you how to leverage Windows Azure Active Directory to enable single sign-on for users of Office 365 customers. You will learn how to:
+This tutorial will show you how to leverage Azure Active Directory to enable single sign-on for users of Office 365 customers. You will learn how to:
 
 * Provision the web application in a customer's tenant
 * Protect the application using WS-Federation
@@ -49,9 +49,9 @@ This step describes how to create a simple ASP.NET MVC 3 application that will r
 11. Build and run the application. The Index page of your Home controller will appear.
 
 <h2><a name="provisionapp"></a>Step 2: Provision the Application in a Company's Directory Tenant</h2>
-This step describes how an administrator of a Windows Azure Active Directory customer provisions the MVC application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
+This step describes how an administrator of an Azure Active Directory customer provisions the MVC application in their tenant and configures single sign-on. After this step is accomplished, the company's employees can authenticate to the web application using their Office 365 accounts.
 
-The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Windows Azure Active Directory to register and authenticate applications to the directory.
+The provisioning process begins by creating a new Service Principal for the application. Service Principals are used by Azure Active Directory to register and authenticate applications to the directory.
 
 1. Download and install the Office 365 PowerShell Commandlets if you haven't done so already.
 2. From the **Start** menu, run the **Microsoft Online Services Module for Windows PowerShell** console. This console provides a command-line environment for configuring attributes about your Office 365 tenant, such as creating and modifying Service Principals.
@@ -162,17 +162,17 @@ This step shows you how to add support for federated login using Windows Identit
 
 18. After you have saved the changes to the **Index.cshtml** file, press **F5** to run the application. You will be redirected to the Office 365 Identity Provider page, where you can log in using your directory tenant credentials. For example, *john.doe@awesomecomputers.onmicrosoft.com*.
 
-19. After you have signed in using your credentials, you will be redirected to the Index page of your Home controller, where your account's claims are displayed. This demonstrates a user successfully authenticating to the application using single sign-on provided by Windows Azure Active Directory.
+19. After you have signed in using your credentials, you will be redirected to the Index page of your Home controller, where your account's claims are displayed. This demonstrates a user successfully authenticating to the application using single sign-on provided by Azure Active Directory.
 
 <h2><a name="summary"></a>Summary</h2>
-This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Windows Azure Active Directory. You can also create multi-tenant applications for Windows Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory].
+This tutorial has shown you how to create and configure a single tenant application that uses the single sign-on capabilities of Azure Active Directory. You can also create multi-tenant applications for Azure Active Directory by reading the following tutorial: [Developing Multi-Tenant Cloud Applications with Azure Active Directory].
 
 [Introduction]: #introduction
 [Step 1: Create an ASP.NET MVC Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
 [Step 3: Protect the Application Using WS-Federation for Employee Sign In]: #protectapp
 [Summary]: #summary
-[Developing Multi-Tenant Cloud Applications with Windows Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
+[Developing Multi-Tenant Cloud Applications with Azure Active Directory]: http://g.microsoftonline.com/0AX00en/121
 [Windows Identity Foundation 3.5 SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=4451
 [Windows Identity Foundation 1.0 Runtime]: http://www.microsoft.com/en-us/download/details.aspx?id=17331
 [Office 365 Powershell Commandlets]: http://onlinehelp.microsoft.com/en-us/office365-enterprises/ff652560.aspx

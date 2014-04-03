@@ -1,9 +1,9 @@
 <properties writer="kathydav" editor="tysonn" manager="jeffreyg" /> 
 
-**Important**: If you want your virtual machine to use a virtual network, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Windows Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+**Important**: If you want your virtual machine to use a virtual network, make sure you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For more information about virtual networks, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
 
-1. Login to the [Windows Azure Management Portal][AzurePreviewPortal] using your Windows Azure account.
+1. Login to the [Azure Management Portal][AzurePreviewPortal] using your Azure account.
 
 2. In the Management Portal, at the bottom left of the web page, click **+New**, click **Virtual Machine**, and then click **From Gallery**.
 
@@ -31,7 +31,7 @@
 	
 6. On the **Virtual machine options** page, select **(none)** in the **Availability Set** box. Click the check mark to continue.
 	
-7. Wait while Windows Azure prepares your virtual machine.
+7. Wait while Azure prepares your virtual machine.
 
 ##Configure Endpoints
 Once the virtual machine is created you must configure endpoints in order to remotely connect.

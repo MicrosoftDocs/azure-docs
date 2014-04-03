@@ -1,11 +1,11 @@
-<properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Windows Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors=""  solutions="" writer="migree" manager="" editor=""  />
+<properties linkid="develop-media-services-how-to-guides-manage-assets" urlDisplayName="Manage Assets in Media Services" pageTitle="How to Manage Assets in Media Services - Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="migree" solutions="" manager="" editor="" />
 
 
 
 
 <h1>How to: Manage Assets in storage</h1>
 
-This article is one in a series introducing Windows Azure Media Services programming. The previous topic was [How to: Protect an Asset](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
+This article is one in a series introducing Azure Media Services programming. The previous topic was [How to: Protect an Asset](http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
 After you create media assets and upload them to Media Services, you can access and manage the assets on the server. You can also manage other objects on the server that are part of Media Services, including jobs, tasks, access policies, locators, and more.
 
