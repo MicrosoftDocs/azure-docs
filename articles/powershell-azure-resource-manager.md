@@ -148,9 +148,9 @@ The cmdlet returns a list of gallery templates with Publisher and Identity prope
 
 TIP: To recall the last command, press the up-arrow key.
 
-The Microsoft.WebSiteSQLDatabase.0.1.0-preview1.json template looks interesting. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
+The Microsoft.WebSiteSQLDatabase.0.1.0-preview1 template looks interesting. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
 
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1.json
+    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
 The cmdlet returns an object with much more information about the template, including a description.
 
@@ -167,7 +167,7 @@ Let's save the template to a JSON file on disk. This step is not required, but i
 
 Save-AzureResourceGroupGalleryTemplate saves the template and returns the path a file name of the JSON template file. 
 
-	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1.json -Path D:\Azure\Templates
+	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -Path D:\Azure\Templates
 
 	Path
 	----
