@@ -5,6 +5,8 @@
 
 Azure HDInsight now supports Hadoop 2.2 with HDinsight cluster version 3.0 and takes full advantage of this platform to provide a range of significant benefits to customers. These include, most notably:
 
+- Microsoft Avro Library: This library implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses JSON to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. The Apache Avro serialization format is widely used in Azure HDInsight to represent complex data structures within a Hadoop MapReduce job.
+
 - Hive: Order of magnitude improvements to Hive query response times (up to 40x) and to data compression (up to 80%) using the Optimized Row Columnar (ORC) format.
 
 - YARN: A new, general-purpose, distributed, application management framework that has replaced the classic Apache Hadoop MapReduce framework for processing data in Hadoop clusters. It effectively serves as the Hadoop operating system, and takes Hadoop from a single-use data platform for batch processing to a multi-use platform that enables batch, interactive, online and stream processing. This new management framework improves scalability and cluster utilization according to criteria such as capacity guarantees, fairness, and service-level agreements.

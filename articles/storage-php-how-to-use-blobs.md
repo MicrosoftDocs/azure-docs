@@ -140,7 +140,7 @@ For more information about Blob service error codes, see [Blob Service Error Cod
 
 <h2><a id="UploadBlob"></a>How to: Upload a Blob into a container</h2>
 
-To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation will create the blob if it doesn�t exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
+To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. This operation will create the blob if it doesn't exist, or overwrite it if it does. The code example below assumes that the container has already been created and uses [fopen][fopen] to open the file as a stream.
 
 	require_once 'vendor\autoload.php';
 
